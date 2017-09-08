@@ -118,7 +118,7 @@ Partial Class Start
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(445, 377)
+        Me.ClientSize = New System.Drawing.Size(445, 406)
         Me.ControlBox = False
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label4)
@@ -133,7 +133,6 @@ Partial Class Start
         Me.MinimizeBox = False
         Me.MinimumSize = New System.Drawing.Size(463, 424)
         Me.Name = "Start"
-        Me.Text = "Start"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

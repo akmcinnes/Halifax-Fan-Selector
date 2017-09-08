@@ -20,4 +20,36 @@
             'Code to handle the error.
         End Try
     End Sub
+
+    Private Sub PictureBox1_MouseHover(sender As Object, e As EventArgs) Handles PictureBox1.MouseHover
+        Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub PictureBox1_MouseLeave(sender As Object, e As EventArgs) Handles PictureBox1.MouseLeave
+        Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Button1_MouseHover(sender As Object, e As EventArgs) Handles Button1.MouseHover
+        Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles Button2.MouseHover
+        Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles Button1.MouseLeave
+        Cursor = Cursors.Default
+    End Sub
+
+    Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles Button2.MouseLeave
+        Cursor = Cursors.Default
+    End Sub
+
+    Private Sub TextBox1_MouseHover(sender As Object, e As EventArgs) Handles TextBox1.MouseHover
+        Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub TextBox1_MouseLeave(sender As Object, e As EventArgs) Handles TextBox1.MouseLeave
+        Cursor = Cursors.Default
+    End Sub
 End Class
