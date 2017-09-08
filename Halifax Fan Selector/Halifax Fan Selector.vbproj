@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B1D5368-DEBF-4441-B576-87A10C30FEDC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Halifax_Fan_Selector.My.MyApplication</StartupObject>
+    <RootNamespace>Halifax_Fan_Selector</RootNamespace>
+    <AssemblyName>Halifax Fan Selector</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Halifax Fan Selector.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Halifax Fan Selector.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Density.vb" />
+    <Compile Include="FrmProjectDetails.Designer.vb">
+      <DependentUpon>FrmProjectDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProjectDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmselectfan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmselectfan.Designer.vb">
+      <DependentUpon>Frmselectfan.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmselections.Designer.vb">
+      <DependentUpon>Frmselections.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Frmselections.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="getfansizes.vb" />
+    <Compile Include="loaddata.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="FrmUnits.Designer.vb">
+      <DependentUpon>FrmUnits.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUnits.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="press_vol.vb" />
+    <Compile Include="scaledata.vb" />
+    <Compile Include="sizeAtFixedSpeed.vb" />
+    <Compile Include="Start.Designer.vb">
+      <DependentUpon>Start.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Start.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subs.vb" />
+    <Compile Include="suction.vb" />
+    <Compile Include="Variables.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmProjectDetails.resx">
+      <DependentUpon>FrmProjectDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmselectfan.resx">
+      <DependentUpon>Frmselectfan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmselections.resx">
+      <DependentUpon>Frmselections.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUnits.resx">
+      <DependentUpon>FrmUnits.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Start.resx">
+      <DependentUpon>Start.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\industrialfans.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\header2015.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-2016.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
