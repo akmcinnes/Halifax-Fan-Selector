@@ -73,16 +73,16 @@
 
     Function GetAtmos() As Double
         atmos = 407.45
-        If FrmSelections.ColumnHeader(4) = "InsWG" Then
+        If Frmselectfan.ColumnHeader(4) = "InsWG" Then
             atmos = 407.45
         End If
-        If FrmSelections.ColumnHeader(4) = "mmWG" Then
+        If Frmselectfan.ColumnHeader(4) = "mmWG" Then
             atmos = 10349.1
         End If
-        If FrmSelections.ColumnHeader(4) = "Pa" Then
+        If Frmselectfan.ColumnHeader(4) = "Pa" Then
             atmos = 101389
         End If
-        If FrmSelections.ColumnHeader(4) = "mbar" Then
+        If Frmselectfan.ColumnHeader(4) = "mbar" Then
             atmos = 1013.89
         End If
         Return atmos

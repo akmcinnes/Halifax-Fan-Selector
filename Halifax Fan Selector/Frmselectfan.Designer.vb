@@ -23,7 +23,7 @@ Partial Class Frmselectfan
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPageDuty = New System.Windows.Forms.TabPage()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
@@ -97,9 +97,16 @@ Partial Class Frmselectfan
         Me.LblDesignTemperature = New System.Windows.Forms.Label()
         Me.TxtDesignTemperature = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.TabPageSelection = New System.Windows.Forms.TabPage()
+        Me.BtnClose = New System.Windows.Forms.Button()
+        Me.LblGasDensityUnit = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TxtDensity = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TabPageNoise = New System.Windows.Forms.TabPage()
+        Me.TabPageImpeller = New System.Windows.Forms.TabPage()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -109,8 +116,11 @@ Partial Class Frmselectfan
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.OptTXT = New System.Windows.Forms.RadioButton()
+        Me.OptXLS = New System.Windows.Forms.RadioButton()
         Me.TabControl1.SuspendLayout()
-        Me.TabPage1.SuspendLayout()
+        Me.TabPageDuty.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GrpFrequency.SuspendLayout()
         Me.GrpFanSize.SuspendLayout()
@@ -122,46 +132,50 @@ Partial Class Frmselectfan
         Me.GrpInletDensity.SuspendLayout()
         Me.GrpEnvironment.SuspendLayout()
         Me.GrpInletTemperature.SuspendLayout()
+        Me.TabPageSelection.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
         '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage4)
+        Me.TabControl1.Controls.Add(Me.TabPageDuty)
+        Me.TabControl1.Controls.Add(Me.TabPageSelection)
+        Me.TabControl1.Controls.Add(Me.TabPageNoise)
+        Me.TabControl1.Controls.Add(Me.TabPageImpeller)
         Me.TabControl1.Location = New System.Drawing.Point(-4, 37)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(999, 616)
+        Me.TabControl1.Size = New System.Drawing.Size(1223, 616)
         Me.TabControl1.TabIndex = 0
         '
-        'TabPage1
+        'TabPageDuty
         '
-        Me.TabPage1.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources.image1
-        Me.TabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TabPage1.Controls.Add(Me.GroupBox1)
-        Me.TabPage1.Controls.Add(Me.GrpFrequency)
-        Me.TabPage1.Controls.Add(Me.GrpFanSize)
-        Me.TabPage1.Controls.Add(Me.GrpFanSpeed)
-        Me.TabPage1.Controls.Add(Me.GrpFanTypes)
-        Me.TabPage1.Controls.Add(Me.GrpDesignPressure)
-        Me.TabPage1.Controls.Add(Me.GrpFlowRate)
-        Me.TabPage1.Controls.Add(Me.GrpInletDensity)
-        Me.TabPage1.Controls.Add(Me.GrpEnvironment)
-        Me.TabPage1.Controls.Add(Me.Button2)
-        Me.TabPage1.Controls.Add(Me.GrpInletTemperature)
-        Me.TabPage1.Controls.Add(Me.Button1)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.TabPage1.Size = New System.Drawing.Size(991, 587)
-        Me.TabPage1.TabIndex = 2
-        Me.TabPage1.Text = "Duty"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.TabPageDuty.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources.image1
+        Me.TabPageDuty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TabPageDuty.Controls.Add(Me.GroupBox2)
+        Me.TabPageDuty.Controls.Add(Me.GroupBox1)
+        Me.TabPageDuty.Controls.Add(Me.GrpFrequency)
+        Me.TabPageDuty.Controls.Add(Me.GrpFanSize)
+        Me.TabPageDuty.Controls.Add(Me.GrpFanSpeed)
+        Me.TabPageDuty.Controls.Add(Me.GrpFanTypes)
+        Me.TabPageDuty.Controls.Add(Me.GrpDesignPressure)
+        Me.TabPageDuty.Controls.Add(Me.GrpFlowRate)
+        Me.TabPageDuty.Controls.Add(Me.GrpInletDensity)
+        Me.TabPageDuty.Controls.Add(Me.GrpEnvironment)
+        Me.TabPageDuty.Controls.Add(Me.Button2)
+        Me.TabPageDuty.Controls.Add(Me.GrpInletTemperature)
+        Me.TabPageDuty.Controls.Add(Me.Button1)
+        Me.TabPageDuty.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageDuty.Name = "TabPageDuty"
+        Me.TabPageDuty.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageDuty.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.TabPageDuty.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageDuty.TabIndex = 2
+        Me.TabPageDuty.Text = "Duty"
+        Me.TabPageDuty.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -397,7 +411,7 @@ Partial Class Frmselectfan
         Me.GrpFanTypes.Controls.Add(Me.ChkInclineBlade)
         Me.GrpFanTypes.Controls.Add(Me.ChkCurveBlade)
         Me.GrpFanTypes.ForeColor = System.Drawing.SystemColors.Window
-        Me.GrpFanTypes.Location = New System.Drawing.Point(536, 267)
+        Me.GrpFanTypes.Location = New System.Drawing.Point(993, 17)
         Me.GrpFanTypes.Name = "GrpFanTypes"
         Me.GrpFanTypes.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.GrpFanTypes.Size = New System.Drawing.Size(200, 227)
@@ -952,40 +966,114 @@ Partial Class Frmselectfan
         'Button1
         '
         Me.Button1.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button1.Location = New System.Drawing.Point(850, 532)
+        Me.Button1.Location = New System.Drawing.Point(1101, 532)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(92, 36)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Select"
         Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
-        'TabPage2
+        'TabPageSelection
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(991, 587)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Selection"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.TabPageSelection.Controls.Add(Me.BtnClose)
+        Me.TabPageSelection.Controls.Add(Me.LblGasDensityUnit)
+        Me.TabPageSelection.Controls.Add(Me.Label2)
+        Me.TabPageSelection.Controls.Add(Me.TxtDensity)
+        Me.TabPageSelection.Controls.Add(Me.Button3)
+        Me.TabPageSelection.Controls.Add(Me.Button4)
+        Me.TabPageSelection.Controls.Add(Me.DataGridView1)
+        Me.TabPageSelection.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageSelection.Name = "TabPageSelection"
+        Me.TabPageSelection.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageSelection.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageSelection.TabIndex = 1
+        Me.TabPageSelection.Text = "Selection"
+        Me.TabPageSelection.UseVisualStyleBackColor = True
         '
-        'TabPage3
+        'BtnClose
         '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(991, 587)
-        Me.TabPage3.TabIndex = 3
-        Me.TabPage3.Text = "Noise"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        Me.BtnClose.Location = New System.Drawing.Point(431, 17)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.Size = New System.Drawing.Size(89, 34)
+        Me.BtnClose.TabIndex = 14
+        Me.BtnClose.Text = "Close"
+        Me.BtnClose.UseVisualStyleBackColor = True
         '
-        'TabPage4
+        'LblGasDensityUnit
         '
-        Me.TabPage4.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(991, 587)
-        Me.TabPage4.TabIndex = 4
-        Me.TabPage4.Text = "Impeller"
-        Me.TabPage4.UseVisualStyleBackColor = True
+        Me.LblGasDensityUnit.AutoSize = True
+        Me.LblGasDensityUnit.Location = New System.Drawing.Point(998, 29)
+        Me.LblGasDensityUnit.Name = "LblGasDensityUnit"
+        Me.LblGasDensityUnit.Size = New System.Drawing.Size(43, 17)
+        Me.LblGasDensityUnit.TabIndex = 13
+        Me.LblGasDensityUnit.Text = "kg/m³"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(801, 29)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(85, 17)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Gas Density"
+        '
+        'TxtDensity
+        '
+        Me.TxtDensity.Location = New System.Drawing.Point(892, 26)
+        Me.TxtDensity.Name = "TxtDensity"
+        Me.TxtDensity.Size = New System.Drawing.Size(100, 22)
+        Me.TxtDensity.TabIndex = 11
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(685, 17)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(89, 34)
+        Me.Button3.TabIndex = 10
+        Me.Button3.Text = "txt Files"
+        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button3.Visible = False
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(321, 17)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(89, 34)
+        Me.Button4.TabIndex = 9
+        Me.Button4.Text = "End"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToOrderColumns = True
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(20, 75)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowTemplate.Height = 24
+        Me.DataGridView1.Size = New System.Drawing.Size(1159, 152)
+        Me.DataGridView1.TabIndex = 8
+        '
+        'TabPageNoise
+        '
+        Me.TabPageNoise.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageNoise.Name = "TabPageNoise"
+        Me.TabPageNoise.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageNoise.TabIndex = 3
+        Me.TabPageNoise.Text = "Noise"
+        Me.TabPageNoise.UseVisualStyleBackColor = True
+        '
+        'TabPageImpeller
+        '
+        Me.TabPageImpeller.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageImpeller.Name = "TabPageImpeller"
+        Me.TabPageImpeller.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageImpeller.TabIndex = 4
+        Me.TabPageImpeller.Text = "Impeller"
+        Me.TabPageImpeller.UseVisualStyleBackColor = True
         '
         'MenuStrip1
         '
@@ -993,7 +1081,7 @@ Partial Class Frmselectfan
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ProjectDetailsToolStripMenuItem, Me.UnitsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(991, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1205, 28)
         Me.MenuStrip1.TabIndex = 1
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -1046,12 +1134,47 @@ Partial Class Frmselectfan
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.header2015
-        Me.PictureBox1.Location = New System.Drawing.Point(727, 1)
+        Me.PictureBox1.Location = New System.Drawing.Point(941, 1)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(277, 60)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Red
+        Me.GroupBox2.Controls.Add(Me.OptXLS)
+        Me.GroupBox2.Controls.Add(Me.OptTXT)
+        Me.GroupBox2.Location = New System.Drawing.Point(473, 286)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox2.TabIndex = 12
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "GroupBox2"
+        '
+        'OptTXT
+        '
+        Me.OptTXT.AutoSize = True
+        Me.OptTXT.Checked = True
+        Me.OptTXT.Location = New System.Drawing.Point(29, 25)
+        Me.OptTXT.Name = "OptTXT"
+        Me.OptTXT.Size = New System.Drawing.Size(118, 21)
+        Me.OptTXT.TabIndex = 0
+        Me.OptTXT.TabStop = True
+        Me.OptTXT.Text = "Use TXT Files"
+        Me.OptTXT.UseVisualStyleBackColor = True
+        '
+        'OptXLS
+        '
+        Me.OptXLS.AutoSize = True
+        Me.OptXLS.Location = New System.Drawing.Point(29, 64)
+        Me.OptXLS.Name = "OptXLS"
+        Me.OptXLS.Size = New System.Drawing.Size(117, 21)
+        Me.OptXLS.TabIndex = 1
+        Me.OptXLS.TabStop = True
+        Me.OptXLS.Text = "Use XLS Files"
+        Me.OptXLS.UseVisualStyleBackColor = True
         '
         'Frmselectfan
         '
@@ -1059,18 +1182,18 @@ Partial Class Frmselectfan
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Button2
-        Me.ClientSize = New System.Drawing.Size(991, 671)
+        Me.ClientSize = New System.Drawing.Size(1205, 671)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(1009, 718)
+        Me.MaximumSize = New System.Drawing.Size(1223, 718)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(1009, 718)
+        Me.MinimumSize = New System.Drawing.Size(1223, 718)
         Me.Name = "Frmselectfan"
         Me.Text = "Halifax Fan Selection Software"
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPage1.ResumeLayout(False)
+        Me.TabPageDuty.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GrpFrequency.ResumeLayout(False)
@@ -1093,23 +1216,28 @@ Partial Class Frmselectfan
         Me.GrpEnvironment.PerformLayout()
         Me.GrpInletTemperature.ResumeLayout(False)
         Me.GrpInletTemperature.PerformLayout()
+        Me.TabPageSelection.ResumeLayout(False)
+        Me.TabPageSelection.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPageDuty As TabPage
     Friend WithEvents GrpInletTemperature As GroupBox
     Friend WithEvents LblDesignTemperature As Label
     Friend WithEvents TxtDesignTemperature As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents TabPageSelection As TabPage
+    Friend WithEvents TabPageNoise As TabPage
+    Friend WithEvents TabPageImpeller As TabPage
     Friend WithEvents Button2 As Button
     Friend WithEvents TxtMaximumTemperature As TextBox
     Friend WithEvents LblMaximumTemperature As Label
@@ -1188,4 +1316,14 @@ Partial Class Frmselectfan
     Friend WithEvents Txtfanspeed As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents LblLengthUnits As Label
+    Friend WithEvents BtnClose As Button
+    Friend WithEvents LblGasDensityUnit As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TxtDensity As TextBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents OptXLS As RadioButton
+    Friend WithEvents OptTXT As RadioButton
 End Class

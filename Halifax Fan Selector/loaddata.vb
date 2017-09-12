@@ -144,91 +144,173 @@ Module loaddata
     '    ActiveWorkbook.Close(False)
     '    Return "Complete"
     'End Function
+    Public Sub ReadfromExcelfile(filename, fanno)
+        Dim xlsApp As Excel.Application = Nothing
+        Dim xlsWorkBooks As Excel.Workbooks = Nothing
+        Dim ActiveWorkbook As Excel.Workbook = Nothing
+        FullFilePath = "C:\Halifax" + filename
+        xlsApp = New Microsoft.Office.Interop.Excel.Application
+        xlsApp.Visible = False
+        xlsWorkBooks = xlsApp.Workbooks
+        ActiveWorkbook = xlsWorkBooks.Open(FullFilePath)
 
-    Public Function loadfandata(filename, fanno) As String
+        FanSize1 = Val(ActiveWorkbook.Worksheets(1).Cells(4, 2).Value)
+        FanSpeed1 = Val(ActiveWorkbook.Worksheets(1).Cells(3, 2).Value)
+        FanSize2 = Val(ActiveWorkbook.Worksheets(1).Cells(2, 2).Value)
+        Num_Readings = Val(ActiveWorkbook.Worksheets(1).Cells(5, 2).Value)
+        Most_Eff_Pt = Val(ActiveWorkbook.Worksheets(1).Cells(5, 10).Value)
+        '        medpoint(1) = Most_Eff_Pt
+        OutLen_mm = Val(ActiveWorkbook.Worksheets(1).Cells(3, 12).Value)
+        OutWid_mm = Val(ActiveWorkbook.Worksheets(1).Cells(4, 12).Value)
+        OutArea_m2 = Val(ActiveWorkbook.Worksheets(1).Cells(5, 12).Value)
+
+        OutLen_ft = Val(ActiveWorkbook.Worksheets(1).Cells(3, 14).Value)
+        OutWid_ft = Val(ActiveWorkbook.Worksheets(1).Cells(4, 14).Value)
+        OutArea_ft2 = Val(ActiveWorkbook.Worksheets(1).Cells(5, 14).Value)
+
+        In_Dia_mm = Val(ActiveWorkbook.Worksheets(1).Cells(2, 19).Value)
+        Eye_Area_m2 = Val(ActiveWorkbook.Worksheets(1).Cells(3, 19).Value)
+        Blade_Type = ActiveWorkbook.Worksheets(1).Cells(4, 19).Value
+        Num_Blades = Val(ActiveWorkbook.Worksheets(1).Cells(5, 19).Value)
+
+        'Do While count <= ActiveWorkbook.Worksheets(1).Cells(50, 2).Value
+        '    fsp(1, count) = Val(ActiveWorkbook.Worksheets(1).Cells(row, colfsp).Value)
+        '    ftp(1, count) = Val(ActiveWorkbook.Worksheets(1).Cells(row, colftp).Value)
+        '    vol(1, count) = Val(ActiveWorkbook.Worksheets(1).Cells(row, colvol).Value)
+        '    Pow(1, count) = Val(ActiveWorkbook.Worksheets(1).Cells(row, colpow).Value)
+        '    fte(1, count) = Val(ActiveWorkbook.Worksheets(1).Cells(row, colfte).Value)
+        '    fse(1, count) = Val(ActiveWorkbook.Worksheets(1).Cells(row, colfse).Value)
+        '    ovel(1, count) = Val(ActiveWorkbook.Worksheets(1).cells(row, coloutletvel).value)
+        '    If fte(1, count) > fte(1, counteff) Then counteff = count
+        '    count = count + 1
+        '    row = row + 1
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FSP_insWG(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 2).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            Pow_hp(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 3).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            Vol_cfm(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 4).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FTP_insWG(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 5).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FSP_mmwg(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 7).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            Pow_kw(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 8).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            Vol_m3hr(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 9).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FTP_mmWG(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 10).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            Vol_m3min(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 11).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            Vol_m3sec(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 12).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FSP_pa(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 13).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FTP_pa(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 14).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FSP_mbar(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 15).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FTP_mbar(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 16).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            OV_msec(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 17).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            OV_fmin(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 18).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FSE1(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 19).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To Num_Readings - 1
+            FTE1(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 20).Value)
+            row = row + 1
+        Next
+        row = 9
+        For i = 0 To 29
+            STD_Fan_Size(i) = Val(ActiveWorkbook.Worksheets(1).Cells(row, 21).Value)
+            fsizes(fanno, i) = STD_Fan_Size(i)
+            row = row + 1
+        Next
+
+        'Loop
+        '????        If PType = 1 Then medpoint(1) = counteff
+
+        FanMaxCount(1) = datapoints1
+        If PType = 1 Then
+            For II = datapoints1 To 1 Step -1
+                If ftp(1, II) > ftp(1, FanMaxCount(1)) Then FanMaxCount(1) = II
+            Next II
+        Else
+            For II = datapoints1 To 1 Step -1
+                If fsp(1, II) > fsp(1, FanMaxCount(1)) Then FanMaxCount(1) = II
+            Next II
+        End If
+
+        count = 1
+        row = 9
+        'Do While ActiveWorkbook.Worksheets(1).Cells(row, colstdfansizes).Value <> ""
+        '    fsizes(1, count) = Val(ActiveWorkbook.Worksheets(1).Cells(row, colstdfansizes).Value)
+        '    count = count + 1
+        '    row = row + 1
+        'Loop
+        ActiveWorkbook.Close(False)
+        '        MsgBox(filename + " read " + fanno.ToString)
+    End Sub
+
+    Public Sub ReadfromTextfile(filename, fanno)
         Dim FullFilePathtxt As String
         '        FullFilePathtxt = "C:\Halifax\Performance Data new\" + filename + ".txt"
         FullFilePathtxt = "C:\Halifax" + filename
         Dim objStreamReader As New StreamReader(FullFilePathtxt)
-
-        'If Frmselectfan.Comfspunits.Value = "InsWG" Then
-        '    colfsp = 2
-        '    colftp = 5
-        'End If
-        'If Frmselectfan.Comfspunits.Value = "Pa" Then
-        colfsp = 13 'Pa
-        colftp = 14 'Pa
-        'End If
-        'If Frmselectfan.Comfspunits.Value = "mmWG" Then
-        '    colfsp = 7'mmWG
-        '    colftp = 10'mmWG
-        'End If
-        'If Frmselectfan.Comfspunits.Value = "mbar" Then
-        '    colfsp = 15'mBar
-        '    colftp = 16'mBar
-        'End If
-
-        '        If FlowType = 1 Then
-        colvol = 9 'm3/hr
-        'End If
-        'If FlowType = 2 Then
-        '    colvol = 11'm3/min
-        'End If
-        'If FlowType = 3 Then
-        '    colvol = 12'm3/sec
-        'End If
-        'If FlowType = 4 Then
-        '    colvol = 4'cfm
-        'End If
-
-        'If Frmselectfan.Compowunits.Value = "KW" Then
-        colpow = 8 'kW
-        'Else
-        '    colpow = 3'HP
-        'End If
-        '----setting the number of decimal places-------------------------------------------
-        If FlowType = 3 Then
-            voldecplaces = 3
-        Else
-            voldecplaces = 0
-        End If
-        If FlowType = 2 Then
-            voldecplaces = 2
-        End If
-        If Val(Frmselectfan.Txtflow.Text) > 10000 Then
-            voldecplaces = 0
-        ElseIf Val(Frmselectfan.Txtflow.Text) > 1000 Then
-            voldecplaces = 1
-        ElseIf Val(Frmselectfan.Txtflow.Text) > 100 Then
-            voldecplaces = 2
-        ElseIf Val(Frmselectfan.Txtflow.Text) > 10 Then
-            voldecplaces = 3
-        End If
-
-        pressplaceRise = 2
-        If Val(Frmselectfan.Txtfsp.Text) > 10000 Then
-            pressplaceRise = 0
-        ElseIf Val(Frmselectfan.Txtfsp.Text) > 1000 Then
-            pressplaceRise = 1
-        ElseIf Val(Frmselectfan.Txtfsp.Text) > 100 Then
-            pressplaceRise = 2
-        ElseIf Val(Frmselectfan.Txtfsp.Text) > 10 Then
-            pressplaceRise = 3
-        End If
-
-        colfte = 20
-        colfse = 19
-
-        coloutletvel = 17
-        colstdfansizes = 21 '-column number for the fan size
-
-        Dim i As Integer
-
-        count = 0
-
-        counteff = 1
-        row = 9
-
         FanSize1 = objStreamReader.ReadLine()
         FanSpeed1 = objStreamReader.ReadLine()
         FanSize2 = objStreamReader.ReadLine()
@@ -304,7 +386,175 @@ Module loaddata
             STD_Fan_Size(i) = objStreamReader.ReadLine()
             fsizes(fanno, i) = STD_Fan_Size(i)
         Next
-        '                MsgBox("all read")
+        objStreamReader.Close() 'Close 
+        'MsgBox(filename + " read " + fanno.ToString)
+    End Sub
+
+    Public Function loadfandata(filename, fanno) As String
+        'Dim FullFilePathtxt As String`  
+        ''        FullFilePathtxt = "C:\Halifax\Performance Data new\" + filename + ".txt"
+        'FullFilePathtxt = "C:\Halifax" + filename
+        'Dim objStreamReader As New StreamReader(FullFilePathtxt)
+        'ReadfromTextfile(filename, fanno)
+
+        If Frmselectfan.OptXLS.Checked = True Then ReadfromExcelfile(filename, fanno)
+        If Frmselectfan.OptTXT.Checked = True Then ReadfromTextfile(filename, fanno)
+
+
+        ''If Frmselectfan.Comfspunits.Value = "InsWG" Then
+        ''    colfsp = 2
+        ''    colftp = 5
+        ''End If
+        ''If Frmselectfan.Comfspunits.Value = "Pa" Then
+        'colfsp = 13 'Pa
+        'colftp = 14 'Pa
+        ''End If
+        ''If Frmselectfan.Comfspunits.Value = "mmWG" Then
+        ''    colfsp = 7'mmWG
+        ''    colftp = 10'mmWG
+        ''End If
+        ''If Frmselectfan.Comfspunits.Value = "mbar" Then
+        ''    colfsp = 15'mBar
+        ''    colftp = 16'mBar
+        ''End If
+
+        ''        If FlowType = 1 Then
+        'colvol = 9 'm3/hr
+        ''End If
+        ''If FlowType = 2 Then
+        ''    colvol = 11'm3/min
+        ''End If
+        ''If FlowType = 3 Then
+        ''    colvol = 12'm3/sec
+        ''End If
+        ''If FlowType = 4 Then
+        ''    colvol = 4'cfm
+        ''End If
+
+        ''If Frmselectfan.Compowunits.Value = "KW" Then
+        'colpow = 8 'kW
+        ''Else
+        ''    colpow = 3'HP
+        ''End If
+        ''----setting the number of decimal places-------------------------------------------
+        If FlowType = 3 Then
+            voldecplaces = 3
+        Else
+            voldecplaces = 0
+        End If
+        If FlowType = 2 Then
+            voldecplaces = 2
+        End If
+        If Val(Frmselectfan.Txtflow.Text) > 10000 Then
+            voldecplaces = 0
+        ElseIf Val(Frmselectfan.Txtflow.Text) > 1000 Then
+            voldecplaces = 1
+        ElseIf Val(Frmselectfan.Txtflow.Text) > 100 Then
+            voldecplaces = 2
+        ElseIf Val(Frmselectfan.Txtflow.Text) > 10 Then
+            voldecplaces = 3
+        End If
+
+        pressplaceRise = 2
+        If Val(Frmselectfan.Txtfsp.Text) > 10000 Then
+            pressplaceRise = 0
+        ElseIf Val(Frmselectfan.Txtfsp.Text) > 1000 Then
+            pressplaceRise = 1
+        ElseIf Val(Frmselectfan.Txtfsp.Text) > 100 Then
+            pressplaceRise = 2
+        ElseIf Val(Frmselectfan.Txtfsp.Text) > 10 Then
+            pressplaceRise = 3
+        End If
+
+        colfte = 20
+        colfse = 19
+
+        coloutletvel = 17
+        colstdfansizes = 21 '-column number for the fan size
+
+        Dim i As Integer
+
+        count = 0
+
+        counteff = 1
+        row = 9
+
+        'FanSize1 = objStreamReader.ReadLine()
+        'FanSpeed1 = objStreamReader.ReadLine()
+        'FanSize2 = objStreamReader.ReadLine()
+        'Num_Readings = objStreamReader.ReadLine()
+        'Most_Eff_Pt = objStreamReader.ReadLine()
+        ''        medpoint(1) = Most_Eff_Pt
+        'OutLen_mm = objStreamReader.ReadLine()
+        'OutWid_mm = objStreamReader.ReadLine()
+        'OutArea_m2 = objStreamReader.ReadLine()
+        'OutLen_ft = objStreamReader.ReadLine()
+        'OutWid_ft = objStreamReader.ReadLine()
+        'OutArea_ft2 = objStreamReader.ReadLine()
+        'In_Dia_mm = objStreamReader.ReadLine()
+        'Eye_Area_m2 = objStreamReader.ReadLine()
+        'Blade_Type = objStreamReader.ReadLine()
+        'Num_Blades = objStreamReader.ReadLine()
+
+        'For i = 0 To Num_Readings - 1
+        '    FSP_insWG(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    Pow_hp(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    Vol_cfm(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FTP_insWG(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FSP_mmwg(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    Pow_kw(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    Vol_m3hr(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FTP_mmWG(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    Vol_m3min(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    Vol_m3sec(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FSP_pa(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FTP_pa(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FSP_mbar(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FTP_mbar(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    OV_msec(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    OV_fmin(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FSE1(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To Num_Readings - 1
+        '    FTE1(i) = objStreamReader.ReadLine()
+        'Next
+        'For i = 0 To 29
+        '    STD_Fan_Size(i) = objStreamReader.ReadLine()
+        '    fsizes(fanno, i) = STD_Fan_Size(i)
+        'Next
+        ''                MsgBox("all read")
 
         ReDim ftp(30, 50)
         ReDim vol(30, 50)
@@ -316,13 +566,40 @@ Module loaddata
 
         '        Do While count <= Num_Readings - 1
         For count = 0 To Num_Readings - 1
-            fsp(fanno, count) = FSP_pa(count)
-            ftp(fanno, count) = FTP_pa(count)
-            vol(fanno, count) = Vol_m3hr(count)
-            Pow(fanno, count) = Pow_kw(count)
+            If Units(1).UnitSelected = 0 Then
+                fsp(fanno, count) = FSP_pa(count)
+                ftp(fanno, count) = FTP_pa(count)
+            ElseIf Units(1).UnitSelected = 1 Then
+                fsp(fanno, count) = FSP_insWG(count)
+                ftp(fanno, count) = FTP_insWG(count)
+            ElseIf Units(1).UnitSelected = 2 Then
+                fsp(fanno, count) = FSP_mmwg(count)
+                ftp(fanno, count) = FTP_mmWG(count)
+            ElseIf Units(1).UnitSelected = 3 Then
+                fsp(fanno, count) = FSP_mbar(count)
+                ftp(fanno, count) = FTP_mbar(count)
+            End If
+            If Units(0).UnitSelected = 0 Then
+                vol(fanno, count) = Vol_m3hr(count)
+            ElseIf Units(0).UnitSelected = 1 Then
+                vol(fanno, count) = Vol_m3min(count)
+            ElseIf Units(0).UnitSelected = 2 Then
+                vol(fanno, count) = Vol_m3sec(count)
+            ElseIf Units(0).UnitSelected = 3 Then
+                vol(fanno, count) = Vol_cfm(count)
+            End If
+            If Units(4).UnitSelected = 0 Then
+                Pow(fanno, count) = Pow_kw(count)
+            ElseIf Units(4).UnitSelected = 1 Then
+                Pow(fanno, count) = Pow_hp(count)
+            End If
             fte(fanno, count) = FTE1(count)
             fse(fanno, count) = FSE1(count)
-            ovel(fanno, count) = OV_msec(count)
+            If Units(7).UnitSelected = 0 Then
+                ovel(fanno, count) = OV_msec(count)
+            ElseIf Units(7).UnitSelected = 1 Then
+                ovel(fanno, count) = OV_fmin(count)
+            End If
             If fte(fanno, count) > fte(fanno, counteff) Then counteff = count
             '            count = count + 1
             '            row = row + 1
@@ -354,7 +631,7 @@ Module loaddata
         '    count = count + 1
         '    row = row + 1
         'Loop
-        objStreamReader.Close() 'Close 
+        'objStreamReader.Close() 'Close 
         Return "Complete"
     End Function
 
