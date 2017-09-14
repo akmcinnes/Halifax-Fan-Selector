@@ -1,28 +1,59 @@
 ﻿Module scaledata
     Public Function scalePFSize(P1, d1, d2)
-        scalePFSize = P1 * (d2 / d1) ^ 2
+        Try
+            scalePFSize = P1 * (d2 / d1) ^ 2
+
+        Catch ex As Exception
+            MsgBox("scalePFSize")
+        End Try
     End Function
     Public Function scaleVFSize(V1, d1, d2)
-        scaleVFSize = V1 * (d2 / d1) ^ 3
-        If (scaleVFSize < 1) Then
+        Try
+            scaleVFSize = V1 * (d2 / d1) ^ 3
+            If (scaleVFSize < 1) Then
             'MsgBox("V1 = " + V1.ToString)
         End If
+
+        Catch ex As Exception
+            MsgBox("scaleVFSize")
+        End Try
     End Function
     Public Function scalePowFSize(Pow1, d1, d2)
-        scalePowFSize = Pow1 * (d2 / d1) ^ 5
+        Try
+            scalePowFSize = Pow1 * (d2 / d1) ^ 5
+
+        Catch ex As Exception
+            MsgBox("scalePowFSize")
+        End Try
     End Function
     Public Function scalePFSpeed(P1, N1, N2)
-        scalePFSpeed = P1 * (N2 / N1) ^ 2
+        Try
+            scalePFSpeed = P1 * (N2 / N1) ^ 2
+
+        Catch ex As Exception
+            MsgBox("scalePFSpeed")
+        End Try
     End Function
     Public Function scaleVFSpeed(V1, N1, N2)
-        scaleVFSpeed = V1 * (N2 / N1)
+        Try
+            scaleVFSpeed = V1 * (N2 / N1)
+
+        Catch ex As Exception
+            MsgBox("scaleVFSpeed")
+        End Try
     End Function
     Public Function scalePowFSpeed(Pow1, N1, N2)
-        scalePowFSpeed = Pow1 * (N2 / N1) ^ 3
+        Try
+            scalePowFSpeed = Pow1 * (N2 / N1) ^ 3
+
+        Catch ex As Exception
+            MsgBox("scalePowFSpeed")
+        End Try
     End Function
     Public Sub getfanspeed(fansize, fanno)
-        count1 = 0
-        Do While fsp(fanno, count1) <> 0
+        Try
+            count1 = 0
+            Do While fsp(fanno, count1) <> 0
             '-scaling for fan sizes
             'Call ModifyDatapoints(fanno, count1, fansize, ftspeed(fanno, count1), 3)
             fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), fansize)
@@ -141,12 +172,16 @@
         Loop
         Call getpressure(Val(selectedfansize(fanno)), uptospeed - 1, Val(Frmselectfan.Txtflow.Text), fanno)
 
+        Catch ex As Exception
+            MsgBox("getfanspeed")
+        End Try
+
     End Sub
 
     Public Sub scalesizespeed(size, speed, fanno)
-
-        'scaling most efficient datapoint values to the selected fan size
-        fsps(fanno, medpoint(fanno)) = scalePFSize(fsp(fanno, medpoint(fanno)), datafansize(fanno), size)
+        Try
+            'scaling most efficient datapoint values to the selected fan size
+            fsps(fanno, medpoint(fanno)) = scalePFSize(fsp(fanno, medpoint(fanno)), datafansize(fanno), size)
         ftps(fanno, medpoint(fanno)) = scalePFSize(ftp(fanno, medpoint(fanno)), datafansize(fanno), size)
         vols(fanno, medpoint(fanno)) = scaleVFSize(vol(fanno, medpoint(fanno)), datafansize(fanno), size)
         Pows(fanno, medpoint(fanno)) = scalePowFSize(Pow(fanno, medpoint(fanno)), datafansize(fanno), size)
@@ -182,11 +217,16 @@
             selectedpow(fanno) = Math.Round(NEWpower, 2)
             selectedfsp(fanno) = Math.Round(NEWpressure, 2)
         End If
+
+        Catch ex As Exception
+            MsgBox("scalesizespeed")
+        End Try
     End Sub
 
     Public Sub outletvel(fansize, fanno)
-        outletsize = dataoutletarea(fanno) * (fansize / datafansize(fanno)) ^ 2
-        If FlowType = 4 Then
+        Try
+            outletsize = dataoutletarea(fanno) * (fansize / datafansize(fanno)) ^ 2
+            If FlowType = 4 Then
             outletsize = dataoutletareaftsq(fanno) * (fansize / datafansize(fanno)) ^ 2
         End If
         Select Case FlowType
@@ -200,11 +240,16 @@
                 selectedov(fanno) = Val(Frmselectfan.Txtflow.Text) / (outletsize - (casethickness / 304.8) ^ 2)
         End Select
         selectedov(fanno) = Math.Round(Val(selectedov(fanno)), 2)
+
+        Catch ex As Exception
+            MsgBox("outletvel")
+        End Try
     End Sub
 
     Public Function anyoutletvel(fansize, Volume, FanPick)
-        outletsize = dataoutletarea(FanPick) * (fansize / datafansize(FanPick)) ^ 2
-        If FlowType = 4 Then
+        Try
+            outletsize = dataoutletarea(FanPick) * (fansize / datafansize(FanPick)) ^ 2
+            If FlowType = 4 Then
             outletsize = dataoutletareaftsq(FanPick) * (fansize / datafansize(FanPick)) ^ 2
         End If
         Select Case FlowType
@@ -218,5 +263,9 @@
                 anyoutletvel = Volume / (outletsize - (casethickness / 304.8) ^ 2)
         End Select
         Return anyoutletvel
+
+        Catch ex As Exception
+            MsgBox("anyoutletvel")
+        End Try
     End Function
 End Module

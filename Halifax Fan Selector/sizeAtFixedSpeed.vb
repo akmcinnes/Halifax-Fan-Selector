@@ -1,11 +1,12 @@
 ﻿Module sizeAtFixedSpeed
     Public Function Getsizeatfixedspeed(ByVal fanno As Integer)
-        count = 0
+        Try
+            count = 0
 
-        If fsizes(fanno, 1) > 100 Then
-            stepSize = 5
+            If fsizes(fanno, 1) > 100 Then
+            stepsize = 5
         Else
-            stepSize = 0.25
+            stepsize = 0.25
         End If
         count = 0
         fansize = fsizes(fanno, 1)
@@ -48,7 +49,7 @@
             fseI(fanno, count) = fse(fanno, count2)
             fteI(fanno, count) = fte(fanno, count2)
             fsizes(fanno, count) = fansize
-            fansize = fansize + stepSize
+            fansize = fansize + stepsize
             If count = 500 Then
                 Exit Do
             End If
@@ -97,6 +98,10 @@
         End If
 
         Call getpressure(Getsizeatfixedspeed(fanno), speed, Val(Frmselectfan.Txtflow.Text), fanno)
+
+        Catch ex As Exception
+            MsgBox("Getsizeatfixedspeed")
+        End Try
 
     End Function
 

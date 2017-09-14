@@ -1,7 +1,8 @@
 ﻿Module getfansizes
     Public Function Getfansize(ByVal fanno As Integer)
-        Dim retval As Double
-        count = 0
+        Try
+            Dim retval As Double
+            count = 0
         Do While fsizes(fanno, count) <> 0
             count1 = 0
             Do While Pow(fanno, count1) <> 0
@@ -57,5 +58,9 @@
         Loop
         '-end of getting the best fan size at anyspeed for efficiency
         Return retval
+
+        Catch ex As Exception
+            MsgBox("Getfansize")
+        End Try
     End Function
 End Module

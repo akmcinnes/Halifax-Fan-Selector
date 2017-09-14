@@ -3,8 +3,9 @@
 
     Public Sub suctioncorrection(fsp, power, density)
         '---iterative method for calculating suction pressure and density
-        Dim py, b3, b4, a4, k2, k3, k7, k8, k1, py2 As Double
-        density1 = GetDensity1(density)
+        Try
+            Dim py, b3, b4, a4, k2, k3, k7, k8, k1, py2 As Double
+            density1 = GetDensity1(density)
         atmos = GetAtmos()
 
         a3 = density1
@@ -29,13 +30,18 @@
         NEWpower = power * (NEWdensity / density)
         NEWpressure = fsp * (NEWdensity / density)
 
+        Catch ex As Exception
+            MsgBox("suctioncorrection")
+        End Try
+
     End Sub
     Public Function Inletdensity(fsp, density)
         '---returns the inlet density for a known inlet pressure
         Dim py, b3, b4, a4, k2, k3, k7, k8, k1, py2 As Double
         Dim atmos As Double
-        density1 = GetDensity1(density)
-        atmos = GetAtmos()
+        Try
+            density1 = GetDensity1(density)
+            atmos = GetAtmos()
 
         a3 = density1
         py = fsp
@@ -55,25 +61,35 @@
             End If
         Loop
         Inletdensity = GetDensity1(k8)
+
+        Catch ex As Exception
+            MsgBox("Inletdensity")
+        End Try
     End Function
 
     Public Function suckvol(Volume, pressure)
-        Dim atmos As Double
-        If Volume = 0 Then
+        Try
+            Dim atmos As Double
+            If Volume = 0 Then
             Volume = 0.001
         End If
 
-        atmos = Getatmos()
+        atmos = GetAtmos()
 
         Dim a, b As Double
         a = ((atmos - pressure) * (Volume ^ 1.4)) / atmos
         b = (Math.Log(a)) / 1.4
         suckvol = Math.Exp(b)
+
+        Catch ex As Exception
+            MsgBox("suckvol")
+        End Try
     End Function
 
     Function GetAtmos() As Double
-        atmos = 407.45
-        If Frmselectfan.ColumnHeader(4) = "InsWG" Then
+        Try
+            atmos = 407.45
+            If Frmselectfan.ColumnHeader(4) = "InsWG" Then
             atmos = 407.45
         End If
         If Frmselectfan.ColumnHeader(4) = "mmWG" Then
@@ -86,22 +102,36 @@
             atmos = 1013.89
         End If
         Return atmos
+
+        Catch ex As Exception
+            MsgBox("GetAtmos")
+        End Try
     End Function
     Function GetDensity1(ByVal density As Double) As Double
-        If DensType = 2 Then
-            density1 = density * 16
-        Else
-            density1 = density
+        Try
+            If DensType = 2 Then
+                density1 = density * 16
+            Else
+                density1 = density
         End If
         Return density1
+
+        Catch ex As Exception
+            MsgBox("GetDensity1")
+        End Try
     End Function
 
     Function GetDensity2(ByVal k8 As Double)
-        If DensType = 2 Then
-            NEWdensity = k8 / 16
-        Else
-            NEWdensity = k8
+        Try
+            If DensType = 2 Then
+                NEWdensity = k8 / 16
+            Else
+                NEWdensity = k8
         End If
         Return NEWdensity
+
+        Catch ex As Exception
+            MsgBox("GetDensity2")
+        End Try
     End Function
 End Module

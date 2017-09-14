@@ -24,6 +24,9 @@ Partial Class Frmselectfan
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPageDuty = New System.Windows.Forms.TabPage()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.OptXLS = New System.Windows.Forms.RadioButton()
+        Me.OptTXT = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
@@ -105,6 +108,7 @@ Partial Class Frmselectfan
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TabPageSelectedFan = New System.Windows.Forms.TabPage()
         Me.TabPageNoise = New System.Windows.Forms.TabPage()
         Me.TabPageImpeller = New System.Windows.Forms.TabPage()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
@@ -116,11 +120,9 @@ Partial Class Frmselectfan
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.OptTXT = New System.Windows.Forms.RadioButton()
-        Me.OptXLS = New System.Windows.Forms.RadioButton()
         Me.TabControl1.SuspendLayout()
         Me.TabPageDuty.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GrpFrequency.SuspendLayout()
         Me.GrpFanSize.SuspendLayout()
@@ -136,13 +138,13 @@ Partial Class Frmselectfan
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
         '
         Me.TabControl1.Controls.Add(Me.TabPageDuty)
         Me.TabControl1.Controls.Add(Me.TabPageSelection)
+        Me.TabControl1.Controls.Add(Me.TabPageSelectedFan)
         Me.TabControl1.Controls.Add(Me.TabPageNoise)
         Me.TabControl1.Controls.Add(Me.TabPageImpeller)
         Me.TabControl1.Location = New System.Drawing.Point(-4, 37)
@@ -176,6 +178,41 @@ Partial Class Frmselectfan
         Me.TabPageDuty.TabIndex = 2
         Me.TabPageDuty.Text = "Duty"
         Me.TabPageDuty.UseVisualStyleBackColor = True
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Red
+        Me.GroupBox2.Controls.Add(Me.OptXLS)
+        Me.GroupBox2.Controls.Add(Me.OptTXT)
+        Me.GroupBox2.Location = New System.Drawing.Point(473, 286)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox2.TabIndex = 12
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "GroupBox2"
+        '
+        'OptXLS
+        '
+        Me.OptXLS.AutoSize = True
+        Me.OptXLS.Location = New System.Drawing.Point(29, 64)
+        Me.OptXLS.Name = "OptXLS"
+        Me.OptXLS.Size = New System.Drawing.Size(117, 21)
+        Me.OptXLS.TabIndex = 1
+        Me.OptXLS.TabStop = True
+        Me.OptXLS.Text = "Use XLS Files"
+        Me.OptXLS.UseVisualStyleBackColor = True
+        '
+        'OptTXT
+        '
+        Me.OptTXT.AutoSize = True
+        Me.OptTXT.Checked = True
+        Me.OptTXT.Location = New System.Drawing.Point(29, 25)
+        Me.OptTXT.Name = "OptTXT"
+        Me.OptTXT.Size = New System.Drawing.Size(118, 21)
+        Me.OptTXT.TabIndex = 0
+        Me.OptTXT.TabStop = True
+        Me.OptTXT.Text = "Use TXT Files"
+        Me.OptTXT.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -988,7 +1025,7 @@ Partial Class Frmselectfan
         Me.TabPageSelection.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPageSelection.Size = New System.Drawing.Size(1215, 587)
         Me.TabPageSelection.TabIndex = 1
-        Me.TabPageSelection.Text = "Selection"
+        Me.TabPageSelection.Text = "Selections"
         Me.TabPageSelection.UseVisualStyleBackColor = True
         '
         'BtnClose
@@ -1056,6 +1093,15 @@ Partial Class Frmselectfan
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(1159, 152)
         Me.DataGridView1.TabIndex = 8
+        '
+        'TabPageSelectedFan
+        '
+        Me.TabPageSelectedFan.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageSelectedFan.Name = "TabPageSelectedFan"
+        Me.TabPageSelectedFan.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageSelectedFan.TabIndex = 5
+        Me.TabPageSelectedFan.Text = "Selected Fan"
+        Me.TabPageSelectedFan.UseVisualStyleBackColor = True
         '
         'TabPageNoise
         '
@@ -1141,41 +1187,6 @@ Partial Class Frmselectfan
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.BackColor = System.Drawing.Color.Red
-        Me.GroupBox2.Controls.Add(Me.OptXLS)
-        Me.GroupBox2.Controls.Add(Me.OptTXT)
-        Me.GroupBox2.Location = New System.Drawing.Point(473, 286)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(200, 100)
-        Me.GroupBox2.TabIndex = 12
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "GroupBox2"
-        '
-        'OptTXT
-        '
-        Me.OptTXT.AutoSize = True
-        Me.OptTXT.Checked = True
-        Me.OptTXT.Location = New System.Drawing.Point(29, 25)
-        Me.OptTXT.Name = "OptTXT"
-        Me.OptTXT.Size = New System.Drawing.Size(118, 21)
-        Me.OptTXT.TabIndex = 0
-        Me.OptTXT.TabStop = True
-        Me.OptTXT.Text = "Use TXT Files"
-        Me.OptTXT.UseVisualStyleBackColor = True
-        '
-        'OptXLS
-        '
-        Me.OptXLS.AutoSize = True
-        Me.OptXLS.Location = New System.Drawing.Point(29, 64)
-        Me.OptXLS.Name = "OptXLS"
-        Me.OptXLS.Size = New System.Drawing.Size(117, 21)
-        Me.OptXLS.TabIndex = 1
-        Me.OptXLS.TabStop = True
-        Me.OptXLS.Text = "Use XLS Files"
-        Me.OptXLS.UseVisualStyleBackColor = True
-        '
         'Frmselectfan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1194,6 +1205,8 @@ Partial Class Frmselectfan
         Me.Text = "Halifax Fan Selection Software"
         Me.TabControl1.ResumeLayout(False)
         Me.TabPageDuty.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GrpFrequency.ResumeLayout(False)
@@ -1222,8 +1235,6 @@ Partial Class Frmselectfan
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1326,4 +1337,5 @@ Partial Class Frmselectfan
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents OptXLS As RadioButton
     Friend WithEvents OptTXT As RadioButton
+    Friend WithEvents TabPageSelectedFan As TabPage
 End Class

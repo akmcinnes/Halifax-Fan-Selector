@@ -1,14 +1,15 @@
 ﻿Public Class FrmUnits
     Private Sub FrmUnits_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Me.CenterToParent()
-        'Flow
-        'OptFlowM3PerHr.Checked = False
-        'OptFlowM3PerMin.Checked = False
-        'OptFlowM3PerSec.Checked = False
-        'OptFlowCfm.Checked = False
-        'OptFlowKgPerHr.Checked = False
-        'OptFlowLbPerHr.Checked = False
-        If Units(0).UnitSelected = 0 Then OptFlowM3PerHr.Checked = True
+        Try
+            Me.CenterToParent()
+            'Flow
+            'OptFlowM3PerHr.Checked = False
+            'OptFlowM3PerMin.Checked = False
+            'OptFlowM3PerSec.Checked = False
+            'OptFlowCfm.Checked = False
+            'OptFlowKgPerHr.Checked = False
+            'OptFlowLbPerHr.Checked = False
+            If Units(0).UnitSelected = 0 Then OptFlowM3PerHr.Checked = True
         If Units(0).UnitSelected = 1 Then OptFlowM3PerMin.Checked = True
         If Units(0).UnitSelected = 2 Then OptFlowM3PerSec.Checked = True
         If Units(0).UnitSelected = 3 Then OptFlowCfm.Checked = True
@@ -65,6 +66,10 @@
         OptDefaultMetric.Checked = False
         OptDefaultImperial.Checked = False
         OptDefaultNone.Checked = True
+
+        Catch ex As Exception
+            MsgBox("load")
+        End Try
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
@@ -72,8 +77,9 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
-        'flow units
-        If OptFlowM3PerHr.Checked = True Then
+        Try
+            'flow units
+            If OptFlowM3PerHr.Checked = True Then
             If Units(0).UnitSelected = 0 Then convflow = 1.0
             If Units(0).UnitSelected = 1 Then convflow = 60.0
             If Units(0).UnitSelected = 2 Then convflow = 3600.0
@@ -490,11 +496,16 @@
         Frmselectfan.TxtAltitude.Text = Math.Round(Val(Frmselectfan.TxtAltitude.Text) * convalt, 0).ToString
 
         Me.Close()
+
+        Catch ex As Exception
+            MsgBox("click")
+        End Try
     End Sub
 
     Private Sub RadioButton16_CheckedChanged(sender As Object, e As EventArgs) Handles OptDefaultMetric.CheckedChanged
-        OptFlowM3PerHr.Checked = True
-        OptPressurePa.Checked = True
+        Try
+            OptFlowM3PerHr.Checked = True
+            OptPressurePa.Checked = True
         OptTemperatureC.Checked = True
         OptDensityKgPerM3.Checked = True
         OptPowerKW.Checked = True
@@ -502,16 +513,25 @@
         OptAltitudeM.Checked = True
         OptVelocityMpers.Checked = True
         OptVelocityFtpermin.Checked = False
+
+        Catch ex As Exception
+            MsgBox("checkedchanged")
+        End Try
     End Sub
 
     Private Sub RadioButton17_CheckedChanged(sender As Object, e As EventArgs) Handles OptDefaultImperial.CheckedChanged
-        OptFlowCfm.Checked = True
-        OptPressureinWG.Checked = True
+        Try
+            OptFlowCfm.Checked = True
+            OptPressureinWG.Checked = True
         OptTemperatureF.Checked = True
         OptDensityLbPerFt3.Checked = True
         OptPowerHp.Checked = True
         OptLengthIn.Checked = True
         OptAltitudeFt.Checked = True
         OptVelocityFtpermin.Checked = True
+
+        Catch ex As Exception
+            MsgBox("checkedchanged2")
+        End Try
     End Sub
 End Class

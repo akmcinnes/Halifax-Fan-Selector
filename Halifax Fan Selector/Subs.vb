@@ -1,9 +1,9 @@
 ﻿Imports System.Xml
 Module Subs
     Public Sub Initialize()
-
-        'flow units 
-        Units(0).UnitName(0) = "m³/hr"
+        Try
+            'flow units 
+            Units(0).UnitName(0) = "m³/hr"
         Units(0).UnitConversion(0) = 1.0 / 3600.0
         Units(0).UnitPlaces(0) = 0
         Units(0).UnitName(1) = "m³/min"
@@ -122,11 +122,16 @@ Module Subs
         pressrise = 4000.0
         maxspeed = 4000.0
         fansize = 0.0
+
+        Catch ex As Exception
+            MsgBox("Initialize")
+        End Try
     End Sub
 
     Sub WriteGeneralInfo(ByVal TextWriter As XmlTextWriter)
-        Write_to_XML(TextWriter, "General_information")
-        If Customer Is Nothing Then Customer = "xxxx"
+        Try
+            Write_to_XML(TextWriter, "General_information")
+            If Customer Is Nothing Then Customer = "xxxx"
         If Engineer Is Nothing Then Engineer = "xxxx"
         Write_to_XML(TextWriter, "Customer", Customer)
         Write_to_XML(TextWriter, "Engineer", Engineer)
@@ -138,10 +143,15 @@ Module Subs
         Write_to_XML(TextWriter, "Size_Units", Units(5).UnitSelected)
         Write_to_XML(TextWriter, "Altitude_Units", Units(6).UnitSelected)
         Write_to_XML(TextWriter)
+
+        Catch ex As Exception
+            MsgBox("WriteGeneralInfo")
+        End Try
     End Sub
     Sub WriteSelectionInputInfo(ByVal TextWriter As XmlTextWriter)
-        Write_to_XML(TextWriter, "Selection_Input_information")
-        Write_to_XML(TextWriter, "Design_Temperature", designtemp.ToString)
+        Try
+            Write_to_XML(TextWriter, "Selection_Input_information")
+            Write_to_XML(TextWriter, "Design_Temperature", designtemp.ToString)
         Write_to_XML(TextWriter, "Maximum_Temperature", maximumtemp.ToString)
         Write_to_XML(TextWriter, "Ambient_Temperature", ambienttemp.ToString)
         Write_to_XML(TextWriter, "Altitude", altitude.ToString)
@@ -155,25 +165,46 @@ Module Subs
         Write_to_XML(TextWriter, "Reserve_Head", reshead.ToString)
         Write_to_XML(TextWriter, "Maximum_Speed", maxspeed.ToString)
         Write_to_XML(TextWriter)
+
+        Catch ex As Exception
+            MsgBox("WriteSelectionInputInfo")
+        End Try
     End Sub
 
     Public Sub Write_to_XML(ByVal TextWriter As XmlTextWriter, ByVal Parameter As String, ByVal Value As String)
-        TextWriter.WriteStartElement(Parameter)
-        TextWriter.WriteString(Value)
+        Try
+            TextWriter.WriteStartElement(Parameter)
+            TextWriter.WriteString(Value)
         TextWriter.WriteEndElement()
+
+        Catch ex As Exception
+            MsgBox("Write_To_XML 1")
+        End Try
     End Sub
 
     Public Sub Write_to_XML(ByVal TextWriter As XmlTextWriter, ByVal Parameter As String)
-        TextWriter.WriteStartElement(Parameter)
+        Try
+            TextWriter.WriteStartElement(Parameter)
+
+        Catch ex As Exception
+            MsgBox("Write_To_XML 2")
+        End Try
     End Sub
 
     Public Sub Write_to_XML(ByVal TextWriter As XmlTextWriter)
-        TextWriter.WriteEndElement()
+        Try
+            TextWriter.WriteEndElement()
+
+        Catch ex As Exception
+            MsgBox("Write_To_XML 3")
+
+        End Try
     End Sub
 
     Sub ReadSelectionInputInfo(ByVal TextReader As XmlTextReader)
-        If TextReader.Name = "Design_Temperature" Then designtemp = TextReader.ReadString
-        If TextReader.Name = "Maximum_Temperature" Then maximumtemp = TextReader.ReadString
+        Try
+            If TextReader.Name = "Design_Temperature" Then designtemp = TextReader.ReadString
+            If TextReader.Name = "Maximum_Temperature" Then maximumtemp = TextReader.ReadString
         If TextReader.Name = "Ambient_Temperature" Then ambienttemp = TextReader.ReadString
         If TextReader.Name = "Altitude" Then altitude = TextReader.ReadString
         If TextReader.Name = "Relative_Humidity" Then humidity = TextReader.ReadString
@@ -185,11 +216,16 @@ Module Subs
         If TextReader.Name = "Pressure_Rise" Then pressrise = TextReader.ReadString
         If TextReader.Name = "Reserve_Head" Then reshead = TextReader.ReadString
         If TextReader.Name = "Maximum_Speed" Then maxspeed = TextReader.ReadString
+
+        Catch ex As Exception
+            MsgBox("ReadSelectionInputInfo")
+        End Try
     End Sub
 
     Sub ReadGeneralInfo(ByVal TextReader As XmlTextReader)
-        If TextReader.Name = "Customer" Then Customer = TextReader.ReadString
-        If TextReader.Name = "Engineer" Then Engineer = TextReader.ReadString
+        Try
+            If TextReader.Name = "Customer" Then Customer = TextReader.ReadString
+            If TextReader.Name = "Engineer" Then Engineer = TextReader.ReadString
         If TextReader.Name = "Flow_Units" Then Units(0).UnitSelected = TextReader.ReadString
         If TextReader.Name = "Pressure_Units" Then Units(1).UnitSelected = TextReader.ReadString
         If TextReader.Name = "Temperature_Units" Then Units(2).UnitSelected = TextReader.ReadString
@@ -197,11 +233,16 @@ Module Subs
         If TextReader.Name = "Power_Units" Then Units(4).UnitSelected = TextReader.ReadString
         If TextReader.Name = "Size_Units" Then Units(5).UnitSelected = TextReader.ReadString
         If TextReader.Name = "Altitude_Units" Then Units(6).UnitSelected = TextReader.ReadString
+
+        Catch ex As Exception
+            MsgBox("ReadGeneralInfo")
+        End Try
     End Sub
 
     Sub ModifyDatapoints(ByVal fanno As Integer, ByVal count1 As Integer, ByVal fsize As Double, ByVal fspeed As Double, ByVal num As Integer)
-        fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), fsize)
-        ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), fsize)
+        Try
+            fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), fsize)
+            ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), fsize)
         vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), fsize)
         Pows(fanno, count1) = scalePowFSize(Pow(fanno, count1), datafansize(fanno), fsize)
         '-scales for constant volume at each datapoint
@@ -220,7 +261,11 @@ Module Subs
         fsps(fanno, count1) = scalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), fspeed)
         ftps(fanno, count1) = scalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), fspeed)
         Pows(fanno, count1) = scalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), fspeed)
-        'count1 = count1 + 1
+            'count1 = count1 + 1
+
+        Catch ex As Exception
+            MsgBox("ModifyDatapoints")
+        End Try
     End Sub
 
 End Module

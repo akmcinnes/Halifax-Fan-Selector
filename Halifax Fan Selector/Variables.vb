@@ -462,4 +462,19 @@ Module Variables
     Public FullFilePath As String
 
     Public motorsize(2, 100) As Double
+
+    'curve variables
+    Public yaxistitle As String
+    Public y2axistitle As String
+    Public xaxistitle As String
+    Public curvevolunits As String
+    Public presunits As String
+    Public powunits As String
+
+    Public plotvol() As Double
+    Public plotfsp() As Double
+    Public plotftp() As Double
+    Public plotpow() As Double
+
+    Public fan2plot As Integer
 End Module

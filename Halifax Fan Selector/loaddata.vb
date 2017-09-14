@@ -145,8 +145,9 @@ Module loaddata
     '    Return "Complete"
     'End Function
     Public Sub ReadfromExcelfile(filename, fanno)
-        Dim xlsApp As Excel.Application = Nothing
-        Dim xlsWorkBooks As Excel.Workbooks = Nothing
+        Try
+            Dim xlsApp As Excel.Application = Nothing
+            Dim xlsWorkBooks As Excel.Workbooks = Nothing
         Dim ActiveWorkbook As Excel.Workbook = Nothing
         FullFilePath = "C:\Halifax" + filename
         xlsApp = New Microsoft.Office.Interop.Excel.Application
@@ -282,34 +283,39 @@ Module loaddata
         Next
 
         'Loop
-        '????        If PType = 1 Then medpoint(1) = counteff
+        ''????        If PType = 1 Then medpoint(1) = counteff
+        'datapoints1 = Num_Readings
+        'FanMaxCount(fanno) = datapoints1 - 1
+        'If PType = 1 Then
+        '    For II = datapoints1 - 1 To 0 Step -1
+        '        If ftp(fanno, II) > ftp(fanno, FanMaxCount(1)) Then FanMaxCount(fanno) = II
+        '    Next II
+        'Else
+        '    For II = datapoints1 - 1 To 0 Step -1
+        '        If fsp(fanno, II) > fsp(fanno, FanMaxCount(fanno)) Then FanMaxCount(fanno) = II
+        '    Next II
+        'End If
 
-        FanMaxCount(1) = datapoints1
-        If PType = 1 Then
-            For II = datapoints1 To 1 Step -1
-                If ftp(1, II) > ftp(1, FanMaxCount(1)) Then FanMaxCount(1) = II
-            Next II
-        Else
-            For II = datapoints1 To 1 Step -1
-                If fsp(1, II) > fsp(1, FanMaxCount(1)) Then FanMaxCount(1) = II
-            Next II
-        End If
-
-        count = 1
-        row = 9
+        '        count = 1
+        '       row = 9
         'Do While ActiveWorkbook.Worksheets(1).Cells(row, colstdfansizes).Value <> ""
         '    fsizes(1, count) = Val(ActiveWorkbook.Worksheets(1).Cells(row, colstdfansizes).Value)
         '    count = count + 1
         '    row = row + 1
         'Loop
         ActiveWorkbook.Close(False)
-        '        MsgBox(filename + " read " + fanno.ToString)
+            '        MsgBox(filename + " read " + fanno.ToString)
+
+        Catch ex As Exception
+            MsgBox("readfromexcelfile")
+        End Try
     End Sub
 
     Public Sub ReadfromTextfile(filename, fanno)
-        Dim FullFilePathtxt As String
-        '        FullFilePathtxt = "C:\Halifax\Performance Data new\" + filename + ".txt"
-        FullFilePathtxt = "C:\Halifax" + filename
+        Try
+            Dim FullFilePathtxt As String
+            '        FullFilePathtxt = "C:\Halifax\Performance Data new\" + filename + ".txt"
+            FullFilePathtxt = "C:\Halifax" + filename
         Dim objStreamReader As New StreamReader(FullFilePathtxt)
         FanSize1 = objStreamReader.ReadLine()
         FanSpeed1 = objStreamReader.ReadLine()
@@ -387,7 +393,11 @@ Module loaddata
             fsizes(fanno, i) = STD_Fan_Size(i)
         Next
         objStreamReader.Close() 'Close 
-        'MsgBox(filename + " read " + fanno.ToString)
+            'MsgBox(filename + " read " + fanno.ToString)
+
+        Catch ex As Exception
+            MsgBox(filename + "  readfromtextfile")
+        End Try
     End Sub
 
     Public Function loadfandata(filename, fanno) As String
@@ -396,9 +406,9 @@ Module loaddata
         'FullFilePathtxt = "C:\Halifax" + filename
         'Dim objStreamReader As New StreamReader(FullFilePathtxt)
         'ReadfromTextfile(filename, fanno)
-
-        If Frmselectfan.OptXLS.Checked = True Then ReadfromExcelfile(filename, fanno)
-        If Frmselectfan.OptTXT.Checked = True Then ReadfromTextfile(filename, fanno)
+        Try
+            If Frmselectfan.OptXLS.Checked = True Then ReadfromExcelfile(filename, fanno)
+            If Frmselectfan.OptTXT.Checked = True Then ReadfromTextfile(filename, fanno)
 
 
         ''If Frmselectfan.Comfspunits.Value = "InsWG" Then
@@ -466,11 +476,11 @@ Module loaddata
             pressplaceRise = 3
         End If
 
-        colfte = 20
-        colfse = 19
+        'colfte = 20
+        'colfse = 19
 
-        coloutletvel = 17
-        colstdfansizes = 21 '-column number for the fan size
+        'coloutletvel = 17
+        'colstdfansizes = 21 '-column number for the fan size
 
         Dim i As Integer
 
@@ -615,11 +625,11 @@ Module loaddata
 
         FanMaxCount(fanno) = datapoints1
         If PType = 1 Then
-            For II = datapoints1 To 1 Step -1
+            For II = datapoints1 To 0 Step -1
                 If ftp(fanno, II) > ftp(fanno, FanMaxCount(fanno)) Then FanMaxCount(fanno) = II
             Next II
         Else
-            For II = datapoints1 To 1 Step -1
+            For II = datapoints1 To 0 Step -1
                 If fsp(fanno, II) > fsp(fanno, FanMaxCount(fanno)) Then FanMaxCount(fanno) = II
             Next II
         End If
@@ -633,6 +643,10 @@ Module loaddata
         'Loop
         'objStreamReader.Close() 'Close 
         Return "Complete"
+
+        Catch ex As Exception
+            MsgBox("loadfandata")
+        End Try
     End Function
 
     'Private Sub Fast(arr As String(,))
@@ -650,8 +664,9 @@ Module loaddata
     'End Sub
 
     Public Function getmotorsize(abspower)
-        Dim col As Integer
-        If (Units(4).UnitSelected = 0) Then
+        Try
+            Dim col As Integer
+            If (Units(4).UnitSelected = 0) Then
             col = 0
         Else
             col = 1
@@ -665,8 +680,6 @@ Module loaddata
                 motorsize(count1, count2) = objStreamReader.ReadLine()
             Next
         Next
-
-
 
         '    Do While Cells(count, col) <> 0
         '        motorsize(count) = Val(Cells(count, col).Value)
@@ -683,7 +696,11 @@ Module loaddata
             End If
         Loop
         getmotorsize = motorsize(col, count)
-        'getmotorsize = abspower * 1.1 'temp entry
+            'getmotorsize = abspower * 1.1 'temp entry
+
+        Catch ex As Exception
+            MsgBox("getmotorsize")
+        End Try
     End Function
 
 End Module

@@ -1,7 +1,8 @@
 ﻿Module press_vol
     Public Sub getpressure(size, speed, Volume, fanno)
-        Dim temp_fsp As Double
-        temp_fsp = CDbl(Frmselectfan.Txtfsp.Text)
+        Try
+            Dim temp_fsp As Double
+            temp_fsp = CDbl(Frmselectfan.Txtfsp.Text)
         '        If Val(Frmselectfan.Txtfsp.Text) <> 0 Then
         If temp_fsp <> 0 Then
             correctedforSUCTIONS(fanno) = "no"
@@ -92,11 +93,16 @@
             Call suctioncorrection(Val(selectedftp(fanno)), 0, Val(Frmselectfan.Txtdens.Text))
             selectedftp(fanno) = Math.Round(NEWpressure, 2)
         End If
+
+        Catch ex As Exception
+            MsgBox("getpressure")
+        End Try
     End Sub
 
     Public Sub getvol(size, speed, pressure, fanno)
-        count1 = 0
-        Do While fsp(fanno, count1) <> 0
+        Try
+            count1 = 0
+            Do While fsp(fanno, count1) <> 0
             '-scaling for fan sizes
             fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), size)
             ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), size)
@@ -113,18 +119,18 @@
         If PType = 0 Then
             Do While (pressure - fsps(fanno, count)) ^ 2 > (pressure - fsps(fanno, count - 1)) ^ 2
                 count = count - 1
-                If count = 1 Then
-                    Exit Do
-                End If
-            Loop
+                    If count = 0 Then 'was 1
+                        Exit Do
+                    End If
+                Loop
             PressCheck1 = fsps(fanno, count)
         Else
             Do While (pressure - ftps(fanno, count)) ^ 2 > (pressure - ftps(fanno, count - 1)) ^ 2
                 count = count - 1
-                If count = 1 Then
-                    Exit Do
-                End If
-            Loop
+                    If count = 0 Then ' was 1
+                        Exit Do
+                    End If
+                Loop
             PressCheck1 = ftps(fanno, count)
         End If
         datapoint3 = count
@@ -196,5 +202,9 @@
         Call outletvel(size, fanno)
 
         selectedfansize(fanno) = fanclass(fanno)
+
+        Catch ex As Exception
+            MsgBox("getvol")
+        End Try
     End Sub
 End Module
