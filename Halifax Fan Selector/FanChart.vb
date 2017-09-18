@@ -1,4 +1,5 @@
-﻿Public Class FanChart
+﻿Imports System.IO
+Public Class FanChart
     Public SeriesAdded As Boolean
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Close()
@@ -29,6 +30,10 @@
         plotStaticPV()
         plotTotalPV()
         plotPower()
+        Chart1.ChartAreas("ChartArea1").AxisX.MinorGrid.Interval = Chart1.ChartAreas("ChartArea1").AxisX.MajorGrid.Interval / 10.0
+        Chart1.ChartAreas("ChartArea1").AxisX.MinorGrid.Enabled = True
+        Chart1.ChartAreas("ChartArea1").AxisY.MinorGrid.Interval = Chart1.ChartAreas("ChartArea1").AxisY.MajorGrid.Interval / 10.0
+        Chart1.ChartAreas("ChartArea1").AxisY.MinorGrid.Enabled = True
 
     End Sub
 
@@ -50,19 +55,22 @@
         y2axistitle = "POWER (" + Units(4).UnitName(Units(4).UnitSelected) + ")"
         powunits = "(" + Units(4).UnitName(Units(4).UnitSelected) + ")"
 
-        Chart1.Series.RemoveAt(0)
+        'Chart1.Series.RemoveAt(0)
 
         'Chart1.Series("Series1").ChartArea = "Pressure v Volume"
-        Chart1.ChartAreas("ChartArea1").AxisY.Title = yaxistitle
-        Chart1.ChartAreas("ChartArea1").AxisX.Title = xaxistitle
-        Chart1.ChartAreas("ChartArea1").AxisY2.Title = y2axistitle
         Chart1.ChartAreas("ChartArea1").BackColor = Color.BlanchedAlmond
+
+        Chart1.ChartAreas("ChartArea1").AxisX.Title = xaxistitle
         Chart1.ChartAreas("ChartArea1").AxisX.MajorGrid.LineColor = Color.Gray
-        Chart1.ChartAreas("ChartArea1").AxisX.MinorGrid.LineColor = Color.Gray
+        Chart1.ChartAreas("ChartArea1").AxisX.MinorGrid.LineColor = Color.LightGray
+
+        Chart1.ChartAreas("ChartArea1").AxisY.Title = yaxistitle
         Chart1.ChartAreas("ChartArea1").AxisY.MajorGrid.LineColor = Color.Gray
-        Chart1.ChartAreas("ChartArea1").AxisY.MinorGrid.LineColor = Color.Gray
+        Chart1.ChartAreas("ChartArea1").AxisY.MinorGrid.LineColor = Color.LightGray
+
+        Chart1.ChartAreas("ChartArea1").AxisY2.Title = y2axistitle
         Chart1.ChartAreas("ChartArea1").AxisY2.MajorGrid.LineColor = Color.Green
-        Chart1.ChartAreas("ChartArea1").AxisY2.MinorGrid.LineColor = Color.Green
+        Chart1.ChartAreas("ChartArea1").AxisY2.MinorGrid.LineColor = Color.LightGreen
         'Chart1.ChartAreas("ChartArea1").AxisY2.Enabled = True
         Chart1.ChartAreas("ChartArea1").AxisY2.Enabled = DataVisualization.Charting.AxisEnabled.True
         Chart1.ChartAreas("ChartArea1").AxisY2.LabelStyle.Enabled = True
@@ -96,9 +104,9 @@
         Chart1.Series.Add("Duty Point FSP")
         'Chart1.Series("Duty Point FSP").Legend = "Duty Point FSP"
         Chart1.Series("Duty Point FSP").IsVisibleInLegend = False
-            Chart1.Series("Duty Point FSP").Color = Color.Green
-            Chart1.Series("Duty Point FSP").ChartType = DataVisualization.Charting.SeriesChartType.Point
-            Chart1.Series("Duty Point FSP").ChartArea = "ChartArea1"
+        Chart1.Series("Duty Point FSP").Color = Color.Green
+        Chart1.Series("Duty Point FSP").ChartType = DataVisualization.Charting.SeriesChartType.Point
+        Chart1.Series("Duty Point FSP").ChartArea = "ChartArea1"
         '    SeriesAdded = True
         'End If
         Chart1.Series("Duty Point FSP").Points.AddXY(selectedvol(fan2plot), selectedfsp(fan2plot))
@@ -175,9 +183,9 @@
         Chart1.Series.Add("Duty Point Power")
         'Chart1.Series("Duty Point Power").Legend = "Duty Point Power"
         Chart1.Series("Duty Point Power").IsVisibleInLegend = False
-            Chart1.Series("Duty Point Power").Color = Color.Green
-            Chart1.Series("Duty Point Power").ChartType = DataVisualization.Charting.SeriesChartType.Point
-            Chart1.Series("Duty Point Power").ChartArea = "ChartArea1"
+        Chart1.Series("Duty Point Power").Color = Color.Green
+        Chart1.Series("Duty Point Power").ChartType = DataVisualization.Charting.SeriesChartType.Point
+        Chart1.Series("Duty Point Power").ChartArea = "ChartArea1"
         '    SeriesAdded = True
         'End If
         Chart1.Series("Duty Point Power").YAxisType = DataVisualization.Charting.AxisType.Secondary
@@ -285,6 +293,28 @@
         Else
             RemovePowerCurve()
         End If
+
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim FullFilePathtxt As String
+        '        FullFilePathtxt = "C:\Halifax\Performance Data new\" + filename + ".txt"
+        FullFilePathtxt = "C:\Halifax\Output Files\Fan Output.txt"
+        Dim objStreamWriter As New StreamWriter(FullFilePathtxt)
+        Dim i As Integer
+        For i = 0 To Num_Readings - 1
+            objStreamWriter.Write(plotvol(i))
+            objStreamWriter.Write(",")
+            objStreamWriter.Write(plotfsp(i))
+            objStreamWriter.Write(",")
+            objStreamWriter.Write(plotftp(i))
+            objStreamWriter.Write(",")
+            objStreamWriter.Write(plotpow(i))
+            objStreamWriter.Write(vbNewLine)
+        Next
+
+        objStreamWriter.Close() 'Close 
+        'MsgBox(filename + " read " + fanno.ToString)
 
     End Sub
 End Class

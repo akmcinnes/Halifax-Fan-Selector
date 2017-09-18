@@ -1,16 +1,18 @@
-﻿Public Class Start
+﻿Public Class FrmStart
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Hide()
         Frmselectfan.ShowDialog()
     End Sub
 
     Private Sub Start_Load(sender As Object, e As EventArgs) Handles Me.Load
+        objStreamWriterDebug.WriteLine("start")
+
         CenterToScreen()
         TextBox1.Text = Environment.UserName
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        end
+        End
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click

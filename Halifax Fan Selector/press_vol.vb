@@ -14,9 +14,9 @@
             fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), size)
             ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), size)
             vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), size)
-            Pows(fanno, count1) = scalePowFSize(Pow(fanno, count1), datafansize(fanno), size)
-            '-scales for constant volume at each datapoint
-            vols(fanno, count1) = scaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
+                Pows(fanno, count1) = scalePowFSize(Powr(fanno, count1), datafansize(fanno), size)
+                '-scales for constant volume at each datapoint
+                vols(fanno, count1) = scaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
             fsps(fanno, count1) = scalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
             ftps(fanno, count1) = scalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
             Pows(fanno, count1) = scalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
@@ -107,9 +107,9 @@
             fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), size)
             ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), size)
             vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), size)
-            Pows(fanno, count1) = scalePowFSize(Pow(fanno, count1), datafansize(fanno), size)
-            '-scales for constant volume at each datapoint
-            vols(fanno, count1) = scaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
+                Pows(fanno, count1) = scalePowFSize(Powr(fanno, count1), datafansize(fanno), size)
+                '-scales for constant volume at each datapoint
+                vols(fanno, count1) = scaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
             fsps(fanno, count1) = scalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
             ftps(fanno, count1) = scalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
             Pows(fanno, count1) = scalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)

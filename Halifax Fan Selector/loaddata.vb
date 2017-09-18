@@ -97,7 +97,7 @@ Module loaddata
 
     '    ReDim ftp(30, 50)
     '    ReDim vol(30, 50)
-    '    ReDim Pow(30, 50)
+    '    ReDim Powr(30, 50)
     '    ReDim fte(30, 50)
     '    ReDim fsp(30, 50)
     '    ReDim fse(30, 50)
@@ -159,9 +159,9 @@ Module loaddata
         FanSpeed1 = Val(ActiveWorkbook.Worksheets(1).Cells(3, 2).Value)
         FanSize2 = Val(ActiveWorkbook.Worksheets(1).Cells(2, 2).Value)
         Num_Readings = Val(ActiveWorkbook.Worksheets(1).Cells(5, 2).Value)
-        Most_Eff_Pt = Val(ActiveWorkbook.Worksheets(1).Cells(5, 10).Value)
-        '        medpoint(1) = Most_Eff_Pt
-        OutLen_mm = Val(ActiveWorkbook.Worksheets(1).Cells(3, 12).Value)
+            Most_Eff_Pt = Val(ActiveWorkbook.Worksheets(1).Cells(5, 10).Value) - 1
+            '        medpoint(1) = Most_Eff_Pt
+            OutLen_mm = Val(ActiveWorkbook.Worksheets(1).Cells(3, 12).Value)
         OutWid_mm = Val(ActiveWorkbook.Worksheets(1).Cells(4, 12).Value)
         OutArea_m2 = Val(ActiveWorkbook.Worksheets(1).Cells(5, 12).Value)
 
@@ -316,83 +316,83 @@ Module loaddata
             Dim FullFilePathtxt As String
             '        FullFilePathtxt = "C:\Halifax\Performance Data new\" + filename + ".txt"
             FullFilePathtxt = "C:\Halifax" + filename
-        Dim objStreamReader As New StreamReader(FullFilePathtxt)
-        FanSize1 = objStreamReader.ReadLine()
-        FanSpeed1 = objStreamReader.ReadLine()
-        FanSize2 = objStreamReader.ReadLine()
-        Num_Readings = objStreamReader.ReadLine()
-        Most_Eff_Pt = objStreamReader.ReadLine()
-        '        medpoint(1) = Most_Eff_Pt
-        OutLen_mm = objStreamReader.ReadLine()
-        OutWid_mm = objStreamReader.ReadLine()
-        OutArea_m2 = objStreamReader.ReadLine()
-        OutLen_ft = objStreamReader.ReadLine()
-        OutWid_ft = objStreamReader.ReadLine()
-        OutArea_ft2 = objStreamReader.ReadLine()
-        In_Dia_mm = objStreamReader.ReadLine()
-        Eye_Area_m2 = objStreamReader.ReadLine()
-        Blade_Type = objStreamReader.ReadLine()
-        Num_Blades = objStreamReader.ReadLine()
+            Dim objStreamReader As New StreamReader(FullFilePathtxt)
+            FanSize1 = objStreamReader.ReadLine()
+            FanSpeed1 = objStreamReader.ReadLine()
+            FanSize2 = objStreamReader.ReadLine()
+            Num_Readings = objStreamReader.ReadLine()
+            Most_Eff_Pt = objStreamReader.ReadLine()
+            '        medpoint(1) = Most_Eff_Pt
+            OutLen_mm = objStreamReader.ReadLine()
+            OutWid_mm = objStreamReader.ReadLine()
+            OutArea_m2 = objStreamReader.ReadLine()
+            OutLen_ft = objStreamReader.ReadLine()
+            OutWid_ft = objStreamReader.ReadLine()
+            OutArea_ft2 = objStreamReader.ReadLine()
+            In_Dia_mm = objStreamReader.ReadLine()
+            Eye_Area_m2 = objStreamReader.ReadLine()
+            Blade_Type = objStreamReader.ReadLine()
+            Num_Blades = objStreamReader.ReadLine()
 
-        For i = 0 To Num_Readings - 1
-            FSP_insWG(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            Pow_hp(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            Vol_cfm(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FTP_insWG(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FSP_mmwg(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            Pow_kw(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            Vol_m3hr(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FTP_mmWG(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            Vol_m3min(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            Vol_m3sec(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FSP_pa(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FTP_pa(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FSP_mbar(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FTP_mbar(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            OV_msec(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            OV_fmin(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FSE1(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To Num_Readings - 1
-            FTE1(i) = objStreamReader.ReadLine()
-        Next
-        For i = 0 To 29
-            STD_Fan_Size(i) = objStreamReader.ReadLine()
-            fsizes(fanno, i) = STD_Fan_Size(i)
-        Next
-        objStreamReader.Close() 'Close 
+            For i = 0 To Num_Readings - 1
+                FSP_insWG(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                Pow_hp(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                Vol_cfm(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FTP_insWG(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FSP_mmwg(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                Pow_kw(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                Vol_m3hr(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FTP_mmWG(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                Vol_m3min(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                Vol_m3sec(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FSP_pa(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FTP_pa(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FSP_mbar(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FTP_mbar(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                OV_msec(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                OV_fmin(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FSE1(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To Num_Readings - 1
+                FTE1(i) = objStreamReader.ReadLine()
+            Next
+            For i = 0 To 29
+                STD_Fan_Size(i) = objStreamReader.ReadLine()
+                fsizes(fanno, i) = STD_Fan_Size(i)
+            Next
+            objStreamReader.Close() 'Close 
             'MsgBox(filename + " read " + fanno.ToString)
 
         Catch ex As Exception
@@ -568,8 +568,8 @@ Module loaddata
 
         ReDim ftp(30, 50)
         ReDim vol(30, 50)
-        ReDim Pow(30, 50)
-        ReDim fte(30, 50)
+            ReDim Powr(30, 50)
+            ReDim fte(30, 50)
         ReDim fsp(30, 50)
         ReDim fse(30, 50)
         ReDim ovel(30, 50)
@@ -599,10 +599,10 @@ Module loaddata
                 vol(fanno, count) = Vol_cfm(count)
             End If
             If Units(4).UnitSelected = 0 Then
-                Pow(fanno, count) = Pow_kw(count)
-            ElseIf Units(4).UnitSelected = 1 Then
-                Pow(fanno, count) = Pow_hp(count)
-            End If
+                    Powr(fanno, count) = Pow_kw(count)
+                ElseIf Units(4).UnitSelected = 1 Then
+                    Powr(fanno, count) = Pow_hp(count)
+                End If
             fte(fanno, count) = FTE1(count)
             fse(fanno, count) = FSE1(count)
             If Units(7).UnitSelected = 0 Then
@@ -620,8 +620,8 @@ Module loaddata
         dataoutletarea(fanno) = OutArea_m2
         dataoutletareaftsq(fanno) = OutArea_ft2
         datapoints1 = Num_Readings
-        medpoint(fanno) = Most_Eff_Pt
-        If PType = 1 Then medpoint(fanno) = counteff
+            medpoint(fanno) = Most_Eff_Pt - 1
+            If PType = 1 Then medpoint(fanno) = counteff
 
         FanMaxCount(fanno) = datapoints1
         If PType = 1 Then

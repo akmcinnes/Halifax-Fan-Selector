@@ -120,6 +120,8 @@ Partial Class Frmselectfan
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LblFanDetails = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPageDuty.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -150,7 +152,7 @@ Partial Class Frmselectfan
         Me.TabControl1.Location = New System.Drawing.Point(-4, 37)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1223, 616)
+        Me.TabControl1.Size = New System.Drawing.Size(1209, 638)
         Me.TabControl1.TabIndex = 0
         '
         'TabPageDuty
@@ -174,7 +176,7 @@ Partial Class Frmselectfan
         Me.TabPageDuty.Name = "TabPageDuty"
         Me.TabPageDuty.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPageDuty.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.TabPageDuty.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageDuty.Size = New System.Drawing.Size(1201, 609)
         Me.TabPageDuty.TabIndex = 2
         Me.TabPageDuty.Text = "Duty"
         Me.TabPageDuty.UseVisualStyleBackColor = True
@@ -1023,7 +1025,7 @@ Partial Class Frmselectfan
         Me.TabPageSelection.Location = New System.Drawing.Point(4, 25)
         Me.TabPageSelection.Name = "TabPageSelection"
         Me.TabPageSelection.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageSelection.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageSelection.Size = New System.Drawing.Size(1201, 609)
         Me.TabPageSelection.TabIndex = 1
         Me.TabPageSelection.Text = "Selections"
         Me.TabPageSelection.UseVisualStyleBackColor = True
@@ -1098,7 +1100,7 @@ Partial Class Frmselectfan
         '
         Me.TabPageSelectedFan.Location = New System.Drawing.Point(4, 25)
         Me.TabPageSelectedFan.Name = "TabPageSelectedFan"
-        Me.TabPageSelectedFan.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageSelectedFan.Size = New System.Drawing.Size(1201, 462)
         Me.TabPageSelectedFan.TabIndex = 5
         Me.TabPageSelectedFan.Text = "Selected Fan"
         Me.TabPageSelectedFan.UseVisualStyleBackColor = True
@@ -1107,7 +1109,7 @@ Partial Class Frmselectfan
         '
         Me.TabPageNoise.Location = New System.Drawing.Point(4, 25)
         Me.TabPageNoise.Name = "TabPageNoise"
-        Me.TabPageNoise.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageNoise.Size = New System.Drawing.Size(1201, 462)
         Me.TabPageNoise.TabIndex = 3
         Me.TabPageNoise.Text = "Noise"
         Me.TabPageNoise.UseVisualStyleBackColor = True
@@ -1116,7 +1118,7 @@ Partial Class Frmselectfan
         '
         Me.TabPageImpeller.Location = New System.Drawing.Point(4, 25)
         Me.TabPageImpeller.Name = "TabPageImpeller"
-        Me.TabPageImpeller.Size = New System.Drawing.Size(1215, 587)
+        Me.TabPageImpeller.Size = New System.Drawing.Size(1201, 462)
         Me.TabPageImpeller.TabIndex = 4
         Me.TabPageImpeller.Text = "Impeller"
         Me.TabPageImpeller.UseVisualStyleBackColor = True
@@ -1187,6 +1189,28 @@ Partial Class Frmselectfan
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(53, 610)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(168, 29)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Selected Fan"
+        Me.Label3.Visible = False
+        '
+        'LblFanDetails
+        '
+        Me.LblFanDetails.AutoSize = True
+        Me.LblFanDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblFanDetails.Location = New System.Drawing.Point(235, 610)
+        Me.LblFanDetails.Name = "LblFanDetails"
+        Me.LblFanDetails.Size = New System.Drawing.Size(138, 29)
+        Me.LblFanDetails.TabIndex = 4
+        Me.LblFanDetails.Text = "FanDetails"
+        Me.LblFanDetails.Visible = False
+        '
         'Frmselectfan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -1194,6 +1218,8 @@ Partial Class Frmselectfan
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Button2
         Me.ClientSize = New System.Drawing.Size(1205, 671)
+        Me.Controls.Add(Me.LblFanDetails)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -1338,4 +1364,6 @@ Partial Class Frmselectfan
     Friend WithEvents OptXLS As RadioButton
     Friend WithEvents OptTXT As RadioButton
     Friend WithEvents TabPageSelectedFan As TabPage
+    Friend WithEvents Label3 As Label
+    Friend WithEvents LblFanDetails As Label
 End Class

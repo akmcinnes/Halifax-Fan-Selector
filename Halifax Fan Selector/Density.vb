@@ -32,8 +32,8 @@
             vol(fanno, count) = vol(fanno, count) * Widthratios(fanno)
             fsp(fanno, count) = fsp(fanno, count) * scalefactor
             ftp(fanno, count) = ftp(fanno, count) * scalefactor
-            Pow(fanno, count) = Pow(fanno, count) * scalefactor * Widthratios(fanno)
-            count = count + 1
+                Powr(fanno, count) = Powr(fanno, count) * scalefactor * Widthratios(fanno)
+                count = count + 1
         Loop
             'End If
 

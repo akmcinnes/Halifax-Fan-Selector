@@ -62,14 +62,16 @@ Module Getfiledata
             Try
                 For j = 0 To 100
                     line = objStreamReader.ReadLine()
-                    TestArray = Split(line, ",")
-                    fantypename(j) = TestArray(0)
-                    fanclass(j) = TestArray(1)
-                    fantypefilename(j) = TestArray(2)
-                    fansizelimit(j) = CDbl(TestArray(3))
-                    fantypesecfilename(j) = TestArray(4)
-                    fanunits(j) = TestArray(5)
-                    fanwidthing(j) = CBool(TestArray(6))
+                    If line.Contains(",") Then
+                        TestArray = Split(line, ",")
+                        fantypename(j) = TestArray(0)
+                        fanclass(j) = TestArray(1)
+                        fantypefilename(j) = TestArray(2)
+                        fansizelimit(j) = CDbl(TestArray(3))
+                        fantypesecfilename(j) = TestArray(4)
+                        fanunits(j) = TestArray(5)
+                        fanwidthing(j) = CBool(TestArray(6))
+                    End If
                 Next
             Catch ex As Exception
                 ' MsgBox(ex.ToString)

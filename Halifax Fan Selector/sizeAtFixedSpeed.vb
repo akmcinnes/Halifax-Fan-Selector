@@ -12,25 +12,25 @@
         fansize = fsizes(fanno, 1)
         Do While fansize <> 102
             count1 = 0
-            Do While Pow(fanno, count1) <> 0
-                '-scaling for fan sizes
-                If vol(fanno, count1) = 0 Then
-                    vol(fanno, count1) = 0.0001
-                End If
-                'Call ModifyDatapoints(fanno, count1, fansize, speed, 4)
-                fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), fansize)
-                ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), fansize)
-                vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), fansize)
-                Pows(fanno, count1) = scalePowFSize(Pow(fanno, count1), datafansize(fanno), fansize)
-                '-scales for constant speed at each datapoint
-                speed = Val(Frmselectfan.Txtfanspeed.Text)
-                vols(fanno, count1) = scaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
-                fsps(fanno, count1) = scalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
-                ftps(fanno, count1) = scalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
-                Pows(fanno, count1) = scalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
-                count1 = count1 + 1
-            Loop
-            count2 = 0
+                Do While Powr(fanno, count1) <> 0
+                    '-scaling for fan sizes
+                    If vol(fanno, count1) = 0 Then
+                        vol(fanno, count1) = 0.0001
+                    End If
+                    'Call ModifyDatapoints(fanno, count1, fansize, speed, 4)
+                    fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), fansize)
+                    ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), fansize)
+                    vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), fansize)
+                    Pows(fanno, count1) = scalePowFSize(Powr(fanno, count1), datafansize(fanno), fansize)
+                    '-scales for constant speed at each datapoint
+                    speed = Val(Frmselectfan.Txtfanspeed.Text)
+                    vols(fanno, count1) = scaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
+                    fsps(fanno, count1) = scalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
+                    ftps(fanno, count1) = scalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
+                    Pows(fanno, count1) = scalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
+                    count1 = count1 + 1
+                Loop
+                count2 = 0
             '-finds the point where the volume is nearest
             Do While (Val(Frmselectfan.Txtflow.Text) - vols(fanno, count2)) ^ 2 > (Val(Frmselectfan.Txtflow.Text) - vols(fanno, count2 + 1)) ^ 2
                 If count2 = 500 Then

@@ -24,12 +24,12 @@ Partial Class FanChart
     Private Sub InitializeComponent()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ChkStaticPressureCurve = New System.Windows.Forms.CheckBox()
         Me.ChkTotalPressureCurve = New System.Windows.Forms.CheckBox()
         Me.ChkFanPower = New System.Windows.Forms.CheckBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -41,11 +41,6 @@ Partial Class FanChart
         Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(12, 12)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(975, 431)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
@@ -95,11 +90,21 @@ Partial Class FanChart
         Me.ChkFanPower.Text = "Fan Power"
         Me.ChkFanPower.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(492, 462)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(167, 23)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Write points to file"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'FanChart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1018, 497)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ChkFanPower)
         Me.Controls.Add(Me.ChkTotalPressureCurve)
         Me.Controls.Add(Me.ChkStaticPressureCurve)
@@ -118,4 +123,5 @@ Partial Class FanChart
     Friend WithEvents ChkStaticPressureCurve As CheckBox
     Friend WithEvents ChkTotalPressureCurve As CheckBox
     Friend WithEvents ChkFanPower As CheckBox
+    Friend WithEvents Button2 As Button
 End Class

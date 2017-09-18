@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Halifax_Fan_Selector.Start
+            Me.MainForm = Global.Halifax_Fan_Selector.FrmStart
         End Sub
     End Class
 End Namespace

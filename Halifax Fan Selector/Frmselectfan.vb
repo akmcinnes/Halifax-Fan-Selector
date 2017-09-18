@@ -311,7 +311,7 @@ Public Class Frmselectfan
                         Case 5
                             DataGridView1.Rows(n).Cells(m).Value = Math.Round(ftp(1, n), pressplaceRise).ToString
                         Case 6
-                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(Pow(1, n), 2).ToString
+                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(Powr(1, n), 2).ToString
                         Case 8
                             DataGridView1.Rows(n).Cells(m).Value = Math.Round(fse(1, n), 3).ToString
                         Case 9
@@ -404,10 +404,15 @@ Public Class Frmselectfan
             Dim textlen As Integer
             Dim textlenunit As Integer
             Try
-                HeaderArray = Split(headertext, " ")
-                textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
+                headertext = Trim(headertext)
+                If headertext.Contains(" ") Then
+                    HeaderArray = Split(headertext, " ")
+                    textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
+                Else
+                    textlen = headertext.Length
+                End If
             Catch ex As Exception
-                textlen = headertext.Length
+                MsgBox(ex.Message)
             End Try
             'Dim HeaderArray = Split(headertext, " ")
             'Dim textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
@@ -467,6 +472,8 @@ Public Class Frmselectfan
             Call loadfandata(fantypefilename(k), k)
             Call scaledensity(k, getscalefactor)
 
+            Dim temp_size As Double
+
             '-----repeating if the fansize falls into the secondary data range
             '                MsgBox("fansizelimit(k) = " + fansizelimit(k).ToString)
             If Getfansize(k) >= fansizelimit(k) And Val(fansizelimit(k)) <> 0 Then
@@ -477,6 +484,7 @@ Public Class Frmselectfan
                 '                    MsgBox("The duty is outside the selected fantype duty range")
                 ' akm temp commented out  MsgBox("The duty is outside the " + fanclass(k) + " duty range")
             Else
+                temp_size = Getfansize(k)
                 Call getfanspeed(Getfansize(k), k)
 
                 'fansuccess = fansuccess + 1
@@ -619,7 +627,9 @@ Public Class Frmselectfan
             Next
             DataGridView1.RowCount = fansuccess
             DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
+            If DataGridView1.Height < 100 Then DataGridView1.Height = 100
             Height = DataGridView1.Height * 1.1 + DataGridView1.Location.Y
+            If Height < 325 Then Height = 325
 
             If highlight >= 0 Then
                 DataGridView1.Rows(highlight).Cells(6).Style.BackColor = Color.LightGreen
@@ -678,8 +688,6 @@ Public Class Frmselectfan
                 TxtDensity.Text = Txtdens.Text 'Round(originaldensity, 3)
                 originaldensity = Val(Txtdens.Text)
 
-
-
                 DataGridView1.GridColor = Color.Red
                 DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single
 
@@ -734,7 +742,6 @@ Public Class Frmselectfan
                 If OptXLS.Checked = True Then ReadReffromExcelfile(filenameref)
                 If OptTXT.Checked = True Then ReadReffromTextfile(filenameref)
                 'Dim filename As String
-
 
                 'FullFilePath = "C:\Halifax\Performance Data new\" + filename + ".txt"
                 'Dim objStreamReader As New StreamReader(FullFilePath)
@@ -795,7 +802,7 @@ Public Class Frmselectfan
                             Case 5
                                 DataGridView1.Rows(n).Cells(m).Value = Math.Round(ftp(1, n), pressplaceRise).ToString
                             Case 6
-                                DataGridView1.Rows(n).Cells(m).Value = Math.Round(Pow(1, n), 2).ToString
+                                DataGridView1.Rows(n).Cells(m).Value = Math.Round(Powr(1, n), 2).ToString
                             Case 8
                                 DataGridView1.Rows(n).Cells(m).Value = Math.Round(fse(1, n), 3).ToString
                             Case 9
@@ -823,7 +830,6 @@ Public Class Frmselectfan
                 Dim tempspeed As Double = CDbl(Txtfanspeed.Text)
                 Dim tempflow As Double = CDbl(Txtflow.Text)
                 Dim tempfsp As Double = CDbl(Txtfsp.Text)
-
 
                 For k = 0 To fantypesQTY
                     '-----------------------------------------------------------------------------
@@ -875,16 +881,16 @@ Public Class Frmselectfan
                 Next
 
                 Call PopulateGrid()
-
+                objStreamWriterDebug.WriteLine("Grid populated")
             End If
 
         Catch ex As Exception
             MsgBox("Click")
         End Try
-
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        objStreamWriterDebug.Close()
         End
     End Sub
 
@@ -906,6 +912,10 @@ Public Class Frmselectfan
 
         '  If e.RowIndex = 5 Then End
         '       End If
+        Label3.Visible = True
+        LblFanDetails.Visible = True
+        LblFanDetails.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString + " " + DataGridView1.Rows(e.RowIndex).Cells(0).Value.ToString + " running at " + DataGridView1.Rows(e.RowIndex).Cells(2).Value.ToString + " rpm"
+
     End Sub
     Public Sub SetupGrid()
         Try

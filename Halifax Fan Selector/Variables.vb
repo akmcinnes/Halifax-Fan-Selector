@@ -1,4 +1,6 @@
 ﻿'Imports System.Xml
+Imports System.IO
+
 Module Variables
 
     '    Public Widthratio As Single
@@ -53,7 +55,7 @@ Module Variables
     Public ftp(,) As Double
     Public vol(,) As Double
     Public eff(50, 50) As Double
-    Public Pow(,) As Double
+    Public Powr(,) As Double
     Public fse(,) As Double
     Public fte(,) As Double
     Public ovel(,) As Double
@@ -477,4 +479,6 @@ Module Variables
     Public plotpow() As Double
 
     Public fan2plot As Integer
+    Public objStreamWriterDebug As New StreamWriter("c:\Halifax\debugnew.txt")
+
 End Module

@@ -244,9 +244,9 @@ Module Subs
             fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), fsize)
             ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), fsize)
         vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), fsize)
-        Pows(fanno, count1) = scalePowFSize(Pow(fanno, count1), datafansize(fanno), fsize)
-        '-scales for constant volume at each datapoint
-        If (num = 1) Then
+            Pows(fanno, count1) = scalePowFSize(Powr(fanno, count1), datafansize(fanno), fsize)
+            '-scales for constant volume at each datapoint
+            If (num = 1) Then
             fspeed = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
             vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
         ElseIf (num = 2) Then

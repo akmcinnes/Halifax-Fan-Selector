@@ -10,9 +10,9 @@
     Public Function scaleVFSize(V1, d1, d2)
         Try
             scaleVFSize = V1 * (d2 / d1) ^ 3
-            If (scaleVFSize < 1) Then
-            'MsgBox("V1 = " + V1.ToString)
-        End If
+            '    If (scaleVFSize < 1) Then
+            '    'MsgBox("V1 = " + V1.ToString)
+            'End If
 
         Catch ex As Exception
             MsgBox("scaleVFSize")
@@ -59,9 +59,9 @@
             fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), fansize)
             ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), fansize)
             vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), fansize)
-            Pows(fanno, count1) = scalePowFSize(Pow(fanno, count1), datafansize(fanno), fansize)
-            '-scales for constant volume at each datapoint
-            ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
+                Pows(fanno, count1) = scalePowFSize(Powr(fanno, count1), datafansize(fanno), fansize)
+                '-scales for constant volume at each datapoint
+                ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
             vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
             fsps(fanno, count1) = scalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
             ftps(fanno, count1) = scalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
@@ -184,9 +184,9 @@
             fsps(fanno, medpoint(fanno)) = scalePFSize(fsp(fanno, medpoint(fanno)), datafansize(fanno), size)
         ftps(fanno, medpoint(fanno)) = scalePFSize(ftp(fanno, medpoint(fanno)), datafansize(fanno), size)
         vols(fanno, medpoint(fanno)) = scaleVFSize(vol(fanno, medpoint(fanno)), datafansize(fanno), size)
-        Pows(fanno, medpoint(fanno)) = scalePowFSize(Pow(fanno, medpoint(fanno)), datafansize(fanno), size)
-        '-scales for constant speed at each datapoint
-        vols(fanno, medpoint(fanno)) = scaleVFSpeed(vols(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
+            Pows(fanno, medpoint(fanno)) = scalePowFSize(Powr(fanno, medpoint(fanno)), datafansize(fanno), size)
+            '-scales for constant speed at each datapoint
+            vols(fanno, medpoint(fanno)) = scaleVFSpeed(vols(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
         fsps(fanno, medpoint(fanno)) = scalePFSpeed(fsps(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
         ftps(fanno, medpoint(fanno)) = scalePFSpeed(ftps(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
         Pows(fanno, medpoint(fanno)) = scalePowFSpeed(Pows(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
