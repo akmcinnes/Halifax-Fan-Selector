@@ -1,5 +1,6 @@
 ﻿Imports System.IO
-Public Class FanChart
+Imports System.Drawing.Printing
+Public Class FrmFanChart
     Public SeriesAdded As Boolean
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Close()
@@ -15,17 +16,11 @@ Public Class FanChart
         getaxislabels()
         Dim i As Integer
         Dim filenameref As String = "FILENAME REF DATA"
-        If Frmselectfan.OptXLS.Checked = True Then
-            ReadReffromExcelfile(filenameref)
-            ReadfromExcelfile(Me.Text, 0)
-        End If
-        If Frmselectfan.OptTXT.Checked = True Then
-            ReadReffromTextfile(filenameref)
-            Do While fanclass(i) <> Me.Text
+        ReadReffromBinaryfile(filenameref)
+        Do While fanclass(i) <> Me.Text
                 i = i + 1
             Loop
-            ReadfromTextfile(fantypefilename(i), 0)
-        End If
+        ReadfromBinaryfile(fantypefilename(i), 0)
 
         plotStaticPV()
         plotTotalPV()
@@ -38,8 +33,9 @@ Public Class FanChart
     End Sub
 
     Function getaxislabels()
+        getaxislabels = ""
         If Frmselectfan.OptStaticPressure.Checked = True Then
-            If PType = 0 Then
+            If PresType = 0 Then
                 Chart1.ChartAreas("ChartArea1").AxisY.Title = "STATIC PRESSURE "
             Else
                 Chart1.ChartAreas("ChartArea1").AxisY.Title = "TOTAL PRESSURE "
@@ -317,4 +313,27 @@ Public Class FanChart
         'MsgBox(filename + " read " + fanno.ToString)
 
     End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'PageSetupDialog1.PageSettings.PaperSize("A4", 297, 211)
+        PrintPreviewDialog1.ShowDialog()
+        'Dim Printer As New printer
+        'Printer.PrintAction = Printing.PrintAction.PrintToPreview
+        'Printer.PaperSize = vbPRPSA4
+        'Printer.Print("Using A4 size paper")
+        'Printer.EndDoc()
+        'Try
+        '    PrintTextControl.DefaultPageSettings = PrintPageSettings
+        '    PrintString = TextToPrint.Text
+        '    PreviewPrint.Document = PrintTextControl
+        '    PreviewPrint.ShowDialog()
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
+    End Sub
+    'Private Class printer
+    '    Friend Function PaperSize() As Object
+    '        Throw New NotImplementedException
+    '    End Function
+    'End Class
 End Class

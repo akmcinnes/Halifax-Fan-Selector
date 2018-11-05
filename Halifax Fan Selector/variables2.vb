@@ -212,147 +212,9 @@
     Public selectedov(30) As Double
     Public selectedvol(30) As Double
 
-    '    Public atmos As Double
-
-    '///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    'Imports System.Xml
-
-    ' Attribute VB_Name = "variables"
-    'Public Widthratio As Single
-    '    Public Widthratios(5) As Single
-
-    '    Public ResultsFileName, ResultFile(5) As String
-    '    Public DataSheets(5), NoiseSheets(5), DataSheetOut As Boolean
-    '    Public FileStore As Integer
-
-    '    Public PType, FlowType, DensType As Integer
-
-    '    ' akm    Public fantitles(5), Customer As String
-    '    Public fantitles(5) As String
-    '    Public FanNameSave, FanSizeSave, FanVol, FanSP, FanTP, FanSpeed, FanPower, FanMotor, FanSE, FanTE, FanOutVel As String
-
-    '    Public headerlocation As String
-    '    Public noisesheetname As String
-    '    Public reportNo As Integer
-    '    Public correctedforSUCTIONS(5) As String
-    '    Public curvefanname As String
-
-    '    Public NextSpeed As String
-    '    Public RunTemp As Single
-
-    '    Public datapoints1 As Integer
-    '    Public newdata
-    '    Public fantyperefrow(5) As Integer
-    '    Public Const casethickness = 6 '-twice the thickness of the case
-    '    Public units1 As String
-    '    Public units2 As String
-    '    Public units3 As String
-    '    Public units4 As String
-    '    Public units5 As String
-
-    '    Public fspcol As Integer
-    '    Public ftpcol As Integer
-    '    Public colvol As Integer
-    '    Public colpow As Integer
-    '    Public coleff As Integer
-    '    '-------------------------------------------fan type 1 ONLY variables
-    '    Public SIV(5, 50) As Double 'system inlet volume on suction
-    '    Public FID(5, 50) As Double 'desity of the air at the fan inlet
-    '    Public fansizelimit(5) As Double
-    '    Public fantypesecfilename(5) As String
-    '    Public dataoutletareaftsq(5) As Double
-
-    '    Public fsp(5, 50) As Double
-    '    Public ftp(5, 50) As Double
-    '    Public vol(5, 50) As Double
-    '    Public eff(5, 50) As Double
-    '    Public Pow(5, 50) As Double
-    '    Public fse(5, 50) As Double
-    '    Public fte(5, 50) As Double
-
-    '    Public fsps(5, 50) As Double
-    '    Public ftps(5, 50) As Double
-    '    Public vols(5, 50) As Double
-    '    Public effs(5, 50) As Double
-    '    Public Pows(5, 50) As Double
-    '    Public fses(5, 50) As Double
-    '    Public ftes(5, 50) As Double
-    '    Public ovs(5, 50) As Double
-    '    Public fsizes(5, 500) As Double
-
-    '    Public datafansize(5) As Single
-    '    Public datafanspeed(5) As Integer
-    '    Public dataoutletsize(5) As Integer
-    '    Public dataoutletarea(5) As Double
-    '    Public ftspeed(5, 50) As Double
-    '    Public medpoint(5) As Integer
-
-    '    Public volI(5, 10000) As Double
-    '    Public fspI(5, 10000) As Double
-    '    Public ftpI(5, 10000) As Double
-    '    Public powI(5, 10000) As Double
-    '    Public fseI(5, 10000) As Double
-    '    Public fteI(5, 10000) As Double
-
-    '    Public fanspeedI(5, 10000) As Double
-    '    Public datapointI(5, 10000) As Double
-
-    '    Public prevvolI(5, 10000) As Double
-    '    Public prevfspI(5, 10000) As Double
-    '    Public prevftpI(5, 10000) As Double
-    '    Public prevpowI(5, 10000) As Double
-    '    Public prevfanspeedI(5, 10000) As Double
-    '    Public prevdatapointI(5, 10000) As Double
-    '    Public nxtvolI(5, 10000) As Double
-    '    Public nxtfspI(5, 10000) As Double
-    '    Public nxtftpI(5, 10000) As Double
-    '    Public nxtpowI(5, 10000) As Double
-    '    Public nxtfanspeedI(5, 10000) As Double
-    '    Public nxtdatapointI(5, 10000) As Double
-    '    Public volm3hrI(5, 10000) As Double
-
-    '    Public originaldensity As Double
-
-    '    '--------------START OF OTHER VARIABLES
-
-    '    Public fantypefilename(5) As String
-    '    Public fantypename(5) As String
-    '    Public fanclass(5) As String
-    '    Public FanSave, FanMaxCount(5) As Integer
-
-    '    Public motorsize(200) As Double
-
-    '    Public NEWpressure As Double
-    '    Public NEWpower As Double
-    '    Public NEWdensity As Double
-    '    Public runonce As String
-
-    '    Public voldecplaces, pressplace, FanPick As Integer
-
-    '    Public temppressurE As Object
-
-    '    Public DrawnBy As String
-    '    Public NoisePress As Single
-
-    '    '--- used by AKM
-    '    Public Customer As String
     Public Engineer As String
 
     Public atmos As Double
-
-
-    '    Structure UnitsStruct
-    '    Public UnitName() As String
-    '    Dim UnitDefault As Integer
-    '    Public UnitConversion() As Double
-    '    Dim UnitSelected As Integer
-
-    '    Public Sub initArray()
-    '    ReDim UnitName(8)
-    '    ReDim UnitConversion(8)
-    '    End Sub
-    '    End Structure
 
     Public Structure UnitsStruct
         Private m_UnitName() As String
@@ -409,14 +271,6 @@
     End Structure
 
     Public Units(8) As UnitsStruct
-
-    'flow = 0
-    'pressure = 1
-    'temperature = 2
-    'density = 3
-    'power = 4
-    'length = 5
-    'altitude = 6
 
     Public No_of_units As Integer = 8
 

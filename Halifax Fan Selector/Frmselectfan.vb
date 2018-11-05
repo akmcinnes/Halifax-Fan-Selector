@@ -1,38 +1,56 @@
 ﻿Imports System.IO
 Imports System.Xml
-Imports Excel = Microsoft.Office.Interop.Excel
+Imports System.ComponentModel
 Public Class Frmselectfan
     Public totalcolumnwidth As Integer
     Public ColumnHeader(20) As String
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             Me.CenterToScreen()
             NewProject = True
-            'TabControl1.TabPages.Remove(TabPageSelection)
-            'TabControl1.TabPages.Remove(TabPageNoise)
-            'TabControl1.TabPages.Remove(TabPageImpeller)
-            Initialize()
-            TxtAtmosphericPressure.Text = atmos.ToString
-            TxtDesignTemperature.Text = designtemp.ToString
-            TxtMaximumTemperature.Text = maximumtemp.ToString
-            TxtAmbientTemperature.Text = ambienttemp.ToString
-            TxtAltitude.Text = altitude.ToString
-            TxtHumidity.Text = humidity.ToString
-            TxtAtmosphericPressure.Text = atmospress.ToString
-            Txtdens.Text = knowndensity.ToString
-            Txtflow.Text = flowrate.ToString
-            TxtInletPressure.Text = inletpress.ToString
-            TxtDischargePressure.Text = dischpress.ToString
-            Txtfsp.Text = pressrise.ToString
-            CmbReserveHead.Text = reshead.ToString + "%"
-            Txtspeedlimit.Text = maxspeed.ToString
-            Txtfansize.Text = fansize.ToString
-            FlowType = 1
-
+            TabControl1.Controls.Remove(TabPageImpeller)
+            Initialize(True)
         Catch ex As Exception
             MsgBox("load")
         End Try
+    End Sub
+
+    Private Sub TabControl1_DrawItem(sender As System.Object, e As System.Windows.Forms.DrawItemEventArgs) Handles TabControl1.DrawItem
+
+        'colours the tab controls
+
+        Dim g As Graphics = e.Graphics
+        Dim tp As TabPage = TabControl1.TabPages(e.Index)
+        Dim br As Brush
+        Dim sf As New StringFormat
+
+        Dim r As New RectangleF(e.Bounds.X, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height - 2)
+
+        sf.Alignment = StringAlignment.Center
+
+        Dim strTitle As String = tp.Text
+
+        If TabControl1.SelectedIndex = e.Index Then
+
+            'this is the background color of the tabpage header
+            br = New SolidBrush(Color.LightSteelBlue) ' chnge to your choice
+            g.FillRectangle(br, e.Bounds)
+
+            'this is the foreground color of the text in the tab header
+            br = New SolidBrush(Color.Black) ' change to your choice
+            g.DrawString(strTitle, TabControl1.Font, br, r, sf)
+
+        Else
+
+            'these are the colors for the unselected tab pages 
+            br = New SolidBrush(Color.DarkSlateBlue) ' Change this to your preference
+            g.FillRectangle(br, e.Bounds)
+            br = New SolidBrush(Color.White)
+            g.DrawString(strTitle, TabControl1.Font, br, r, sf)
+
+        End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -40,19 +58,23 @@ Public Class Frmselectfan
             If FileSaved = False Then
                 If MsgBox("Project not saved - do you wish to save your project now?", vbYesNo, "Warning") = vbNo Then
                     End
+                Else
+                    SaveToFile()
+                    End
                 End If
             End If
-            '        End
-
         Catch ex As Exception
-            MsgBox("click")
+            MsgBox("Button2_click")
         End Try
     End Sub
+
+    ' ############################################################################################
+    ' Tool Strip Section
+    ' ############################################################################################
 
     Private Sub ProjectDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProjectDetailsToolStripMenuItem.Click
         Try
             FrmProjectDetails.ShowDialog()
-
         Catch ex As Exception
             MsgBox("ProjectDetailsToolStripMenuItem_Click")
         End Try
@@ -63,16 +85,6 @@ Public Class Frmselectfan
             atmos = TxtAtmosphericPressure.Text
             FrmUnits.ShowDialog()
 
-            'Txtflow.Text = Math.Round(Val(Txtflow.Text) * convflow, 3).ToString
-            'TxtAtmosphericPressure.Text = Math.Round(Val(TxtAtmosphericPressure.Text) * convpres, 3).ToString
-            'TxtInletPressure.Text = Math.Round(Val(TxtInletPressure.Text) * convpres, 3).ToString
-            'TxtDischargePressure.Text = Math.Round(Val(TxtDischargePressure.Text) * convpres, 3).ToString
-            'Txtfsp.Text = Math.Round(Val(Txtfsp.Text) * convpres, 3).ToString
-            'Txtdens.Text = Math.Round(Val(Txtdens.Text) * convdens, 3).ToString
-            'TxtAltitude.Text = Math.Round(Val(TxtAltitude.Text) * convalt, 3).ToString
-
-            Units(2).UnitSelected = 1
-
         Catch ex As Exception
             MsgBox("UnitsToolStripMenuItem_Click_1")
         End Try
@@ -81,7 +93,7 @@ Public Class Frmselectfan
     Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
         Try
             NewProject = True
-            Initialize()
+            Initialize(True)
 
         Catch ex As Exception
             MsgBox("OpenToolStripMenuItem_Click")
@@ -89,81 +101,106 @@ Public Class Frmselectfan
     End Sub
 
     Private Sub SaveProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveProjectToolStripMenuItem.Click
-        Try
-            'set values for saving
-            Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            SaveFileDialog1.InitialDirectory = "c:\Halifax\Projects\"
-            SaveFileDialog1.Filter = "Halifax Selection|*.hfs"
-            SaveFileDialog1.Title = "Save a Halifax Selection File"
-            SaveFileDialog1.ShowDialog()
-            SaveFileName = SaveFileDialog1.FileName
-
-            If (SaveFileName.Length > 0) Then
-
-                ' ### Open the save text file ###
-                Dim textwriter As XmlTextWriter = New XmlTextWriter(SaveFileName, Nothing)
-
-                ' ### Prepare the save text file ###
-                textwriter.Formatting = Formatting.Indented
-                textwriter.Indentation = 3
-                textwriter.IndentChar = Char.Parse(" ")
-
-                ' ### Write the data ###
-                textwriter.WriteStartDocument()
-                Write_to_XML(textwriter, "HFS File")
-                WriteGeneralInfo(textwriter)
-                WriteSelectionInputInfo(textwriter)
-
-                ' ### Close the save text file ###
-                textwriter.WriteEndDocument()
-                textwriter.Close()
-
-                MsgBox("File has been saved")
-
-            End If
-
-        Catch ex As Exception
-            MsgBox("SaveProjectToolStripMenuItem_Click")
-        End Try
+        SaveToFile()
 
     End Sub
 
     Private Sub OpenProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenProjectToolStripMenuItem.Click
-        Try
-            Dim OpenFileDialog1 As OpenFileDialog = New OpenFileDialog()
-            OpenFileDialog1.InitialDirectory = "c:\Halifax\Projects\"
-            OpenFileDialog1.Filter = "Halifax files (*.hfs)|*.hfs|All files (*.*)|*.*"
-            OpenFileDialog1.ShowDialog()
-            OpenFileName = OpenFileDialog1.FileName
-            If OpenFileName = "" Then Exit Sub
+        'Try
+        ReadFromProjectFile = False
+        Dim OpenFileDialog1 As OpenFileDialog = New OpenFileDialog()
+        OpenFileDialog1.InitialDirectory = "c:\Halifax\Projects\"
+        OpenFileDialog1.Filter = "Halifax files (*.hfs)|*.hfs|All files (*.*)|*.*"
+        OpenFileDialog1.ShowDialog()
+        OpenFileName = OpenFileDialog1.FileName
+        If OpenFileName = "" Then Exit Sub
 
-            Dim textReader As XmlTextReader = New XmlTextReader(OpenFileName)
-            textReader.MoveToFirstAttribute()
-            Do While textReader.Read
-                ReadGeneralInfo(textReader)
-                ReadSelectionInputInfo(textReader)
-            Loop
-            ' ### Close the load text file ###
-            textReader.Close()
+        Dim textReader As XmlTextReader = New XmlTextReader(OpenFileName)
+        textReader.MoveToFirstAttribute()
 
-            TxtAtmosphericPressure.Text = atmos.ToString
-            TxtDesignTemperature.Text = designtemp.ToString
-            TxtMaximumTemperature.Text = maximumtemp.ToString
-            TxtAmbientTemperature.Text = ambienttemp.ToString
-            TxtAltitude.Text = altitude.ToString
-            TxtHumidity.Text = humidity.ToString
-            TxtAtmosphericPressure.Text = atmospress.ToString
-            Txtdens.Text = knowndensity.ToString
-            Txtflow.Text = flowrate.ToString
-            TxtInletPressure.Text = inletpress.ToString
-            TxtDischargePressure.Text = dischpress.ToString
-            Txtfsp.Text = pressrise.ToString
-            CmbReserveHead.Text = reshead.ToString + "%"
-            Txtspeedlimit.Text = maxspeed.ToString
+        'While (document.Read())
 
-        Catch ex As Exception
-            MsgBox("OpenProjectToolStripMenuItem_Click")
-        End Try
+        '    Dim type = document.NodeType
+
+        '    'if node type was element
+        '    If (type = XmlNodeType.Element) Then
+
+        '        'if the loop found a <FirstName> tag
+        '        If (document.Name = "FirstName") Then
+
+        '            TextBox1.Text = document.ReadInnerXml.ToString()
+
+        '        End If
+
+        '        'if the loop found a <LastName tag
+        '        If (document.Name = "LastName") Then
+
+        '            TextBox2.Text = document.ReadInnerXml.ToString()
+
+        '        End If
+
+        '    End If
+
+        'End While
+
+
+
+
+
+        While (textReader.Read())
+            Dim type = textReader.NodeType
+            'ReadGeneralInfo(textReader)
+            'ReadSelectionInputInfo(textReader)
+            'MsgBox("textReader.NameOf = ", textReader.Name)
+            If (type = XmlNodeType.Element) Then
+                If textReader.Name = "Customer" Then Customer = textReader.ReadString
+                If textReader.Name = "Engineer" Then Engineer = textReader.ReadString
+                If textReader.Name = "Flow_Units" Then Units(0).UnitSelected = textReader.ReadString
+                If textReader.Name = "Pressure_Units" Then Units(1).UnitSelected = textReader.ReadString
+                If textReader.Name = "Temperature_Units" Then Units(2).UnitSelected = textReader.ReadString
+                If textReader.Name = "Density_Units" Then Units(3).UnitSelected = textReader.ReadString
+                If textReader.Name = "Power_Units" Then Units(4).UnitSelected = textReader.ReadString
+                If textReader.Name = "Size_Units" Then Units(5).UnitSelected = textReader.ReadString
+                If textReader.Name = "Altitude_Units" Then Units(6).UnitSelected = textReader.ReadString
+                If textReader.Name = "Design_Temperature" Then designtemp = textReader.ReadString
+                If textReader.Name = "Maximum_Temperature" Then maximumtemp = textReader.ReadString
+                If textReader.Name = "Ambient_Temperature" Then ambienttemp = textReader.ReadString
+                If textReader.Name = "Altitude" Then altitude = textReader.ReadString
+                If textReader.Name = "Relative_Humidity" Then humidity = textReader.ReadString
+                If textReader.Name = "Atmospheric_Pressure" Then atmospress = textReader.ReadString
+                If textReader.Name = "Known_Density" Then knowndensity = textReader.ReadString
+                If textReader.Name = "Flow_Rate" Then flowrate = textReader.ReadString
+                If textReader.Name = "Inlet_Pressure" Then inletpress = textReader.ReadString
+                If textReader.Name = "Discharge_Pressure" Then dischpress = textReader.ReadString
+                If textReader.Name = "Pressure_Rise" Then pressrise = textReader.ReadString
+                If textReader.Name = "Reserve_Head" Then reshead = textReader.ReadString
+                If textReader.Name = "Maximum_Speed" Then maxspeed = textReader.ReadString
+            End If
+
+        End While
+        ' ### Close the load text file ###
+        textReader.Close()
+
+        TxtAtmosphericPressure.Text = atmos.ToString
+        TxtDesignTemperature.Text = designtemp.ToString
+        TxtMaximumTemperature.Text = maximumtemp.ToString
+        TxtAmbientTemperature.Text = ambienttemp.ToString
+        TxtAltitude.Text = altitude.ToString
+        TxtHumidity.Text = humidity.ToString
+        TxtAtmosphericPressure.Text = atmospress.ToString
+        Txtdens.Text = knowndensity.ToString
+        Txtflow.Text = flowrate.ToString
+        TxtInletPressure.Text = inletpress.ToString
+        TxtDischargePressure.Text = dischpress.ToString
+        Txtfsp.Text = pressrise.ToString
+        CmbReserveHead.Text = reshead.ToString + "%"
+        Txtspeedlimit.Text = maxspeed.ToString
+        ReadFromProjectFile = True
+
+        'Catch ex As Exception
+        '    'MsgBox("OpenProjectToolStripMenuItem_Click")
+        '    'Resume
+        'End Try
 
 
     End Sub
@@ -183,6 +220,56 @@ Public Class Frmselectfan
 
     End Sub
 
+    ' ############################################################################################
+    ' Duty Page
+    ' ############################################################################################
+
+    Private Sub TabPageDuty_Enter(sender As Object, e As EventArgs) Handles TabPageDuty.Enter
+        'TabPageDuty.BackColor = Background_Color
+        If ReadFromProjectFile = False Then Initialize(False)
+        TxtAtmosphericPressure.Text = atmos.ToString
+        TxtDesignTemperature.Text = designtemp.ToString
+        TxtMaximumTemperature.Text = maximumtemp.ToString
+        TxtAmbientTemperature.Text = ambienttemp.ToString
+        'TxtAltitude.Text = altitude.ToString
+        'TxtHumidity.Text = humidity.ToString
+        TxtAtmosphericPressure.Text = atmospress.ToString
+        Txtdens.Text = knowndensity.ToString
+        Txtflow.Text = flowrate.ToString
+        TxtInletPressure.Text = inletpress.ToString
+        TxtDischargePressure.Text = dischpress.ToString
+        Txtfsp.Text = pressrise.ToString
+        CmbReserveHead.Text = reshead.ToString + "%"
+        If freqHz = 50 Then maxspeed = 3000
+        'If freqHz = 50 And OptPoleSpeed.Checked = True Then
+        '    If Opt2Pole.Checked = True Then maxspeed = 3000
+        '    If Opt4Pole.Checked = True Then maxspeed = 1500
+        '    If Opt6Pole.Checked = True Then maxspeed = 1000
+        '    If Opt8Pole.Checked = True Then maxspeed = 750
+        '    If Opt10Pole.Checked = True Then maxspeed = 600
+        '    If Opt12Pole.Checked = True Then maxspeed = 500
+        'End If
+        If freqHz = 60 Then maxspeed = 3600
+        'If freqHz = 60 And OptPoleSpeed.Checked = True Then
+        '    If Opt2Pole.Checked = True Then maxspeed = 3600
+        '    If Opt4Pole.Checked = True Then maxspeed = 1800
+        '    If Opt6Pole.Checked = True Then maxspeed = 1200
+        '    If Opt8Pole.Checked = True Then maxspeed = 900
+        '    If Opt10Pole.Checked = True Then maxspeed = 720
+        '    If Opt12Pole.Checked = True Then maxspeed = 600
+        'End If
+
+        Txtspeedlimit.Text = maxspeed.ToString
+        Txtfansize.Text = fansize.ToString
+        'FlowType = 1
+    End Sub
+
+    Private Sub TabPageDuty_Leave(sender As Object, e As EventArgs) Handles TabPageDuty.Leave
+        Dim str_temp As String = CmbReserveHead.Items(CmbReserveHead.SelectedIndex)
+
+        reshead = CDbl(str_temp.Remove(str_temp.Length - 1))
+    End Sub
+
     Private Sub OptDensityCalculated_CheckedChanged(sender As Object, e As EventArgs) Handles OptDensityCalculated.CheckedChanged
         Try
             If (OptDensityCalculated.Checked = True) Then
@@ -190,8 +277,10 @@ Public Class Frmselectfan
                 If Units(2).UnitSelected = 1 Then RunTemp = Math.Round(((RunTemp - 32) * 5 / 9), 1)
                 Txtdens.Text = Math.Round((293 / (RunTemp + 273)) * 1.2, 3)
                 Txtdens.ReadOnly = True
+                Button7.Enabled = True
             Else
                 Txtdens.ReadOnly = False
+                Button7.Enabled = False
             End If
 
         Catch ex As Exception
@@ -199,479 +288,35 @@ Public Class Frmselectfan
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Try
-            'TabControl1.TabPages.Insert(1, TabPageSelection)
-            'TabControl1.TabPages(1).Focus()
-            'Call initializeSelections()
-            '        TabControl1.SelectTab(1)
-            SetupGrid()
+    ' ############################################################################################
+    ' Selection Page
+    ' ############################################################################################
 
-            Dim i As Integer
-
-            DataGridView1.ColumnCount = 50
-            i = 0
-
-            Column_Header(i, "SIZE", "Colsize", ColumnHeader(0))
-            i = i + 1
-            Column_Header(i, "TYPE", "Coltype", "empty")
-            i = i + 1
-            Column_Header(i, "SPEED", "Colspeed", ColumnHeader(2))
-            i = i + 1
-            Column_Header(i, "VOLUME", "Colvolume", ColumnHeader(3))
-            i = i + 1
-            Column_Header(i, "FSP", "Colfsp", ColumnHeader(4))
-            i = i + 1
-            Column_Header(i, "FTP", "Colftp", ColumnHeader(5))
-            i = i + 1
-            Column_Header(i, "POWER", "Colpower", ColumnHeader(6))
-            i = i + 1
-            Column_Header(i, "MOTOR", "Colmotor", ColumnHeader(7))
-            i = i + 1
-            Column_Header(i, "FSE", "Colfse", ColumnHeader(8))
-            i = i + 1
-            Column_Header(i, "FTE", "Colfte", ColumnHeader(9))
-            i = i + 1
-            Column_Header(i, "OUTLET VELOCITY", "Coloutletvel", ColumnHeader(10))
-            i = i + 1
-            Column_Header(i, "RESERVE HEAD", "Colrhead", ColumnHeader(11))
-            i = i + 1
-            Column_Header(i, "VOL TD", "Colvoltd", ColumnHeader(12))
-
-            DataGridView1.ColumnCount = i + 1
-            DataGridView1.Width = DataGridView1.Width * 1.1
-
-
-            'Dim filename As String
-            'ReadReffromTextfile("FILENAME REF DATA")
-            'ReadReffromExcelfile("FILENAME REF DATA")
-            Dim filenameref As String = "FILENAME REF DATA"
-            If OptXLS.Checked = True Then ReadReffromExcelfile(filenameref)
-            If OptTXT.Checked = True Then ReadReffromTextfile(filenameref)
-
-
-            'filename = "FILENAME REF DATA" 'okay
-
-            'FullFilePath = "C:\Halifax\Performance Data new\" + filename + ".txt"
-            'Dim objStreamReader As New StreamReader(FullFilePath)
-
-            'Dim j As Integer
-
-            'Dim line As String
-            ''count = 0
-            'Dim TestArray() As String
-
-            'Try
-            '    For j = 0 To 100
-            '        line = objStreamReader.ReadLine()
-            '        TestArray = Split(line, ",")
-            '        fantypename(j) = TestArray(0)
-            '        fanclass(j) = TestArray(1)
-            '        fantypefilename(j) = TestArray(2)
-            '        fansizelimit(j) = CDbl(TestArray(3))
-            '        fantypesecfilename(j) = TestArray(4)
-            '        fanunits(j) = TestArray(5)
-            '        fanwidthing(j) = CBool(TestArray(6))
-            '    Next
-            'Catch ex As Exception
-            '    ' MsgBox(ex.ToString)
-            'Finally
-            '    objStreamReader.Close() 'Close 
-            'End Try
-            'fantypesQTY = j - 1
-
-            Dim m, n As Integer
-            DataGridView1.Width = 0
-
-            DataGridView1.RowCount = fantypesQTY + 1
-            For m = 0 To DataGridView1.RowCount - 1
-                DataGridView1.Rows(m).Height = 24
-            Next
-            Dim len As Integer
-            Dim k As Integer
-            For k = 0 To fantypesQTY
-                If fanclass(k) IsNot Nothing Then Call loadfandata(fantypefilename(k), k)
-            Next
-            For n = 0 To DataGridView1.RowCount - 1
-
-                For m = 0 To DataGridView1.ColumnCount - 1
-                    If n = 0 Then DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(m).Width
-                    Select Case m
-                        Case 1
-                            If fanclass(n) IsNot Nothing Then
-                                '                            DataGridView1.Rows(n).Cells(m).Value = fanclass(n)
-                                len = If(fanclass(n).Length < DataGridView1.Columns(m).Width / 8, DataGridView1.Columns(m).Width / 8, fanclass(n).Length)
-                                DataGridView1.Columns(m).Width = len * 8
-                                DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(m).Width
-                            End If
-                        Case 3
-                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(vol(1, n), voldecplaces).ToString
-                        Case 4
-                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(fsp(1, n), pressplaceRise).ToString
-                        Case 5
-                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(ftp(1, n), pressplaceRise).ToString
-                        Case 6
-                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(Powr(1, n), 2).ToString
-                        Case 8
-                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(fse(1, n), 3).ToString
-                        Case 9
-                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(fte(1, n), 3).ToString
-                        Case 10
-                            DataGridView1.Rows(n).Cells(m).Value = Math.Round(ovel(1, n), 3).ToString
-                    End Select
-                    'DataGridView1.Rows(n).Cells(m).Value = "test" + (i * j).ToString
-                Next
-            Next
-            DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
-
-            DataGridView1.Width = 0
-            For i = 0 To DataGridView1.ColumnCount - 1
-                DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(i).Width
-            Next
-            DataGridView1.Width = DataGridView1.Width * 1.05
-            '        Me.Width = DataGridView1.Width * 1.1
-            Width = DataGridView1.Width + 5 * DataGridView1.Location.X
-            Height = DataGridView1.Height * 1.1 + DataGridView1.Location.Y
-            If Height < 325 Then Height = 325
-            CenterToScreen()
-
-            Dim tempsize As Double = CDbl(Txtfansize.Text)
-            Dim tempspeed As Double = CDbl(Txtfanspeed.Text)
-            Dim tempflow As Double = CDbl(Txtflow.Text)
-            Dim tempfsp As Double = CDbl(Txtfsp.Text)
-
-
-            For k = 0 To fantypesQTY
-                '-----------------------------------------------------------------------------
-                '----- FOR KNOWN DUTY BUT NO SPEED OR FAN SIZE GIVEN -------------------------
-                '------------------------------------------------------------------------------
-
-                'Dim size As Double = CDbl(Frmselectfan.Txtfansize.Text)
-                If tempsize = 0 And tempspeed = 0 And tempflow <> 0 And tempfsp <> 0 Then
-                    Call NoSpeedNosize(k)
-                End If
-
-                '----------------------------------------------------------------------------------------
-                '---------------start of selecting fan size based on a given speed and duty point--------
-                '-----------------------------------------------------------------------------------------
-                If tempspeed <> 0 And tempflow <> 0 And tempfsp <> 0 And tempsize = 0 Then
-                    Call WithSpeedNoSize(k)
-                End If
-
-                '----------------------------------------------------------------------------------------
-                '-----------------------Start of listing duty of known fan size and speed
-                '---------------------------------------------------------------------------------------------
-                If tempsize <> 0 And tempspeed <> 0 And tempflow = 0 And tempfsp = 0 Then
-                    Call WithSpeedWithSize(k)
-                End If
-
-                '-----------------------------------------------------------------------------------------------
-                '-----------------------------start of selecting fan with size and volume & pressure------------
-                '-----------------------------------------------------------------------------------------------
-                If tempsize <> 0 And tempflow <> 0 And tempfsp <> 0 And tempspeed = 0 Then
-                    Call WithSizeVolPressure(k)
-                End If
-
-                '-------------------------------------------------------------------------------------------------
-                '-------------------------start of finding pressure for selected fan speed size and volume--------
-                '-------------------------------------------------------------------------------------------------
-                If tempsize <> 0 And tempflow <> 0 And tempspeed <> 0 Then
-                    Call WithSpeedSizeVolume(k)
-                End If
-
-                '--------------------------------------------------------------------------------------
-                '-----------------------start of finding volume for given pressure and fan speed------
-                '-------------------------------------------------------------------------------------
-                If tempsize <> 0 And tempflow = 0 And tempfsp <> 0 And tempspeed <> 0 Then
-                    Call WithSpeedPressure(k)
-                End If
-                'If selectedfansize(k) > 0 Then
-                'End If
-                Call ResHDandVolTD(k)
-            Next
-
-            Call PopulateGrid()
-
-        Catch ex As Exception
-            MsgBox("Click")
-        End Try
+    Private Sub TabPageSelection_Leave(sender As Object, e As EventArgs) Handles TabPageSelection.Leave
+        If finalfantype = "" Then
+            'e.Cancel = True
+            MsgBox("No fan has been selected")
+        Else
+            'e.Cancel = False
+            LblFanDetails.Text = ""
+            Label3.Text = ""
+        End If
     End Sub
 
+    Private Sub TabPageSelection_Enter(sender As Object, e As EventArgs) Handles TabPageSelection.Enter
+        'TabPageSelection.BackColor = Background_Color
+        If OptPoleSpeed.Checked = True And Opt2Pole.Checked = False And
+            Opt4Pole.Checked = False And Opt6Pole.Checked = False And
+            Opt8Pole.Checked = False And Opt10Pole.Checked = False And Opt12Pole.Checked = False Then
+            MsgBox("Please select a pole speed before continuing")
+            TabPageDuty.Select()
+            Exit Sub
+        End If
 
-    Sub Column_Header(ByVal i As Integer, ByVal headertext As String, ByVal headername As String, Optional ByVal column_value As String = "empty")
-        Try
-            Dim HeaderArray() As String
-            Dim textlen As Integer
-            Dim textlenunit As Integer
-            Try
-                headertext = Trim(headertext)
-                If headertext.Contains(" ") Then
-                    HeaderArray = Split(headertext, " ")
-                    textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
-                Else
-                    textlen = headertext.Length
-                End If
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-            'Dim HeaderArray = Split(headertext, " ")
-            'Dim textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
-            Dim len As Integer
-            'Dim len2 As Integer
-            DataGridView1.Columns(i).HeaderText = headertext
-
-            DataGridView1.Columns(i).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomRight
-
-            '        len = If(DataGridView1.Columns(i).HeaderText.Length < 8, 8, DataGridView1.Columns(i).HeaderText.Length)
-            textlenunit = column_value.Length
-            len = If(textlen < 8, 8, textlen)
-            len = If(textlenunit < len, len, textlenunit)
-
-            If (column_value IsNot "empty") Then
-                DataGridView1.Columns(i).HeaderText = DataGridView1.Columns(i).HeaderText + vbNewLine + " (" + column_value + ")"
-            Else
-                DataGridView1.Columns(i).HeaderText = DataGridView1.Columns(i).HeaderText
-            End If
-
-            DataGridView1.Columns(i).Width = len * 8
-            DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(i).Width
-
-        Catch ex As Exception
-            MsgBox("Column_header")
-        End Try
-
-    End Sub
-
-
-    Sub initializeSelections()
-        Try
-            For i = 0 To 29
-                selectedfansize(i) = 0.0
-                selectedfantype(i) = ""
-                selectedfse(i) = 0.0
-                selectedspeed(i) = 0.0
-                selectedpow(i) = 0.0
-                selectedfsp(i) = 0.0
-                selectedfte(i) = 0.0
-                selectedftp(i) = 0.0
-                selectedov(i) = 0.0
-                selectedvol(i) = 0.0
-                selectedmot(i) = 0.0
-                selectedresHD(i) = 0.0
-                selectedVD(i) = 0.0
-            Next
-            fantypesQTY = 0
-
-        Catch ex As Exception
-            MsgBox("Initializeselections")
-        End Try
-    End Sub
-
-    Sub NoSpeedNosize(k)
-        Try
-            Call loadfandata(fantypefilename(k), k)
-            Call scaledensity(k, getscalefactor)
-
-            Dim temp_size As Double
-
-            '-----repeating if the fansize falls into the secondary data range
-            '                MsgBox("fansizelimit(k) = " + fansizelimit(k).ToString)
-            If Getfansize(k) >= fansizelimit(k) And Val(fansizelimit(k)) <> 0 Then
-                Call loadfandata(fantypesecfilename(k), k)
-                Call scaledensity(k, getscalefactor)
-            End If
-            If Getfansize(k) = 0 Then
-                '                    MsgBox("The duty is outside the selected fantype duty range")
-                ' akm temp commented out  MsgBox("The duty is outside the " + fanclass(k) + " duty range")
-            Else
-                temp_size = Getfansize(k)
-                Call getfanspeed(Getfansize(k), k)
-
-                'fansuccess = fansuccess + 1
-            End If
-            '-----end of checking for secondary range
-
-        Catch ex As Exception
-            MsgBox("NoSpeedNoSize")
-        End Try
-    End Sub
-
-    Sub WithSpeedNoSize(k)
-        Try
-            Call loadfandata(fantypefilename(k), k)
-            '---running the suction correction to get the new density at the inlet
-            Call scaledensity(k, getscalefactor)
-            runonce = "no"
-            Call Getsizeatfixedspeed(k)
-
-        Catch ex As Exception
-            MsgBox("WithSpeedNoSize")
-        End Try
-    End Sub
-
-    Sub WithSpeedWithSize(k)
-        Try
-            If Val(Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
-                Call loadfandata(fantypesecfilename(k), k)
-            Else
-                Call loadfandata(fantypefilename(k), k)
-            End If
-            Call scaledensity(k, getscalefactor)
-            Call scalesizespeed(Txtfansize.Text, Txtfanspeed.Text, k)
-
-        Catch ex As Exception
-            MsgBox("WithSpeedWithSize")
-        End Try
-    End Sub
-
-    Sub WithSizeVolPressure(k)
-        Try
-            If Val(Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
-                Call loadfandata(fantypesecfilename(k), k)
-            Else
-                Call loadfandata(fantypefilename(k), k)
-            End If
-            Call scaledensity(k, getscalefactor)
-            Call getfanspeed(Val(Txtfansize.Text), k)
-
-        Catch ex As Exception
-            MsgBox("WithSizeVolPressure")
-        End Try
-    End Sub
-
-    Sub WithSpeedSizeVolume(k)
-        Try
-            If Val(Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
-                Call loadfandata(fantypesecfilename(k), k)
-            Else
-                Call loadfandata(fantypefilename(k), k)
-            End If
-            If Val(Txtfsp.Text) <> 0 Then
-                Txtdens.Text = originaldensity
-                'akmMsgBox("Fan Type " + k.ToString + ": " & fanclass(k) & ", A new value for Pressure has been calculated!", vbInformation)
-            End If
-            Call scaledensity(k, getscalefactor)
-            Call getpressure(CDbl(Txtfansize.Text), CDbl(Txtfanspeed.Text), CDbl(Txtflow.Text), k)
-
-        Catch ex As Exception
-            MsgBox("WithSpeedSizeVolume")
-        End Try
-    End Sub
-
-    Sub WithSpeedPressure(k)
-        Try
-            If Val(Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
-                Call loadfandata(fantypesecfilename(k), k)
-            Else
-                Call loadfandata(fantypefilename(k), k)
-            End If
-            Call scaledensity(k, getscalefactor)
-            Call getvol(Val(Txtfansize.Text), Val(Txtfanspeed.Text), Val(Txtfsp.Text), k)
-
-        Catch ex As Exception
-            MsgBox("WithSpeedPressure")
-        End Try
-    End Sub
-
-    Sub PopulateGrid()
-        Try
-            Dim fansuccess As Integer = 0
-
-            Dim lowest_power As Double = 99999.99
-            Dim highlight As Integer = -1
-
-            SetupGrid()
-
-            'DataGridView1.RowsDefaultCellStyle.BackColor = Color.Bisque
-            'DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige
-
-
-            For k = 0 To fantypesQTY
-                If selectedfansize(k) > 0 Then
-                    DataGridView1.Rows(fansuccess).Cells(0).Value = selectedfansize(k).ToString
-                    DataGridView1.Rows(fansuccess).Cells(1).Value = fanclass(k)
-                    DataGridView1.Rows(fansuccess).Cells(2).Value = selectedspeed(k).ToString
-                    DataGridView1.Rows(fansuccess).Cells(3).Value = selectedvol(k).ToString
-                    DataGridView1.Rows(fansuccess).Cells(4).Value = selectedfsp(k).ToString
-                    DataGridView1.Rows(fansuccess).Cells(5).Value = selectedftp(k).ToString
-                    DataGridView1.Rows(fansuccess).Cells(6).Value = selectedpow(k).ToString
-                    If selectedmot(k) > 0 Then
-                        DataGridView1.Rows(fansuccess).Cells(7).Value = selectedmot(k).ToString
-                    Else
-                        DataGridView1.Rows(fansuccess).Cells(7).Value = "Non Std"
-                    End If
-                    DataGridView1.Rows(fansuccess).Cells(8).Value = selectedfse(k).ToString
-                    DataGridView1.Rows(fansuccess).Cells(9).Value = selectedfte(k).ToString
-                    DataGridView1.Rows(fansuccess).Cells(10).Value = selectedov(k).ToString
-                    DataGridView1.Rows(fansuccess).Cells(11).Value = selectedresHD(k).ToString
-
-                    If selectedVD(k) < 0 Then
-                        DataGridView1.Rows(fansuccess).Cells(12).Value = "Stall"
-                        DataGridView1.Rows(fansuccess).Cells(12).Style.BackColor = Color.Yellow
-                        DataGridView1.Rows(fansuccess).Cells(12).Style.ForeColor = Color.Red
-                    Else
-                        DataGridView1.Rows(fansuccess).Cells(12).Value = selectedVD(k).ToString
-                    End If
-
-                    If selectedresHD(k) < 5 Then
-                        DataGridView1.Rows(fansuccess).Cells(11).Style.BackColor = Color.Yellow
-                        DataGridView1.Rows(fansuccess).Cells(11).Style.ForeColor = Color.Red
-                    End If
-
-                    If selectedpow(k) < lowest_power And selectedpow(k) > 0 Then
-                        lowest_power = selectedpow(k)
-                        highlight = fansuccess
-                    End If
-                    fansuccess = fansuccess + 1
-                End If
-            Next
-            DataGridView1.RowCount = fansuccess
-            DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
-            If DataGridView1.Height < 100 Then DataGridView1.Height = 100
-            Height = DataGridView1.Height * 1.1 + DataGridView1.Location.Y
-            If Height < 325 Then Height = 325
-
-            If highlight >= 0 Then
-                DataGridView1.Rows(highlight).Cells(6).Style.BackColor = Color.LightGreen
-                DataGridView1.CurrentCell = DataGridView1.Rows(highlight).Cells(0)
-            End If
-
-        Catch ex As Exception
-            MsgBox("PopulateGrid")
-        End Try
-    End Sub
-    Sub ResHDandVolTD(fanno)
-        Try
-            fspmax = scalePFSize(fsp(fanno, FanMaxCount(fanno)), datafansize(fanno), selectedfansize(fanno))
-            ftpmax = scalePFSize(ftp(fanno, FanMaxCount(fanno)), datafansize(fanno), selectedfansize(fanno))
-            volmax = scaleVFSize(vol(fanno, FanMaxCount(fanno)), datafansize(fanno), selectedfansize(fanno))
-            '-scales for speed
-            volmax = scaleVFSpeed(volmax, datafanspeed(fanno), selectedspeed(fanno))
-            fspmax = scalePFSpeed(fspmax, datafanspeed(fanno), selectedspeed(fanno))
-            ftpmax = scalePFSpeed(ftpmax, datafanspeed(fanno), selectedspeed(fanno))
-            selectedVD(fanno) = Math.Round((1 - volmax / selectedvol(fanno)) * 100, 1)
-            If PType = 1 Then
-                selectedresHD(fanno) = Math.Round((1 - selectedftp(fanno) / ftpmax) * 100, 1)
-            Else
-                selectedresHD(fanno) = Math.Round((1 - selectedfsp(fanno) / fspmax) * 100, 1)
-            End If
-
-            'FrmSelections.txtpow1.BackColor = &H80FF80
-            'PowMin = Val(FrmSelections.txtpow1.Value)
-
-            'End If
-
-        Catch ex As Exception
-            MsgBox("ResHDandVolTD")
-        End Try
-
-    End Sub
-
-    Private Sub TabControl1_Click(sender As Object, e As EventArgs) Handles TabControl1.Click
         Try
             If TabControl1.SelectedTab.Text.Contains("Selection") Then
                 Call initializeSelections()
-                ColumnHeader(0) = Units(6).UnitName(Units(5).UnitSelected) '"mm" 'Frmselectfan.Comimpunits.Text
+                ColumnHeader(0) = Units(5).UnitName(Units(5).UnitSelected) '"mm" 'Frmselectfan.Comimpunits.Text
                 ColumnHeader(1) = " "
                 ColumnHeader(2) = "RPM"
                 ColumnHeader(3) = Units(0).UnitName(Units(0).UnitSelected) '"m³/hr" 'Frmselectfan.Comflowunits.Text
@@ -687,6 +332,9 @@ Public Class Frmselectfan
                 LblGasDensityUnit.Text = Units(3).UnitName(Units(3).UnitSelected) '"kg/m³" 'Frmselectfan.Comairdenunits.Text
                 TxtDensity.Text = Txtdens.Text 'Round(originaldensity, 3)
                 originaldensity = Val(Txtdens.Text)
+
+                DataGridView1.ColumnHeadersDefaultCellStyle.Font = New Font("Tahoma", 9, FontStyle.Bold)
+                DataGridView1.DefaultCellStyle.Font = New Font("Tahoma", 9)
 
                 DataGridView1.GridColor = Color.Red
                 DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Single
@@ -704,72 +352,47 @@ Public Class Frmselectfan
                 DataGridView1.RowsDefaultCellStyle.BackColor = Color.Bisque
                 DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige
 
-                Dim i As Integer
+                '  DataGridView1.ScrollBars = ScrollBars.Vertical
 
+                Dim i As Integer
+                DataGridView1.RowCount = 10
                 DataGridView1.ColumnCount = 50
                 i = 0
 
                 Column_Header(i, "SIZE", "Colsize", ColumnHeader(0))
+                Column_Header(i, "Size", "Colsize", "empty")
                 i = i + 1
-                Column_Header(i, "TYPE", "Coltype", "empty")
+                Column_Header(i, "Type", "Coltype", "empty")
                 i = i + 1
-                Column_Header(i, "SPEED", "Colspeed", ColumnHeader(2))
+                Column_Header(i, "Speed", "Colspeed", ColumnHeader(2))
                 i = i + 1
-                Column_Header(i, "VOLUME", "Colvolume", ColumnHeader(3))
+                Column_Header(i, "Flow", "Colvolume", ColumnHeader(3))
                 i = i + 1
-                Column_Header(i, "FSP", "Colfsp", ColumnHeader(4))
+                Column_Header(i, "Fan Static Pressure", "Colfsp", ColumnHeader(4))
                 i = i + 1
-                Column_Header(i, "FTP", "Colftp", ColumnHeader(5))
+                Column_Header(i, "Fan Total Pressure", "Colftp", ColumnHeader(5))
                 i = i + 1
-                Column_Header(i, "POWER", "Colpower", ColumnHeader(6))
+                Column_Header(i, "Fan Power", "Colpower", ColumnHeader(6))
                 i = i + 1
-                Column_Header(i, "MOTOR", "Colmotor", ColumnHeader(7))
+                Column_Header(i, "Motor Power", "Colmotor", ColumnHeader(7))
                 i = i + 1
-                Column_Header(i, "FSE", "Colfse", ColumnHeader(8))
+                Column_Header(i, "Fan Static Efficiency", "Colfse", ColumnHeader(8))
                 i = i + 1
-                Column_Header(i, "FTE", "Colfte", ColumnHeader(9))
+                Column_Header(i, "Fan Total Efficiency", "Colfte", ColumnHeader(9))
                 i = i + 1
-                Column_Header(i, "OUTLET VELOCITY", "Coloutletvel", ColumnHeader(10))
+                Column_Header(i, "Outlet Velocity", "Coloutletvel", ColumnHeader(10))
                 i = i + 1
-                Column_Header(i, "RESERVE HEAD", "Colrhead", ColumnHeader(11))
+                Column_Header(i, "Reserve Head", "Colrhead", ColumnHeader(11))
                 i = i + 1
-                Column_Header(i, "VOL TD", "Colvoltd", ColumnHeader(12))
+                Column_Header(i, "Volume TD", "Colvoltd", ColumnHeader(12))
 
                 DataGridView1.ColumnCount = i + 1
                 DataGridView1.Width = DataGridView1.Width * 1.1
+                'DataGridView1.ColumnHeadersHeight = DataGridView1.ColumnHeadersHeight * 1.1
+
 
                 Dim filenameref As String = "FILENAME REF DATA"
-                If OptXLS.Checked = True Then ReadReffromExcelfile(filenameref)
-                If OptTXT.Checked = True Then ReadReffromTextfile(filenameref)
-                'Dim filename As String
-
-                'FullFilePath = "C:\Halifax\Performance Data new\" + filename + ".txt"
-                'Dim objStreamReader As New StreamReader(FullFilePath)
-
-                'Dim j As Integer
-
-                'Dim line As String
-                ''count = 0
-                'Dim TestArray() As String
-
-                'Try
-                '    For j = 0 To 100
-                '        line = objStreamReader.ReadLine()
-                '        TestArray = Split(line, ",")
-                '        fantypename(j) = TestArray(0)
-                '        fanclass(j) = TestArray(1)
-                '        fantypefilename(j) = TestArray(2)
-                '        fansizelimit(j) = CDbl(TestArray(3))
-                '        fantypesecfilename(j) = TestArray(4)
-                '        fanunits(j) = TestArray(5)
-                '        fanwidthing(j) = CBool(TestArray(6))
-                '    Next
-                'Catch ex As Exception
-                '    ' MsgBox(ex.ToString)
-                'Finally
-                '    objStreamReader.Close() 'Close 
-                'End Try
-                'fantypesQTY = j - 1
+                ReadReffromBinaryfile(filenameref)
 
                 Dim m, n As Integer
                 DataGridView1.Width = 0
@@ -780,11 +403,10 @@ Public Class Frmselectfan
                 Next
                 Dim len As Integer
                 Dim k As Integer
-                For k = 0 To fantypesQTY
-                    If fanclass(k) IsNot Nothing Then Call loadfandata(fantypefilename(k), k)
+                For k = 0 To fantypesQTY - 1
+                    If fanclass(k) IsNot Nothing Then Call LoadFanData(fantypefilename(k), k)
                 Next
                 For n = 0 To DataGridView1.RowCount - 1
-
                     For m = 0 To DataGridView1.ColumnCount - 1
                         If n = 0 Then DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(m).Width
                         Select Case m
@@ -813,7 +435,13 @@ Public Class Frmselectfan
                         'DataGridView1.Rows(n).Cells(m).Value = "test" + (i * j).ToString
                     Next
                 Next
+                'If DataGridView1.RowCount > 10 Then
+                '    DataGridView1.Height = (240 + DataGridView1.ColumnHeadersHeight) * 1.1
+                '    DataGridView1.ScrollBars = ScrollBars.Vertical
+                'Else
                 DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
+                DataGridView1.ColumnHeadersHeight = 400
+                'End If
 
                 DataGridView1.Width = 0
                 For i = 0 To DataGridView1.ColumnCount - 1
@@ -822,8 +450,8 @@ Public Class Frmselectfan
                 DataGridView1.Width = DataGridView1.Width * 1.05
                 '        Me.Width = DataGridView1.Width * 1.1
                 Width = DataGridView1.Width + 5 * DataGridView1.Location.X
-                Height = DataGridView1.Height * 1.1 + DataGridView1.Location.Y
-                If Height < 325 Then Height = 325
+                DataGridView1.Height = DataGridView1.Height * 1.1 + DataGridView1.Location.Y
+                If DataGridView1.Height < 350 Then DataGridView1.Height = 350
                 CenterToScreen()
 
                 Dim tempsize As Double = CDbl(Txtfansize.Text)
@@ -831,7 +459,7 @@ Public Class Frmselectfan
                 Dim tempflow As Double = CDbl(Txtflow.Text)
                 Dim tempfsp As Double = CDbl(Txtfsp.Text)
 
-                For k = 0 To fantypesQTY
+                For k = 0 To fantypesQTY - 1 'akm200118
                     '-----------------------------------------------------------------------------
                     '----- FOR KNOWN DUTY BUT NO SPEED OR FAN SIZE GIVEN -------------------------
                     '------------------------------------------------------------------------------
@@ -887,36 +515,235 @@ Public Class Frmselectfan
         Catch ex As Exception
             MsgBox("Click")
         End Try
+
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        objStreamWriterDebug.Close()
+        Close()
         End
     End Sub
 
-    'Private Sub TabControl1_Click(sender As Object, e As EventArgs) Handles TabControl1.Click
-    '    Dim i As Integer
-    '    If TabControl1.SelectedTab.Text = "Selection" Then
-    '        MsgBox("selections")
-    '    End If
-    'End Sub
+    Sub initializeSelections()
+        Try
+            For i = 0 To 29
+                selectedfansize(i) = 0.0
+                selectedfantype(i) = ""
+                selectedfse(i) = 0.0
+                selectedspeed(i) = 0.0
+                selectedpow(i) = 0.0
+                selectedfsp(i) = 0.0
+                selectedfte(i) = 0.0
+                selectedftp(i) = 0.0
+                selectedov(i) = 0.0
+                selectedvol(i) = 0.0
+                selectedmot(i) = 0.0
+                selectedresHD(i) = 0.0
+                selectedVD(i) = 0.0
+                selectedBladeType(i) = ""
+                selectedBladeNumber(i) = 0
+                selectedfanfile(i) = ""
+            Next
+            fantypesQTY = 0
 
-    Private Sub DataGridView1_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        '        If e.ColumnIndex = 3 Then
-        If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
-            'MsgBox("Invalid selection")
-            Exit Sub
-        End If
-        '   MsgBox(DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString)
-        'MsgBox(("Row : " + e.RowIndex.ToString & "  Col : ") + e.ColumnIndex.ToString)
+        Catch ex As Exception
+            MsgBox("Initializeselections")
+        End Try
+    End Sub
 
-        '  If e.RowIndex = 5 Then End
-        '       End If
-        Label3.Visible = True
-        LblFanDetails.Visible = True
-        LblFanDetails.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString + " " + DataGridView1.Rows(e.RowIndex).Cells(0).Value.ToString + " running at " + DataGridView1.Rows(e.RowIndex).Cells(2).Value.ToString + " rpm"
+    Sub Column_Header(ByVal i As Integer, ByVal headertext As String, ByVal headername As String, Optional ByVal column_value As String = "empty")
+        Try
+            Dim HeaderArray() As String
+            'Dim textlen1(10) As Integer
+            Dim textlen As Integer
+            Dim textlenunit As Integer
+            Dim count As Integer
+            Try
+                If (column_value IsNot "empty") Then
+                    headertext = headertext + " (" + column_value + ")"
+                End If
+
+
+
+
+                headertext = Trim(headertext)
+                textlen = 0
+                If headertext.Contains(" ") Then
+                    HeaderArray = Split(headertext, " ")
+                    For count = 0 To HeaderArray.Length - 1
+                        'textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
+                        'textlen1(count) = HeaderArray(count).Length
+                        If HeaderArray(count).Length > textlen Then
+                            textlen = HeaderArray(count).Length
+                        End If
+                    Next
+                Else
+                    textlen = headertext.Length
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+            'Dim HeaderArray = Split(headertext, " ")
+            'Dim textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
+            Dim len As Integer
+            'Dim len2 As Integer
+            DataGridView1.Columns(i).HeaderText = headertext
+
+            '        len = If(DataGridView1.Columns(i).HeaderText.Length < 8, 8, DataGridView1.Columns(i).HeaderText.Length)
+            textlenunit = column_value.Length
+            len = If(textlen < 8, 8, textlen)
+            len = If(textlenunit < len, len, textlenunit)
+
+            'If (column_value IsNot "empty") Then
+            '    'DataGridView1.Columns(i).HeaderText = DataGridView1.Columns(i).HeaderText + vbCr + " (" + column_value + ")"
+            '    'DataGridView1.Columns(i).HeaderText = DataGridView1.Columns(i).HeaderText + " (" + column_value + ")"
+            '    DataGridView1.Columns(i).HeaderText = headertext + " (" + column_value + ")"
+            'Else
+            '    'DataGridView1.Columns(i).HeaderText = DataGridView1.Columns(i).HeaderText
+            '    DataGridView1.Columns(i).HeaderText = headertext
+            'End If
+
+            DataGridView1.Columns(i).Width = len * 8
+            DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(i).Width
+
+            'DataGridView1.Columns(i).DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter
+            DataGridView1.Columns(i).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+
+        Catch ex As Exception
+            MsgBox("Column_header")
+        End Try
 
     End Sub
+
+    Sub PopulateGrid()
+        Try
+            Dim fansuccess As Integer = 0
+
+            Dim lowest_power As Double = 99999.99
+            Dim highlight As Integer = -1
+
+            SetupGrid()
+
+            'DataGridView1.RowsDefaultCellStyle.BackColor = Color.Bisque
+            'DataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige
+
+            Dim minresHD As Double
+            minresHD = reshead
+            If AdvancedUser Then minresHD = 0.0
+
+            For k = 0 To fantypesQTY - 1 'akm 201018
+                If selectedfansize(k) > 0 And selectedresHD(k) >= minresHD Then
+                    DataGridView1.Rows(fansuccess).Cells(0).Value = selectedfansize(k).ToString
+                    DataGridView1.Rows(fansuccess).Cells(1).Value = fanclass(k)
+                    DataGridView1.Rows(fansuccess).Cells(2).Value = selectedspeed(k).ToString
+                    DataGridView1.Rows(fansuccess).Cells(3).Value = selectedvol(k).ToString
+                    DataGridView1.Rows(fansuccess).Cells(4).Value = selectedfsp(k).ToString
+                    DataGridView1.Rows(fansuccess).Cells(5).Value = selectedftp(k).ToString
+                    DataGridView1.Rows(fansuccess).Cells(6).Value = selectedpow(k).ToString
+                    If selectedmot(k) > 0 Then
+                        DataGridView1.Rows(fansuccess).Cells(7).Value = selectedmot(k).ToString
+                    Else
+                        DataGridView1.Rows(fansuccess).Cells(7).Value = "Non Std"
+                    End If
+                    DataGridView1.Rows(fansuccess).Cells(8).Value = selectedfse(k).ToString
+                    DataGridView1.Rows(fansuccess).Cells(9).Value = selectedfte(k).ToString
+                    DataGridView1.Rows(fansuccess).Cells(10).Value = selectedov(k).ToString
+                    DataGridView1.Rows(fansuccess).Cells(11).Value = selectedresHD(k).ToString
+
+                    If selectedVD(k) < 0 Then
+                        DataGridView1.Rows(fansuccess).Cells(12).Value = "Stall"
+                        DataGridView1.Rows(fansuccess).Cells(12).Style.BackColor = Color.White
+                        DataGridView1.Rows(fansuccess).Cells(12).Style.ForeColor = Color.Red
+                    Else
+                        DataGridView1.Rows(fansuccess).Cells(12).Value = selectedVD(k).ToString
+                    End If
+
+                    If selectedresHD(k) < 5 Then
+                        DataGridView1.Rows(fansuccess).Cells(11).Style.BackColor = Color.White
+                        DataGridView1.Rows(fansuccess).Cells(11).Style.ForeColor = Color.Red
+                    End If
+
+                    If selectedpow(k) < lowest_power And selectedpow(k) > 0 Then
+                        lowest_power = selectedpow(k)
+                        highlight = fansuccess
+                    End If
+                    fansuccess = fansuccess + 1
+                End If
+            Next
+            DataGridView1.RowCount = fansuccess
+            DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
+            If DataGridView1.Height < 100 Then DataGridView1.Height = 100
+            DataGridView1.Height = DataGridView1.Height * 1.1 + DataGridView1.Location.Y
+            '++++++++++++++++++++++++++++++
+            If DataGridView1.RowCount > 9 Then
+                DataGridView1.Height = (9 * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
+                DataGridView1.ScrollBars = ScrollBars.Vertical
+            Else
+                DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
+            End If
+            Dim mm, nn, zz As Double
+            mm = CDbl(DataGridView1.Height) * 1.1
+            nn = CDbl(DataGridView1.Location.Y)
+            zz = mm + nn
+            DataGridView1.Height = CInt(zz)
+            'Height = CInt(CDbl(DataGridView1.Height) * 1.1 + CDbl(DataGridView1.Location.Y))
+
+            '++++++++++++++++++++++++++++++
+
+
+            If DataGridView1.Height < 350 Then DataGridView1.Height = 350
+            DataGridView1.Height = 350
+            If highlight >= 0 Then
+                DataGridView1.Rows(highlight).Cells(6).Style.BackColor = Color.LightGreen
+                DataGridView1.CurrentCell = DataGridView1.Rows(highlight).Cells(0)
+            End If
+
+        Catch ex As Exception
+            MsgBox("PopulateGrid")
+        End Try
+    End Sub
+
+    Private Sub DataGridView1_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
+            Exit Sub
+        End If
+        Button13.Enabled = True
+        Label3.Visible = True
+        Label3.Text = "Selected Fan: "
+        LblFanDetails.Visible = True
+
+        ' TabPageNoise.Show()
+        ' TabControl1.Controls.Add(TabPageNoise)
+
+        Dim ii As Integer
+        ii = 0
+        Do While DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selectedfantype(ii)
+            ii = ii + 1
+        Loop
+        LblFanDetails.Text = selectedfantype(ii) + " " + selectedfansize(ii).ToString + " running at " + selectedspeed(ii).ToString + " rpm"
+        'Label19.Text = "File used = " + selectedfanfile(ii)
+        'Label19.Visible = True
+
+        finalfansize = selectedfansize(ii)
+        finalfantype = selectedfantype(ii) 'string
+        finalfse = selectedfse(ii)
+        finalspeed = selectedspeed(ii)
+        finalpow = selectedpow(ii)
+        finalfsp = selectedfsp(ii)
+        finalfte = selectedfte(ii)
+        finalftp = selectedftp(ii)
+        finalov = selectedov(ii)
+        finalvol = selectedvol(ii)
+        finalmot = selectedmot(ii)
+        finalresHD = selectedresHD(ii)
+        finalVD = selectedVD(ii)
+        finalBladeType = selectedBladeType(ii)
+        finalBladeNumber = selectedBladeNumber(ii)
+        finalfanfile = selectedfanfile(ii)
+
+        'TabPageNoise.Enabled = True
+        TabControl1.TabPages(3).Enabled = True
+    End Sub
+
     Public Sub SetupGrid()
         Try
             'Dim DataGridView1 = New DataGridView()
@@ -946,8 +773,515 @@ Public Class Frmselectfan
         If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
             Exit Sub
         End If
-        FanChart.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString
-        FanChart.Show()
+        Button13.Enabled = True
+        TabPageNoise.Enabled = True
+        FrmFanChart.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString
+        FrmFanChart.Show()
 
+    End Sub
+
+    ' ############################################################################################
+    ' Noise Page
+    ' ############################################################################################
+
+    Private Sub TabPageNoise_Enter(sender As Object, e As EventArgs) Handles TabPageNoise.Enter
+        'Dim TableLayoutPanel2 = New TableLayoutPanel()
+        'TabPageNoise.BackColor = Background_Color
+        TableLayoutPanel1.Controls.Clear()
+        TxtFlownoise.Text = finalvol.ToString
+        TxtPressurenoise.Text = finalfsp.ToString
+        TxtSizenoise.Text = finalfansize.ToString
+        TxtSpeednoise.Text = finalspeed.ToString
+        TxtTypenoise.Text = finalfantype
+
+        For i = 0 To 8
+            For j = 0 To 8
+                'TableLayoutPanel1.su
+            Next
+        Next
+        DataGridView2.ColumnCount = 9
+        DataGridView2.RowCount = 4
+        DataGridView2.Columns(0).Width = 200
+        For i = 1 To 8
+            DataGridView2.Columns(i).Width = 35
+        Next
+
+
+        Dim txt(8) As Label
+        For q As Integer = 0 To 7
+            txt(q) = New Label()
+        Next q
+
+        For q = 0 To 7
+            txt(q).BackColor = Color.Black
+        Next
+        'txt.Location = New Point(0, 0)
+        txt(0).Text = "63"
+        TableLayoutPanel1.Controls.Add(txt(0), 1, 0) '; //start it In cell 0,0
+        DataGridView2.Rows(0).Cells(1).Value = txt(0).Text
+        txt(1).Text = "125"
+        TableLayoutPanel1.Controls.Add(txt(1), 2, 0) '; //start it In cell 0,0
+        DataGridView2.Rows(0).Cells(2).Value = txt(1).Text
+        txt(2).Text = "250"
+        TableLayoutPanel1.Controls.Add(txt(2), 3, 0) '; //start it In cell 0,0
+        DataGridView2.Rows(0).Cells(3).Value = txt(2).Text
+        txt(3).Text = "500"
+        TableLayoutPanel1.Controls.Add(txt(3), 4, 0) '; //start it In cell 0,0
+        DataGridView2.Rows(0).Cells(4).Value = txt(3).Text
+        txt(4).Text = "1000"
+        TableLayoutPanel1.Controls.Add(txt(4), 5, 0) '; //start it In cell 0,0
+        DataGridView2.Rows(0).Cells(5).Value = txt(4).Text
+        txt(5).Text = "2000"
+        TableLayoutPanel1.Controls.Add(txt(5), 6, 0) '; //start it In cell 0,0
+        DataGridView2.Rows(0).Cells(6).Value = txt(5).Text
+        txt(6).Text = "4000"
+        TableLayoutPanel1.Controls.Add(txt(6), 7, 0) '; //start it In cell 0,0
+        DataGridView2.Rows(0).Cells(7).Value = txt(6).Text
+        txt(7).Text = "8000"
+        TableLayoutPanel1.Controls.Add(txt(7), 8, 0) '; //start it In cell 0,0
+        DataGridView2.Rows(0).Cells(8).Value = txt(7).Text
+        'TableLayoutPanel1.SetColumnSpan(txt, 9) '; //merge 3 columns
+        'TableLayoutPanel1.SetColumnSpan(9)
+
+        convunits()
+        calcSPL()
+        output()
+
+        If OptDuct.Checked = True And OptOpenInlet.Checked = True And OptOpenOutlet.Checked = True Then
+            Drow = 17
+            OIrow = 26
+            OOrow = 33
+            bpfroW = 40
+            brgrow = 42
+            Motorrow = 44
+
+            Call ductcalcs()
+            Call outputduct()
+
+            Call openinletcalcs()
+            Call outputopeninlet()
+
+            Call openoutletcalcs()
+            Call outputopenoutlet()
+        End If
+
+        If OptDuct.Checked = True And OptOpenInlet.Checked = True And OptOpenOutlet.Checked = False Then
+            Drow = 17
+            OIrow = 26
+            bpfroW = 34
+            brgrow = 36
+            Motorrow = 38
+
+            Call ductcalcs()
+            Call outputduct()
+
+            Call openinletcalcs()
+            Call outputopeninlet()
+        End If
+        If OptDuct.Checked = True And OptOpenInlet.Checked = False And OptOpenOutlet.Checked = True Then
+            Drow = 17
+            OOrow = 26
+            bpfroW = 34
+            brgrow = 36
+            Motorrow = 38
+
+            Call ductcalcs()
+            Call outputduct()
+
+            Call openoutletcalcs()
+            Call outputopenoutlet()
+        End If
+        If OptDuct.Checked = True And OptOpenInlet.Checked = False And OptOpenOutlet.Checked = False Then
+            Drow = 17
+            bpfroW = 26
+            brgrow = 28
+            Motorrow = 30
+
+            Call ductcalcs()
+            Call outputduct()
+        End If
+
+        If OptDuct.Checked = False And OptOpenInlet.Checked = True And OptOpenOutlet.Checked = True Then
+            OIrow = 17
+            OOrow = 24
+            bpfroW = 31
+            brgrow = 33
+            Motorrow = 35
+
+            Call openinletcalcs()
+            Call outputopeninlet()
+
+            Call openoutletcalcs()
+            Call outputopenoutlet()
+        End If
+
+        If OptDuct.Checked = False And OptOpenInlet.Checked = False And OptOpenOutlet.Checked = True Then
+            OOrow = 17
+            bpfroW = 24
+            brgrow = 26
+            Motorrow = 28
+
+            Call openoutletcalcs()
+            Call outputopenoutlet()
+        End If
+        If OptDuct.Checked = False And OptOpenInlet.Checked = True And OptOpenOutlet.Checked = False Then
+            OIrow = 17
+            bpfroW = 24
+            brgrow = 26
+            Motorrow = 28
+
+            Call openinletcalcs()
+            Call outputopeninlet()
+        End If
+
+        Call calcBPfreq()
+        Call outputbpf()
+
+        If optbrg.Checked = True Then
+            Call calcbrg()
+            Call outputbrg()
+        End If
+
+        If optmotor.Checked = True Then
+            Call outputmotor()
+        End If
+
+
+    End Sub
+
+    Private Sub OptPoleSpeed_CheckedChanged(sender As Object, e As EventArgs)
+        If OptPoleSpeed.Checked = True Then
+            GrpPoleBox.Enabled = True
+        Else
+            Opt2Pole.Checked = False
+            Opt4Pole.Checked = False
+            Opt6Pole.Checked = False
+            Opt8Pole.Checked = False
+            Opt10Pole.Checked = False
+            Opt12Pole.Checked = False
+            GrpPoleBox.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Opt2Pole_CheckedChanged(sender As Object, e As EventArgs)
+        Txtspeedlimit.Text = 2970
+        Txtfanspeed.Text = 2970
+    End Sub
+
+    Private Sub Opt4Pole_CheckedChanged(sender As Object, e As EventArgs)
+        Txtspeedlimit.Text = 1490
+        Txtfanspeed.Text = 1490
+    End Sub
+
+    Private Sub Opt6Pole_CheckedChanged(sender As Object, e As EventArgs)
+        Txtspeedlimit.Text = 990
+        Txtfanspeed.Text = 990
+    End Sub
+
+    Private Sub Opt8Pole_CheckedChanged(sender As Object, e As EventArgs)
+        Txtspeedlimit.Text = 743
+        Txtfanspeed.Text = 743
+    End Sub
+
+    Private Sub Opt10Pole_CheckedChanged(sender As Object, e As EventArgs)
+        Txtspeedlimit.Text = 590
+        Txtfanspeed.Text = 590
+    End Sub
+
+    Private Sub Opt12Pole_CheckedChanged(sender As Object, e As EventArgs)
+        Txtspeedlimit.Text = 493
+        Txtfanspeed.Text = 493
+    End Sub
+
+    Private Sub ChkPlenumFans_CheckedChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ChkAxialFans_CheckedChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ChkOldDesignFans_CheckedChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub TabPageSelection_Validating(sender As Object, e As CancelEventArgs) Handles TabPageSelection.Validating
+        If finalfantype = "" Then
+            e.Cancel = True
+            MsgBox("No fan has been selected")
+        Else
+            'e.Cancel = False
+            LblFanDetails.Text = ""
+            Label3.Text = ""
+        End If
+    End Sub
+
+    Private Sub TabPageEnvironment_Enter(sender As Object, e As EventArgs) Handles TabPageEnvironment.Enter
+        'TabPageEnvironment.BackColor = Background_Color
+    End Sub
+
+    Private Sub TabPageImpeller_Enter(sender As Object, e As EventArgs) Handles TabPageImpeller.Enter
+        'TabPageImpeller.BackColor = Background_Color
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        End
+    End Sub
+
+    Private Sub PrintPreviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintPreviewToolStripMenuItem.Click
+        Dim PrintPreviewDialog1 As PrintPreviewDialog = New PrintPreviewDialog()
+        'PrintPreviewDialog1.InitialDirectory = "c:\Halifax\Projects\"
+        'PrintPreviewDialog1.Filter = "Halifax Selection|*.hfs"
+        'PrintPreviewDialog1.Title = "Save a Halifax Selection File"
+        PrintPreviewDialog1.ShowDialog()
+        'SaveFileName = PrintPreviewDialog1.FileName
+
+    End Sub
+
+    Private Sub PrintToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintToolStripMenuItem.Click
+        Dim PrintDialog1 As PrintDialog = New PrintDialog()
+        'PrintPreviewDialog1.InitialDirectory = "c:\Halifax\Projects\"
+        'PrintPreviewDialog1.Filter = "Halifax Selection|*.hfs"
+        'PrintPreviewDialog1.Title = "Save a Halifax Selection File"
+        PrintDialog1.ShowDialog()
+        'SaveFileName = PrintPreviewDialog1.FileName
+
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        FrmDensityCalcs.TextBox1.Text = TxtDesignTemperature.Text
+        FrmDensityCalcs.TextBox4.Text = TxtAltitude.Text
+        FrmDensityCalcs.TextBox2.Text = TxtInletPressure.Text
+        FrmDensityCalcs.TextBox3.Text = TxtHumidity.Text
+        FrmDensityCalcs.ShowDialog()
+    End Sub
+
+    Private Sub TabPageDuty_Click(sender As Object, e As EventArgs) Handles TabPageDuty.Click
+
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        'open environment tab
+        TabControl1.SelectTab(TabPageEnvironment)
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        'open fan parameters tab
+        'SetUnitValues()
+        TabControl1.SelectTab(TabPageFanParameters)
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        'open duty input tab
+        TabControl1.SelectTab(TabPageDuty)
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        'open fan selection tab
+        If freqHz = 50 Then maxspeed = 3000
+        If freqHz = 50 And OptPoleSpeed.Checked = True Then
+            If Opt2Pole.Checked = True Then maxspeed = 3000
+            If Opt4Pole.Checked = True Then maxspeed = 1500
+            If Opt6Pole.Checked = True Then maxspeed = 1000
+            If Opt8Pole.Checked = True Then maxspeed = 750
+            If Opt10Pole.Checked = True Then maxspeed = 600
+            If Opt12Pole.Checked = True Then maxspeed = 500
+        End If
+        If freqHz = 60 Then maxspeed = 3600
+        If freqHz = 60 And OptPoleSpeed.Checked = True Then
+            If Opt2Pole.Checked = True Then maxspeed = 3600
+            If Opt4Pole.Checked = True Then maxspeed = 1800
+            If Opt6Pole.Checked = True Then maxspeed = 1200
+            If Opt8Pole.Checked = True Then maxspeed = 900
+            If Opt10Pole.Checked = True Then maxspeed = 720
+            If Opt12Pole.Checked = True Then maxspeed = 600
+        End If
+        Txtspeedlimit.Text = maxspeed.ToString
+
+        ShowCurvedFanTypes = ChkCurveBlade.Checked
+        ShowInclinedFanTypes = ChkInclineBlade.Checked
+        ShowOtherFanTypes = ChkOtherFanType.Checked
+        ShowPlasticFanTypes = ChkPlasticFan.Checked
+        ShowAxialFanTypes = ChkAxialFans.Checked
+        ShowPlenumFanTypes = ChkPlenumFans.Checked
+        ShowOldFanTypes = ChkOldDesignFans.Checked
+
+        TabControl1.SelectTab(TabPageSelection)
+    End Sub
+
+    Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
+        'open fan parameters tab
+        TabControl1.SelectTab(TabPageFanParameters)
+    End Sub
+
+    Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
+        'open noise data tab
+        TabControl1.SelectTab(TabPageNoise)
+    End Sub
+
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+        'open fan selections tab
+        TabControl1.SelectTab(TabPageSelection)
+    End Sub
+
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        'open save projects
+        SaveToFile()
+    End Sub
+
+    Private Sub GrpFrequency_Enter(sender As Object, e As EventArgs) Handles GrpFrequency.Enter
+
+    End Sub
+
+    Private Sub OptPoleSpeed_CheckedChanged_1(sender As Object, e As EventArgs) Handles OptPoleSpeed.CheckedChanged
+        GrpPoleBox.Enabled = True
+        'Opt2Pole.Enabled = True
+        'Opt4Pole.Enabled = True
+        'Opt6Pole.Enabled = True
+        'Opt8Pole.Enabled = True
+        'Opt10Pole.Enabled = True
+        'Opt12Pole.Enabled = True
+    End Sub
+
+    Private Sub OptFixedSpeed_CheckedChanged(sender As Object, e As EventArgs) Handles OptFixedSpeed.CheckedChanged
+        GrpPoleBox.Enabled = False
+        Opt2Pole.Checked = False
+        Opt4Pole.Checked = False
+        Opt6Pole.Checked = False
+        Opt8Pole.Checked = False
+        Opt10Pole.Checked = False
+        Opt12Pole.Checked = False
+    End Sub
+
+    Private Sub Txtspeedlimit_TextChanged(sender As Object, e As EventArgs) Handles Txtspeedlimit.TextChanged
+
+    End Sub
+
+    Private Sub Opt2Pole_CheckedChanged_1(sender As Object, e As EventArgs) Handles Opt2Pole.CheckedChanged
+
+    End Sub
+    '###############################################################################################################
+    '######################################### Environmental Details and Units Selection ###########################
+    '###############################################################################################################
+
+    'Private Sub OptDefaultMetric_CheckedChanged(sender As Object, e As EventArgs) Handles OptDefaultMetric.CheckedChanged
+    '    Try
+    '        OptFlowM3PerHr.Checked = True
+    '        OptPressurePa.Checked = True
+    '        OptTemperatureC.Checked = True
+    '        OptDensityKgPerM3.Checked = True
+    '        OptPowerKW.Checked = True
+    '        OptLengthMm.Checked = True
+    '        OptAltitudeM.Checked = True
+    '        OptVelocityMpers.Checked = True
+    '        'OptVelocityFtpermin.Checked = False
+    '        TxtAltitude.Text = Math.Round(Val(TxtAltitude.Text) * convalt, 0).ToString
+    '    Catch ex As Exception
+    '        MsgBox("checkedchanged")
+    '    End Try
+
+    'End Sub
+
+    'Private Sub OptDefaultImperial_CheckedChanged(sender As Object, e As EventArgs) Handles OptDefaultImperial.CheckedChanged
+    '    Try
+    '        OptFlowCfm.Checked = True
+    '        OptPressureinWG.Checked = True
+    '        OptTemperatureF.Checked = True
+    '        OptDensityLbPerFt3.Checked = True
+    '        OptPowerHp.Checked = True
+    '        OptLengthIn.Checked = True
+    '        OptAltitudeFt.Checked = True
+    '        OptVelocityFtpermin.Checked = True
+    '        TxtAltitude.Text = Math.Round(Val(TxtAltitude.Text) * convalt, 0).ToString
+    '    Catch ex As Exception
+    '        MsgBox("checkedchanged2")
+    '    End Try
+
+    'End Sub
+
+    'Private Sub OptDefaultImperial_Click(sender As Object, e As EventArgs) Handles OptDefaultImperial.Click
+
+    'End Sub
+
+    Private Sub OptTemperatureC_CheckedChanged(sender As Object, e As EventArgs) Handles OptTemperatureC.CheckedChanged
+        LblAmbientTemperatureUnits.Text = OptTemperatureC.Text
+    End Sub
+
+    Private Sub OptTemperatureF_CheckedChanged(sender As Object, e As EventArgs) Handles OptTemperatureF.CheckedChanged
+        LblAmbientTemperatureUnits.Text = OptTemperatureF.Text
+    End Sub
+
+    Private Sub OptAltitudeM_CheckedChanged(sender As Object, e As EventArgs) Handles OptAltitudeM.CheckedChanged
+        LblAltitudeUnits.Text = OptAltitudeM.Text
+    End Sub
+
+    Private Sub OptAltitudeFt_CheckedChanged(sender As Object, e As EventArgs) Handles OptAltitudeFt.CheckedChanged
+        LblAltitudeUnits.Text = OptAltitudeFt.Text
+    End Sub
+
+    Private Sub OptPressurePa_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressurePa.CheckedChanged
+        LblAtmosphericPressureUnits.Text = OptPressurePa.Text
+    End Sub
+
+    Private Sub OptPressuremBar_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressuremBar.CheckedChanged
+        LblAtmosphericPressureUnits.Text = OptPressuremBar.Text
+    End Sub
+
+    Private Sub OptPressureinWG_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressureinWG.CheckedChanged
+        LblAtmosphericPressureUnits.Text = OptPressureinWG.Text
+    End Sub
+
+    Private Sub OptPressuremmWG_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressuremmWG.CheckedChanged
+        LblAtmosphericPressureUnits.Text = OptPressuremmWG.Text
+    End Sub
+
+    Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        Try
+            'OptFlowM3PerHr.Checked = True
+            'OptPressurePa.Checked = True
+            'OptTemperatureC.Checked = True
+            'OptDensityKgPerM3.Checked = True
+            'OptPowerKW.Checked = True
+            'OptLengthMm.Checked = True
+            'OptAltitudeM.Checked = True
+            'OptVelocityMpers.Checked = True
+            ''OptVelocityFtpermin.Checked = False
+            'TxtAltitude.Text = Math.Round(Val(TxtAltitude.Text) * convalt, 0).ToString
+            MetricUnits()
+        Catch ex As Exception
+            ErrorMessage(ex, 1003)
+            'MsgBox("checkedchanged")
+        End Try
+    End Sub
+
+    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
+        Try
+            'OptFlowCfm.Checked = True
+            'OptPressureinWG.Checked = True
+            'OptTemperatureF.Checked = True
+            'OptDensityLbPerFt3.Checked = True
+            'OptPowerHp.Checked = True
+            'OptLengthIn.Checked = True
+            'OptAltitudeFt.Checked = True
+            'OptVelocityFtpermin.Checked = True
+            'TxtAltitude.Text = Math.Round(Val(TxtAltitude.Text) * convalt, 0).ToString
+            ImperialUnits()
+        Catch ex As Exception
+            ErrorMessage(ex, 1002)
+            'MsgBox("checkedchanged2")
+        End Try
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        'open duty input tab
+        Try
+            SetUnitValues()
+            If Opt50Hz.Checked = True Then freqHz = 50
+            If Opt60Hz.Checked = True Then freqHz = 60
+            TabControl1.SelectTab(TabPageDuty)
+        Catch ex As Exception
+            ErrorMessage(ex, 1001)
+            'MsgBox("click")
+        End Try
     End Sub
 End Class

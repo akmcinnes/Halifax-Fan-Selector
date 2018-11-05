@@ -1,40 +1,32 @@
-﻿'Imports System.Xml
-Imports System.IO
+﻿Imports System.IO
 
 Module Variables
 
-    '    Public Widthratio As Single
+    Public br As System.IO.BinaryReader
+    Public fs As System.IO.FileStream
+
+    Public AdvancedUser As Boolean
+    Public version_number As String = "V 1.0.0 Beta"
+    Public DataPath As String = "C:\Halifax\Performance Data\"
+
+    Public UserName As String
+
     Public Widthratios(50) As Single
 
-    '    Public ResultsFileName, ResultFile(50) As String
-    '    Public DataSheets(50), NoiseSheets(50), DataSheetOut As Boolean
-    '    Public FileStore As Integer
+    'Public PresType, FlowType, DensType, VelType As Integer
+    Public PresType, DensType As Integer
 
-    Public PType, FlowType, DensType As Integer
-
-    '    Public fantitles(50) As String
     Public Customer As String
     Public FanNameSave, FanSizeSave, FanVol, FanSP, FanTP, FanSpeed, FanPower, FanMotor, FanSE, FanTE, FanOutVel As String
 
-    'Public headerlocation As String
-    'Public noisesheetname As String
-    'Public reportNo As Integer
     Public correctedforSUCTIONS(50) As String
-    'Public curvefanname As String
 
     Public NextSpeed As String
     Public RunTemp As Single
 
 
     Public datapoints1 As Integer
-    'Public newdata
-    'Public fantyperefrow(50) As Integer
     Public Const casethickness = 6 '-twice the thickness of the case
-    'Public units1 As String
-    'Public units2 As String
-    'Public units3 As String
-    'Public units4 As String
-    'Public units5 As String
 
     Public fspcol As Integer
     Public ftpcol As Integer
@@ -42,14 +34,27 @@ Module Variables
     Public colpow As Integer
     Public coleff As Integer
     '-------------------------------------------fan type 1 ONLY variables
-    'Public SIV(50, 50) As Double 'system inlet volume on suction
-    'Public FID(50, 50) As Double 'desity of the air at the fan inlet
     Public fansizelimit(50) As Double
     Public fantypesecfilename(50) As String
     Public dataoutletareaftsq(50) As Double
     Public fanunits(50) As String
     Public fanwidthing(50) As Boolean
+    Public fanselectioncode(50) As String
+    Public fancurved(50) As Boolean
+    Public faninclined(50) As Boolean
+    Public fanplastic(50) As Boolean
+    Public fanother(50) As Boolean
     Public fantypesQTY As Integer
+
+    Public ReadFromProjectFile As Boolean
+
+    Public ShowCurvedFanTypes As Boolean
+    Public ShowInclinedFanTypes As Boolean
+    Public ShowOtherFanTypes As Boolean
+    Public ShowPlasticFanTypes As Boolean
+    Public ShowPlenumFanTypes As Boolean
+    Public ShowAxialFanTypes As Boolean
+    Public ShowOldFanTypes As Boolean
 
     Public fsp(,) As Double
     Public ftp(,) As Double
@@ -79,7 +84,8 @@ Module Variables
     Public dataoutletarea(50) As Double
     Public ftspeed(50, 50) As Double
     Public medpoint(50) As Integer
-
+    Public blade_type(50) As String
+    Public blade_number(50) As Integer
     Public volI(50, 10000) As Double
     Public fspI(50, 10000) As Double
     Public ftpI(50, 10000) As Double
@@ -92,20 +98,6 @@ Module Variables
     Public fanspeedI(50, 10000) As Double
     Public datapointI(50, 10000) As Double
 
-    'Public prevvolI(50, 10000) As Double
-    'Public prevfspI(50, 10000) As Double
-    'Public prevftpI(50, 10000) As Double
-    'Public prevpowI(50, 10000) As Double
-    'Public prevfanspeedI(50, 10000) As Double
-    'Public prevdatapointI(50, 10000) As Double
-    'Public nxtvolI(50, 10000) As Double
-    'Public nxtfspI(50, 10000) As Double
-    'Public nxtftpI(50, 10000) As Double
-    'Public nxtpowI(50, 10000) As Double
-    'Public nxtfanspeedI(50, 10000) As Double
-    'Public nxtdatapointI(50, 10000) As Double
-    'Public volm3hrI(50, 10000) As Double
-
     Public originaldensity As Double
 
     '--------------START OF OTHER VARIABLES
@@ -114,8 +106,6 @@ Module Variables
     Public fantypename(50) As String
     Public fanclass(50) As String
     Public FanSave, FanMaxCount(50) As Integer
-
-    '    Public motorsize(200) As Double
 
     Public NEWpressure As Double
     Public NEWpower As Double
@@ -126,147 +116,10 @@ Module Variables
 
     Public temppressurE As Object
 
-    'Public DrawnBy As String
-    'Public NoisePress As Single
-
-
-
-
-    ' Attribute VB_Name = "variables"
-    'Public Widthratio As Single
-    'Public Widthratios(5) As Single
-
-    'Public ResultsFileName, ResultFile(5) As String
-    'Public DataSheets(5), NoiseSheets(5), DataSheetOut As Boolean
-    'Public FileStore As Integer
-
-    'Public PType, FlowType, DensType As Integer
-
-    '' akm    Public fantitles(5), Customer As String
-    'Public fantitles(5) As String
-    'Public FanNameSave, FanSizeSave, FanVol, FanSP, FanTP, FanSpeed, FanPower, FanMotor, FanSE, FanTE, FanOutVel As String
-
-    'Public headerlocation As String
-    'Public noisesheetname As String
-    'Public reportNo As Integer
-    'Public correctedforSUCTIONS(5) As String
-    'Public curvefanname As String
-
-    'Public NextSpeed As String
-    'Public RunTemp As Single
-
-    'Public datapoints1 As Integer
-    'Public newdata
-    'Public fantyperefrow(5) As Integer
-    'Public Const casethickness = 6 '-twice the thickness of the case
-    'Public units1 As String
-    'Public units2 As String
-    'Public units3 As String
-    'Public units4 As String
-    'Public units5 As String
-
-    'Public fspcol As Integer
-    'Public ftpcol As Integer
-    'Public colvol As Integer
-    'Public colpow As Integer
-    'Public coleff As Integer
-    ''-------------------------------------------fan type 1 ONLY variables
-    'Public SIV(5, 50) As Double 'system inlet volume on suction
-    'Public FID(5, 50) As Double 'desity of the air at the fan inlet
-    'Public fansizelimit(5) As Double
-    'Public fantypesecfilename(5) As String
-    'Public dataoutletareaftsq(5) As Double
-
-    'Public fsp(5, 50) As Double
-    'Public ftp(5, 50) As Double
-    'Public vol(5, 50) As Double
-    'Public eff(5, 50) As Double
-    'Public Pow(5, 50) As Double
-    'Public fse(5, 50) As Double
-    'Public fte(5, 50) As Double
-
-    'Public fsps(5, 50) As Double
-    'Public ftps(5, 50) As Double
-    'Public vols(5, 50) As Double
-    'Public effs(5, 50) As Double
-    'Public Pows(5, 50) As Double
-    'Public fses(5, 50) As Double
-    'Public ftes(5, 50) As Double
-    'Public ovs(5, 50) As Double
-    'Public fsizes(5, 500) As Double
-
-    'Public datafansize(5) As Single
-    'Public datafanspeed(5) As Integer
-    'Public dataoutletsize(5) As Integer
-    'Public dataoutletarea(5) As Double
-    'Public ftspeed(5, 50) As Double
-    'Public medpoint(5) As Integer
-
-    'Public volI(5, 10000) As Double
-    'Public fspI(5, 10000) As Double
-    'Public ftpI(5, 10000) As Double
-    'Public powI(5, 10000) As Double
-    'Public fseI(5, 10000) As Double
-    'Public fteI(5, 10000) As Double
-
-    'Public fanspeedI(5, 10000) As Double
-    'Public datapointI(5, 10000) As Double
-
-    'Public prevvolI(5, 10000) As Double
-    'Public prevfspI(5, 10000) As Double
-    'Public prevftpI(5, 10000) As Double
-    'Public prevpowI(5, 10000) As Double
-    'Public prevfanspeedI(5, 10000) As Double
-    'Public prevdatapointI(5, 10000) As Double
-    'Public nxtvolI(5, 10000) As Double
-    'Public nxtfspI(5, 10000) As Double
-    'Public nxtftpI(5, 10000) As Double
-    'Public nxtpowI(5, 10000) As Double
-    'Public nxtfanspeedI(5, 10000) As Double
-    'Public nxtdatapointI(5, 10000) As Double
-    'Public volm3hrI(5, 10000) As Double
-
-    'Public originaldensity As Double
-
-    ''--------------START OF OTHER VARIABLES
-
-    'Public fantypefilename(5) As String
-    'Public fantypename(5) As String
-    'Public fanclass(5) As String
-    'Public FanSave, FanMaxCount(5) As Integer
-
-    'Public motorsize(200) As Double
-
-    'Public NEWpressure As Double
-    'Public NEWpower As Double
-    'Public NEWdensity As Double
-    'Public runonce As String
-
-    'Public voldecplaces, pressplace, FanPick As Integer
-
-    'Public temppressurE As Object
-
-    'Public DrawnBy As String
-    'Public NoisePress As Single
-
     ''--- used by AKM
-    'Public Customer As String
     Public Engineer As String
 
     Public atmos As Double
-
-
-    '    Structure UnitsStruct
-    '    Public UnitName() As String
-    '    Dim UnitDefault As Integer
-    '    Public UnitConversion() As Double
-    '    Dim UnitSelected As Integer
-
-    '    Public Sub initArray()
-    '    ReDim UnitName(8)
-    '    ReDim UnitConversion(8)
-    '    End Sub
-    '    End Structure
 
     Public Structure UnitsStruct
         Private m_UnitName() As String
@@ -310,6 +163,14 @@ Module Variables
 
         Private Sub initArray1()
             ReDim m_UnitName(8)
+            '0 = flow
+            '1 = pressure
+            '2 = temperature
+            '3 = density
+            '4 = power
+            '5 = length
+            '6 = altitude
+            '7 = velocity
         End Sub
         Private Sub initArray2()
             ReDim m_UnitConversion(8)
@@ -323,16 +184,6 @@ Module Variables
     End Structure
 
     Public Units(8) As UnitsStruct
-
-    'flow = 0
-    'pressure = 1
-    'temperature = 2
-    'density = 3
-    'power = 4
-    'length = 5
-    'altitude = 6
-    'velocity = 7
-
     Public No_of_units As Integer = 8
 
     Public NewProject As Boolean
@@ -348,6 +199,7 @@ Module Variables
     Public flowrate As Double
     Public reshead As Double
     Public maxspeed As Double
+    Public minspeed As Double
     Public convflow As Double
     Public convpres As Double
     Public convtemp As Double
@@ -370,16 +222,19 @@ Module Variables
     Public colstdfansizes As Integer
     Public coloutletvel As Integer
     Public count As Integer
-    Public counteff As Integer
+    Public countefft As Integer
+    Public counteffs As Integer
     Public row As Integer
 
 
 
     Public filename(50) As String
-    Public filepath1 As String = "C:\Halifax\Performance Data\"
-    Public filepath2 As String = "C:\Halifax\Performance Data New\"
-    Public extension1 As String = ".xls"
-    Public extension2 As String = ".txt"
+    'Public filepath1 As String = "C:\Halifax\Performance Data\"
+    'Public filepath2 As String = "C:\Halifax\Performance Data New\"
+    'Public filepath1 As String = DataPath
+    'Public filepath2 As String = DataPath
+    'Public extension1 As String = ".xls"
+    'Public extension2 As String = ".txt"
 
     'excel values
     Public FanSize1 As Double
@@ -395,7 +250,7 @@ Module Variables
     Public OutArea_ft2 As Double
     Public In_Dia_mm As Double
     Public Eye_Area_m2 As Double
-    Public Blade_Type As String
+    Public Type_Blade As String
     Public Num_Blades As Integer
     Public FSP_insWG(30) As Double
     Public Pow_hp(30) As Double
@@ -458,12 +313,34 @@ Module Variables
     Public selectedmot(30) As Double
     Public selectedresHD(30) As Double
     Public selectedVD(30) As Double
+    Public selectedBladeType(30) As String
+    Public selectedBladeNumber(30) As Integer
+    Public selectedfanfile(30) As String
+
+    Public finalfansize As Double
+    Public finalfantype As String = ""
+    Public finalfse As Double
+    Public finalspeed As Double
+    Public finalpow As Double
+    Public finalfsp As Double
+    Public finalfte As Double
+    Public finalftp As Double
+    Public finalov As Double
+    Public finalvol As Double
+    Public finalmot As Double
+    Public finalresHD As Double
+    Public finalVD As Double
+    Public finalBladeType As String
+    Public finalBladeNumber As Integer
+    Public finalfanfile As String
 
     '    Public atmos As Double
 
     Public FullFilePath As String
 
     Public motorsize(2, 100) As Double
+
+    Public freqHz As Integer
 
     'curve variables
     Public yaxistitle As String
@@ -480,5 +357,102 @@ Module Variables
 
     Public fan2plot As Integer
     Public objStreamWriterDebug As New StreamWriter("c:\Halifax\debugnew.txt")
+
+    'noise variables
+    Public SPL As Single
+    Public boSPL As Single
+    Public bospl1M As Single
+    Public NCQ As Single
+    Public NCFSP As Single
+    Public NCN As Single
+    Public NCimpdia As Single
+    Public oboSPL As Single
+    Public NCINdia As Single
+    Public CF(8) As Integer
+    Public IDSPL(8) As Integer
+    Public Ascale(8) As Integer
+    Public ductCF As Integer
+    'Public count As Integer
+    Public spl2 As Integer
+    Public bospl2 As Integer
+    Public bospl1M2 As Integer
+    Public oboSPL2 As Integer
+    Public NCoverall As Integer
+    Public stopprogram As Integer
+    Public T2col, T2row As Integer
+    Public bladetype As String '1=bc 2=bi 3=fc 4=radial 5=axial
+    Public bladecount As Integer
+    Public OPcond As String
+    Public inX As Single ' constant for each size of duct diameter
+    Public INascale(8) As Integer ' variable of inlet duct scale
+    Public Octaves(8) As Single
+    Public Last As Integer
+    Public sort As Integer
+    Public inNCoverall As Single
+    Public indiff As Single
+    Public addindiff As Single
+    Public OUTascale(8) As Integer
+    Public OUTdia As Single
+    Public OUTdiff As Single
+    Public addOUTdiff As Single
+    Public OUTNCoverall As Single
+    Public Drow As Integer
+    Public OOrow As Integer
+    Public OIrow As Integer
+    Public outX As Single
+    Public OUTarea As Single
+    Public BRGnoise As Integer
+    Public brgrow As Integer
+    Public Motorrow As Integer
+    Public BPfreq As Integer
+    Public bpfroW As Integer
+    Public NCscalefactor As Single
+    Public inletdia As Integer
+    Public outletdia As Integer
+    Public outletlength As Integer
+    Public outletwidth As Integer
+    Public WScale(8) As Single
+
+    Structure Motor_Structure
+        Dim PowerKW As Double
+        Dim PowerHP As Double
+        'Private Speed50() As Double
+
+        Private m_Speed50() As String
+        Public Property Speed50(Index As Integer) As Double
+            Get
+                If m_Speed50 Is Nothing Then initArray50()
+                Return m_Speed50(Index)
+            End Get
+            Set(value As Double)
+                If m_Speed50 Is Nothing Then initArray50()
+                m_Speed50(Index) = value
+            End Set
+        End Property
+
+        Private m_Speed60() As String
+        Public Property Speed60(Index As Integer) As Double
+            Get
+                If m_Speed60 Is Nothing Then initArray60()
+                Return m_Speed60(Index)
+            End Get
+            Set(value As Double)
+                If m_Speed60 Is Nothing Then initArray60()
+                m_Speed60(Index) = value
+            End Set
+        End Property
+
+        Private Sub initArray50()
+            ReDim m_Speed50(6)
+        End Sub
+        Private Sub initArray60()
+            ReDim m_Speed60(6)
+        End Sub
+    End Structure
+
+    Public Motor_Information(100) As Motor_Structure
+
+    Public Background_Color As Color
+
 
 End Module

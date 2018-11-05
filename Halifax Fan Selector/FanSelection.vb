@@ -440,8 +440,8 @@
                 End If
                 If Val(Frmselectfan.Txtfsp.Value) <> 0 Then
                     Frmselectfan.Txtdens.Value = originaldensity
-                    MsgBox("Fan Type 5: " & fanclass(5) & ", A new value for Pressure has been caculated!"), vbInformation)
-        End If
+                    MsgBox("Fan Type 5: " & fanclass(5) & ", A new value for Pressure has been caculated!", vbInformation)
+                End If
                 Call scaledensity(5, getscalefactor)
                 Call getpressure5(Val(Frmselectfan.txtfansize5.Value), Val(Frmselectfan.Txtfanspeed.Value), Val(Frmselectfan.Txtflow.Value))
             End If

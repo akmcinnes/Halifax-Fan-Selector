@@ -74,10 +74,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Density.vb" />
-    <Compile Include="FanChart.Designer.vb">
-      <DependentUpon>FanChart.vb</DependentUpon>
+    <Compile Include="ErrorMessages.vb" />
+    <Compile Include="FrmDensityCalcs.Designer.vb">
+      <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
     </Compile>
-    <Compile Include="FanChart.vb">
+    <Compile Include="FrmDensityCalcs.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DensityVariables.vb" />
+    <Compile Include="FrmAcoustics.Designer.vb">
+      <DependentUpon>FrmAcoustics.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAcoustics.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDutyInput.Designer.vb">
+      <DependentUpon>FrmDutyInput.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDutyInput.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEnvironmentInfo.Designer.vb">
+      <DependentUpon>FrmEnvironmentInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEnvironmentInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFanChart.Designer.vb">
+      <DependentUpon>FrmFanChart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFanChart.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmProjectDetails.Designer.vb">
@@ -93,9 +119,19 @@
       <DependentUpon>Frmselectfan.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="getfansizes.vb" />
-    <Compile Include="Getfiledata.vb" />
-    <Compile Include="loaddata.vb" />
+    <Compile Include="FrmSelections.Designer.vb">
+      <DependentUpon>FrmSelections.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSelections.vb" />
+    <Compile Include="FrmSettings.Designer.vb">
+      <DependentUpon>FrmSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GetFanSize.vb" />
+    <Compile Include="GetFileData.vb" />
+    <Compile Include="LoadData.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -117,9 +153,11 @@
     <Compile Include="FrmUnits.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="press_vol.vb" />
-    <Compile Include="scaledata.vb" />
-    <Compile Include="sizeAtFixedSpeed.vb" />
+    <Compile Include="NoiseMainFunctions.vb" />
+    <Compile Include="Press_Vol.vb" />
+    <Compile Include="ScaleData.vb" />
+    <Compile Include="SelectCalcs.vb" />
+    <Compile Include="SizeAtFixedSpeed.vb" />
     <Compile Include="FrmStart.Designer.vb">
       <DependentUpon>FrmStart.vb</DependentUpon>
     </Compile>
@@ -127,18 +165,46 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Subs.vb" />
-    <Compile Include="suction.vb" />
+    <Compile Include="Subs_Units.vb" />
+    <Compile Include="Sub_Duty.vb" />
+    <Compile Include="Sub_Environment.vb" />
+    <Compile Include="Sub_FanParameters.vb" />
+    <Compile Include="Sub_Noise.vb" />
+    <Compile Include="Sub_Selections.vb" />
+    <Compile Include="Sub_Toolstrip.vb" />
+    <Compile Include="Suction.vb" />
     <Compile Include="Variables.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FanChart.resx">
-      <DependentUpon>FanChart.vb</DependentUpon>
+    <EmbeddedResource Include="FrmDensityCalcs.resx">
+      <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAcoustics.resx">
+      <DependentUpon>FrmAcoustics.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDutyInput.resx">
+      <DependentUpon>FrmDutyInput.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEnvironmentInfo.resx">
+      <DependentUpon>FrmEnvironmentInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFanChart.resx">
+      <DependentUpon>FrmFanChart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProjectDetails.resx">
       <DependentUpon>FrmProjectDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frmselectfan.resx">
       <DependentUpon>Frmselectfan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelections.resx">
+      <DependentUpon>FrmSelections.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSettings.resx">
+      <DependentUpon>FrmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStart.zh.resx">
+      <DependentUpon>FrmStart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -151,6 +217,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStart.resx">
       <DependentUpon>FrmStart.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +272,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Capture.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewLogo.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewLogo2018.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

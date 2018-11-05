@@ -117,26 +117,62 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="header2015" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\header2015.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblWelcome.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 157</value>
   </data>
-  <data name="Capture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Capture.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lblWelcome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 38</value>
   </data>
-  <data name="image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lblWelcome.Text" xml:space="preserve">
+    <value>欢迎</value>
   </data>
-  <data name="industrialfans" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\industrialfans.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lblToThe.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 38</value>
   </data>
-  <data name="NewLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewLogo.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lblToThe.Text" xml:space="preserve">
+    <value>到了</value>
   </data>
-  <data name="logo-2016" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo-2016.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lblHalifaxFanSelector.Size" type="System.Drawing.Size, System.Drawing">
+    <value>357, 38</value>
   </data>
-  <data name="NewLogo2018" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewLogo2018.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lblHalifaxFanSelector.Text" xml:space="preserve">
+    <value>哈利法克斯风扇选择器</value>
+  </data>
+  <data name="btnContinue.Text" xml:space="preserve">
+    <value>继续 &gt;&gt;</value>
+  </data>
+  <data name="btnExit.Text" xml:space="preserve">
+    <value>出口</value>
+  </data>
+  <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 21</value>
+  </data>
+  <data name="lblUsername.Text" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="btnSettings.Text" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 22</value>
+  </data>
+  <data name="chkAdvancedUser.Text" xml:space="preserve">
+    <value>高级用户</value>
+  </data>
+  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 21</value>
+  </data>
+  <data name="optChinese.Text" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="optEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 21</value>
+  </data>
+  <data name="optEnglish.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="grpLanguage.Text" xml:space="preserve">
+    <value>选择语言</value>
   </data>
 </root>

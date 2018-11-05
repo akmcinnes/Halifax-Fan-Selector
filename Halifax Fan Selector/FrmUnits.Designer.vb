@@ -71,9 +71,11 @@ Partial Class FrmUnits
         '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.SystemColors.Info
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox1.Controls.Add(Me.OptTemperatureF)
         Me.GroupBox1.Controls.Add(Me.OptTemperatureC)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Location = New System.Drawing.Point(15, 373)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(200, 90)
@@ -84,9 +86,11 @@ Partial Class FrmUnits
         'OptTemperatureF
         '
         Me.OptTemperatureF.AutoSize = True
+        Me.OptTemperatureF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptTemperatureF.ForeColor = System.Drawing.Color.White
         Me.OptTemperatureF.Location = New System.Drawing.Point(32, 60)
         Me.OptTemperatureF.Name = "OptTemperatureF"
-        Me.OptTemperatureF.Size = New System.Drawing.Size(43, 21)
+        Me.OptTemperatureF.Size = New System.Drawing.Size(46, 22)
         Me.OptTemperatureF.TabIndex = 1
         Me.OptTemperatureF.TabStop = True
         Me.OptTemperatureF.Text = "°F"
@@ -95,9 +99,11 @@ Partial Class FrmUnits
         'OptTemperatureC
         '
         Me.OptTemperatureC.AutoSize = True
+        Me.OptTemperatureC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptTemperatureC.ForeColor = System.Drawing.Color.White
         Me.OptTemperatureC.Location = New System.Drawing.Point(32, 33)
         Me.OptTemperatureC.Name = "OptTemperatureC"
-        Me.OptTemperatureC.Size = New System.Drawing.Size(44, 21)
+        Me.OptTemperatureC.Size = New System.Drawing.Size(48, 22)
         Me.OptTemperatureC.TabIndex = 0
         Me.OptTemperatureC.TabStop = True
         Me.OptTemperatureC.Text = "°C"
@@ -105,13 +111,15 @@ Partial Class FrmUnits
         '
         'GroupBox2
         '
-        Me.GroupBox2.BackColor = System.Drawing.SystemColors.Info
+        Me.GroupBox2.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox2.Controls.Add(Me.OptFlowLbPerHr)
         Me.GroupBox2.Controls.Add(Me.OptFlowKgPerHr)
         Me.GroupBox2.Controls.Add(Me.OptFlowCfm)
         Me.GroupBox2.Controls.Add(Me.OptFlowM3PerHr)
         Me.GroupBox2.Controls.Add(Me.OptFlowM3PerMin)
         Me.GroupBox2.Controls.Add(Me.OptFlowM3PerSec)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Location = New System.Drawing.Point(15, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(200, 189)
@@ -122,9 +130,11 @@ Partial Class FrmUnits
         'OptFlowLbPerHr
         '
         Me.OptFlowLbPerHr.AutoSize = True
+        Me.OptFlowLbPerHr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptFlowLbPerHr.ForeColor = System.Drawing.Color.White
         Me.OptFlowLbPerHr.Location = New System.Drawing.Point(29, 157)
         Me.OptFlowLbPerHr.Name = "OptFlowLbPerHr"
-        Me.OptFlowLbPerHr.Size = New System.Drawing.Size(57, 21)
+        Me.OptFlowLbPerHr.Size = New System.Drawing.Size(62, 22)
         Me.OptFlowLbPerHr.TabIndex = 5
         Me.OptFlowLbPerHr.TabStop = True
         Me.OptFlowLbPerHr.Text = "lb/hr"
@@ -133,9 +143,11 @@ Partial Class FrmUnits
         'OptFlowKgPerHr
         '
         Me.OptFlowKgPerHr.AutoSize = True
+        Me.OptFlowKgPerHr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptFlowKgPerHr.ForeColor = System.Drawing.Color.White
         Me.OptFlowKgPerHr.Location = New System.Drawing.Point(29, 129)
         Me.OptFlowKgPerHr.Name = "OptFlowKgPerHr"
-        Me.OptFlowKgPerHr.Size = New System.Drawing.Size(61, 21)
+        Me.OptFlowKgPerHr.Size = New System.Drawing.Size(67, 22)
         Me.OptFlowKgPerHr.TabIndex = 4
         Me.OptFlowKgPerHr.TabStop = True
         Me.OptFlowKgPerHr.Text = "kg/hr"
@@ -144,9 +156,11 @@ Partial Class FrmUnits
         'OptFlowCfm
         '
         Me.OptFlowCfm.AutoSize = True
+        Me.OptFlowCfm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptFlowCfm.ForeColor = System.Drawing.Color.White
         Me.OptFlowCfm.Location = New System.Drawing.Point(29, 102)
         Me.OptFlowCfm.Name = "OptFlowCfm"
-        Me.OptFlowCfm.Size = New System.Drawing.Size(51, 21)
+        Me.OptFlowCfm.Size = New System.Drawing.Size(57, 22)
         Me.OptFlowCfm.TabIndex = 3
         Me.OptFlowCfm.TabStop = True
         Me.OptFlowCfm.Text = "cfm"
@@ -155,9 +169,11 @@ Partial Class FrmUnits
         'OptFlowM3PerHr
         '
         Me.OptFlowM3PerHr.AutoSize = True
+        Me.OptFlowM3PerHr.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptFlowM3PerHr.ForeColor = System.Drawing.Color.White
         Me.OptFlowM3PerHr.Location = New System.Drawing.Point(30, 21)
         Me.OptFlowM3PerHr.Name = "OptFlowM3PerHr"
-        Me.OptFlowM3PerHr.Size = New System.Drawing.Size(62, 21)
+        Me.OptFlowM3PerHr.Size = New System.Drawing.Size(69, 22)
         Me.OptFlowM3PerHr.TabIndex = 0
         Me.OptFlowM3PerHr.TabStop = True
         Me.OptFlowM3PerHr.Text = "m³/hr"
@@ -166,9 +182,11 @@ Partial Class FrmUnits
         'OptFlowM3PerMin
         '
         Me.OptFlowM3PerMin.AutoSize = True
+        Me.OptFlowM3PerMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptFlowM3PerMin.ForeColor = System.Drawing.Color.White
         Me.OptFlowM3PerMin.Location = New System.Drawing.Point(29, 48)
         Me.OptFlowM3PerMin.Name = "OptFlowM3PerMin"
-        Me.OptFlowM3PerMin.Size = New System.Drawing.Size(71, 21)
+        Me.OptFlowM3PerMin.Size = New System.Drawing.Size(81, 22)
         Me.OptFlowM3PerMin.TabIndex = 1
         Me.OptFlowM3PerMin.TabStop = True
         Me.OptFlowM3PerMin.Text = "m³/min"
@@ -177,9 +195,11 @@ Partial Class FrmUnits
         'OptFlowM3PerSec
         '
         Me.OptFlowM3PerSec.AutoSize = True
+        Me.OptFlowM3PerSec.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptFlowM3PerSec.ForeColor = System.Drawing.Color.White
         Me.OptFlowM3PerSec.Location = New System.Drawing.Point(29, 75)
         Me.OptFlowM3PerSec.Name = "OptFlowM3PerSec"
-        Me.OptFlowM3PerSec.Size = New System.Drawing.Size(71, 21)
+        Me.OptFlowM3PerSec.Size = New System.Drawing.Size(81, 22)
         Me.OptFlowM3PerSec.TabIndex = 2
         Me.OptFlowM3PerSec.TabStop = True
         Me.OptFlowM3PerSec.Text = "m³/sec"
@@ -187,11 +207,13 @@ Partial Class FrmUnits
         '
         'GroupBox3
         '
-        Me.GroupBox3.BackColor = System.Drawing.SystemColors.Info
+        Me.GroupBox3.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox3.Controls.Add(Me.OptPressuremmWG)
         Me.GroupBox3.Controls.Add(Me.OptPressureinWG)
         Me.GroupBox3.Controls.Add(Me.OptPressuremBar)
         Me.GroupBox3.Controls.Add(Me.OptPressurePa)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.ForeColor = System.Drawing.Color.White
         Me.GroupBox3.Location = New System.Drawing.Point(15, 207)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(200, 152)
@@ -202,9 +224,11 @@ Partial Class FrmUnits
         'OptPressuremmWG
         '
         Me.OptPressuremmWG.AutoSize = True
+        Me.OptPressuremmWG.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptPressuremmWG.ForeColor = System.Drawing.Color.White
         Me.OptPressuremmWG.Location = New System.Drawing.Point(23, 114)
         Me.OptPressuremmWG.Name = "OptPressuremmWG"
-        Me.OptPressuremmWG.Size = New System.Drawing.Size(75, 21)
+        Me.OptPressuremmWG.Size = New System.Drawing.Size(86, 22)
         Me.OptPressuremmWG.TabIndex = 3
         Me.OptPressuremmWG.TabStop = True
         Me.OptPressuremmWG.Text = "mmWG"
@@ -213,9 +237,11 @@ Partial Class FrmUnits
         'OptPressureinWG
         '
         Me.OptPressureinWG.AutoSize = True
+        Me.OptPressureinWG.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptPressureinWG.ForeColor = System.Drawing.Color.White
         Me.OptPressureinWG.Location = New System.Drawing.Point(23, 87)
         Me.OptPressureinWG.Name = "OptPressureinWG"
-        Me.OptPressureinWG.Size = New System.Drawing.Size(64, 21)
+        Me.OptPressureinWG.Size = New System.Drawing.Size(71, 22)
         Me.OptPressureinWG.TabIndex = 2
         Me.OptPressureinWG.TabStop = True
         Me.OptPressureinWG.Text = "inWG"
@@ -224,9 +250,11 @@ Partial Class FrmUnits
         'OptPressuremBar
         '
         Me.OptPressuremBar.AutoSize = True
+        Me.OptPressuremBar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptPressuremBar.ForeColor = System.Drawing.Color.White
         Me.OptPressuremBar.Location = New System.Drawing.Point(23, 60)
         Me.OptPressuremBar.Name = "OptPressuremBar"
-        Me.OptPressuremBar.Size = New System.Drawing.Size(62, 21)
+        Me.OptPressuremBar.Size = New System.Drawing.Size(69, 22)
         Me.OptPressuremBar.TabIndex = 1
         Me.OptPressuremBar.TabStop = True
         Me.OptPressuremBar.Text = "mBar"
@@ -235,9 +263,11 @@ Partial Class FrmUnits
         'OptPressurePa
         '
         Me.OptPressurePa.AutoSize = True
+        Me.OptPressurePa.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptPressurePa.ForeColor = System.Drawing.Color.White
         Me.OptPressurePa.Location = New System.Drawing.Point(23, 33)
         Me.OptPressurePa.Name = "OptPressurePa"
-        Me.OptPressurePa.Size = New System.Drawing.Size(46, 21)
+        Me.OptPressurePa.Size = New System.Drawing.Size(49, 22)
         Me.OptPressurePa.TabIndex = 0
         Me.OptPressurePa.TabStop = True
         Me.OptPressurePa.Text = "Pa"
@@ -245,9 +275,11 @@ Partial Class FrmUnits
         '
         'GroupBox4
         '
-        Me.GroupBox4.BackColor = System.Drawing.SystemColors.Info
+        Me.GroupBox4.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox4.Controls.Add(Me.OptDensityLbPerFt3)
         Me.GroupBox4.Controls.Add(Me.OptDensityKgPerM3)
+        Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox4.ForeColor = System.Drawing.Color.White
         Me.GroupBox4.Location = New System.Drawing.Point(234, 12)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(200, 100)
@@ -258,9 +290,11 @@ Partial Class FrmUnits
         'OptDensityLbPerFt3
         '
         Me.OptDensityLbPerFt3.AutoSize = True
+        Me.OptDensityLbPerFt3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptDensityLbPerFt3.ForeColor = System.Drawing.Color.White
         Me.OptDensityLbPerFt3.Location = New System.Drawing.Point(23, 54)
         Me.OptDensityLbPerFt3.Name = "OptDensityLbPerFt3"
-        Me.OptDensityLbPerFt3.Size = New System.Drawing.Size(57, 21)
+        Me.OptDensityLbPerFt3.Size = New System.Drawing.Size(63, 22)
         Me.OptDensityLbPerFt3.TabIndex = 1
         Me.OptDensityLbPerFt3.TabStop = True
         Me.OptDensityLbPerFt3.Text = "lb/ft³"
@@ -269,9 +303,11 @@ Partial Class FrmUnits
         'OptDensityKgPerM3
         '
         Me.OptDensityKgPerM3.AutoSize = True
+        Me.OptDensityKgPerM3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptDensityKgPerM3.ForeColor = System.Drawing.Color.White
         Me.OptDensityKgPerM3.Location = New System.Drawing.Point(23, 27)
         Me.OptDensityKgPerM3.Name = "OptDensityKgPerM3"
-        Me.OptDensityKgPerM3.Size = New System.Drawing.Size(64, 21)
+        Me.OptDensityKgPerM3.Size = New System.Drawing.Size(72, 22)
         Me.OptDensityKgPerM3.TabIndex = 0
         Me.OptDensityKgPerM3.TabStop = True
         Me.OptDensityKgPerM3.Text = "kg/m³"
@@ -279,9 +315,11 @@ Partial Class FrmUnits
         '
         'GroupBox5
         '
-        Me.GroupBox5.BackColor = System.Drawing.SystemColors.Info
+        Me.GroupBox5.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox5.Controls.Add(Me.OptLengthIn)
         Me.GroupBox5.Controls.Add(Me.OptLengthMm)
+        Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox5.ForeColor = System.Drawing.Color.White
         Me.GroupBox5.Location = New System.Drawing.Point(234, 247)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(200, 94)
@@ -292,9 +330,11 @@ Partial Class FrmUnits
         'OptLengthIn
         '
         Me.OptLengthIn.AutoSize = True
+        Me.OptLengthIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptLengthIn.ForeColor = System.Drawing.Color.White
         Me.OptLengthIn.Location = New System.Drawing.Point(23, 55)
         Me.OptLengthIn.Name = "OptLengthIn"
-        Me.OptLengthIn.Size = New System.Drawing.Size(47, 21)
+        Me.OptLengthIn.Size = New System.Drawing.Size(51, 22)
         Me.OptLengthIn.TabIndex = 1
         Me.OptLengthIn.TabStop = True
         Me.OptLengthIn.Text = "ins"
@@ -303,9 +343,11 @@ Partial Class FrmUnits
         'OptLengthMm
         '
         Me.OptLengthMm.AutoSize = True
+        Me.OptLengthMm.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptLengthMm.ForeColor = System.Drawing.Color.White
         Me.OptLengthMm.Location = New System.Drawing.Point(23, 28)
         Me.OptLengthMm.Name = "OptLengthMm"
-        Me.OptLengthMm.Size = New System.Drawing.Size(51, 21)
+        Me.OptLengthMm.Size = New System.Drawing.Size(57, 22)
         Me.OptLengthMm.TabIndex = 0
         Me.OptLengthMm.TabStop = True
         Me.OptLengthMm.Text = "mm"
@@ -313,11 +355,13 @@ Partial Class FrmUnits
         '
         'GroupBox6
         '
-        Me.GroupBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.GroupBox6.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox6.Controls.Add(Me.OptDefaultNone)
         Me.GroupBox6.Controls.Add(Me.OptDefaultImperial)
         Me.GroupBox6.Controls.Add(Me.OptDefaultMetric)
-        Me.GroupBox6.Location = New System.Drawing.Point(461, 236)
+        Me.GroupBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox6.ForeColor = System.Drawing.Color.White
+        Me.GroupBox6.Location = New System.Drawing.Point(461, 128)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(200, 123)
         Me.GroupBox6.TabIndex = 5
@@ -327,20 +371,25 @@ Partial Class FrmUnits
         'OptDefaultNone
         '
         Me.OptDefaultNone.AutoSize = True
-        Me.OptDefaultNone.Location = New System.Drawing.Point(29, 84)
+        Me.OptDefaultNone.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptDefaultNone.ForeColor = System.Drawing.Color.White
+        Me.OptDefaultNone.Location = New System.Drawing.Point(19, 84)
         Me.OptDefaultNone.Name = "OptDefaultNone"
-        Me.OptDefaultNone.Size = New System.Drawing.Size(63, 21)
+        Me.OptDefaultNone.Size = New System.Drawing.Size(69, 22)
         Me.OptDefaultNone.TabIndex = 2
         Me.OptDefaultNone.TabStop = True
         Me.OptDefaultNone.Text = "None"
         Me.OptDefaultNone.UseVisualStyleBackColor = True
+        Me.OptDefaultNone.Visible = False
         '
         'OptDefaultImperial
         '
         Me.OptDefaultImperial.AutoSize = True
-        Me.OptDefaultImperial.Location = New System.Drawing.Point(29, 57)
+        Me.OptDefaultImperial.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptDefaultImperial.ForeColor = System.Drawing.Color.White
+        Me.OptDefaultImperial.Location = New System.Drawing.Point(19, 57)
         Me.OptDefaultImperial.Name = "OptDefaultImperial"
-        Me.OptDefaultImperial.Size = New System.Drawing.Size(134, 21)
+        Me.OptDefaultImperial.Size = New System.Drawing.Size(155, 22)
         Me.OptDefaultImperial.TabIndex = 1
         Me.OptDefaultImperial.TabStop = True
         Me.OptDefaultImperial.Text = "Imperial Defaults"
@@ -349,9 +398,11 @@ Partial Class FrmUnits
         'OptDefaultMetric
         '
         Me.OptDefaultMetric.AutoSize = True
-        Me.OptDefaultMetric.Location = New System.Drawing.Point(29, 30)
+        Me.OptDefaultMetric.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptDefaultMetric.ForeColor = System.Drawing.Color.White
+        Me.OptDefaultMetric.Location = New System.Drawing.Point(19, 30)
         Me.OptDefaultMetric.Name = "OptDefaultMetric"
-        Me.OptDefaultMetric.Size = New System.Drawing.Size(123, 21)
+        Me.OptDefaultMetric.Size = New System.Drawing.Size(143, 22)
         Me.OptDefaultMetric.TabIndex = 0
         Me.OptDefaultMetric.TabStop = True
         Me.OptDefaultMetric.Text = "Metric Defaults"
@@ -359,31 +410,37 @@ Partial Class FrmUnits
         '
         'BtnCancel
         '
-        Me.BtnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancel.Location = New System.Drawing.Point(461, 372)
+        Me.BtnCancel.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.ForeColor = System.Drawing.Color.White
+        Me.BtnCancel.Location = New System.Drawing.Point(461, 388)
         Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(200, 40)
+        Me.BtnCancel.Size = New System.Drawing.Size(90, 75)
         Me.BtnCancel.TabIndex = 6
         Me.BtnCancel.Text = "Cancel"
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'BtnExit
         '
-        Me.BtnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExit.Location = New System.Drawing.Point(461, 420)
+        Me.BtnExit.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExit.ForeColor = System.Drawing.Color.White
+        Me.BtnExit.Location = New System.Drawing.Point(571, 388)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(200, 40)
+        Me.BtnExit.Size = New System.Drawing.Size(90, 75)
         Me.BtnExit.TabIndex = 7
         Me.BtnExit.Text = "Exit"
         Me.BtnExit.UseVisualStyleBackColor = False
         '
         'GroupBox7
         '
-        Me.GroupBox7.BackColor = System.Drawing.SystemColors.Info
+        Me.GroupBox7.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox7.Controls.Add(Me.OptAltitudeFt)
         Me.GroupBox7.Controls.Add(Me.OptAltitudeM)
+        Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox7.ForeColor = System.Drawing.Color.White
         Me.GroupBox7.Location = New System.Drawing.Point(234, 373)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(200, 94)
@@ -394,9 +451,11 @@ Partial Class FrmUnits
         'OptAltitudeFt
         '
         Me.OptAltitudeFt.AutoSize = True
+        Me.OptAltitudeFt.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptAltitudeFt.ForeColor = System.Drawing.Color.White
         Me.OptAltitudeFt.Location = New System.Drawing.Point(23, 55)
         Me.OptAltitudeFt.Name = "OptAltitudeFt"
-        Me.OptAltitudeFt.Size = New System.Drawing.Size(37, 21)
+        Me.OptAltitudeFt.Size = New System.Drawing.Size(39, 22)
         Me.OptAltitudeFt.TabIndex = 1
         Me.OptAltitudeFt.TabStop = True
         Me.OptAltitudeFt.Text = "ft"
@@ -405,9 +464,11 @@ Partial Class FrmUnits
         'OptAltitudeM
         '
         Me.OptAltitudeM.AutoSize = True
+        Me.OptAltitudeM.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptAltitudeM.ForeColor = System.Drawing.Color.White
         Me.OptAltitudeM.Location = New System.Drawing.Point(23, 28)
         Me.OptAltitudeM.Name = "OptAltitudeM"
-        Me.OptAltitudeM.Size = New System.Drawing.Size(40, 21)
+        Me.OptAltitudeM.Size = New System.Drawing.Size(43, 22)
         Me.OptAltitudeM.TabIndex = 0
         Me.OptAltitudeM.TabStop = True
         Me.OptAltitudeM.Text = "m"
@@ -415,9 +476,11 @@ Partial Class FrmUnits
         '
         'GroupBox8
         '
-        Me.GroupBox8.BackColor = System.Drawing.SystemColors.Info
+        Me.GroupBox8.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox8.Controls.Add(Me.OptPowerHp)
         Me.GroupBox8.Controls.Add(Me.OptPowerKW)
+        Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox8.ForeColor = System.Drawing.Color.White
         Me.GroupBox8.Location = New System.Drawing.Point(234, 126)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(200, 100)
@@ -428,9 +491,11 @@ Partial Class FrmUnits
         'OptPowerHp
         '
         Me.OptPowerHp.AutoSize = True
+        Me.OptPowerHp.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptPowerHp.ForeColor = System.Drawing.Color.White
         Me.OptPowerHp.Location = New System.Drawing.Point(23, 54)
         Me.OptPowerHp.Name = "OptPowerHp"
-        Me.OptPowerHp.Size = New System.Drawing.Size(45, 21)
+        Me.OptPowerHp.Size = New System.Drawing.Size(47, 22)
         Me.OptPowerHp.TabIndex = 1
         Me.OptPowerHp.TabStop = True
         Me.OptPowerHp.Text = "hp"
@@ -439,9 +504,11 @@ Partial Class FrmUnits
         'OptPowerKW
         '
         Me.OptPowerKW.AutoSize = True
+        Me.OptPowerKW.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptPowerKW.ForeColor = System.Drawing.Color.White
         Me.OptPowerKW.Location = New System.Drawing.Point(23, 27)
         Me.OptPowerKW.Name = "OptPowerKW"
-        Me.OptPowerKW.Size = New System.Drawing.Size(49, 21)
+        Me.OptPowerKW.Size = New System.Drawing.Size(54, 22)
         Me.OptPowerKW.TabIndex = 0
         Me.OptPowerKW.TabStop = True
         Me.OptPowerKW.Text = "kW"
@@ -449,9 +516,11 @@ Partial Class FrmUnits
         '
         'GroupBox9
         '
-        Me.GroupBox9.BackColor = System.Drawing.SystemColors.Info
+        Me.GroupBox9.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.GroupBox9.Controls.Add(Me.OptVelocityFtpermin)
         Me.GroupBox9.Controls.Add(Me.OptVelocityMpers)
+        Me.GroupBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox9.ForeColor = System.Drawing.Color.White
         Me.GroupBox9.Location = New System.Drawing.Point(461, 12)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(200, 100)
@@ -462,9 +531,11 @@ Partial Class FrmUnits
         'OptVelocityFtpermin
         '
         Me.OptVelocityFtpermin.AutoSize = True
-        Me.OptVelocityFtpermin.Location = New System.Drawing.Point(23, 54)
+        Me.OptVelocityFtpermin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptVelocityFtpermin.ForeColor = System.Drawing.Color.White
+        Me.OptVelocityFtpermin.Location = New System.Drawing.Point(19, 54)
         Me.OptVelocityFtpermin.Name = "OptVelocityFtpermin"
-        Me.OptVelocityFtpermin.Size = New System.Drawing.Size(63, 21)
+        Me.OptVelocityFtpermin.Size = New System.Drawing.Size(71, 22)
         Me.OptVelocityFtpermin.TabIndex = 1
         Me.OptVelocityFtpermin.TabStop = True
         Me.OptVelocityFtpermin.Text = "ft/min"
@@ -473,9 +544,11 @@ Partial Class FrmUnits
         'OptVelocityMpers
         '
         Me.OptVelocityMpers.AutoSize = True
-        Me.OptVelocityMpers.Location = New System.Drawing.Point(23, 27)
+        Me.OptVelocityMpers.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptVelocityMpers.ForeColor = System.Drawing.Color.White
+        Me.OptVelocityMpers.Location = New System.Drawing.Point(19, 27)
         Me.OptVelocityMpers.Name = "OptVelocityMpers"
-        Me.OptVelocityMpers.Size = New System.Drawing.Size(51, 21)
+        Me.OptVelocityMpers.Size = New System.Drawing.Size(57, 22)
         Me.OptVelocityMpers.TabIndex = 0
         Me.OptVelocityMpers.TabStop = True
         Me.OptVelocityMpers.Text = "m/s"
@@ -485,7 +558,7 @@ Partial Class FrmUnits
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ClientSize = New System.Drawing.Size(682, 475)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.GroupBox8)
