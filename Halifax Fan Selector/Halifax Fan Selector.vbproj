@@ -173,6 +173,7 @@
     <Compile Include="Sub_Selections.vb" />
     <Compile Include="Sub_Toolstrip.vb" />
     <Compile Include="Suction.vb" />
+    <Compile Include="UserDetails.vb" />
     <Compile Include="Variables.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +202,9 @@
       <DependentUpon>FrmSelections.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSettings.resx">
+      <DependentUpon>FrmSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSettings.zh.resx">
       <DependentUpon>FrmSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmStart.zh.resx">
@@ -281,6 +285,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NewLogo2018.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ext.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0_faded.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0_faded1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-20161.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

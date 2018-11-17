@@ -11,6 +11,22 @@ Public Class Frmselectfan
             Me.CenterToScreen()
             NewProject = True
             TabControl1.Controls.Remove(TabPageImpeller)
+            Me.Text = "Halifax Fan Selection Software" + " - " + version_number
+            If version_number = "V 1.0.0 Beta" Then
+                TabControl1.Controls.Remove(TabPageNoise)
+                TabControl1.Controls.Remove(TabPageSelection)
+                'Button7.Visible = False
+                'Button8.Visible = False
+                'Button9.Visible = False
+                'Button10.Visible = False
+                'Button11.Visible = False
+                Button12.Visible = False
+            End If
+            If AdvancedUser = False Then
+                Button7.Visible = False
+                OptDensityCalculated.Visible = False
+                OptDensityKnown.Visible = False
+            End If
             Initialize(True)
         Catch ex As Exception
             MsgBox("load")
@@ -45,27 +61,30 @@ Public Class Frmselectfan
         Else
 
             'these are the colors for the unselected tab pages 
-            br = New SolidBrush(Color.DarkSlateBlue) ' Change this to your preference
+            'br = New SolidBrush(Color.DarkSlateBlue) ' Change this to your preference
+            br = New SolidBrush(Color.Transparent) ' Change this to your preference
             g.FillRectangle(br, e.Bounds)
-            br = New SolidBrush(Color.White)
+            'br = New SolidBrush(Color.White)
+            br = New SolidBrush(Color.Black)
             g.DrawString(strTitle, TabControl1.Font, br, r, sf)
 
         End If
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Try
-            If FileSaved = False Then
-                If MsgBox("Project not saved - do you wish to save your project now?", vbYesNo, "Warning") = vbNo Then
-                    End
-                Else
-                    SaveToFile()
-                    End
-                End If
-            End If
-        Catch ex As Exception
-            MsgBox("Button2_click")
-        End Try
+        'Try
+        '    If FileSaved = False Then
+        '        If MsgBox("Project not saved - do you wish to save your project now?", vbYesNo, "Warning") = vbNo Then
+        '            End
+        '        Else
+        '            SaveToFile()
+        '            End
+        '        End If
+        '    End If
+        'Catch ex As Exception
+        '    MsgBox("Button2_click")
+        'End Try
+        End
     End Sub
 
     ' ############################################################################################
@@ -402,9 +421,19 @@ Public Class Frmselectfan
                     DataGridView1.Rows(m).Height = 24
                 Next
                 Dim len As Integer
+                Dim fanint As Integer = 0
                 Dim k As Integer
                 For k = 0 To fantypesQTY - 1
-                    If fanclass(k) IsNot Nothing Then Call LoadFanData(fantypefilename(k), k)
+                    Dim FullFilePathtxt As String
+                    'FullFilePathtxt = "C:\Halifax" + fantypefilename(k)
+                    FullFilePathtxt = DataPath + fantypefilename(k)
+                    If Not File.Exists(FullFilePathtxt) Then
+                        fanclass(k) = Nothing
+                    End If
+                    If fanclass(k) IsNot Nothing Then
+                        Call LoadFanData(fantypefilename(k), fanint)
+                        fanint = fanint + 1
+                    End If
                 Next
                 For n = 0 To DataGridView1.RowCount - 1
                     For m = 0 To DataGridView1.ColumnCount - 1
@@ -416,6 +445,8 @@ Public Class Frmselectfan
                                     len = If(fanclass(n).Length < DataGridView1.Columns(m).Width / 8, DataGridView1.Columns(m).Width / 8, fanclass(n).Length)
                                     DataGridView1.Columns(m).Width = len * 8
                                     DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(m).Width
+                                Else
+                                    DataGridView1.Rows(n).Cells(m).Value = "empty"
                                 End If
                             Case 3
                                 DataGridView1.Rows(n).Cells(m).Value = Math.Round(vol(1, n), voldecplaces).ToString
@@ -525,7 +556,7 @@ Public Class Frmselectfan
 
     Sub initializeSelections()
         Try
-            For i = 0 To 29
+            For i = 0 To 49
                 selectedfansize(i) = 0.0
                 selectedfantype(i) = ""
                 selectedfse(i) = 0.0
@@ -631,7 +662,7 @@ Public Class Frmselectfan
             If AdvancedUser Then minresHD = 0.0
 
             For k = 0 To fantypesQTY - 1 'akm 201018
-                If selectedfansize(k) > 0 And selectedresHD(k) >= minresHD Then
+                If selectedfansize(k) > 0 And selectedresHD(k) >= minresHD And fanclass(k) IsNot Nothing Then
                     DataGridView1.Rows(fansuccess).Cells(0).Value = selectedfansize(k).ToString
                     DataGridView1.Rows(fansuccess).Cells(1).Value = fanclass(k)
                     DataGridView1.Rows(fansuccess).Cells(2).Value = selectedspeed(k).ToString
@@ -672,40 +703,39 @@ Public Class Frmselectfan
             DataGridView1.RowCount = fansuccess
             DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
             If DataGridView1.Height < 100 Then DataGridView1.Height = 100
-            DataGridView1.Height = DataGridView1.Height * 1.1 + DataGridView1.Location.Y
+            'DataGridView1.Height = DataGridView1.Height * 1.1 + DataGridView1.Location.Y
             '++++++++++++++++++++++++++++++
-            If DataGridView1.RowCount > 9 Then
-                DataGridView1.Height = (9 * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
-                DataGridView1.ScrollBars = ScrollBars.Vertical
-            Else
-                DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
-            End If
-            Dim mm, nn, zz As Double
-            mm = CDbl(DataGridView1.Height) * 1.1
-            nn = CDbl(DataGridView1.Location.Y)
-            zz = mm + nn
-            DataGridView1.Height = CInt(zz)
-            'Height = CInt(CDbl(DataGridView1.Height) * 1.1 + CDbl(DataGridView1.Location.Y))
+            'If DataGridView1.RowCount > 9 Then
+            '    DataGridView1.Height = (9 * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
+            '    DataGridView1.ScrollBars = ScrollBars.Vertical
+            'Else
+            '    DataGridView1.Height = (DataGridView1.RowCount * 24 + DataGridView1.ColumnHeadersHeight) * 1.1
+            'End If
+            'Dim mm, nn, zz As Double
+            'mm = CDbl(DataGridView1.Height) * 1.1
+            'nn = CDbl(DataGridView1.Location.Y)
+            'zz = mm + nn
+            'DataGridView1.Height = CInt(zz)
+            ''Height = CInt(CDbl(DataGridView1.Height) * 1.1 + CDbl(DataGridView1.Location.Y))
 
             '++++++++++++++++++++++++++++++
 
 
-            If DataGridView1.Height < 350 Then DataGridView1.Height = 350
-            DataGridView1.Height = 350
+            If DataGridView1.Height > 350 Then DataGridView1.Height = 350 ' was <
+            'DataGridView1.Height = 350
             If highlight >= 0 Then
                 DataGridView1.Rows(highlight).Cells(6).Style.BackColor = Color.LightGreen
                 DataGridView1.CurrentCell = DataGridView1.Rows(highlight).Cells(0)
+                'Dim irow As Integer
+                'irow = DataGridView1.Rows(highlight).Cells(6).Selected
+                'SelectRow(DataGridView1.CurrentCell.RowIndex)
             End If
 
         Catch ex As Exception
             MsgBox("PopulateGrid")
         End Try
     End Sub
-
-    Private Sub DataGridView1_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
-            Exit Sub
-        End If
+    Private Sub SelectRow(ii As Integer)
         Button13.Enabled = True
         Label3.Visible = True
         Label3.Text = "Selected Fan: "
@@ -714,11 +744,6 @@ Public Class Frmselectfan
         ' TabPageNoise.Show()
         ' TabControl1.Controls.Add(TabPageNoise)
 
-        Dim ii As Integer
-        ii = 0
-        Do While DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selectedfantype(ii)
-            ii = ii + 1
-        Loop
         LblFanDetails.Text = selectedfantype(ii) + " " + selectedfansize(ii).ToString + " running at " + selectedspeed(ii).ToString + " rpm"
         'Label19.Text = "File used = " + selectedfanfile(ii)
         'Label19.Visible = True
@@ -742,6 +767,49 @@ Public Class Frmselectfan
 
         'TabPageNoise.Enabled = True
         TabControl1.TabPages(3).Enabled = True
+
+    End Sub
+    Private Sub DataGridView1_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
+            Exit Sub
+        End If
+        'Button13.Enabled = True
+        'Label3.Visible = True
+        'Label3.Text = "Selected Fan: "
+        'LblFanDetails.Visible = True
+
+        '' TabPageNoise.Show()
+        '' TabControl1.Controls.Add(TabPageNoise)
+
+        Dim ii As Integer
+        ii = 0
+        Do While DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selectedfantype(ii)
+            ii = ii + 1
+        Loop
+        SelectRow(ii)
+        'LblFanDetails.Text = selectedfantype(ii) + " " + selectedfansize(ii).ToString + " running at " + selectedspeed(ii).ToString + " rpm"
+        ''Label19.Text = "File used = " + selectedfanfile(ii)
+        ''Label19.Visible = True
+
+        'finalfansize = selectedfansize(ii)
+        'finalfantype = selectedfantype(ii) 'string
+        'finalfse = selectedfse(ii)
+        'finalspeed = selectedspeed(ii)
+        'finalpow = selectedpow(ii)
+        'finalfsp = selectedfsp(ii)
+        'finalfte = selectedfte(ii)
+        'finalftp = selectedftp(ii)
+        'finalov = selectedov(ii)
+        'finalvol = selectedvol(ii)
+        'finalmot = selectedmot(ii)
+        'finalresHD = selectedresHD(ii)
+        'finalVD = selectedVD(ii)
+        'finalBladeType = selectedBladeType(ii)
+        'finalBladeNumber = selectedBladeNumber(ii)
+        'finalfanfile = selectedfanfile(ii)
+
+        ''TabPageNoise.Enabled = True
+        'TabControl1.TabPages(3).Enabled = True
     End Sub
 
     Public Sub SetupGrid()
@@ -813,7 +881,7 @@ Public Class Frmselectfan
         Next q
 
         For q = 0 To 7
-            txt(q).BackColor = Color.Black
+            txt(q).BackColor = Color.Transparent
         Next
         'txt.Location = New Point(0, 0)
         txt(0).Text = "63"
@@ -1283,5 +1351,17 @@ Public Class Frmselectfan
             ErrorMessage(ex, 1001)
             'MsgBox("click")
         End Try
+    End Sub
+
+    Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
+        End
+    End Sub
+
+    Private Sub Button21_Click(sender As Object, e As EventArgs) Handles Button21.Click
+        End
+    End Sub
+
+    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
+        End
     End Sub
 End Class

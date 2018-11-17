@@ -101,13 +101,22 @@ Public Class FrmDensityCalcs
         If RadioButton1.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
         If RadioButton2.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
         If RadioButton3.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
+        ListBox1.Items.Clear()
+        Dim i, j As Integer
+        For i = 0 To gasnum
+            DataGridView1.Rows.Clear()
+        Next
+        TextBox7.Text = Nothing
+        TextBox6.Text = Nothing
+        Button3.Enabled = False
+
         ReadGasfromTextfile(filenameref)
         gasnum = 0
         gridrow = 0
         maxgasnum = 10
         DataGridView1.RowCount = maxgasnum + 1
         DataGridView1.Width = DataGridView1.RowHeadersWidth
-        Dim i, j As Integer
+
         For i = 0 To 1 '3
             DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(i).Width
             DataGridView1.Rows(maxgasnum).Cells(i).Style.BackColor = Color.Beige

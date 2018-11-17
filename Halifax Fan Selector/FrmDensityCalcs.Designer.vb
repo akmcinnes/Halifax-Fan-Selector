@@ -29,8 +29,6 @@ Partial Class FrmDensityCalcs
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
@@ -54,6 +52,8 @@ Partial Class FrmDensityCalcs
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -74,9 +74,9 @@ Partial Class FrmDensityCalcs
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(21, 552)
+        Me.Button2.Location = New System.Drawing.Point(21, 540)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(273, 39)
+        Me.Button2.Size = New System.Drawing.Size(251, 50)
         Me.Button2.TabIndex = 7
         Me.Button2.Text = "CLEAR"
         Me.Button2.UseVisualStyleBackColor = True
@@ -114,20 +114,8 @@ Partial Class FrmDensityCalcs
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(325, 370)
+        Me.DataGridView1.Size = New System.Drawing.Size(438, 370)
         Me.DataGridView1.TabIndex = 13
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Gas Name"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.Width = 120
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "% Factor"
-        Me.Column2.Name = "Column2"
         '
         'GroupBox1
         '
@@ -136,7 +124,7 @@ Partial Class FrmDensityCalcs
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(737, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(843, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(298, 118)
         Me.GroupBox1.TabIndex = 14
@@ -189,9 +177,9 @@ Partial Class FrmDensityCalcs
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(737, 552)
+        Me.Button1.Location = New System.Drawing.Point(949, 540)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(348, 39)
+        Me.Button1.Size = New System.Drawing.Size(251, 50)
         Me.Button1.TabIndex = 16
         Me.Button1.Text = "Return to Selection"
         Me.Button1.UseVisualStyleBackColor = True
@@ -200,9 +188,9 @@ Partial Class FrmDensityCalcs
         '
         Me.Button3.Enabled = False
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(350, 552)
+        Me.Button3.Location = New System.Drawing.Point(485, 540)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(325, 39)
+        Me.Button3.Size = New System.Drawing.Size(251, 50)
         Me.Button3.TabIndex = 17
         Me.Button3.Text = "Calculate"
         Me.Button3.UseVisualStyleBackColor = True
@@ -334,7 +322,7 @@ Partial Class FrmDensityCalcs
         Me.GroupBox2.Controls.Add(Me.TextBox1)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(737, 136)
+        Me.GroupBox2.Location = New System.Drawing.Point(843, 136)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(351, 154)
         Me.GroupBox2.TabIndex = 32
@@ -351,12 +339,24 @@ Partial Class FrmDensityCalcs
         Me.GroupBox3.Controls.Add(Me.TextBox7)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
-        Me.GroupBox3.Location = New System.Drawing.Point(737, 313)
+        Me.GroupBox3.Location = New System.Drawing.Point(843, 313)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(348, 124)
         Me.GroupBox3.TabIndex = 33
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Outputs"
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Gas Name"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        Me.Column1.Width = 200
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "% Factor"
+        Me.Column2.Name = "Column2"
         '
         'FrmDensityCalcs
         '
@@ -393,8 +393,6 @@ Partial Class FrmDensityCalcs
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton
     Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents Button3 As Button
@@ -414,4 +412,6 @@ Partial Class FrmDensityCalcs
     Friend WithEvents TextBox7 As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
 End Class

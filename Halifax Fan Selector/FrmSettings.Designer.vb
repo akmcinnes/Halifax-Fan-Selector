@@ -22,45 +22,93 @@ Partial Class FrmSettings
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSettings))
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.chkAdvancedUser = New System.Windows.Forms.CheckBox()
+        Me.grpLanguage = New System.Windows.Forms.GroupBox()
+        Me.optChinese = New System.Windows.Forms.RadioButton()
+        Me.optEnglish = New System.Windows.Forms.RadioButton()
+        Me.txtUsername = New System.Windows.Forms.TextBox()
+        Me.lblUsername = New System.Windows.Forms.Label()
+        Me.grpLanguage.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(33, 28)
+        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(187, 31)
-        Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Background Colour"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(95, 218)
+        resources.ApplyResources(Me.Button2, "Button2")
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 1
-        Me.Button2.Text = "End"
         Me.Button2.UseVisualStyleBackColor = True
+        '
+        'chkAdvancedUser
+        '
+        resources.ApplyResources(Me.chkAdvancedUser, "chkAdvancedUser")
+        Me.chkAdvancedUser.Name = "chkAdvancedUser"
+        Me.chkAdvancedUser.UseVisualStyleBackColor = True
+        '
+        'grpLanguage
+        '
+        Me.grpLanguage.Controls.Add(Me.optChinese)
+        Me.grpLanguage.Controls.Add(Me.optEnglish)
+        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
+        Me.grpLanguage.Name = "grpLanguage"
+        Me.grpLanguage.TabStop = False
+        '
+        'optChinese
+        '
+        resources.ApplyResources(Me.optChinese, "optChinese")
+        Me.optChinese.Name = "optChinese"
+        Me.optChinese.UseVisualStyleBackColor = True
+        '
+        'optEnglish
+        '
+        resources.ApplyResources(Me.optEnglish, "optEnglish")
+        Me.optEnglish.Name = "optEnglish"
+        Me.optEnglish.UseVisualStyleBackColor = True
+        '
+        'txtUsername
+        '
+        resources.ApplyResources(Me.txtUsername, "txtUsername")
+        Me.txtUsername.Name = "txtUsername"
+        '
+        'lblUsername
+        '
+        resources.ApplyResources(Me.lblUsername, "lblUsername")
+        Me.lblUsername.Name = "lblUsername"
         '
         'FrmSettings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.ClientSize = New System.Drawing.Size(282, 253)
+        Me.Controls.Add(Me.txtUsername)
+        Me.Controls.Add(Me.lblUsername)
+        Me.Controls.Add(Me.grpLanguage)
+        Me.Controls.Add(Me.chkAdvancedUser)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Name = "FrmSettings"
-        Me.Text = "FrmSettings"
+        Me.grpLanguage.ResumeLayout(False)
+        Me.grpLanguage.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents ColorDialog1 As ColorDialog
     Friend WithEvents Button1 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents chkAdvancedUser As CheckBox
+    Friend WithEvents grpLanguage As GroupBox
+    Friend WithEvents optChinese As RadioButton
+    Friend WithEvents optEnglish As RadioButton
+    Friend WithEvents txtUsername As TextBox
+    Friend WithEvents lblUsername As Label
 End Class

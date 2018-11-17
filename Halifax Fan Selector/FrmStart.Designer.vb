@@ -132,7 +132,7 @@ Partial Class FrmStart
         '
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
         Me.PictureBox1.BackColor = System.Drawing.SystemColors.Menu
-        Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.NewLogo2018
+        Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.logo_2016
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '

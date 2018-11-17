@@ -6,10 +6,15 @@ Module Variables
     Public fs As System.IO.FileStream
 
     Public AdvancedUser As Boolean
-    Public version_number As String = "V 1.0.0 Beta"
+    Public version_number As String = "V 1.0.1 Beta"
     Public DataPath As String = "C:\Halifax\Performance Data\"
 
     Public UserName As String
+
+    Public ChosenLanguage As String
+
+    Public UserType As Integer
+    'Public locale_name As String
 
     Public Widthratios(50) As Single
 
@@ -76,7 +81,7 @@ Module Variables
     Public fses(50, 50) As Double
     Public ftes(50, 50) As Double
     Public ovs(50, 50) As Double
-    Public fsizes(50, 500) As Double
+    Public fsizes(50, 50) As Double
 
     Public datafansize(50) As Single
     Public datafanspeed(50) As Integer
@@ -271,7 +276,7 @@ Module Variables
     Public FSE1(30) As Double
     Public FTE1(30) As Double
     Public OVEL1(30) As Double
-    Public STD_Fan_Size(30) As Double
+    Public STD_Fan_Size(50) As Double '30
 
     Public count1 As Integer
     Public count2 As Integer
@@ -300,22 +305,22 @@ Module Variables
     Public gradvol As Double
     Public newpressure1 As Double
 
-    Public selectedfansize(30) As Double
-    Public selectedfantype(30) As String
-    Public selectedfse(30) As Double
-    Public selectedspeed(30) As Double
-    Public selectedpow(30) As Double
-    Public selectedfsp(30) As Double
-    Public selectedfte(30) As Double
-    Public selectedftp(30) As Double
-    Public selectedov(30) As Double
-    Public selectedvol(30) As Double
-    Public selectedmot(30) As Double
-    Public selectedresHD(30) As Double
-    Public selectedVD(30) As Double
-    Public selectedBladeType(30) As String
-    Public selectedBladeNumber(30) As Integer
-    Public selectedfanfile(30) As String
+    Public selectedfansize(50) As Double
+    Public selectedfantype(50) As String
+    Public selectedfse(50) As Double
+    Public selectedspeed(50) As Double
+    Public selectedpow(50) As Double
+    Public selectedfsp(50) As Double
+    Public selectedfte(50) As Double
+    Public selectedftp(50) As Double
+    Public selectedov(50) As Double
+    Public selectedvol(50) As Double
+    Public selectedmot(50) As Double
+    Public selectedresHD(50) As Double
+    Public selectedVD(50) As Double
+    Public selectedBladeType(50) As String
+    Public selectedBladeNumber(50) As Integer
+    Public selectedfanfile(50) As String
 
     Public finalfansize As Double
     Public finalfantype As String = ""

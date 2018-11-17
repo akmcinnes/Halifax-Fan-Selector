@@ -1,8 +1,9 @@
 ﻿Module GetFanSize
     Public Function GetFanSize(ByVal fanno As Integer)
-        GetFanSize = 0.0
+        'GetFanSize = 0.0
+        Dim retval As Double = 0.0
         Try
-            Dim retval As Double
+
             count = 0
             Do While fsizes(fanno, count) <> 0
                 count1 = 0
@@ -67,7 +68,8 @@
             Return retval
 
         Catch ex As Exception
-            MsgBox("Getfansize")
+            MsgBox("Getfansize " + fantypefilename(fanno) + " count=" + count.ToString + " fanno=" + fanno.ToString)
         End Try
+        Return retval
     End Function
 End Module

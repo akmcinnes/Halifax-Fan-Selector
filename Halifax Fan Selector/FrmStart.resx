@@ -408,6 +408,9 @@
   <data name="btnSettings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="btnSettings.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
     <value>btnSettings</value>
   </data>
@@ -444,9 +447,6 @@
   <data name="chkAdvancedUser.Text" xml:space="preserve">
     <value>Advanced User</value>
   </data>
-  <data name="chkAdvancedUser.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;chkAdvancedUser.Name" xml:space="preserve">
     <value>chkAdvancedUser</value>
   </data>
@@ -469,13 +469,10 @@
     <value>345, 480</value>
   </data>
   <data name="lblVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 17</value>
+    <value>0, 17</value>
   </data>
   <data name="lblVersion.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
-  </data>
-  <data name="lblVersion.Text" xml:space="preserve">
-    <value>v 1.0.0 Beta</value>
   </data>
   <data name="&gt;&gt;lblVersion.Name" xml:space="preserve">
     <value>lblVersion</value>

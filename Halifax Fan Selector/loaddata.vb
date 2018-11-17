@@ -189,9 +189,11 @@ Module loaddata
 
     Public Sub ReadfromBinaryfile(filename, fanno)
         Try
+            Dim i As Integer
             filename = filename.Replace(".txt", ".bin")
             Dim FullFilePathtxt As String
-            FullFilePathtxt = "C:\Halifax" + filename
+            'FullFilePathtxt = "C:\Halifax" + filename
+            FullFilePathtxt = DataPath + filename
 
             fs = New System.IO.FileStream(FullFilePathtxt, IO.FileMode.Open)
             br = New System.IO.BinaryReader(fs)
@@ -267,10 +269,25 @@ Module loaddata
             For i = 0 To Num_Readings - 1
                 FTE1(i) = br.ReadDouble()
             Next
-            For i = 0 To 29
+            For i = 0 To 29 '29
                 STD_Fan_Size(i) = br.ReadDouble()
                 fsizes(fanno, i) = STD_Fan_Size(i)
             Next
+            'Dim fstep As Double
+            'i = 0
+            'Dim maxdia As Double
+            'Dim stepsize As Double
+            'If FanSize1 < 100 Then
+            '    maxdia = 100.0
+            '    stepsize = 5.0
+            'Else
+            '    maxdia = 2500.0
+            '    stepsize = 5.0
+            'End If
+            'For fstep = CDbl(STD_Fan_Size(0)) To maxdia Step stepsize
+            '    fsizes(fanno, i) = fstep
+            '    i = i + 1
+            'Next
             br.Close() 'Close 
         Catch ex As Exception
             'MsgBox(filename + "  readfrombinaryfile")

@@ -22,9 +22,10 @@ Partial Class Frmselectfan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPageEnvironment = New System.Windows.Forms.TabPage()
+        Me.Button19 = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.OptVelocityFtpermin = New System.Windows.Forms.RadioButton()
         Me.OptVelocityMpers = New System.Windows.Forms.RadioButton()
@@ -123,6 +124,7 @@ Partial Class Frmselectfan
         Me.TxtDesignTemperature = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TabPageFanParameters = New System.Windows.Forms.TabPage()
+        Me.Button20 = New System.Windows.Forms.Button()
         Me.Button12 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.GrpFanSize = New System.Windows.Forms.GroupBox()
@@ -155,6 +157,7 @@ Partial Class Frmselectfan
         Me.ChkInclineBlade = New System.Windows.Forms.CheckBox()
         Me.ChkCurveBlade = New System.Windows.Forms.CheckBox()
         Me.TabPageSelection = New System.Windows.Forms.TabPage()
+        Me.Button21 = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Button13 = New System.Windows.Forms.Button()
@@ -170,8 +173,6 @@ Partial Class Frmselectfan
         Me.TabPageNoise = New System.Windows.Forms.TabPage()
         Me.Button16 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -198,6 +199,9 @@ Partial Class Frmselectfan
         Me.TxtFlownoise = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Button22 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.TabPageImpeller = New System.Windows.Forms.TabPage()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -266,8 +270,10 @@ Partial Class Frmselectfan
         '
         'TabPageEnvironment
         '
-        Me.TabPageEnvironment.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TabPageEnvironment.BackColor = System.Drawing.Color.Transparent
+        Me.TabPageEnvironment.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         Me.TabPageEnvironment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TabPageEnvironment.Controls.Add(Me.Button19)
         Me.TabPageEnvironment.Controls.Add(Me.GroupBox9)
         Me.TabPageEnvironment.Controls.Add(Me.BtnExit)
         Me.TabPageEnvironment.Controls.Add(Me.GroupBox8)
@@ -291,13 +297,26 @@ Partial Class Frmselectfan
         Me.TabPageEnvironment.TabIndex = 5
         Me.TabPageEnvironment.Text = "Environmental Info"
         '
+        'Button19
+        '
+        Me.Button19.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Button19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button19.Location = New System.Drawing.Point(11, 540)
+        Me.Button19.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(251, 50)
+        Me.Button19.TabIndex = 24
+        Me.Button19.Text = "EXIT"
+        Me.Button19.UseVisualStyleBackColor = True
+        '
         'GroupBox9
         '
-        Me.GroupBox9.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox9.Controls.Add(Me.OptVelocityFtpermin)
         Me.GroupBox9.Controls.Add(Me.OptVelocityMpers)
+        Me.GroupBox9.Enabled = False
         Me.GroupBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox9.ForeColor = System.Drawing.Color.White
+        Me.GroupBox9.ForeColor = System.Drawing.Color.Black
         Me.GroupBox9.Location = New System.Drawing.Point(995, 30)
         Me.GroupBox9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox9.Name = "GroupBox9"
@@ -306,12 +325,13 @@ Partial Class Frmselectfan
         Me.GroupBox9.TabIndex = 23
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Velocity"
+        Me.GroupBox9.Visible = False
         '
         'OptVelocityFtpermin
         '
         Me.OptVelocityFtpermin.AutoSize = True
         Me.OptVelocityFtpermin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptVelocityFtpermin.ForeColor = System.Drawing.Color.White
+        Me.OptVelocityFtpermin.ForeColor = System.Drawing.Color.Black
         Me.OptVelocityFtpermin.Location = New System.Drawing.Point(19, 54)
         Me.OptVelocityFtpermin.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptVelocityFtpermin.Name = "OptVelocityFtpermin"
@@ -325,7 +345,7 @@ Partial Class Frmselectfan
         '
         Me.OptVelocityMpers.AutoSize = True
         Me.OptVelocityMpers.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptVelocityMpers.ForeColor = System.Drawing.Color.White
+        Me.OptVelocityMpers.ForeColor = System.Drawing.Color.Black
         Me.OptVelocityMpers.Location = New System.Drawing.Point(19, 28)
         Me.OptVelocityMpers.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptVelocityMpers.Name = "OptVelocityMpers"
@@ -352,11 +372,12 @@ Partial Class Frmselectfan
         '
         'GroupBox8
         '
-        Me.GroupBox8.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox8.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox8.Controls.Add(Me.OptPowerHp)
         Me.GroupBox8.Controls.Add(Me.OptPowerKW)
+        Me.GroupBox8.Enabled = False
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox8.ForeColor = System.Drawing.Color.White
+        Me.GroupBox8.ForeColor = System.Drawing.Color.Black
         Me.GroupBox8.Location = New System.Drawing.Point(995, 174)
         Me.GroupBox8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox8.Name = "GroupBox8"
@@ -365,12 +386,13 @@ Partial Class Frmselectfan
         Me.GroupBox8.TabIndex = 17
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Power"
+        Me.GroupBox8.Visible = False
         '
         'OptPowerHp
         '
         Me.OptPowerHp.AutoSize = True
         Me.OptPowerHp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptPowerHp.ForeColor = System.Drawing.Color.White
+        Me.OptPowerHp.ForeColor = System.Drawing.Color.Black
         Me.OptPowerHp.Location = New System.Drawing.Point(23, 54)
         Me.OptPowerHp.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptPowerHp.Name = "OptPowerHp"
@@ -384,7 +406,7 @@ Partial Class Frmselectfan
         '
         Me.OptPowerKW.AutoSize = True
         Me.OptPowerKW.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptPowerKW.ForeColor = System.Drawing.Color.White
+        Me.OptPowerKW.ForeColor = System.Drawing.Color.Black
         Me.OptPowerKW.Location = New System.Drawing.Point(23, 28)
         Me.OptPowerKW.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptPowerKW.Name = "OptPowerKW"
@@ -426,17 +448,17 @@ Partial Class Frmselectfan
         '
         'GroupBox7
         '
-        Me.GroupBox7.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox7.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox7.Controls.Add(Me.Button18)
         Me.GroupBox7.Controls.Add(Me.Button17)
         Me.GroupBox7.Controls.Add(Me.OptDefaultNone)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox7.ForeColor = System.Drawing.Color.White
+        Me.GroupBox7.ForeColor = System.Drawing.Color.Black
         Me.GroupBox7.Location = New System.Drawing.Point(547, 423)
         Me.GroupBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox7.Size = New System.Drawing.Size(645, 98)
+        Me.GroupBox7.Size = New System.Drawing.Size(420, 98)
         Me.GroupBox7.TabIndex = 19
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Select defaults"
@@ -444,8 +466,8 @@ Partial Class Frmselectfan
         'Button18
         '
         Me.Button18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button18.Location = New System.Drawing.Point(220, 41)
-        Me.Button18.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button18.Location = New System.Drawing.Point(207, 41)
+        Me.Button18.Margin = New System.Windows.Forms.Padding(4)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(200, 38)
         Me.Button18.TabIndex = 4
@@ -455,8 +477,8 @@ Partial Class Frmselectfan
         'Button17
         '
         Me.Button17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button17.Location = New System.Drawing.Point(23, 41)
-        Me.Button17.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button17.Location = New System.Drawing.Point(10, 41)
+        Me.Button17.Margin = New System.Windows.Forms.Padding(4)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(177, 38)
         Me.Button17.TabIndex = 3
@@ -480,11 +502,11 @@ Partial Class Frmselectfan
         '
         'GroupBox10
         '
-        Me.GroupBox10.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox10.Controls.Add(Me.OptAltitudeFt)
         Me.GroupBox10.Controls.Add(Me.OptAltitudeM)
         Me.GroupBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox10.ForeColor = System.Drawing.Color.White
+        Me.GroupBox10.ForeColor = System.Drawing.Color.Black
         Me.GroupBox10.Location = New System.Drawing.Point(767, 310)
         Me.GroupBox10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox10.Name = "GroupBox10"
@@ -498,7 +520,7 @@ Partial Class Frmselectfan
         '
         Me.OptAltitudeFt.AutoSize = True
         Me.OptAltitudeFt.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptAltitudeFt.ForeColor = System.Drawing.Color.White
+        Me.OptAltitudeFt.ForeColor = System.Drawing.Color.Black
         Me.OptAltitudeFt.Location = New System.Drawing.Point(23, 55)
         Me.OptAltitudeFt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptAltitudeFt.Name = "OptAltitudeFt"
@@ -512,7 +534,7 @@ Partial Class Frmselectfan
         '
         Me.OptAltitudeM.AutoSize = True
         Me.OptAltitudeM.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptAltitudeM.ForeColor = System.Drawing.Color.White
+        Me.OptAltitudeM.ForeColor = System.Drawing.Color.Black
         Me.OptAltitudeM.Location = New System.Drawing.Point(23, 28)
         Me.OptAltitudeM.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptAltitudeM.Name = "OptAltitudeM"
@@ -539,11 +561,12 @@ Partial Class Frmselectfan
         '
         'GroupBox11
         '
-        Me.GroupBox11.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox11.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox11.Controls.Add(Me.OptLengthIn)
         Me.GroupBox11.Controls.Add(Me.OptLengthMm)
+        Me.GroupBox11.Enabled = False
         Me.GroupBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox11.ForeColor = System.Drawing.Color.White
+        Me.GroupBox11.ForeColor = System.Drawing.Color.Black
         Me.GroupBox11.Location = New System.Drawing.Point(995, 310)
         Me.GroupBox11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox11.Name = "GroupBox11"
@@ -552,12 +575,13 @@ Partial Class Frmselectfan
         Me.GroupBox11.TabIndex = 18
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Length"
+        Me.GroupBox11.Visible = False
         '
         'OptLengthIn
         '
         Me.OptLengthIn.AutoSize = True
         Me.OptLengthIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptLengthIn.ForeColor = System.Drawing.Color.White
+        Me.OptLengthIn.ForeColor = System.Drawing.Color.Black
         Me.OptLengthIn.Location = New System.Drawing.Point(23, 55)
         Me.OptLengthIn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptLengthIn.Name = "OptLengthIn"
@@ -571,7 +595,7 @@ Partial Class Frmselectfan
         '
         Me.OptLengthMm.AutoSize = True
         Me.OptLengthMm.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptLengthMm.ForeColor = System.Drawing.Color.White
+        Me.OptLengthMm.ForeColor = System.Drawing.Color.Black
         Me.OptLengthMm.Location = New System.Drawing.Point(23, 28)
         Me.OptLengthMm.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptLengthMm.Name = "OptLengthMm"
@@ -583,11 +607,11 @@ Partial Class Frmselectfan
         '
         'GroupBox12
         '
-        Me.GroupBox12.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox12.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox12.Controls.Add(Me.OptTemperatureF)
         Me.GroupBox12.Controls.Add(Me.OptTemperatureC)
         Me.GroupBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox12.ForeColor = System.Drawing.Color.White
+        Me.GroupBox12.ForeColor = System.Drawing.Color.Black
         Me.GroupBox12.Location = New System.Drawing.Point(767, 174)
         Me.GroupBox12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox12.Name = "GroupBox12"
@@ -601,8 +625,8 @@ Partial Class Frmselectfan
         '
         Me.OptTemperatureF.AutoSize = True
         Me.OptTemperatureF.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptTemperatureF.ForeColor = System.Drawing.Color.White
-        Me.OptTemperatureF.Location = New System.Drawing.Point(32, 60)
+        Me.OptTemperatureF.ForeColor = System.Drawing.Color.Black
+        Me.OptTemperatureF.Location = New System.Drawing.Point(23, 60)
         Me.OptTemperatureF.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptTemperatureF.Name = "OptTemperatureF"
         Me.OptTemperatureF.Size = New System.Drawing.Size(55, 29)
@@ -615,8 +639,8 @@ Partial Class Frmselectfan
         '
         Me.OptTemperatureC.AutoSize = True
         Me.OptTemperatureC.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptTemperatureC.ForeColor = System.Drawing.Color.White
-        Me.OptTemperatureC.Location = New System.Drawing.Point(32, 34)
+        Me.OptTemperatureC.ForeColor = System.Drawing.Color.Black
+        Me.OptTemperatureC.Location = New System.Drawing.Point(23, 34)
         Me.OptTemperatureC.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptTemperatureC.Name = "OptTemperatureC"
         Me.OptTemperatureC.Size = New System.Drawing.Size(58, 29)
@@ -627,7 +651,7 @@ Partial Class Frmselectfan
         '
         'GroupBox13
         '
-        Me.GroupBox13.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox13.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox13.Controls.Add(Me.OptFlowLbPerHr)
         Me.GroupBox13.Controls.Add(Me.OptFlowKgPerHr)
         Me.GroupBox13.Controls.Add(Me.OptFlowCfm)
@@ -635,7 +659,7 @@ Partial Class Frmselectfan
         Me.GroupBox13.Controls.Add(Me.OptFlowM3PerMin)
         Me.GroupBox13.Controls.Add(Me.OptFlowM3PerSec)
         Me.GroupBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox13.ForeColor = System.Drawing.Color.White
+        Me.GroupBox13.ForeColor = System.Drawing.Color.Black
         Me.GroupBox13.Location = New System.Drawing.Point(547, 30)
         Me.GroupBox13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox13.Name = "GroupBox13"
@@ -649,7 +673,7 @@ Partial Class Frmselectfan
         '
         Me.OptFlowLbPerHr.AutoSize = True
         Me.OptFlowLbPerHr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptFlowLbPerHr.ForeColor = System.Drawing.Color.White
+        Me.OptFlowLbPerHr.ForeColor = System.Drawing.Color.Black
         Me.OptFlowLbPerHr.Location = New System.Drawing.Point(29, 158)
         Me.OptFlowLbPerHr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptFlowLbPerHr.Name = "OptFlowLbPerHr"
@@ -663,7 +687,7 @@ Partial Class Frmselectfan
         '
         Me.OptFlowKgPerHr.AutoSize = True
         Me.OptFlowKgPerHr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptFlowKgPerHr.ForeColor = System.Drawing.Color.White
+        Me.OptFlowKgPerHr.ForeColor = System.Drawing.Color.Black
         Me.OptFlowKgPerHr.Location = New System.Drawing.Point(29, 130)
         Me.OptFlowKgPerHr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptFlowKgPerHr.Name = "OptFlowKgPerHr"
@@ -677,7 +701,7 @@ Partial Class Frmselectfan
         '
         Me.OptFlowCfm.AutoSize = True
         Me.OptFlowCfm.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptFlowCfm.ForeColor = System.Drawing.Color.White
+        Me.OptFlowCfm.ForeColor = System.Drawing.Color.Black
         Me.OptFlowCfm.Location = New System.Drawing.Point(29, 102)
         Me.OptFlowCfm.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptFlowCfm.Name = "OptFlowCfm"
@@ -691,7 +715,7 @@ Partial Class Frmselectfan
         '
         Me.OptFlowM3PerHr.AutoSize = True
         Me.OptFlowM3PerHr.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptFlowM3PerHr.ForeColor = System.Drawing.Color.White
+        Me.OptFlowM3PerHr.ForeColor = System.Drawing.Color.Black
         Me.OptFlowM3PerHr.Location = New System.Drawing.Point(29, 22)
         Me.OptFlowM3PerHr.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptFlowM3PerHr.Name = "OptFlowM3PerHr"
@@ -705,7 +729,7 @@ Partial Class Frmselectfan
         '
         Me.OptFlowM3PerMin.AutoSize = True
         Me.OptFlowM3PerMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptFlowM3PerMin.ForeColor = System.Drawing.Color.White
+        Me.OptFlowM3PerMin.ForeColor = System.Drawing.Color.Black
         Me.OptFlowM3PerMin.Location = New System.Drawing.Point(29, 48)
         Me.OptFlowM3PerMin.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptFlowM3PerMin.Name = "OptFlowM3PerMin"
@@ -719,7 +743,7 @@ Partial Class Frmselectfan
         '
         Me.OptFlowM3PerSec.AutoSize = True
         Me.OptFlowM3PerSec.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptFlowM3PerSec.ForeColor = System.Drawing.Color.White
+        Me.OptFlowM3PerSec.ForeColor = System.Drawing.Color.Black
         Me.OptFlowM3PerSec.Location = New System.Drawing.Point(29, 74)
         Me.OptFlowM3PerSec.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptFlowM3PerSec.Name = "OptFlowM3PerSec"
@@ -731,13 +755,13 @@ Partial Class Frmselectfan
         '
         'GroupBox14
         '
-        Me.GroupBox14.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox14.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox14.Controls.Add(Me.OptPressuremmWG)
         Me.GroupBox14.Controls.Add(Me.OptPressureinWG)
         Me.GroupBox14.Controls.Add(Me.OptPressuremBar)
         Me.GroupBox14.Controls.Add(Me.OptPressurePa)
         Me.GroupBox14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox14.ForeColor = System.Drawing.Color.White
+        Me.GroupBox14.ForeColor = System.Drawing.Color.Black
         Me.GroupBox14.Location = New System.Drawing.Point(547, 249)
         Me.GroupBox14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox14.Name = "GroupBox14"
@@ -751,7 +775,7 @@ Partial Class Frmselectfan
         '
         Me.OptPressuremmWG.AutoSize = True
         Me.OptPressuremmWG.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptPressuremmWG.ForeColor = System.Drawing.Color.White
+        Me.OptPressuremmWG.ForeColor = System.Drawing.Color.Black
         Me.OptPressuremmWG.Location = New System.Drawing.Point(23, 114)
         Me.OptPressuremmWG.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptPressuremmWG.Name = "OptPressuremmWG"
@@ -765,7 +789,7 @@ Partial Class Frmselectfan
         '
         Me.OptPressureinWG.AutoSize = True
         Me.OptPressureinWG.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptPressureinWG.ForeColor = System.Drawing.Color.White
+        Me.OptPressureinWG.ForeColor = System.Drawing.Color.Black
         Me.OptPressureinWG.Location = New System.Drawing.Point(23, 87)
         Me.OptPressureinWG.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptPressureinWG.Name = "OptPressureinWG"
@@ -779,7 +803,7 @@ Partial Class Frmselectfan
         '
         Me.OptPressuremBar.AutoSize = True
         Me.OptPressuremBar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptPressuremBar.ForeColor = System.Drawing.Color.White
+        Me.OptPressuremBar.ForeColor = System.Drawing.Color.Black
         Me.OptPressuremBar.Location = New System.Drawing.Point(23, 60)
         Me.OptPressuremBar.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptPressuremBar.Name = "OptPressuremBar"
@@ -793,7 +817,7 @@ Partial Class Frmselectfan
         '
         Me.OptPressurePa.AutoSize = True
         Me.OptPressurePa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptPressurePa.ForeColor = System.Drawing.Color.White
+        Me.OptPressurePa.ForeColor = System.Drawing.Color.Black
         Me.OptPressurePa.Location = New System.Drawing.Point(23, 34)
         Me.OptPressurePa.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptPressurePa.Name = "OptPressurePa"
@@ -805,11 +829,11 @@ Partial Class Frmselectfan
         '
         'GroupBox15
         '
-        Me.GroupBox15.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox15.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox15.Controls.Add(Me.OptDensityLbPerFt3)
         Me.GroupBox15.Controls.Add(Me.OptDensityKgPerM3)
         Me.GroupBox15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox15.ForeColor = System.Drawing.Color.White
+        Me.GroupBox15.ForeColor = System.Drawing.Color.Black
         Me.GroupBox15.Location = New System.Drawing.Point(767, 30)
         Me.GroupBox15.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox15.Name = "GroupBox15"
@@ -823,7 +847,7 @@ Partial Class Frmselectfan
         '
         Me.OptDensityLbPerFt3.AutoSize = True
         Me.OptDensityLbPerFt3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptDensityLbPerFt3.ForeColor = System.Drawing.Color.White
+        Me.OptDensityLbPerFt3.ForeColor = System.Drawing.Color.Black
         Me.OptDensityLbPerFt3.Location = New System.Drawing.Point(23, 54)
         Me.OptDensityLbPerFt3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptDensityLbPerFt3.Name = "OptDensityLbPerFt3"
@@ -837,7 +861,7 @@ Partial Class Frmselectfan
         '
         Me.OptDensityKgPerM3.AutoSize = True
         Me.OptDensityKgPerM3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptDensityKgPerM3.ForeColor = System.Drawing.Color.White
+        Me.OptDensityKgPerM3.ForeColor = System.Drawing.Color.Black
         Me.OptDensityKgPerM3.Location = New System.Drawing.Point(23, 28)
         Me.OptDensityKgPerM3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptDensityKgPerM3.Name = "OptDensityKgPerM3"
@@ -860,11 +884,11 @@ Partial Class Frmselectfan
         '
         'GrpFrequency
         '
-        Me.GrpFrequency.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpFrequency.BackColor = System.Drawing.Color.Transparent
         Me.GrpFrequency.Controls.Add(Me.Opt50Hz)
         Me.GrpFrequency.Controls.Add(Me.Opt60Hz)
         Me.GrpFrequency.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpFrequency.ForeColor = System.Drawing.Color.White
+        Me.GrpFrequency.ForeColor = System.Drawing.Color.Black
         Me.GrpFrequency.Location = New System.Drawing.Point(35, 231)
         Me.GrpFrequency.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpFrequency.Name = "GrpFrequency"
@@ -903,7 +927,7 @@ Partial Class Frmselectfan
         '
         'GrpEnvironment
         '
-        Me.GrpEnvironment.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpEnvironment.BackColor = System.Drawing.Color.Transparent
         Me.GrpEnvironment.Controls.Add(Me.LblAtmosphericPressureUnits)
         Me.GrpEnvironment.Controls.Add(Me.LblHumidityUnits)
         Me.GrpEnvironment.Controls.Add(Me.LblAltitudeUnits)
@@ -917,7 +941,7 @@ Partial Class Frmselectfan
         Me.GrpEnvironment.Controls.Add(Me.LblAltitude)
         Me.GrpEnvironment.Controls.Add(Me.LblAmbientTemperature)
         Me.GrpEnvironment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpEnvironment.ForeColor = System.Drawing.Color.White
+        Me.GrpEnvironment.ForeColor = System.Drawing.Color.Black
         Me.GrpEnvironment.Location = New System.Drawing.Point(35, 22)
         Me.GrpEnvironment.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpEnvironment.Name = "GrpEnvironment"
@@ -1058,7 +1082,8 @@ Partial Class Frmselectfan
         '
         'TabPageDuty
         '
-        Me.TabPageDuty.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TabPageDuty.BackColor = System.Drawing.Color.Transparent
+        Me.TabPageDuty.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         Me.TabPageDuty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TabPageDuty.Controls.Add(Me.Button10)
         Me.TabPageDuty.Controls.Add(Me.Button9)
@@ -1072,12 +1097,12 @@ Partial Class Frmselectfan
         Me.TabPageDuty.Controls.Add(Me.GrpInletTemperature)
         Me.TabPageDuty.Controls.Add(Me.Button1)
         Me.TabPageDuty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TabPageDuty.ForeColor = System.Drawing.SystemColors.ControlText
         Me.TabPageDuty.Location = New System.Drawing.Point(4, 34)
         Me.TabPageDuty.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageDuty.Name = "TabPageDuty"
         Me.TabPageDuty.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TabPageDuty.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.TabPageDuty.Size = New System.Drawing.Size(1247, 611)
+        Me.TabPageDuty.Size = New System.Drawing.Size(1247, 602)
         Me.TabPageDuty.TabIndex = 2
         Me.TabPageDuty.Text = "Duty Input"
         '
@@ -1089,7 +1114,7 @@ Partial Class Frmselectfan
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(251, 50)
         Me.Button10.TabIndex = 15
-        Me.Button10.Text = "Environment Info >>"
+        Me.Button10.Text = "<< Environment Info"
         Me.Button10.UseVisualStyleBackColor = True
         '
         'Button9
@@ -1100,7 +1125,7 @@ Partial Class Frmselectfan
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(251, 50)
         Me.Button9.TabIndex = 14
-        Me.Button9.Text = "<< Fan Parameters" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Button9.Text = "Fan Parameters >>" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Button9.UseVisualStyleBackColor = True
         '
         'Button7
@@ -1117,14 +1142,14 @@ Partial Class Frmselectfan
         '
         'GrpFlowRate
         '
-        Me.GrpFlowRate.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpFlowRate.BackColor = System.Drawing.Color.Transparent
         Me.GrpFlowRate.Controls.Add(Me.LblFlowRateUnits)
         Me.GrpFlowRate.Controls.Add(Me.Txtflow)
         Me.GrpFlowRate.Controls.Add(Me.OptMassFlow)
         Me.GrpFlowRate.Controls.Add(Me.OptVolumeFlow)
         Me.GrpFlowRate.Controls.Add(Me.GroupBox6)
         Me.GrpFlowRate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpFlowRate.ForeColor = System.Drawing.Color.White
+        Me.GrpFlowRate.ForeColor = System.Drawing.Color.Black
         Me.GrpFlowRate.Location = New System.Drawing.Point(11, 22)
         Me.GrpFlowRate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpFlowRate.Name = "GrpFlowRate"
@@ -1183,9 +1208,11 @@ Partial Class Frmselectfan
         '
         'GroupBox6
         '
+        Me.GroupBox6.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox6.Controls.Add(Me.OptFlowDischarge)
         Me.GroupBox6.Controls.Add(Me.OptFlowNominal)
         Me.GroupBox6.Controls.Add(Me.OpFlowInlet)
+        Me.GroupBox6.ForeColor = System.Drawing.Color.Black
         Me.GroupBox6.Location = New System.Drawing.Point(0, 92)
         Me.GroupBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox6.Name = "GroupBox6"
@@ -1234,11 +1261,11 @@ Partial Class Frmselectfan
         '
         'GroupBox2
         '
-        Me.GroupBox2.BackColor = System.Drawing.Color.Red
+        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.OptXLS)
         Me.GroupBox2.Controls.Add(Me.OptTXT)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.ForeColor = System.Drawing.Color.White
+        Me.GroupBox2.ForeColor = System.Drawing.Color.Black
         Me.GroupBox2.Location = New System.Drawing.Point(419, 342)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
@@ -1276,11 +1303,11 @@ Partial Class Frmselectfan
         '
         'GroupBox1
         '
-        Me.GroupBox1.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.White
+        Me.GroupBox1.ForeColor = System.Drawing.Color.Black
         Me.GroupBox1.Location = New System.Drawing.Point(419, 252)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
@@ -1319,7 +1346,7 @@ Partial Class Frmselectfan
         '
         'GrpDesignPressure
         '
-        Me.GrpDesignPressure.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpDesignPressure.BackColor = System.Drawing.Color.Transparent
         Me.GrpDesignPressure.Controls.Add(Me.Optsucy)
         Me.GrpDesignPressure.Controls.Add(Me.CmbReserveHead)
         Me.GrpDesignPressure.Controls.Add(Me.Txtfsp)
@@ -1332,7 +1359,7 @@ Partial Class Frmselectfan
         Me.GrpDesignPressure.Controls.Add(Me.OptStaticPressure)
         Me.GrpDesignPressure.Controls.Add(Me.OptTotalPressure)
         Me.GrpDesignPressure.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpDesignPressure.ForeColor = System.Drawing.Color.White
+        Me.GrpDesignPressure.ForeColor = System.Drawing.Color.Black
         Me.GrpDesignPressure.Location = New System.Drawing.Point(11, 241)
         Me.GrpDesignPressure.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpDesignPressure.Name = "GrpDesignPressure"
@@ -1472,12 +1499,12 @@ Partial Class Frmselectfan
         '
         'GrpInletDensity
         '
-        Me.GrpInletDensity.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpInletDensity.BackColor = System.Drawing.Color.Transparent
         Me.GrpInletDensity.Controls.Add(Me.OptDensityCalculated)
         Me.GrpInletDensity.Controls.Add(Me.OptDensityKnown)
         Me.GrpInletDensity.Controls.Add(Me.Txtdens)
         Me.GrpInletDensity.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpInletDensity.ForeColor = System.Drawing.Color.White
+        Me.GrpInletDensity.ForeColor = System.Drawing.Color.Black
         Me.GrpInletDensity.Location = New System.Drawing.Point(419, 134)
         Me.GrpInletDensity.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpInletDensity.Name = "GrpInletDensity"
@@ -1528,23 +1555,23 @@ Partial Class Frmselectfan
         '
         Me.Button2.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(11, 532)
+        Me.Button2.Location = New System.Drawing.Point(11, 540)
         Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(91, 36)
+        Me.Button2.Size = New System.Drawing.Size(251, 50)
         Me.Button2.TabIndex = 2
         Me.Button2.Text = "EXIT"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'GrpInletTemperature
         '
-        Me.GrpInletTemperature.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpInletTemperature.BackColor = System.Drawing.Color.Transparent
         Me.GrpInletTemperature.Controls.Add(Me.TxtMaximumTemperature)
         Me.GrpInletTemperature.Controls.Add(Me.LblMaximumTemperature)
         Me.GrpInletTemperature.Controls.Add(Me.LblDesignTemperature)
         Me.GrpInletTemperature.Controls.Add(Me.TxtDesignTemperature)
         Me.GrpInletTemperature.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpInletTemperature.ForeColor = System.Drawing.Color.White
+        Me.GrpInletTemperature.ForeColor = System.Drawing.Color.Black
         Me.GrpInletTemperature.Location = New System.Drawing.Point(419, 22)
         Me.GrpInletTemperature.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpInletTemperature.Name = "GrpInletTemperature"
@@ -1609,7 +1636,10 @@ Partial Class Frmselectfan
         '
         'TabPageFanParameters
         '
-        Me.TabPageFanParameters.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TabPageFanParameters.BackColor = System.Drawing.Color.Transparent
+        Me.TabPageFanParameters.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
+        Me.TabPageFanParameters.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TabPageFanParameters.Controls.Add(Me.Button20)
         Me.TabPageFanParameters.Controls.Add(Me.Button12)
         Me.TabPageFanParameters.Controls.Add(Me.Button11)
         Me.TabPageFanParameters.Controls.Add(Me.GrpFanSize)
@@ -1618,9 +1648,21 @@ Partial Class Frmselectfan
         Me.TabPageFanParameters.Location = New System.Drawing.Point(4, 34)
         Me.TabPageFanParameters.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageFanParameters.Name = "TabPageFanParameters"
-        Me.TabPageFanParameters.Size = New System.Drawing.Size(1247, 611)
+        Me.TabPageFanParameters.Size = New System.Drawing.Size(1247, 602)
         Me.TabPageFanParameters.TabIndex = 6
         Me.TabPageFanParameters.Text = "Fan Parameters"
+        '
+        'Button20
+        '
+        Me.Button20.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Button20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button20.Location = New System.Drawing.Point(11, 540)
+        Me.Button20.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(251, 50)
+        Me.Button20.TabIndex = 21
+        Me.Button20.Text = "EXIT"
+        Me.Button20.UseVisualStyleBackColor = True
         '
         'Button12
         '
@@ -1644,14 +1686,14 @@ Partial Class Frmselectfan
         '
         'GrpFanSize
         '
-        Me.GrpFanSize.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpFanSize.BackColor = System.Drawing.Color.Transparent
         Me.GrpFanSize.Controls.Add(Me.LblLengthUnits)
         Me.GrpFanSize.Controls.Add(Me.Txtfansize)
         Me.GrpFanSize.Controls.Add(Me.Lblfansize)
         Me.GrpFanSize.Controls.Add(Me.OptAnySize)
         Me.GrpFanSize.Controls.Add(Me.OptFixedSize)
         Me.GrpFanSize.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpFanSize.ForeColor = System.Drawing.Color.White
+        Me.GrpFanSize.ForeColor = System.Drawing.Color.Black
         Me.GrpFanSize.Location = New System.Drawing.Point(33, 183)
         Me.GrpFanSize.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpFanSize.Name = "GrpFanSize"
@@ -1714,7 +1756,7 @@ Partial Class Frmselectfan
         '
         'GrpFanSpeed
         '
-        Me.GrpFanSpeed.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpFanSpeed.BackColor = System.Drawing.Color.Transparent
         Me.GrpFanSpeed.Controls.Add(Me.GrpPoleBox)
         Me.GrpFanSpeed.Controls.Add(Me.Txtfanspeed)
         Me.GrpFanSpeed.Controls.Add(Me.Label1)
@@ -1724,7 +1766,7 @@ Partial Class Frmselectfan
         Me.GrpFanSpeed.Controls.Add(Me.OptAnySpeed)
         Me.GrpFanSpeed.Controls.Add(Me.OptPoleSpeed)
         Me.GrpFanSpeed.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpFanSpeed.ForeColor = System.Drawing.Color.White
+        Me.GrpFanSpeed.ForeColor = System.Drawing.Color.Black
         Me.GrpFanSpeed.Location = New System.Drawing.Point(33, 28)
         Me.GrpFanSpeed.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpFanSpeed.Name = "GrpFanSpeed"
@@ -1899,7 +1941,7 @@ Partial Class Frmselectfan
         '
         'GrpFanTypes
         '
-        Me.GrpFanTypes.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GrpFanTypes.BackColor = System.Drawing.Color.Transparent
         Me.GrpFanTypes.Controls.Add(Me.ChkOldDesignFans)
         Me.GrpFanTypes.Controls.Add(Me.ChkAxialFans)
         Me.GrpFanTypes.Controls.Add(Me.ChkPlenumFans)
@@ -1908,7 +1950,7 @@ Partial Class Frmselectfan
         Me.GrpFanTypes.Controls.Add(Me.ChkInclineBlade)
         Me.GrpFanTypes.Controls.Add(Me.ChkCurveBlade)
         Me.GrpFanTypes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpFanTypes.ForeColor = System.Drawing.Color.White
+        Me.GrpFanTypes.ForeColor = System.Drawing.Color.Black
         Me.GrpFanTypes.Location = New System.Drawing.Point(33, 278)
         Me.GrpFanTypes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpFanTypes.Name = "GrpFanTypes"
@@ -2005,8 +2047,10 @@ Partial Class Frmselectfan
         '
         'TabPageSelection
         '
-        Me.TabPageSelection.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TabPageSelection.BackColor = System.Drawing.Color.Transparent
+        Me.TabPageSelection.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         Me.TabPageSelection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TabPageSelection.Controls.Add(Me.Button21)
         Me.TabPageSelection.Controls.Add(Me.Label19)
         Me.TabPageSelection.Controls.Add(Me.Button14)
         Me.TabPageSelection.Controls.Add(Me.Button13)
@@ -2027,12 +2071,24 @@ Partial Class Frmselectfan
         Me.TabPageSelection.TabIndex = 1
         Me.TabPageSelection.Text = "Selections"
         '
+        'Button21
+        '
+        Me.Button21.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Button21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button21.Location = New System.Drawing.Point(11, 540)
+        Me.Button21.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(251, 50)
+        Me.Button21.TabIndex = 18
+        Me.Button21.Text = "EXIT"
+        Me.Button21.UseVisualStyleBackColor = True
+        '
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label19.BackColor = System.Drawing.Color.Transparent
         Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.White
+        Me.Label19.ForeColor = System.Drawing.Color.Black
         Me.Label19.Location = New System.Drawing.Point(56, 514)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(115, 25)
@@ -2064,9 +2120,9 @@ Partial Class Frmselectfan
         'LblFanDetails
         '
         Me.LblFanDetails.AutoSize = True
-        Me.LblFanDetails.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.LblFanDetails.BackColor = System.Drawing.Color.Transparent
         Me.LblFanDetails.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblFanDetails.ForeColor = System.Drawing.Color.White
+        Me.LblFanDetails.ForeColor = System.Drawing.Color.Black
         Me.LblFanDetails.Location = New System.Drawing.Point(243, 30)
         Me.LblFanDetails.Name = "LblFanDetails"
         Me.LblFanDetails.Size = New System.Drawing.Size(115, 25)
@@ -2077,9 +2133,9 @@ Partial Class Frmselectfan
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.ForeColor = System.Drawing.Color.Black
         Me.Label3.Location = New System.Drawing.Point(29, 30)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(140, 25)
@@ -2091,7 +2147,7 @@ Partial Class Frmselectfan
         '
         Me.BtnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.Black
-        Me.BtnClose.Location = New System.Drawing.Point(299, 559)
+        Me.BtnClose.Location = New System.Drawing.Point(153, 547)
         Me.BtnClose.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(89, 34)
@@ -2103,7 +2159,7 @@ Partial Class Frmselectfan
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.Black
-        Me.Button4.Location = New System.Drawing.Point(191, 559)
+        Me.Button4.Location = New System.Drawing.Point(45, 547)
         Me.Button4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(89, 34)
@@ -2114,9 +2170,9 @@ Partial Class Frmselectfan
         'LblGasDensityUnit
         '
         Me.LblGasDensityUnit.AutoSize = True
-        Me.LblGasDensityUnit.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.LblGasDensityUnit.BackColor = System.Drawing.Color.Transparent
         Me.LblGasDensityUnit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblGasDensityUnit.ForeColor = System.Drawing.Color.White
+        Me.LblGasDensityUnit.ForeColor = System.Drawing.Color.Black
         Me.LblGasDensityUnit.Location = New System.Drawing.Point(997, 30)
         Me.LblGasDensityUnit.Name = "LblGasDensityUnit"
         Me.LblGasDensityUnit.Size = New System.Drawing.Size(51, 18)
@@ -2127,9 +2183,9 @@ Partial Class Frmselectfan
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.White
+        Me.Label2.ForeColor = System.Drawing.Color.Black
         Me.Label2.Location = New System.Drawing.Point(771, 30)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 18)
@@ -2139,9 +2195,9 @@ Partial Class Frmselectfan
         '
         'TxtDensity
         '
-        Me.TxtDensity.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TxtDensity.BackColor = System.Drawing.Color.White
         Me.TxtDensity.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDensity.ForeColor = System.Drawing.Color.White
+        Me.TxtDensity.ForeColor = System.Drawing.Color.Black
         Me.TxtDensity.Location = New System.Drawing.Point(891, 26)
         Me.TxtDensity.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtDensity.Name = "TxtDensity"
@@ -2151,9 +2207,9 @@ Partial Class Frmselectfan
         '
         'Button3
         '
-        Me.Button3.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Button3.BackColor = System.Drawing.Color.Transparent
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.White
+        Me.Button3.ForeColor = System.Drawing.Color.Black
         Me.Button3.Location = New System.Drawing.Point(611, 22)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
@@ -2168,14 +2224,14 @@ Partial Class Frmselectfan
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToOrderColumns = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(19, 74)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -2187,12 +2243,11 @@ Partial Class Frmselectfan
         '
         'TabPageNoise
         '
-        Me.TabPageNoise.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TabPageNoise.BackColor = System.Drawing.Color.Transparent
+        Me.TabPageNoise.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         Me.TabPageNoise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TabPageNoise.Controls.Add(Me.Button16)
         Me.TabPageNoise.Controls.Add(Me.Button15)
-        Me.TabPageNoise.Controls.Add(Me.Button5)
-        Me.TabPageNoise.Controls.Add(Me.Button6)
         Me.TabPageNoise.Controls.Add(Me.DataGridView2)
         Me.TabPageNoise.Controls.Add(Me.TableLayoutPanel1)
         Me.TabPageNoise.Controls.Add(Me.GroupBox4)
@@ -2212,12 +2267,15 @@ Partial Class Frmselectfan
         Me.TabPageNoise.Controls.Add(Me.TxtFlownoise)
         Me.TabPageNoise.Controls.Add(Me.Label4)
         Me.TabPageNoise.Controls.Add(Me.GroupBox5)
+        Me.TabPageNoise.Controls.Add(Me.Button22)
+        Me.TabPageNoise.Controls.Add(Me.Button5)
+        Me.TabPageNoise.Controls.Add(Me.Button6)
         Me.TabPageNoise.Location = New System.Drawing.Point(4, 34)
         Me.TabPageNoise.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageNoise.Name = "TabPageNoise"
-        Me.TabPageNoise.Size = New System.Drawing.Size(1247, 611)
+        Me.TabPageNoise.Size = New System.Drawing.Size(1247, 602)
         Me.TabPageNoise.TabIndex = 3
-        Me.TabPageNoise.Text = "Noise"
+        Me.TabPageNoise.Text = "Acoustics"
         '
         'Button16
         '
@@ -2239,34 +2297,11 @@ Partial Class Frmselectfan
         Me.Button15.Text = "Save Project >>"
         Me.Button15.UseVisualStyleBackColor = True
         '
-        'Button5
-        '
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.Black
-        Me.Button5.Location = New System.Drawing.Point(147, 559)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(89, 34)
-        Me.Button5.TabIndex = 20
-        Me.Button5.Text = "Close"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.ForeColor = System.Drawing.Color.Black
-        Me.Button6.Location = New System.Drawing.Point(51, 559)
-        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(89, 34)
-        Me.Button6.TabIndex = 19
-        Me.Button6.Text = "End"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
         'DataGridView2
         '
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Location = New System.Drawing.Point(428, 352)
         Me.DataGridView2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -2279,7 +2314,7 @@ Partial Class Frmselectfan
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.TableLayoutPanel1.ColumnCount = 9
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.0!))
@@ -2292,7 +2327,7 @@ Partial Class Frmselectfan
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
         Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.ForeColor = System.Drawing.Color.White
+        Me.TableLayoutPanel1.ForeColor = System.Drawing.Color.Black
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(428, 14)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -2315,13 +2350,13 @@ Partial Class Frmselectfan
         '
         'GroupBox4
         '
-        Me.GroupBox4.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox4.Controls.Add(Me.Label17)
         Me.GroupBox4.Controls.Add(Me.TextBox6)
         Me.GroupBox4.Controls.Add(Me.OptMotor)
         Me.GroupBox4.Controls.Add(Me.OptBrg)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox4.ForeColor = System.Drawing.Color.White
+        Me.GroupBox4.ForeColor = System.Drawing.Color.Black
         Me.GroupBox4.Location = New System.Drawing.Point(11, 292)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox4.Name = "GroupBox4"
@@ -2372,12 +2407,12 @@ Partial Class Frmselectfan
         '
         'GroupBox3
         '
-        Me.GroupBox3.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.OptOpenOutlet)
         Me.GroupBox3.Controls.Add(Me.OptOpenInlet)
         Me.GroupBox3.Controls.Add(Me.OptDuct)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.ForeColor = System.Drawing.Color.White
+        Me.GroupBox3.ForeColor = System.Drawing.Color.Black
         Me.GroupBox3.Location = New System.Drawing.Point(11, 162)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox3.Name = "GroupBox3"
@@ -2424,9 +2459,9 @@ Partial Class Frmselectfan
         '
         'TxtTypenoise
         '
-        Me.TxtTypenoise.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TxtTypenoise.BackColor = System.Drawing.Color.White
         Me.TxtTypenoise.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTypenoise.ForeColor = System.Drawing.Color.White
+        Me.TxtTypenoise.ForeColor = System.Drawing.Color.Black
         Me.TxtTypenoise.Location = New System.Drawing.Point(201, 118)
         Me.TxtTypenoise.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtTypenoise.Name = "TxtTypenoise"
@@ -2437,9 +2472,9 @@ Partial Class Frmselectfan
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label18.BackColor = System.Drawing.Color.Transparent
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.ForeColor = System.Drawing.Color.White
+        Me.Label18.ForeColor = System.Drawing.Color.Black
         Me.Label18.Location = New System.Drawing.Point(25, 122)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(77, 18)
@@ -2449,9 +2484,9 @@ Partial Class Frmselectfan
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label15.BackColor = System.Drawing.Color.Transparent
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.White
+        Me.Label15.ForeColor = System.Drawing.Color.Black
         Me.Label15.Location = New System.Drawing.Point(304, 98)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(30, 18)
@@ -2460,9 +2495,9 @@ Partial Class Frmselectfan
         '
         'TxtSizenoise
         '
-        Me.TxtSizenoise.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TxtSizenoise.BackColor = System.Drawing.Color.White
         Me.TxtSizenoise.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSizenoise.ForeColor = System.Drawing.Color.White
+        Me.TxtSizenoise.ForeColor = System.Drawing.Color.Black
         Me.TxtSizenoise.Location = New System.Drawing.Point(201, 94)
         Me.TxtSizenoise.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtSizenoise.Name = "TxtSizenoise"
@@ -2473,9 +2508,9 @@ Partial Class Frmselectfan
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.White
+        Me.Label16.ForeColor = System.Drawing.Color.Black
         Me.Label16.Location = New System.Drawing.Point(25, 98)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(74, 18)
@@ -2485,9 +2520,9 @@ Partial Class Frmselectfan
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label13.BackColor = System.Drawing.Color.Transparent
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.White
+        Me.Label13.ForeColor = System.Drawing.Color.Black
         Me.Label13.Location = New System.Drawing.Point(304, 50)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(28, 18)
@@ -2496,9 +2531,9 @@ Partial Class Frmselectfan
         '
         'TxtPressurenoise
         '
-        Me.TxtPressurenoise.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TxtPressurenoise.BackColor = System.Drawing.Color.White
         Me.TxtPressurenoise.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtPressurenoise.ForeColor = System.Drawing.Color.White
+        Me.TxtPressurenoise.ForeColor = System.Drawing.Color.Black
         Me.TxtPressurenoise.Location = New System.Drawing.Point(201, 46)
         Me.TxtPressurenoise.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtPressurenoise.Name = "TxtPressurenoise"
@@ -2509,9 +2544,9 @@ Partial Class Frmselectfan
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label14.BackColor = System.Drawing.Color.Transparent
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.ForeColor = System.Drawing.Color.White
+        Me.Label14.ForeColor = System.Drawing.Color.Black
         Me.Label14.Location = New System.Drawing.Point(25, 50)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(157, 18)
@@ -2521,9 +2556,9 @@ Partial Class Frmselectfan
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.Location = New System.Drawing.Point(304, 74)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(45, 18)
@@ -2532,10 +2567,10 @@ Partial Class Frmselectfan
         '
         'TxtSpeednoise
         '
-        Me.TxtSpeednoise.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TxtSpeednoise.BackColor = System.Drawing.Color.White
         Me.TxtSpeednoise.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtSpeednoise.ForeColor = System.Drawing.Color.White
-        Me.TxtSpeednoise.Location = New System.Drawing.Point(201, 68)
+        Me.TxtSpeednoise.ForeColor = System.Drawing.Color.Black
+        Me.TxtSpeednoise.Location = New System.Drawing.Point(201, 70)
         Me.TxtSpeednoise.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtSpeednoise.Name = "TxtSpeednoise"
         Me.TxtSpeednoise.ReadOnly = True
@@ -2545,9 +2580,9 @@ Partial Class Frmselectfan
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.ForeColor = System.Drawing.Color.Black
         Me.Label12.Location = New System.Drawing.Point(25, 74)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(88, 18)
@@ -2557,9 +2592,9 @@ Partial Class Frmselectfan
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.ForeColor = System.Drawing.Color.Black
         Me.Label5.Location = New System.Drawing.Point(304, 26)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(48, 18)
@@ -2568,9 +2603,9 @@ Partial Class Frmselectfan
         '
         'TxtFlownoise
         '
-        Me.TxtFlownoise.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.TxtFlownoise.BackColor = System.Drawing.Color.White
         Me.TxtFlownoise.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtFlownoise.ForeColor = System.Drawing.Color.White
+        Me.TxtFlownoise.ForeColor = System.Drawing.Color.Black
         Me.TxtFlownoise.Location = New System.Drawing.Point(201, 22)
         Me.TxtFlownoise.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtFlownoise.Name = "TxtFlownoise"
@@ -2581,9 +2616,9 @@ Partial Class Frmselectfan
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.ForeColor = System.Drawing.Color.Black
         Me.Label4.Location = New System.Drawing.Point(25, 26)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(105, 18)
@@ -2592,9 +2627,9 @@ Partial Class Frmselectfan
         '
         'GroupBox5
         '
-        Me.GroupBox5.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox5.ForeColor = System.Drawing.Color.White
+        Me.GroupBox5.ForeColor = System.Drawing.Color.Black
         Me.GroupBox5.Location = New System.Drawing.Point(11, 9)
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox5.Name = "GroupBox5"
@@ -2603,12 +2638,48 @@ Partial Class Frmselectfan
         Me.GroupBox5.TabIndex = 18
         Me.GroupBox5.TabStop = False
         '
+        'Button22
+        '
+        Me.Button22.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Button22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button22.Location = New System.Drawing.Point(11, 540)
+        Me.Button22.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(251, 50)
+        Me.Button22.TabIndex = 23
+        Me.Button22.Text = "EXIT"
+        Me.Button22.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.ForeColor = System.Drawing.Color.Black
+        Me.Button5.Location = New System.Drawing.Point(147, 549)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(89, 34)
+        Me.Button5.TabIndex = 20
+        Me.Button5.Text = "Close"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.ForeColor = System.Drawing.Color.Black
+        Me.Button6.Location = New System.Drawing.Point(51, 549)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(89, 34)
+        Me.Button6.TabIndex = 19
+        Me.Button6.Text = "End"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'TabPageImpeller
         '
         Me.TabPageImpeller.Location = New System.Drawing.Point(4, 34)
         Me.TabPageImpeller.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageImpeller.Name = "TabPageImpeller"
-        Me.TabPageImpeller.Size = New System.Drawing.Size(1247, 611)
+        Me.TabPageImpeller.Size = New System.Drawing.Size(1247, 602)
         Me.TabPageImpeller.TabIndex = 4
         Me.TabPageImpeller.Text = "Impeller"
         Me.TabPageImpeller.UseVisualStyleBackColor = True
@@ -2684,8 +2755,8 @@ Partial Class Frmselectfan
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.header2015
-        Me.PictureBox1.Location = New System.Drawing.Point(991, 2)
+        Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.logo_20161
+        Me.PictureBox1.Location = New System.Drawing.Point(974, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(277, 60)
@@ -2964,4 +3035,8 @@ Partial Class Frmselectfan
     Friend WithEvents Button18 As Button
     Friend WithEvents Button17 As Button
     Friend WithEvents Label19 As Label
+    Friend WithEvents Button19 As Button
+    Friend WithEvents Button20 As Button
+    Friend WithEvents Button21 As Button
+    Friend WithEvents Button22 As Button
 End Class

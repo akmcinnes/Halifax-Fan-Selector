@@ -25,6 +25,7 @@ Public Class FrmFanChart
         plotStaticPV()
         plotTotalPV()
         plotPower()
+        'plotFanSystem()
         Chart1.ChartAreas("ChartArea1").AxisX.MinorGrid.Interval = Chart1.ChartAreas("ChartArea1").AxisX.MajorGrid.Interval / 10.0
         Chart1.ChartAreas("ChartArea1").AxisX.MinorGrid.Enabled = True
         Chart1.ChartAreas("ChartArea1").AxisY.MinorGrid.Interval = Chart1.ChartAreas("ChartArea1").AxisY.MajorGrid.Interval / 10.0
@@ -54,19 +55,26 @@ Public Class FrmFanChart
         'Chart1.Series.RemoveAt(0)
 
         'Chart1.Series("Series1").ChartArea = "Pressure v Volume"
-        Chart1.ChartAreas("ChartArea1").BackColor = Color.BlanchedAlmond
+        Chart1.ChartAreas("ChartArea1").BackColor = Color.Bisque
+
 
         Chart1.ChartAreas("ChartArea1").AxisX.Title = xaxistitle
         Chart1.ChartAreas("ChartArea1").AxisX.MajorGrid.LineColor = Color.Gray
         Chart1.ChartAreas("ChartArea1").AxisX.MinorGrid.LineColor = Color.LightGray
+        Chart1.ChartAreas("ChartArea1").AxisX.TitleForeColor = Color.White
+        Chart1.ChartAreas("ChartArea1").AxisX.LabelStyle.ForeColor = Color.White
 
         Chart1.ChartAreas("ChartArea1").AxisY.Title = yaxistitle
         Chart1.ChartAreas("ChartArea1").AxisY.MajorGrid.LineColor = Color.Gray
         Chart1.ChartAreas("ChartArea1").AxisY.MinorGrid.LineColor = Color.LightGray
+        Chart1.ChartAreas("ChartArea1").AxisY.TitleForeColor = Color.White
+        Chart1.ChartAreas("ChartArea1").AxisY.LabelStyle.ForeColor = Color.White
 
         Chart1.ChartAreas("ChartArea1").AxisY2.Title = y2axistitle
         Chart1.ChartAreas("ChartArea1").AxisY2.MajorGrid.LineColor = Color.Green
         Chart1.ChartAreas("ChartArea1").AxisY2.MinorGrid.LineColor = Color.LightGreen
+        Chart1.ChartAreas("ChartArea1").AxisY2.TitleForeColor = Color.White
+        Chart1.ChartAreas("ChartArea1").AxisY2.LabelStyle.ForeColor = Color.White
         'Chart1.ChartAreas("ChartArea1").AxisY2.Enabled = True
         Chart1.ChartAreas("ChartArea1").AxisY2.Enabled = DataVisualization.Charting.AxisEnabled.True
         Chart1.ChartAreas("ChartArea1").AxisY2.LabelStyle.Enabled = True
@@ -161,7 +169,6 @@ Public Class FrmFanChart
         Chart1.Series.Add("Fan Power")
         Chart1.Series("Fan Power").YAxisType = DataVisualization.Charting.AxisType.Secondary
 
-
         Chart1.Series("Fan Power").Color = Color.Green
         'Chart1.Series("Fan Power").
         Chart1.Series("Fan Power").ChartType = DataVisualization.Charting.SeriesChartType.Spline
@@ -187,6 +194,51 @@ Public Class FrmFanChart
         Chart1.Series("Duty Point Power").YAxisType = DataVisualization.Charting.AxisType.Secondary
         Chart1.Series("Duty Point Power").Points.AddXY(selectedvol(fan2plot), selectedpow(fan2plot))
         'PlotDutyPoint()
+
+    End Sub
+
+    Public Sub plotFanSystem()
+        Dim i As Integer
+
+        ReDim plotvol(Num_Readings)
+        ReDim plotfsp(Num_Readings)
+        ReDim plotftp(Num_Readings)
+        ReDim plotpow(Num_Readings)
+
+        Chart1.Series.Add("Fan System")
+        Chart1.Series("Fan System").Color = Color.Black
+        Chart1.Series("Fan System").ChartType = DataVisualization.Charting.SeriesChartType.Spline
+        Chart1.Series("Fan System").BorderDashStyle = DataVisualization.Charting.ChartDashStyle.DashDotDot
+        Chart1.Series("Fan System").ChartArea = "ChartArea1"
+
+        ConvertPVtoChart()
+
+        Dim temppres As Double
+        For i = 0 To Num_Readings - 1
+            If plotvol(i) * 0.9 <= selectedvol(fan2plot) Then
+                temppres = Math.Pow(plotvol(i) / selectedvol(fan2plot), 2) * selectedftp(fan2plot)
+                Chart1.Series("Fan System").Points.AddXY(plotvol(i), temppres)
+            End If
+        Next
+
+        Chart1.ChartAreas(0).AxisX.Minimum = 0.0
+
+        'Chart1.Series("Duty Point FTP").Points.AddXY(selectedvol(fan2plot), selectedfsp(fan2plot))
+
+        ''If SeriesAdded = False Then
+        'Chart1.Series.Add("Fan System TP")
+        ''Chart1.Series("Fan System TP").Legend = "Fan System TP"
+        'Chart1.Series("Fan System TP").IsVisibleInLegend = False
+        'Chart1.Series("Fan System TP").Color = Color.Black
+        'Chart1.Series("Fan System TP").ChartType = DataVisualization.Charting.SeriesChartType.Point
+        'Chart1.Series("Fan System TP").ChartArea = "ChartArea1"
+        ''    SeriesAdded = True
+        ''End If
+
+        'Chart1.Series("Fan System TP").Points.AddXY(selectedvol(fan2plot), selectedftp(fan2plot))
+
+        ''PlotDutyPoint()
+
 
     End Sub
 
@@ -256,6 +308,15 @@ Public Class FrmFanChart
         Dim series2 As DataVisualization.Charting.Series = Chart1.Series("Duty Point FTP")
         Chart1.Series.Remove(series2)
         'SeriesAdded = False
+    End Sub
+
+    Public Sub RemoveFanSystemCurve()
+        Dim series1 As DataVisualization.Charting.Series = Chart1.Series("Fan System")
+        Chart1.Series.Remove(series1)
+        ''Chart1.Series("Total Pressure").Enabled = False
+        'Dim series2 As DataVisualization.Charting.Series = Chart1.Series("Duty Point FTP")
+        'Chart1.Series.Remove(series2)
+        ''SeriesAdded = False
     End Sub
 
     Public Sub RemovePowerCurve()
@@ -330,6 +391,15 @@ Public Class FrmFanChart
         'Catch ex As Exception
         '    MsgBox(ex.Message)
         'End Try
+    End Sub
+
+    Private Sub ChkFanSystemCurve_CheckedChanged(sender As Object, e As EventArgs) Handles ChkFanSystemCurve.CheckedChanged
+        If ChkFanSystemCurve.Checked = True Then
+            plotFanSystem()
+        Else
+            RemoveFanSystemCurve()
+        End If
+
     End Sub
     'Private Class printer
     '    Friend Function PaperSize() As Object

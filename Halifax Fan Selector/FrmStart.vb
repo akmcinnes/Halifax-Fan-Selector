@@ -15,18 +15,22 @@ Public Class FrmStart
 
     Private Sub Start_Load(sender As Object, e As EventArgs) Handles Me.Load
         lblVersion.Text = version_number
+        ''ReadUserDetails()
+        'Me.Show()
         'objStreamWriterDebug.WriteLine("start")
         'Background_Color = Color.White
         CenterToScreen()
         txtUsername.Text = Environment.UserName
+        'If ChosenLanguage Is Nothing Then ChosenLanguage = "en-US"
+        'ApplyLocale(ChosenLanguage)
         UserName = Environment.UserName
-        If txtUsername.Text.ToLower.Contains("akm") Then
-            grpLanguage.Visible = True
-            optEnglish.Visible = True
-            optChinese.Visible = True
-            chkAdvancedUser.Visible = True
-        End If
-        chkAdvancedUser.Checked = False
+        ''If txtUsername.Text.ToLower.Contains("akm") Then
+        ''    grpLanguage.Visible = True
+        ''    optEnglish.Visible = True
+        ''    optChinese.Visible = True
+        ''    chkAdvancedUser.Visible = True
+        ''End If
+        'chkAdvancedUser.Checked = False
         'Dim screenWidth1 As Integer = Screen.PrimaryScreen.Bounds.Width
         'Dim screenHeight1 As Integer = Screen.PrimaryScreen.Bounds.Height
 
@@ -120,7 +124,7 @@ Public Class FrmStart
         ' Apply the locale to the form itself.
         ' Debug.WriteLine("$this")
         component_resource_manager.ApplyResources(Me, "$this", culture_info)
-        If grpLanguage.Visible = False Then MsgBox("invisible")
+        'If grpLanguage.Visible = False Then MsgBox("invisible")
         ' Apply the locale to the form's controls.
         For Each ctl As Control In Me.Controls
             ApplyLocaleToControl(ctl, component_resource_manager, culture_info)
@@ -131,12 +135,12 @@ Public Class FrmStart
         ' These resources are stored in the Form1 resource files.
         'Dim resource_manager As New ResourceManager("Localized.Form1", Me.GetType.Assembly)
         Dim resource_manager As New ResourceManager("Localized.FrmStart", Me.GetType.Assembly)
-        If txtUsername.Text.ToLower.Contains("akm") Then
-            grpLanguage.Visible = True
-            optEnglish.Visible = True
-            optChinese.Visible = True
-            chkAdvancedUser.Visible = True
-        End If
+        'If txtUsername.Text.ToLower.Contains("akm") Then
+        '    grpLanguage.Visible = True
+        '    optEnglish.Visible = True
+        '    optChinese.Visible = True
+        '    chkAdvancedUser.Visible = True
+        'End If
         'btnContinue.Text = resource_manager.GetString("btnContinue.Text")
         'btnExit.Text = resource_manager.GetString("btnExit.Text")
         'btnSettings.Text = resource_manager.GetString("btnSettings.Text")
@@ -190,6 +194,7 @@ Public Class FrmStart
         Next child
         'End If
     End Sub
+
     'Private Sub ApplyLocaleToToolStripItem(ByVal item As ToolStripItem, ByVal component_resource_manager As ComponentResourceManager, ByVal culture_info As CultureInfo)
     '    ' Debug.WriteLine(menu_item.Name)
     '    component_resource_manager.ApplyResources(item, item.Name, culture_info)
