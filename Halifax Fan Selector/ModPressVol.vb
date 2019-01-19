@@ -1,6 +1,10 @@
-﻿Module press_vol
+﻿Module ModPressVol
     Public Sub GetPressure(size, speed, Volume, fanno)
         Try
+            Dim temp_kp As Double = kp
+            If Frmselectfan.chkKP.Checked = True Then temp_kp = 1.0
+
+
             Dim temp_fsp As Double
             temp_fsp = CDbl(Frmselectfan.Txtfsp.Text)
             '        If Val(Frmselectfan.Txtfsp.Text) <> 0 Then
@@ -11,19 +15,20 @@
             Do While fsp(fanno, count1) <> 0
                 '-scaling for fan sizes
                 'Call ModifyDatapoints(fanno, count1, size, speed, 2)
-                fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), size)
-                ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), size)
-                vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), size)
-                Pows(fanno, count1) = scalePowFSize(Powr(fanno, count1), datafansize(fanno), size)
+                fsps(fanno, count1) = ScalePFSize(fsp(fanno, count1), datafansize(fanno), size)
+                ftps(fanno, count1) = ScalePFSize(ftp(fanno, count1), datafansize(fanno), size)
+                vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), size)
+                Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), size)
                 '-scales for constant volume at each datapoint
-                vols(fanno, count1) = scaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
-                fsps(fanno, count1) = scalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
-                ftps(fanno, count1) = scalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
-                Pows(fanno, count1) = scalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
+                vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
+                fsps(fanno, count1) = ScalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
+                ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
+                Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
                 count1 = count1 + 1
             Loop
             count = 0
-            Dim temp_flow As Double = CDbl(Frmselectfan.Txtflow.Text)
+            Dim temp_flow As Double
+            temp_flow = CDbl(Frmselectfan.Txtflow.Text)
 
             Do While (vols(fanno, count) - temp_flow) ^ 2 > (vols(fanno, count + 1) - temp_flow) ^ 2
                 count = count + 1
@@ -38,6 +43,7 @@
             Else
                 datapoint2 = datapoint3 - 1
             End If
+            'If datapoint2 < 0 Then datapoint2 = 0
 
             If Volume > vols(fanno, datapoint2) And Volume > vols(fanno, datapoint3) Then
                 'MsgBox("Fan type 1; Volume cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Volume available is " & Math.Round(vols(fanno, datapoint3), 2) & " " & FrmSelections.ColumnHeader(3) & (Chr(10)) & "the volume has been changed to suit the highest volume available!", vbInformation)
@@ -51,28 +57,46 @@
             End If
 
             '-rescaling data for the selected fan size
-            'Frmselectfan.Txtfanspeed.Text = speed
-            'Frmselectfan.Txtfansize.Text = size
+            Frmselectfan.Txtfanspeed.Text = speed
+            Frmselectfan.Txtfansize.Text = size
             '-calculated the fan speed required to get the duty
             '-now calculating the power
             gradpow = (Pows(fanno, datapoint3) - Pows(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selectedpow(fanno) = Pows(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradpow))
+            selectedpow(fanno) = selectedpow(fanno) / temp_kp
             selectedpow(fanno) = Math.Round(selectedpow(fanno), 2)
+            selectedpow2(fanno) = Math.Round(selectedpow(fanno) / 0.746, 2)
             selectedmot(fanno) = GetMotorSize(selectedpow(fanno))
             selectedmot(fanno) = Math.Round(selectedmot(fanno), 2)
+            selectedmot2(fanno) = GetMotorSize(selectedpow(fanno) / 0.746, True)
+            selectedmot2(fanno) = Math.Round(selectedmot2(fanno), 2)
 
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint3) - fse(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selectedfse(fanno) = fse(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfse))
+            selectedfse(fanno) = selectedfse(fanno) * temp_kp
             selectedfse(fanno) = Math.Round(selectedfse(fanno), 1)
             '-calculating fan total efficiency
             gradfte = (fte(fanno, datapoint3) - fte(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selectedfte(fanno) = fte(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfte))
+            selectedfte(fanno) = selectedfte(fanno) * temp_kp
             selectedfte(fanno) = Math.Round(selectedfte(fanno), 1)
             '-output volume
             selectedvol(fanno) = Math.Round(Volume, voldecplaces)
+            selectedfansize(fanno) = size
             '--outlet velocity
-            Call outletvel(size, fanno)
+            Call OutletVel(size, fanno)
+            selectedinletdia(fanno) = datainletdia(fanno)
+            selectedoutletarea(fanno) = dataoutletarea(fanno)
+            selectedinletdia(fanno) = inletdia
+            selectedoutletarea(fanno) = outletsize
+            selectedBladeNumber(fanno) = blade_number(fanno)
+            selectedoutletlen(fanno) = dataoutletlen(fanno)
+            selectedoutletwid(fanno) = dataoutletwid(fanno)
+            selectedoutletlen(fanno) = outletlength
+            selectedoutletwid(fanno) = outletwidth
+
+
             '-calculating FTP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selectedfsp(fanno) = fsps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfsp))
@@ -95,7 +119,9 @@
             End If
 
         Catch ex As Exception
-            MsgBox("getpressure")
+            'MsgBox(fanclass(fanno))
+            'ErrorMessage(ex, 5701)
+
         End Try
     End Sub
 
@@ -104,15 +130,15 @@
             count1 = 0
             Do While fsp(fanno, count1) <> 0
                 '-scaling for fan sizes
-                fsps(fanno, count1) = scalePFSize(fsp(fanno, count1), datafansize(fanno), size)
-                ftps(fanno, count1) = scalePFSize(ftp(fanno, count1), datafansize(fanno), size)
-                vols(fanno, count1) = scaleVFSize(vol(fanno, count1), datafansize(fanno), size)
-                Pows(fanno, count1) = scalePowFSize(Powr(fanno, count1), datafansize(fanno), size)
+                fsps(fanno, count1) = ScalePFSize(fsp(fanno, count1), datafansize(fanno), size)
+                ftps(fanno, count1) = ScalePFSize(ftp(fanno, count1), datafansize(fanno), size)
+                vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), size)
+                Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), size)
                 '-scales for constant volume at each datapoint
-                vols(fanno, count1) = scaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
-                fsps(fanno, count1) = scalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
-                ftps(fanno, count1) = scalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
-                Pows(fanno, count1) = scalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
+                vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
+                fsps(fanno, count1) = ScalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
+                ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
+                Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
                 count1 = count1 + 1
             Loop
             count = count1
@@ -146,24 +172,24 @@
             If PresType = 0 Then
                 PressCheck2 = ftps(fanno, datapoint2)
                 If pressure > PressCheck2 And pressure > PressCheck1 Then
-                    'akm temp removed                MsgBox("Fan type 1; Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2) & " " & FrmSelections.ColumnHeader(4) & (Chr(10)) & "the pressure has been changed to suit the highest pressure available!", vbInformation)
+                    MsgBox("Fan type 1; Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2) & " " & Frmselectfan.ColumnHeader(4) & (Chr(10)) & "the pressure has been changed to suit the highest pressure available!", vbInformation)
                     Call GetVol(size, speed, Math.Round(PressCheck1, 2) - 0.01, fanno)
                     Exit Sub
                 End If
                 If pressure < PressCheck2 And PressCheck1 = 0 Then
-                    'akm temp removed MsgBox("Fan type 1; " & fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2) & " " & FrmSelections.ColumnHeader(4) & Chr(13) & "the pressure has been changed to suit the lowest pressure within the performance data!", vbInformation)
+                    MsgBox("Fan type 1; " & fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2) & " " & Frmselectfan.ColumnHeader(4) & Chr(13) & "the pressure has been changed to suit the lowest pressure within the performance data!", vbInformation)
                     Call GetVol(size, speed, Math.Round(fsps(fanno, count1 - 1), 2) + 0.01, fanno)
                     Exit Sub
                 End If
             Else
                 PressCheck2 = ftps(fanno, datapoint2)
                 If pressure > PressCheck2 And pressure > PressCheck1 Then
-                    'akm temp removed                MsgBox("Fan type 1; Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2) & " " & FrmSelections.ColumnHeader(4) & (Chr(10)) & "the pressure has been changed to suit the highest pressure available!", vbInformation)
+                    MsgBox("Fan type 1; Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2) & " " & Frmselectfan.ColumnHeader(4) & (Chr(10)) & "the pressure has been changed to suit the highest pressure available!", vbInformation)
                     Call GetVol(size, speed, Math.Round(ftps(fanno, count), 2) - 0.01, fanno)
                     Exit Sub
                 End If
                 If pressure < ftps(fanno, datapoint2) And PressCheck1 = 0 Then
-                    ' akm temp removed MsgBox("Fan type 1; " & fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(ftps(fanno, count1 - 1), 2) & " " & FrmSelections.ColumnHeader(4) & Chr(13) & "the pressure has been changed to suit the lowest pressure within the performance data!", vbInformation)
+                    MsgBox("Fan type 1; " & fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(ftps(fanno, count1 - 1), 2) & " " & Frmselectfan.ColumnHeader(4) & Chr(13) & "the pressure has been changed to suit the lowest pressure within the performance data!", vbInformation)
                     Call GetVol(size, speed, Math.Round(ftps(fanno, count1 - 1), 2) + 0.01, fanno)
                     Exit Sub
                 End If
@@ -199,14 +225,25 @@
             selectedftp(fanno) = ftps(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradftp))
             selectedftp(fanno) = Math.Round(selectedftp(fanno), 2)
             '--outlet velocity
-            Call outletvel(size, fanno)
+            Call OutletVel(size, fanno)
 
             selectedfansize(fanno) = fanclass(fanno)
             selectedBladeType(fanno) = blade_type(fanno)
             selectedBladeNumber(fanno) = blade_number(fanno)
+            selectedinletdia(fanno) = datainletdia(fanno)
+            selectedoutletarea(fanno) = dataoutletarea(fanno)
+            selectedinletdia(fanno) = inletdia
+            selectedoutletarea(fanno) = outletsize
+            selectedoutletlen(fanno) = dataoutletlen(fanno)
+            selectedoutletwid(fanno) = dataoutletwid(fanno)
+            selectedoutletlen(fanno) = outletlength
+            selectedoutletwid(fanno) = outletwidth
+
 
         Catch ex As Exception
-            MsgBox("getvol")
+            'MsgBox("getvol")
+            ErrorMessage(ex, 5702)
+
         End Try
     End Sub
 End Module

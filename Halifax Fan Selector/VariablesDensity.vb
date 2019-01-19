@@ -1,4 +1,4 @@
-﻿Module DensityVariables
+﻿Module VariablesDensity
     Public Structure Gas_Structure
         Dim GasName As String
         Dim GasFormula As String

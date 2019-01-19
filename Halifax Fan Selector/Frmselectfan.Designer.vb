@@ -23,26 +23,24 @@ Partial Class Frmselectfan
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPageEnvironment = New System.Windows.Forms.TabPage()
-        Me.Button19 = New System.Windows.Forms.Button()
+        Me.TabPageGeneral = New System.Windows.Forms.TabPage()
+        Me.btnGeneralExit = New System.Windows.Forms.Button()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.OptVelocityFtpermin = New System.Windows.Forms.RadioButton()
         Me.OptVelocityMpers = New System.Windows.Forms.RadioButton()
-        Me.BtnExit = New System.Windows.Forms.Button()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.OptPowerBoth = New System.Windows.Forms.RadioButton()
         Me.OptPowerHp = New System.Windows.Forms.RadioButton()
         Me.OptPowerKW = New System.Windows.Forms.RadioButton()
-        Me.OptDefaultMetric = New System.Windows.Forms.RadioButton()
-        Me.OptDefaultImperial = New System.Windows.Forms.RadioButton()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.Button18 = New System.Windows.Forms.Button()
-        Me.Button17 = New System.Windows.Forms.Button()
+        Me.btnImperialUnits = New System.Windows.Forms.Button()
+        Me.btnMetricUnits = New System.Windows.Forms.Button()
         Me.OptDefaultNone = New System.Windows.Forms.RadioButton()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.OptAltitudeFt = New System.Windows.Forms.RadioButton()
         Me.OptAltitudeM = New System.Windows.Forms.RadioButton()
-        Me.BtnCancel = New System.Windows.Forms.Button()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.OptLengthIn = New System.Windows.Forms.RadioButton()
         Me.OptLengthMm = New System.Windows.Forms.RadioButton()
@@ -57,6 +55,7 @@ Partial Class Frmselectfan
         Me.OptFlowM3PerMin = New System.Windows.Forms.RadioButton()
         Me.OptFlowM3PerSec = New System.Windows.Forms.RadioButton()
         Me.GroupBox14 = New System.Windows.Forms.GroupBox()
+        Me.OptPressurekPa = New System.Windows.Forms.RadioButton()
         Me.OptPressuremmWG = New System.Windows.Forms.RadioButton()
         Me.OptPressureinWG = New System.Windows.Forms.RadioButton()
         Me.OptPressuremBar = New System.Windows.Forms.RadioButton()
@@ -64,11 +63,11 @@ Partial Class Frmselectfan
         Me.GroupBox15 = New System.Windows.Forms.GroupBox()
         Me.OptDensityLbPerFt3 = New System.Windows.Forms.RadioButton()
         Me.OptDensityKgPerM3 = New System.Windows.Forms.RadioButton()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.btnDutyInputForward = New System.Windows.Forms.Button()
         Me.GrpFrequency = New System.Windows.Forms.GroupBox()
         Me.Opt50Hz = New System.Windows.Forms.RadioButton()
         Me.Opt60Hz = New System.Windows.Forms.RadioButton()
-        Me.GrpEnvironment = New System.Windows.Forms.GroupBox()
+        Me.GrpGeneral = New System.Windows.Forms.GroupBox()
         Me.LblAtmosphericPressureUnits = New System.Windows.Forms.Label()
         Me.LblHumidityUnits = New System.Windows.Forms.Label()
         Me.LblAltitudeUnits = New System.Windows.Forms.Label()
@@ -82,9 +81,9 @@ Partial Class Frmselectfan
         Me.LblAltitude = New System.Windows.Forms.Label()
         Me.LblAmbientTemperature = New System.Windows.Forms.Label()
         Me.TabPageDuty = New System.Windows.Forms.TabPage()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.btnGeneralInformationBack = New System.Windows.Forms.Button()
+        Me.btnFanParametersForward = New System.Windows.Forms.Button()
+        Me.btnCalculateDensity = New System.Windows.Forms.Button()
         Me.GrpFlowRate = New System.Windows.Forms.GroupBox()
         Me.LblFlowRateUnits = New System.Windows.Forms.Label()
         Me.Txtflow = New System.Windows.Forms.TextBox()
@@ -98,8 +97,13 @@ Partial Class Frmselectfan
         Me.OptXLS = New System.Windows.Forms.RadioButton()
         Me.OptTXT = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.lblpercent = New System.Windows.Forms.Label()
+        Me.lblUserDefinedUnits = New System.Windows.Forms.Label()
+        Me.txtRatioDD = New System.Windows.Forms.TextBox()
+        Me.txtUserDefinedDD = New System.Windows.Forms.TextBox()
+        Me.optDDUserDefined = New System.Windows.Forms.RadioButton()
+        Me.optDDStandard = New System.Windows.Forms.RadioButton()
+        Me.optDDRatio = New System.Windows.Forms.RadioButton()
         Me.GrpDesignPressure = New System.Windows.Forms.GroupBox()
         Me.Optsucy = New System.Windows.Forms.CheckBox()
         Me.CmbReserveHead = New System.Windows.Forms.ComboBox()
@@ -116,7 +120,7 @@ Partial Class Frmselectfan
         Me.OptDensityCalculated = New System.Windows.Forms.RadioButton()
         Me.OptDensityKnown = New System.Windows.Forms.RadioButton()
         Me.Txtdens = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnDutyExit = New System.Windows.Forms.Button()
         Me.GrpInletTemperature = New System.Windows.Forms.GroupBox()
         Me.TxtMaximumTemperature = New System.Windows.Forms.TextBox()
         Me.LblMaximumTemperature = New System.Windows.Forms.Label()
@@ -124,9 +128,9 @@ Partial Class Frmselectfan
         Me.TxtDesignTemperature = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TabPageFanParameters = New System.Windows.Forms.TabPage()
-        Me.Button20 = New System.Windows.Forms.Button()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
+        Me.btnDutyInputBack = New System.Windows.Forms.Button()
+        Me.btnParametersExit = New System.Windows.Forms.Button()
+        Me.btnFanSelectionsForward = New System.Windows.Forms.Button()
         Me.GrpFanSize = New System.Windows.Forms.GroupBox()
         Me.LblLengthUnits = New System.Windows.Forms.Label()
         Me.Txtfansize = New System.Windows.Forms.TextBox()
@@ -134,20 +138,17 @@ Partial Class Frmselectfan
         Me.OptAnySize = New System.Windows.Forms.RadioButton()
         Me.OptFixedSize = New System.Windows.Forms.RadioButton()
         Me.GrpFanSpeed = New System.Windows.Forms.GroupBox()
-        Me.GrpPoleBox = New System.Windows.Forms.GroupBox()
         Me.Opt12Pole = New System.Windows.Forms.RadioButton()
-        Me.Opt10Pole = New System.Windows.Forms.RadioButton()
-        Me.Opt8Pole = New System.Windows.Forms.RadioButton()
-        Me.Opt6Pole = New System.Windows.Forms.RadioButton()
-        Me.Opt4Pole = New System.Windows.Forms.RadioButton()
-        Me.Opt2Pole = New System.Windows.Forms.RadioButton()
         Me.Txtfanspeed = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Opt10Pole = New System.Windows.Forms.RadioButton()
         Me.Txtspeedlimit = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.OptFixedSpeed = New System.Windows.Forms.RadioButton()
+        Me.Opt8Pole = New System.Windows.Forms.RadioButton()
+        Me.Opt2Pole = New System.Windows.Forms.RadioButton()
+        Me.Opt6Pole = New System.Windows.Forms.RadioButton()
         Me.OptAnySpeed = New System.Windows.Forms.RadioButton()
-        Me.OptPoleSpeed = New System.Windows.Forms.RadioButton()
+        Me.Opt4Pole = New System.Windows.Forms.RadioButton()
         Me.GrpFanTypes = New System.Windows.Forms.GroupBox()
         Me.ChkOldDesignFans = New System.Windows.Forms.CheckBox()
         Me.ChkAxialFans = New System.Windows.Forms.CheckBox()
@@ -157,10 +158,13 @@ Partial Class Frmselectfan
         Me.ChkInclineBlade = New System.Windows.Forms.CheckBox()
         Me.ChkCurveBlade = New System.Windows.Forms.CheckBox()
         Me.TabPageSelection = New System.Windows.Forms.TabPage()
-        Me.Button21 = New System.Windows.Forms.Button()
+        Me.lblInstructions = New System.Windows.Forms.Label()
+        Me.chkDisplayLowerEff = New System.Windows.Forms.CheckBox()
+        Me.chkDisplayAll = New System.Windows.Forms.CheckBox()
+        Me.btnSelectionsExit = New System.Windows.Forms.Button()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.Button14 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
+        Me.btnFanParametersBack = New System.Windows.Forms.Button()
+        Me.btnNoiseDataForward = New System.Windows.Forms.Button()
         Me.LblFanDetails = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.BtnClose = New System.Windows.Forms.Button()
@@ -171,19 +175,21 @@ Partial Class Frmselectfan
         Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPageNoise = New System.Windows.Forms.TabPage()
-        Me.Button16 = New System.Windows.Forms.Button()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lblOutDims = New System.Windows.Forms.Label()
+        Me.lblInDia = New System.Windows.Forms.Label()
+        Me.lblOutletDimensions = New System.Windows.Forms.Label()
+        Me.lblInletDiameter = New System.Windows.Forms.Label()
+        Me.btnFanSelectionsBack = New System.Windows.Forms.Button()
+        Me.btnSaveProjectForward = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.OptMotor = New System.Windows.Forms.CheckBox()
-        Me.OptBrg = New System.Windows.Forms.CheckBox()
+        Me.txtMotordba = New System.Windows.Forms.TextBox()
+        Me.chkMotor = New System.Windows.Forms.CheckBox()
+        Me.chkBrg = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.OptOpenOutlet = New System.Windows.Forms.RadioButton()
-        Me.OptOpenInlet = New System.Windows.Forms.RadioButton()
-        Me.OptDuct = New System.Windows.Forms.RadioButton()
+        Me.chkOpenOutlet = New System.Windows.Forms.CheckBox()
+        Me.chkOpenInlet = New System.Windows.Forms.CheckBox()
+        Me.chkDuct = New System.Windows.Forms.CheckBox()
         Me.TxtTypenoise = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -199,9 +205,10 @@ Partial Class Frmselectfan
         Me.TxtFlownoise = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.Button22 = New System.Windows.Forms.Button()
+        Me.btnNoiseExit = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPageImpeller = New System.Windows.Forms.TabPage()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -214,8 +221,9 @@ Partial Class Frmselectfan
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.chkKP = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
-        Me.TabPageEnvironment.SuspendLayout()
+        Me.TabPageGeneral.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
@@ -226,7 +234,7 @@ Partial Class Frmselectfan
         Me.GroupBox14.SuspendLayout()
         Me.GroupBox15.SuspendLayout()
         Me.GrpFrequency.SuspendLayout()
-        Me.GrpEnvironment.SuspendLayout()
+        Me.GrpGeneral.SuspendLayout()
         Me.TabPageDuty.SuspendLayout()
         Me.GrpFlowRate.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -238,76 +246,70 @@ Partial Class Frmselectfan
         Me.TabPageFanParameters.SuspendLayout()
         Me.GrpFanSize.SuspendLayout()
         Me.GrpFanSpeed.SuspendLayout()
-        Me.GrpPoleBox.SuspendLayout()
         Me.GrpFanTypes.SuspendLayout()
         Me.TabPageSelection.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPageNoise.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
         '
-        Me.TabControl1.Controls.Add(Me.TabPageEnvironment)
+        Me.TabControl1.Controls.Add(Me.TabPageGeneral)
         Me.TabControl1.Controls.Add(Me.TabPageDuty)
         Me.TabControl1.Controls.Add(Me.TabPageFanParameters)
         Me.TabControl1.Controls.Add(Me.TabPageSelection)
         Me.TabControl1.Controls.Add(Me.TabPageNoise)
         Me.TabControl1.Controls.Add(Me.TabPageImpeller)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.TabControl1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabControl1.Location = New System.Drawing.Point(0, 28)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1255, 640)
+        Me.TabControl1.Size = New System.Drawing.Size(1255, 638)
         Me.TabControl1.TabIndex = 0
         '
-        'TabPageEnvironment
+        'TabPageGeneral
         '
-        Me.TabPageEnvironment.BackColor = System.Drawing.Color.Transparent
-        Me.TabPageEnvironment.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
-        Me.TabPageEnvironment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TabPageEnvironment.Controls.Add(Me.Button19)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox9)
-        Me.TabPageEnvironment.Controls.Add(Me.BtnExit)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox8)
-        Me.TabPageEnvironment.Controls.Add(Me.OptDefaultMetric)
-        Me.TabPageEnvironment.Controls.Add(Me.OptDefaultImperial)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox7)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox10)
-        Me.TabPageEnvironment.Controls.Add(Me.BtnCancel)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox11)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox12)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox13)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox14)
-        Me.TabPageEnvironment.Controls.Add(Me.GroupBox15)
-        Me.TabPageEnvironment.Controls.Add(Me.Button8)
-        Me.TabPageEnvironment.Controls.Add(Me.GrpFrequency)
-        Me.TabPageEnvironment.Controls.Add(Me.GrpEnvironment)
-        Me.TabPageEnvironment.Location = New System.Drawing.Point(4, 34)
-        Me.TabPageEnvironment.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TabPageEnvironment.Name = "TabPageEnvironment"
-        Me.TabPageEnvironment.Size = New System.Drawing.Size(1247, 602)
-        Me.TabPageEnvironment.TabIndex = 5
-        Me.TabPageEnvironment.Text = "Environmental Info"
+        Me.TabPageGeneral.BackColor = System.Drawing.Color.Transparent
+        Me.TabPageGeneral.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
+        Me.TabPageGeneral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.TabPageGeneral.Controls.Add(Me.btnGeneralExit)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox9)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox8)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox7)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox10)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox11)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox12)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox13)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox14)
+        Me.TabPageGeneral.Controls.Add(Me.GroupBox15)
+        Me.TabPageGeneral.Controls.Add(Me.btnDutyInputForward)
+        Me.TabPageGeneral.Controls.Add(Me.GrpFrequency)
+        Me.TabPageGeneral.Controls.Add(Me.GrpGeneral)
+        Me.TabPageGeneral.Location = New System.Drawing.Point(4, 34)
+        Me.TabPageGeneral.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TabPageGeneral.Name = "TabPageGeneral"
+        Me.TabPageGeneral.Size = New System.Drawing.Size(1247, 600)
+        Me.TabPageGeneral.TabIndex = 5
+        Me.TabPageGeneral.Text = "General Information"
         '
-        'Button19
+        'btnGeneralExit
         '
-        Me.Button19.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button19.Location = New System.Drawing.Point(11, 540)
-        Me.Button19.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button19.Name = "Button19"
-        Me.Button19.Size = New System.Drawing.Size(251, 50)
-        Me.Button19.TabIndex = 24
-        Me.Button19.Text = "EXIT"
-        Me.Button19.UseVisualStyleBackColor = True
+        Me.btnGeneralExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnGeneralExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGeneralExit.Location = New System.Drawing.Point(11, 540)
+        Me.btnGeneralExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGeneralExit.Name = "btnGeneralExit"
+        Me.btnGeneralExit.Size = New System.Drawing.Size(251, 50)
+        Me.btnGeneralExit.TabIndex = 24
+        Me.btnGeneralExit.Text = "EXIT"
+        Me.btnGeneralExit.UseVisualStyleBackColor = True
         '
         'GroupBox9
         '
@@ -355,38 +357,36 @@ Partial Class Frmselectfan
         Me.OptVelocityMpers.Text = "m/s"
         Me.OptVelocityMpers.UseVisualStyleBackColor = True
         '
-        'BtnExit
-        '
-        Me.BtnExit.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExit.ForeColor = System.Drawing.Color.White
-        Me.BtnExit.Location = New System.Drawing.Point(153, 500)
-        Me.BtnExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(91, 74)
-        Me.BtnExit.TabIndex = 22
-        Me.BtnExit.Text = "Exit"
-        Me.BtnExit.UseVisualStyleBackColor = False
-        Me.BtnExit.Visible = False
-        '
         'GroupBox8
         '
         Me.GroupBox8.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox8.Controls.Add(Me.OptPowerBoth)
         Me.GroupBox8.Controls.Add(Me.OptPowerHp)
         Me.GroupBox8.Controls.Add(Me.OptPowerKW)
-        Me.GroupBox8.Enabled = False
         Me.GroupBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox8.ForeColor = System.Drawing.Color.Black
         Me.GroupBox8.Location = New System.Drawing.Point(995, 174)
         Me.GroupBox8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox8.Size = New System.Drawing.Size(200, 110)
+        Me.GroupBox8.Size = New System.Drawing.Size(200, 132)
         Me.GroupBox8.TabIndex = 17
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Power"
-        Me.GroupBox8.Visible = False
+        '
+        'OptPowerBoth
+        '
+        Me.OptPowerBoth.AutoSize = True
+        Me.OptPowerBoth.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptPowerBoth.ForeColor = System.Drawing.Color.Black
+        Me.OptPowerBoth.Location = New System.Drawing.Point(23, 82)
+        Me.OptPowerBoth.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.OptPowerBoth.Name = "OptPowerBoth"
+        Me.OptPowerBoth.Size = New System.Drawing.Size(154, 29)
+        Me.OptPowerBoth.TabIndex = 2
+        Me.OptPowerBoth.TabStop = True
+        Me.OptPowerBoth.Text = "Display Both"
+        Me.OptPowerBoth.UseVisualStyleBackColor = True
         '
         'OptPowerHp
         '
@@ -416,45 +416,15 @@ Partial Class Frmselectfan
         Me.OptPowerKW.Text = "kW"
         Me.OptPowerKW.UseVisualStyleBackColor = True
         '
-        'OptDefaultMetric
-        '
-        Me.OptDefaultMetric.AutoSize = True
-        Me.OptDefaultMetric.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptDefaultMetric.ForeColor = System.Drawing.Color.White
-        Me.OptDefaultMetric.Location = New System.Drawing.Point(435, 540)
-        Me.OptDefaultMetric.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptDefaultMetric.Name = "OptDefaultMetric"
-        Me.OptDefaultMetric.Size = New System.Drawing.Size(177, 29)
-        Me.OptDefaultMetric.TabIndex = 0
-        Me.OptDefaultMetric.TabStop = True
-        Me.OptDefaultMetric.Text = "Metric Defaults"
-        Me.OptDefaultMetric.UseVisualStyleBackColor = True
-        Me.OptDefaultMetric.Visible = False
-        '
-        'OptDefaultImperial
-        '
-        Me.OptDefaultImperial.AutoSize = True
-        Me.OptDefaultImperial.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OptDefaultImperial.ForeColor = System.Drawing.Color.White
-        Me.OptDefaultImperial.Location = New System.Drawing.Point(695, 561)
-        Me.OptDefaultImperial.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptDefaultImperial.Name = "OptDefaultImperial"
-        Me.OptDefaultImperial.Size = New System.Drawing.Size(194, 29)
-        Me.OptDefaultImperial.TabIndex = 1
-        Me.OptDefaultImperial.TabStop = True
-        Me.OptDefaultImperial.Text = "Imperial Defaults"
-        Me.OptDefaultImperial.UseVisualStyleBackColor = True
-        Me.OptDefaultImperial.Visible = False
-        '
         'GroupBox7
         '
         Me.GroupBox7.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox7.Controls.Add(Me.Button18)
-        Me.GroupBox7.Controls.Add(Me.Button17)
+        Me.GroupBox7.Controls.Add(Me.btnImperialUnits)
+        Me.GroupBox7.Controls.Add(Me.btnMetricUnits)
         Me.GroupBox7.Controls.Add(Me.OptDefaultNone)
         Me.GroupBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox7.ForeColor = System.Drawing.Color.Black
-        Me.GroupBox7.Location = New System.Drawing.Point(547, 423)
+        Me.GroupBox7.Location = New System.Drawing.Point(547, 443)
         Me.GroupBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -463,27 +433,27 @@ Partial Class Frmselectfan
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Select defaults"
         '
-        'Button18
+        'btnImperialUnits
         '
-        Me.Button18.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button18.Location = New System.Drawing.Point(207, 41)
-        Me.Button18.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button18.Name = "Button18"
-        Me.Button18.Size = New System.Drawing.Size(200, 38)
-        Me.Button18.TabIndex = 4
-        Me.Button18.Text = "Imperial Units"
-        Me.Button18.UseVisualStyleBackColor = True
+        Me.btnImperialUnits.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnImperialUnits.Location = New System.Drawing.Point(207, 41)
+        Me.btnImperialUnits.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnImperialUnits.Name = "btnImperialUnits"
+        Me.btnImperialUnits.Size = New System.Drawing.Size(200, 38)
+        Me.btnImperialUnits.TabIndex = 4
+        Me.btnImperialUnits.Text = "Imperial Units"
+        Me.btnImperialUnits.UseVisualStyleBackColor = True
         '
-        'Button17
+        'btnMetricUnits
         '
-        Me.Button17.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Button17.Location = New System.Drawing.Point(10, 41)
-        Me.Button17.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(177, 38)
-        Me.Button17.TabIndex = 3
-        Me.Button17.Text = "Metric Units"
-        Me.Button17.UseVisualStyleBackColor = True
+        Me.btnMetricUnits.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.btnMetricUnits.Location = New System.Drawing.Point(11, 41)
+        Me.btnMetricUnits.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnMetricUnits.Name = "btnMetricUnits"
+        Me.btnMetricUnits.Size = New System.Drawing.Size(177, 38)
+        Me.btnMetricUnits.TabIndex = 3
+        Me.btnMetricUnits.Text = "Metric Units"
+        Me.btnMetricUnits.UseVisualStyleBackColor = True
         '
         'OptDefaultNone
         '
@@ -543,21 +513,6 @@ Partial Class Frmselectfan
         Me.OptAltitudeM.TabStop = True
         Me.OptAltitudeM.Text = "m"
         Me.OptAltitudeM.UseVisualStyleBackColor = True
-        '
-        'BtnCancel
-        '
-        Me.BtnCancel.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.BtnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BtnCancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancel.ForeColor = System.Drawing.Color.White
-        Me.BtnCancel.Location = New System.Drawing.Point(43, 500)
-        Me.BtnCancel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(91, 74)
-        Me.BtnCancel.TabIndex = 21
-        Me.BtnCancel.Text = "Cancel"
-        Me.BtnCancel.UseVisualStyleBackColor = False
-        Me.BtnCancel.Visible = False
         '
         'GroupBox11
         '
@@ -756,6 +711,7 @@ Partial Class Frmselectfan
         'GroupBox14
         '
         Me.GroupBox14.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox14.Controls.Add(Me.OptPressurekPa)
         Me.GroupBox14.Controls.Add(Me.OptPressuremmWG)
         Me.GroupBox14.Controls.Add(Me.OptPressureinWG)
         Me.GroupBox14.Controls.Add(Me.OptPressuremBar)
@@ -770,6 +726,20 @@ Partial Class Frmselectfan
         Me.GroupBox14.TabIndex = 15
         Me.GroupBox14.TabStop = False
         Me.GroupBox14.Text = "Pressure"
+        '
+        'OptPressurekPa
+        '
+        Me.OptPressurekPa.AutoSize = True
+        Me.OptPressurekPa.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OptPressurekPa.ForeColor = System.Drawing.Color.Black
+        Me.OptPressurekPa.Location = New System.Drawing.Point(23, 142)
+        Me.OptPressurekPa.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.OptPressurekPa.Name = "OptPressurekPa"
+        Me.OptPressurekPa.Size = New System.Drawing.Size(70, 29)
+        Me.OptPressurekPa.TabIndex = 4
+        Me.OptPressurekPa.TabStop = True
+        Me.OptPressurekPa.Text = "kPa"
+        Me.OptPressurekPa.UseVisualStyleBackColor = True
         '
         'OptPressuremmWG
         '
@@ -871,16 +841,16 @@ Partial Class Frmselectfan
         Me.OptDensityKgPerM3.Text = "kg/m³"
         Me.OptDensityKgPerM3.UseVisualStyleBackColor = True
         '
-        'Button8
+        'btnDutyInputForward
         '
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(949, 540)
-        Me.Button8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(251, 50)
-        Me.Button8.TabIndex = 12
-        Me.Button8.Text = "Duty Input >>"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.btnDutyInputForward.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDutyInputForward.Location = New System.Drawing.Point(949, 540)
+        Me.btnDutyInputForward.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnDutyInputForward.Name = "btnDutyInputForward"
+        Me.btnDutyInputForward.Size = New System.Drawing.Size(251, 50)
+        Me.btnDutyInputForward.TabIndex = 0
+        Me.btnDutyInputForward.Text = "Duty Input >>"
+        Me.btnDutyInputForward.UseVisualStyleBackColor = True
         '
         'GrpFrequency
         '
@@ -907,10 +877,10 @@ Partial Class Frmselectfan
         Me.Opt50Hz.Location = New System.Drawing.Point(39, 30)
         Me.Opt50Hz.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Opt50Hz.Name = "Opt50Hz"
-        Me.Opt50Hz.Size = New System.Drawing.Size(155, 29)
+        Me.Opt50Hz.Size = New System.Drawing.Size(84, 29)
         Me.Opt50Hz.TabIndex = 5
         Me.Opt50Hz.TabStop = True
-        Me.Opt50Hz.Text = "50 Hz (Nema)"
+        Me.Opt50Hz.Text = "50 Hz"
         Me.Opt50Hz.UseVisualStyleBackColor = True
         '
         'Opt60Hz
@@ -925,32 +895,32 @@ Partial Class Frmselectfan
         Me.Opt60Hz.Text = "60 Hz"
         Me.Opt60Hz.UseVisualStyleBackColor = True
         '
-        'GrpEnvironment
+        'GrpGeneral
         '
-        Me.GrpEnvironment.BackColor = System.Drawing.Color.Transparent
-        Me.GrpEnvironment.Controls.Add(Me.LblAtmosphericPressureUnits)
-        Me.GrpEnvironment.Controls.Add(Me.LblHumidityUnits)
-        Me.GrpEnvironment.Controls.Add(Me.LblAltitudeUnits)
-        Me.GrpEnvironment.Controls.Add(Me.LblAmbientTemperatureUnits)
-        Me.GrpEnvironment.Controls.Add(Me.TxtAtmosphericPressure)
-        Me.GrpEnvironment.Controls.Add(Me.TxtHumidity)
-        Me.GrpEnvironment.Controls.Add(Me.TxtAltitude)
-        Me.GrpEnvironment.Controls.Add(Me.TxtAmbientTemperature)
-        Me.GrpEnvironment.Controls.Add(Me.LblAtmosphericPressure)
-        Me.GrpEnvironment.Controls.Add(Me.LblHumidity)
-        Me.GrpEnvironment.Controls.Add(Me.LblAltitude)
-        Me.GrpEnvironment.Controls.Add(Me.LblAmbientTemperature)
-        Me.GrpEnvironment.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrpEnvironment.ForeColor = System.Drawing.Color.Black
-        Me.GrpEnvironment.Location = New System.Drawing.Point(35, 22)
-        Me.GrpEnvironment.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GrpEnvironment.Name = "GrpEnvironment"
-        Me.GrpEnvironment.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GrpEnvironment.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.GrpEnvironment.Size = New System.Drawing.Size(439, 177)
-        Me.GrpEnvironment.TabIndex = 4
-        Me.GrpEnvironment.TabStop = False
-        Me.GrpEnvironment.Text = "Environment"
+        Me.GrpGeneral.BackColor = System.Drawing.Color.Transparent
+        Me.GrpGeneral.Controls.Add(Me.LblAtmosphericPressureUnits)
+        Me.GrpGeneral.Controls.Add(Me.LblHumidityUnits)
+        Me.GrpGeneral.Controls.Add(Me.LblAltitudeUnits)
+        Me.GrpGeneral.Controls.Add(Me.LblAmbientTemperatureUnits)
+        Me.GrpGeneral.Controls.Add(Me.TxtAtmosphericPressure)
+        Me.GrpGeneral.Controls.Add(Me.TxtHumidity)
+        Me.GrpGeneral.Controls.Add(Me.TxtAltitude)
+        Me.GrpGeneral.Controls.Add(Me.TxtAmbientTemperature)
+        Me.GrpGeneral.Controls.Add(Me.LblAtmosphericPressure)
+        Me.GrpGeneral.Controls.Add(Me.LblHumidity)
+        Me.GrpGeneral.Controls.Add(Me.LblAltitude)
+        Me.GrpGeneral.Controls.Add(Me.LblAmbientTemperature)
+        Me.GrpGeneral.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrpGeneral.ForeColor = System.Drawing.Color.Black
+        Me.GrpGeneral.Location = New System.Drawing.Point(35, 22)
+        Me.GrpGeneral.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GrpGeneral.Name = "GrpGeneral"
+        Me.GrpGeneral.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GrpGeneral.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.GrpGeneral.Size = New System.Drawing.Size(439, 177)
+        Me.GrpGeneral.TabIndex = 4
+        Me.GrpGeneral.TabStop = False
+        Me.GrpGeneral.Text = "General"
         '
         'LblAtmosphericPressureUnits
         '
@@ -1003,7 +973,7 @@ Partial Class Frmselectfan
         Me.TxtAtmosphericPressure.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtAtmosphericPressure.Name = "TxtAtmosphericPressure"
         Me.TxtAtmosphericPressure.Size = New System.Drawing.Size(83, 30)
-        Me.TxtAtmosphericPressure.TabIndex = 7
+        Me.TxtAtmosphericPressure.TabIndex = 3
         Me.TxtAtmosphericPressure.Text = "101325"
         '
         'TxtHumidity
@@ -1013,7 +983,7 @@ Partial Class Frmselectfan
         Me.TxtHumidity.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtHumidity.Name = "TxtHumidity"
         Me.TxtHumidity.Size = New System.Drawing.Size(83, 30)
-        Me.TxtHumidity.TabIndex = 6
+        Me.TxtHumidity.TabIndex = 2
         Me.TxtHumidity.Text = "0"
         '
         'TxtAltitude
@@ -1023,7 +993,7 @@ Partial Class Frmselectfan
         Me.TxtAltitude.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtAltitude.Name = "TxtAltitude"
         Me.TxtAltitude.Size = New System.Drawing.Size(83, 30)
-        Me.TxtAltitude.TabIndex = 5
+        Me.TxtAltitude.TabIndex = 1
         Me.TxtAltitude.Text = "0"
         '
         'TxtAmbientTemperature
@@ -1033,7 +1003,7 @@ Partial Class Frmselectfan
         Me.TxtAmbientTemperature.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtAmbientTemperature.Name = "TxtAmbientTemperature"
         Me.TxtAmbientTemperature.Size = New System.Drawing.Size(83, 30)
-        Me.TxtAmbientTemperature.TabIndex = 4
+        Me.TxtAmbientTemperature.TabIndex = 0
         Me.TxtAmbientTemperature.Text = "20"
         '
         'LblAtmosphericPressure
@@ -1076,7 +1046,7 @@ Partial Class Frmselectfan
         Me.LblAmbientTemperature.Location = New System.Drawing.Point(31, 30)
         Me.LblAmbientTemperature.Name = "LblAmbientTemperature"
         Me.LblAmbientTemperature.Size = New System.Drawing.Size(201, 25)
-        Me.LblAmbientTemperature.TabIndex = 0
+        Me.LblAmbientTemperature.TabIndex = 1
         Me.LblAmbientTemperature.Text = "Ambient Temperature"
         Me.LblAmbientTemperature.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -1085,15 +1055,15 @@ Partial Class Frmselectfan
         Me.TabPageDuty.BackColor = System.Drawing.Color.Transparent
         Me.TabPageDuty.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         Me.TabPageDuty.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TabPageDuty.Controls.Add(Me.Button10)
-        Me.TabPageDuty.Controls.Add(Me.Button9)
-        Me.TabPageDuty.Controls.Add(Me.Button7)
+        Me.TabPageDuty.Controls.Add(Me.btnGeneralInformationBack)
+        Me.TabPageDuty.Controls.Add(Me.btnFanParametersForward)
+        Me.TabPageDuty.Controls.Add(Me.btnCalculateDensity)
         Me.TabPageDuty.Controls.Add(Me.GrpFlowRate)
         Me.TabPageDuty.Controls.Add(Me.GroupBox2)
         Me.TabPageDuty.Controls.Add(Me.GroupBox1)
         Me.TabPageDuty.Controls.Add(Me.GrpDesignPressure)
         Me.TabPageDuty.Controls.Add(Me.GrpInletDensity)
-        Me.TabPageDuty.Controls.Add(Me.Button2)
+        Me.TabPageDuty.Controls.Add(Me.btnDutyExit)
         Me.TabPageDuty.Controls.Add(Me.GrpInletTemperature)
         Me.TabPageDuty.Controls.Add(Me.Button1)
         Me.TabPageDuty.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1102,43 +1072,43 @@ Partial Class Frmselectfan
         Me.TabPageDuty.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageDuty.Name = "TabPageDuty"
         Me.TabPageDuty.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TabPageDuty.Size = New System.Drawing.Size(1247, 602)
+        Me.TabPageDuty.Size = New System.Drawing.Size(1247, 600)
         Me.TabPageDuty.TabIndex = 2
         Me.TabPageDuty.Text = "Duty Input"
         '
-        'Button10
+        'btnGeneralInformationBack
         '
-        Me.Button10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button10.Location = New System.Drawing.Point(691, 540)
-        Me.Button10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(251, 50)
-        Me.Button10.TabIndex = 15
-        Me.Button10.Text = "<< Environment Info"
-        Me.Button10.UseVisualStyleBackColor = True
+        Me.btnGeneralInformationBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGeneralInformationBack.Location = New System.Drawing.Point(691, 540)
+        Me.btnGeneralInformationBack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnGeneralInformationBack.Name = "btnGeneralInformationBack"
+        Me.btnGeneralInformationBack.Size = New System.Drawing.Size(251, 50)
+        Me.btnGeneralInformationBack.TabIndex = 15
+        Me.btnGeneralInformationBack.Text = "<< General Information"
+        Me.btnGeneralInformationBack.UseVisualStyleBackColor = True
         '
-        'Button9
+        'btnFanParametersForward
         '
-        Me.Button9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button9.Location = New System.Drawing.Point(949, 540)
-        Me.Button9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(251, 50)
-        Me.Button9.TabIndex = 14
-        Me.Button9.Text = "Fan Parameters >>" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.btnFanParametersForward.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFanParametersForward.Location = New System.Drawing.Point(949, 540)
+        Me.btnFanParametersForward.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnFanParametersForward.Name = "btnFanParametersForward"
+        Me.btnFanParametersForward.Size = New System.Drawing.Size(251, 50)
+        Me.btnFanParametersForward.TabIndex = 0
+        Me.btnFanParametersForward.Text = "Fan Parameters >>" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.btnFanParametersForward.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnCalculateDensity
         '
-        Me.Button7.Enabled = False
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(836, 159)
-        Me.Button7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(200, 50)
-        Me.Button7.TabIndex = 13
-        Me.Button7.Text = "Calculate Density"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnCalculateDensity.Enabled = False
+        Me.btnCalculateDensity.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalculateDensity.Location = New System.Drawing.Point(836, 159)
+        Me.btnCalculateDensity.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCalculateDensity.Name = "btnCalculateDensity"
+        Me.btnCalculateDensity.Size = New System.Drawing.Size(200, 50)
+        Me.btnCalculateDensity.TabIndex = 13
+        Me.btnCalculateDensity.Text = "Calculate Density"
+        Me.btnCalculateDensity.UseVisualStyleBackColor = True
         '
         'GrpFlowRate
         '
@@ -1266,7 +1236,7 @@ Partial Class Frmselectfan
         Me.GroupBox2.Controls.Add(Me.OptTXT)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.Black
-        Me.GroupBox2.Location = New System.Drawing.Point(419, 342)
+        Me.GroupBox2.Location = New System.Drawing.Point(419, 423)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -1283,7 +1253,7 @@ Partial Class Frmselectfan
         Me.OptXLS.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptXLS.Name = "OptXLS"
         Me.OptXLS.Size = New System.Drawing.Size(158, 29)
-        Me.OptXLS.TabIndex = 1
+        Me.OptXLS.TabIndex = 14
         Me.OptXLS.TabStop = True
         Me.OptXLS.Text = "Use XLS Files"
         Me.OptXLS.UseVisualStyleBackColor = True
@@ -1296,7 +1266,7 @@ Partial Class Frmselectfan
         Me.OptTXT.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptTXT.Name = "OptTXT"
         Me.OptTXT.Size = New System.Drawing.Size(159, 29)
-        Me.OptTXT.TabIndex = 0
+        Me.OptTXT.TabIndex = 13
         Me.OptTXT.TabStop = True
         Me.OptTXT.Text = "Use TXT Files"
         Me.OptTXT.UseVisualStyleBackColor = True
@@ -1304,8 +1274,13 @@ Partial Class Frmselectfan
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
+        Me.GroupBox1.Controls.Add(Me.lblpercent)
+        Me.GroupBox1.Controls.Add(Me.lblUserDefinedUnits)
+        Me.GroupBox1.Controls.Add(Me.txtRatioDD)
+        Me.GroupBox1.Controls.Add(Me.txtUserDefinedDD)
+        Me.GroupBox1.Controls.Add(Me.optDDUserDefined)
+        Me.GroupBox1.Controls.Add(Me.optDDStandard)
+        Me.GroupBox1.Controls.Add(Me.optDDRatio)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.Black
         Me.GroupBox1.Location = New System.Drawing.Point(419, 252)
@@ -1313,36 +1288,90 @@ Partial Class Frmselectfan
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.GroupBox1.Size = New System.Drawing.Size(395, 71)
+        Me.GroupBox1.Size = New System.Drawing.Size(523, 149)
         Me.GroupBox1.TabIndex = 11
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Discharge Duct"
         '
-        'RadioButton1
+        'lblpercent
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Checked = True
-        Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(109, 30)
-        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(68, 29)
-        Me.RadioButton1.TabIndex = 5
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Any"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.lblpercent.AutoSize = True
+        Me.lblpercent.Enabled = False
+        Me.lblpercent.Location = New System.Drawing.Point(285, 106)
+        Me.lblpercent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblpercent.Name = "lblpercent"
+        Me.lblpercent.Size = New System.Drawing.Size(30, 25)
+        Me.lblpercent.TabIndex = 10
+        Me.lblpercent.Text = "%"
         '
-        'RadioButton2
+        'lblUserDefinedUnits
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(205, 30)
-        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(81, 29)
-        Me.RadioButton2.TabIndex = 4
-        Me.RadioButton2.Text = "Fixed"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.lblUserDefinedUnits.AutoSize = True
+        Me.lblUserDefinedUnits.Enabled = False
+        Me.lblUserDefinedUnits.Location = New System.Drawing.Point(285, 70)
+        Me.lblUserDefinedUnits.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblUserDefinedUnits.Name = "lblUserDefinedUnits"
+        Me.lblUserDefinedUnits.Size = New System.Drawing.Size(35, 25)
+        Me.lblUserDefinedUnits.TabIndex = 9
+        Me.lblUserDefinedUnits.Text = "m²"
+        '
+        'txtRatioDD
+        '
+        Me.txtRatioDD.Enabled = False
+        Me.txtRatioDD.Location = New System.Drawing.Point(197, 102)
+        Me.txtRatioDD.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtRatioDD.Name = "txtRatioDD"
+        Me.txtRatioDD.Size = New System.Drawing.Size(79, 30)
+        Me.txtRatioDD.TabIndex = 8
+        '
+        'txtUserDefinedDD
+        '
+        Me.txtUserDefinedDD.Enabled = False
+        Me.txtUserDefinedDD.Location = New System.Drawing.Point(197, 63)
+        Me.txtUserDefinedDD.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtUserDefinedDD.Name = "txtUserDefinedDD"
+        Me.txtUserDefinedDD.Size = New System.Drawing.Size(79, 30)
+        Me.txtUserDefinedDD.TabIndex = 7
+        '
+        'optDDUserDefined
+        '
+        Me.optDDUserDefined.AutoSize = True
+        Me.optDDUserDefined.Enabled = False
+        Me.optDDUserDefined.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optDDUserDefined.Location = New System.Drawing.Point(29, 64)
+        Me.optDDUserDefined.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.optDDUserDefined.Name = "optDDUserDefined"
+        Me.optDDUserDefined.Size = New System.Drawing.Size(146, 29)
+        Me.optDDUserDefined.TabIndex = 6
+        Me.optDDUserDefined.Text = "User Defined"
+        Me.optDDUserDefined.UseVisualStyleBackColor = True
+        '
+        'optDDStandard
+        '
+        Me.optDDStandard.AutoSize = True
+        Me.optDDStandard.Checked = True
+        Me.optDDStandard.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optDDStandard.Location = New System.Drawing.Point(29, 30)
+        Me.optDDStandard.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.optDDStandard.Name = "optDDStandard"
+        Me.optDDStandard.Size = New System.Drawing.Size(113, 29)
+        Me.optDDStandard.TabIndex = 5
+        Me.optDDStandard.TabStop = True
+        Me.optDDStandard.Text = "Standard"
+        Me.optDDStandard.UseVisualStyleBackColor = True
+        '
+        'optDDRatio
+        '
+        Me.optDDRatio.AutoSize = True
+        Me.optDDRatio.Enabled = False
+        Me.optDDRatio.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optDDRatio.Location = New System.Drawing.Point(29, 98)
+        Me.optDDRatio.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.optDDRatio.Name = "optDDRatio"
+        Me.optDDRatio.Size = New System.Drawing.Size(77, 29)
+        Me.optDDRatio.TabIndex = 4
+        Me.optDDRatio.Text = "Ratio"
+        Me.optDDRatio.UseVisualStyleBackColor = True
         '
         'GrpDesignPressure
         '
@@ -1365,7 +1394,7 @@ Partial Class Frmselectfan
         Me.GrpDesignPressure.Name = "GrpDesignPressure"
         Me.GrpDesignPressure.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpDesignPressure.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.GrpDesignPressure.Size = New System.Drawing.Size(341, 254)
+        Me.GrpDesignPressure.Size = New System.Drawing.Size(341, 294)
         Me.GrpDesignPressure.TabIndex = 6
         Me.GrpDesignPressure.TabStop = False
         Me.GrpDesignPressure.Text = "Design Pressure (Pa)"
@@ -1374,7 +1403,7 @@ Partial Class Frmselectfan
         '
         Me.Optsucy.AutoSize = True
         Me.Optsucy.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Optsucy.Location = New System.Drawing.Point(43, 202)
+        Me.Optsucy.Location = New System.Drawing.Point(43, 252)
         Me.Optsucy.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Optsucy.Name = "Optsucy"
         Me.Optsucy.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -1389,7 +1418,7 @@ Partial Class Frmselectfan
         Me.CmbReserveHead.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbReserveHead.FormattingEnabled = True
         Me.CmbReserveHead.Items.AddRange(New Object() {"5%", "10%", "15%", "20%"})
-        Me.CmbReserveHead.Location = New System.Drawing.Point(208, 162)
+        Me.CmbReserveHead.Location = New System.Drawing.Point(208, 213)
         Me.CmbReserveHead.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CmbReserveHead.Name = "CmbReserveHead"
         Me.CmbReserveHead.Size = New System.Drawing.Size(79, 33)
@@ -1399,7 +1428,7 @@ Partial Class Frmselectfan
         'Txtfsp
         '
         Me.Txtfsp.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Txtfsp.Location = New System.Drawing.Point(208, 132)
+        Me.Txtfsp.Location = New System.Drawing.Point(208, 182)
         Me.Txtfsp.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Txtfsp.Name = "Txtfsp"
         Me.Txtfsp.Size = New System.Drawing.Size(79, 30)
@@ -1409,7 +1438,7 @@ Partial Class Frmselectfan
         'TxtDischargePressure
         '
         Me.TxtDischargePressure.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDischargePressure.Location = New System.Drawing.Point(208, 103)
+        Me.TxtDischargePressure.Location = New System.Drawing.Point(208, 154)
         Me.TxtDischargePressure.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtDischargePressure.Name = "TxtDischargePressure"
         Me.TxtDischargePressure.Size = New System.Drawing.Size(79, 30)
@@ -1431,7 +1460,7 @@ Partial Class Frmselectfan
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(53, 164)
+        Me.Label7.Location = New System.Drawing.Point(53, 214)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(136, 25)
         Me.Label7.TabIndex = 11
@@ -1442,7 +1471,7 @@ Partial Class Frmselectfan
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(57, 132)
+        Me.Label8.Location = New System.Drawing.Point(57, 182)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(133, 25)
         Me.Label8.TabIndex = 10
@@ -1453,7 +1482,7 @@ Partial Class Frmselectfan
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(91, 106)
+        Me.Label9.Location = New System.Drawing.Point(91, 156)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(100, 25)
         Me.Label9.TabIndex = 9
@@ -1464,11 +1493,11 @@ Partial Class Frmselectfan
         'Label10
         '
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(47, 59)
+        Me.Label10.Location = New System.Drawing.Point(21, 59)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(152, 59)
+        Me.Label10.Size = New System.Drawing.Size(177, 59)
         Me.Label10.TabIndex = 8
-        Me.Label10.Text = "Inlet Pressure (Gauge)"
+        Me.Label10.Text = "Inlet Static Pressure"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'OptStaticPressure
@@ -1551,17 +1580,17 @@ Partial Class Frmselectfan
         Me.Txtdens.TabIndex = 0
         Me.Txtdens.Text = "1.205"
         '
-        'Button2
+        'btnDutyExit
         '
-        Me.Button2.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(11, 540)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(251, 50)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "EXIT"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnDutyExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnDutyExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDutyExit.Location = New System.Drawing.Point(11, 540)
+        Me.btnDutyExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnDutyExit.Name = "btnDutyExit"
+        Me.btnDutyExit.Size = New System.Drawing.Size(251, 50)
+        Me.btnDutyExit.TabIndex = 2
+        Me.btnDutyExit.Text = "EXIT"
+        Me.btnDutyExit.UseVisualStyleBackColor = True
         '
         'GrpInletTemperature
         '
@@ -1591,6 +1620,7 @@ Partial Class Frmselectfan
         Me.TxtMaximumTemperature.Size = New System.Drawing.Size(53, 30)
         Me.TxtMaximumTemperature.TabIndex = 3
         Me.TxtMaximumTemperature.Text = "20"
+        Me.TxtMaximumTemperature.Visible = False
         '
         'LblMaximumTemperature
         '
@@ -1601,6 +1631,7 @@ Partial Class Frmselectfan
         Me.LblMaximumTemperature.Size = New System.Drawing.Size(97, 25)
         Me.LblMaximumTemperature.TabIndex = 2
         Me.LblMaximumTemperature.Text = "Maximum"
+        Me.LblMaximumTemperature.Visible = False
         '
         'LblDesignTemperature
         '
@@ -1629,7 +1660,7 @@ Partial Class Frmselectfan
         Me.Button1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(91, 36)
-        Me.Button1.TabIndex = 0
+        Me.Button1.TabIndex = 15
         Me.Button1.Text = "Select"
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
@@ -1639,50 +1670,50 @@ Partial Class Frmselectfan
         Me.TabPageFanParameters.BackColor = System.Drawing.Color.Transparent
         Me.TabPageFanParameters.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         Me.TabPageFanParameters.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TabPageFanParameters.Controls.Add(Me.Button20)
-        Me.TabPageFanParameters.Controls.Add(Me.Button12)
-        Me.TabPageFanParameters.Controls.Add(Me.Button11)
+        Me.TabPageFanParameters.Controls.Add(Me.btnDutyInputBack)
+        Me.TabPageFanParameters.Controls.Add(Me.btnParametersExit)
+        Me.TabPageFanParameters.Controls.Add(Me.btnFanSelectionsForward)
         Me.TabPageFanParameters.Controls.Add(Me.GrpFanSize)
         Me.TabPageFanParameters.Controls.Add(Me.GrpFanSpeed)
         Me.TabPageFanParameters.Controls.Add(Me.GrpFanTypes)
         Me.TabPageFanParameters.Location = New System.Drawing.Point(4, 34)
         Me.TabPageFanParameters.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageFanParameters.Name = "TabPageFanParameters"
-        Me.TabPageFanParameters.Size = New System.Drawing.Size(1247, 602)
+        Me.TabPageFanParameters.Size = New System.Drawing.Size(1247, 600)
         Me.TabPageFanParameters.TabIndex = 6
         Me.TabPageFanParameters.Text = "Fan Parameters"
         '
-        'Button20
+        'btnDutyInputBack
         '
-        Me.Button20.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button20.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button20.Location = New System.Drawing.Point(11, 540)
-        Me.Button20.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button20.Name = "Button20"
-        Me.Button20.Size = New System.Drawing.Size(251, 50)
-        Me.Button20.TabIndex = 21
-        Me.Button20.Text = "EXIT"
-        Me.Button20.UseVisualStyleBackColor = True
+        Me.btnDutyInputBack.Location = New System.Drawing.Point(691, 540)
+        Me.btnDutyInputBack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnDutyInputBack.Name = "btnDutyInputBack"
+        Me.btnDutyInputBack.Size = New System.Drawing.Size(251, 50)
+        Me.btnDutyInputBack.TabIndex = 22
+        Me.btnDutyInputBack.Text = "<< Duty Input"
+        Me.btnDutyInputBack.UseVisualStyleBackColor = True
         '
-        'Button12
+        'btnParametersExit
         '
-        Me.Button12.Location = New System.Drawing.Point(949, 540)
-        Me.Button12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(251, 50)
-        Me.Button12.TabIndex = 20
-        Me.Button12.Text = "Fan Selections >>"
-        Me.Button12.UseVisualStyleBackColor = True
+        Me.btnParametersExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnParametersExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnParametersExit.Location = New System.Drawing.Point(11, 540)
+        Me.btnParametersExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnParametersExit.Name = "btnParametersExit"
+        Me.btnParametersExit.Size = New System.Drawing.Size(251, 50)
+        Me.btnParametersExit.TabIndex = 21
+        Me.btnParametersExit.Text = "EXIT"
+        Me.btnParametersExit.UseVisualStyleBackColor = True
         '
-        'Button11
+        'btnFanSelectionsForward
         '
-        Me.Button11.Location = New System.Drawing.Point(691, 540)
-        Me.Button11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(251, 50)
-        Me.Button11.TabIndex = 19
-        Me.Button11.Text = "<< Duty Input"
-        Me.Button11.UseVisualStyleBackColor = True
+        Me.btnFanSelectionsForward.Location = New System.Drawing.Point(949, 540)
+        Me.btnFanSelectionsForward.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnFanSelectionsForward.Name = "btnFanSelectionsForward"
+        Me.btnFanSelectionsForward.Size = New System.Drawing.Size(251, 50)
+        Me.btnFanSelectionsForward.TabIndex = 0
+        Me.btnFanSelectionsForward.Text = "Fan Selections >>"
+        Me.btnFanSelectionsForward.UseVisualStyleBackColor = True
         '
         'GrpFanSize
         '
@@ -1757,14 +1788,17 @@ Partial Class Frmselectfan
         'GrpFanSpeed
         '
         Me.GrpFanSpeed.BackColor = System.Drawing.Color.Transparent
-        Me.GrpFanSpeed.Controls.Add(Me.GrpPoleBox)
+        Me.GrpFanSpeed.Controls.Add(Me.Opt12Pole)
         Me.GrpFanSpeed.Controls.Add(Me.Txtfanspeed)
         Me.GrpFanSpeed.Controls.Add(Me.Label1)
+        Me.GrpFanSpeed.Controls.Add(Me.Opt10Pole)
         Me.GrpFanSpeed.Controls.Add(Me.Txtspeedlimit)
         Me.GrpFanSpeed.Controls.Add(Me.Label11)
-        Me.GrpFanSpeed.Controls.Add(Me.OptFixedSpeed)
+        Me.GrpFanSpeed.Controls.Add(Me.Opt8Pole)
+        Me.GrpFanSpeed.Controls.Add(Me.Opt2Pole)
+        Me.GrpFanSpeed.Controls.Add(Me.Opt6Pole)
         Me.GrpFanSpeed.Controls.Add(Me.OptAnySpeed)
-        Me.GrpFanSpeed.Controls.Add(Me.OptPoleSpeed)
+        Me.GrpFanSpeed.Controls.Add(Me.Opt4Pole)
         Me.GrpFanSpeed.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GrpFanSpeed.ForeColor = System.Drawing.Color.Black
         Me.GrpFanSpeed.Location = New System.Drawing.Point(33, 28)
@@ -1777,27 +1811,10 @@ Partial Class Frmselectfan
         Me.GrpFanSpeed.TabStop = False
         Me.GrpFanSpeed.Text = "Fan Speed"
         '
-        'GrpPoleBox
-        '
-        Me.GrpPoleBox.Controls.Add(Me.Opt12Pole)
-        Me.GrpPoleBox.Controls.Add(Me.Opt10Pole)
-        Me.GrpPoleBox.Controls.Add(Me.Opt8Pole)
-        Me.GrpPoleBox.Controls.Add(Me.Opt6Pole)
-        Me.GrpPoleBox.Controls.Add(Me.Opt4Pole)
-        Me.GrpPoleBox.Controls.Add(Me.Opt2Pole)
-        Me.GrpPoleBox.Enabled = False
-        Me.GrpPoleBox.Location = New System.Drawing.Point(245, 18)
-        Me.GrpPoleBox.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GrpPoleBox.Name = "GrpPoleBox"
-        Me.GrpPoleBox.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GrpPoleBox.Size = New System.Drawing.Size(315, 110)
-        Me.GrpPoleBox.TabIndex = 11
-        Me.GrpPoleBox.TabStop = False
-        '
         'Opt12Pole
         '
         Me.Opt12Pole.AutoSize = True
-        Me.Opt12Pole.Location = New System.Drawing.Point(167, 71)
+        Me.Opt12Pole.Location = New System.Drawing.Point(332, 85)
         Me.Opt12Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Opt12Pole.Name = "Opt12Pole"
         Me.Opt12Pole.Size = New System.Drawing.Size(106, 29)
@@ -1805,66 +1822,6 @@ Partial Class Frmselectfan
         Me.Opt12Pole.TabStop = True
         Me.Opt12Pole.Text = "12 Pole"
         Me.Opt12Pole.UseVisualStyleBackColor = True
-        '
-        'Opt10Pole
-        '
-        Me.Opt10Pole.AutoSize = True
-        Me.Opt10Pole.Location = New System.Drawing.Point(167, 44)
-        Me.Opt10Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Opt10Pole.Name = "Opt10Pole"
-        Me.Opt10Pole.Size = New System.Drawing.Size(106, 29)
-        Me.Opt10Pole.TabIndex = 4
-        Me.Opt10Pole.TabStop = True
-        Me.Opt10Pole.Text = "10 Pole"
-        Me.Opt10Pole.UseVisualStyleBackColor = True
-        '
-        'Opt8Pole
-        '
-        Me.Opt8Pole.AutoSize = True
-        Me.Opt8Pole.Location = New System.Drawing.Point(167, 17)
-        Me.Opt8Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Opt8Pole.Name = "Opt8Pole"
-        Me.Opt8Pole.Size = New System.Drawing.Size(94, 29)
-        Me.Opt8Pole.TabIndex = 3
-        Me.Opt8Pole.TabStop = True
-        Me.Opt8Pole.Text = "8 Pole"
-        Me.Opt8Pole.UseVisualStyleBackColor = True
-        '
-        'Opt6Pole
-        '
-        Me.Opt6Pole.AutoSize = True
-        Me.Opt6Pole.Location = New System.Drawing.Point(13, 71)
-        Me.Opt6Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Opt6Pole.Name = "Opt6Pole"
-        Me.Opt6Pole.Size = New System.Drawing.Size(94, 29)
-        Me.Opt6Pole.TabIndex = 2
-        Me.Opt6Pole.TabStop = True
-        Me.Opt6Pole.Text = "6 Pole"
-        Me.Opt6Pole.UseVisualStyleBackColor = True
-        '
-        'Opt4Pole
-        '
-        Me.Opt4Pole.AutoSize = True
-        Me.Opt4Pole.Location = New System.Drawing.Point(13, 44)
-        Me.Opt4Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Opt4Pole.Name = "Opt4Pole"
-        Me.Opt4Pole.Size = New System.Drawing.Size(94, 29)
-        Me.Opt4Pole.TabIndex = 1
-        Me.Opt4Pole.TabStop = True
-        Me.Opt4Pole.Text = "4 Pole"
-        Me.Opt4Pole.UseVisualStyleBackColor = True
-        '
-        'Opt2Pole
-        '
-        Me.Opt2Pole.AutoSize = True
-        Me.Opt2Pole.Location = New System.Drawing.Point(13, 17)
-        Me.Opt2Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Opt2Pole.Name = "Opt2Pole"
-        Me.Opt2Pole.Size = New System.Drawing.Size(94, 29)
-        Me.Opt2Pole.TabIndex = 0
-        Me.Opt2Pole.TabStop = True
-        Me.Opt2Pole.Text = "2 Pole"
-        Me.Opt2Pole.UseVisualStyleBackColor = True
         '
         'Txtfanspeed
         '
@@ -1885,6 +1842,18 @@ Partial Class Frmselectfan
         Me.Label1.Text = "Fan Speed (RPM)"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'Opt10Pole
+        '
+        Me.Opt10Pole.AutoSize = True
+        Me.Opt10Pole.Location = New System.Drawing.Point(332, 58)
+        Me.Opt10Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Opt10Pole.Name = "Opt10Pole"
+        Me.Opt10Pole.Size = New System.Drawing.Size(106, 29)
+        Me.Opt10Pole.TabIndex = 4
+        Me.Opt10Pole.TabStop = True
+        Me.Opt10Pole.Text = "10 Pole"
+        Me.Opt10Pole.UseVisualStyleBackColor = True
+        '
         'Txtspeedlimit
         '
         Me.Txtspeedlimit.Location = New System.Drawing.Point(817, 28)
@@ -1904,40 +1873,66 @@ Partial Class Frmselectfan
         Me.Label11.Text = "Max Speed (RPM)"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'OptFixedSpeed
+        'Opt8Pole
         '
-        Me.OptFixedSpeed.AutoSize = True
-        Me.OptFixedSpeed.Location = New System.Drawing.Point(11, 58)
-        Me.OptFixedSpeed.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptFixedSpeed.Name = "OptFixedSpeed"
-        Me.OptFixedSpeed.Size = New System.Drawing.Size(155, 29)
-        Me.OptFixedSpeed.TabIndex = 6
-        Me.OptFixedSpeed.Text = "Fixed Speed"
-        Me.OptFixedSpeed.UseVisualStyleBackColor = True
+        Me.Opt8Pole.AutoSize = True
+        Me.Opt8Pole.Location = New System.Drawing.Point(332, 31)
+        Me.Opt8Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Opt8Pole.Name = "Opt8Pole"
+        Me.Opt8Pole.Size = New System.Drawing.Size(94, 29)
+        Me.Opt8Pole.TabIndex = 3
+        Me.Opt8Pole.TabStop = True
+        Me.Opt8Pole.Text = "8 Pole"
+        Me.Opt8Pole.UseVisualStyleBackColor = True
+        '
+        'Opt2Pole
+        '
+        Me.Opt2Pole.AutoSize = True
+        Me.Opt2Pole.Location = New System.Drawing.Point(179, 31)
+        Me.Opt2Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Opt2Pole.Name = "Opt2Pole"
+        Me.Opt2Pole.Size = New System.Drawing.Size(94, 29)
+        Me.Opt2Pole.TabIndex = 0
+        Me.Opt2Pole.TabStop = True
+        Me.Opt2Pole.Text = "2 Pole"
+        Me.Opt2Pole.UseVisualStyleBackColor = True
+        '
+        'Opt6Pole
+        '
+        Me.Opt6Pole.AutoSize = True
+        Me.Opt6Pole.Location = New System.Drawing.Point(179, 85)
+        Me.Opt6Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Opt6Pole.Name = "Opt6Pole"
+        Me.Opt6Pole.Size = New System.Drawing.Size(94, 29)
+        Me.Opt6Pole.TabIndex = 2
+        Me.Opt6Pole.TabStop = True
+        Me.Opt6Pole.Text = "6 Pole"
+        Me.Opt6Pole.UseVisualStyleBackColor = True
         '
         'OptAnySpeed
         '
         Me.OptAnySpeed.AutoSize = True
         Me.OptAnySpeed.Checked = True
-        Me.OptAnySpeed.Location = New System.Drawing.Point(11, 32)
+        Me.OptAnySpeed.Location = New System.Drawing.Point(11, 31)
         Me.OptAnySpeed.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.OptAnySpeed.Name = "OptAnySpeed"
-        Me.OptAnySpeed.Size = New System.Drawing.Size(140, 29)
+        Me.OptAnySpeed.Size = New System.Drawing.Size(122, 29)
         Me.OptAnySpeed.TabIndex = 5
         Me.OptAnySpeed.TabStop = True
-        Me.OptAnySpeed.Text = "Any Speed"
+        Me.OptAnySpeed.Text = "VSD/Belt"
         Me.OptAnySpeed.UseVisualStyleBackColor = True
         '
-        'OptPoleSpeed
+        'Opt4Pole
         '
-        Me.OptPoleSpeed.AutoSize = True
-        Me.OptPoleSpeed.Location = New System.Drawing.Point(11, 87)
-        Me.OptPoleSpeed.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptPoleSpeed.Name = "OptPoleSpeed"
-        Me.OptPoleSpeed.Size = New System.Drawing.Size(145, 29)
-        Me.OptPoleSpeed.TabIndex = 4
-        Me.OptPoleSpeed.Text = "Pole Speed"
-        Me.OptPoleSpeed.UseVisualStyleBackColor = True
+        Me.Opt4Pole.AutoSize = True
+        Me.Opt4Pole.Location = New System.Drawing.Point(179, 58)
+        Me.Opt4Pole.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Opt4Pole.Name = "Opt4Pole"
+        Me.Opt4Pole.Size = New System.Drawing.Size(94, 29)
+        Me.Opt4Pole.TabIndex = 1
+        Me.Opt4Pole.TabStop = True
+        Me.Opt4Pole.Text = "4 Pole"
+        Me.Opt4Pole.UseVisualStyleBackColor = True
         '
         'GrpFanTypes
         '
@@ -2050,10 +2045,14 @@ Partial Class Frmselectfan
         Me.TabPageSelection.BackColor = System.Drawing.Color.Transparent
         Me.TabPageSelection.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         Me.TabPageSelection.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TabPageSelection.Controls.Add(Me.Button21)
+        Me.TabPageSelection.Controls.Add(Me.chkKP)
+        Me.TabPageSelection.Controls.Add(Me.lblInstructions)
+        Me.TabPageSelection.Controls.Add(Me.chkDisplayLowerEff)
+        Me.TabPageSelection.Controls.Add(Me.chkDisplayAll)
+        Me.TabPageSelection.Controls.Add(Me.btnSelectionsExit)
         Me.TabPageSelection.Controls.Add(Me.Label19)
-        Me.TabPageSelection.Controls.Add(Me.Button14)
-        Me.TabPageSelection.Controls.Add(Me.Button13)
+        Me.TabPageSelection.Controls.Add(Me.btnFanParametersBack)
+        Me.TabPageSelection.Controls.Add(Me.btnNoiseDataForward)
         Me.TabPageSelection.Controls.Add(Me.LblFanDetails)
         Me.TabPageSelection.Controls.Add(Me.Label3)
         Me.TabPageSelection.Controls.Add(Me.BtnClose)
@@ -2067,21 +2066,60 @@ Partial Class Frmselectfan
         Me.TabPageSelection.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageSelection.Name = "TabPageSelection"
         Me.TabPageSelection.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TabPageSelection.Size = New System.Drawing.Size(1247, 602)
+        Me.TabPageSelection.Size = New System.Drawing.Size(1247, 600)
         Me.TabPageSelection.TabIndex = 1
         Me.TabPageSelection.Text = "Selections"
         '
-        'Button21
+        'lblInstructions
         '
-        Me.Button21.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button21.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button21.Location = New System.Drawing.Point(11, 540)
-        Me.Button21.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(251, 50)
-        Me.Button21.TabIndex = 18
-        Me.Button21.Text = "EXIT"
-        Me.Button21.UseVisualStyleBackColor = True
+        Me.lblInstructions.AutoSize = True
+        Me.lblInstructions.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblInstructions.ForeColor = System.Drawing.Color.Red
+        Me.lblInstructions.Location = New System.Drawing.Point(29, 65)
+        Me.lblInstructions.Name = "lblInstructions"
+        Me.lblInstructions.Size = New System.Drawing.Size(512, 24)
+        Me.lblInstructions.TabIndex = 21
+        Me.lblInstructions.Text = "**single click to select fan, double click to view chart**"
+        '
+        'chkDisplayLowerEff
+        '
+        Me.chkDisplayLowerEff.AutoSize = True
+        Me.chkDisplayLowerEff.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkDisplayLowerEff.ForeColor = System.Drawing.Color.Black
+        Me.chkDisplayLowerEff.Location = New System.Drawing.Point(797, 62)
+        Me.chkDisplayLowerEff.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkDisplayLowerEff.Name = "chkDisplayLowerEff"
+        Me.chkDisplayLowerEff.Size = New System.Drawing.Size(318, 29)
+        Me.chkDisplayLowerEff.TabIndex = 20
+        Me.chkDisplayLowerEff.Text = "Include fans < 60% Efficiency"
+        Me.chkDisplayLowerEff.UseVisualStyleBackColor = True
+        Me.chkDisplayLowerEff.Visible = False
+        '
+        'chkDisplayAll
+        '
+        Me.chkDisplayAll.AutoSize = True
+        Me.chkDisplayAll.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkDisplayAll.ForeColor = System.Drawing.Color.Black
+        Me.chkDisplayAll.Location = New System.Drawing.Point(797, 25)
+        Me.chkDisplayAll.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkDisplayAll.Name = "chkDisplayAll"
+        Me.chkDisplayAll.Size = New System.Drawing.Size(349, 29)
+        Me.chkDisplayAll.TabIndex = 19
+        Me.chkDisplayAll.Text = "Include fans < 5% Reserve Head"
+        Me.chkDisplayAll.UseVisualStyleBackColor = True
+        Me.chkDisplayAll.Visible = False
+        '
+        'btnSelectionsExit
+        '
+        Me.btnSelectionsExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnSelectionsExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSelectionsExit.Location = New System.Drawing.Point(11, 540)
+        Me.btnSelectionsExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSelectionsExit.Name = "btnSelectionsExit"
+        Me.btnSelectionsExit.Size = New System.Drawing.Size(251, 50)
+        Me.btnSelectionsExit.TabIndex = 18
+        Me.btnSelectionsExit.Text = "EXIT"
+        Me.btnSelectionsExit.UseVisualStyleBackColor = True
         '
         'Label19
         '
@@ -2096,26 +2134,26 @@ Partial Class Frmselectfan
         Me.Label19.Text = "FanDetails"
         Me.Label19.Visible = False
         '
-        'Button14
+        'btnFanParametersBack
         '
-        Me.Button14.Location = New System.Drawing.Point(691, 540)
-        Me.Button14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(251, 50)
-        Me.Button14.TabIndex = 16
-        Me.Button14.Text = "<< Fan Parameters"
-        Me.Button14.UseVisualStyleBackColor = True
+        Me.btnFanParametersBack.Location = New System.Drawing.Point(691, 540)
+        Me.btnFanParametersBack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnFanParametersBack.Name = "btnFanParametersBack"
+        Me.btnFanParametersBack.Size = New System.Drawing.Size(251, 50)
+        Me.btnFanParametersBack.TabIndex = 16
+        Me.btnFanParametersBack.Text = "<< Fan Parameters"
+        Me.btnFanParametersBack.UseVisualStyleBackColor = True
         '
-        'Button13
+        'btnNoiseDataForward
         '
-        Me.Button13.Enabled = False
-        Me.Button13.Location = New System.Drawing.Point(949, 540)
-        Me.Button13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(251, 50)
-        Me.Button13.TabIndex = 15
-        Me.Button13.Text = "Noise Data >>"
-        Me.Button13.UseVisualStyleBackColor = True
+        Me.btnNoiseDataForward.Enabled = False
+        Me.btnNoiseDataForward.Location = New System.Drawing.Point(949, 540)
+        Me.btnNoiseDataForward.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnNoiseDataForward.Name = "btnNoiseDataForward"
+        Me.btnNoiseDataForward.Size = New System.Drawing.Size(251, 50)
+        Me.btnNoiseDataForward.TabIndex = 0
+        Me.btnNoiseDataForward.Text = "Acoustics >>"
+        Me.btnNoiseDataForward.UseVisualStyleBackColor = True
         '
         'LblFanDetails
         '
@@ -2147,7 +2185,7 @@ Partial Class Frmselectfan
         '
         Me.BtnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClose.ForeColor = System.Drawing.Color.Black
-        Me.BtnClose.Location = New System.Drawing.Point(153, 547)
+        Me.BtnClose.Location = New System.Drawing.Point(153, 546)
         Me.BtnClose.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(89, 34)
@@ -2159,7 +2197,7 @@ Partial Class Frmselectfan
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.Black
-        Me.Button4.Location = New System.Drawing.Point(45, 547)
+        Me.Button4.Location = New System.Drawing.Point(45, 546)
         Me.Button4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(89, 34)
@@ -2173,7 +2211,7 @@ Partial Class Frmselectfan
         Me.LblGasDensityUnit.BackColor = System.Drawing.Color.Transparent
         Me.LblGasDensityUnit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LblGasDensityUnit.ForeColor = System.Drawing.Color.Black
-        Me.LblGasDensityUnit.Location = New System.Drawing.Point(997, 30)
+        Me.LblGasDensityUnit.Location = New System.Drawing.Point(632, 555)
         Me.LblGasDensityUnit.Name = "LblGasDensityUnit"
         Me.LblGasDensityUnit.Size = New System.Drawing.Size(51, 18)
         Me.LblGasDensityUnit.TabIndex = 13
@@ -2186,7 +2224,7 @@ Partial Class Frmselectfan
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Black
-        Me.Label2.Location = New System.Drawing.Point(771, 30)
+        Me.Label2.Location = New System.Drawing.Point(405, 555)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(100, 18)
         Me.Label2.TabIndex = 12
@@ -2198,7 +2236,7 @@ Partial Class Frmselectfan
         Me.TxtDensity.BackColor = System.Drawing.Color.White
         Me.TxtDensity.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxtDensity.ForeColor = System.Drawing.Color.Black
-        Me.TxtDensity.Location = New System.Drawing.Point(891, 26)
+        Me.TxtDensity.Location = New System.Drawing.Point(525, 551)
         Me.TxtDensity.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtDensity.Name = "TxtDensity"
         Me.TxtDensity.Size = New System.Drawing.Size(100, 24)
@@ -2210,7 +2248,7 @@ Partial Class Frmselectfan
         Me.Button3.BackColor = System.Drawing.Color.Transparent
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.Location = New System.Drawing.Point(611, 22)
+        Me.Button3.Location = New System.Drawing.Point(311, 548)
         Me.Button3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(89, 34)
@@ -2233,10 +2271,11 @@ Partial Class Frmselectfan
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(19, 74)
+        Me.DataGridView1.Location = New System.Drawing.Point(19, 104)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersWidth = 4
         Me.DataGridView1.RowTemplate.Height = 24
         Me.DataGridView1.Size = New System.Drawing.Size(1159, 153)
         Me.DataGridView1.TabIndex = 8
@@ -2246,10 +2285,12 @@ Partial Class Frmselectfan
         Me.TabPageNoise.BackColor = System.Drawing.Color.Transparent
         Me.TabPageNoise.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         Me.TabPageNoise.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.TabPageNoise.Controls.Add(Me.Button16)
-        Me.TabPageNoise.Controls.Add(Me.Button15)
-        Me.TabPageNoise.Controls.Add(Me.DataGridView2)
-        Me.TabPageNoise.Controls.Add(Me.TableLayoutPanel1)
+        Me.TabPageNoise.Controls.Add(Me.lblOutDims)
+        Me.TabPageNoise.Controls.Add(Me.lblInDia)
+        Me.TabPageNoise.Controls.Add(Me.lblOutletDimensions)
+        Me.TabPageNoise.Controls.Add(Me.lblInletDiameter)
+        Me.TabPageNoise.Controls.Add(Me.btnFanSelectionsBack)
+        Me.TabPageNoise.Controls.Add(Me.btnSaveProjectForward)
         Me.TabPageNoise.Controls.Add(Me.GroupBox4)
         Me.TabPageNoise.Controls.Add(Me.GroupBox3)
         Me.TabPageNoise.Controls.Add(Me.TxtTypenoise)
@@ -2267,101 +2308,95 @@ Partial Class Frmselectfan
         Me.TabPageNoise.Controls.Add(Me.TxtFlownoise)
         Me.TabPageNoise.Controls.Add(Me.Label4)
         Me.TabPageNoise.Controls.Add(Me.GroupBox5)
-        Me.TabPageNoise.Controls.Add(Me.Button22)
+        Me.TabPageNoise.Controls.Add(Me.btnNoiseExit)
         Me.TabPageNoise.Controls.Add(Me.Button5)
         Me.TabPageNoise.Controls.Add(Me.Button6)
+        Me.TabPageNoise.Controls.Add(Me.DataGridView2)
         Me.TabPageNoise.Location = New System.Drawing.Point(4, 34)
         Me.TabPageNoise.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageNoise.Name = "TabPageNoise"
-        Me.TabPageNoise.Size = New System.Drawing.Size(1247, 602)
+        Me.TabPageNoise.Size = New System.Drawing.Size(1247, 600)
         Me.TabPageNoise.TabIndex = 3
         Me.TabPageNoise.Text = "Acoustics"
         '
-        'Button16
+        'lblOutDims
         '
-        Me.Button16.Location = New System.Drawing.Point(691, 540)
-        Me.Button16.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(251, 50)
-        Me.Button16.TabIndex = 22
-        Me.Button16.Text = "<< Fan Selections"
-        Me.Button16.UseVisualStyleBackColor = True
+        Me.lblOutDims.AutoSize = True
+        Me.lblOutDims.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblOutDims.Location = New System.Drawing.Point(198, 445)
+        Me.lblOutDims.Name = "lblOutDims"
+        Me.lblOutDims.Size = New System.Drawing.Size(89, 18)
+        Me.lblOutDims.TabIndex = 27
+        Me.lblOutDims.Text = "AAA x BBB"
+        Me.lblOutDims.Visible = False
         '
-        'Button15
+        'lblInDia
         '
-        Me.Button15.Location = New System.Drawing.Point(949, 540)
-        Me.Button15.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(251, 50)
-        Me.Button15.TabIndex = 21
-        Me.Button15.Text = "Save Project >>"
-        Me.Button15.UseVisualStyleBackColor = True
+        Me.lblInDia.AutoSize = True
+        Me.lblInDia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblInDia.Location = New System.Drawing.Point(198, 406)
+        Me.lblInDia.Name = "lblInDia"
+        Me.lblInDia.Size = New System.Drawing.Size(38, 18)
+        Me.lblInDia.TabIndex = 26
+        Me.lblInDia.Text = "AAA"
+        Me.lblInDia.Visible = False
         '
-        'DataGridView2
+        'lblOutletDimensions
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(428, 352)
-        Me.DataGridView2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.RowTemplate.Height = 24
-        Me.DataGridView2.Size = New System.Drawing.Size(744, 172)
-        Me.DataGridView2.TabIndex = 17
-        Me.DataGridView2.Visible = False
+        Me.lblOutletDimensions.AutoSize = True
+        Me.lblOutletDimensions.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblOutletDimensions.Location = New System.Drawing.Point(23, 445)
+        Me.lblOutletDimensions.Name = "lblOutletDimensions"
+        Me.lblOutletDimensions.Size = New System.Drawing.Size(147, 18)
+        Me.lblOutletDimensions.TabIndex = 25
+        Me.lblOutletDimensions.Text = "Outlet Dimensions"
+        Me.lblOutletDimensions.Visible = False
         '
-        'TableLayoutPanel1
+        'lblInletDiameter
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
-        Me.TableLayoutPanel1.ColumnCount = 9
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.0!))
-        Me.TableLayoutPanel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TableLayoutPanel1.ForeColor = System.Drawing.Color.Black
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(428, 14)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 13
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.692308!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(744, 324)
-        Me.TableLayoutPanel1.TabIndex = 16
+        Me.lblInletDiameter.AutoSize = True
+        Me.lblInletDiameter.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblInletDiameter.Location = New System.Drawing.Point(23, 406)
+        Me.lblInletDiameter.Name = "lblInletDiameter"
+        Me.lblInletDiameter.Size = New System.Drawing.Size(112, 18)
+        Me.lblInletDiameter.TabIndex = 24
+        Me.lblInletDiameter.Text = "Inlet Diameter"
+        Me.lblInletDiameter.Visible = False
+        '
+        'btnFanSelectionsBack
+        '
+        Me.btnFanSelectionsBack.Location = New System.Drawing.Point(691, 540)
+        Me.btnFanSelectionsBack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnFanSelectionsBack.Name = "btnFanSelectionsBack"
+        Me.btnFanSelectionsBack.Size = New System.Drawing.Size(251, 50)
+        Me.btnFanSelectionsBack.TabIndex = 22
+        Me.btnFanSelectionsBack.Text = "<< Fan Selections"
+        Me.btnFanSelectionsBack.UseVisualStyleBackColor = True
+        '
+        'btnSaveProjectForward
+        '
+        Me.btnSaveProjectForward.Location = New System.Drawing.Point(949, 540)
+        Me.btnSaveProjectForward.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSaveProjectForward.Name = "btnSaveProjectForward"
+        Me.btnSaveProjectForward.Size = New System.Drawing.Size(251, 50)
+        Me.btnSaveProjectForward.TabIndex = 0
+        Me.btnSaveProjectForward.Text = "Save Project >>"
+        Me.btnSaveProjectForward.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox4.Controls.Add(Me.Label17)
-        Me.GroupBox4.Controls.Add(Me.TextBox6)
-        Me.GroupBox4.Controls.Add(Me.OptMotor)
-        Me.GroupBox4.Controls.Add(Me.OptBrg)
+        Me.GroupBox4.Controls.Add(Me.txtMotordba)
+        Me.GroupBox4.Controls.Add(Me.chkMotor)
+        Me.GroupBox4.Controls.Add(Me.chkBrg)
         Me.GroupBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox4.ForeColor = System.Drawing.Color.Black
         Me.GroupBox4.Location = New System.Drawing.Point(11, 292)
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox4.Size = New System.Drawing.Size(371, 100)
+        Me.GroupBox4.Size = New System.Drawing.Size(359, 100)
         Me.GroupBox4.TabIndex = 15
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Extra Data"
@@ -2375,87 +2410,85 @@ Partial Class Frmselectfan
         Me.Label17.TabIndex = 3
         Me.Label17.Text = "db(A)"
         '
-        'TextBox6
+        'txtMotordba
         '
-        Me.TextBox6.Location = New System.Drawing.Point(159, 60)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(63, 24)
-        Me.TextBox6.TabIndex = 2
+        Me.txtMotordba.Location = New System.Drawing.Point(159, 60)
+        Me.txtMotordba.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtMotordba.Name = "txtMotordba"
+        Me.txtMotordba.Size = New System.Drawing.Size(63, 24)
+        Me.txtMotordba.TabIndex = 2
         '
-        'OptMotor
+        'chkMotor
         '
-        Me.OptMotor.AutoSize = True
-        Me.OptMotor.Location = New System.Drawing.Point(19, 62)
-        Me.OptMotor.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptMotor.Name = "OptMotor"
-        Me.OptMotor.Size = New System.Drawing.Size(124, 22)
-        Me.OptMotor.TabIndex = 1
-        Me.OptMotor.Text = "Motor Noise"
-        Me.OptMotor.UseVisualStyleBackColor = True
+        Me.chkMotor.AutoSize = True
+        Me.chkMotor.Enabled = False
+        Me.chkMotor.Location = New System.Drawing.Point(19, 62)
+        Me.chkMotor.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.chkMotor.Name = "chkMotor"
+        Me.chkMotor.Size = New System.Drawing.Size(124, 22)
+        Me.chkMotor.TabIndex = 1
+        Me.chkMotor.Text = "Motor Noise"
+        Me.chkMotor.UseVisualStyleBackColor = True
         '
-        'OptBrg
+        'chkBrg
         '
-        Me.OptBrg.AutoSize = True
-        Me.OptBrg.Location = New System.Drawing.Point(19, 30)
-        Me.OptBrg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptBrg.Name = "OptBrg"
-        Me.OptBrg.Size = New System.Drawing.Size(136, 22)
-        Me.OptBrg.TabIndex = 0
-        Me.OptBrg.Text = "Bearing Noise"
-        Me.OptBrg.UseVisualStyleBackColor = True
+        Me.chkBrg.AutoSize = True
+        Me.chkBrg.Location = New System.Drawing.Point(19, 30)
+        Me.chkBrg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.chkBrg.Name = "chkBrg"
+        Me.chkBrg.Size = New System.Drawing.Size(136, 22)
+        Me.chkBrg.TabIndex = 0
+        Me.chkBrg.Text = "Bearing Noise"
+        Me.chkBrg.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox3.Controls.Add(Me.OptOpenOutlet)
-        Me.GroupBox3.Controls.Add(Me.OptOpenInlet)
-        Me.GroupBox3.Controls.Add(Me.OptDuct)
+        Me.GroupBox3.Controls.Add(Me.chkOpenOutlet)
+        Me.GroupBox3.Controls.Add(Me.chkOpenInlet)
+        Me.GroupBox3.Controls.Add(Me.chkDuct)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.Black
         Me.GroupBox3.Location = New System.Drawing.Point(11, 162)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox3.Size = New System.Drawing.Size(371, 124)
+        Me.GroupBox3.Size = New System.Drawing.Size(359, 124)
         Me.GroupBox3.TabIndex = 14
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Operating Conditions"
         '
-        'OptOpenOutlet
+        'chkOpenOutlet
         '
-        Me.OptOpenOutlet.AutoSize = True
-        Me.OptOpenOutlet.Location = New System.Drawing.Point(19, 86)
-        Me.OptOpenOutlet.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptOpenOutlet.Name = "OptOpenOutlet"
-        Me.OptOpenOutlet.Size = New System.Drawing.Size(223, 22)
-        Me.OptOpenOutlet.TabIndex = 2
-        Me.OptOpenOutlet.Text = "Ducted inlet && open outlet"
-        Me.OptOpenOutlet.UseVisualStyleBackColor = True
+        Me.chkOpenOutlet.AutoSize = True
+        Me.chkOpenOutlet.Location = New System.Drawing.Point(21, 80)
+        Me.chkOpenOutlet.Name = "chkOpenOutlet"
+        Me.chkOpenOutlet.Size = New System.Drawing.Size(224, 22)
+        Me.chkOpenOutlet.TabIndex = 5
+        Me.chkOpenOutlet.Text = "Ducted inlet && open outlet"
+        Me.chkOpenOutlet.UseVisualStyleBackColor = True
         '
-        'OptOpenInlet
+        'chkOpenInlet
         '
-        Me.OptOpenInlet.AutoSize = True
-        Me.OptOpenInlet.Location = New System.Drawing.Point(19, 60)
-        Me.OptOpenInlet.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptOpenInlet.Name = "OptOpenInlet"
-        Me.OptOpenInlet.Size = New System.Drawing.Size(223, 22)
-        Me.OptOpenInlet.TabIndex = 1
-        Me.OptOpenInlet.Text = "Open inlet && ducted outlet"
-        Me.OptOpenInlet.UseVisualStyleBackColor = True
+        Me.chkOpenInlet.AutoSize = True
+        Me.chkOpenInlet.Location = New System.Drawing.Point(21, 57)
+        Me.chkOpenInlet.Name = "chkOpenInlet"
+        Me.chkOpenInlet.Size = New System.Drawing.Size(224, 22)
+        Me.chkOpenInlet.TabIndex = 4
+        Me.chkOpenInlet.Text = "Open inlet && ducted outlet"
+        Me.chkOpenInlet.UseVisualStyleBackColor = True
         '
-        'OptDuct
+        'chkDuct
         '
-        Me.OptDuct.AutoSize = True
-        Me.OptDuct.Checked = True
-        Me.OptDuct.Location = New System.Drawing.Point(19, 32)
-        Me.OptDuct.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.OptDuct.Name = "OptDuct"
-        Me.OptDuct.Size = New System.Drawing.Size(181, 22)
-        Me.OptDuct.TabIndex = 0
-        Me.OptDuct.TabStop = True
-        Me.OptDuct.Text = "Ducted inlet && outlet"
-        Me.OptDuct.UseVisualStyleBackColor = True
+        Me.chkDuct.AutoSize = True
+        Me.chkDuct.Checked = True
+        Me.chkDuct.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkDuct.Location = New System.Drawing.Point(20, 34)
+        Me.chkDuct.Name = "chkDuct"
+        Me.chkDuct.Size = New System.Drawing.Size(182, 22)
+        Me.chkDuct.TabIndex = 3
+        Me.chkDuct.Text = "Ducted inlet && outlet"
+        Me.chkDuct.UseVisualStyleBackColor = True
         '
         'TxtTypenoise
         '
@@ -2634,21 +2667,21 @@ Partial Class Frmselectfan
         Me.GroupBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox5.Size = New System.Drawing.Size(371, 146)
+        Me.GroupBox5.Size = New System.Drawing.Size(359, 146)
         Me.GroupBox5.TabIndex = 18
         Me.GroupBox5.TabStop = False
         '
-        'Button22
+        'btnNoiseExit
         '
-        Me.Button22.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button22.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button22.Location = New System.Drawing.Point(11, 540)
-        Me.Button22.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.Button22.Name = "Button22"
-        Me.Button22.Size = New System.Drawing.Size(251, 50)
-        Me.Button22.TabIndex = 23
-        Me.Button22.Text = "EXIT"
-        Me.Button22.UseVisualStyleBackColor = True
+        Me.btnNoiseExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnNoiseExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNoiseExit.Location = New System.Drawing.Point(11, 540)
+        Me.btnNoiseExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnNoiseExit.Name = "btnNoiseExit"
+        Me.btnNoiseExit.Size = New System.Drawing.Size(251, 50)
+        Me.btnNoiseExit.TabIndex = 23
+        Me.btnNoiseExit.Text = "EXIT"
+        Me.btnNoiseExit.UseVisualStyleBackColor = True
         '
         'Button5
         '
@@ -2674,12 +2707,36 @@ Partial Class Frmselectfan
         Me.Button6.Text = "End"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Enabled = False
+        Me.DataGridView2.Location = New System.Drawing.Point(376, 33)
+        Me.DataGridView2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersWidth = 4
+        Me.DataGridView2.RowTemplate.Height = 24
+        Me.DataGridView2.Size = New System.Drawing.Size(839, 453)
+        Me.DataGridView2.TabIndex = 17
+        '
         'TabPageImpeller
         '
         Me.TabPageImpeller.Location = New System.Drawing.Point(4, 34)
         Me.TabPageImpeller.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TabPageImpeller.Name = "TabPageImpeller"
-        Me.TabPageImpeller.Size = New System.Drawing.Size(1247, 602)
+        Me.TabPageImpeller.Size = New System.Drawing.Size(1247, 600)
         Me.TabPageImpeller.TabIndex = 4
         Me.TabPageImpeller.Text = "Impeller"
         Me.TabPageImpeller.UseVisualStyleBackColor = True
@@ -2751,12 +2808,13 @@ Partial Class Frmselectfan
         Me.UnitsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.U), System.Windows.Forms.Keys)
         Me.UnitsToolStripMenuItem.Size = New System.Drawing.Size(54, 24)
         Me.UnitsToolStripMenuItem.Text = "Units"
+        Me.UnitsToolStripMenuItem.Visible = False
         '
         'PictureBox1
         '
         Me.PictureBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.logo_20161
-        Me.PictureBox1.Location = New System.Drawing.Point(974, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(973, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(277, 60)
@@ -2764,26 +2822,39 @@ Partial Class Frmselectfan
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
+        'chkKP
+        '
+        Me.chkKP.AutoSize = True
+        Me.chkKP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkKP.ForeColor = System.Drawing.Color.Black
+        Me.chkKP.Location = New System.Drawing.Point(616, 25)
+        Me.chkKP.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkKP.Name = "chkKP"
+        Me.chkKP.Size = New System.Drawing.Size(144, 29)
+        Me.chkKP.TabIndex = 22
+        Me.chkKP.Text = "Exclude Kp"
+        Me.chkKP.UseVisualStyleBackColor = True
+        Me.chkKP.Visible = False
+        '
         'Frmselectfan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.CancelButton = Me.Button2
-        Me.ClientSize = New System.Drawing.Size(1255, 668)
+        Me.CancelButton = Me.btnDutyExit
+        Me.ClientSize = New System.Drawing.Size(1255, 666)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(1273, 715)
+        Me.MaximumSize = New System.Drawing.Size(1273, 713)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(1221, 715)
+        Me.MinimumSize = New System.Drawing.Size(1221, 713)
         Me.Name = "Frmselectfan"
         Me.Text = "Halifax Fan Selection Software"
         Me.TabControl1.ResumeLayout(False)
-        Me.TabPageEnvironment.ResumeLayout(False)
-        Me.TabPageEnvironment.PerformLayout()
+        Me.TabPageGeneral.ResumeLayout(False)
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
@@ -2804,8 +2875,8 @@ Partial Class Frmselectfan
         Me.GroupBox15.PerformLayout()
         Me.GrpFrequency.ResumeLayout(False)
         Me.GrpFrequency.PerformLayout()
-        Me.GrpEnvironment.ResumeLayout(False)
-        Me.GrpEnvironment.PerformLayout()
+        Me.GrpGeneral.ResumeLayout(False)
+        Me.GrpGeneral.PerformLayout()
         Me.TabPageDuty.ResumeLayout(False)
         Me.GrpFlowRate.ResumeLayout(False)
         Me.GrpFlowRate.PerformLayout()
@@ -2826,8 +2897,6 @@ Partial Class Frmselectfan
         Me.GrpFanSize.PerformLayout()
         Me.GrpFanSpeed.ResumeLayout(False)
         Me.GrpFanSpeed.PerformLayout()
-        Me.GrpPoleBox.ResumeLayout(False)
-        Me.GrpPoleBox.PerformLayout()
         Me.GrpFanTypes.ResumeLayout(False)
         Me.GrpFanTypes.PerformLayout()
         Me.TabPageSelection.ResumeLayout(False)
@@ -2835,11 +2904,11 @@ Partial Class Frmselectfan
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPageNoise.ResumeLayout(False)
         Me.TabPageNoise.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2857,7 +2926,7 @@ Partial Class Frmselectfan
     Friend WithEvents TabPageSelection As TabPage
     Friend WithEvents TabPageNoise As TabPage
     Friend WithEvents TabPageImpeller As TabPage
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnDutyExit As Button
     Friend WithEvents TxtMaximumTemperature As TextBox
     Friend WithEvents LblMaximumTemperature As Label
     Friend WithEvents MenuStrip1 As MenuStrip
@@ -2893,8 +2962,8 @@ Partial Class Frmselectfan
     Friend WithEvents ProjectDetailsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents UnitsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents RadioButton1 As RadioButton
-    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents optDDStandard As RadioButton
+    Friend WithEvents optDDRatio As RadioButton
     Friend WithEvents Optsucy As CheckBox
     Friend WithEvents BtnClose As Button
     Friend WithEvents LblGasDensityUnit As Label
@@ -2923,22 +2992,18 @@ Partial Class Frmselectfan
     Friend WithEvents TxtFlownoise As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents OptOpenOutlet As RadioButton
-    Friend WithEvents OptOpenInlet As RadioButton
-    Friend WithEvents OptDuct As RadioButton
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents Label17 As Label
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents OptMotor As CheckBox
-    Friend WithEvents OptBrg As CheckBox
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents txtMotordba As TextBox
+    Friend WithEvents chkMotor As CheckBox
+    Friend WithEvents chkBrg As CheckBox
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents TabPageEnvironment As TabPage
+    Friend WithEvents TabPageGeneral As TabPage
     Friend WithEvents GrpFrequency As GroupBox
     Friend WithEvents Opt50Hz As RadioButton
     Friend WithEvents Opt60Hz As RadioButton
-    Friend WithEvents GrpEnvironment As GroupBox
+    Friend WithEvents GrpGeneral As GroupBox
     Friend WithEvents LblAtmosphericPressureUnits As Label
     Friend WithEvents LblHumidityUnits As Label
     Friend WithEvents LblAltitudeUnits As Label
@@ -2972,7 +3037,6 @@ Partial Class Frmselectfan
     Friend WithEvents OptAnySize As RadioButton
     Friend WithEvents OptFixedSize As RadioButton
     Friend WithEvents GrpFanSpeed As GroupBox
-    Friend WithEvents GrpPoleBox As GroupBox
     Friend WithEvents Opt12Pole As RadioButton
     Friend WithEvents Opt10Pole As RadioButton
     Friend WithEvents Opt8Pole As RadioButton
@@ -2983,33 +3047,26 @@ Partial Class Frmselectfan
     Friend WithEvents Label1 As Label
     Friend WithEvents Txtspeedlimit As TextBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents OptFixedSpeed As RadioButton
     Friend WithEvents OptAnySpeed As RadioButton
-    Friend WithEvents OptPoleSpeed As RadioButton
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button10 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button12 As Button
-    Friend WithEvents Button11 As Button
-    Friend WithEvents Button14 As Button
-    Friend WithEvents Button13 As Button
-    Friend WithEvents Button16 As Button
-    Friend WithEvents Button15 As Button
+    Friend WithEvents btnCalculateDensity As Button
+    Friend WithEvents btnDutyInputForward As Button
+    Friend WithEvents btnGeneralInformationBack As Button
+    Friend WithEvents btnFanParametersForward As Button
+    Friend WithEvents btnFanSelectionsForward As Button
+    Friend WithEvents btnFanParametersBack As Button
+    Friend WithEvents btnNoiseDataForward As Button
+    Friend WithEvents btnFanSelectionsBack As Button
+    Friend WithEvents btnSaveProjectForward As Button
     Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents OptVelocityFtpermin As RadioButton
     Friend WithEvents OptVelocityMpers As RadioButton
-    Friend WithEvents BtnExit As Button
     Friend WithEvents GroupBox8 As GroupBox
     Friend WithEvents OptPowerHp As RadioButton
     Friend WithEvents OptPowerKW As RadioButton
     Friend WithEvents GroupBox7 As GroupBox
-    Friend WithEvents OptDefaultImperial As RadioButton
-    Friend WithEvents OptDefaultMetric As RadioButton
     Friend WithEvents GroupBox10 As GroupBox
     Friend WithEvents OptAltitudeFt As RadioButton
     Friend WithEvents OptAltitudeM As RadioButton
-    Friend WithEvents BtnCancel As Button
     Friend WithEvents GroupBox11 As GroupBox
     Friend WithEvents OptLengthIn As RadioButton
     Friend WithEvents OptLengthMm As RadioButton
@@ -3032,11 +3089,30 @@ Partial Class Frmselectfan
     Friend WithEvents OptDensityLbPerFt3 As RadioButton
     Friend WithEvents OptDensityKgPerM3 As RadioButton
     Friend WithEvents OptDefaultNone As RadioButton
-    Friend WithEvents Button18 As Button
-    Friend WithEvents Button17 As Button
+    Friend WithEvents btnImperialUnits As Button
+    Friend WithEvents btnMetricUnits As Button
     Friend WithEvents Label19 As Label
-    Friend WithEvents Button19 As Button
-    Friend WithEvents Button20 As Button
-    Friend WithEvents Button21 As Button
-    Friend WithEvents Button22 As Button
+    Friend WithEvents btnGeneralExit As Button
+    Friend WithEvents btnParametersExit As Button
+    Friend WithEvents btnSelectionsExit As Button
+    Friend WithEvents btnNoiseExit As Button
+    Friend WithEvents btnDutyInputBack As Button
+    Friend WithEvents OptPowerBoth As RadioButton
+    Friend WithEvents OptPressurekPa As RadioButton
+    Friend WithEvents lblpercent As Label
+    Friend WithEvents lblUserDefinedUnits As Label
+    Friend WithEvents txtRatioDD As TextBox
+    Friend WithEvents txtUserDefinedDD As TextBox
+    Friend WithEvents optDDUserDefined As RadioButton
+    Friend WithEvents chkDisplayAll As CheckBox
+    Friend WithEvents chkDisplayLowerEff As CheckBox
+    Friend WithEvents lblInstructions As Label
+    Friend WithEvents chkOpenOutlet As CheckBox
+    Friend WithEvents chkOpenInlet As CheckBox
+    Friend WithEvents chkDuct As CheckBox
+    Friend WithEvents lblOutDims As Label
+    Friend WithEvents lblInDia As Label
+    Friend WithEvents lblOutletDimensions As Label
+    Friend WithEvents lblInletDiameter As Label
+    Friend WithEvents chkKP As CheckBox
 End Class

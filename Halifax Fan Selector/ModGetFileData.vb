@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports System.Xml
-Module Getfiledata
+Module ModGetFileData
     Sub ReadReffromTextfile(filename)
         Try
             'FullFilePath = "C:\Halifax\Performance Data new\" + filename + ".txt"
@@ -43,7 +43,8 @@ Module Getfiledata
             fantypesQTY = j - 1
 
         Catch ex As Exception
-            MsgBox("ReadReffromTextfile")
+            'MsgBox("ReadReffromTextfile")
+            ErrorMessage(ex, 5301)
         End Try
     End Sub
 
@@ -85,7 +86,8 @@ Module Getfiledata
             fantypesQTY = j
 
         Catch ex As Exception
-            MsgBox("ReadReffromBinaryfile")
+            'MsgBox("ReadReffromBinaryfile")
+            ErrorMessage(ex, 5302)
         End Try
     End Sub
 End Module

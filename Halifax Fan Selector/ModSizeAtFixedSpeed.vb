@@ -1,6 +1,6 @@
-﻿Module sizeAtFixedSpeed
+﻿Module ModSizeAtFixedSpeed
     Public Function GetSizeAtfixedSpeed(ByVal fanno As Integer)
-        GetSizeAtfixedSpeed = 0.0
+        SizeAtFixedSpeed = 0.0
         Try
             count = 0
 
@@ -11,7 +11,9 @@
             End If
             count = 0
             fansize = fsizes(fanno, 1)
-            Do While fansize <> 102
+            Dim fanlimit As Double = 102
+            If fansizelimit(fanno) > 0 Then fanlimit = fansizelimit(fanno)
+            Do While fansize <= fanlimit '<>102
                 count1 = 0
                 Do While Powr(fanno, count1) <> 0
                     '-scaling for fan sizes
@@ -33,7 +35,8 @@
                 Loop
                 count2 = 0
                 '-finds the point where the volume is nearest
-                Do While (Val(Frmselectfan.Txtflow.Text) - vols(fanno, count2)) ^ 2 > (Val(Frmselectfan.Txtflow.Text) - vols(fanno, count2 + 1)) ^ 2
+                'Do While (Val(Frmselectfan.Txtflow.Text) - vols(fanno, count2)) ^ 2 > (Val(Frmselectfan.Txtflow.Text) - vols(fanno, count2 + 1)) ^ 2
+                Do While (flowrate * convflow - vols(fanno, count2)) ^ 2 > (flowrate * convflow - vols(fanno, count2 + 1)) ^ 2
                     If count2 = 500 Then
                         Exit Do
                     Else
@@ -47,6 +50,7 @@
                 ftpI(fanno, count) = ftps(fanno, count2)
                 volI(fanno, count) = vols(fanno, count2)
                 powI(fanno, count) = Pows(fanno, count2)
+
                 fseI(fanno, count) = fse(fanno, count2)
                 fteI(fanno, count) = fte(fanno, count2)
                 fsizes(fanno, count) = fansize
@@ -59,49 +63,58 @@
             count = 0
             '-finds the point nearest the specified pressure point
             fsizes(fanno, 0) = 1
+            'fsizes(0, 0) = 1
             If PresType = 0 Then
-                Do While (Val(Frmselectfan.Txtfsp.Text) - fspI(fanno, count)) ^ 2 >= (Val(Frmselectfan.Txtfsp.Text) - fspI(fanno, count + 1)) ^ 2
+                'Do While (Val(Frmselectfan.Txtfsp.Text) - fspI(fanno, count)) ^ 2 >= (Val(Frmselectfan.Txtfsp.Text) - fspI(fanno, count + 1)) ^ 2
+                Do While (pressrise * convpres - fspI(fanno, count)) ^ 2 >= (pressrise * convpres - fspI(fanno, count + 1)) ^ 2
                     If count = 500 Then
-                        GetSizeAtfixedSpeed = 0
+                        SizeAtFixedSpeed = 0
                         Exit Do
                     End If
                     count = count + 1
                 Loop
             Else
-                Do While (Val(Frmselectfan.Txtfsp.Text) - ftpI(fanno, count)) ^ 2 >= (Val(Frmselectfan.Txtfsp.Text) - ftpI(fanno, count + 1)) ^ 2
+                'Do While (Val(Frmselectfan.Txtfsp.Text) - ftpI(fanno, count)) ^ 2 >= (Val(Frmselectfan.Txtfsp.Text) - ftpI(fanno, count + 1)) ^ 2
+                Do While (pressrise * convpres - ftpI(fanno, count)) ^ 2 >= (pressrise * convpres - ftpI(fanno, count + 1)) ^ 2
                     If count = 500 Then
-                        GetSizeAtfixedSpeed = 0
+                        SizeAtFixedSpeed = 0
                         Exit Do
                     End If
                     count = count + 1
                 Loop
 
             End If
-            GetSizeAtfixedSpeed = fsizes(fanno, count)
+            SizeAtFixedSpeed = fsizes(fanno, count)
 
-            '---------checking for secondary data
-            If fsizes(fanno, count) >= fansizelimit(fanno) And fansizelimit(fanno) <> 0 And runonce <> "yes" Then
-                Call LoadFanData(fantypesecfilename(fanno), fanno)
-                Call scaledensity(fanno, getscalefactor)
-                runonce = "yes"
-                Call GetSizeAtfixedSpeed(fanno)
-                Exit Function
-            End If
+            ''---------checking for secondary data
+            'If fsizes(fanno, count) >= fansizelimit(fanno) And fansizelimit(fanno) <> 0 And runonce <> "yes" Then
+            '    Call LoadFanData(fantypesecfilename(fanno), fanno)
+            '    Call scaledensity(fanno, getscalefactor)
+            '    runonce = "yes"
+            '    Call GetSizeAtfixedSpeed(fanno)
+            '    Exit Function
+            'End If
             '-------------------------------------
-            If Val(Frmselectfan.Txtfsp.Text) <> 0 And Frmselectfan.Optsucy.Checked = True Then
+            'If Val(Frmselectfan.Txtfsp.Text) <> 0 And Frmselectfan.Optsucy.Checked = True Then
+            If pressrise * convpres <> 0 And Frmselectfan.Optsucy.Checked = True Then
                 Call scaledensity(fanno, originaldensity / Val(Frmselectfan.Txtdens))
                 MsgBox("Fan Type " + fanno.ToString + ": " & fanclass(fanno) & ", A new value for Pressure has been calculated!", vbInformation)
             End If
             '-----------------------------------------------
-            If GetSizeAtfixedSpeed = 0 Then
+            If SizeAtFixedSpeed = 0 Then
                 MsgBox("Fan Type " + fanclass(fanno) + ": Sorry this duty is out of range for this fan type")
                 Exit Function
             End If
 
-            Call GetPressure(GetSizeAtfixedSpeed(fanno), speed, Val(Frmselectfan.Txtflow.Text), fanno)
+            'Call GetPressure(GetSizeAtfixedSpeed(fanno), speed, Val(Frmselectfan.Txtflow.Text), fanno)
+            Call GetPressure(SizeAtFixedSpeed, speed, flowrate, fanno)
 
         Catch ex As Exception
-            MsgBox("Getsizeatfixedspeed")
+            'MsgBox(ex.Message + vbCrLf + fanno.ToString + " Getsizeatfixedspeed " + fansize.ToString + " " + Powr(fanno, count1).ToString)
+            If StartArg.ToLower.Contains("-dev") Then
+                ErrorMessage(ex, 6001)
+                MsgBox(fanclass(fanno))
+            End If
         End Try
 
     End Function

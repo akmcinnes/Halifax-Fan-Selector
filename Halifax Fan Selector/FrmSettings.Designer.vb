@@ -24,28 +24,33 @@ Partial Class FrmSettings
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSettings))
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnBackgroundColour = New System.Windows.Forms.Button()
+        Me.btnEnd = New System.Windows.Forms.Button()
         Me.chkAdvancedUser = New System.Windows.Forms.CheckBox()
         Me.grpLanguage = New System.Windows.Forms.GroupBox()
         Me.optChinese = New System.Windows.Forms.RadioButton()
         Me.optEnglish = New System.Windows.Forms.RadioButton()
         Me.txtUsername = New System.Windows.Forms.TextBox()
         Me.lblUsername = New System.Windows.Forms.Label()
+        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.btnDataFolder = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnPageSetup = New System.Windows.Forms.Button()
+        Me.SetupPage = New System.Windows.Forms.PageSetupDialog()
         Me.grpLanguage.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnBackgroundColour
         '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.btnBackgroundColour, "btnBackgroundColour")
+        Me.btnBackgroundColour.Name = "btnBackgroundColour"
+        Me.btnBackgroundColour.UseVisualStyleBackColor = True
         '
-        'Button2
+        'btnEnd
         '
-        resources.ApplyResources(Me.Button2, "Button2")
-        Me.Button2.Name = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.btnEnd, "btnEnd")
+        Me.btnEnd.Name = "btnEnd"
+        Me.btnEnd.UseVisualStyleBackColor = True
         '
         'chkAdvancedUser
         '
@@ -83,17 +88,37 @@ Partial Class FrmSettings
         resources.ApplyResources(Me.lblUsername, "lblUsername")
         Me.lblUsername.Name = "lblUsername"
         '
+        'btnDataFolder
+        '
+        resources.ApplyResources(Me.btnDataFolder, "btnDataFolder")
+        Me.btnDataFolder.Name = "btnDataFolder"
+        Me.btnDataFolder.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        resources.ApplyResources(Me.Label1, "Label1")
+        Me.Label1.Name = "Label1"
+        '
+        'btnPageSetup
+        '
+        resources.ApplyResources(Me.btnPageSetup, "btnPageSetup")
+        Me.btnPageSetup.Name = "btnPageSetup"
+        Me.btnPageSetup.UseVisualStyleBackColor = True
+        '
         'FrmSettings
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Controls.Add(Me.btnPageSetup)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnDataFolder)
         Me.Controls.Add(Me.txtUsername)
         Me.Controls.Add(Me.lblUsername)
         Me.Controls.Add(Me.grpLanguage)
         Me.Controls.Add(Me.chkAdvancedUser)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnEnd)
+        Me.Controls.Add(Me.btnBackgroundColour)
         Me.Name = "FrmSettings"
         Me.grpLanguage.ResumeLayout(False)
         Me.grpLanguage.PerformLayout()
@@ -103,12 +128,17 @@ Partial Class FrmSettings
     End Sub
 
     Friend WithEvents ColorDialog1 As ColorDialog
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnBackgroundColour As Button
+    Friend WithEvents btnEnd As Button
     Friend WithEvents chkAdvancedUser As CheckBox
     Friend WithEvents grpLanguage As GroupBox
     Friend WithEvents optChinese As RadioButton
     Friend WithEvents optEnglish As RadioButton
     Friend WithEvents txtUsername As TextBox
     Friend WithEvents lblUsername As Label
+    Friend WithEvents FolderBrowserDialog1 As FolderBrowserDialog
+    Friend WithEvents btnDataFolder As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents btnPageSetup As Button
+    Friend WithEvents SetupPage As PageSetupDialog
 End Class

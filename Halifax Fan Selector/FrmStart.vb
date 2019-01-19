@@ -3,27 +3,69 @@ Imports System.ComponentModel
 Imports System.Resources
 Imports System.Threading
 Public Class FrmStart
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
-        Hide()
-        AdvancedUser = chkAdvancedUser.Checked
-        If chkByDialogs.Checked = False Then
-            Frmselectfan.ShowDialog()
-        Else
-            FrmEnvironmentInfo.ShowDialog()
-        End If
-    End Sub
-
     Private Sub Start_Load(sender As Object, e As EventArgs) Handles Me.Load
-        lblVersion.Text = version_number
+        Dim strArg() As String
+        strArg = Command().Split(" ")
+        DataPath = Nothing
+        chkAdvancedUser.Checked = False
+        chkAdvancedUser.Visible = False
+        btnContinue.Visible = True
+        StartArg = strArg(0)
+
+        If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-dev") Then
+            DataPath = DataPathDefault
+            chkAdvancedUser.Checked = True
+            chkAdvancedUser.Visible = True
+        ElseIf StartArg.ToLower.Contains("-b") Then
+            DataPath = DataPathDefault
+        Else
+            DataPath = DataPathDefault
+        End If
+
+        'Dim exists As Boolean
+        SystemDrive = System.Environment.ExpandEnvironmentVariables("%SystemDrive%")
+        UserProfile = System.Environment.ExpandEnvironmentVariables("%userprofile%")
+        'Dim Path As String
+        'Path = UserProfile + "\Halifax.ini"
+        'exists = System.IO.File.Exists(Path)
+        'If exists = False Then
+        '    FrmSettings.ShowDialog()
+        '    btnContinue.Visible = False
+        '    chkAdvancedUser.Visible = False
+        'Else
+        '    ini_path = GetINIPath()
+        '    ' ### Get the Halifax path with the ini file ###
+
+        '    DataPath_main = GetFromINI("Settings", "Halifax Root Folder", SystemDrive + "\temp\", ini_path)
+        '    Language = GetFromINI("Settings", "Language", "English", ini_path)
+        '    User_Type = GetFromINI("Settings", "User", "False", ini_path)
+        '    SuppressErrorMessages = GetFromINI("Settings", "Suppress Error Messages", "False", ini_path)
+
+        'End If
+        btnSettings.Visible = False
+        DataPath_main = "C:\Halifax\"
+        Language = "English"
+        User_Type = False
+        SuppressErrorMessages = False
+
+        lblDate.Text = Date.Today.ToString("dd MMMM yyyy")
+        lblStartVersion.Text = version_number
+
+        'lblVersion.Text = version_number
+        'If DataPath Is Nothing Then
+        '    btnContinue.Visible = True 'False 'temp
+        '    DataPath = "c:\Halifax\Performance Data\" 'temp
+        'Else
+        '    DataPath = True
+        'End If
         ''ReadUserDetails()
         'Me.Show()
         'objStreamWriterDebug.WriteLine("start")
         'Background_Color = Color.White
         CenterToScreen()
-        txtUsername.Text = Environment.UserName
         'If ChosenLanguage Is Nothing Then ChosenLanguage = "en-US"
         'ApplyLocale(ChosenLanguage)
-        UserName = Environment.UserName
+
         ''If txtUsername.Text.ToLower.Contains("akm") Then
         ''    grpLanguage.Visible = True
         ''    optEnglish.Visible = True
@@ -42,7 +84,13 @@ Public Class FrmStart
         'MsgBox("1 - " + screenWidth1.ToString + "x" + screenHeight1.ToString + vbCrLf + "2 - " + screenWidth2.ToString + "x" + screenHeight2.ToString)
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+    Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
+        Hide()
+        AdvancedUser = chkAdvancedUser.Checked
+        Frmselectfan.ShowDialog()
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
     End Sub
 
@@ -62,32 +110,32 @@ Public Class FrmStart
         Cursor = Cursors.Default
     End Sub
 
-    Private Sub Button1_MouseHover(sender As Object, e As EventArgs) Handles btnContinue.MouseHover
+    Private Sub btnContinue_MouseHover(sender As Object, e As EventArgs) Handles btnContinue.MouseHover
         Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles btnExit.MouseHover
+    Private Sub btnExit_MouseHover(sender As Object, e As EventArgs) Handles btnExit.MouseHover
         Cursor = Cursors.Hand
     End Sub
 
-    Private Sub Button1_MouseLeave(sender As Object, e As EventArgs) Handles btnContinue.MouseLeave
+    Private Sub btnContinue_MouseLeave(sender As Object, e As EventArgs) Handles btnContinue.MouseLeave
         Cursor = Cursors.Default
     End Sub
 
-    Private Sub Button2_MouseLeave(sender As Object, e As EventArgs) Handles btnExit.MouseLeave
+    Private Sub btnExit_MouseLeave(sender As Object, e As EventArgs) Handles btnExit.MouseLeave
         Cursor = Cursors.Default
     End Sub
 
-    Private Sub TextBox1_MouseHover(sender As Object, e As EventArgs) Handles txtUsername.MouseHover
+    Private Sub txtUsername_MouseHover(sender As Object, e As EventArgs) Handles txtUsername.MouseHover
         Cursor = Cursors.Hand
     End Sub
 
-    Private Sub TextBox1_MouseLeave(sender As Object, e As EventArgs) Handles txtUsername.MouseLeave
+    Private Sub txtUsername_MouseLeave(sender As Object, e As EventArgs) Handles txtUsername.MouseLeave
         Cursor = Cursors.Default
     End Sub
 
-    Private Sub Button1_DoubleClick(sender As Object, e As EventArgs) Handles btnContinue.DoubleClick
-        FrmEnvironmentInfo.ShowDialog()
+    Private Sub btnContinue_DoubleClick(sender As Object, e As EventArgs) Handles btnContinue.DoubleClick
+        'FrmGeneralInfo.ShowDialog()
     End Sub
 
     Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
@@ -95,20 +143,14 @@ Public Class FrmStart
     End Sub
 
     Private Sub optEnglish_CheckedChanged(sender As Object, e As EventArgs) Handles optEnglish.CheckedChanged
-        'MsgBox("before")
         If optEnglish.Checked Then ApplyLocale("en-US")
         'Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 6, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte)) ',                        FontStyle.Bold Or FontStyle.Italic)
-        'Microsoft Sans Serif, 7.8p7
-
-        'Me.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        'MsgBox("after")
     End Sub
 
     Private Sub optChinese_CheckedChanged(sender As Object, e As EventArgs) Handles optChinese.CheckedChanged
         If optChinese.Checked Then ApplyLocale("zh-CN")
         'Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 6, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte)) ',                        FontStyle.Bold Or FontStyle.Italic)
     End Sub
-
 
     Private Sub ApplyLocale(ByVal locale_name As String)
         ' Make a CultureInfo and ComponentResourceManager.
@@ -193,6 +235,10 @@ Public Class FrmStart
             ApplyLocaleToControl(child, component_resource_manager, culture_info)
         Next child
         'End If
+    End Sub
+
+    Private Sub FrmStart_DoubleClick(sender As Object, e As EventArgs) Handles Me.DoubleClick
+        MsgBox("Software developed by:" + vbCrLf + "Kerr Software Solutions Limited", vbOKOnly + vbInformation, "")
     End Sub
 
     'Private Sub ApplyLocaleToToolStripItem(ByVal item As ToolStripItem, ByVal component_resource_manager As ComponentResourceManager, ByVal culture_info As CultureInfo)

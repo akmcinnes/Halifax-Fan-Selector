@@ -1,4 +1,4 @@
-﻿Module Density
+﻿Module ModDensity
     Public Function getscalefactor()
         getscalefactor = 0.0
         Try
@@ -9,7 +9,9 @@
             End If
             Return getscalefactor
         Catch ex As Exception
-            MsgBox("getscalefactor")
+            'MsgBox("getscalefactor")
+            ErrorMessage(ex, 5001)
+
         End Try
     End Function
     'Public Function densityfactor(density)
@@ -23,6 +25,8 @@
     '        Return densityfactor
     '    Catch ex As Exception
     '        MsgBox("densityfactor")
+    'ErrorMessage(ex, 5002)
+
     '    End Try
     'End Function
 
@@ -39,7 +43,9 @@
             Loop
             'End If
         Catch ex As Exception
-            MsgBox("scaledensity")
+            'MsgBox("scaledensity")
+            ErrorMessage(ex, 5003)
+
         End Try
     End Sub
 End Module

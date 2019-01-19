@@ -38,6 +38,8 @@ Partial Class FrmStart
         Me.optChinese = New System.Windows.Forms.RadioButton()
         Me.optEnglish = New System.Windows.Forms.RadioButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblDate = New System.Windows.Forms.Label()
+        Me.lblStartVersion = New System.Windows.Forms.Label()
         Me.grpLanguage.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -100,6 +102,8 @@ Partial Class FrmStart
         'chkAdvancedUser
         '
         resources.ApplyResources(Me.chkAdvancedUser, "chkAdvancedUser")
+        Me.chkAdvancedUser.Checked = True
+        Me.chkAdvancedUser.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkAdvancedUser.Name = "chkAdvancedUser"
         Me.chkAdvancedUser.UseVisualStyleBackColor = True
         '
@@ -136,12 +140,24 @@ Partial Class FrmStart
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
+        'lblDate
+        '
+        resources.ApplyResources(Me.lblDate, "lblDate")
+        Me.lblDate.Name = "lblDate"
+        '
+        'lblStartVersion
+        '
+        resources.ApplyResources(Me.lblStartVersion, "lblStartVersion")
+        Me.lblStartVersion.Name = "lblStartVersion"
+        '
         'FrmStart
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ControlBox = False
+        Me.Controls.Add(Me.lblStartVersion)
+        Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.grpLanguage)
         Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.chkAdvancedUser)
@@ -181,4 +197,6 @@ Partial Class FrmStart
     Friend WithEvents grpLanguage As GroupBox
     Friend WithEvents optChinese As RadioButton
     Friend WithEvents optEnglish As RadioButton
+    Friend WithEvents lblDate As Label
+    Friend WithEvents lblStartVersion As Label
 End Class

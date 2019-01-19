@@ -1,0 +1,397 @@
+﻿Module Sub_Acoustics
+    'Public Sub PopulateAcousticsGrid()
+    '    'ConvUnits()
+    '    'CalcSPL()
+    '    'Output()
+    '    Call OpenDuctCalcs()
+
+    '    Call CalcBPFreq()
+    '    Call OutputBPF()
+
+    '    If Frmselectfan.OptBrg.Checked = True Then
+    '        Call CalcBrg()
+    '        Call OutputBrg()
+    '    End If
+
+    '    If Frmselectfan.OptMotor.Checked = True Then
+    '        Call OutputMotor()
+    '    End If
+
+
+    'End Sub
+    Public Sub SetAcousticsGrid()
+        With Frmselectfan
+            .DataGridView2.Rows.Clear()
+            .DataGridView2.Controls.Clear()
+            .DataGridView2.ColumnCount = 9
+            .DataGridView2.RowCount = 14
+            'DataGridView2.Width = 0
+            .DataGridView2.Columns(0).Width = 280
+
+            For i = 1 To 8
+                .DataGridView2.Columns(i).Width = 42
+            Next
+            .DataGridView2.ColumnHeadersDefaultCellStyle.Font = New Font("Tahoma", 9, FontStyle.Bold)
+            .DataGridView2.DefaultCellStyle.Font = New Font("Tahoma", 9)
+            .DataGridView2.GridColor = Color.Red
+            .DataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.Single
+
+            .DataGridView2.BackgroundColor = Color.LightGray
+
+            .DataGridView2.DefaultCellStyle.SelectionBackColor = Color.Bisque
+            .DataGridView2.DefaultCellStyle.SelectionForeColor = Color.Black
+
+            .DataGridView2.DefaultCellStyle.WrapMode = DataGridViewTriState.[True]
+
+            .DataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+            .DataGridView2.AllowUserToResizeColumns = False
+            '.DataGridView2.RowsDefaultCellStyle.SelectionBackColor = Color.Transparent
+            'this.dataGridView1.DefaultCellStyle.SelectionBackColor = this.dataGridView1.DefaultCellStyle.BackColor
+
+            .DataGridView2.RowsDefaultCellStyle.BackColor = Color.Bisque
+            .DataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige
+
+            Column_Header2(1, "63", "Oct63", .ColumnHeader(0))
+            Column_Header2(2, "125", "Oct125", .ColumnHeader(1))
+            Column_Header2(3, "250", "Oct250", .ColumnHeader(2))
+            Column_Header2(4, "500", "Oct500", .ColumnHeader(3))
+            Column_Header2(5, "1000", "Oct1000", .ColumnHeader(4))
+            Column_Header2(6, "2000", "Oct2000", .ColumnHeader(5))
+            Column_Header2(7, "4000", "Oct4000", .ColumnHeader(6))
+            Column_Header2(8, "8000", "Oct8000", .ColumnHeader(7))
+            'Dim i As Integer
+            'Dim width As Integer = 0
+
+            For i = 0 To .DataGridView2.Columns.Count - 1
+                'If .DataGridView2.Columns(i).Width > width Then width = .DataGridView2.Columns(i).Width
+                .DataGridView2.Columns.Item(i).SortMode = DataGridViewColumnSortMode.Programmatic
+            Next i
+            'For i = 0 To .DataGridView2.Columns.Count - 1
+            '    .DataGridView2.Columns(i).Width = width
+            'Next
+
+
+
+        End With
+
+    End Sub
+    Sub Column_Header2(ByVal i As Integer, ByVal headertext As String, ByVal headername As String, Optional ByVal column_value As String = "empty")
+        Try
+            With Frmselectfan
+                'Dim HeaderArray() As String
+                'Dim textlen1(10) As Integer
+                'Dim textlen As Integer
+                'Dim textlenunit As Integer
+                'Dim count As Integer
+                Try
+                    'If (column_value IsNot "empty") Then
+                    '    headertext = headertext + " (" + column_value + ")"
+                    'End If
+
+                    'headertext = Trim(headertext)
+                    'textlen = 0
+                    'If headertext.Contains(" ") Then
+                    '    HeaderArray = Split(headertext, " ")
+                    '    For count = 0 To HeaderArray.Length - 1
+                    '        'textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
+                    '        'textlen1(count) = HeaderArray(count).Length
+                    '        If HeaderArray(count).Length > textlen Then
+                    '            textlen = HeaderArray(count).Length
+                    '        End If
+                    '    Next
+                    'Else
+                    'textlen = headertext.Length
+                    'End If
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+                'Dim HeaderArray = Split(headertext, " ")
+                'Dim textlen = If(HeaderArray(0).Length > HeaderArray(1).Length, HeaderArray(0).Length, HeaderArray(1).Length)
+                'Dim len As Integer
+                'Dim len2 As Integer
+                .DataGridView2.Columns(i).HeaderText = headertext
+
+                '        len = If(datagridview2.Columns(i).HeaderText.Length < 8, 8, datagridview2.Columns(i).HeaderText.Length)
+                'textlenunit = column_value.Length
+                'len = If(textlen < 8, 8, textlen)
+                'len = If(textlenunit < len, len, textlenunit)
+
+                'If (column_value IsNot "empty") Then
+                '    'datagridview2.Columns(i).HeaderText = datagridview2.Columns(i).HeaderText + vbCr + " (" + column_value + ")"
+                '    'datagridview2.Columns(i).HeaderText = datagridview2.Columns(i).HeaderText + " (" + column_value + ")"
+                '    datagridview2.Columns(i).HeaderText = headertext + " (" + column_value + ")"
+                'Else
+                '    'datagridview2.Columns(i).HeaderText = datagridview2.Columns(i).HeaderText
+                '    datagridview2.Columns(i).HeaderText = headertext
+                'End If
+
+                '.DataGridView2.Columns(i).Width = textlenunit * 8
+                '.DataGridView2.Width = .DataGridView2.Width + .DataGridView2.Columns(i).Width
+
+                'datagridview2.Columns(i).DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter
+                .DataGridView2.Columns(i).DefaultCellStyle.Alignment = DataGridViewContentAlignment.BottomCenter
+            End With
+        Catch ex As Exception
+            'MsgBox("Column_header")
+            ErrorMessage(ex, 1303)
+        End Try
+
+    End Sub
+
+
+    Public Sub OctaveBands()
+
+        Dim txt(8) As Label
+        For q As Integer = 0 To 7
+            txt(q) = New Label()
+        Next q
+
+        For q = 0 To 7
+            'txt(q).BackColor = Color.Transparent
+            txt(q).BackColor = Color.Red
+        Next
+        'With Frmselectfan
+        '    'txt.Location = New Point(0, 0)
+        '    txt(0).Text = "63"
+        '    '.TableLayoutPanel1.Controls.Add(txt(0), 1, 0) '; //start it In cell 0,0
+        '    .DataGridView2.Rows(0).Cells(1).Value = txt(0).Text
+        '    txt(1).Text = "125"
+        '    '.TableLayoutPanel1.Controls.Add(txt(1), 2, 0) '; //start it In cell 0,0
+        '    .DataGridView2.Rows(0).Cells(2).Value = txt(1).Text
+        '    txt(2).Text = "250"
+        '    '.TableLayoutPanel1.Controls.Add(txt(2), 3, 0) '; //start it In cell 0,0
+        '    .DataGridView2.Rows(0).Cells(3).Value = txt(2).Text
+        '    txt(3).Text = "500"
+        '    '.TableLayoutPanel1.Controls.Add(txt(3), 4, 0) '; //start it In cell 0,0
+        '    .DataGridView2.Rows(0).Cells(4).Value = txt(3).Text
+        '    txt(4).Text = "1000"
+        '    '.TableLayoutPanel1.Controls.Add(txt(4), 5, 0) '; //start it In cell 0,0
+        '    .DataGridView2.Rows(0).Cells(5).Value = txt(4).Text
+        '    txt(5).Text = "2000"
+        '    '.TableLayoutPanel1.Controls.Add(txt(5), 6, 0) '; //start it In cell 0,0
+        '    .DataGridView2.Rows(0).Cells(6).Value = txt(5).Text
+        '    txt(6).Text = "4000"
+        '    '.TableLayoutPanel1.Controls.Add(txt(6), 7, 0) '; //start it In cell 0,0
+        '    .DataGridView2.Rows(0).Cells(7).Value = txt(6).Text
+        '    txt(7).Text = "8000"
+        '    '.TableLayoutPanel1.Controls.Add(txt(7), 8, 0) '; //start it In cell 0,0
+        '    .DataGridView2.Rows(0).Cells(8).Value = txt(7).Text
+        '    'TableLayoutPanel1.SetColumnSpan(txt, 9) '; //merge 3 columns
+        '    'TableLayoutPanel1.SetColumnSpan(9)
+
+        'End With
+
+    End Sub
+    Public Sub OpenDuctCalcs()
+        'Frmselectfan.TableLayoutPanel1.Controls.Clear()
+        SetAcousticsGrid()
+        OctaveBands()
+
+        CalcSPL()
+        Call DuctCalcs()
+        OutputSPL()
+        Dim ipos As Integer = 0
+        With Frmselectfan
+            If .chkDuct.Checked = True And .chkOpenInlet.Checked = True And .chkOpenOutlet.Checked = True Then
+                'Drow = 17
+                'OIrow = 26
+                'OOrow = 33
+                'bpfroW = 40
+                'brgrow = 42
+                'Motorrow = 44
+
+                Call DuctCalcs()
+                Call OutputDuct(4)
+
+                Call EntryandExitLoss()
+                Call OpenInletCalcs()
+                Call OutputOpenInlet(6)
+
+                Call OpenOutletCalcs()
+                Call OutputOpenOutlet(8)
+                ipos = 9
+                If .chkBrg.Checked = True Then
+                    Call CalcBrg()
+                    ipos = ipos + 1
+                    Call OutputBrg(ipos)
+                    'BearingNoise(10)
+                End If
+                If .chkMotor.Checked = True Then
+                    ipos = ipos + 1
+                    OutputMotor(ipos)
+                End If
+                Call CalcBPFreq()
+                Call OutputBPF(ipos + 1)
+            End If
+
+            If .chkDuct.Checked = True And .chkOpenInlet.Checked = True And .chkOpenOutlet.Checked = False Then
+                'Drow = 17
+                'OIrow = 26
+                'bpfroW = 34
+                'brgrow = 36
+                'Motorrow = 38
+
+                Call DuctCalcs()
+                Call OutputDuct(4)
+
+                Call EntryandExitLoss()
+                Call OpenInletCalcs()
+                Call OutputOpenInlet(6)
+                ipos = 7
+                If .chkBrg.Checked = True Then
+                    Call CalcBrg()
+                    ipos = ipos + 1
+                    Call OutputBrg(ipos)
+                    'BearingNoise(10)
+                End If
+                If .chkMotor.Checked = True Then
+                    ipos = ipos + 1
+                    OutputMotor(ipos)
+                End If
+                Call CalcBPFreq()
+                Call OutputBPF(ipos + 1)
+            End If
+            If .chkDuct.Checked = True And .chkOpenInlet.Checked = False And .chkOpenOutlet.Checked = True Then
+                'Drow = 17
+                'OOrow = 26
+                'bpfroW = 34
+                'brgrow = 36
+                'Motorrow = 38
+
+                Call DuctCalcs()
+                Call OutputDuct(4)
+
+                Call OpenOutletCalcs()
+                Call OutputOpenOutlet(6)
+                ipos = 7
+                If .chkBrg.Checked = True Then
+                        Call CalcBrg()
+                        ipos = ipos + 1
+                        Call OutputBrg(ipos)
+                        'BearingNoise(10)
+                    End If
+                    If .chkMotor.Checked = True Then
+                        ipos = ipos + 1
+                        OutputMotor(ipos)
+                    End If
+                    Call CalcBPFreq()
+                    Call OutputBPF(ipos + 1)
+                End If
+                If .chkDuct.Checked = False And .chkOpenInlet.Checked = True And .chkOpenOutlet.Checked = True Then
+                'OIrow = 17
+                'OOrow = 24
+                'bpfroW = 31
+                'brgrow = 33
+                'Motorrow = 35
+
+                Call EntryandExitLoss()
+                Call OpenInletCalcs()
+                Call OutputOpenInlet(4)
+
+                Call OpenOutletCalcs()
+                Call OutputOpenOutlet(6)
+                ipos = 7
+                If .chkBrg.Checked = True Then
+                    Call CalcBrg()
+                    ipos = ipos + 1
+                    Call OutputBrg(ipos)
+                    'BearingNoise(10)
+                End If
+                If .chkMotor.Checked = True Then
+                    ipos = ipos + 1
+                    OutputMotor(ipos)
+                End If
+                Call CalcBPFreq()
+                Call OutputBPF(ipos + 1)
+            End If
+
+            If .chkDuct.Checked = True And .chkOpenInlet.Checked = False And .chkOpenOutlet.Checked = False Then
+                'Drow = 17
+                'bpfroW = 26
+                'brgrow = 28
+                'Motorrow = 30
+
+                Call DuctCalcs()
+                Call OutputDuct(4)
+                ipos = 5
+                If .chkBrg.Checked = True Then
+                    Call CalcBrg()
+                    ipos = ipos + 1
+                    Call OutputBrg(ipos)
+                    'BearingNoise(10)
+                End If
+                If .chkMotor.Checked = True Then
+                    ipos = ipos + 1
+                    OutputMotor(ipos)
+                End If
+                Call CalcBPFreq()
+                Call OutputBPF(ipos + 1)
+            End If
+            If .chkDuct.Checked = False And .chkOpenInlet.Checked = True And .chkOpenOutlet.Checked = False Then
+                'OIrow = 17
+                'bpfroW = 24
+                'brgrow = 26
+                'Motorrow = 28
+
+                Call OpenInletCalcs()
+                Call OutputOpenInlet(4)
+                ipos = 5
+                If .chkBrg.Checked = True Then
+                        Call CalcBrg()
+                        ipos = ipos + 1
+                        Call OutputBrg(ipos)
+                        'BearingNoise(10)
+                    End If
+                    If .chkMotor.Checked = True Then
+                        ipos = ipos + 1
+                        OutputMotor(ipos)
+                    End If
+                    Call CalcBPFreq()
+                    Call OutputBPF(ipos + 1)
+                End If
+                If .chkDuct.Checked = False And .chkOpenInlet.Checked = False And .chkOpenOutlet.Checked = True Then
+                'OOrow = 17
+                'bpfroW = 24
+                'brgrow = 26
+                'Motorrow = 28
+
+                Call OpenOutletCalcs()
+                Call OutputOpenOutlet(4)
+                ipos = 5
+                If .chkBrg.Checked = True Then
+                        Call CalcBrg()
+                        ipos = ipos + 1
+                        Call OutputBrg(ipos)
+                        'BearingNoise(10)
+                    End If
+                    If .chkMotor.Checked = True Then
+                        ipos = ipos + 1
+                        OutputMotor(ipos)
+                    End If
+                    Call CalcBPFreq()
+                    Call OutputBPF(ipos + 1)
+                End If
+            If .chkDuct.Checked = False And .chkOpenInlet.Checked = False And .chkOpenOutlet.Checked = False Then
+                'OOrow = 17
+                'bpfroW = 24
+                'brgrow = 26
+                'Motorrow = 28
+
+                ipos = 4
+                If .chkBrg.Checked = True Then
+                        Call CalcBrg()
+                        ipos = ipos + 1
+                        Call OutputBrg(ipos)
+                        'BearingNoise(10)
+                    End If
+                    If .chkMotor.Checked = True Then
+                        ipos = ipos + 1
+                        OutputMotor(ipos)
+                    End If
+                    Call CalcBPFreq()
+                    Call OutputBPF(ipos + 1)
+                End If
+        End With
+
+    End Sub
+End Module

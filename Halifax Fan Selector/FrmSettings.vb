@@ -2,17 +2,23 @@
 Imports System.ComponentModel
 Imports System.Resources
 Imports System.Threading
+Imports System.Drawing.Printing
 Public Class FrmSettings
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private PrintPageSettings As New PageSettings
+    Private Sub btnEnd_Click(sender As Object, e As EventArgs) Handles btnEnd.Click
         Background_Color = ColorDialog1.Color
+        ReadWriteINI()
         FrmStart.Hide()
         FrmStart.Show()
 
+        If DataPath IsNot Nothing Then
+            FrmStart.btnContinue.Visible = True
+        End If
         'FrmStart.Refresh()
         Me.Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnBackgroundColour_Click(sender As Object, e As EventArgs) Handles btnBackgroundColour.Click
         ColorDialog1.ShowDialog()
     End Sub
 
@@ -27,7 +33,6 @@ Public Class FrmSettings
             chkAdvancedUser.Visible = True
         End If
         chkAdvancedUser.Checked = False
-
     End Sub
 
     Private Sub optEnglish_CheckedChanged(sender As Object, e As EventArgs) Handles optEnglish.CheckedChanged
@@ -88,25 +93,6 @@ Public Class FrmSettings
 
         '' Tooltips.
         'ToolTip1.SetToolTip(picFlag, resource_manager.GetString("picFlag.ToolTip"))
-
-        '' ComboBox items.
-        'ComboBox1.Items.Clear()
-        'ComboBox1.Items.Add(resource_manager.GetString("ComboBox1.Items"))
-        'ComboBox1.Items.Add(resource_manager.GetString("ComboBox1.Items1"))
-        'ComboBox1.Items.Add(resource_manager.GetString("ComboBox1.Items2"))
-
-        '' ListBox items.
-        'ListBox1.Items.Clear()
-        'ListBox1.Items.Add(resource_manager.GetString("ListBox1.Items"))
-        'ListBox1.Items.Add(resource_manager.GetString("ListBox1.Items1"))
-        'ListBox1.Items.Add(resource_manager.GetString("ListBox1.Items2"))
-        'ListBox1.Items.Add(resource_manager.GetString("ListBox1.Items3"))
-
-        '' ToolStripComboBox items.
-        'ToolStripComboBox1.Items.Clear()
-        'ToolStripComboBox1.Items.Add(resource_manager.GetString("ToolStripComboBox1.Items"))
-        'ToolStripComboBox1.Items.Add(resource_manager.GetString("ToolStripComboBox1.Items1"))
-        'ToolStripComboBox1.Items.Add(resource_manager.GetString("ToolStripComboBox1.Items2"))
     End Sub
 
     Private Sub ApplyLocaleToControl(ByVal ctl As Control, ByVal component_resource_manager As ComponentResourceManager, ByVal culture_info As CultureInfo)
@@ -128,4 +114,26 @@ Public Class FrmSettings
         'End If
     End Sub
 
+    Private Sub btnDataFolder_Click(sender As Object, e As EventArgs) Handles btnDataFolder.Click
+        'ComboBox1.Items.Clear()
+        FolderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop
+        FolderBrowserDialog1.SelectedPath = "C:\Halifax\Performance Data\"
+        FolderBrowserDialog1.Description = "Select Application Configuration Files Path"
+        FolderBrowserDialog1.ShowNewFolderButton = False
+        FolderBrowserDialog1.ShowDialog()
+        DataPath = FolderBrowserDialog1.SelectedPath + "\"
+        Label1.Text = "Data Path - " + DataPath
+        Label1.ForeColor = Color.White
+    End Sub
+
+    Private Sub btnPageSetup_Click(sender As Object, e As EventArgs) Handles btnPageSetup.Click
+        Dim pagesize As String
+        Try
+            SetupPage.PageSettings = PrintPageSettings
+            SetupPage.ShowDialog()
+            pagesize = SetupPage.PageSettings.PaperSize.PaperName
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 End Class

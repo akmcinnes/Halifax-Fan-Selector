@@ -1,8 +1,15 @@
-﻿Module scaledata
+﻿Module ModScaleData
     Public Function ScalePFSize(P1, d1, d2)
         ScalePFSize = 0.0
         Try
-            ScalePFSize = P1 * (d2 / d1) ^ 2
+            'ScalePFSize = P1 * (d2 / d1) ^ 2
+            ''ScalePFSize = ScalePFSize * getscalefactor()
+            If d2 < 15 Then
+                ScalePFSize = d2 * (1 - ((15 - d2) ^ 3) / 3000)
+            Else
+                ScalePFSize = d2
+            End If
+            ScalePFSize = P1 * (ScalePFSize / d1) ^ 2
 
         Catch ex As Exception
             MsgBox("scalePFSize")
@@ -11,10 +18,17 @@
     Public Function ScaleVFSize(V1, d1, d2)
         ScaleVFSize = 0.0
         Try
-            ScaleVFSize = V1 * (d2 / d1) ^ 3
-            '    If (scaleVFSize < 1) Then
-            '    'MsgBox("V1 = " + V1.ToString)
-            'End If
+            'ScaleVFSize = V1 * (d2 / d1) ^ 3
+            ''    If (scaleVFSize < 1) Then
+            ''    'MsgBox("V1 = " + V1.ToString)
+            ''End If
+
+            If d2 < 15 Then
+                ScaleVFSize = d2 * (1 - ((15 - d2) ^ 3) / 3000)
+            Else
+                ScaleVFSize = d2
+            End If
+            ScaleVFSize = V1 * (ScaleVFSize / d1) ^ 3
 
         Catch ex As Exception
             MsgBox("scaleVFSize")
@@ -145,7 +159,18 @@
             '-output volume
             Frmselectfan.Txtflow.Text = Frmselectfan.Txtflow.Text
             '-calculating outlet velocity
-            Call outletvel(fansize, fanno)
+            Call OutletVel(fansize, fanno)
+
+            selectedinletdia(fanno) = datainletdia(fanno)
+            selectedoutletarea(fanno) = dataoutletarea(fanno)
+            selectedinletdia(fanno) = inletdia
+            selectedoutletarea(fanno) = outletsize
+            selectedoutletlen(fanno) = dataoutletlen(fanno)
+            selectedoutletwid(fanno) = dataoutletwid(fanno)
+            selectedoutletlen(fanno) = outletlength
+            selectedoutletwid(fanno) = outletwidth
+
+
             '-calculating FSP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
             selectedfsp(fanno) = fsps(fanno, datapoint3) + ((((selectedspeed(fanno) - ftspeed(fanno, datapoint3))) * gradfsp))
@@ -161,7 +186,7 @@
 
             '-----bringing the fan upto the duty speed after the first quick cslculations
             uptospeed = Val(selectedspeed(fanno))
-            TempPress = temppressurE
+            TempPress = temppressure
             count = 0
             Do While difference1 >= difference2
                 Call GetPressure(Val(selectedfansize(fanno)), uptospeed, Val(Frmselectfan.Txtflow.Text), fanno)
@@ -181,7 +206,7 @@
             Call GetPressure(Val(selectedfansize(fanno)), uptospeed - 1, Val(Frmselectfan.Txtflow.Text), fanno)
 
         Catch ex As Exception
-            MsgBox("getfanspeed")
+            'MsgBox("getfanspeed")
         End Try
 
     End Sub
@@ -217,7 +242,9 @@
             selectedftp(fanno) = Math.Round(ftps(fanno, medpoint(fanno)), 2)
             selectedfantype(fanno) = fanclass(fanno)
             selectedspeed(fanno) = speed
-            Call outletvel(size, fanno)
+            Call OutletVel(size, fanno)
+            selectedinletdia(fanno) = inletdia
+            'selectedoutletd(fanno)=outletdia
 
             '---corecting for suction
             If Frmselectfan.Optsucy.Checked = True Then
@@ -258,6 +285,10 @@
         Try
             outletsize = dataoutletarea(fanno) * (fansize / datafansize(fanno)) ^ 2
             outletsize = outletsize - (casethickness / 1000) ^ 2
+            inletdia = datainletdia(fanno) * (fansize / datafansize(fanno))
+            inletdia = inletdia - (casethickness * 2)
+            outletlength = dataoutletlen(fanno) * (fansize / datafansize(fanno))
+            outletwidth = dataoutletwid(fanno) * (fansize / datafansize(fanno))
             Select Case Units(0).UnitSelected
             'Select Case FlowType
                 Case 0 '2 '1
@@ -285,6 +316,10 @@
         AnyOutletVel = 0.0
         Try
             outletsize = dataoutletarea(FanPick) * (fansize / datafansize(FanPick)) ^ 2
+            outletlength = dataoutletlen(FanPick) * (fansize / datafansize(FanPick))
+            outletwidth = dataoutletwid(FanPick) * (fansize / datafansize(FanPick))
+            inletdia = datainletdia(FanPick) * (fansize / datafansize(FanPick))
+            inletdia = inletdia - (casethickness * 2)
             'If FlowType = 4 Then
             If Units(0).UnitSelected = 3 Then
                 outletsize = dataoutletareaftsq(FanPick) * (fansize / datafansize(FanPick)) ^ 2

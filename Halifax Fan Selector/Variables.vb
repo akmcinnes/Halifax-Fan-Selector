@@ -6,12 +6,19 @@ Module Variables
     Public fs As System.IO.FileStream
 
     Public AdvancedUser As Boolean
-    Public version_number As String = "V 1.0.1 Beta"
-    Public DataPath As String = "C:\Halifax\Performance Data\"
+    Public Developer As Boolean
+    Public version_number As String = "V 1.0.2 Beta"
+    Public DataPathDefault As String = "C:\Halifax\Performance Data\"
+    'Public DataPathDefault As String = ".\Performance Data\"
+    Public DataPath As String
 
-    Public UserName As String
+    Public StartArg As String
+
+    Public UserName As String = Environment.UserName
 
     Public ChosenLanguage As String
+
+    Public move_on As Boolean
 
     Public UserType As Integer
     'Public locale_name As String
@@ -73,21 +80,24 @@ Module Variables
     Public fansize As Double
     Public stepsize As Double
     Public speed As Double
-    Public fsps(50, 50) As Double
-    Public ftps(50, 50) As Double
-    Public vols(50, 50) As Double
-    Public effs(50, 50) As Double
-    Public Pows(50, 50) As Double
-    Public fses(50, 50) As Double
-    Public ftes(50, 50) As Double
-    Public ovs(50, 50) As Double
-    Public fsizes(50, 50) As Double
+    Public fsps(50, 500) As Double
+    Public ftps(50, 500) As Double
+    Public vols(50, 500) As Double
+    Public effs(50, 500) As Double
+    Public Pows(50, 500) As Double
+    Public fses(50, 500) As Double
+    Public ftes(50, 500) As Double
+    Public ovs(50, 500) As Double
+    Public fsizes(50, 500) As Double
 
     Public datafansize(50) As Single
     Public datafanspeed(50) As Integer
+    Public dataoutletlen(50) As Double
+    Public dataoutletwid(50) As Double
     Public dataoutletsize(50) As Integer
     Public dataoutletarea(50) As Double
-    Public ftspeed(50, 50) As Double
+    Public datainletdia(50) As Double
+    Public ftspeed(50, 500) As Double
     Public medpoint(50) As Integer
     Public blade_type(50) As String
     Public blade_number(50) As Integer
@@ -111,6 +121,7 @@ Module Variables
     Public fantypename(50) As String
     Public fanclass(50) As String
     Public FanSave, FanMaxCount(50) As Integer
+    Public SizeAtFixedSpeed As Double
 
     Public NEWpressure As Double
     Public NEWpower As Double
@@ -118,8 +129,9 @@ Module Variables
     Public runonce As String
 
     Public voldecplaces, pressplaceIn, pressplaceOut, pressplaceRise, pressplaceAtmos, FanPick As Integer
+    Public powerdecplaces As Integer
 
-    Public temppressurE As Object
+    Public temppressure As Object
 
     ''--- used by AKM
     Public Engineer As String
@@ -231,7 +243,7 @@ Module Variables
     Public counteffs As Integer
     Public row As Integer
 
-
+    Public kp As Double
 
     Public filename(50) As String
     'Public filepath1 As String = "C:\Halifax\Performance Data\"
@@ -257,25 +269,34 @@ Module Variables
     Public Eye_Area_m2 As Double
     Public Type_Blade As String
     Public Num_Blades As Integer
-    Public FSP_insWG(30) As Double
-    Public Pow_hp(30) As Double
-    Public Vol_cfm(30) As Double
-    Public FTP_insWG(30) As Double
-    Public FSP_mmwg(30) As Double
-    Public Pow_kw(30) As Double
+
     Public Vol_m3hr(30) As Double
-    Public FTP_mmWG(30) As Double
     Public Vol_m3min(30) As Double
     Public Vol_m3sec(30) As Double
+    Public Vol_cfm(30) As Double
+
     Public FSP_pa(30) As Double
     Public FTP_pa(30) As Double
     Public FSP_mbar(30) As Double
     Public FTP_mbar(30) As Double
+    Public FSP_insWG(30) As Double
+    Public FTP_insWG(30) As Double
+    Public FSP_mmwg(30) As Double
+    Public FTP_mmWG(30) As Double
+    Public FSP_kpa(30) As Double
+    Public FTP_kpa(30) As Double
+
+    Public Pow_kw(30) As Double
+    Public Pow_hp(30) As Double
+
     Public OV_msec(30) As Double
     Public OV_fmin(30) As Double
+
     Public FSE1(30) As Double
     Public FTE1(30) As Double
+
     Public OVEL1(30) As Double
+
     Public STD_Fan_Size(50) As Double '30
 
     Public count1 As Integer
@@ -310,17 +331,23 @@ Module Variables
     Public selectedfse(50) As Double
     Public selectedspeed(50) As Double
     Public selectedpow(50) As Double
+    Public selectedpow2(50) As Double
     Public selectedfsp(50) As Double
     Public selectedfte(50) As Double
     Public selectedftp(50) As Double
     Public selectedov(50) As Double
     Public selectedvol(50) As Double
     Public selectedmot(50) As Double
+    Public selectedmot2(50) As Double
     Public selectedresHD(50) As Double
     Public selectedVD(50) As Double
     Public selectedBladeType(50) As String
     Public selectedBladeNumber(50) As Integer
     Public selectedfanfile(50) As String
+    Public selectedinletdia(50) As Double
+    Public selectedoutletarea(50) As Double
+    Public selectedoutletlen(50) As Double
+    Public selectedoutletwid(50) As Double
 
     Public finalfansize As Double
     Public finalfantype As String = ""
@@ -338,6 +365,10 @@ Module Variables
     Public finalBladeType As String
     Public finalBladeNumber As Integer
     Public finalfanfile As String
+    Public finalinletdia As Double
+    Public finaloutletarea As Double
+    Public finaloutletlen As Double
+    Public finaloutletwid As Double
 
     '    Public atmos As Double
 
@@ -360,8 +391,10 @@ Module Variables
     Public plotftp() As Double
     Public plotpow() As Double
 
+    Public NewCurve As Boolean
+
     Public fan2plot As Integer
-    Public objStreamWriterDebug As New StreamWriter("c:\Halifax\debugnew.txt")
+    'Public objStreamWriterDebug As New StreamWriter("c:\Halifax\debugnew.txt")
 
     'noise variables
     Public SPL As Single
@@ -377,6 +410,10 @@ Module Variables
     Public IDSPL(8) As Integer
     Public Ascale(8) As Integer
     Public ductCF As Integer
+
+    Public diameters(22) As Integer
+    Public sounddata(22, 9) As Integer
+
     'Public count As Integer
     Public spl2 As Integer
     Public bospl2 As Integer
@@ -456,6 +493,7 @@ Module Variables
     End Structure
 
     Public Motor_Information(100) As Motor_Structure
+    Public Motor_Pole_Speeds As Motor_Structure
 
     Public Background_Color As Color
 
