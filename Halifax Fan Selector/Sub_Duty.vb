@@ -11,12 +11,12 @@
                 'TxtAltitude.Text = altitude.ToString
                 'TxtHumidity.Text = humidity.ToString
                 .TxtAtmosphericPressure.Text = atmospress.ToString
-                .Txtdens.Text = knowndensity.ToString
-                .Txtflow.Text = flowrate.ToString
-                .TxtInletPressure.Text = inletpress.ToString
-                .TxtDischargePressure.Text = dischpress.ToString
-                .Txtfsp.Text = pressrise.ToString
-                .CmbReserveHead.Text = reshead.ToString + "%"
+                '.Txtdens.Text = knowndensity.ToString
+                '.Txtflow.Text = flowrate.ToString
+                '.TxtInletPressure.Text = inletpress.ToString
+                '.TxtDischargePressure.Text = dischpress.ToString
+                '.Txtfsp.Text = pressrise.ToString
+                '.CmbReserveHead.Text = reshead.ToString + "%"
                 If freqHz = 50 Then maxspeed = 3000
                 'If freqHz = 50 And OptPoleSpeed.Checked = True Then
                 '    If Opt2Pole.Checked = True Then maxspeed = 3000

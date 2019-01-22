@@ -39,9 +39,12 @@ Module ModMisc
                     maximumtemp = 20.0
                     ambienttemp = 20.0
                     atmospress = 101325.0
+                    'knowndensity = 1.2
+                    'flowrate = 10000.0
+                    'pressrise = 4000.0
                     knowndensity = 1.2
                     flowrate = 10000.0
-                    pressrise = 4000.0
+                    'pressrise = 4000.0
                     maxspeed = 3600.0
                 End If
             End If

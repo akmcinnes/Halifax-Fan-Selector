@@ -158,6 +158,7 @@ Partial Class Frmselectfan
         Me.ChkInclineBlade = New System.Windows.Forms.CheckBox()
         Me.ChkCurveBlade = New System.Windows.Forms.CheckBox()
         Me.TabPageSelection = New System.Windows.Forms.TabPage()
+        Me.chkKP = New System.Windows.Forms.CheckBox()
         Me.lblInstructions = New System.Windows.Forms.Label()
         Me.chkDisplayLowerEff = New System.Windows.Forms.CheckBox()
         Me.chkDisplayAll = New System.Windows.Forms.CheckBox()
@@ -195,13 +196,13 @@ Partial Class Frmselectfan
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TxtSizenoise = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.lblAcousticFSPUnits = New System.Windows.Forms.Label()
         Me.TxtPressurenoise = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TxtSpeednoise = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.lblAcousticFlowUnits = New System.Windows.Forms.Label()
         Me.TxtFlownoise = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
@@ -221,7 +222,6 @@ Partial Class Frmselectfan
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.chkKP = New System.Windows.Forms.CheckBox()
         Me.TabControl1.SuspendLayout()
         Me.TabPageGeneral.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -1743,6 +1743,7 @@ Partial Class Frmselectfan
         Me.LblLengthUnits.Size = New System.Drawing.Size(46, 25)
         Me.LblLengthUnits.TabIndex = 8
         Me.LblLengthUnits.Text = "mm"
+        Me.LblLengthUnits.Visible = False
         '
         'Txtfansize
         '
@@ -2070,6 +2071,20 @@ Partial Class Frmselectfan
         Me.TabPageSelection.TabIndex = 1
         Me.TabPageSelection.Text = "Selections"
         '
+        'chkKP
+        '
+        Me.chkKP.AutoSize = True
+        Me.chkKP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkKP.ForeColor = System.Drawing.Color.Black
+        Me.chkKP.Location = New System.Drawing.Point(616, 25)
+        Me.chkKP.Margin = New System.Windows.Forms.Padding(4)
+        Me.chkKP.Name = "chkKP"
+        Me.chkKP.Size = New System.Drawing.Size(144, 29)
+        Me.chkKP.TabIndex = 22
+        Me.chkKP.Text = "Exclude Kp"
+        Me.chkKP.UseVisualStyleBackColor = True
+        Me.chkKP.Visible = False
+        '
         'lblInstructions
         '
         Me.lblInstructions.AutoSize = True
@@ -2298,13 +2313,13 @@ Partial Class Frmselectfan
         Me.TabPageNoise.Controls.Add(Me.Label15)
         Me.TabPageNoise.Controls.Add(Me.TxtSizenoise)
         Me.TabPageNoise.Controls.Add(Me.Label16)
-        Me.TabPageNoise.Controls.Add(Me.Label13)
+        Me.TabPageNoise.Controls.Add(Me.lblAcousticFSPUnits)
         Me.TabPageNoise.Controls.Add(Me.TxtPressurenoise)
         Me.TabPageNoise.Controls.Add(Me.Label14)
         Me.TabPageNoise.Controls.Add(Me.Label6)
         Me.TabPageNoise.Controls.Add(Me.TxtSpeednoise)
         Me.TabPageNoise.Controls.Add(Me.Label12)
-        Me.TabPageNoise.Controls.Add(Me.Label5)
+        Me.TabPageNoise.Controls.Add(Me.lblAcousticFlowUnits)
         Me.TabPageNoise.Controls.Add(Me.TxtFlownoise)
         Me.TabPageNoise.Controls.Add(Me.Label4)
         Me.TabPageNoise.Controls.Add(Me.GroupBox5)
@@ -2550,17 +2565,17 @@ Partial Class Frmselectfan
         Me.Label16.TabIndex = 9
         Me.Label16.Text = "Fan Size"
         '
-        'Label13
+        'lblAcousticFSPUnits
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.BackColor = System.Drawing.Color.Transparent
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.Location = New System.Drawing.Point(304, 50)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(28, 18)
-        Me.Label13.TabIndex = 8
-        Me.Label13.Text = "Pa"
+        Me.lblAcousticFSPUnits.AutoSize = True
+        Me.lblAcousticFSPUnits.BackColor = System.Drawing.Color.Transparent
+        Me.lblAcousticFSPUnits.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAcousticFSPUnits.ForeColor = System.Drawing.Color.Black
+        Me.lblAcousticFSPUnits.Location = New System.Drawing.Point(304, 50)
+        Me.lblAcousticFSPUnits.Name = "lblAcousticFSPUnits"
+        Me.lblAcousticFSPUnits.Size = New System.Drawing.Size(28, 18)
+        Me.lblAcousticFSPUnits.TabIndex = 8
+        Me.lblAcousticFSPUnits.Text = "Pa"
         '
         'TxtPressurenoise
         '
@@ -2622,17 +2637,17 @@ Partial Class Frmselectfan
         Me.Label12.TabIndex = 3
         Me.Label12.Text = "Fan Speed"
         '
-        'Label5
+        'lblAcousticFlowUnits
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.Black
-        Me.Label5.Location = New System.Drawing.Point(304, 26)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(48, 18)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "m³/hr"
+        Me.lblAcousticFlowUnits.AutoSize = True
+        Me.lblAcousticFlowUnits.BackColor = System.Drawing.Color.Transparent
+        Me.lblAcousticFlowUnits.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAcousticFlowUnits.ForeColor = System.Drawing.Color.Black
+        Me.lblAcousticFlowUnits.Location = New System.Drawing.Point(304, 26)
+        Me.lblAcousticFlowUnits.Name = "lblAcousticFlowUnits"
+        Me.lblAcousticFlowUnits.Size = New System.Drawing.Size(48, 18)
+        Me.lblAcousticFlowUnits.TabIndex = 2
+        Me.lblAcousticFlowUnits.Text = "m³/hr"
         '
         'TxtFlownoise
         '
@@ -2822,20 +2837,6 @@ Partial Class Frmselectfan
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'chkKP
-        '
-        Me.chkKP.AutoSize = True
-        Me.chkKP.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkKP.ForeColor = System.Drawing.Color.Black
-        Me.chkKP.Location = New System.Drawing.Point(616, 25)
-        Me.chkKP.Margin = New System.Windows.Forms.Padding(4)
-        Me.chkKP.Name = "chkKP"
-        Me.chkKP.Size = New System.Drawing.Size(144, 29)
-        Me.chkKP.TabIndex = 22
-        Me.chkKP.Text = "Exclude Kp"
-        Me.chkKP.UseVisualStyleBackColor = True
-        Me.chkKP.Visible = False
-        '
         'Frmselectfan
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -2982,13 +2983,13 @@ Partial Class Frmselectfan
     Friend WithEvents Label15 As Label
     Friend WithEvents TxtSizenoise As TextBox
     Friend WithEvents Label16 As Label
-    Friend WithEvents Label13 As Label
+    Friend WithEvents lblAcousticFSPUnits As Label
     Friend WithEvents TxtPressurenoise As TextBox
     Friend WithEvents Label14 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents TxtSpeednoise As TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents lblAcousticFlowUnits As Label
     Friend WithEvents TxtFlownoise As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox3 As GroupBox

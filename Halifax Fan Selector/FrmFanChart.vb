@@ -278,9 +278,12 @@ Public Class FrmFanChart
             ReDim plotvol(Num_Readings)
         ReDim plotfsp(Num_Readings)
         ReDim plotftp(Num_Readings)
-        ReDim plotpow(Num_Readings)
+            ReDim plotpow(Num_Readings)
 
-        For i = 0 To Num_Readings - 1
+            Dim temp_kp As Double = kp
+            If Frmselectfan.chkKP.Checked = True Then temp_kp = 1.0
+
+            For i = 0 To Num_Readings - 1
             If Units(1).UnitSelected = 0 Then plotfsp(i) = FSP_pa(i)
             If Units(1).UnitSelected = 1 Then plotfsp(i) = FSP_insWG(i)
             If Units(1).UnitSelected = 2 Then plotfsp(i) = FSP_mmwg(i)
@@ -318,7 +321,9 @@ Public Class FrmFanChart
                 plotvol(i) = scaleVFSpeed(plotvol(i), FanSpeed1, selectedspeed(fan2plot))
                 plotfsp(i) = scalePFSpeed(plotfsp(i), FanSpeed1, selectedspeed(fan2plot))
                 plotftp(i) = scalePFSpeed(plotftp(i), FanSpeed1, selectedspeed(fan2plot))
-                plotpow(i) = scalePowFSpeed(plotpow(i), FanSpeed1, selectedspeed(fan2plot))
+                plotpow(i) = ScalePowFSpeed(plotpow(i), FanSpeed1, selectedspeed(fan2plot))
+
+                plotpow(i) = plotpow(i) / temp_kp
             Next
 
         Catch ex As Exception

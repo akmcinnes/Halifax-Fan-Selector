@@ -331,6 +331,8 @@
             Frmselectfan.GrpInletDensity.Text = "Inlet Density (" + Units(3).UnitName(Units(3).UnitSelected) + ")"
             Frmselectfan.LblLengthUnits.Text = Units(5).UnitName(Units(5).UnitSelected)
             Frmselectfan.LblAltitudeUnits.Text = Units(6).UnitName(Units(6).UnitSelected)
+            Frmselectfan.lblAcousticFlowUnits.Text = Units(0).UnitName(Units(0).UnitSelected)
+            Frmselectfan.lblAcousticFSPUnits.Text = Units(1).UnitName(Units(1).UnitSelected)
 
             If Units(0).UnitSelected < 4 Then
                 Frmselectfan.OptVolumeFlow.Checked = True

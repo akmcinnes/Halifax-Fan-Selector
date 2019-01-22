@@ -17,12 +17,12 @@ Public Class Frmselectfan
             End If
             'If StartArg Is Nothing Then
             'If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-b") Or UserName.ToLower.Contains("akmci") Then
-            If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-b") Or StartArg.ToLower.Contains("-dev") Then
-            Else
-                TabControl1.Controls.Remove(TabPageNoise)
-                'TabControl1.Controls.Remove(TabPageSelection)
-                btnNoiseDataForward.Visible = False
-            End If
+            'If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-b") Or StartArg.ToLower.Contains("-dev") Then
+            'Else
+            '    TabControl1.Controls.Remove(TabPageNoise)
+            '    'TabControl1.Controls.Remove(TabPageSelection)
+            '    btnNoiseDataForward.Visible = False
+            'End If
             If version_number = "V 1.0.0 Beta" Then
                 TabControl1.Controls.Remove(TabPageNoise)
                 TabControl1.Controls.Remove(TabPageSelection)
@@ -738,6 +738,7 @@ Public Class Frmselectfan
             'Else
             '    Txtfsp.BackColor = Color.White
             'End If
+
             Yellow(Txtflow)
             Yellow(Txtdens)
             Yellow(Txtfsp)
@@ -756,7 +757,20 @@ Public Class Frmselectfan
                 txtRatioDD.BackColor = Color.White
             End If
 
-            If move_on = True Then SetupFanParametersPage()
+            If move_on = True Then
+
+                flowrate = CDbl(Txtflow.Text)
+                knowndensity = CDbl(Txtdens.Text)
+                pressrise = CDbl(Txtfsp.Text)
+                inletpress = CDbl(TxtInletPressure.Text)
+
+                dischpress = CDbl(TxtDischargePressure.Text)
+                Dim str_temp As String = CmbReserveHead.Items(CmbReserveHead.SelectedIndex)
+
+                reshead = CDbl(str_temp.Remove(str_temp.Length - 1))
+                'reshead = CDbl(CmbReserveHead.Text)
+                SetupFanParametersPage()
+            End If
 
         Catch ex As Exception
 
@@ -774,6 +788,7 @@ Public Class Frmselectfan
 
     Private Sub btnFanSelectionsForward_Click(sender As Object, e As EventArgs) Handles btnFanSelectionsForward.Click
         Try
+            pressrise = CDbl(Txtfsp.Text)
             maxspeed = CDbl(Txtspeedlimit.Text)
             If Opt2Pole.Checked = True Or Opt4Pole.Checked = True Or Opt6Pole.Checked = True Or Opt8Pole.Checked = True Or Opt10Pole.Checked = True Or Opt12Pole.Checked = True Then maxspeed = CDbl(Txtfanspeed.Text)
             Txtspeedlimit.Text = maxspeed.ToString
@@ -1059,18 +1074,18 @@ Public Class Frmselectfan
             Opt8Pole.Visible = True
             Opt10Pole.Visible = True
             Opt12Pole.Visible = True
-            If StartArg.ToLower.Contains("-dev") Then
-            Else
-                Opt2Pole.Enabled = False
-                Opt4Pole.Enabled = False
-                Opt6Pole.Enabled = False
-                Opt8Pole.Enabled = False
-                Opt10Pole.Enabled = False
-                Opt12Pole.Enabled = False
-                OptFixedSize.Enabled = False
-                Txtfanspeed.Enabled = False
-                Txtfansize.Enabled = False
-            End If
+            'If StartArg.ToLower.Contains("-dev") Then
+            'Else
+            '    Opt2Pole.Enabled = False
+            '    Opt4Pole.Enabled = False
+            '    Opt6Pole.Enabled = False
+            '    Opt8Pole.Enabled = False
+            '    Opt10Pole.Enabled = False
+            '    Opt12Pole.Enabled = False
+            '    OptFixedSize.Enabled = False
+            '    Txtfanspeed.Enabled = False
+            '    Txtfansize.Enabled = False
+            'End If
             TabControl1.SelectTab(TabPageDuty)
         Catch ex As Exception
             'ErrorMessage(ex, 2000)
@@ -1305,6 +1320,25 @@ Public Class Frmselectfan
             TabPageSelection_Enter(sender, e)
         Catch ex As Exception
 
+        End Try
+    End Sub
+
+    'Private Sub TxtAltitude_LostFocus(sender As Object, e As EventArgs) Handles TxtAltitude.LostFocus
+    '    Dim p As Double
+    '    Dim h As Double = CDbl(TxtAltitude.Text)
+    '    p = 101325 * (1 - (h * 2.25577 * 10 ^ -5)) ^ 5.25588
+    '    TxtAtmosphericPressure.Text = Math.Round(p).ToString
+    'End Sub
+
+    Private Sub TxtAltitude_TextChanged(sender As Object, e As EventArgs) Handles TxtAltitude.TextChanged
+        Dim p As Double
+        Dim h As Double
+        Try
+            h = CDbl(TxtAltitude.Text)
+            p = 101325 * (1 - (h * 2.25577 * 10 ^ -5)) ^ 5.25588
+            TxtAtmosphericPressure.Text = Math.Round(p).ToString
+        Catch ex As Exception
+            Yellow(TxtAltitude)
         End Try
     End Sub
 End Class
