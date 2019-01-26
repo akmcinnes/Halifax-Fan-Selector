@@ -30,13 +30,11 @@
             NEWdensity = GetDensity2(k8)
             NEWpower = power * (NEWdensity / density)
             NEWpressure = fsp * (NEWdensity / density)
-
         Catch ex As Exception
-            'MsgBox("suctioncorrection")
             ErrorMessage(ex, 6101)
         End Try
-
     End Sub
+
     Public Function InletDensity(fsp, density)
         InletDensity = 0.0
         '---returns the inlet density for a known inlet pressure
@@ -65,9 +63,7 @@
                 End If
             Loop
             InletDensity = GetDensity1(k8)
-
         Catch ex As Exception
-            'MsgBox("Inletdensity")
             ErrorMessage(ex, 6102)
         End Try
     End Function
@@ -86,9 +82,7 @@
             a = ((atmos - pressure) * (Volume ^ 1.4)) / atmos
             b = (Math.Log(a)) / 1.4
             SuckVol = Math.Exp(b)
-
         Catch ex As Exception
-            MsgBox("suckvol")
             ErrorMessage(ex, 6103)
         End Try
     End Function
@@ -110,9 +104,7 @@
                 atmos = 1013.89
             End If
             Return atmos
-
         Catch ex As Exception
-            'MsgBox("GetAtmos")
             ErrorMessage(ex, 6104)
         End Try
     End Function
@@ -126,9 +118,7 @@
                 density1 = density
             End If
             Return density1
-
         Catch ex As Exception
-            'MsgBox("GetDensity1")
             ErrorMessage(ex, 6105)
         End Try
     End Function
@@ -142,9 +132,7 @@
                 NEWdensity = k8
             End If
             Return NEWdensity
-
         Catch ex As Exception
-            'MsgBox("GetDensity2")
             ErrorMessage(ex, 6106)
         End Try
     End Function

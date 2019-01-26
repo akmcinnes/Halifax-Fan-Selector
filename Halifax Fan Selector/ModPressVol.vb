@@ -96,7 +96,6 @@
             selectedoutletlen(fanno) = outletlength
             selectedoutletwid(fanno) = outletwidth
 
-
             '-calculating FTP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selectedfsp(fanno) = fsps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfsp))
@@ -105,7 +104,6 @@
             gradftp = (ftps(fanno, datapoint3) - ftps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selectedftp(fanno) = ftps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradftp))
             selectedftp(fanno) = Math.Round(selectedftp(fanno), 2)
-
 
             selectedfantype(fanno) = fanclass(fanno)
 
@@ -119,9 +117,7 @@
             End If
 
         Catch ex As Exception
-            'MsgBox(fanclass(fanno))
             'ErrorMessage(ex, 5701)
-
         End Try
     End Sub
 
@@ -203,7 +199,6 @@
             gradpow = (Pows(fanno, datapoint2) - Pows(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
             selectedpow(fanno) = Pows(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradpow))
             selectedpow(fanno) = Math.Round(selectedpow(fanno), 2)
-
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint2) - fse(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
             selectedfse(fanno) = fse(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradfse))

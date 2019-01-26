@@ -118,62 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblWelcome.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 179</value>
+  <data name="LblAltitude.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 58</value>
   </data>
-  <data name="lblWelcome.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 48</value>
+  <data name="LblAltitude.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
   </data>
-  <data name="lblWelcome.Text" xml:space="preserve">
-    <value>欢迎</value>
+  <data name="LblAltitude.Text" xml:space="preserve">
+    <value>海拔以上</value>
   </data>
-  <data name="lblToThe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 219</value>
+  <data name="LblAmbientTemperature.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 30</value>
   </data>
-  <data name="lblToThe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 48</value>
+  <data name="LblAmbientTemperature.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
   </data>
-  <data name="lblToThe.Text" xml:space="preserve">
-    <value>到了</value>
+  <data name="LblAmbientTemperature.Text" xml:space="preserve">
+    <value>环境温度</value>
   </data>
-  <data name="lblHalifaxFanSelector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>450, 48</value>
-  </data>
-  <data name="lblHalifaxFanSelector.Text" xml:space="preserve">
-    <value>哈利法克斯风扇选择器</value>
-  </data>
-  <data name="btnContinue.Text" xml:space="preserve">
-    <value>继续 &gt;&gt;</value>
-  </data>
-  <data name="btnExit.Text" xml:space="preserve">
-    <value>出口</value>
-  </data>
-  <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 21</value>
-  </data>
-  <data name="lblUsername.Text" xml:space="preserve">
-    <value>用户名</value>
-  </data>
-  <data name="btnSettings.Text" xml:space="preserve">
-    <value>设置</value>
-  </data>
-  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 22</value>
-  </data>
-  <data name="chkAdvancedUser.Text" xml:space="preserve">
-    <value>高级用户</value>
-  </data>
-  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 21</value>
-  </data>
-  <data name="optChinese.Text" xml:space="preserve">
-    <value>中文</value>
-  </data>
-  <data name="grpLanguage.Text" xml:space="preserve">
-    <value>选择语言</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblDate.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="lblInstructions.Text" xml:space="preserve">
+    <value>* * 单点点击选择风扇, 双击查看图表 * *</value>
   </data>
 </root>

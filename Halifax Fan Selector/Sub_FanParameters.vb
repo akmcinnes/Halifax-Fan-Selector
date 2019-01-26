@@ -8,15 +8,11 @@
                 v = CDbl(.Txtflow.Text) / convflow / 3600.0
                 p = CDbl(.Txtfsp.Text) / convpres / 1000.0
                 temppower = v * p / 0.7
-                'temppower = 1.1 * CDbl(Txtflow.Text) * CDbl(Txtfsp.Text) / (convflow * convpres * 0.7)
                 ReadMotorFromBinaryFile()
-
                 count = 0
                 Do While (temppower * 1.1) > Motor_Information(count).PowerKW
                     count = count + 1
                     If count = 100 Then
-                        'akm temp removed                MsgBox("A Larger Non-Standard Motor is required for selected Fan!", vbInformation)
-                        'GetMotorSize = "Out Of Range"
                         Exit Do
                     End If
                 Loop
@@ -69,8 +65,6 @@
             ErrorMessage(ex, 1201)
 
         End Try
-
-
     End Sub
     Sub SetSpeeds(Poles As Integer)
         Try
@@ -79,13 +73,11 @@
                 If freqHz = 60 Then .Txtfanspeed.Text = Motor_Pole_Speeds.Speed60(Poles).ToString
                 .Txtspeedlimit.Text = .Txtfanspeed.Text
             End With
-
         Catch ex As Exception
             ErrorMessage(ex, 1202)
         End Try
     End Sub
     Public Function CalculateKP(gamma As Double, atmos As Double, fsp As Double, ip As Double) As Double
-        'Dim gamma As Double = 1.4
         Dim a, b, c As Double
         a = gamma / (gamma - 1)
         b = (gamma - 1) / gamma
@@ -93,6 +85,5 @@
         kp = (a * ((c ^ b) - 1)) / (c - 1)
         Return kp
     End Function
-
 End Module
 

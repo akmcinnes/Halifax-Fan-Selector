@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmStart
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmStart
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmStart))
         Me.lblWelcome = New System.Windows.Forms.Label()
@@ -39,7 +39,6 @@ Partial Class FrmStart
         Me.optEnglish = New System.Windows.Forms.RadioButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblDate = New System.Windows.Forms.Label()
-        Me.lblStartVersion = New System.Windows.Forms.Label()
         Me.grpLanguage.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -64,8 +63,8 @@ Partial Class FrmStart
         '
         'btnContinue
         '
-        Me.btnContinue.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.btnContinue, "btnContinue")
+        Me.btnContinue.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnContinue.Name = "btnContinue"
         Me.btnContinue.UseVisualStyleBackColor = True
@@ -114,9 +113,9 @@ Partial Class FrmStart
         '
         'grpLanguage
         '
+        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Controls.Add(Me.optChinese)
         Me.grpLanguage.Controls.Add(Me.optEnglish)
-        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Name = "grpLanguage"
         Me.grpLanguage.TabStop = False
         '
@@ -145,18 +144,12 @@ Partial Class FrmStart
         resources.ApplyResources(Me.lblDate, "lblDate")
         Me.lblDate.Name = "lblDate"
         '
-        'lblStartVersion
-        '
-        resources.ApplyResources(Me.lblStartVersion, "lblStartVersion")
-        Me.lblStartVersion.Name = "lblStartVersion"
-        '
         'FrmStart
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ControlBox = False
-        Me.Controls.Add(Me.lblStartVersion)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.grpLanguage)
         Me.Controls.Add(Me.lblVersion)
@@ -198,5 +191,4 @@ Partial Class FrmStart
     Friend WithEvents optChinese As RadioButton
     Friend WithEvents optEnglish As RadioButton
     Friend WithEvents lblDate As Label
-    Friend WithEvents lblStartVersion As Label
 End Class

@@ -286,7 +286,9 @@ Public Class Frmselectfan
 
     Private Sub TabPageDuty_Leave(sender As Object, e As EventArgs) Handles TabPageDuty.Leave
         Try
-            Dim str_temp As String = CmbReserveHead.Items(CmbReserveHead.SelectedIndex)
+            Dim str_temp As String
+            If CmbReserveHead.SelectedIndex < 0 Then CmbReserveHead.SelectedIndex = 0
+            str_temp = CmbReserveHead.Items(CmbReserveHead.SelectedIndex)
 
             reshead = CDbl(str_temp.Remove(str_temp.Length - 1))
         Catch ex As Exception
@@ -294,22 +296,9 @@ Public Class Frmselectfan
         End Try
     End Sub
 
-    Private Sub OptDensityCalculated_CheckedChanged(sender As Object, e As EventArgs) Handles OptDensityCalculated.CheckedChanged
-        Try
-            If (OptDensityCalculated.Checked = True) Then
-                RunTemp = Val(TxtDesignTemperature.Text)
-                If Units(2).UnitSelected = 1 Then RunTemp = Math.Round(((RunTemp - 32) * 5 / 9), 1)
-                Txtdens.Text = Math.Round((293 / (RunTemp + 273)) * 1.2, 3)
-                Txtdens.ReadOnly = True
-                btnCalculateDensity.Enabled = True
-            Else
-                Txtdens.ReadOnly = False
-                btnCalculateDensity.Enabled = False
-            End If
 
-        Catch ex As Exception
-            MsgBox("OptDensityCalculated_CheckedChanged")
-        End Try
+    Private Sub OptDensityCalculated_CheckedChanged(sender As Object, e As EventArgs) Handles OptDensityCalculated.CheckedChanged
+        DensityCalculate()
     End Sub
 
     ' ############################################################################################
@@ -354,44 +343,7 @@ Public Class Frmselectfan
             If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
                 Exit Sub
             End If
-            'btnNoiseDataForward.Enabled = True
-            'Label3.Visible = True
-            'Label3.Text = "Selected Fan: "
-            'LblFanDetails.Visible = True
-
-            '' TabPageNoise.Show()
-            '' TabControl1.Controls.Add(TabPageNoise)
-
-            Dim ii As Integer
-            ii = 0
-            Do While DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selectedfantype(ii)
-                ii = ii + 1
-            Loop
-            SelectRow(ii)
-            'LblFanDetails.Text = selectedfantype(ii) + " " + selectedfansize(ii).ToString + " running at " + selectedspeed(ii).ToString + " rpm"
-            ''Label19.Text = "File used = " + selectedfanfile(ii)
-            ''Label19.Visible = True
-
-            'finalfansize = selectedfansize(ii)
-            'finalfantype = selectedfantype(ii) 'string
-            'finalfse = selectedfse(ii)
-            'finalspeed = selectedspeed(ii)
-            'finalpow = selectedpow(ii)
-            'finalfsp = selectedfsp(ii)
-            'finalfte = selectedfte(ii)
-            'finalftp = selectedftp(ii)
-            'finalov = selectedov(ii)
-            'finalvol = selectedvol(ii)
-            'finalmot = selectedmot(ii)
-            'finalresHD = selectedresHD(ii)
-            'finalVD = selectedVD(ii)
-            'finalBladeType = selectedBladeType(ii)
-            'finalBladeNumber = selectedBladeNumber(ii)
-            'finalfanfile = selectedfanfile(ii)
-
-            ''TabPageNoise.Enabled = True
-            'TabControl1.TabPages(3).Enabled = True
-
+            SelectionClick(e)
         Catch ex As Exception
 
         End Try
@@ -399,27 +351,11 @@ Public Class Frmselectfan
 
     Private Sub DataGridView1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellDoubleClick
         Try
-            If StartArg.ToLower.Contains("-dev") Then
 
-                If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
+            If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
                     Exit Sub
                 End If
-                btnNoiseDataForward.Enabled = True
-                TabPageNoise.Enabled = True
-                FrmFanChart.Text = DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString
-                'If Units(4).UnitSelected = 2 Then FrmFanChart.optDisplaykW.Checked = True
-
-                If AdvancedUser = True And Units(4).UnitSelected = 2 Then
-                    FrmFanChart.optDisplayhp.Visible = True
-                    FrmFanChart.optDisplaykW.Visible = True
-                    FrmFanChart.optDisplaykW.Checked = True
-                End If
-                FrmFanChart.Show()
-            Else
-                MsgBox("Coding in Progress")
-                Exit Sub
-            End If
-
+                SelectionDoubleClick(e)
         Catch ex As Exception
 
         End Try
@@ -634,6 +570,7 @@ Public Class Frmselectfan
 
     Private Sub TabPageGeneral_Enter(sender As Object, e As EventArgs) Handles TabPageGeneral.Enter
         'TabPageGeneral.BackColor = Background_Color
+        chkCalcAtmos.Text = "Calculate Atmospheric" + vbCrLf + "Pressure from Altitude"
     End Sub
 
     Private Sub TabPageImpeller_Enter(sender As Object, e As EventArgs) Handles TabPageImpeller.Enter
@@ -701,51 +638,12 @@ Public Class Frmselectfan
     Private Sub btnFanParametersForward_Click(sender As Object, e As EventArgs) Handles btnFanParametersForward.Click
         'open fan parameters tab
         Try
-            'Dim move_on As Boolean = True
             move_on = True
-            ''Yellow()
-
-            'If Not Txtflow.Text.All(AddressOf Char.IsDigit) Then
-            '    Txtflow.BackColor = Color.LightYellow
-            '    Txtflow.Text = ""
-            '    move_on = False
-            'ElseIf CDbl(Txtflow.Text) <= 0.0 Then
-            '    Txtflow.BackColor = Color.LightYellow
-            '    Txtflow.Text = ""
-            '    move_on = False
-            'Else
-            '    Txtflow.BackColor = Color.White
-            'End If
-            'If Not Txtdens.Text.All(AddressOf Char.IsDigit) Then
-            '    Txtdens.BackColor = Color.LightYellow
-            '    Txtdens.Text = ""
-            '    move_on = False
-            'ElseIf CDbl(Txtdens.Text) <= 0.0 Then
-            '    Txtdens.BackColor = Color.LightYellow
-            '    Txtdens.Text = ""
-            '    move_on = False
-            'Else
-            '    Txtdens.BackColor = Color.White
-            'End If
-            'If Not Txtfsp.Text.All(AddressOf Char.IsDigit) Then
-            '    Txtfsp.BackColor = Color.LightYellow
-            '    Txtfsp.Text = ""
-            '    move_on = False
-            'ElseIf CDbl(Txtfsp.Text) <= 0.0 Then
-            '    Txtfsp.BackColor = Color.LightYellow
-            '    Txtfsp.Text = ""
-            '    move_on = False
-            'Else
-            '    Txtfsp.BackColor = Color.White
-            'End If
-
             Yellow(Txtflow)
             Yellow(Txtdens)
             Yellow(Txtfsp)
             Yellow(TxtInletPressure, -9999.99)
             Yellow(TxtDesignTemperature, -50.0)
-            'Yellow(TxtDischargePressure)
-            'Yellow(CmbReserveHead)
             If optDDUserDefined.Checked = True Then
                 Yellow(txtUserDefinedDD)
             Else
@@ -765,10 +663,11 @@ Public Class Frmselectfan
                 inletpress = CDbl(TxtInletPressure.Text)
 
                 dischpress = CDbl(TxtDischargePressure.Text)
-                Dim str_temp As String = CmbReserveHead.Items(CmbReserveHead.SelectedIndex)
+                Dim str_temp As String
+                If CmbReserveHead.SelectedIndex < 0 Then CmbReserveHead.SelectedIndex = 0
+                str_temp = CmbReserveHead.Items(CmbReserveHead.SelectedIndex)
 
                 reshead = CDbl(str_temp.Remove(str_temp.Length - 1))
-                'reshead = CDbl(CmbReserveHead.Text)
                 SetupFanParametersPage()
             End If
 
@@ -792,6 +691,8 @@ Public Class Frmselectfan
             maxspeed = CDbl(Txtspeedlimit.Text)
             If Opt2Pole.Checked = True Or Opt4Pole.Checked = True Or Opt6Pole.Checked = True Or Opt8Pole.Checked = True Or Opt10Pole.Checked = True Or Opt12Pole.Checked = True Then maxspeed = CDbl(Txtfanspeed.Text)
             Txtspeedlimit.Text = maxspeed.ToString
+
+            SelectDIDW = chkDIDW.Checked
 
             ShowCurvedFanTypes = ChkCurveBlade.Checked
             ShowInclinedFanTypes = ChkInclineBlade.Checked
@@ -1334,12 +1235,41 @@ Public Class Frmselectfan
         Dim p As Double
         Dim h As Double
         Try
+            If chkCalcAtmos.Checked = True Then
+                h = CDbl(TxtAltitude.Text)
+                p = 101325 * (1 - (h * 2.25577 * 10 ^ -5)) ^ 5.25588
+                TxtAtmosphericPressure.Text = Math.Round(p).ToString
+                Yellow(TxtAltitude, -100)
+            End If
+        Catch ex As Exception
+            Yellow(TxtAltitude, -100)
+        End Try
+    End Sub
+
+    Private Sub chkCalcAtmos_Click(sender As Object, e As EventArgs) Handles chkCalcAtmos.Click
+        Dim p As Double
+        Dim h As Double
+        If chkCalcAtmos.Checked = True Then
             h = CDbl(TxtAltitude.Text)
             p = 101325 * (1 - (h * 2.25577 * 10 ^ -5)) ^ 5.25588
             TxtAtmosphericPressure.Text = Math.Round(p).ToString
-        Catch ex As Exception
-            Yellow(TxtAltitude)
-        End Try
+            TxtAtmosphericPressure.Enabled = False
+        Else
+            TxtAtmosphericPressure.Enabled = True
+        End If
     End Sub
+
+
+    'Private Sub TxtAmbientTemperature_TextChanged(sender As Object, e As EventArgs) Handles TxtAmbientTemperature.TextChanged
+    '    Yellow(TxtAmbientTemperature, -20)
+    'End Sub
+
+    ''Private Sub TxtHumidity_TextChanged(sender As Object, e As EventArgs) Handles TxtHumidity.TextChanged
+    ''    Yellow(TxtHumidity, 0)
+    ''End Sub
+
+    'Private Sub TxtAtmosphericPressure_TextChanged(sender As Object, e As EventArgs) Handles TxtAtmosphericPressure.TextChanged
+    '    Yellow(TxtAtmosphericPressure, 0)
+    'End Sub
 End Class
 

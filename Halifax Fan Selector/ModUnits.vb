@@ -415,6 +415,7 @@
             Frmselectfan.Txtfsp.Text = Math.Round(Val(Frmselectfan.Txtfsp.Text) * convpres, pressplaceRise).ToString
             Frmselectfan.Txtdens.Text = Math.Round(Val(Frmselectfan.Txtdens.Text) * convdens, 3).ToString
             Frmselectfan.Txtfansize.Text = Math.Round(Val(Frmselectfan.Txtfansize.Text) * convlen, 3).ToString
+            atmospress = CDbl(Frmselectfan.TxtAtmosphericPressure.Text)
             'flowrate = CDbl(Frmselectfan.Txtflow.Text)
             'TxtAltitude.Text = Math.Round(Val(TxtAltitude.Text) * convalt, 0).ToString
 

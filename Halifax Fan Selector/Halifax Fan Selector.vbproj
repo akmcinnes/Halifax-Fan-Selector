@@ -179,6 +179,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSelectFan.resx">
       <DependentUpon>FrmSelectFan.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectFan.zh.resx">
+      <DependentUpon>FrmSelectFan.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSettings.resx">
       <DependentUpon>FrmSettings.vb</DependentUpon>

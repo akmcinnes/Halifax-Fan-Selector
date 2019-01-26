@@ -3,11 +3,9 @@
         Try
             Dim company As String = "Halifax Fan Limited - "
             Dim ErrMsg As String
-            ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Howden Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
-            If StartArg.ToLower.Contains("-dev") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Howden Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            If StartArg.ToLower.Contains("-dev") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
             Select Case ErrNo
-
-
 'Sub errors 1000 to 1999
                 Case 1000 To 1099 'General Information Input
                     ErrMsg = company + "Sub_General" + ErrMsg
@@ -23,8 +21,6 @@
                     ErrMsg = company + "Sub_ProjectFile" + ErrMsg
                 Case 1600 To 1699 'okay
                     ErrMsg = company + "Sub_Impeller" + ErrMsg
-
-
 'Module errors 5000 to 9999
                 Case 5000 To 5099 'okay
                     ErrMsg = company + "ModDensity" + ErrMsg
@@ -54,7 +50,6 @@
                     ErrMsg = company + "ModUnits" + ErrMsg
                 Case 6300 To 6399 'okay
                     ErrMsg = company + "ModUserDetails" + ErrMsg
-
 'Form errors 20000 to 29999
                 Case 20000 To 20099
                     ErrMsg = company + "FrmDensityCalcs" + ErrMsg
@@ -70,10 +65,8 @@
                     ErrMsg = company + "FrmStart" + ErrMsg
             End Select
             MsgBox(ErrMsg, vbOKOnly + vbSystemModal + vbCritical, "Error Message")
-
         Catch ex1 As Exception
             ErrorMessage(ex1, 5101)
         End Try
-
     End Sub
 End Module

@@ -9,30 +9,13 @@
             End If
             Return getscalefactor
         Catch ex As Exception
-            'MsgBox("getscalefactor")
             ErrorMessage(ex, 5001)
 
         End Try
     End Function
-    'Public Function densityfactor(density)
-    '    densityfactor = 0.0
-    '    Try
-    '        If DensType = 2 Then
-    '            densityfactor = density / 0.075
-    '        Else
-    '            densityfactor = density / 1.2
-    '        End If
-    '        Return densityfactor
-    '    Catch ex As Exception
-    '        MsgBox("densityfactor")
-    'ErrorMessage(ex, 5002)
-
-    '    End Try
-    'End Function
 
     Public Sub scaledensity(fanno, scalefactor)
         Try
-            'If fantypesQTY = 1 Then
             count = 0
             Do While count <= 50
                 vol(fanno, count) = vol(fanno, count) * Widthratios(fanno)
@@ -41,11 +24,8 @@
                 Powr(fanno, count) = Powr(fanno, count) * scalefactor * Widthratios(fanno)
                 count = count + 1
             Loop
-            'End If
         Catch ex As Exception
-            'MsgBox("scaledensity")
             ErrorMessage(ex, 5003)
-
         End Try
     End Sub
 End Module

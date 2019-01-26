@@ -18,6 +18,8 @@ Module Variables
 
     Public ChosenLanguage As String
 
+    Public SelectDIDW As Boolean
+
     Public move_on As Boolean
 
     Public UserType As Integer

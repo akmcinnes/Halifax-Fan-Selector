@@ -44,7 +44,7 @@ Module ModMisc
                     'pressrise = 4000.0
                     knowndensity = 1.2
                     flowrate = 10000.0
-                    'pressrise = 4000.0
+                    pressrise = 4000.0
                     maxspeed = 3600.0
                 End If
             End If
@@ -119,7 +119,6 @@ Module ModMisc
             Write_to_XML(TextWriter)
 
         Catch ex As Exception
-            'MsgBox("WriteSelectionOutputInfo")
             ErrorMessage(ex, 5504)
         End Try
     End Sub
@@ -143,7 +142,6 @@ Module ModMisc
             Write_to_XML(TextWriter)
 
         Catch ex As Exception
-            'MsgBox("WriteNoisetInfo")
             ErrorMessage(ex, 5505)
         End Try
     End Sub
@@ -182,7 +180,6 @@ Module ModMisc
 
             End If
         Catch ex As Exception
-            'MsgBox("SaveProjectToolStripMenuItem_Click")
             ErrorMessage(ex, 5506)
         End Try
     End Sub
@@ -193,7 +190,6 @@ Module ModMisc
             TextWriter.WriteString(Value)
             TextWriter.WriteEndElement()
         Catch ex As Exception
-            'MsgBox("Write_To_XML 1")
             ErrorMessage(ex, 5507)
         End Try
     End Sub
@@ -202,7 +198,6 @@ Module ModMisc
         Try
             TextWriter.WriteStartElement(Parameter)
         Catch ex As Exception
-            'MsgBox("Write_To_XML 2")
             ErrorMessage(ex, 5508)
         End Try
     End Sub
@@ -211,7 +206,6 @@ Module ModMisc
         Try
             TextWriter.WriteEndElement()
         Catch ex As Exception
-            'MsgBox("Write_To_XML 3")
             ErrorMessage(ex, 5509)
         End Try
     End Sub
@@ -234,7 +228,6 @@ Module ModMisc
                 If TextReader.Name = "Maximum_Speed" Then maxspeed = TextReader.ReadString
             Loop
         Catch ex As Exception
-            'MsgBox("ReadSelectionInputInfo")
             ErrorMessage(ex, 5510)
         End Try
     End Sub
@@ -253,7 +246,6 @@ Module ModMisc
             Loop
 
         Catch ex As Exception
-            'MsgBox("ReadGeneralInfo")
             ErrorMessage(ex, 5511)
         End Try
     End Sub
@@ -283,7 +275,6 @@ Module ModMisc
             'count1 = count1 + 1
 
         Catch ex As Exception
-            'MsgBox("ModifyDatapoints")
             ErrorMessage(ex, 5512)
         End Try
     End Sub
@@ -321,49 +312,17 @@ Module ModMisc
 
     Public Sub Yellow(Ctrl As System.Windows.Forms.TextBox, Optional MinValue As Double = 0.0)
         Try
-            '' ### Check if an information is missing ###
-            'For Each TP As TabPage In Me.TabControl1.Controls
-            '    For Each Ctrl As Control In TP.Controls
-            '        If TypeOf Ctrl Is System.Windows.Forms.TextBox Then
-            '            Ctrl.BackColor = System.Drawing.Color.White
-            '            If Ctrl.Text = "0" Then
-            '                Ctrl.BackColor = System.Drawing.Color.Yellow
-            '                'Temporary.A = 1
-            '                move_on = False
-            '            End If
-            '        End If
-            '        If TypeOf Ctrl Is System.Windows.Forms.ComboBox Then
-            '            Ctrl.BackColor = System.Drawing.Color.White
-            '            If Ctrl.Text = "0" Then
-            '                Ctrl.BackColor = System.Drawing.Color.Yellow
-            '                'Temporary.A = 1
-            '                move_on = False
-            '            End If
-            '        End If
-            '    Next
-            'Next
-
             Dim val As Double
-            'If Ctrl.Text.All(AddressOf Char.IsLetter) Then
             If Double.TryParse(Ctrl.Text, val) = False Then
                 Ctrl.BackColor = Color.LightYellow
                 Ctrl.Text = ""
                 move_on = False
-                'ElseIf Ctrl.Text.Contains(",") Then
-                '    Ctrl.BackColor = Color.LightYellow
-                '    Ctrl.Text = ""
-                '    move_on = False
-                'ElseIf Len(Ctrl.Text) <= 0 Then
-                '    Ctrl.BackColor = Color.LightYellow
-                '    Ctrl.Text = ""
-                '    move_on = False
             ElseIf CDbl(Ctrl.Text) <= MinValue Then
                 Ctrl.BackColor = Color.LightYellow
                 Ctrl.Text = ""
                 move_on = False
             Else
                 Ctrl.BackColor = Color.White
-                'Dim asdf As Double = "aqaqa"
             End If
         Catch ex As Exception
             ErrorMessage(ex, 5514)

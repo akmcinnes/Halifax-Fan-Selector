@@ -5,7 +5,6 @@ Module ModNoiseMainFunctions
 
         NCQ = Val(Frmselectfan.Txtflow.Text)   'reading in values from form
         NCFSP = Val(Frmselectfan.Txtfsp.Text)
-        'NCN = Val(Frmselectfan.Txtfanspeed.Text)
         NCN = finalspeed
 
         Select Case Units(0).UnitSelected
@@ -212,7 +211,6 @@ Module ModNoiseMainFunctions
 
     Public Function OpenInletCalcs() 'calculating noise for open ducts
         OpenInletCalcs = 0.0
-        'NCINdia = inletdia
         NCINdia = finalinletdia
 
         inX = 10 * (0.4342944 * Math.Log(4 * ((1000 / NCINdia) ^ 2)))
