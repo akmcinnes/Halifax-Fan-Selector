@@ -578,17 +578,23 @@ Module Sub_Selections
     End Sub
 
     Sub SelectionClick(e As DataGridViewCellEventArgs)
-        Dim ii As Integer
-        ii = 0
+        Try
+            Dim ii As Integer
+            ii = 0
         Do While Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selectedfantype(ii)
             ii = ii + 1
         Loop
         SelectRow(ii)
+
+        Catch ex As Exception
+            ErrorMessage(ex, 1307)
+        End Try
     End Sub
 
     Sub SelectionDoubleClick(e As DataGridViewCellEventArgs)
-        Frmselectfan.btnNoiseDataForward.Enabled = True
-        Frmselectfan.TabPageNoise.Enabled = True
+        Try
+            Frmselectfan.btnNoiseDataForward.Enabled = True
+            Frmselectfan.TabPageNoise.Enabled = True
         FrmFanChart.Text = Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString
 
         If AdvancedUser = True And Units(4).UnitSelected = 2 Then
@@ -597,5 +603,9 @@ Module Sub_Selections
             FrmFanChart.optDisplaykW.Checked = True
         End If
         FrmFanChart.Show()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 1308)
+        End Try
     End Sub
 End Module

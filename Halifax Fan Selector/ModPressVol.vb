@@ -117,7 +117,12 @@
             End If
 
         Catch ex As Exception
-            'ErrorMessage(ex, 5701)
+            'If StartArg.ToLower.Contains("-dev") Then
+            '    ErrorMessage(ex, 5701)
+            'End If
+            failindex = failindex + 1
+            fanfailures(failindex, 0) = fantypename(fanno)
+            fanfailures(failindex, 1) = ex.Message
         End Try
     End Sub
 

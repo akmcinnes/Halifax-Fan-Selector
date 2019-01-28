@@ -6,25 +6,36 @@ Imports System.Drawing.Printing
 Public Class FrmSettings
     Private PrintPageSettings As New PageSettings
     Private Sub btnEnd_Click(sender As Object, e As EventArgs) Handles btnEnd.Click
-        Background_Color = ColorDialog1.Color
-        ReadWriteINI()
-        FrmStart.Hide()
-        FrmStart.Show()
+        Try
+            Background_Color = ColorDialog1.Color
+            ReadWriteINI()
+            FrmStart.Hide()
+            FrmStart.Show()
 
-        If DataPath IsNot Nothing Then
-            FrmStart.btnContinue.Visible = True
-        End If
-        'FrmStart.Refresh()
-        Me.Close()
+            If DataPath IsNot Nothing Then
+                FrmStart.btnContinue.Visible = True
+            End If
+            'FrmStart.Refresh()
+            Me.Close()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20400)
+        End Try
     End Sub
 
     Private Sub btnBackgroundColour_Click(sender As Object, e As EventArgs) Handles btnBackgroundColour.Click
-        ColorDialog1.ShowDialog()
+        Try
+            ColorDialog1.ShowDialog()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20401)
+        End Try
     End Sub
 
     Private Sub FrmSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
-        CenterToScreen()
-        txtUsername.Text = Environment.UserName
+        Try
+            CenterToScreen()
+            txtUsername.Text = Environment.UserName
         UserName = Environment.UserName
         If txtUsername.Text.ToLower.Contains("akm") Then
             grpLanguage.Visible = True
@@ -33,24 +44,38 @@ Public Class FrmSettings
             chkAdvancedUser.Visible = True
         End If
         chkAdvancedUser.Checked = False
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20402)
+        End Try
     End Sub
 
     Private Sub optEnglish_CheckedChanged(sender As Object, e As EventArgs) Handles optEnglish.CheckedChanged
-        ChosenLanguage = "en_US"
-        If optEnglish.Checked Then ApplyLocale(ChosenLanguage)
-        'If optEnglish.Checked Then ApplyLocale()
+        Try
+            ChosenLanguage = "en_US"
+            If optEnglish.Checked Then ApplyLocale(ChosenLanguage)
+            'If optEnglish.Checked Then ApplyLocale()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20403)
+        End Try
     End Sub
 
     Private Sub optChinese_CheckedChanged(sender As Object, e As EventArgs) Handles optChinese.CheckedChanged
-        ChosenLanguage = "zh-CN"
-        If optChinese.Checked Then ApplyLocale(ChosenLanguage)
-        'If optChinese.Checked Then ApplyLocale()
+        Try
+            ChosenLanguage = "zh-CN"
+            If optChinese.Checked Then ApplyLocale(ChosenLanguage)
+            'If optChinese.Checked Then ApplyLocale()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20404)
+        End Try
     End Sub
 
     Private Sub ApplyLocale(ByVal locale_name As String)
-        'Private Sub ApplyLocale()
-        ' Make a CultureInfo and ComponentResourceManager.
-        Dim culture_info As New CultureInfo(locale_name)
+        Try
+            ' Make a CultureInfo and ComponentResourceManager.
+            Dim culture_info As New CultureInfo(locale_name)
         Dim component_resource_manager As New ComponentResourceManager(Me.GetType)
 
         ' Make the thread use this locale. This doesn't change
@@ -79,44 +104,53 @@ Public Class FrmSettings
             optChinese.Visible = True
             chkAdvancedUser.Visible = True
         End If
-        'btnContinue.Text = resource_manager.GetString("btnContinue.Text")
-        'btnExit.Text = resource_manager.GetString("btnExit.Text")
-        'btnSettings.Text = resource_manager.GetString("btnSettings.Text")
-        'chkAdvancedUser.Text = resource_manager.GetString("chkAdvancedUser.Text")
-        'grpLanguage.Text = resource_manager.GetString("grpLanguage.Text")
-        'lblHalifaxFanSelector.Text = resource_manager.GetString("lblHalifaxFanSelector.Text")
-        'lblToThe.Text = resource_manager.GetString("lblToThe.Text")
-        'lblUsername.Text = resource_manager.GetString("lblUsername.Text")
-        'lblWelcome.Text = resource_manager.GetString("lblWelcome.Text")
-        'optChinese.Text = resource_manager.GetString("optChinese.Text")
-        'optEnglish.Text = resource_manager.GetString("optEnglish.Text")
+            'btnContinue.Text = resource_manager.GetString("btnContinue.Text")
+            'btnExit.Text = resource_manager.GetString("btnExit.Text")
+            'btnSettings.Text = resource_manager.GetString("btnSettings.Text")
+            'chkAdvancedUser.Text = resource_manager.GetString("chkAdvancedUser.Text")
+            'grpLanguage.Text = resource_manager.GetString("grpLanguage.Text")
+            'lblHalifaxFanSelector.Text = resource_manager.GetString("lblHalifaxFanSelector.Text")
+            'lblToThe.Text = resource_manager.GetString("lblToThe.Text")
+            'lblUsername.Text = resource_manager.GetString("lblUsername.Text")
+            'lblWelcome.Text = resource_manager.GetString("lblWelcome.Text")
+            'optChinese.Text = resource_manager.GetString("optChinese.Text")
+            'optEnglish.Text = resource_manager.GetString("optEnglish.Text")
 
-        '' Tooltips.
-        'ToolTip1.SetToolTip(picFlag, resource_manager.GetString("picFlag.ToolTip"))
+            '' Tooltips.
+            'ToolTip1.SetToolTip(picFlag, resource_manager.GetString("picFlag.ToolTip"))
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20405)
+        End Try
     End Sub
 
     Private Sub ApplyLocaleToControl(ByVal ctl As Control, ByVal component_resource_manager As ComponentResourceManager, ByVal culture_info As CultureInfo)
-        ' Debug.WriteLine(ctl.Name)
-        component_resource_manager.ApplyResources(ctl, ctl.Name, culture_info)
+        Try
+            component_resource_manager.ApplyResources(ctl, ctl.Name, culture_info)
 
-        ' See what kind of control this is.
-        'If TypeOf ctl Is MenuStrip Then
-        '    ' Apply the new locale to the MenuStrip's items.
-        '    Dim menu_strip As MenuStrip = DirectCast(ctl, MenuStrip)
-        '    For Each child As ToolStripMenuItem In menu_strip.Items
-        '        'ApplyLocaleToToolStripItem(child, component_resource_manager, culture_info)
-        '    Next child
-        'Else
-        ' Apply the new locale to the control's children.
-        For Each child As Control In ctl.Controls
+            ' See what kind of control this is.
+            'If TypeOf ctl Is MenuStrip Then
+            '    ' Apply the new locale to the MenuStrip's items.
+            '    Dim menu_strip As MenuStrip = DirectCast(ctl, MenuStrip)
+            '    For Each child As ToolStripMenuItem In menu_strip.Items
+            '        'ApplyLocaleToToolStripItem(child, component_resource_manager, culture_info)
+            '    Next child
+            'Else
+            ' Apply the new locale to the control's children.
+            For Each child As Control In ctl.Controls
             ApplyLocaleToControl(child, component_resource_manager, culture_info)
         Next child
-        'End If
+            'End If
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20406)
+        End Try
     End Sub
 
     Private Sub btnDataFolder_Click(sender As Object, e As EventArgs) Handles btnDataFolder.Click
-        'ComboBox1.Items.Clear()
-        FolderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop
+        Try
+            'ComboBox1.Items.Clear()
+            FolderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop
         FolderBrowserDialog1.SelectedPath = "C:\Halifax\Performance Data\"
         FolderBrowserDialog1.Description = "Select Application Configuration Files Path"
         FolderBrowserDialog1.ShowNewFolderButton = False
@@ -124,6 +158,10 @@ Public Class FrmSettings
         DataPath = FolderBrowserDialog1.SelectedPath + "\"
         Label1.Text = "Data Path - " + DataPath
         Label1.ForeColor = Color.White
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20407)
+        End Try
     End Sub
 
     Private Sub btnPageSetup_Click(sender As Object, e As EventArgs) Handles btnPageSetup.Click
@@ -133,7 +171,7 @@ Public Class FrmSettings
             SetupPage.ShowDialog()
             pagesize = SetupPage.PageSettings.PaperSize.PaperName
         Catch ex As Exception
-            MsgBox(ex.Message)
+            ErrorMessage(ex, 20408)
         End Try
     End Sub
 End Class

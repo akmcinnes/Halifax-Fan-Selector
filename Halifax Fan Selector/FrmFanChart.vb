@@ -14,7 +14,7 @@ Public Class FrmFanChart
             PlotTheCurve()
             SeriesAdded = True
         Catch ex As Exception
-
+            ErrorMessage(ex, 20101)
         End Try
     End Sub
 
@@ -36,7 +36,7 @@ Public Class FrmFanChart
             Chart1.ChartAreas("ChartArea1").AxisY.MinorGrid.Interval = Chart1.ChartAreas("ChartArea1").AxisY.MajorGrid.Interval / 10.0
             Chart1.ChartAreas("ChartArea1").AxisY.MinorGrid.Enabled = True
         Catch ex As Exception
-
+            ErrorMessage(ex, 20102)
         End Try
     End Sub
 
@@ -97,7 +97,7 @@ Public Class FrmFanChart
             'End If
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20103)
         End Try
 
     End Sub
@@ -131,7 +131,7 @@ Public Class FrmFanChart
             Chart1.Series("Duty Point FSP").Points.AddXY(selectedvol(fan2plot), selectedfsp(fan2plot))
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20104)
         End Try
 
     End Sub
@@ -165,7 +165,7 @@ Public Class FrmFanChart
             Chart1.Series("Duty Point FTP").Points.AddXY(selectedvol(fan2plot), selectedftp(fan2plot))
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20105)
         End Try
 
     End Sub
@@ -226,7 +226,7 @@ Public Class FrmFanChart
             Chart1.ChartAreas("ChartArea1").AxisY2.MinorGrid.Enabled = True
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20106)
         End Try
 
     End Sub
@@ -268,7 +268,7 @@ Public Class FrmFanChart
             Chart1.ChartAreas(0).AxisX.Minimum = 0.0
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20107)
         End Try
 
     End Sub
@@ -327,7 +327,7 @@ Public Class FrmFanChart
             Next
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20108)
         End Try
 
     End Sub
@@ -340,9 +340,8 @@ Public Class FrmFanChart
             'Chart1.Series("Duty Point").Points.AddXY(selectedvol(fan2plot), selectedpow(fan2plot))
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20109)
         End Try
-
     End Sub
 
     Public Sub RemoveStaticCurve()
@@ -353,7 +352,7 @@ Public Class FrmFanChart
         Chart1.Series.Remove(series2)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20110)
         End Try
     End Sub
 
@@ -367,7 +366,7 @@ Public Class FrmFanChart
             'SeriesAdded = False
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20111)
         End Try
 
     End Sub
@@ -382,7 +381,7 @@ Public Class FrmFanChart
             ''SeriesAdded = False
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20112)
         End Try
 
     End Sub
@@ -402,7 +401,7 @@ Public Class FrmFanChart
 
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20113)
         End Try
 
     End Sub
@@ -416,7 +415,7 @@ Public Class FrmFanChart
             End If
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20114)
         End Try
 
     End Sub
@@ -430,7 +429,7 @@ Public Class FrmFanChart
             End If
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20115)
         End Try
 
     End Sub
@@ -444,7 +443,7 @@ Public Class FrmFanChart
             End If
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20116)
         End Try
 
 
@@ -459,7 +458,7 @@ Public Class FrmFanChart
             End If
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20117)
         End Try
 
     End Sub
@@ -471,7 +470,7 @@ Public Class FrmFanChart
             'PageSetupDialog1.PageSettings.PaperSize(210, 297)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20118)
         End Try
 
     End Sub
@@ -496,7 +495,7 @@ Public Class FrmFanChart
             'End Try
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20119)
         End Try
 
     End Sub
@@ -506,7 +505,7 @@ Public Class FrmFanChart
             Close()
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20120)
         End Try
 
     End Sub
@@ -533,7 +532,7 @@ Public Class FrmFanChart
             'MsgBox(filename + " read " + fanno.ToString)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20121)
         End Try
 
     End Sub
@@ -548,7 +547,7 @@ Public Class FrmFanChart
             If ChkStaticPressureCurve.Checked = False Then RemoveStaticCurve()
             If ChkFanPower.Checked = False Then RemovePowerCurve()
         Catch ex As Exception
-
+            ErrorMessage(ex, 20122)
         End Try
 
     End Sub
@@ -564,7 +563,7 @@ Public Class FrmFanChart
             If ChkFanPower.Checked = False Then RemovePowerCurve()
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20123)
         End Try
 
     End Sub

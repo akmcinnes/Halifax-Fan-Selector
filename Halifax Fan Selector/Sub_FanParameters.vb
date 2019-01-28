@@ -78,11 +78,17 @@
         End Try
     End Sub
     Public Function CalculateKP(gamma As Double, atmos As Double, fsp As Double, ip As Double) As Double
-        Dim a, b, c As Double
-        a = gamma / (gamma - 1)
+        Try
+            Dim a, b, c As Double
+            a = gamma / (gamma - 1)
         b = (gamma - 1) / gamma
         c = (atmos + fsp) / (atmos + ip)
         kp = (a * ((c ^ b) - 1)) / (c - 1)
+
+
+        Catch ex As Exception
+            ErrorMessage(ex, 1203)
+        End Try
         Return kp
     End Function
 End Module

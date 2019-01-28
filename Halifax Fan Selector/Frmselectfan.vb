@@ -47,7 +47,8 @@ Public Class Frmselectfan
             End If
             Initialize(True)
         Catch ex As Exception
-            MsgBox("load")
+            ErrorMessage(ex, 20300)
+            'MsgBox("load")
         End Try
     End Sub
 
@@ -89,7 +90,7 @@ Public Class Frmselectfan
             End If
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20302)
         End Try
     End Sub
 
@@ -110,7 +111,7 @@ Public Class Frmselectfan
             End
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20303)
         End Try
     End Sub
 
@@ -122,7 +123,8 @@ Public Class Frmselectfan
         Try
             FrmProjectDetails.ShowDialog()
         Catch ex As Exception
-            MsgBox("ProjectDetailsToolStripMenuItem_Click")
+            ErrorMessage(ex, 20304)
+            'MsgBox("ProjectDetailsToolStripMenuItem_Click")
         End Try
     End Sub
 
@@ -132,6 +134,7 @@ Public Class Frmselectfan
     '    '    FrmUnits.ShowDialog()
 
     '    'Catch ex As Exception
+    'errormessage(ex,20305)
     '    '    MsgBox("UnitsToolStripMenuItem_Click_1")
     '    'End Try
     'End Sub
@@ -142,7 +145,8 @@ Public Class Frmselectfan
             Initialize(True)
 
         Catch ex As Exception
-            MsgBox("OpenToolStripMenuItem_Click")
+            ErrorMessage(ex, 20306)
+            'MsgBox("OpenToolStripMenuItem_Click")
         End Try
     End Sub
 
@@ -150,7 +154,7 @@ Public Class Frmselectfan
         Try
             SaveToFile()
         Catch ex As Exception
-
+            ErrorMessage(ex, 20307)
         End Try
 
     End Sub
@@ -250,7 +254,7 @@ Public Class Frmselectfan
             ''End Try
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20308)
         End Try
 
 
@@ -266,7 +270,8 @@ Public Class Frmselectfan
             '        End
 
         Catch ex As Exception
-            MsgBox("ExitProjectToolStripMenuItem_Click")
+            ErrorMessage(ex, 20309)
+            'MsgBox("ExitProjectToolStripMenuItem_Click")
         End Try
 
     End Sub
@@ -280,7 +285,7 @@ Public Class Frmselectfan
         Try
             SetupDutyPage()
         Catch ex As Exception
-
+            ErrorMessage(ex, 20310)
         End Try
     End Sub
 
@@ -292,13 +297,18 @@ Public Class Frmselectfan
 
             reshead = CDbl(str_temp.Remove(str_temp.Length - 1))
         Catch ex As Exception
-
+            ErrorMessage(ex, 20311)
         End Try
     End Sub
 
 
     Private Sub OptDensityCalculated_CheckedChanged(sender As Object, e As EventArgs) Handles OptDensityCalculated.CheckedChanged
-        DensityCalculate()
+        Try
+            DensityCalculate()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20312)
+        End Try
     End Sub
 
     ' ############################################################################################
@@ -316,7 +326,7 @@ Public Class Frmselectfan
                 Label3.Text = ""
             End If
         Catch ex As Exception
-
+            ErrorMessage(ex, 20313)
         End Try
     End Sub
 
@@ -325,7 +335,7 @@ Public Class Frmselectfan
             SetupSelectionPage()
             CenterToScreen()
         Catch ex As Exception
-
+            ErrorMessage(ex, 20314)
         End Try
     End Sub
 
@@ -334,7 +344,7 @@ Public Class Frmselectfan
             Close()
             End
         Catch ex As Exception
-
+            ErrorMessage(ex, 20315)
         End Try
     End Sub
 
@@ -345,7 +355,7 @@ Public Class Frmselectfan
             End If
             SelectionClick(e)
         Catch ex As Exception
-
+            ErrorMessage(ex, 20316)
         End Try
     End Sub
 
@@ -357,7 +367,7 @@ Public Class Frmselectfan
                 End If
                 SelectionDoubleClick(e)
         Catch ex As Exception
-
+            ErrorMessage(ex, 20317)
         End Try
 
     End Sub
@@ -506,7 +516,7 @@ Public Class Frmselectfan
             'End If
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20318)
         End Try
 
 
@@ -569,39 +579,59 @@ Public Class Frmselectfan
     'End Sub
 
     Private Sub TabPageGeneral_Enter(sender As Object, e As EventArgs) Handles TabPageGeneral.Enter
-        'TabPageGeneral.BackColor = Background_Color
-        chkCalcAtmos.Text = "Calculate Atmospheric" + vbCrLf + "Pressure from Altitude"
+        Try
+            'TabPageGeneral.BackColor = Background_Color
+            chkCalcAtmos.Text = "Calculate Atmospheric" + vbCrLf + "Pressure from Altitude"
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20319)
+        End Try
     End Sub
 
     Private Sub TabPageImpeller_Enter(sender As Object, e As EventArgs) Handles TabPageImpeller.Enter
-        'TabPageImpeller.BackColor = Background_Color
+        Try
+            'TabPageImpeller.BackColor = Background_Color
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20320)
+        End Try
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Try
             End
         Catch ex As Exception
-
+            ErrorMessage(ex, 20321)
         End Try
     End Sub
 
     Private Sub PrintPreviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintPreviewToolStripMenuItem.Click
-        Dim PrintPreviewDialog1 As PrintPreviewDialog = New PrintPreviewDialog()
-        'PrintPreviewDialog1.InitialDirectory = "c:\Halifax\Projects\"
-        'PrintPreviewDialog1.Filter = "Halifax Selection|*.hfs"
-        'PrintPreviewDialog1.Title = "Save a Halifax Selection File"
-        PrintPreviewDialog1.ShowDialog()
-        'SaveFileName = PrintPreviewDialog1.FileName
+        Try
+            Dim PrintPreviewDialog1 As PrintPreviewDialog = New PrintPreviewDialog()
+            'PrintPreviewDialog1.InitialDirectory = "c:\Halifax\Projects\"
+            'PrintPreviewDialog1.Filter = "Halifax Selection|*.hfs"
+            'PrintPreviewDialog1.Title = "Save a Halifax Selection File"
+            PrintPreviewDialog1.ShowDialog()
+            'SaveFileName = PrintPreviewDialog1.FileName
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20322)
+        End Try
 
     End Sub
 
     Private Sub PrintToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintToolStripMenuItem.Click
-        Dim PrintDialog1 As PrintDialog = New PrintDialog()
-        'PrintPreviewDialog1.InitialDirectory = "c:\Halifax\Projects\"
-        'PrintPreviewDialog1.Filter = "Halifax Selection|*.hfs"
-        'PrintPreviewDialog1.Title = "Save a Halifax Selection File"
-        PrintDialog1.ShowDialog()
-        'SaveFileName = PrintPreviewDialog1.FileName
+        Try
+            Dim PrintDialog1 As PrintDialog = New PrintDialog()
+            'PrintPreviewDialog1.InitialDirectory = "c:\Halifax\Projects\"
+            'PrintPreviewDialog1.Filter = "Halifax Selection|*.hfs"
+            'PrintPreviewDialog1.Title = "Save a Halifax Selection File"
+            PrintDialog1.ShowDialog()
+            'SaveFileName = PrintPreviewDialog1.FileName
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20323)
+        End Try
 
     End Sub
 
@@ -613,12 +643,16 @@ Public Class Frmselectfan
             FrmDensityCalcs.TextBox3.Text = TxtHumidity.Text
             FrmDensityCalcs.ShowDialog()
         Catch ex As Exception
-
+            ErrorMessage(ex, 20324)
         End Try
     End Sub
 
     Private Sub TabPageDuty_Click(sender As Object, e As EventArgs) Handles TabPageDuty.Click
+        Try
 
+        Catch ex As Exception
+            ErrorMessage(ex, 20325)
+        End Try
     End Sub
 
     Private Sub btnGeneralInformationBack_Click(sender As Object, e As EventArgs) Handles btnGeneralInformationBack.Click
@@ -631,7 +665,7 @@ Public Class Frmselectfan
             txtRatioDD.BackColor = Color.White
             TabControl1.SelectTab(TabPageGeneral)
         Catch ex As Exception
-
+            ErrorMessage(ex, 20326)
         End Try
     End Sub
 
@@ -672,7 +706,7 @@ Public Class Frmselectfan
             End If
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20327)
         End Try
     End Sub
 
@@ -681,12 +715,13 @@ Public Class Frmselectfan
         Try
             TabControl1.SelectTab(TabPageDuty)
         Catch ex As Exception
-
+            ErrorMessage(ex, 20328)
         End Try
     End Sub
 
     Private Sub btnFanSelectionsForward_Click(sender As Object, e As EventArgs) Handles btnFanSelectionsForward.Click
         Try
+            failindex = -1
             pressrise = CDbl(Txtfsp.Text)
             maxspeed = CDbl(Txtspeedlimit.Text)
             If Opt2Pole.Checked = True Or Opt4Pole.Checked = True Or Opt6Pole.Checked = True Or Opt8Pole.Checked = True Or Opt10Pole.Checked = True Or Opt12Pole.Checked = True Then maxspeed = CDbl(Txtfanspeed.Text)
@@ -705,7 +740,7 @@ Public Class Frmselectfan
             TabControl1.SelectTab(TabPageSelection)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20329)
         End Try
     End Sub
 
@@ -714,7 +749,7 @@ Public Class Frmselectfan
         Try
             TabControl1.SelectTab(TabPageFanParameters)
         Catch ex As Exception
-
+            ErrorMessage(ex, 20330)
         End Try
     End Sub
 
@@ -728,7 +763,7 @@ Public Class Frmselectfan
                 Label14.Text = "Fan Total Pressure"
             End If
         Catch ex As Exception
-
+            ErrorMessage(ex, 20331)
         End Try
     End Sub
 
@@ -738,7 +773,7 @@ Public Class Frmselectfan
             TabControl1.SelectTab(TabPageSelection)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20332)
         End Try
     End Sub
 
@@ -747,12 +782,16 @@ Public Class Frmselectfan
         Try
             SaveToFile()
         Catch ex As Exception
-
+            ErrorMessage(ex, 20333)
         End Try
     End Sub
 
     Private Sub GrpFrequency_Enter(sender As Object, e As EventArgs) Handles GrpFrequency.Enter
+        Try
 
+        Catch ex As Exception
+            ErrorMessage(ex, 20334)
+        End Try
     End Sub
 
     Private Sub Opt2Pole_CheckedChanged_1(sender As Object, e As EventArgs) Handles Opt2Pole.CheckedChanged
@@ -760,7 +799,7 @@ Public Class Frmselectfan
             SetSpeeds(0)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20335)
         End Try
     End Sub
 
@@ -769,7 +808,7 @@ Public Class Frmselectfan
             SetSpeeds(1)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20336)
         End Try
     End Sub
 
@@ -778,7 +817,7 @@ Public Class Frmselectfan
             SetSpeeds(2)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20337)
         End Try
     End Sub
 
@@ -787,7 +826,7 @@ Public Class Frmselectfan
             SetSpeeds(3)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20338)
         End Try
     End Sub
 
@@ -796,7 +835,7 @@ Public Class Frmselectfan
             SetSpeeds(4)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20339)
         End Try
     End Sub
 
@@ -805,7 +844,7 @@ Public Class Frmselectfan
             SetSpeeds(5)
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20340)
         End Try
     End Sub
 
@@ -815,7 +854,7 @@ Public Class Frmselectfan
             If freqHz = 50 Then Txtspeedlimit.Text = "3000"
             If freqHz = 60 Then Txtspeedlimit.Text = "3600"
         Catch ex As Exception
-
+            ErrorMessage(ex, 20341)
         End Try
     End Sub
 
@@ -869,7 +908,7 @@ Public Class Frmselectfan
             LblAmbientTemperatureUnits.Text = OptTemperatureC.Text
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20342)
         End Try
     End Sub
 
@@ -878,7 +917,7 @@ Public Class Frmselectfan
             LblAmbientTemperatureUnits.Text = OptTemperatureF.Text
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20343)
         End Try
     End Sub
 
@@ -887,7 +926,7 @@ Public Class Frmselectfan
             LblAltitudeUnits.Text = OptAltitudeM.Text
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20344)
         End Try
     End Sub
 
@@ -896,7 +935,7 @@ Public Class Frmselectfan
             LblAltitudeUnits.Text = OptAltitudeFt.Text
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20345)
         End Try
     End Sub
 
@@ -905,7 +944,7 @@ Public Class Frmselectfan
             LblAtmosphericPressureUnits.Text = OptPressurePa.Text
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20346)
         End Try
     End Sub
 
@@ -913,7 +952,7 @@ Public Class Frmselectfan
         Try
             LblAtmosphericPressureUnits.Text = OptPressuremBar.Text
         Catch ex As Exception
-
+            ErrorMessage(ex, 20347)
         End Try
 
     End Sub
@@ -923,7 +962,7 @@ Public Class Frmselectfan
             LblAtmosphericPressureUnits.Text = OptPressureinWG.Text
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20348)
         End Try
     End Sub
 
@@ -932,7 +971,7 @@ Public Class Frmselectfan
             LblAtmosphericPressureUnits.Text = OptPressuremmWG.Text
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20349)
         End Try
     End Sub
 
@@ -941,7 +980,7 @@ Public Class Frmselectfan
             LblAtmosphericPressureUnits.Text = OptPressurekPa.Text
 
         Catch ex As Exception
-
+            ErrorMessage(ex, 20350)
         End Try
     End Sub
 
@@ -949,7 +988,7 @@ Public Class Frmselectfan
         Try
             MetricUnits()
         Catch ex As Exception
-            ErrorMessage(ex, 20300)
+            ErrorMessage(ex, 20351)
         End Try
     End Sub
 
@@ -957,7 +996,7 @@ Public Class Frmselectfan
         Try
             ImperialUnits()
         Catch ex As Exception
-            ErrorMessage(ex, 20301)
+            ErrorMessage(ex, 20352)
         End Try
     End Sub
 
@@ -990,7 +1029,7 @@ Public Class Frmselectfan
             TabControl1.SelectTab(TabPageDuty)
         Catch ex As Exception
             'ErrorMessage(ex, 2000)
-            ErrorMessage(ex, 20302)
+            ErrorMessage(ex, 20353)
         End Try
     End Sub
 
@@ -999,7 +1038,7 @@ Public Class Frmselectfan
             'objStreamWriterDebug.Close()
             End
         Catch ex As Exception
-
+            ErrorMessage(ex, 20354)
         End Try
     End Sub
 
@@ -1008,7 +1047,7 @@ Public Class Frmselectfan
             'objStreamWriterDebug.Close()
             End
         Catch ex As Exception
-
+            ErrorMessage(ex, 20355)
         End Try
     End Sub
 
@@ -1016,7 +1055,7 @@ Public Class Frmselectfan
         Try
             End
         Catch ex As Exception
-
+            ErrorMessage(ex, 20356)
         End Try
     End Sub
 
@@ -1024,7 +1063,7 @@ Public Class Frmselectfan
         Try
             End
         Catch ex As Exception
-
+            ErrorMessage(ex, 20357)
         End Try
     End Sub
 
@@ -1036,7 +1075,7 @@ Public Class Frmselectfan
             lblUserDefinedUnits.Enabled = False
             lblpercent.Enabled = False
         Catch ex As Exception
-
+            ErrorMessage(ex, 20358)
         End Try
     End Sub
 
@@ -1048,7 +1087,7 @@ Public Class Frmselectfan
             lblUserDefinedUnits.Enabled = True
             lblpercent.Enabled = False
         Catch ex As Exception
-
+            ErrorMessage(ex, 20359)
         End Try
     End Sub
 
@@ -1060,23 +1099,25 @@ Public Class Frmselectfan
             lblUserDefinedUnits.Enabled = False
             lblpercent.Enabled = True
         Catch ex As Exception
-
+            ErrorMessage(ex, 20360)
         End Try
     End Sub
 
     Private Sub chkDisplayAll_CheckedChanged(sender As Object, e As EventArgs) Handles chkDisplayAll.CheckedChanged
         Try
+            failindex = -1
             TabPageSelection_Enter(sender, e)
         Catch ex As Exception
-
+            ErrorMessage(ex, 20361)
         End Try
     End Sub
 
     Private Sub chkDisplayLowerEff_CheckedChanged(sender As Object, e As EventArgs) Handles chkDisplayLowerEff.CheckedChanged
         Try
+            failindex = -1
             TabPageSelection_Enter(sender, e)
         Catch ex As Exception
-
+            ErrorMessage(ex, 20362)
         End Try
     End Sub
 
@@ -1154,7 +1195,7 @@ Public Class Frmselectfan
                 If move_on = True Then SetupFanParametersPage()
 
             Catch ex As Exception
-
+                ErrorMessage(ex, 20363)
             End Try
 
         End If
@@ -1162,65 +1203,124 @@ Public Class Frmselectfan
     End Sub
 
     Private Sub OptStaticPressure_CheckedChanged(sender As Object, e As EventArgs) Handles OptStaticPressure.CheckedChanged
-        PresType = 0
+        Try
+            PresType = 0
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20364)
+        End Try
     End Sub
 
     Private Sub OptTotalPressure_CheckedChanged(sender As Object, e As EventArgs) Handles OptTotalPressure.CheckedChanged
-        PresType = 1
+        Try
+            PresType = 1
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20365)
+        End Try
     End Sub
 
     Private Sub chkDuct_CheckedChanged(sender As Object, e As EventArgs) Handles chkDuct.CheckedChanged
-        'OpenDuctCalcs()
+        Try
+            'OpenDuctCalcs()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20366)
+        End Try
     End Sub
 
 
     Private Sub chkOpenInlet_CheckedChanged(sender As Object, e As EventArgs) Handles chkOpenInlet.CheckedChanged
-        'OpenDuctCalcs()
+        Try
+            'OpenDuctCalcs()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20367)
+        End Try
     End Sub
 
     Private Sub chkOpenOutlet_CheckedChanged(sender As Object, e As EventArgs) Handles chkOpenOutlet.CheckedChanged
-        'OpenDuctCalcs()
+        Try
+            'OpenDuctCalcs()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20368)
+        End Try
     End Sub
 
 
     Private Sub chkDuct_Click(sender As Object, e As EventArgs) Handles chkDuct.Click
-        OpenDuctCalcs()
+        Try
+            OpenDuctCalcs()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20369)
+        End Try
+
 
     End Sub
 
     Private Sub chkOpenInlet_Click(sender As Object, e As EventArgs) Handles chkOpenInlet.Click
-        OpenDuctCalcs()
+        Try
+            OpenDuctCalcs()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20370)
+        End Try
     End Sub
 
     Private Sub chkOpenOutlet_Click(sender As Object, e As EventArgs) Handles chkOpenOutlet.Click
-        OpenDuctCalcs()
+        Try
+            OpenDuctCalcs()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20371)
+        End Try
+
     End Sub
 
     Private Sub chkBrg_Click(sender As Object, e As EventArgs) Handles chkBrg.Click
-        OpenDuctCalcs()
+        Try
+            OpenDuctCalcs()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20372)
+        End Try
+
     End Sub
 
     Private Sub chkMotor_Click(sender As Object, e As EventArgs) Handles chkMotor.Click
-        OpenDuctCalcs()
+        Try
+            OpenDuctCalcs()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20373)
+        End Try
+
     End Sub
 
     Private Sub txtMotordba_TextChanged(sender As Object, e As EventArgs) Handles txtMotordba.TextChanged
-        Dim val As Double
-        'If Ctrl.Text.All(AddressOf Char.IsLetter) Then
-        If Integer.TryParse(txtMotordba.Text, val) = False Then
+        Try
+            Dim val As Double
+            'If Ctrl.Text.All(AddressOf Char.IsLetter) Then
+            If Integer.TryParse(txtMotordba.Text, val) = False Then
             chkMotor.Enabled = False
         ElseIf CInt(txtMotordba.Text) < 0 Then
             chkMotor.Enabled = False
         Else
             chkMotor.Enabled = True
         End If
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20374)
+        End Try
     End Sub
 
     Private Sub chkKP_CheckedChanged(sender As Object, e As EventArgs) Handles chkKP.CheckedChanged
         Try
             TabPageSelection_Enter(sender, e)
         Catch ex As Exception
-
+            ErrorMessage(ex, 20375)
         End Try
     End Sub
 
@@ -1257,6 +1357,16 @@ Public Class Frmselectfan
         Else
             TxtAtmosphericPressure.Enabled = True
         End If
+    End Sub
+
+    Private Sub DataGridView1_MouseClick(sender As Object, e As MouseEventArgs) Handles DataGridView1.MouseClick
+
+        'Select Right Clicked Row if its not the header row
+        If e.Button = MouseButtons.Right And failindex > -1 Then
+            FrmDisplayFailures.Show()
+        End If
+
+
     End Sub
 
 

@@ -91,6 +91,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmDisplayFailures.Designer.vb">
+      <DependentUpon>FrmDisplayFailures.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDisplayFailures.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModDensity.vb" />
     <Compile Include="ModErrorMessages.vb" />
     <Compile Include="FrmDensityCalcs.Designer.vb">
@@ -170,6 +176,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FrmDensityCalcs.resx">
       <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDisplayFailures.resx">
+      <DependentUpon>FrmDisplayFailures.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFanChart.resx">
       <DependentUpon>FrmFanChart.vb</DependentUpon>

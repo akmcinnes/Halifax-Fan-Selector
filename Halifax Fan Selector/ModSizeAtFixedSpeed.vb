@@ -102,7 +102,10 @@
             End If
             '-----------------------------------------------
             If SizeAtFixedSpeed = 0 Then
-                MsgBox("Fan Type " + fanclass(fanno) + ": Sorry this duty is out of range for this fan type")
+                failindex = failindex + 1
+                fanfailures(failindex, 0) = fantypename(fanno)
+                fanfailures(failindex, 1) = "Sorry this duty is out of range for this fan type"
+                'MsgBox("Fan Type " + fanclass(fanno) + ": Sorry this duty is out of range for this fan type")
                 Exit Function
             End If
 
@@ -116,7 +119,7 @@
                 MsgBox(fanclass(fanno))
             End If
         End Try
-
+        'Return GetSizeAtfixedSpeed
     End Function
 
 End Module

@@ -47,7 +47,7 @@
                 End If
             End With
         Catch ex As Exception
-            MsgBox("OptDensityCalculated_CheckedChanged")
+            ErrorMessage(ex, 1103)
         End Try
 
     End Sub

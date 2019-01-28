@@ -149,7 +149,7 @@ Module ModLoadData
                 End If
             Loop
             GetMotorSize = Motor_Information(count).PowerKW
-            'ErrorMessage(ex, 5402)
+            ErrorMessage(ex, 5402)
         End Try
     End Function
 
@@ -292,7 +292,10 @@ Module ModLoadData
             Next
             br.Close() 'Close 
         Catch ex As Exception
-            If StartArg.ToLower.Contains("-def") Then ErrorMessage(ex, 5404)
+            'If StartArg.ToLower.Contains("-def") Then ErrorMessage(ex, 5404)
+            failindex = failindex + 1
+            fanfailures(failindex, 0) = fantypename(fanno)
+            fanfailures(failindex, 1) = ex.Message
         End Try
     End Sub
 End Module

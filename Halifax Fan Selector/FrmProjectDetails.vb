@@ -1,22 +1,37 @@
 ﻿Public Class FrmProjectDetails
     Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles BtnCancel.Click
-        Close()
+        Try
+            Close()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20200)
+        End Try
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
-        If (TxtCustomer.TextLength > 0) Then
-            Frmselectfan.Text = "Halifax Fan Selection Software - " + TxtCustomer.Text
-        Else
-            Frmselectfan.Text = "Halifax Fan Selection Software"
+        Try
+            If (TxtCustomer.TextLength > 0) Then
+                Frmselectfan.Text = "Halifax Fan Selection Software - " + TxtCustomer.Text
+            Else
+                Frmselectfan.Text = "Halifax Fan Selection Software"
         End If
         Customer = TxtCustomer.Text
-        engineer = TxtEngineer.Text
+        Engineer = TxtEngineer.Text
         Close()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20201)
+        End Try
     End Sub
 
     Private Sub FrmProjectDetails_Load(sender As Object, e As EventArgs) Handles Me.Load
-        TxtCustomer.Text = Customer
-        TxtEngineer.Text = Engineer
+        Try
+            TxtCustomer.Text = Customer
+            TxtEngineer.Text = Engineer
         CenterToScreen()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20202)
+        End Try
     End Sub
 End Class

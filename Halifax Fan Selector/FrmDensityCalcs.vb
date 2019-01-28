@@ -3,8 +3,9 @@ Imports System.IO
 Public Class FrmDensityCalcs
     Public FullFilePath As String
     Private Sub DensityCalcs_Load(sender As Object, e As EventArgs) Handles Me.Load
-        CenterToScreen()
-        GasInitialise()
+        Try
+            CenterToScreen()
+            GasInitialise()
         TextBox1.Enabled = False
         TextBox2.Enabled = False
         TextBox3.Enabled = False
@@ -24,6 +25,10 @@ Public Class FrmDensityCalcs
         TextBox5.Text = (CDbl(TextBox1.Text) * 9 / 5 + 32).ToString
         TextBox6.Text = Nothing
         TextBox7.Text = Nothing
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20000)
+        End Try
     End Sub
 
     Sub ReadGasfromTextfile(filename)
@@ -54,13 +59,15 @@ Public Class FrmDensityCalcs
                 br.Close()
             End Try
         Catch ex As Exception
-            MsgBox("ReadGasfromTextfile")
+            'MsgBox("ReadGasfromTextfile")
+            ErrorMessage(ex, 20001)
         End Try
     End Sub
 
     Private Sub ListBox1_DoubleClick(sender As Object, e As EventArgs) Handles ListBox1.DoubleClick
-        Dim selectedItems = (From i In ListBox1.SelectedItems).ToArray()
-        gridrow = gridrow + 1
+        Try
+            Dim selectedItems = (From i In ListBox1.SelectedItems).ToArray()
+            gridrow = gridrow + 1
         Dim j As Integer
         For Each selectedItem In selectedItems
             ListBox1.Items.Remove(selectedItem)
@@ -78,63 +85,77 @@ Public Class FrmDensityCalcs
             If RadioButton2.Checked = True And DataGridView1.Rows(gasnum).Cells(0).Value.contains("Air") = True And gasnum = 0 Then
                 DataGridView1.Rows(gasnum).Cells(1).Value = "1.0"
                 DataGridView1.Rows(maxgasnum).Cells(1).Value = "1.0"
-            ElseIf RadioButton2.Checked = True And DataGridView1.Rows(0).Cells(0).Value.contains("Air") = True And gasnum > 0 Then
-                DataGridView1.Rows(0).Cells(1).Value = ""
-            End If
+                    DataGridView1.Rows(0).Cells(1).Value = ""
+                End If
             gasnum = gasnum + 1
         Next
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20002)
+        End Try
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        ListBox1.Items.Clear()
-        Dim i As Integer
-        For i = 0 To gasnum
-            DataGridView1.Rows.Clear()
-        Next
-        TextBox7.Text = Nothing
-        TextBox6.Text = Nothing
-        btnCalculate.Enabled = False
-        GasInitialise()
+        Try
+            ListBox1.Items.Clear()
+            Dim i As Integer
+            For i = 0 To gasnum
+                DataGridView1.Rows.Clear()
+            Next
+            TextBox7.Text = Nothing
+            TextBox6.Text = Nothing
+            btnCalculate.Enabled = False
+            GasInitialise()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20004)
+
+        End Try
     End Sub
 
     Private Sub GasInitialise()
-        Dim filenameref As String = "Gas Data"
-        If RadioButton1.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
-        If RadioButton2.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
-        If RadioButton3.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
-        ListBox1.Items.Clear()
-        Dim i, j As Integer
-        For i = 0 To gasnum
-            DataGridView1.Rows.Clear()
-        Next
-        TextBox7.Text = Nothing
-        TextBox6.Text = Nothing
-        btnCalculate.Enabled = False
+        Try
+            Dim filenameref As String = "Gas Data"
+            If RadioButton1.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
+            If RadioButton2.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
+            If RadioButton3.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
+            ListBox1.Items.Clear()
+            Dim i, j As Integer
+            For i = 0 To gasnum
+                DataGridView1.Rows.Clear()
+            Next
+            TextBox7.Text = Nothing
+            TextBox6.Text = Nothing
+            btnCalculate.Enabled = False
 
-        ReadGasfromTextfile(filenameref)
-        gasnum = 0
-        gridrow = 0
-        maxgasnum = 5
-        DataGridView1.RowCount = maxgasnum + 1
-        DataGridView1.Width = DataGridView1.RowHeadersWidth
+            ReadGasfromTextfile(filenameref)
+            gasnum = 0
+            gridrow = 0
+            maxgasnum = 5
+            DataGridView1.RowCount = maxgasnum + 1
+            DataGridView1.Width = DataGridView1.RowHeadersWidth
 
-        For i = 0 To 1 '3
-            DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(i).Width
-            DataGridView1.Rows(maxgasnum).Cells(i).Style.BackColor = Color.Beige
-            DataGridView1.Rows(maxgasnum).Cells(i).ReadOnly = True
-        Next i
-        DataGridView1.Height = 20 + DataGridView1.Rows(0).Height * DataGridView1.RowCount + DataGridView1.ColumnHeadersHeight
+            For i = 0 To 1 '3
+                DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(i).Width
+                DataGridView1.Rows(maxgasnum).Cells(i).Style.BackColor = Color.Beige
+                DataGridView1.Rows(maxgasnum).Cells(i).ReadOnly = True
+            Next i
+            DataGridView1.Height = 20 + DataGridView1.Rows(0).Height * DataGridView1.RowCount + DataGridView1.ColumnHeadersHeight
 
-        For i = 0 To 1 '3
-            For j = 0 To maxgasnum
-                DataGridView1.Rows(j).Cells(i).ReadOnly = True
-            Next j
-        Next i
+            For i = 0 To 1 '3
+                For j = 0 To maxgasnum
+                    DataGridView1.Rows(j).Cells(i).ReadOnly = True
+                Next j
+            Next i
 
-        DataGridView1.Columns(0).ReadOnly = True
-        DataGridView1.Rows(maxgasnum).ReadOnly = True
-        DataGridView1.Rows(maxgasnum).Cells(0).Value = "TOTAL"
-        ListBox1.Enabled = True
+            DataGridView1.Columns(0).ReadOnly = True
+            DataGridView1.Rows(maxgasnum).ReadOnly = True
+            DataGridView1.Rows(maxgasnum).Cells(0).Value = "TOTAL"
+            ListBox1.Enabled = True
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20005)
+        End Try
     End Sub
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
@@ -173,31 +194,53 @@ Public Class FrmDensityCalcs
             End If
 
         Catch ex As Exception
-            MsgBox("DataGridView1_CellEndEdit")
+            'MsgBox("DataGridView1_CellEndEdit")
+            ErrorMessage(ex, 20006)
         End Try
     End Sub
 
     Private Sub RadioButton1_Click(sender As Object, e As EventArgs) Handles RadioButton1.Click
-        DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
+        Try
+            DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20007)
+        End Try
     End Sub
 
     Private Sub RadioButton2_Click(sender As Object, e As EventArgs) Handles RadioButton2.Click
-        DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
+        Try
+            DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20008)
+        End Try
     End Sub
 
     Private Sub RadioButton3_Click(sender As Object, e As EventArgs) Handles RadioButton3.Click
-        DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
+        Try
+            DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20009)
+        End Try
     End Sub
 
     Private Sub btnReturnToSelection_Click(sender As Object, e As EventArgs) Handles btnReturnToSelection.Click
-        If Units(3).UnitSelected = 0 And TextBox7.Text IsNot "" Then Frmselectfan.Txtdens.Text = TextBox7.Text
-        If Units(3).UnitSelected = 1 And TextBox6.Text IsNot "" Then Frmselectfan.Txtdens.Text = TextBox6.Text
+        Try
+            If Units(3).UnitSelected = 0 And TextBox7.Text IsNot "" Then Frmselectfan.Txtdens.Text = TextBox7.Text
+            If Units(3).UnitSelected = 1 And TextBox6.Text IsNot "" Then Frmselectfan.Txtdens.Text = TextBox6.Text
         Me.Close()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20010)
+        End Try
     End Sub
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
-        Dim i As Integer
-        altitude2 = CDbl(TextBox4.Text)
+        Try
+            Dim i As Integer
+            altitude2 = CDbl(TextBox4.Text)
         AtmosphericPressure()
         pressure2 = CDbl(TextBox2.Text)
         InletPressure()
@@ -236,20 +279,41 @@ Public Class FrmDensityCalcs
         End If
         TextBox7.Text = CalculatedDensity.ToString("0.000")
         TextBox6.Text = (CalculatedDensity * 0.0624).ToString("0.0000")
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20011)
+        End Try
     End Sub
 
     Private Sub TextBox1_Leave(sender As Object, e As EventArgs) Handles TextBox1.Leave
-        TextBox5.Text = (CDbl(TextBox1.Text) * 9 / 5 + 32).ToString
+        Try
+            TextBox5.Text = (CDbl(TextBox1.Text) * 9 / 5 + 32).ToString
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20012)
+        End Try
     End Sub
 
     Public Function AtmosphericPressure() As Double
-        AtmosphericPressure = 101.325 * (1 - altitude2 * 0.000022557) ^ 5.2558
-        Return AtmosphericPressure
+        Try
+            AtmosphericPressure = 101.325 * (1 - altitude2 * 0.000022557) ^ 5.2558
+            Return AtmosphericPressure
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20013)
+            Return AtmosphericPressure
+        End Try
     End Function
 
     Public Function InletPressure() As Double
-        InletPressure = AtmosphericPressure() + pressure2
-        Return InletPressure
+        Try
+            InletPressure = AtmosphericPressure() + pressure2
+            Return InletPressure
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20014)
+            Return InletPressure
+        End Try
     End Function
 
     'Private Sub DataGridView1_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles DataGridView1.CurrentCellDirtyStateChanged

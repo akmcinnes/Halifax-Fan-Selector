@@ -12,7 +12,7 @@
             ScalePFSize = P1 * (ScalePFSize / d1) ^ 2
 
         Catch ex As Exception
-            MsgBox("scalePFSize")
+            ErrorMessage(ex, 5800)
         End Try
     End Function
     Public Function ScaleVFSize(V1, d1, d2)
@@ -31,7 +31,7 @@
             ScaleVFSize = V1 * (ScaleVFSize / d1) ^ 3
 
         Catch ex As Exception
-            MsgBox("scaleVFSize")
+            ErrorMessage(ex, 5801)
         End Try
     End Function
     Public Function ScalePowFSize(Pow1, d1, d2)
@@ -40,7 +40,7 @@
             ScalePowFSize = Pow1 * (d2 / d1) ^ 5
 
         Catch ex As Exception
-            MsgBox("scalePowFSize")
+            ErrorMessage(ex, 5802)
         End Try
     End Function
     Public Function ScalePFSpeed(P1, N1, N2)
@@ -49,7 +49,7 @@
             ScalePFSpeed = P1 * (N2 / N1) ^ 2
 
         Catch ex As Exception
-            MsgBox("scalePFSpeed")
+            ErrorMessage(ex, 5803)
         End Try
     End Function
     Public Function ScaleVFSpeed(V1, N1, N2)
@@ -58,7 +58,7 @@
             ScaleVFSpeed = V1 * (N2 / N1)
 
         Catch ex As Exception
-            MsgBox("scaleVFSpeed")
+            ErrorMessage(ex, 5804)
         End Try
     End Function
     Public Function ScalePowFSpeed(Pow1, N1, N2)
@@ -67,7 +67,7 @@
             ScalePowFSpeed = Pow1 * (N2 / N1) ^ 3
 
         Catch ex As Exception
-            MsgBox("scalePowFSpeed")
+            ErrorMessage(ex, 5805)
         End Try
     End Function
     Public Sub GetFanSpeed(fansize, fanno)
@@ -207,6 +207,7 @@
 
         Catch ex As Exception
             'MsgBox("getfanspeed")
+            ErrorMessage(ex, 5806)
         End Try
 
     End Sub
@@ -255,6 +256,7 @@
 
         Catch ex As Exception
             MsgBox("scalesizespeed")
+            ErrorMessage(ex, 5807)
         End Try
     End Sub
 
@@ -308,7 +310,7 @@
             selectedov(fanno) = Math.Round(Val(selectedov(fanno)), 2)
 
         Catch ex As Exception
-            MsgBox("outletvel")
+            ErrorMessage(ex, 5808)
         End Try
     End Sub
 
@@ -338,7 +340,7 @@
             Return AnyOutletVel
 
         Catch ex As Exception
-            MsgBox("anyoutletvel")
+            ErrorMessage(ex, 5809)
         End Try
     End Function
 End Module

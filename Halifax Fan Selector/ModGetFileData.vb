@@ -36,7 +36,7 @@ Module ModGetFileData
             End Try
             fantypesQTY = j
         Catch ex As Exception
-            ErrorMessage(ex, 5302)
+            ErrorMessage(ex, 5301)
         End Try
     End Sub
 End Module

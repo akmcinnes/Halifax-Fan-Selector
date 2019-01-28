@@ -115,6 +115,9 @@ Module Variables
     Public fanspeedI(50, 10000) As Double
     Public datapointI(50, 10000) As Double
 
+    Public fanfailures(50, 1) As String
+    Public failindex As Integer
+
     Public originaldensity As Double
 
     '--------------START OF OTHER VARIABLES
