@@ -282,34 +282,34 @@ Module Sub_Selections
                 End If
             End With
         Catch ex As Exception
-            MsgBox("SetupSelectionPage")
+            'MsgBox("SetupSelectionPage")
             ErrorMessage(ex, 1301)
         End Try
     End Sub
     Sub initializeSelections()
         Try
             For i = 0 To 49
-                selectedfansize(i) = 0.0
-                selectedfantype(i) = ""
-                selectedfse(i) = 0.0
-                selectedspeed(i) = 0.0
-                selectedpow(i) = 0.0
-                selectedfsp(i) = 0.0
-                selectedfte(i) = 0.0
-                selectedftp(i) = 0.0
-                selectedov(i) = 0.0
-                selectedvol(i) = 0.0
-                selectedmot(i) = 0.0
-                selectedresHD(i) = 0.0
-                selectedVD(i) = 0.0
-                selectedBladeType(i) = ""
-                selectedBladeNumber(i) = 0
-                selectedfanfile(i) = ""
+                selected(i).fansize = 0.0
+                selected(i).fantype = ""
+                selected(i).fse = 0.0
+                selected(i).speed = 0.0
+                selected(i).pow = 0.0
+                selected(i).fsp = 0.0
+                selected(i).fte = 0.0
+                selected(i).ftp = 0.0
+                selected(i).ov = 0.0
+                selected(i).vol = 0.0
+                selected(i).mot = 0.0
+                selected(i).resHD = 0.0
+                selected(i).VD = 0.0
+                'selected(i).BladeType = "" '300119
+                selected(i).BladeNumber = 0
+                'selected(i).fanfile = ""'300119
             Next
             fantypesQTY = 0
 
         Catch ex As Exception
-            MsgBox("Initializeselections")
+            'MsgBox("Initializeselections")
             ErrorMessage(ex, 1302)
         End Try
     End Sub
@@ -390,57 +390,57 @@ Module Sub_Selections
 
                 For k = 0 To fantypesQTY - 1 'akm 201018
                     pressok = False
-                    temppressS = selectedfsp(k) / pressrise
-                    temppressT = selectedftp(k) / pressrise
+                    temppressS = selected(k).fsp / pressrise
+                    temppressT = selected(k).ftp / pressrise
                     If PresType = 0 And temppressS >= pressrangemin And temppressS <= pressrangemax Then
                         pressok = True
                     ElseIf PresType = 1 And temppressT >= pressrangemin And temppressT <= pressrangemax Then
                         pressok = True
                     End If
 
-                    If selectedfansize(k) > 0 And
-                        selectedresHD(k) >= minresHD And
-                        (PresType = 0 And selectedfse(k) > mineffs Or PresType = 1 And selectedfte(k) > minefft) And
-                        selectedresHD(k) < maxresHD And
+                    If selected(k).fansize > 0 And
+                        selected(k).resHD >= minresHD And
+                        (PresType = 0 And selected(k).fse > mineffs Or PresType = 1 And selected(k).fte > minefft) And
+                        selected(k).resHD < maxresHD And
                         pressok = True And
                         fanclass(k) IsNot Nothing Then
-                        .DataGridView1.Rows(fansuccess).Cells(0).Value = selectedfansize(k).ToString
+                        .DataGridView1.Rows(fansuccess).Cells(0).Value = selected(k).fansize.ToString
                         .DataGridView1.Rows(fansuccess).Cells(1).Value = fanclass(k)
-                        .DataGridView1.Rows(fansuccess).Cells(2).Value = selectedspeed(k).ToString
-                        .DataGridView1.Rows(fansuccess).Cells(3).Value = selectedvol(k).ToString
-                        .DataGridView1.Rows(fansuccess).Cells(4).Value = selectedfsp(k).ToString
-                        .DataGridView1.Rows(fansuccess).Cells(5).Value = selectedftp(k).ToString
+                        .DataGridView1.Rows(fansuccess).Cells(2).Value = selected(k).speed.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(3).Value = selected(k).vol.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(4).Value = selected(k).fsp.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(5).Value = selected(k).ftp.ToString
                         .DataGridView1.Rows(fansuccess).Cells(6).Style.BackColor = .DataGridView1.Rows(fansuccess).Cells(0).Style.BackColor
                         'decimal places 2 for < 100, 1 for >= 100 < 1000, 0 for >= 1000
                         powerdecplaces = 2
-                        If selectedpow(k) >= 100 Then powerdecplaces = 1
-                        If selectedpow(k) >= 1000 Then powerdecplaces = 0
-                        temppower = Math.Round(selectedpow(k), powerdecplaces)
-                        temppower2 = Math.Round(selectedpow2(k), powerdecplaces)
+                        If selected(k).pow >= 100 Then powerdecplaces = 1
+                        If selected(k).pow >= 1000 Then powerdecplaces = 0
+                        temppower = Math.Round(selected(k).pow, powerdecplaces)
+                        temppower2 = Math.Round(selected(k).pow2, powerdecplaces)
 
                         If Units(4).UnitSelected < 2 Then
                             .DataGridView1.Rows(fansuccess).Cells(6).Value = temppower.ToString
-                            If selectedmot(k) > 0 Then
-                                .DataGridView1.Rows(fansuccess).Cells(7).Value = selectedmot(k).ToString
+                            If selected(k).mot > 0 Then
+                                .DataGridView1.Rows(fansuccess).Cells(7).Value = selected(k).mot.ToString
                             Else
                                 .DataGridView1.Rows(fansuccess).Cells(7).Value = "Non Std"
                             End If
-                            .DataGridView1.Rows(fansuccess).Cells(8).Value = selectedfse(k).ToString
-                            .DataGridView1.Rows(fansuccess).Cells(9).Value = selectedfte(k).ToString
-                            .DataGridView1.Rows(fansuccess).Cells(10).Value = selectedov(k).ToString
-                            .DataGridView1.Rows(fansuccess).Cells(11).Value = selectedresHD(k).ToString
+                            .DataGridView1.Rows(fansuccess).Cells(8).Value = selected(k).fse.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(9).Value = selected(k).fte.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(10).Value = selected(k).ov.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(11).Value = selected(k).resHD.ToString
 
-                            If selectedVD(k) < 0 Then
+                            If selected(k).VD < 0 Then
                                 .DataGridView1.Rows(fansuccess).Cells(12).Value = "Stall"
                                 .DataGridView1.Rows(fansuccess).Cells(12).Style.BackColor = Color.White
                                 .DataGridView1.Rows(fansuccess).Cells(12).Style.ForeColor = Color.Red
                             Else
-                                .DataGridView1.Rows(fansuccess).Cells(12).Value = selectedVD(k).ToString
+                                .DataGridView1.Rows(fansuccess).Cells(12).Value = selected(k).VD.ToString
                                 .DataGridView1.Rows(fansuccess).Cells(12).Style.BackColor = .DataGridView1.Rows(fansuccess).Cells(0).Style.BackColor
                                 .DataGridView1.Rows(fansuccess).Cells(12).Style.ForeColor = .DataGridView1.Rows(fansuccess).Cells(0).Style.ForeColor
                             End If
 
-                            If selectedresHD(k) < reshead Then
+                            If selected(k).resHD < reshead Then
                                 .DataGridView1.Rows(fansuccess).Cells(11).Style.BackColor = Color.White
                                 .DataGridView1.Rows(fansuccess).Cells(11).Style.ForeColor = Color.Red
                             Else
@@ -448,40 +448,40 @@ Module Sub_Selections
                                 .DataGridView1.Rows(fansuccess).Cells(11).Style.ForeColor = .DataGridView1.Rows(fansuccess).Cells(0).Style.ForeColor
                             End If
 
-                            If selectedpow(k) < lowest_power And selectedpow(k) > 0 And selectedresHD(k) >= reshead Then
-                                lowest_power = selectedpow(k)
+                            If selected(k).pow < lowest_power And selected(k).pow > 0 And selected(k).resHD >= reshead Then
+                                lowest_power = selected(k).pow
                                 highlight = fansuccess
                             End If
                         ElseIf Units(4).UnitSelected = 2 Then
                             .DataGridView1.Rows(fansuccess).Cells(6).Value = temppower.ToString + " / " + temppower2.ToString
-                            If selectedmot(k) > 0 Then
-                                .DataGridView1.Rows(fansuccess).Cells(7).Value = selectedmot(k).ToString
+                            If selected(k).mot > 0 Then
+                                .DataGridView1.Rows(fansuccess).Cells(7).Value = selected(k).mot.ToString
                             Else
                                 .DataGridView1.Rows(fansuccess).Cells(7).Value = "Non Std"
                             End If
                             .DataGridView1.Rows(fansuccess).Cells(7).Value = .DataGridView1.Rows(fansuccess).Cells(7).Value + " / "
 
-                            If selectedmot2(k) > 0 Then
-                                .DataGridView1.Rows(fansuccess).Cells(7).Value = .DataGridView1.Rows(fansuccess).Cells(7).Value + selectedmot2(k).ToString
+                            If selected(k).mot2 > 0 Then
+                                .DataGridView1.Rows(fansuccess).Cells(7).Value = .DataGridView1.Rows(fansuccess).Cells(7).Value + selected(k).mot2.ToString
                             Else
                                 .DataGridView1.Rows(fansuccess).Cells(7).Value = .DataGridView1.Rows(fansuccess).Cells(7).Value + "Non Std"
                             End If
-                            .DataGridView1.Rows(fansuccess).Cells(8).Value = selectedfse(k).ToString
-                            .DataGridView1.Rows(fansuccess).Cells(9).Value = selectedfte(k).ToString
-                            .DataGridView1.Rows(fansuccess).Cells(10).Value = selectedov(k).ToString
-                            .DataGridView1.Rows(fansuccess).Cells(11).Value = selectedresHD(k).ToString
+                            .DataGridView1.Rows(fansuccess).Cells(8).Value = selected(k).fse.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(9).Value = selected(k).fte.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(10).Value = selected(k).ov.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(11).Value = selected(k).resHD.ToString
 
-                            If selectedVD(k) < 0 Then
+                            If selected(k).VD < 0 Then
                                 .DataGridView1.Rows(fansuccess).Cells(12).Value = "Stall"
                                 .DataGridView1.Rows(fansuccess).Cells(12).Style.BackColor = Color.White
                                 .DataGridView1.Rows(fansuccess).Cells(12).Style.ForeColor = Color.Red
                             Else
-                                .DataGridView1.Rows(fansuccess).Cells(12).Value = selectedVD(k).ToString
+                                .DataGridView1.Rows(fansuccess).Cells(12).Value = selected(k).VD.ToString
                                 .DataGridView1.Rows(fansuccess).Cells(12).Style.BackColor = .DataGridView1.Rows(fansuccess).Cells(0).Style.BackColor
                                 .DataGridView1.Rows(fansuccess).Cells(12).Style.ForeColor = .DataGridView1.Rows(fansuccess).Cells(0).Style.ForeColor
                             End If
 
-                            If selectedresHD(k) < reshead Then
+                            If selected(k).resHD < reshead Then
                                 .DataGridView1.Rows(fansuccess).Cells(11).Style.BackColor = Color.White
                                 .DataGridView1.Rows(fansuccess).Cells(11).Style.ForeColor = Color.Red
                             Else
@@ -489,9 +489,9 @@ Module Sub_Selections
                                 .DataGridView1.Rows(fansuccess).Cells(11).Style.ForeColor = .DataGridView1.Rows(fansuccess).Cells(0).Style.ForeColor
                             End If
 
-                            If selectedpow(k) < lowest_power And selectedpow(k) > 0 And selectedresHD(k) >= reshead Then
+                            If selected(k).pow < lowest_power And selected(k).pow > 0 And selected(k).resHD >= reshead Then
 
-                                lowest_power = selectedpow(k)
+                                lowest_power = selected(k).pow
                                 highlight = fansuccess
                             End If
 
@@ -546,29 +546,31 @@ Module Sub_Selections
                 .Label3.Text = "Selected Fan: "
                 .LblFanDetails.Visible = True
 
-                .LblFanDetails.Text = selectedfantype(ii) + " " + selectedfansize(ii).ToString + " running at " + selectedspeed(ii).ToString + " rpm"
+                .LblFanDetails.Text = selected(ii).fantype + " " + selected(ii).fansize.ToString + " running at " + selected(ii).speed.ToString + " rpm"
                 If SelectDIDW = True Then .LblFanDetails.Text = .LblFanDetails.Text + " (DIDW)"
 
-                finalfansize = selectedfansize(ii)
-                finalfantype = selectedfantype(ii) 'string
-                finalfse = selectedfse(ii)
-                finalspeed = selectedspeed(ii)
-                finalpow = selectedpow(ii)
-                finalfsp = selectedfsp(ii)
-                finalfte = selectedfte(ii)
-                finalftp = selectedftp(ii)
-                finalov = selectedov(ii)
-                finalvol = selectedvol(ii)
-                finalmot = selectedmot(ii)
-                finalresHD = selectedresHD(ii)
-                finalVD = selectedVD(ii)
-                finalBladeType = selectedBladeType(ii)
-                finalBladeNumber = selectedBladeNumber(ii)
-                finalfanfile = selectedfanfile(ii)
-                finalinletdia = selectedinletdia(ii)
-                finaloutletarea = selectedoutletarea(ii)
-                finaloutletlen = selectedoutletlen(ii)
-                finaloutletwid = selectedoutletwid(ii)
+                'final.fansize = selectedfansize(ii)
+                'final.fantype = selectedfantype(ii) 'string
+                'final.fse = selectedfse(ii)
+                'final.speed = selectedspeed(ii)
+                'final.pow = selectedpow(ii)
+                'final.fsp = selectedfsp(ii)
+                'final.fte = selectedfte(ii)
+                'final.ftp = selectedftp(ii)
+                'final.ov = selectedov(ii)
+                'final.vol = selectedvol(ii)
+                'final.mot = selectedmot(ii)
+                'final.resHD = selectedresHD(ii)
+                'final.VD = selectedVD(ii)
+                'final.BladeType = selectedBladeType(ii)
+                'final.BladeNumber = selectedBladeNumber(ii)
+                'final.fanfile = selectedfanfile(ii)
+                'final.inletdia = selectedinletdia(ii)
+                'final.outletarea = selectedoutletarea(ii)
+                'final.outletlen = selectedoutletlen(ii)
+                'final.outletwid = selectedoutletwid(ii)
+
+                final = selected(ii)
 
                 .TabControl1.TabPages(3).Enabled = True
             End With
@@ -581,10 +583,10 @@ Module Sub_Selections
         Try
             Dim ii As Integer
             ii = 0
-        Do While Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selectedfantype(ii)
-            ii = ii + 1
-        Loop
-        SelectRow(ii)
+            Do While Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selected(ii).fantype
+                ii = ii + 1
+            Loop
+            SelectRow(ii)
 
         Catch ex As Exception
             ErrorMessage(ex, 1307)

@@ -5,77 +5,80 @@ Imports System.Threading
 Public Class FrmStart
     Private Sub Start_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
+            For i = 0 To 9
+                Flag(i) = False
+            Next
             Dim lng As String
             lng = CultureInfo.CurrentCulture.ThreeLetterISOLanguageName.ToString
-        'MsgBox(lng)
-        If lng.ToLower.Contains("chi") Then
-            ChosenLanguage = "zh-CN"
-            optChinese.Checked = True
-        Else
-            ChosenLanguage = "en-US"
-            optEnglish.Checked = True
-        End If
-        Dim today As String = Date.Today.ToString("dd MMMM yyyy")
-        lblDate.Text = today
-        'lblStartVersion.Text = version_number
-        Dim strArg() As String
-        strArg = Command().Split(" ")
-        DataPath = Nothing
-        chkAdvancedUser.Checked = False
-        chkAdvancedUser.Visible = False
-        btnContinue.Visible = True
-        StartArg = strArg(0)
+            'MsgBox(lng)
+            If lng.ToLower.Contains("chi") Then
+                ChosenLanguage = "zh-CN"
+                optChinese.Checked = True
+            Else
+                ChosenLanguage = "en-US"
+                optEnglish.Checked = True
+            End If
+            Dim today As String = Date.Today.ToString("dd MMMM yyyy")
+            lblDate.Text = today
+            'lblStartVersion.Text = version_number
+            Dim strArg() As String
+            strArg = Command().Split(" ")
+            DataPath = Nothing
+            chkAdvancedUser.Checked = False
+            chkAdvancedUser.Visible = False
+            btnContinue.Visible = True
+            StartArg = strArg(0)
 
-        If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-dev") Then
-            DataPath = DataPathDefault
-            chkAdvancedUser.Checked = True
-            chkAdvancedUser.Visible = True
-        ElseIf StartArg.ToLower.Contains("-b") Then
-            DataPath = DataPathDefault
-        Else
-            DataPath = DataPathDefault
-        End If
+            If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-dev") Then
+                DataPath = DataPathDefault
+                chkAdvancedUser.Checked = True
+                chkAdvancedUser.Visible = True
+            ElseIf StartArg.ToLower.Contains("-b") Then
+                DataPath = DataPathDefault
+            Else
+                DataPath = DataPathDefault
+            End If
 
-        'Dim exists As Boolean
-        SystemDrive = System.Environment.ExpandEnvironmentVariables("%SystemDrive%")
-        UserProfile = System.Environment.ExpandEnvironmentVariables("%userprofile%")
-        'Dim Path As String
-        'Path = UserProfile + "\Halifax.ini"
-        'exists = System.IO.File.Exists(Path)
-        'If exists = False Then
-        '    FrmSettings.ShowDialog()
-        '    btnContinue.Visible = False
-        '    chkAdvancedUser.Visible = False
-        'Else
-        '    ini_path = GetINIPath()
-        '    ' ### Get the Halifax path with the ini file ###
+            'Dim exists As Boolean
+            SystemDrive = System.Environment.ExpandEnvironmentVariables("%SystemDrive%")
+            UserProfile = System.Environment.ExpandEnvironmentVariables("%userprofile%")
+            'Dim Path As String
+            'Path = UserProfile + "\Halifax.ini"
+            'exists = System.IO.File.Exists(Path)
+            'If exists = False Then
+            '    FrmSettings.ShowDialog()
+            '    btnContinue.Visible = False
+            '    chkAdvancedUser.Visible = False
+            'Else
+            '    ini_path = GetINIPath()
+            '    ' ### Get the Halifax path with the ini file ###
 
-        '    DataPath_main = GetFromINI("Settings", "Halifax Root Folder", SystemDrive + "\temp\", ini_path)
-        '    Language = GetFromINI("Settings", "Language", "English", ini_path)
-        '    User_Type = GetFromINI("Settings", "User", "False", ini_path)
-        '    SuppressErrorMessages = GetFromINI("Settings", "Suppress Error Messages", "False", ini_path)
+            '    DataPath_main = GetFromINI("Settings", "Halifax Root Folder", SystemDrive + "\temp\", ini_path)
+            '    Language = GetFromINI("Settings", "Language", "English", ini_path)
+            '    User_Type = GetFromINI("Settings", "User", "False", ini_path)
+            '    SuppressErrorMessages = GetFromINI("Settings", "Suppress Error Messages", "False", ini_path)
 
-        'End If
-        btnSettings.Visible = False
-        DataPath_main = "C:\Halifax\"
-        Language = "English"
-        User_Type = False
-        SuppressErrorMessages = False
+            'End If
+            btnSettings.Visible = False
+            DataPath_main = "C:\Halifax\"
+            Language = "English"
+            User_Type = False
+            SuppressErrorMessages = False
 
-        'lblVersion.Text = version_number
-        'If DataPath Is Nothing Then
-        '    btnContinue.Visible = True 'False 'temp
-        '    DataPath = "c:\Halifax\Performance Data\" 'temp
-        'Else
-        '    DataPath = True
-        'End If
-        ''ReadUserDetails()
-        'Me.Show()
-        'objStreamWriterDebug.WriteLine("start")
-        'Background_Color = Color.White
-        CenterToScreen()
-        If ChosenLanguage Is Nothing Then ChosenLanguage = "en-US"
-        ApplyLocale(ChosenLanguage)
+            'lblVersion.Text = version_number
+            'If DataPath Is Nothing Then
+            '    btnContinue.Visible = True 'False 'temp
+            '    DataPath = "c:\Halifax\Performance Data\" 'temp
+            'Else
+            '    DataPath = True
+            'End If
+            ''ReadUserDetails()
+            'Me.Show()
+            'objStreamWriterDebug.WriteLine("start")
+            'Background_Color = Color.White
+            CenterToScreen()
+            If ChosenLanguage Is Nothing Then ChosenLanguage = "en-US"
+            ApplyLocale(ChosenLanguage)
 
             ''If txtUsername.Text.ToLower.Contains("akm") Then
             ''    grpLanguage.Visible = True
@@ -101,9 +104,10 @@ Public Class FrmStart
 
     Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
         Try
+            Flag(0) = True
             Hide()
             AdvancedUser = chkAdvancedUser.Checked
-        Frmselectfan.ShowDialog()
+            Frmselectfan.ShowDialog()
 
         Catch ex As Exception
             ErrorMessage(ex, 20501)
@@ -215,7 +219,10 @@ Public Class FrmStart
 
     Private Sub optEnglish_CheckedChanged(sender As Object, e As EventArgs) Handles optEnglish.CheckedChanged
         Try
-            If optEnglish.Checked Then ApplyLocale("en-US")
+            If optEnglish.Checked Then
+                ChosenLanguage = "en-US"
+                ApplyLocale(ChosenLanguage)
+            End If
             'Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 6, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte)) ',                        FontStyle.Bold Or FontStyle.Italic)
 
         Catch ex As Exception
@@ -225,7 +232,10 @@ Public Class FrmStart
 
     Private Sub optChinese_CheckedChanged(sender As Object, e As EventArgs) Handles optChinese.CheckedChanged
         Try
-            If optChinese.Checked Then ApplyLocale("zh-CN")
+            If optChinese.Checked Then
+                ChosenLanguage = "zh-CN"
+                ApplyLocale(ChosenLanguage)
+            End If
             'Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 6, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte)) ',                        FontStyle.Bold Or FontStyle.Italic)
 
         Catch ex As Exception

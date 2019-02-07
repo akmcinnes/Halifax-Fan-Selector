@@ -87,8 +87,8 @@
 
         Dim ipos As Integer = 0
             With Frmselectfan
-                .lblInDia.Text = finalinletdia.ToString + " mm"
-                .lblOutDims.Text = finaloutletlen.ToString + " x " + finaloutletwid.ToString + " mm"
+                .lblInDia.Text = final.inletdia.ToString + " mm"
+                .lblOutDims.Text = final.outletlen.ToString + " x " + final.outletwid.ToString + " mm"
                 .lblInletDiameter.Visible = False
                 .lblInDia.Visible = False
 

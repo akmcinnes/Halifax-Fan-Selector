@@ -63,6 +63,8 @@
                     ErrMsg = company + "FrmSettings" + ErrMsg ' done
                 Case 20500 To 20599
                     ErrMsg = company + "FrmStart" + ErrMsg ' done
+                Case 20600 To 20699
+                    ErrMsg = company + "FrmDisplayRejects" + ErrMsg ' done
             End Select
             MsgBox(ErrMsg, vbOKOnly + vbSystemModal + vbCritical, "Error Message")
         Catch ex1 As Exception

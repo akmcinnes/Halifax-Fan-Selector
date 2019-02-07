@@ -1,5 +1,4 @@
-﻿Imports System.Xml
-Module ModMisc
+﻿Module ModMisc
     Public Sub Initialize(Set1stTime As Boolean)
         Try
             If Set1stTime = True Then
@@ -11,7 +10,7 @@ Module ModMisc
                 '        Frmselectfan.cmbPressType.AddItem "Fan Total"
                 '        DensMult = 1
 
-                NextSpeed = "2 Pole"
+                'NextSpeed = "2 Pole"'300119
                 RunTemp = 20
                 For II = 0 To 50 - 1
                     Widthratios(II) = 1
@@ -25,7 +24,7 @@ Module ModMisc
                 humidity = 0.0
                 atmospress = 0.0
                 knowndensity = 0.0
-                calcdensity = 0.0
+                'calcdensity = 0.0'300119
                 flowrate = 0.0
                 reshead = 5.0
                 inletpress = 0.0
@@ -46,207 +45,14 @@ Module ModMisc
                     flowrate = 10000.0
                     pressrise = 4000.0
                     maxspeed = 3600.0
+                    Frmselectfan.Txtflow.Text = flowrate.ToString
+                    Frmselectfan.Txtfsp.Text = pressrise.ToString
                 End If
             End If
 
         Catch ex As Exception
             '            MsgBox("Initialize")
             ErrorMessage(ex, 5501)
-        End Try
-    End Sub
-
-    Sub WriteGeneralInfo(ByVal TextWriter As XmlTextWriter)
-        Try
-            Write_to_XML(TextWriter, "General_information")
-            If Customer Is Nothing Then Customer = "xxxx"
-            If Engineer Is Nothing Then Engineer = "xxxx"
-            Write_to_XML(TextWriter, "Customer", Customer)
-            Write_to_XML(TextWriter, "Engineer", Engineer)
-            Write_to_XML(TextWriter, "Flow_Units", Units(0).UnitSelected)
-            Write_to_XML(TextWriter, "Pressure_Units", Units(1).UnitSelected)
-            Write_to_XML(TextWriter, "Temperature_Units", Units(2).UnitSelected)
-            Write_to_XML(TextWriter, "Density_Units", Units(3).UnitSelected)
-            Write_to_XML(TextWriter, "Power_Units", Units(4).UnitSelected)
-            Write_to_XML(TextWriter, "Size_Units", Units(5).UnitSelected)
-            Write_to_XML(TextWriter, "Altitude_Units", Units(6).UnitSelected)
-            Write_to_XML(TextWriter)
-
-        Catch ex As Exception
-            '            MsgBox("WriteGeneralInfo")
-            ErrorMessage(ex, 5502)
-        End Try
-    End Sub
-    Sub WriteSelectionInputInfo(ByVal TextWriter As XmlTextWriter)
-        Try
-            Write_to_XML(TextWriter, "Selection_Input_information")
-            Write_to_XML(TextWriter, "Design_Temperature", designtemp.ToString)
-            Write_to_XML(TextWriter, "Maximum_Temperature", maximumtemp.ToString)
-            Write_to_XML(TextWriter, "Ambient_Temperature", ambienttemp.ToString)
-            Write_to_XML(TextWriter, "Altitude", altitude.ToString)
-            Write_to_XML(TextWriter, "Relative_Humidity", humidity.ToString)
-            Write_to_XML(TextWriter, "Atmospheric_Pressure", atmospress.ToString)
-            Write_to_XML(TextWriter, "Known_Density", knowndensity.ToString)
-            Write_to_XML(TextWriter, "Flow_Rate", flowrate.ToString)
-            Write_to_XML(TextWriter, "Inlet_Pressure", inletpress.ToString)
-            Write_to_XML(TextWriter, "Discharge_Pressure", dischpress.ToString)
-            Write_to_XML(TextWriter, "Pressure_Rise", pressrise.ToString)
-            Write_to_XML(TextWriter, "Reserve_Head", reshead.ToString)
-            Write_to_XML(TextWriter, "Maximum_Speed", maxspeed.ToString)
-            Write_to_XML(TextWriter)
-
-        Catch ex As Exception
-            '            MsgBox("WriteSelectionInputInfo")
-            ErrorMessage(ex, 5503)
-        End Try
-    End Sub
-
-    Sub WriteSelectionOutputInfo(ByVal TextWriter As XmlTextWriter)
-        Try
-            Write_to_XML(TextWriter, "Selection_Output_information")
-            Write_to_XML(TextWriter, "Fan_Design", designtemp.ToString)
-            Write_to_XML(TextWriter, "Fan_Size", maximumtemp.ToString)
-            Write_to_XML(TextWriter, "Ambient_Temperature", ambienttemp.ToString)
-            Write_to_XML(TextWriter, "Altitude", altitude.ToString)
-            Write_to_XML(TextWriter, "Relative_Humidity", humidity.ToString)
-            Write_to_XML(TextWriter, "Atmospheric_Pressure", atmospress.ToString)
-            Write_to_XML(TextWriter, "Known_Density", knowndensity.ToString)
-            Write_to_XML(TextWriter, "Flow_Rate", flowrate.ToString)
-            Write_to_XML(TextWriter, "Inlet_Pressure", inletpress.ToString)
-            Write_to_XML(TextWriter, "Discharge_Pressure", dischpress.ToString)
-            Write_to_XML(TextWriter, "Pressure_Rise", pressrise.ToString)
-            Write_to_XML(TextWriter, "Reserve_Head", reshead.ToString)
-            Write_to_XML(TextWriter, "Maximum_Speed", maxspeed.ToString)
-            Write_to_XML(TextWriter)
-
-        Catch ex As Exception
-            ErrorMessage(ex, 5504)
-        End Try
-    End Sub
-
-    Sub WriteNoiseInfo(ByVal TextWriter As XmlTextWriter)
-        Try
-            Write_to_XML(TextWriter, "Noise_information")
-            Write_to_XML(TextWriter, "Design_Temperature", designtemp.ToString)
-            Write_to_XML(TextWriter, "Maximum_Temperature", maximumtemp.ToString)
-            Write_to_XML(TextWriter, "Ambient_Temperature", ambienttemp.ToString)
-            Write_to_XML(TextWriter, "Altitude", altitude.ToString)
-            Write_to_XML(TextWriter, "Relative_Humidity", humidity.ToString)
-            Write_to_XML(TextWriter, "Atmospheric_Pressure", atmospress.ToString)
-            Write_to_XML(TextWriter, "Known_Density", knowndensity.ToString)
-            Write_to_XML(TextWriter, "Flow_Rate", flowrate.ToString)
-            Write_to_XML(TextWriter, "Inlet_Pressure", inletpress.ToString)
-            Write_to_XML(TextWriter, "Discharge_Pressure", dischpress.ToString)
-            Write_to_XML(TextWriter, "Pressure_Rise", pressrise.ToString)
-            Write_to_XML(TextWriter, "Reserve_Head", reshead.ToString)
-            Write_to_XML(TextWriter, "Maximum_Speed", maxspeed.ToString)
-            Write_to_XML(TextWriter)
-
-        Catch ex As Exception
-            ErrorMessage(ex, 5505)
-        End Try
-    End Sub
-
-    Sub SaveToFile()
-        Try
-            'set values for saving
-            Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            SaveFileDialog1.InitialDirectory = "c:\Halifax\Projects\"
-            SaveFileDialog1.Filter = "Halifax Selection|*.hfs"
-            SaveFileDialog1.Title = "Save a Halifax Selection File"
-            SaveFileDialog1.ShowDialog()
-            SaveFileName = SaveFileDialog1.FileName
-
-            If (SaveFileName.Length > 0) Then
-
-                ' ### Open the save text file ###
-                Dim textwriter As XmlTextWriter = New XmlTextWriter(SaveFileName, Nothing)
-
-                ' ### Prepare the save text file ###
-                textwriter.Formatting = Formatting.Indented
-                textwriter.Indentation = 3
-                textwriter.IndentChar = Char.Parse(" ")
-
-                ' ### Write the data ###
-                textwriter.WriteStartDocument()
-                Write_to_XML(textwriter, "HFS_File")
-                WriteGeneralInfo(textwriter)
-                WriteSelectionInputInfo(textwriter)
-
-                ' ### Close the save text file ###
-                textwriter.WriteEndDocument()
-                textwriter.Close()
-
-                MsgBox("File has been saved")
-
-            End If
-        Catch ex As Exception
-            ErrorMessage(ex, 5506)
-        End Try
-    End Sub
-
-    Public Sub Write_to_XML(ByVal TextWriter As XmlTextWriter, ByVal Parameter As String, ByVal Value As String)
-        Try
-            TextWriter.WriteStartElement(Parameter)
-            TextWriter.WriteString(Value)
-            TextWriter.WriteEndElement()
-        Catch ex As Exception
-            ErrorMessage(ex, 5507)
-        End Try
-    End Sub
-
-    Public Sub Write_to_XML(ByVal TextWriter As XmlTextWriter, ByVal Parameter As String)
-        Try
-            TextWriter.WriteStartElement(Parameter)
-        Catch ex As Exception
-            ErrorMessage(ex, 5508)
-        End Try
-    End Sub
-
-    Public Sub Write_to_XML(ByVal TextWriter As XmlTextWriter)
-        Try
-            TextWriter.WriteEndElement()
-        Catch ex As Exception
-            ErrorMessage(ex, 5509)
-        End Try
-    End Sub
-
-    Sub ReadSelectionInputInfo(ByVal TextReader As XmlTextReader)
-        Try
-            Do While TextReader.Read
-                If TextReader.Name = "Design_Temperature" Then designtemp = TextReader.ReadString
-                If TextReader.Name = "Maximum_Temperature" Then maximumtemp = TextReader.ReadString
-                If TextReader.Name = "Ambient_Temperature" Then ambienttemp = TextReader.ReadString
-                If TextReader.Name = "Altitude" Then altitude = TextReader.ReadString
-                If TextReader.Name = "Relative_Humidity" Then humidity = TextReader.ReadString
-                If TextReader.Name = "Atmospheric_Pressure" Then atmospress = TextReader.ReadString
-                If TextReader.Name = "Known_Density" Then knowndensity = TextReader.ReadString
-                If TextReader.Name = "Flow_Rate" Then flowrate = TextReader.ReadString
-                If TextReader.Name = "Inlet_Pressure" Then inletpress = TextReader.ReadString
-                If TextReader.Name = "Discharge_Pressure" Then dischpress = TextReader.ReadString
-                If TextReader.Name = "Pressure_Rise" Then pressrise = TextReader.ReadString
-                If TextReader.Name = "Reserve_Head" Then reshead = TextReader.ReadString
-                If TextReader.Name = "Maximum_Speed" Then maxspeed = TextReader.ReadString
-            Loop
-        Catch ex As Exception
-            ErrorMessage(ex, 5510)
-        End Try
-    End Sub
-
-    Sub ReadGeneralInfo(ByVal TextReader As XmlTextReader)
-        Try
-            Do While TextReader.Read
-                If TextReader.Name = "Customer" Then Customer = TextReader.ReadString
-                If TextReader.Name = "Engineer" Then Engineer = TextReader.ReadString If TextReader.Name = "Flow_Units" Then Units(0).UnitSelected = TextReader.ReadString
-                If TextReader.Name = "Pressure_Units" Then Units(1).UnitSelected = TextReader.ReadString
-                If TextReader.Name = "Temperature_Units" Then Units(2).UnitSelected = TextReader.ReadString
-                If TextReader.Name = "Density_Units" Then Units(3).UnitSelected = TextReader.ReadString
-                If TextReader.Name = "Power_Units" Then Units(4).UnitSelected = TextReader.ReadString
-                If TextReader.Name = "Size_Units" Then Units(5).UnitSelected = TextReader.ReadString
-                If TextReader.Name = "Altitude_Units" Then Units(6).UnitSelected = TextReader.ReadString
-            Loop
-
-        Catch ex As Exception
-            ErrorMessage(ex, 5511)
         End Try
     End Sub
 

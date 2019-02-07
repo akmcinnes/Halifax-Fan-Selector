@@ -129,10 +129,18 @@
             End If
             If Val(Frmselectfan.Txtfsp.Text) > PressCheck2 And Val(Frmselectfan.Txtfsp.Text) > PressCheck3 Then
                 'akm temp removed            MsgBox(("Fan type 1; " & fanclass(fanno) & " Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2) & " " & FrmSelections.ColumnHeader(4)), vbInformation)
+                failindex = failindex + 1
+                fanfailures(failindex, 0) = fantypename(fanno)
+                fanfailures(failindex, 1) = fanclass(fanno) & " Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2)
+
                 Exit Sub
             End If
             If Val(Frmselectfan.Txtfsp.Text) < PressCheck2 And PressCheck3 = 0 Then
                 'akm temp removed            MsgBox(("Fan type 1; " & fanclass(fanno) & " Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2) & " " & FrmSelections.ColumnHeader(4)), vbInformation)
+                failindex = failindex + 1
+                fanfailures(failindex, 0) = fantypename(fanno)
+                fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
+
                 Exit Sub
             End If
             '----this piece of code more accurate for calculating speed
@@ -140,70 +148,70 @@
             'FRMselections.txtspeed1.Text = ftspeed(fanno,datapoint2) + ((Val(Frmselectfan.Txtfsp.Text) - PressCheck2) * getgrad(PressCheck1, PressCheck2, PressCheck3, PressCheck4, ftspeed(fanno,datapoint1), ftspeed(fanno,datapoint2), ftspeed(fanno,datapoint3), ftspeed(fanno,datapoint4), Val(Frmselectfan.Txtfsp.Text) - PressCheck2))
             'rescaling data for the selected fan size
             grad = (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2)) / (PressCheck3 - PressCheck2)
-            selectedspeed(fanno) = ftspeed(fanno, datapoint3) + ((Val(Frmselectfan.Txtfsp.Text) - PressCheck3) * grad)
-            selectedspeed(fanno) = Math.Round(selectedspeed(fanno), 0)
-            selectedfansize(fanno) = fansize 'akm
+            selected(fanno).speed = ftspeed(fanno, datapoint3) + ((Val(Frmselectfan.Txtfsp.Text) - PressCheck3) * grad)
+            selected(fanno).speed = Math.Round(selected(fanno).speed, 0)
+            selected(fanno).fansize = fansize 'akm
             '-calculated the fan speed required to get the duty
             '-now calculating the power
             gradpow = (Pows(fanno, datapoint3) - Pows(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
-            selectedpow(fanno) = Pows(fanno, datapoint3) + ((((selectedspeed(fanno) - ftspeed(fanno, datapoint3))) * gradpow))
-            selectedpow(fanno) = Math.Round(selectedpow(fanno), 2)
+            selected(fanno).pow = Pows(fanno, datapoint3) + ((((selected(fanno).speed - ftspeed(fanno, datapoint3))) * gradpow))
+            selected(fanno).pow = Math.Round(selected(fanno).pow, 2)
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint3) - fse(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
-            selectedfse(fanno) = fse(fanno, datapoint3) + ((((selectedspeed(fanno) - ftspeed(fanno, datapoint3))) * gradfse))
-            selectedfse(fanno) = Math.Round(selectedfse(fanno), 1)
+            selected(fanno).fse = fse(fanno, datapoint3) + ((((selected(fanno).speed - ftspeed(fanno, datapoint3))) * gradfse))
+            selected(fanno).fse = Math.Round(selected(fanno).fse, 1)
             '-calculating fan total efficiency
             gradfte = (fte(fanno, datapoint3) - fte(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
-            selectedfte(fanno) = fte(fanno, datapoint3) + ((((selectedspeed(fanno) - ftspeed(fanno, datapoint3))) * gradfte))
-            selectedfte(fanno) = Math.Round(selectedfte(fanno), 1)
+            selected(fanno).fte = fte(fanno, datapoint3) + ((((selected(fanno).speed - ftspeed(fanno, datapoint3))) * gradfte))
+            selected(fanno).fte = Math.Round(selected(fanno).fte, 1)
             '-output volume
             Frmselectfan.Txtflow.Text = Frmselectfan.Txtflow.Text
             '-calculating outlet velocity
             Call OutletVel(fansize, fanno)
 
-            selectedinletdia(fanno) = datainletdia(fanno)
-            selectedoutletarea(fanno) = dataoutletarea(fanno)
-            selectedinletdia(fanno) = inletdia
-            selectedoutletarea(fanno) = outletsize
-            selectedoutletlen(fanno) = dataoutletlen(fanno)
-            selectedoutletwid(fanno) = dataoutletwid(fanno)
-            selectedoutletlen(fanno) = outletlength
-            selectedoutletwid(fanno) = outletwidth
+            selected(fanno).inletdia = datainletdia(fanno)
+            selected(fanno).outletarea = dataoutletarea(fanno)
+            selected(fanno).inletdia = inletdia
+            selected(fanno).outletarea = outletsize
+            selected(fanno).outletlen = dataoutletlen(fanno)
+            selected(fanno).outletwid = dataoutletwid(fanno)
+            selected(fanno).outletlen = outletlength
+            selected(fanno).outletwid = outletwidth
 
 
             '-calculating FSP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
-            selectedfsp(fanno) = fsps(fanno, datapoint3) + ((((selectedspeed(fanno) - ftspeed(fanno, datapoint3))) * gradfsp))
-            selectedfsp(fanno) = Math.Round(selectedfsp(fanno), 2)
+            selected(fanno).fsp = fsps(fanno, datapoint3) + ((((selected(fanno).speed - ftspeed(fanno, datapoint3))) * gradfsp))
+            selected(fanno).fsp = Math.Round(selected(fanno).fsp, 2)
             '-calculating FTP
             gradftp = (ftps(fanno, datapoint3) - ftps(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
-            selectedftp(fanno) = ftps(fanno, datapoint3) + ((((selectedspeed(fanno) - ftspeed(fanno, datapoint3))) * gradftp))
-            selectedftp(fanno) = Math.Round(selectedftp(fanno), 2)
+            selected(fanno).ftp = ftps(fanno, datapoint3) + ((((selected(fanno).speed - ftspeed(fanno, datapoint3))) * gradftp))
+            selected(fanno).ftp = Math.Round(selected(fanno).ftp, 2)
 
-            selectedfantype(fanno) = fanclass(fanno)
+            selected(fanno).fantype = fanclass(fanno)
 
-            selectedfanfile(fanno) = fantypefilename(fanno)
+            'selected(fanno).fanfile = fantypefilename(fanno)'300119
 
             '-----bringing the fan upto the duty speed after the first quick cslculations
-            uptospeed = Val(selectedspeed(fanno))
+            uptospeed = Val(selected(fanno).speed)
             TempPress = temppressure
             count = 0
             Do While difference1 >= difference2
-                Call GetPressure(Val(selectedfansize(fanno)), uptospeed, Val(Frmselectfan.Txtflow.Text), fanno)
+                Call GetPressure(Val(selected(fanno).fansize), uptospeed, Val(Frmselectfan.Txtflow.Text), fanno)
                 If PresType = 0 Then
-                    difference1 = Math.Sqrt((TempPress - Val(selectedfsp(fanno))) ^ 2)
+                    difference1 = Math.Sqrt((TempPress - Val(selected(fanno).fsp)) ^ 2)
                 Else
-                    difference1 = Math.Sqrt((TempPress - Val(selectedftp(fanno))) ^ 2)
+                    difference1 = Math.Sqrt((TempPress - Val(selected(fanno).ftp)) ^ 2)
                 End If
-                Call GetPressure(Val(selectedfansize(fanno)), uptospeed + 1, Val(Frmselectfan.Txtflow.Text), fanno)
+                Call GetPressure(Val(selected(fanno).fansize), uptospeed + 1, Val(Frmselectfan.Txtflow.Text), fanno)
                 If PresType = 0 Then
-                    difference2 = Math.Sqrt((TempPress - Val(selectedfsp(fanno))) ^ 2)
+                    difference2 = Math.Sqrt((TempPress - Val(selected(fanno).fsp)) ^ 2)
                 Else
-                    difference2 = Math.Sqrt((TempPress - Val(selectedftp(fanno))) ^ 2)
+                    difference2 = Math.Sqrt((TempPress - Val(selected(fanno).ftp)) ^ 2)
                 End If
                 uptospeed = uptospeed + 1
             Loop
-            Call GetPressure(Val(selectedfansize(fanno)), uptospeed - 1, Val(Frmselectfan.Txtflow.Text), fanno)
+            Call GetPressure(Val(selected(fanno).fansize), uptospeed - 1, Val(Frmselectfan.Txtflow.Text), fanno)
 
         Catch ex As Exception
             'MsgBox("getfanspeed")
@@ -227,31 +235,31 @@
 
             '-end of scaling most efficient data point----- start of output to frmselections
 
-            selectedfansize(fanno) = size
+            selected(fanno).fansize = size
             '-calculated the fan speed required to get the duty
             '-now calculating the power
-            selectedpow(fanno) = Math.Round(Pows(fanno, medpoint(fanno)), 2)
+            selected(fanno).pow = Math.Round(Pows(fanno, medpoint(fanno)), 2)
             '-calculating fan static efficiency
-            selectedfse(fanno) = Math.Round(fse(fanno, medpoint(fanno)), 1)
+            selected(fanno).fse = Math.Round(fse(fanno, medpoint(fanno)), 1)
             '-calculating fan total efficiency
-            selectedfte(fanno) = Math.Round(fte(fanno, medpoint(fanno)), 1)
+            selected(fanno).fte = Math.Round(fte(fanno, medpoint(fanno)), 1)
             '-output volume
             Frmselectfan.Txtflow.Text = Math.Round(vols(fanno, medpoint(fanno)), voldecplaces)
-            selectedfsp(fanno) = Math.Round(fsps(fanno, medpoint(fanno)), 2)
+            selected(fanno).fsp = Math.Round(fsps(fanno, medpoint(fanno)), 2)
             '-calculating FTP
 
-            selectedftp(fanno) = Math.Round(ftps(fanno, medpoint(fanno)), 2)
-            selectedfantype(fanno) = fanclass(fanno)
-            selectedspeed(fanno) = speed
+            selected(fanno).ftp = Math.Round(ftps(fanno, medpoint(fanno)), 2)
+            selected(fanno).fantype = fanclass(fanno)
+            selected(fanno).speed = speed
             Call OutletVel(size, fanno)
-            selectedinletdia(fanno) = inletdia
+            selected(fanno).inletdia = inletdia
             'selectedoutletd(fanno)=outletdia
 
             '---corecting for suction
             If Frmselectfan.Optsucy.Checked = True Then
-                Call SuctionCorrection(Val(selectedfsp(fanno)), Val(selectedpow(fanno)), Val(Frmselectfan.Txtdens.Text))
-                selectedpow(fanno) = Math.Round(NEWpower, 2)
-                selectedfsp(fanno) = Math.Round(NEWpressure, 2)
+                Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), Val(Frmselectfan.Txtdens.Text))
+                selected(fanno).pow = Math.Round(NEWpower, 2)
+                selected(fanno).fsp = Math.Round(NEWpressure, 2)
             End If
 
         Catch ex As Exception
@@ -294,20 +302,20 @@
             Select Case Units(0).UnitSelected
             'Select Case FlowType
                 Case 0 '2 '1
-                    selectedov(fanno) = (Val(Frmselectfan.Txtflow.Text) / 3600) / outletsize'm3/hr
+                    selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 3600) / outletsize'm3/hr
                 Case 1 '2
-                    selectedov(fanno) = (Val(Frmselectfan.Txtflow.Text) / 60) / outletsize'm3/min
+                    selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 60) / outletsize'm3/min
                 Case 2 '0 '3
-                    selectedov(fanno) = (Val(Frmselectfan.Txtflow.Text)) / outletsize'm3/sec
+                    selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text)) / outletsize'm3/sec
                 Case 3 '4
-                    selectedov(fanno) = (Val(Frmselectfan.Txtflow.Text) / 2119.0) / outletsize 'cfm
+                    selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 2119.0) / outletsize 'cfm
             End Select
 
             'If VelType = 1 Then
             If Units(7).UnitSelected = 1 Then
-                selectedov(fanno) = selectedov(fanno) / convvel
+                selected(fanno).ov = selected(fanno).ov / convvel
             End If
-            selectedov(fanno) = Math.Round(Val(selectedov(fanno)), 2)
+            selected(fanno).ov = Math.Round(Val(selected(fanno).ov), 2)
 
         Catch ex As Exception
             ErrorMessage(ex, 5808)

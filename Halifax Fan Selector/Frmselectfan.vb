@@ -1,6 +1,10 @@
 ﻿Imports System.IO
 Imports System.Xml
 Imports System.ComponentModel
+Imports System.Globalization
+'Imports System.ComponentModel
+Imports System.Resources
+Imports System.Threading
 Public Class Frmselectfan
     Public totalcolumnwidth As Integer
     Public ColumnHeader(20) As String
@@ -78,7 +82,6 @@ Public Class Frmselectfan
                 g.DrawString(strTitle, TabControl1.Font, br, r, sf)
 
             Else
-
                 'these are the colors for the unselected tab pages 
                 'br = New SolidBrush(Color.DarkSlateBlue) ' Change this to your preference
                 br = New SolidBrush(Color.Transparent) ' Change this to your preference
@@ -88,7 +91,6 @@ Public Class Frmselectfan
                 g.DrawString(strTitle, TabControl1.Font, br, r, sf)
 
             End If
-
         Catch ex As Exception
             ErrorMessage(ex, 20302)
         End Try
@@ -124,39 +126,24 @@ Public Class Frmselectfan
             FrmProjectDetails.ShowDialog()
         Catch ex As Exception
             ErrorMessage(ex, 20304)
-            'MsgBox("ProjectDetailsToolStripMenuItem_Click")
         End Try
     End Sub
-
-    'Private Sub UnitsToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles UnitsToolStripMenuItem.Click
-    '    'Try
-    '    '    atmos = TxtAtmosphericPressure.Text
-    '    '    FrmUnits.ShowDialog()
-
-    '    'Catch ex As Exception
-    'errormessage(ex,20305)
-    '    '    MsgBox("UnitsToolStripMenuItem_Click_1")
-    '    'End Try
-    'End Sub
 
     Private Sub OpenToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenToolStripMenuItem.Click
         Try
             NewProject = True
             Initialize(True)
-
         Catch ex As Exception
             ErrorMessage(ex, 20306)
-            'MsgBox("OpenToolStripMenuItem_Click")
         End Try
     End Sub
 
     Private Sub SaveProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveProjectToolStripMenuItem.Click
         Try
-            SaveToFile()
+            SaveProjectFile()
         Catch ex As Exception
             ErrorMessage(ex, 20307)
         End Try
-
     End Sub
 
     Private Sub OpenProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OpenProjectToolStripMenuItem.Click
@@ -169,95 +156,9 @@ Public Class Frmselectfan
             OpenFileName = OpenFileDialog1.FileName
             If OpenFileName = "" Then Exit Sub
             ReadProjectFile(OpenFileName)
-
-            'Dim textReader As XmlTextReader = New XmlTextReader(OpenFileName)
-            'textReader.MoveToFirstAttribute()
-
-            ''While (document.Read())
-
-            ''    Dim type = document.NodeType
-
-            ''    'if node type was element
-            ''    If (type = XmlNodeType.Element) Then
-
-            ''        'if the loop found a <FirstName> tag
-            ''        If (document.Name = "FirstName") Then
-
-            ''            TextBox1.Text = document.ReadInnerXml.ToString()
-
-            ''        End If
-
-            ''        'if the loop found a <LastName tag
-            ''        If (document.Name = "LastName") Then
-
-            ''            TextBox2.Text = document.ReadInnerXml.ToString()
-
-            ''        End If
-
-            ''    End If
-
-            ''End While
-
-            'While (textReader.Read())
-            '    Dim type = textReader.NodeType
-            '    'ReadGeneralInfo(textReader)
-            '    'ReadSelectionInputInfo(textReader)
-            '    'MsgBox("textReader.NameOf = ", textReader.Name)
-            '    If (type = XmlNodeType.Element) Then
-            '        If textReader.Name = "Customer" Then Customer = textReader.ReadString
-            '        If textReader.Name = "Engineer" Then Engineer = textReader.ReadString
-            '        If textReader.Name = "Flow_Units" Then Units(0).UnitSelected = textReader.ReadString
-            '        If textReader.Name = "Pressure_Units" Then Units(1).UnitSelected = textReader.ReadString
-            '        If textReader.Name = "Temperature_Units" Then Units(2).UnitSelected = textReader.ReadString
-            '        If textReader.Name = "Density_Units" Then Units(3).UnitSelected = textReader.ReadString
-            '        If textReader.Name = "Power_Units" Then Units(4).UnitSelected = textReader.ReadString
-            '        If textReader.Name = "Size_Units" Then Units(5).UnitSelected = textReader.ReadString
-            '        If textReader.Name = "Altitude_Units" Then Units(6).UnitSelected = textReader.ReadString
-            '        If textReader.Name = "Design_Temperature" Then designtemp = textReader.ReadString
-            '        If textReader.Name = "Maximum_Temperature" Then maximumtemp = textReader.ReadString
-            '        If textReader.Name = "Ambient_Temperature" Then ambienttemp = textReader.ReadString
-            '        If textReader.Name = "Altitude" Then altitude = textReader.ReadString
-            '        If textReader.Name = "Relative_Humidity" Then humidity = textReader.ReadString
-            '        If textReader.Name = "Atmospheric_Pressure" Then atmospress = textReader.ReadString
-            '        If textReader.Name = "Known_Density" Then knowndensity = textReader.ReadString
-            '        If textReader.Name = "Flow_Rate" Then flowrate = textReader.ReadString
-            '        If textReader.Name = "Inlet_Pressure" Then inletpress = textReader.ReadString
-            '        If textReader.Name = "Discharge_Pressure" Then dischpress = textReader.ReadString
-            '        If textReader.Name = "Pressure_Rise" Then pressrise = textReader.ReadString
-            '        If textReader.Name = "Reserve_Head" Then reshead = textReader.ReadString
-            '        If textReader.Name = "Maximum_Speed" Then maxspeed = textReader.ReadString
-            '    End If
-
-            'End While
-            '' ### Close the load text file ###
-            'textReader.Close()
-
-            'TxtAtmosphericPressure.Text = atmos.ToString
-            'TxtDesignTemperature.Text = designtemp.ToString
-            'TxtMaximumTemperature.Text = maximumtemp.ToString
-            'TxtAmbientTemperature.Text = ambienttemp.ToString
-            'TxtAltitude.Text = altitude.ToString
-            'TxtHumidity.Text = humidity.ToString
-            'TxtAtmosphericPressure.Text = atmospress.ToString
-            'Txtdens.Text = knowndensity.ToString
-            'Txtflow.Text = flowrate.ToString
-            'TxtInletPressure.Text = inletpress.ToString
-            'TxtDischargePressure.Text = dischpress.ToString
-            'Txtfsp.Text = pressrise.ToString
-            'CmbReserveHead.Text = reshead.ToString + "%"
-            'Txtspeedlimit.Text = maxspeed.ToString
-            'ReadFromProjectFile = True
-
-            ''Catch ex As Exception
-            ''    'MsgBox("OpenProjectToolStripMenuItem_Click")
-            ''    'Resume
-            ''End Try
-
         Catch ex As Exception
             ErrorMessage(ex, 20308)
         End Try
-
-
     End Sub
 
     Private Sub ExitProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitProjectToolStripMenuItem.Click
@@ -267,13 +168,9 @@ Public Class Frmselectfan
                     End
                 End If
             End If
-            '        End
-
         Catch ex As Exception
             ErrorMessage(ex, 20309)
-            'MsgBox("ExitProjectToolStripMenuItem_Click")
         End Try
-
     End Sub
 
     ' ############################################################################################
@@ -294,18 +191,15 @@ Public Class Frmselectfan
             Dim str_temp As String
             If CmbReserveHead.SelectedIndex < 0 Then CmbReserveHead.SelectedIndex = 0
             str_temp = CmbReserveHead.Items(CmbReserveHead.SelectedIndex)
-
             reshead = CDbl(str_temp.Remove(str_temp.Length - 1))
         Catch ex As Exception
             ErrorMessage(ex, 20311)
         End Try
     End Sub
 
-
     Private Sub OptDensityCalculated_CheckedChanged(sender As Object, e As EventArgs) Handles OptDensityCalculated.CheckedChanged
         Try
             DensityCalculate()
-
         Catch ex As Exception
             ErrorMessage(ex, 20312)
         End Try
@@ -317,7 +211,7 @@ Public Class Frmselectfan
 
     Private Sub TabPageSelection_Leave(sender As Object, e As EventArgs) Handles TabPageSelection.Leave
         Try
-            If finalfantype = "" Then
+            If final.fantype = "" Then
                 'e.Cancel = True
                 'MsgBox("No fan has been selected 2")
             Else
@@ -382,11 +276,11 @@ Public Class Frmselectfan
             'TabPageNoise.BackColor = Background_Color
             'TableLayoutPanel1.Controls.Clear()
 
-            TxtFlownoise.Text = finalvol.ToString
-            TxtPressurenoise.Text = finalfsp.ToString
-            TxtSizenoise.Text = finalfansize.ToString
-            TxtSpeednoise.Text = finalspeed.ToString
-            TxtTypenoise.Text = finalfantype
+            TxtFlownoise.Text = final.vol.ToString
+            TxtPressurenoise.Text = final.fsp.ToString
+            TxtSizenoise.Text = final.fansize.ToString
+            TxtSpeednoise.Text = final.speed.ToString
+            TxtTypenoise.Text = final.fantype
 
             For i = 0 To 8
                 For j = 0 To 8
@@ -658,6 +552,7 @@ Public Class Frmselectfan
     Private Sub btnGeneralInformationBack_Click(sender As Object, e As EventArgs) Handles btnGeneralInformationBack.Click
         'open general information tab
         Try
+            Flag(1) = False
             Txtflow.BackColor = Color.White
             Txtdens.BackColor = Color.White
             Txtfsp.BackColor = Color.White
@@ -672,6 +567,7 @@ Public Class Frmselectfan
     Private Sub btnFanParametersForward_Click(sender As Object, e As EventArgs) Handles btnFanParametersForward.Click
         'open fan parameters tab
         Try
+            Flag(2) = True
             move_on = True
             Yellow(Txtflow)
             Yellow(Txtdens)
@@ -713,6 +609,7 @@ Public Class Frmselectfan
     Private Sub btnDutyInputBack_Click(sender As Object, e As EventArgs) Handles btnDutyInputBack.Click
         'open duty input tab
         Try
+            Flag(2) = False
             TabControl1.SelectTab(TabPageDuty)
         Catch ex As Exception
             ErrorMessage(ex, 20328)
@@ -721,6 +618,11 @@ Public Class Frmselectfan
 
     Private Sub btnFanSelectionsForward_Click(sender As Object, e As EventArgs) Handles btnFanSelectionsForward.Click
         Try
+            Flag(3) = True
+            If ChkCurveBlade.Checked = False And ChkInclineBlade.Checked = False And ChkOtherFanType.Checked = False And ChkPlasticFan.Checked = False Then
+                MsgBox("Please select at least one fan blade design", vbOKOnly + vbInformation)
+                Exit Sub
+            End If
             failindex = -1
             pressrise = CDbl(Txtfsp.Text)
             maxspeed = CDbl(Txtspeedlimit.Text)
@@ -729,13 +631,13 @@ Public Class Frmselectfan
 
             SelectDIDW = chkDIDW.Checked
 
-            ShowCurvedFanTypes = ChkCurveBlade.Checked
-            ShowInclinedFanTypes = ChkInclineBlade.Checked
-            ShowOtherFanTypes = ChkOtherFanType.Checked
-            ShowPlasticFanTypes = ChkPlasticFan.Checked
-            ShowAxialFanTypes = ChkAxialFans.Checked
-            ShowPlenumFanTypes = ChkPlenumFans.Checked
-            ShowOldFanTypes = ChkOldDesignFans.Checked
+            'ShowCurvedFanTypes = ChkCurveBlade.Checked '300119
+            'ShowInclinedFanTypes = ChkInclineBlade.Checked '300119
+            'ShowOtherFanTypes = ChkOtherFanType.Checked '300119
+            'ShowPlasticFanTypes = ChkPlasticFan.Checked '300119
+            'ShowAxialFanTypes = ChkAxialFans.Checked '300119
+            'ShowPlenumFanTypes = ChkPlenumFans.Checked '300119
+            'ShowOldFanTypes = ChkOldDesignFans.Checked '300119
 
             TabControl1.SelectTab(TabPageSelection)
 
@@ -747,6 +649,7 @@ Public Class Frmselectfan
     Private Sub btnFanParametersBack_Click(sender As Object, e As EventArgs) Handles btnFanParametersBack.Click
         'open fan parameters tab
         Try
+            Flag(3) = False
             TabControl1.SelectTab(TabPageFanParameters)
         Catch ex As Exception
             ErrorMessage(ex, 20330)
@@ -756,6 +659,7 @@ Public Class Frmselectfan
     Private Sub btnNoiseDataForward_Click(sender As Object, e As EventArgs) Handles btnNoiseDataForward.Click
         'open noise data tab
         Try
+            Flag(4) = True
             TabControl1.SelectTab(TabPageNoise)
             If OptStaticPressure.Checked Then
                 Label14.Text = "Fan Static Pressure"
@@ -770,6 +674,7 @@ Public Class Frmselectfan
     Private Sub btnFanSelectionsBack_Click(sender As Object, e As EventArgs) Handles btnFanSelectionsBack.Click
         'open fan selections tab
         Try
+            Flag(3) = False
             TabControl1.SelectTab(TabPageSelection)
 
         Catch ex As Exception
@@ -780,7 +685,8 @@ Public Class Frmselectfan
     Private Sub btnSaveProjectForward_Click(sender As Object, e As EventArgs) Handles btnSaveProjectForward.Click
         'open save projects
         Try
-            SaveToFile()
+            Flag(4) = True
+            SaveProjectFile()
         Catch ex As Exception
             ErrorMessage(ex, 20333)
         End Try
@@ -1004,10 +910,12 @@ Public Class Frmselectfan
         'open duty input tab
         'Dim asdf As String = "test"
         Try
+            Flag(1) = True
             'aa = 0 / asdf
             SetUnitValues()
             If Opt50Hz.Checked = True Then freqHz = 50
             If Opt60Hz.Checked = True Then freqHz = 60
+            CalcAtmos = chkCalcAtmos.Checked
             Opt2Pole.Visible = True
             Opt4Pole.Visible = True
             Opt6Pole.Visible = True
@@ -1362,13 +1270,89 @@ Public Class Frmselectfan
     Private Sub DataGridView1_MouseClick(sender As Object, e As MouseEventArgs) Handles DataGridView1.MouseClick
 
         'Select Right Clicked Row if its not the header row
-        If e.Button = MouseButtons.Right And failindex > -1 Then
-            FrmDisplayFailures.Show()
-        End If
+        Try
+            If e.Button = MouseButtons.Right And failindex > -1 Then
+                FrmDisplayRejects.Show()
+            End If
 
-
+        Catch ex As Exception
+            ErrorMessage(ex, 20376)
+        End Try
     End Sub
 
+    Private Sub chkAllBlades_CheckedChanged(sender As Object, e As EventArgs) Handles chkAllBlades.CheckedChanged
+        Try
+            If chkAllBlades.Checked = True Then
+                ChkCurveBlade.Checked = True
+                ChkInclineBlade.Checked = True
+                ChkOtherFanType.Checked = True
+                ChkPlasticFan.Checked = True
+            Else
+                ChkCurveBlade.Checked = False
+            ChkInclineBlade.Checked = False
+            ChkOtherFanType.Checked = False
+            ChkPlasticFan.Checked = False
+        End If
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20377)
+        End Try
+    End Sub
+
+    Private Sub EnglishToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnglishToolStripMenuItem.Click
+        Try
+            ChosenLanguage = "en-US"
+            ApplyLocale(ChosenLanguage)
+
+            'reload()
+            'Form1_Load(Me, Nothing)
+            'Me.Refresh()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20378)
+        End Try
+    End Sub
+
+    Private Sub ChineseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChineseToolStripMenuItem.Click
+        Try
+            ChosenLanguage = "zh-CN"
+            ApplyLocale(ChosenLanguage)
+            'reload()
+            'Form1_Load(Me, Nothing)
+            'Me.Refresh()
+
+        Catch ex As Exception
+            ErrorMessage(ex, 20379)
+        End Try
+    End Sub
+    Private Sub ApplyLocale(ByVal locale_name As String)
+        Try
+            Dim culture_info As New CultureInfo(locale_name)
+            Dim component_resource_manager As New ComponentResourceManager(Me.GetType)
+
+            Thread.CurrentThread.CurrentUICulture = culture_info
+            Thread.CurrentThread.CurrentCulture = culture_info
+
+            component_resource_manager.ApplyResources(Me, "$this", culture_info)
+            For Each ctl As Control In Me.Controls
+                ApplyLocaleToControl(ctl, component_resource_manager, culture_info)
+            Next ctl
+            Dim resource_manager As New ResourceManager("Localized.FrmSelectFan", Me.GetType.Assembly)
+        Catch ex As Exception
+            ErrorMessage(ex, 20380)
+        End Try
+    End Sub
+
+    Private Sub ApplyLocaleToControl(ByVal ctl As Control, ByVal component_resource_manager As ComponentResourceManager, ByVal culture_info As CultureInfo)
+        Try
+            component_resource_manager.ApplyResources(ctl, ctl.Name, culture_info)
+            For Each child As Control In ctl.Controls
+                ApplyLocaleToControl(child, component_resource_manager, culture_info)
+            Next child
+        Catch ex As Exception
+            ErrorMessage(ex, 20381)
+        End Try
+    End Sub
 
     'Private Sub TxtAmbientTemperature_TextChanged(sender As Object, e As EventArgs) Handles TxtAmbientTemperature.TextChanged
     '    Yellow(TxtAmbientTemperature, -20)

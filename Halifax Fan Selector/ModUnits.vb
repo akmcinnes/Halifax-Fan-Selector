@@ -65,7 +65,7 @@
                     convflow = 1.0
                 End If
                 Units(0).UnitSelected = 0
-                colvol = 9
+                'colvol = 9'300119
                 'FlowType = 1
             End If
             If Frmselectfan.OptFlowM3PerMin.Checked = True Then
@@ -81,7 +81,7 @@
                     convflow = 1.0
                 End If
                 Units(0).UnitSelected = 1
-                colvol = 11
+                'colvol = 11'300119
                 'FlowType = 2
             End If
             If Frmselectfan.OptFlowM3PerSec.Checked = True Then
@@ -97,7 +97,7 @@
                     convflow = 1.0
                 End If
                 Units(0).UnitSelected = 2
-                colvol = 12
+                'colvol = 12'300119
                 'FlowType = 3
             End If
             If Frmselectfan.OptFlowCfm.Checked = True Then
@@ -113,7 +113,7 @@
                     convflow = 1.0
                 End If
                 Units(0).UnitSelected = 3
-                colvol = 4
+                'colvol = 4'300119
                 'FlowType = 4
             End If
             If Frmselectfan.OptFlowKgPerHr.Checked = True Then
@@ -137,8 +137,8 @@
                     convpres = 1000.0 'check
                 End If
                 Units(1).UnitSelected = 0
-                fspcol = 13
-                ftpcol = 14
+                'fspcol = 13 '300119
+                'ftpcol = 14'300119
                 'PresType = 0
                 '            atmos = 101389.0
             End If
@@ -155,8 +155,8 @@
                     convpres = 10.0 / 2.4908891 'check
                 End If
                 Units(1).UnitSelected = 1
-                fspcol = 2
-                ftpcol = 5
+                'fspcol = 2 '300119
+                'ftpcol = 5 '300119
                 'PresType = 1
                 'atmos = 407.45
             End If
@@ -173,8 +173,8 @@
                     convpres = 10.0 / 0.0980665 'check
                 End If
                 Units(1).UnitSelected = 2
-                fspcol = 7
-                ftpcol = 10
+                'fspcol = 7 '300119
+                'ftpcol = 10 '300119
                 'PresType = 2
                 'atmos = 10349.1
             End If
@@ -191,8 +191,8 @@
                     convpres = 10.0 'check
                 End If
                 Units(1).UnitSelected = 3
-                fspcol = 15
-                ftpcol = 16
+                'fspcol = 15 '300119
+                'ftpcol = 16 '300119
                 'PresType = 3
                 'atmos = 1013.89
             End If
@@ -210,8 +210,8 @@
                     convpres = 1.0
                 End If
                 Units(1).UnitSelected = 4
-                fspcol = 13
-                ftpcol = 14
+                'fspcol = 13 '300119
+                'ftpcol = 14 '300119
                 'PresType = 3
                 'atmos = 1013.89
             End If
@@ -461,7 +461,7 @@
 
             Units(0).UnitDefault = 0
             'FlowType = 0
-            colvol = 9
+            'colvol = 9'300119
 
             'pressure units 
             Units(1).UnitName(0) = "Pa"
@@ -490,8 +490,8 @@
             Frmselectfan.OptPressurekPa.Text = Units(1).UnitName(4)
 
             Units(1).UnitDefault = 0
-            fspcol = 13
-            ftpcol = 14
+            'fspcol = 13 '300119
+            'ftpcol = 14 '300119
             'atmos = 101389
 
             'temperature units
@@ -534,7 +534,7 @@
             Frmselectfan.OptPowerBoth.Text = "Display Both"
 
             Units(4).UnitDefault = 0
-            colpow = 8
+            'colpow = 8'300119
 
             'length units
             Units(5).UnitName(0) = "mm"

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmDisplayFailures
+Partial Class FrmDisplayRejects
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -64,7 +64,7 @@ Partial Class FrmDisplayFailures
         Me.Button1.Text = "Exit"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'FrmDisplayFailures
+        'FrmDisplayRejects
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -75,7 +75,7 @@ Partial Class FrmDisplayFailures
         Me.Controls.Add(Me.lsvFailedFans)
         Me.MaximumSize = New System.Drawing.Size(819, 348)
         Me.MinimumSize = New System.Drawing.Size(819, 348)
-        Me.Name = "FrmDisplayFailures"
+        Me.Name = "FrmDisplayRejects"
         Me.Text = "Rejected Fan Designs"
         Me.ResumeLayout(False)
 

@@ -41,106 +41,77 @@ Partial Class FrmFanChart
         Me.optDisplaykW = New System.Windows.Forms.RadioButton()
         Me.optDisplayhp = New System.Windows.Forms.RadioButton()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.lblVolumeHidden = New System.Windows.Forms.Label()
+        Me.lblPressureHidden = New System.Windows.Forms.Label()
+        Me.lblPowerHidden = New System.Windows.Forms.Label()
+        Me.lblTitleHidden = New System.Windows.Forms.Label()
+        Me.lblRunningAtHidden = New System.Windows.Forms.Label()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Chart1
         '
         Me.Chart1.BackColor = System.Drawing.SystemColors.MenuHighlight
+        ChartArea1.AxisX.Title = "VOLUME"
+        ChartArea1.AxisY.Title = "PRESSURE"
+        ChartArea1.AxisY2.Title = "POWER"
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(12, 12)
-        Me.Chart1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.Chart1, "Chart1")
         Me.Chart1.Name = "Chart1"
-        Me.Chart1.Size = New System.Drawing.Size(975, 431)
-        Me.Chart1.TabIndex = 0
-        Me.Chart1.Text = "Chart1"
         '
         'btnClose
         '
         Me.btnClose.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.btnClose, "btnClose")
         Me.btnClose.ForeColor = System.Drawing.Color.White
-        Me.btnClose.Location = New System.Drawing.Point(739, 449)
-        Me.btnClose.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(75, 50)
-        Me.btnClose.TabIndex = 1
-        Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = False
         '
         'ChkStaticPressureCurve
         '
-        Me.ChkStaticPressureCurve.AutoSize = True
+        resources.ApplyResources(Me.ChkStaticPressureCurve, "ChkStaticPressureCurve")
         Me.ChkStaticPressureCurve.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ChkStaticPressureCurve.Checked = True
         Me.ChkStaticPressureCurve.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ChkStaticPressureCurve.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkStaticPressureCurve.ForeColor = System.Drawing.Color.White
-        Me.ChkStaticPressureCurve.Location = New System.Drawing.Point(789, 336)
-        Me.ChkStaticPressureCurve.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ChkStaticPressureCurve.Name = "ChkStaticPressureCurve"
-        Me.ChkStaticPressureCurve.Size = New System.Drawing.Size(146, 22)
-        Me.ChkStaticPressureCurve.TabIndex = 2
-        Me.ChkStaticPressureCurve.Text = "Static Pressure"
         Me.ChkStaticPressureCurve.UseVisualStyleBackColor = False
         '
         'ChkTotalPressureCurve
         '
-        Me.ChkTotalPressureCurve.AutoSize = True
+        resources.ApplyResources(Me.ChkTotalPressureCurve, "ChkTotalPressureCurve")
         Me.ChkTotalPressureCurve.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ChkTotalPressureCurve.Checked = True
         Me.ChkTotalPressureCurve.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ChkTotalPressureCurve.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkTotalPressureCurve.ForeColor = System.Drawing.Color.White
-        Me.ChkTotalPressureCurve.Location = New System.Drawing.Point(789, 372)
-        Me.ChkTotalPressureCurve.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ChkTotalPressureCurve.Name = "ChkTotalPressureCurve"
-        Me.ChkTotalPressureCurve.Size = New System.Drawing.Size(141, 22)
-        Me.ChkTotalPressureCurve.TabIndex = 3
-        Me.ChkTotalPressureCurve.Text = "Total Pressure"
         Me.ChkTotalPressureCurve.UseVisualStyleBackColor = False
         '
         'ChkFanPower
         '
-        Me.ChkFanPower.AutoSize = True
+        resources.ApplyResources(Me.ChkFanPower, "ChkFanPower")
         Me.ChkFanPower.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ChkFanPower.Checked = True
         Me.ChkFanPower.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ChkFanPower.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkFanPower.ForeColor = System.Drawing.Color.White
-        Me.ChkFanPower.Location = New System.Drawing.Point(789, 411)
-        Me.ChkFanPower.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ChkFanPower.Name = "ChkFanPower"
-        Me.ChkFanPower.Size = New System.Drawing.Size(111, 22)
-        Me.ChkFanPower.TabIndex = 4
-        Me.ChkFanPower.Text = "Fan Power"
         Me.ChkFanPower.UseVisualStyleBackColor = False
         '
         'btnWritePointsToFile
         '
         Me.btnWritePointsToFile.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.btnWritePointsToFile.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        resources.ApplyResources(Me.btnWritePointsToFile, "btnWritePointsToFile")
         Me.btnWritePointsToFile.ForeColor = System.Drawing.Color.White
-        Me.btnWritePointsToFile.Location = New System.Drawing.Point(820, 449)
-        Me.btnWritePointsToFile.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnWritePointsToFile.Name = "btnWritePointsToFile"
-        Me.btnWritePointsToFile.Size = New System.Drawing.Size(167, 50)
-        Me.btnWritePointsToFile.TabIndex = 5
-        Me.btnWritePointsToFile.Text = "Write points to file"
         Me.btnWritePointsToFile.UseVisualStyleBackColor = False
         '
         'PrintPreviewDialog1
         '
-        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
-        Me.PrintPreviewDialog1.Enabled = True
-        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        resources.ApplyResources(Me.PrintPreviewDialog1, "PrintPreviewDialog1")
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
-        Me.PrintPreviewDialog1.Visible = False
         '
         'PrintDialog1
         '
@@ -148,87 +119,84 @@ Partial Class FrmFanChart
         '
         'btnPrintPreview
         '
-        Me.btnPrintPreview.Location = New System.Drawing.Point(16, 462)
-        Me.btnPrintPreview.Margin = New System.Windows.Forms.Padding(4)
+        resources.ApplyResources(Me.btnPrintPreview, "btnPrintPreview")
         Me.btnPrintPreview.Name = "btnPrintPreview"
-        Me.btnPrintPreview.Size = New System.Drawing.Size(100, 44)
-        Me.btnPrintPreview.TabIndex = 6
-        Me.btnPrintPreview.Text = "Print Preview"
         Me.btnPrintPreview.UseVisualStyleBackColor = True
         '
         'ChkFanSystemCurve
         '
-        Me.ChkFanSystemCurve.AutoSize = True
+        resources.ApplyResources(Me.ChkFanSystemCurve, "ChkFanSystemCurve")
         Me.ChkFanSystemCurve.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ChkFanSystemCurve.Checked = True
         Me.ChkFanSystemCurve.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ChkFanSystemCurve.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChkFanSystemCurve.ForeColor = System.Drawing.Color.White
-        Me.ChkFanSystemCurve.Location = New System.Drawing.Point(789, 299)
-        Me.ChkFanSystemCurve.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ChkFanSystemCurve.Name = "ChkFanSystemCurve"
-        Me.ChkFanSystemCurve.Size = New System.Drawing.Size(119, 22)
-        Me.ChkFanSystemCurve.TabIndex = 7
-        Me.ChkFanSystemCurve.Text = "Fan System"
         Me.ChkFanSystemCurve.UseVisualStyleBackColor = False
         '
         'btnPrintDocument
         '
-        Me.btnPrintDocument.Location = New System.Drawing.Point(148, 462)
-        Me.btnPrintDocument.Margin = New System.Windows.Forms.Padding(4)
+        resources.ApplyResources(Me.btnPrintDocument, "btnPrintDocument")
         Me.btnPrintDocument.Name = "btnPrintDocument"
-        Me.btnPrintDocument.Size = New System.Drawing.Size(100, 44)
-        Me.btnPrintDocument.TabIndex = 8
-        Me.btnPrintDocument.Text = "Print Document"
         Me.btnPrintDocument.UseVisualStyleBackColor = True
         '
         'optDisplaykW
         '
-        Me.optDisplaykW.AutoSize = True
+        resources.ApplyResources(Me.optDisplaykW, "optDisplaykW")
         Me.optDisplaykW.BackColor = System.Drawing.SystemColors.Highlight
-        Me.optDisplaykW.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.optDisplaykW.ForeColor = System.Drawing.Color.White
-        Me.optDisplaykW.Location = New System.Drawing.Point(789, 236)
-        Me.optDisplaykW.Margin = New System.Windows.Forms.Padding(4)
         Me.optDisplaykW.Name = "optDisplaykW"
-        Me.optDisplaykW.Size = New System.Drawing.Size(109, 21)
-        Me.optDisplaykW.TabIndex = 9
-        Me.optDisplaykW.Text = "Display kW"
         Me.optDisplaykW.UseVisualStyleBackColor = False
-        Me.optDisplaykW.Visible = False
         '
         'optDisplayhp
         '
-        Me.optDisplayhp.AutoSize = True
+        resources.ApplyResources(Me.optDisplayhp, "optDisplayhp")
         Me.optDisplayhp.BackColor = System.Drawing.SystemColors.Highlight
-        Me.optDisplayhp.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.optDisplayhp.ForeColor = System.Drawing.Color.White
-        Me.optDisplayhp.Location = New System.Drawing.Point(789, 265)
-        Me.optDisplayhp.Margin = New System.Windows.Forms.Padding(4)
         Me.optDisplayhp.Name = "optDisplayhp"
-        Me.optDisplayhp.Size = New System.Drawing.Size(105, 21)
-        Me.optDisplayhp.TabIndex = 10
         Me.optDisplayhp.TabStop = True
-        Me.optDisplayhp.Text = "Display hp"
         Me.optDisplayhp.UseVisualStyleBackColor = False
-        Me.optDisplayhp.Visible = False
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(283, 462)
+        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(100, 44)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "View as Excel Chart"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'lblVolumeHidden
+        '
+        resources.ApplyResources(Me.lblVolumeHidden, "lblVolumeHidden")
+        Me.lblVolumeHidden.Name = "lblVolumeHidden"
+        '
+        'lblPressureHidden
+        '
+        resources.ApplyResources(Me.lblPressureHidden, "lblPressureHidden")
+        Me.lblPressureHidden.Name = "lblPressureHidden"
+        '
+        'lblPowerHidden
+        '
+        resources.ApplyResources(Me.lblPowerHidden, "lblPowerHidden")
+        Me.lblPowerHidden.Name = "lblPowerHidden"
+        '
+        'lblTitleHidden
+        '
+        resources.ApplyResources(Me.lblTitleHidden, "lblTitleHidden")
+        Me.lblTitleHidden.Name = "lblTitleHidden"
+        '
+        'lblRunningAtHidden
+        '
+        resources.ApplyResources(Me.lblRunningAtHidden, "lblRunningAtHidden")
+        Me.lblRunningAtHidden.Name = "lblRunningAtHidden"
         '
         'FrmFanChart
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1019, 521)
+        Me.Controls.Add(Me.lblRunningAtHidden)
+        Me.Controls.Add(Me.lblTitleHidden)
+        Me.Controls.Add(Me.lblPowerHidden)
+        Me.Controls.Add(Me.lblPressureHidden)
+        Me.Controls.Add(Me.lblVolumeHidden)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.optDisplayhp)
         Me.Controls.Add(Me.optDisplaykW)
@@ -241,9 +209,7 @@ Partial Class FrmFanChart
         Me.Controls.Add(Me.ChkStaticPressureCurve)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.Chart1)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FrmFanChart"
-        Me.Text = "FanChart"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -266,4 +232,9 @@ Partial Class FrmFanChart
     Friend WithEvents optDisplaykW As RadioButton
     Friend WithEvents optDisplayhp As RadioButton
     Friend WithEvents Button1 As Button
+    Friend WithEvents lblVolumeHidden As Label
+    Friend WithEvents lblPressureHidden As Label
+    Friend WithEvents lblPowerHidden As Label
+    Friend WithEvents lblTitleHidden As Label
+    Friend WithEvents lblRunningAtHidden As Label
 End Class

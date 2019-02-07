@@ -36,8 +36,8 @@ Public Class FrmSettings
         Try
             CenterToScreen()
             txtUsername.Text = Environment.UserName
-        UserName = Environment.UserName
-        If txtUsername.Text.ToLower.Contains("akm") Then
+            'UserName = Environment.UserName'300119
+            If txtUsername.Text.ToLower.Contains("akm") Then
             grpLanguage.Visible = True
             optEnglish.Visible = True
             optChinese.Visible = True

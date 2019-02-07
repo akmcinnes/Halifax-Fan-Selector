@@ -6,7 +6,7 @@ Module ModNoiseMainFunctions
 
             NCQ = Val(Frmselectfan.Txtflow.Text)   'reading in values from form
             NCFSP = Val(Frmselectfan.Txtfsp.Text)
-            NCN = finalspeed
+            NCN = final.speed
 
             Select Case Units(0).UnitSelected
                 Case 0
@@ -108,37 +108,37 @@ Module ModNoiseMainFunctions
             Dim count_num As Integer
             SPL = 25 + (10 * (0.4342944 * Math.Log(NCQ))) + (20 * (0.4342944 * (Math.Log(NCFSP))))
 
-            If finalfantype.Contains("PB") Then
+            If final.fantype.Contains("PB") Then
                 SPL = SPL + 8
             End If
             spl2 = SPL 'for rounding off purposes
 
-            If finalfantype.Contains("FC") Then
+            If final.fantype.Contains("FC") Then
                 For count_num = 0 To 7
                     CF(count_num) = sounddata(0, count_num)
                 Next count_num
             End If
 
-            If finalfantype.Contains("BC") Then
+            If final.fantype.Contains("BC") Then
                 count_num = 0
                 For count_num = 0 To 7
                     CF(count_num) = sounddata(1, count_num)
                 Next count_num
             End If
 
-            If finalfantype.Contains("BI") Then
+            If final.fantype.Contains("BI") Then
                 For count_num = 0 To 7
                     CF(count_num) = sounddata(2, count_num)
                 Next count_num
             End If
 
-            If finalfantype.Contains("RAD") Then
+            If final.fantype.Contains("RAD") Then
                 For count_num = 0 To 7
                     CF(count_num) = sounddata(3, count_num)
                 Next count_num
             End If
 
-            If finalfantype.Contains("Axial") Then
+            If final.fantype.Contains("Axial") Then
                 For count_num = 0 To 7
                     CF(count_num) = sounddata(4, count_num)
                 Next count_num
@@ -193,7 +193,7 @@ Module ModNoiseMainFunctions
             Loop
             Dim k As Integer
             For k = 0 To 19
-                If minfsp(k) <= NCFSP And maxfsp(k) >= NCFSP And minspeed(k) <= finalspeed And maxspeed(k) >= finalspeed Then Exit For
+                If minfsp(k) <= NCFSP And maxfsp(k) >= NCFSP And minspeed(k) <= final.speed And maxspeed(k) >= final.speed Then Exit For
             Next
             ductCF = sounddata(k, j)
             boSPL = SPL - ductCF    'calculating break out sound power level
@@ -211,19 +211,19 @@ Module ModNoiseMainFunctions
             Ascale(6) = bospl1M + WScale(6) - CF(6)
             Ascale(7) = bospl1M + WScale(7) - CF(7)
 
-            If finalfantype.Contains("BC") Then
+            If final.fantype.Contains("BC") Then
                 NCoverall = bospl1M - 9
             End If
-            If finalfantype.Contains("BI") Then
+            If final.fantype.Contains("BI") Then
                 NCoverall = bospl1M - 8
             End If
-            If finalfantype.Contains("FC") Then
+            If final.fantype.Contains("FC") Then
                 NCoverall = bospl1M - 13
             End If
-            If finalfantype.Contains("RAD") Then
+            If final.fantype.Contains("RAD") Then
                 NCoverall = bospl1M - 9
             End If
-            If finalfantype.Contains("axial") Then
+            If final.fantype.Contains("axial") Then
                 NCoverall = bospl1M - 10
             End If
 
@@ -236,7 +236,7 @@ Module ModNoiseMainFunctions
     Public Function OpenInletCalcs() As Double 'calculating noise for open ducts
         Try
             OpenInletCalcs = 0.0
-            NCINdia = finalinletdia
+            NCINdia = final.inletdia
 
             inX = 10 * (0.4342944 * Math.Log(4 * ((1000 / NCINdia) ^ 2)))
 
@@ -358,7 +358,7 @@ Module ModNoiseMainFunctions
     Public Function OpenOutletCalcs() As Double 'calculating noise for open ducts
         Try
             OpenOutletCalcs = 0.0
-            OUTdia = 1.13 * Math.Sqrt(finaloutletarea) * 1000
+            OUTdia = 1.13 * Math.Sqrt(final.outletarea) * 1000
 
             outX = 10 * (0.4342944 * Math.Log(4 * ((1000 / OUTdia) ^ 2)))
 
@@ -480,7 +480,7 @@ Module ModNoiseMainFunctions
     Public Function CalcBrg() As Double
         Try
             CalcBrg = 0.0
-            NCN = finalspeed
+            NCN = final.speed
             BRGnoise = 21 * 0.4342944 * Math.Log(NCN)
 
         Catch ex As Exception
@@ -492,8 +492,8 @@ Module ModNoiseMainFunctions
     Public Function CalcBPFreq() As Double
         Try
             CalcBPFreq = 0.0
-            NCN = finalspeed
-            BPfreq = (NCN / 60) * finalBladeNumber ' bladecount
+            NCN = final.speed
+            BPfreq = (NCN / 60) * final.BladeNumber ' bladecount
 
         Catch ex As Exception
             ErrorMessage(ex, 5608)

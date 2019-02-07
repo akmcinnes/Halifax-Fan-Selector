@@ -115,7 +115,7 @@ Public Class FrmDensityCalcs
 
     Private Sub GasInitialise()
         Try
-            Dim filenameref As String = "Gas Data"
+            Dim filenameref As String = "Gas Data " + ChosenLanguage
             If RadioButton1.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
             If RadioButton2.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
             If RadioButton3.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
@@ -315,6 +315,16 @@ Public Class FrmDensityCalcs
             Return InletPressure
         End Try
     End Function
+
+
+    'Private Sub DataGridView1_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView1.CellBeginEdit
+    '    MsgBox("wwww")
+    'End Sub
+
+
+    'Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
+
+    'End Sub
 
     'Private Sub DataGridView1_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles DataGridView1.CurrentCellDirtyStateChanged
     '    Try

@@ -8,9 +8,9 @@
             Dim temp_fsp As Double
             temp_fsp = CDbl(Frmselectfan.Txtfsp.Text)
             '        If Val(Frmselectfan.Txtfsp.Text) <> 0 Then
-            If temp_fsp <> 0 Then
-                correctedforSUCTIONS(fanno) = "no"
-            End If
+            'If temp_fsp <> 0 Then '300119
+            '    correctedforSUCTIONS(fanno) = "no" '300119
+            'End If '300119
             count1 = 0
             Do While fsp(fanno, count1) <> 0
                 '-scaling for fan sizes
@@ -48,11 +48,17 @@
             If Volume > vols(fanno, datapoint2) And Volume > vols(fanno, datapoint3) Then
                 'MsgBox("Fan type 1; Volume cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Volume available is " & Math.Round(vols(fanno, datapoint3), 2) & " " & FrmSelections.ColumnHeader(3) & (Chr(10)) & "the volume has been changed to suit the highest volume available!", vbInformation)
                 Call GetPressure(size, speed, vols(fanno, count) - 0.01, fanno)
+                failindex = failindex + 1
+                fanfailures(failindex, 0) = fantypename(fanno)
+                fanfailures(failindex, 1) = "Volume cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Volume available is " & Math.Round(vols(fanno, datapoint3), 2)
                 Exit Sub
             End If
             If Volume < vols(fanno, datapoint3) And vols(fanno, datapoint2) = 0 Then
                 'MsgBox("Fan type 1; " & fanclass(fanno) & " volume is too low and falls outside performance data, suggest a volume above " & Math.Round(vols(fanno, 1), 2) & " " & FrmSelections.ColumnHeader(3) & Chr(13) & "the volume has been changed to suit the lowest volume within the performance data!", vbInformation)
                 Call GetPressure(size, speed, vols(fanno, 1) + 0.01, fanno)
+                failindex = failindex + 1
+                fanfailures(failindex, 0) = fantypename(fanno)
+                fanfailures(failindex, 1) = fanclass(fanno) & " volume is too low and falls outside performance data, suggest a volume above " & Math.Round(vols(fanno, 1), 2)
                 Exit Sub
             End If
 
@@ -62,58 +68,58 @@
             '-calculated the fan speed required to get the duty
             '-now calculating the power
             gradpow = (Pows(fanno, datapoint3) - Pows(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
-            selectedpow(fanno) = Pows(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradpow))
-            selectedpow(fanno) = selectedpow(fanno) / temp_kp
-            selectedpow(fanno) = Math.Round(selectedpow(fanno), 2)
-            selectedpow2(fanno) = Math.Round(selectedpow(fanno) / 0.746, 2)
-            selectedmot(fanno) = GetMotorSize(selectedpow(fanno))
-            selectedmot(fanno) = Math.Round(selectedmot(fanno), 2)
-            selectedmot2(fanno) = GetMotorSize(selectedpow(fanno) / 0.746, True)
-            selectedmot2(fanno) = Math.Round(selectedmot2(fanno), 2)
+            selected(fanno).pow = Pows(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradpow))
+            selected(fanno).pow = selected(fanno).pow / temp_kp
+            selected(fanno).pow = Math.Round(selected(fanno).pow, 2)
+            selected(fanno).pow2 = Math.Round(selected(fanno).pow / 0.746, 2)
+            selected(fanno).mot = GetMotorSize(selected(fanno).pow)
+            selected(fanno).mot = Math.Round(selected(fanno).mot, 2)
+            selected(fanno).mot2 = GetMotorSize(selected(fanno).pow / 0.746, True)
+            selected(fanno).mot2 = Math.Round(selected(fanno).mot2, 2)
 
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint3) - fse(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
-            selectedfse(fanno) = fse(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfse))
-            selectedfse(fanno) = selectedfse(fanno) * temp_kp
-            selectedfse(fanno) = Math.Round(selectedfse(fanno), 1)
+            selected(fanno).fse = fse(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfse))
+            selected(fanno).fse = selected(fanno).fse * temp_kp
+            selected(fanno).fse = Math.Round(selected(fanno).fse, 1)
             '-calculating fan total efficiency
             gradfte = (fte(fanno, datapoint3) - fte(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
-            selectedfte(fanno) = fte(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfte))
-            selectedfte(fanno) = selectedfte(fanno) * temp_kp
-            selectedfte(fanno) = Math.Round(selectedfte(fanno), 1)
+            selected(fanno).fte = fte(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfte))
+            selected(fanno).fte = selected(fanno).fte * temp_kp
+            selected(fanno).fte = Math.Round(selected(fanno).fte, 1)
             '-output volume
-            selectedvol(fanno) = Math.Round(Volume, voldecplaces)
-            selectedfansize(fanno) = size
+            selected(fanno).vol = Math.Round(Volume, voldecplaces)
+            selected(fanno).fansize = size
             '--outlet velocity
             Call OutletVel(size, fanno)
-            selectedinletdia(fanno) = datainletdia(fanno)
-            selectedoutletarea(fanno) = dataoutletarea(fanno)
-            selectedinletdia(fanno) = inletdia
-            selectedoutletarea(fanno) = outletsize
-            selectedBladeNumber(fanno) = blade_number(fanno)
-            selectedoutletlen(fanno) = dataoutletlen(fanno)
-            selectedoutletwid(fanno) = dataoutletwid(fanno)
-            selectedoutletlen(fanno) = outletlength
-            selectedoutletwid(fanno) = outletwidth
+            selected(fanno).inletdia = datainletdia(fanno)
+            selected(fanno).outletarea = dataoutletarea(fanno)
+            selected(fanno).inletdia = inletdia
+            selected(fanno).outletarea = outletsize
+            selected(fanno).BladeNumber = blade_number(fanno)
+            selected(fanno).outletlen = dataoutletlen(fanno)
+            selected(fanno).outletwid = dataoutletwid(fanno)
+            selected(fanno).outletlen = outletlength
+            selected(fanno).outletwid = outletwidth
 
             '-calculating FTP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
-            selectedfsp(fanno) = fsps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfsp))
-            selectedfsp(fanno) = Math.Round(selectedfsp(fanno), 2)
+            selected(fanno).fsp = fsps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfsp))
+            selected(fanno).fsp = Math.Round(selected(fanno).fsp, 2)
 
             gradftp = (ftps(fanno, datapoint3) - ftps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
-            selectedftp(fanno) = ftps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradftp))
-            selectedftp(fanno) = Math.Round(selectedftp(fanno), 2)
+            selected(fanno).ftp = ftps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradftp))
+            selected(fanno).ftp = Math.Round(selected(fanno).ftp, 2)
 
-            selectedfantype(fanno) = fanclass(fanno)
+            selected(fanno).fantype = fanclass(fanno)
 
             '---corecting for suction
             If Frmselectfan.Optsucy.Checked = True Then
-                Call SuctionCorrection(Val(selectedfsp(fanno)), Val(selectedpow(fanno)), Val(Frmselectfan.Txtdens.Text))
-                selectedpow(fanno) = Math.Round(NEWpower, 2)
-                selectedfsp(fanno) = Math.Round(NEWpressure, 2)
-                Call SuctionCorrection(Val(selectedftp(fanno)), 0, Val(Frmselectfan.Txtdens.Text))
-                selectedftp(fanno) = Math.Round(NEWpressure, 2)
+                Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), Val(Frmselectfan.Txtdens.Text))
+                selected(fanno).pow = Math.Round(NEWpower, 2)
+                selected(fanno).fsp = Math.Round(NEWpressure, 2)
+                Call SuctionCorrection(Val(selected(fanno).ftp), 0, Val(Frmselectfan.Txtdens.Text))
+                selected(fanno).ftp = Math.Round(NEWpressure, 2)
             End If
 
         Catch ex As Exception
@@ -173,25 +179,41 @@
             If PresType = 0 Then
                 PressCheck2 = ftps(fanno, datapoint2)
                 If pressure > PressCheck2 And pressure > PressCheck1 Then
-                    MsgBox("Fan type 1; Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2) & " " & Frmselectfan.ColumnHeader(4) & (Chr(10)) & "the pressure has been changed to suit the highest pressure available!", vbInformation)
+                    'MsgBox("Fan type 1; Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2) & " " & Frmselectfan.ColumnHeader(4) & (Chr(10)) & "the pressure has been changed to suit the highest pressure available!", vbInformation)
                     Call GetVol(size, speed, Math.Round(PressCheck1, 2) - 0.01, fanno)
+                    failindex = failindex + 1
+                    fanfailures(failindex, 0) = fantypename(fanno)
+                    fanfailures(failindex, 1) = "Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2)
+
                     Exit Sub
                 End If
                 If pressure < PressCheck2 And PressCheck1 = 0 Then
-                    MsgBox("Fan type 1; " & fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2) & " " & Frmselectfan.ColumnHeader(4) & Chr(13) & "the pressure has been changed to suit the lowest pressure within the performance data!", vbInformation)
+                    'MsgBox("Fan type 1; " & fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2) & " " & Frmselectfan.ColumnHeader(4) & Chr(13) & "the pressure has been changed to suit the lowest pressure within the performance data!", vbInformation)
                     Call GetVol(size, speed, Math.Round(fsps(fanno, count1 - 1), 2) + 0.01, fanno)
+                    failindex = failindex + 1
+                    fanfailures(failindex, 0) = fantypename(fanno)
+                    fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
+
                     Exit Sub
                 End If
             Else
                 PressCheck2 = ftps(fanno, datapoint2)
                 If pressure > PressCheck2 And pressure > PressCheck1 Then
-                    MsgBox("Fan type 1; Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2) & " " & Frmselectfan.ColumnHeader(4) & (Chr(10)) & "the pressure has been changed to suit the highest pressure available!", vbInformation)
+                    'MsgBox("Fan type 1; Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2) & " " & Frmselectfan.ColumnHeader(4) & (Chr(10)) & "the pressure has been changed to suit the highest pressure available!", vbInformation)
                     Call GetVol(size, speed, Math.Round(ftps(fanno, count), 2) - 0.01, fanno)
+                    failindex = failindex + 1
+                    fanfailures(failindex, 0) = fantypename(fanno)
+                    fanfailures(failindex, 1) = "Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2)
+
                     Exit Sub
                 End If
                 If pressure < ftps(fanno, datapoint2) And PressCheck1 = 0 Then
-                    MsgBox("Fan type 1; " & fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(ftps(fanno, count1 - 1), 2) & " " & Frmselectfan.ColumnHeader(4) & Chr(13) & "the pressure has been changed to suit the lowest pressure within the performance data!", vbInformation)
+                    'MsgBox("Fan type 1; " & fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(ftps(fanno, count1 - 1), 2) & " " & Frmselectfan.ColumnHeader(4) & Chr(13) & "the pressure has been changed to suit the lowest pressure within the performance data!", vbInformation)
                     Call GetVol(size, speed, Math.Round(ftps(fanno, count1 - 1), 2) + 0.01, fanno)
+                    failindex = failindex + 1
+                    fanfailures(failindex, 0) = fantypename(fanno)
+                    fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(ftps(fanno, count1 - 1), 2)
+
                     Exit Sub
                 End If
             End If
@@ -202,42 +224,42 @@
             '-calculated the fan speed required to get the duty
             '-now calculating the power
             gradpow = (Pows(fanno, datapoint2) - Pows(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
-            selectedpow(fanno) = Pows(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradpow))
-            selectedpow(fanno) = Math.Round(selectedpow(fanno), 2)
+            selected(fanno).pow = Pows(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradpow))
+            selected(fanno).pow = Math.Round(selected(fanno).pow, 2)
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint2) - fse(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
-            selectedfse(fanno) = fse(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradfse))
-            selectedfse(fanno) = Math.Round(selectedfse(fanno), 1)
+            selected(fanno).fse = fse(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradfse))
+            selected(fanno).fse = Math.Round(selected(fanno).fse, 1)
             '-calculating fan total efficiency
             gradfte = (fte(fanno, datapoint2) - fte(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
-            selectedfte(fanno) = fte(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradfte))
-            selectedfte(fanno) = Math.Round(selectedfte(fanno), 1)
+            selected(fanno).fte = fte(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradfte))
+            selected(fanno).fte = Math.Round(selected(fanno).fte, 1)
             '-output fsp
             gradfsp = (fsps(fanno, datapoint2) - fsps(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
-            selectedfsp(fanno) = fsps(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradfsp))
-            selectedfsp(fanno) = Math.Round(selectedfsp(fanno), 2)
+            selected(fanno).fsp = fsps(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradfsp))
+            selected(fanno).fsp = Math.Round(selected(fanno).fsp, 2)
             '-calculating volume
             gradvol = (vols(fanno, datapoint2) - vols(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
-            selectedvol(fanno) = vols(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradvol))
-            selectedvol(fanno) = Math.Round(Val(Frmselectfan.Txtflow.Text), voldecplaces)
+            selected(fanno).vol = vols(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradvol))
+            selected(fanno).vol = Math.Round(Val(Frmselectfan.Txtflow.Text), voldecplaces)
             '--------calculating ftp
             gradftp = (ftps(fanno, datapoint2) - ftps(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
-            selectedftp(fanno) = ftps(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradftp))
-            selectedftp(fanno) = Math.Round(selectedftp(fanno), 2)
+            selected(fanno).ftp = ftps(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradftp))
+            selected(fanno).ftp = Math.Round(selected(fanno).ftp, 2)
             '--outlet velocity
             Call OutletVel(size, fanno)
 
-            selectedfansize(fanno) = fanclass(fanno)
-            selectedBladeType(fanno) = blade_type(fanno)
-            selectedBladeNumber(fanno) = blade_number(fanno)
-            selectedinletdia(fanno) = datainletdia(fanno)
-            selectedoutletarea(fanno) = dataoutletarea(fanno)
-            selectedinletdia(fanno) = inletdia
-            selectedoutletarea(fanno) = outletsize
-            selectedoutletlen(fanno) = dataoutletlen(fanno)
-            selectedoutletwid(fanno) = dataoutletwid(fanno)
-            selectedoutletlen(fanno) = outletlength
-            selectedoutletwid(fanno) = outletwidth
+            selected(fanno).fansize = fanclass(fanno)
+            'selected(fanno).BladeType = blade_type(fanno)'300119
+            selected(fanno).BladeNumber = blade_number(fanno)
+            selected(fanno).inletdia = datainletdia(fanno)
+            selected(fanno).outletarea = dataoutletarea(fanno)
+            selected(fanno).inletdia = inletdia
+            selected(fanno).outletarea = outletsize
+            selected(fanno).outletlen = dataoutletlen(fanno)
+            selected(fanno).outletwid = dataoutletwid(fanno)
+            selected(fanno).outletlen = outletlength
+            selected(fanno).outletwid = outletwidth
 
 
         Catch ex As Exception

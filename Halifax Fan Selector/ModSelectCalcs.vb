@@ -30,7 +30,7 @@
             Call scaledensity(k, getscalefactor)
             runonce = "no"
             Call GetSizeAtfixedSpeed(k)
-            selectedspeed(k) = speed
+            selected(k).speed = speed
             'selectedfansize(k) = Size
 
         Catch ex As Exception
@@ -60,6 +60,10 @@
     Sub WithSizeVolPressure(k)
         Try
             If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
+                failindex = failindex + 1
+                fanfailures(failindex, 0) = fantypename(k)
+                fanfailures(failindex, 1) = "Sorry this duty is out of range for this fan type"
+
                 Exit Sub
                 Call LoadFanData(fantypesecfilename(k), k)
             Else
@@ -115,18 +119,18 @@
 
     Sub ResHDandVolTD(fanno)
         Try
-            fspmax = ScalePFSize(fsp(fanno, FanMaxCount(fanno)), datafansize(fanno), selectedfansize(fanno))
-            ftpmax = ScalePFSize(ftp(fanno, FanMaxCount(fanno)), datafansize(fanno), selectedfansize(fanno))
-            volmax = ScaleVFSize(vol(fanno, FanMaxCount(fanno)), datafansize(fanno), selectedfansize(fanno))
+            fspmax = ScalePFSize(fsp(fanno, FanMaxCount(fanno)), datafansize(fanno), selected(fanno).fansize)
+            ftpmax = ScalePFSize(ftp(fanno, FanMaxCount(fanno)), datafansize(fanno), selected(fanno).fansize)
+            volmax = ScaleVFSize(vol(fanno, FanMaxCount(fanno)), datafansize(fanno), selected(fanno).fansize)
             '-scales for speed
-            volmax = ScaleVFSpeed(volmax, datafanspeed(fanno), selectedspeed(fanno))
-            fspmax = ScalePFSpeed(fspmax, datafanspeed(fanno), selectedspeed(fanno))
-            ftpmax = ScalePFSpeed(ftpmax, datafanspeed(fanno), selectedspeed(fanno))
-            selectedVD(fanno) = Math.Round((1 - volmax / selectedvol(fanno)) * 100, 1)
+            volmax = ScaleVFSpeed(volmax, datafanspeed(fanno), selected(fanno).speed)
+            fspmax = ScalePFSpeed(fspmax, datafanspeed(fanno), selected(fanno).speed)
+            ftpmax = ScalePFSpeed(ftpmax, datafanspeed(fanno), selected(fanno).speed)
+            selected(fanno).VD = Math.Round((1 - volmax / selected(fanno).vol) * 100, 1)
             If PresType = 1 Then
-                selectedresHD(fanno) = Math.Round((1 - selectedftp(fanno) / ftpmax) * 100, 1)
+                selected(fanno).resHD = Math.Round((1 - selected(fanno).ftp / ftpmax) * 100, 1)
             Else
-                selectedresHD(fanno) = Math.Round((1 - selectedfsp(fanno) / fspmax) * 100, 1)
+                selected(fanno).resHD = Math.Round((1 - selected(fanno).fsp / fspmax) * 100, 1)
             End If
 
             'FrmSelections.txtpow1.BackColor = &H80FF80

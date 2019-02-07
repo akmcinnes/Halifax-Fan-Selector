@@ -91,10 +91,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmDisplayFailures.Designer.vb">
-      <DependentUpon>FrmDisplayFailures.vb</DependentUpon>
+    <Compile Include="FrmDisplayRejects.Designer.vb">
+      <DependentUpon>FrmDisplayRejects.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmDisplayFailures.vb">
+    <Compile Include="FrmDisplayRejects.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModDensity.vb" />
@@ -106,6 +106,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModINI.vb" />
+    <Compile Include="ModReadWriteXML.vb" />
     <Compile Include="VariablesDensity.vb" />
     <Compile Include="FrmFanChart.Designer.vb">
       <DependentUpon>FrmFanChart.vb</DependentUpon>
@@ -172,15 +173,19 @@
     <Compile Include="ModSuction.vb" />
     <Compile Include="ModUserDetails.vb" />
     <Compile Include="Variables.vb" />
+    <Compile Include="VariablesStructs.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FrmDensityCalcs.resx">
       <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDisplayFailures.resx">
-      <DependentUpon>FrmDisplayFailures.vb</DependentUpon>
+    <EmbeddedResource Include="FrmDisplayRejects.resx">
+      <DependentUpon>FrmDisplayRejects.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFanChart.resx">
+      <DependentUpon>FrmFanChart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFanChart.zh.resx">
       <DependentUpon>FrmFanChart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProjectDetails.resx">

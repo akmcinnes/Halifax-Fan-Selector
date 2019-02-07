@@ -37,8 +37,8 @@
                 datapointI(fanno, fsizes(fanno, count)) = count2
                 fspI(fanno, fsizes(fanno, count)) = fsps(fanno, count2)
                 ftpI(fanno, fsizes(fanno, count)) = ftps(fanno, count2)
-                volI(fanno, fsizes(fanno, count)) = vols(fanno, count2)
-                powI(fanno, fsizes(fanno, count)) = Pows(fanno, count2)
+                'volI(fanno, fsizes(fanno, count)) = vols(fanno, count2)'300119
+                'powI(fanno, fsizes(fanno, count)) = Pows(fanno, count2)'300119
                 fanspeedI(fanno, fsizes(fanno, count)) = ftspeed(fanno, count2)
                 aa = ftps(fanno, count2)
                 count = count + 1

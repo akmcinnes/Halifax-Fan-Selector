@@ -1,5 +1,5 @@
 ﻿Module ModSizeAtFixedSpeed
-    Public Function GetSizeAtfixedSpeed(ByVal fanno As Integer)
+    Public Sub GetSizeAtfixedSpeed(ByVal fanno As Integer)
         SizeAtFixedSpeed = 0.0
         Try
             count = 0
@@ -48,11 +48,11 @@
                 datapointI(fanno, count) = count2
                 fspI(fanno, count) = fsps(fanno, count2)
                 ftpI(fanno, count) = ftps(fanno, count2)
-                volI(fanno, count) = vols(fanno, count2)
-                powI(fanno, count) = Pows(fanno, count2)
+                'volI(fanno, count) = vols(fanno, count2)'300119
+                'powI(fanno, count) = Pows(fanno, count2)'300119
 
-                fseI(fanno, count) = fse(fanno, count2)
-                fteI(fanno, count) = fte(fanno, count2)
+                'fseI(fanno, count) = fse(fanno, count2)'300119
+                'fteI(fanno, count) = fte(fanno, count2)'300119
                 fsizes(fanno, count) = fansize
                 fansize = fansize + stepsize
                 If count = 500 Then
@@ -106,7 +106,7 @@
                 fanfailures(failindex, 0) = fantypename(fanno)
                 fanfailures(failindex, 1) = "Sorry this duty is out of range for this fan type"
                 'MsgBox("Fan Type " + fanclass(fanno) + ": Sorry this duty is out of range for this fan type")
-                Exit Function
+                Exit Sub
             End If
 
             'Call GetPressure(GetSizeAtfixedSpeed(fanno), speed, Val(Frmselectfan.Txtflow.Text), fanno)
@@ -120,6 +120,6 @@
             End If
         End Try
         'Return GetSizeAtfixedSpeed
-    End Function
+    End Sub
 
 End Module
