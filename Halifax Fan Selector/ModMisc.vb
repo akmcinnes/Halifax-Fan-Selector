@@ -45,8 +45,8 @@
                     flowrate = 10000.0
                     pressrise = 4000.0
                     maxspeed = 3600.0
-                    Frmselectfan.Txtflow.Text = flowrate.ToString
-                    Frmselectfan.Txtfsp.Text = pressrise.ToString
+                    'Frmselectfan.Txtflow.Text = flowrate.ToString 'akm 080219
+                    'Frmselectfan.Txtfsp.Text = pressrise.ToString 'akm 080219
                 End If
             End If
 
@@ -63,14 +63,26 @@
             vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), fsize)
             Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), fsize)
             '-scales for constant volume at each datapoint
+            'If (num = 1) Then
+            '    fspeed = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
+            '    vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
+            'ElseIf (num = 2) Then
+            '    vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), fspeed)
+            'ElseIf (num = 3) Then
+            '    ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
+            '    vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
+            'ElseIf (num = 4) Then
+            '    fspeed = Val(Frmselectfan.Txtfanspeed.Text)
+            '    vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), fspeed)
+            'End If
             If (num = 1) Then
-                fspeed = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
-                vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
+                fspeed = flowrate * datafanspeed(fanno) / vols(fanno, count1)
+                vols(fanno, count1) = flowrate
             ElseIf (num = 2) Then
                 vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), fspeed)
             ElseIf (num = 3) Then
-                ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
-                vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
+                ftspeed(fanno, count1) = flowrate * datafanspeed(fanno) / vols(fanno, count1)
+                vols(fanno, count1) = flowrate
             ElseIf (num = 4) Then
                 fspeed = Val(Frmselectfan.Txtfanspeed.Text)
                 vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), fspeed)

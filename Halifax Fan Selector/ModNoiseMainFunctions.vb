@@ -4,8 +4,10 @@ Module ModNoiseMainFunctions
         Try
             ConvUnits = 0.0
 
-            NCQ = Val(Frmselectfan.Txtflow.Text)   'reading in values from form
-            NCFSP = Val(Frmselectfan.Txtfsp.Text)
+            'NCQ = Val(Frmselectfan.Txtflow.Text)   'reading in values from form
+            NCQ = flowrate   'reading in values from form
+            'NCFSP = Val(Frmselectfan.Txtfsp.Text)
+            NCFSP = pressrise
             NCN = final.speed
 
             Select Case Units(0).UnitSelected

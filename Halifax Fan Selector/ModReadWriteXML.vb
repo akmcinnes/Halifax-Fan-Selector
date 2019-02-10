@@ -101,6 +101,7 @@ Module ModReadWriteXML
                 Write_to_XML(textwriter, "Outlet_Area", final.outletarea.ToString)
                 Write_to_XML(textwriter, "Outlet_Length", final.outletlen.ToString)
                 Write_to_XML(textwriter, "Outlet_Width", final.outletwid.ToString)
+                Write_to_XML(textwriter, "Outlet_Diameter", final.outletdia.ToString)
                 Write_to_XML(textwriter)
             End If
             ' #### AcousticInfo
@@ -199,6 +200,7 @@ Module ModReadWriteXML
                         If textReader.Name = "Outlet_Area" Then final.outletarea = textReader.ReadString
                         If textReader.Name = "Outlet_Length" Then final.outletlen = textReader.ReadString
                         If textReader.Name = "Outlet_Width" Then final.outletwid = textReader.ReadString
+                        If textReader.Name = "Outlet_Diameter" Then final.outletdia = textReader.ReadString
                         '' ##### Acoustics
                         'If TextReader.Name = "Design_Temperature" Then designtemp = TextReader.ReadString
                         'If TextReader.Name = "Maximum_Temperature" Then maximumtemp = TextReader.ReadString
@@ -217,7 +219,7 @@ Module ModReadWriteXML
                 End While
             Loop
             textReader.Close()
-            MsgBox("header " + countflag.ToString)
+            'MsgBox("header " + countflag.ToString)
         Catch ex As Exception
             ErrorMessage(ex, 5511)
         End Try

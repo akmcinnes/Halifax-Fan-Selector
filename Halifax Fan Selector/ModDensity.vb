@@ -3,9 +3,11 @@
         getscalefactor = 0.0
         Try
             If DensType = 2 Then
-                getscalefactor = Val(Frmselectfan.Txtdens.Text) / 0.075
+                'getscalefactor = Val(Frmselectfan.Txtdens.Text) / 0.075
+                getscalefactor = knowndensity / 0.075
             Else
-                getscalefactor = Val(Frmselectfan.Txtdens.Text) / 1.2
+                'getscalefactor = Val(Frmselectfan.Txtdens.Text) / 1.2
+                getscalefactor = knowndensity / 1.2
             End If
             Return getscalefactor
         Catch ex As Exception

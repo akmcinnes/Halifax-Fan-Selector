@@ -81,8 +81,10 @@
                 vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), fansize)
                 Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), fansize)
                 '-scales for constant volume at each datapoint
-                ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
-                vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
+                'ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
+                'vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
+                ftspeed(fanno, count1) = flowrate * datafanspeed(fanno) / vols(fanno, count1)
+                vols(fanno, count1) = flowrate
                 fsps(fanno, count1) = ScalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                 ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                 Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
@@ -93,11 +95,13 @@
                 '-where the size has been specified by the user
                 count = 0
                 If PresType = 0 Then
-                    Do While (fsps(fanno, count) - Val(Frmselectfan.Txtfsp.Text)) ^ 2 > (fsps(fanno, count + 1) - Val(Frmselectfan.Txtfsp.Text)) ^ 2
+                    'Do While (fsps(fanno, count) - Val(Frmselectfan.Txtfsp.Text)) ^ 2 > (fsps(fanno, count + 1) - Val(Frmselectfan.Txtfsp.Text)) ^ 2
+                    Do While (fsps(fanno, count) - pressrise) ^ 2 > (fsps(fanno, count + 1) - pressrise) ^ 2
                         count = count + 1
                     Loop
                 Else
-                    Do While (ftps(fanno, count) - Val(Frmselectfan.Txtfsp.Text)) ^ 2 > (ftps(fanno, count + 1) - Val(Frmselectfan.Txtfsp.Text)) ^ 2
+                    'Do While (ftps(fanno, count) - Val(Frmselectfan.Txtfsp.Text)) ^ 2 > (ftps(fanno, count + 1) - Val(Frmselectfan.Txtfsp.Text)) ^ 2
+                    Do While (ftps(fanno, count) - pressrise) ^ 2 > (ftps(fanno, count + 1) - pressrise) ^ 2
                         count = count + 1
                     Loop
                 End If
@@ -116,7 +120,8 @@
             '-looking at the selected fan size datapoint which best matches the pressure at constant volume
             '- looking either above or below the point to interpolate
             '-deciding if to interpolate between the previous or next datapoint
-            If PressCheck3 > Val(Frmselectfan.Txtfsp.Text) Then
+            'If PressCheck3 > Val(Frmselectfan.Txtfsp.Text) Then
+            If PressCheck3 > pressrise Then
                 datapoint2 = datapoint3 + 1
             Else
                 datapoint2 = datapoint3 - 1
@@ -127,7 +132,8 @@
             Else
                 PressCheck2 = ftps(fanno, datapoint2)
             End If
-            If Val(Frmselectfan.Txtfsp.Text) > PressCheck2 And Val(Frmselectfan.Txtfsp.Text) > PressCheck3 Then
+            'If Val(Frmselectfan.Txtfsp.Text) > PressCheck2 And Val(Frmselectfan.Txtfsp.Text) > PressCheck3 Then
+            If pressrise > PressCheck2 And pressrise > PressCheck3 Then
                 'akm temp removed            MsgBox(("Fan type 1; " & fanclass(fanno) & " Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2) & " " & FrmSelections.ColumnHeader(4)), vbInformation)
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
@@ -135,7 +141,8 @@
 
                 Exit Sub
             End If
-            If Val(Frmselectfan.Txtfsp.Text) < PressCheck2 And PressCheck3 = 0 Then
+            'If Val(Frmselectfan.Txtfsp.Text) < PressCheck2 And PressCheck3 = 0 Then
+            If pressrise < PressCheck2 And PressCheck3 = 0 Then
                 'akm temp removed            MsgBox(("Fan type 1; " & fanclass(fanno) & " Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2) & " " & FrmSelections.ColumnHeader(4)), vbInformation)
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
@@ -148,7 +155,8 @@
             'FRMselections.txtspeed1.Text = ftspeed(fanno,datapoint2) + ((Val(Frmselectfan.Txtfsp.Text) - PressCheck2) * getgrad(PressCheck1, PressCheck2, PressCheck3, PressCheck4, ftspeed(fanno,datapoint1), ftspeed(fanno,datapoint2), ftspeed(fanno,datapoint3), ftspeed(fanno,datapoint4), Val(Frmselectfan.Txtfsp.Text) - PressCheck2))
             'rescaling data for the selected fan size
             grad = (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2)) / (PressCheck3 - PressCheck2)
-            selected(fanno).speed = ftspeed(fanno, datapoint3) + ((Val(Frmselectfan.Txtfsp.Text) - PressCheck3) * grad)
+            'selected(fanno).speed = ftspeed(fanno, datapoint3) + ((Val(Frmselectfan.Txtfsp.Text) - PressCheck3) * grad)
+            selected(fanno).speed = ftspeed(fanno, datapoint3) + ((pressrise - PressCheck3) * grad)
             selected(fanno).speed = Math.Round(selected(fanno).speed, 0)
             selected(fanno).fansize = fansize 'akm
             '-calculated the fan speed required to get the duty
@@ -166,17 +174,20 @@
             selected(fanno).fte = Math.Round(selected(fanno).fte, 1)
             '-output volume
             Frmselectfan.Txtflow.Text = Frmselectfan.Txtflow.Text
+            'Frmselectfan.Txtflow.Text = flowrate.ToString
             '-calculating outlet velocity
             Call OutletVel(fansize, fanno)
 
             selected(fanno).inletdia = datainletdia(fanno)
             selected(fanno).outletarea = dataoutletarea(fanno)
-            selected(fanno).inletdia = inletdia
-            selected(fanno).outletarea = outletsize
+            'selected(fanno).inletdia = inletdia
+            'selected(fanno).outletarea = outletsize
             selected(fanno).outletlen = dataoutletlen(fanno)
             selected(fanno).outletwid = dataoutletwid(fanno)
-            selected(fanno).outletlen = outletlength
-            selected(fanno).outletwid = outletwidth
+            'selected(fanno).outletlen = outletlength
+            'selected(fanno).outletwid = outletwidth
+            selected(fanno).outletdia = dataoutletdia(fanno)
+            'selected(fanno).outletdia = outletdiameter
 
 
             '-calculating FSP
@@ -197,13 +208,15 @@
             TempPress = temppressure
             count = 0
             Do While difference1 >= difference2
-                Call GetPressure(Val(selected(fanno).fansize), uptospeed, Val(Frmselectfan.Txtflow.Text), fanno)
+                'Call GetPressure(Val(selected(fanno).fansize), uptospeed, Val(Frmselectfan.Txtflow.Text), fanno)
+                Call GetPressure(Val(selected(fanno).fansize), uptospeed, flowrate, fanno)
                 If PresType = 0 Then
                     difference1 = Math.Sqrt((TempPress - Val(selected(fanno).fsp)) ^ 2)
                 Else
                     difference1 = Math.Sqrt((TempPress - Val(selected(fanno).ftp)) ^ 2)
                 End If
-                Call GetPressure(Val(selected(fanno).fansize), uptospeed + 1, Val(Frmselectfan.Txtflow.Text), fanno)
+                'Call GetPressure(Val(selected(fanno).fansize), uptospeed + 1, Val(Frmselectfan.Txtflow.Text), fanno)
+                Call GetPressure(Val(selected(fanno).fansize), uptospeed + 1, flowrate, fanno)
                 If PresType = 0 Then
                     difference2 = Math.Sqrt((TempPress - Val(selected(fanno).fsp)) ^ 2)
                 Else
@@ -211,7 +224,8 @@
                 End If
                 uptospeed = uptospeed + 1
             Loop
-            Call GetPressure(Val(selected(fanno).fansize), uptospeed - 1, Val(Frmselectfan.Txtflow.Text), fanno)
+            'Call GetPressure(Val(selected(fanno).fansize), uptospeed - 1, Val(Frmselectfan.Txtflow.Text), fanno)
+            Call GetPressure(Val(selected(fanno).fansize), uptospeed - 1, flowrate, fanno)
 
         Catch ex As Exception
             'MsgBox("getfanspeed")
@@ -257,7 +271,8 @@
 
             '---corecting for suction
             If Frmselectfan.Optsucy.Checked = True Then
-                Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), Val(Frmselectfan.Txtdens.Text))
+                'Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), Val(Frmselectfan.Txtdens.Text))
+                Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), knowndensity)
                 selected(fanno).pow = Math.Round(NEWpower, 2)
                 selected(fanno).fsp = Math.Round(NEWpressure, 2)
             End If
@@ -299,16 +314,32 @@
             inletdia = inletdia - (casethickness * 2)
             outletlength = dataoutletlen(fanno) * (fansize / datafansize(fanno))
             outletwidth = dataoutletwid(fanno) * (fansize / datafansize(fanno))
+            'Select Case Units(0).UnitSelected
+            ''Select Case FlowType
+            '    Case 0 '2 '1
+            '        selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 3600) / outletsize'm3/hr
+            '    Case 1 '2
+            '        selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 60) / outletsize'm3/min
+            '    Case 2 '0 '3
+            '        selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text)) / outletsize'm3/sec
+            '    Case 3 '4
+            '        selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 2119.0) / outletsize 'cfm
+            'End Select
+
             Select Case Units(0).UnitSelected
             'Select Case FlowType
                 Case 0 '2 '1
-                    selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 3600) / outletsize'm3/hr
+                    selected(fanno).ov = (flowrate / 3600) / outletsize'm3/hr
                 Case 1 '2
-                    selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 60) / outletsize'm3/min
+                    selected(fanno).ov = (flowrate / 60) / outletsize'm3/min
                 Case 2 '0 '3
-                    selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text)) / outletsize'm3/sec
+                    selected(fanno).ov = flowrate / outletsize'm3/sec
                 Case 3 '4
-                    selected(fanno).ov = (Val(Frmselectfan.Txtflow.Text) / 2119.0) / outletsize 'cfm
+                    selected(fanno).ov = (flowrate / 2119.0) / outletsize 'cfm
+                Case 4 '4
+                    selected(fanno).ov = (flowrate / 3600) / outletsize 'cfm
+                Case 5 '4
+                    selected(fanno).ov = (flowrate / 2119.0) / outletsize 'cfm
             End Select
 
             'If VelType = 1 Then
@@ -343,6 +374,10 @@
                 Case 2 '3 'm³/sec
                     AnyOutletVel = Volume / (outletsize - (casethickness / 1000) ^ 2)
                 Case 3 '4 'cfm
+                    AnyOutletVel = Volume / (outletsize - (casethickness / 304.8) ^ 2)
+                Case 4 '4 'cfm
+                    AnyOutletVel = (Volume / 3600) / (outletsize - (casethickness / 1000) ^ 2)
+                Case 5 '4 'cfm
                     AnyOutletVel = Volume / (outletsize - (casethickness / 304.8) ^ 2)
             End Select
             Return AnyOutletVel

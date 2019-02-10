@@ -14,11 +14,12 @@ Public Class FrmDensityCalcs
         TextBox6.Enabled = False
         TextBox7.Enabled = False
         Dim dip As Double
-        dip = CDbl(Frmselectfan.TxtInletPressure.Text)
-        If Frmselectfan.Optsucy.Checked Then
-            dip = dip * (-1)
-        End If
-        TextBox1.Text = Frmselectfan.TxtDesignTemperature.Text
+            'dip = CDbl(Frmselectfan.TxtInletPressure.Text)
+            dip = inletpress
+            If Frmselectfan.Optsucy.Checked Then
+                dip = dip * (-1)
+            End If
+            TextBox1.Text = Frmselectfan.TxtDesignTemperature.Text
         TextBox2.Text = dip.ToString
         TextBox3.Text = Frmselectfan.TxtHumidity.Text
         TextBox4.Text = Frmselectfan.TxtAltitude.Text
@@ -116,6 +117,7 @@ Public Class FrmDensityCalcs
     Private Sub GasInitialise()
         Try
             Dim filenameref As String = "Gas Data " + ChosenLanguage
+            'Dim filenameref As String = "Gas Data " + "en-US"
             If RadioButton1.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
             If RadioButton2.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
             If RadioButton3.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
@@ -228,9 +230,11 @@ Public Class FrmDensityCalcs
 
     Private Sub btnReturnToSelection_Click(sender As Object, e As EventArgs) Handles btnReturnToSelection.Click
         Try
+            'If Units(3).UnitSelected = 0 And TextBox7.Text IsNot "" Then Frmselectfan.Txtdens.Text = TextBox7.Text
+            'If Units(3).UnitSelected = 1 And TextBox6.Text IsNot "" Then Frmselectfan.Txtdens.Text = TextBox6.Text
             If Units(3).UnitSelected = 0 And TextBox7.Text IsNot "" Then Frmselectfan.Txtdens.Text = TextBox7.Text
             If Units(3).UnitSelected = 1 And TextBox6.Text IsNot "" Then Frmselectfan.Txtdens.Text = TextBox6.Text
-        Me.Close()
+            Me.Close()
 
         Catch ex As Exception
             ErrorMessage(ex, 20010)

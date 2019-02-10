@@ -5,8 +5,10 @@
                 Dim temppower As Double
                 Dim v As Double
                 Dim p As Double
-                v = CDbl(.Txtflow.Text) / convflow / 3600.0
-                p = CDbl(.Txtfsp.Text) / convpres / 1000.0
+                'v = CDbl(.Txtflow.Text) / convflow / 3600.0
+                v = flowrate / convflow / 3600.0
+                'p = CDbl(.Txtfsp.Text) / convpres / 1000.0
+                p = pressrise / convpres / 1000.0
                 temppower = v * p / 0.7
                 ReadMotorFromBinaryFile()
                 count = 0
@@ -59,7 +61,8 @@
                 End Select
                 .TabControl1.SelectTab(.TabPageFanParameters)
 
-                kp = CalculateKP(1.4, CDbl(.TxtAtmosphericPressure.Text), CDbl(.Txtfsp.Text), CDbl(.TxtInletPressure.Text))
+                'kp = CalculateKP(1.4, CDbl(.TxtAtmosphericPressure.Text), CDbl(.Txtfsp.Text), CDbl(.TxtInletPressure.Text))
+                kp = CalculateKP(1.4, CDbl(.TxtAtmosphericPressure.Text), pressrise, inletpress)
             End With
         Catch ex As Exception
             ErrorMessage(ex, 1201)

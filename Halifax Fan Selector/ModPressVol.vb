@@ -6,7 +6,8 @@
 
 
             Dim temp_fsp As Double
-            temp_fsp = CDbl(Frmselectfan.Txtfsp.Text)
+            'temp_fsp = CDbl(Frmselectfan.Txtfsp.Text)
+            temp_fsp = pressrise
             '        If Val(Frmselectfan.Txtfsp.Text) <> 0 Then
             'If temp_fsp <> 0 Then '300119
             '    correctedforSUCTIONS(fanno) = "no" '300119
@@ -28,7 +29,8 @@
             Loop
             count = 0
             Dim temp_flow As Double
-            temp_flow = CDbl(Frmselectfan.Txtflow.Text)
+            'temp_flow = CDbl(Frmselectfan.Txtflow.Text)
+            temp_flow = flowrate
 
             Do While (vols(fanno, count) - temp_flow) ^ 2 > (vols(fanno, count + 1) - temp_flow) ^ 2
                 count = count + 1
@@ -94,13 +96,15 @@
             Call OutletVel(size, fanno)
             selected(fanno).inletdia = datainletdia(fanno)
             selected(fanno).outletarea = dataoutletarea(fanno)
-            selected(fanno).inletdia = inletdia
-            selected(fanno).outletarea = outletsize
+            'selected(fanno).inletdia = inletdia
+            'selected(fanno).outletarea = outletsize
             selected(fanno).BladeNumber = blade_number(fanno)
             selected(fanno).outletlen = dataoutletlen(fanno)
             selected(fanno).outletwid = dataoutletwid(fanno)
-            selected(fanno).outletlen = outletlength
-            selected(fanno).outletwid = outletwidth
+            'selected(fanno).outletlen = outletlength
+            'selected(fanno).outletwid = outletwidth
+            selected(fanno).outletdia = dataoutletdia(fanno)
+            'selected(fanno).outletdia = outletdiameter
 
             '-calculating FTP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
@@ -115,10 +119,12 @@
 
             '---corecting for suction
             If Frmselectfan.Optsucy.Checked = True Then
-                Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), Val(Frmselectfan.Txtdens.Text))
+                'Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), Val(Frmselectfan.Txtdens.Text))
+                Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), knowndensity)
                 selected(fanno).pow = Math.Round(NEWpower, 2)
                 selected(fanno).fsp = Math.Round(NEWpressure, 2)
-                Call SuctionCorrection(Val(selected(fanno).ftp), 0, Val(Frmselectfan.Txtdens.Text))
+                'Call SuctionCorrection(Val(selected(fanno).ftp), 0, Val(Frmselectfan.Txtdens.Text))
+                Call SuctionCorrection(Val(selected(fanno).ftp), 0, knowndensity)
                 selected(fanno).ftp = Math.Round(NEWpressure, 2)
             End If
 
@@ -241,7 +247,8 @@
             '-calculating volume
             gradvol = (vols(fanno, datapoint2) - vols(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
             selected(fanno).vol = vols(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradvol))
-            selected(fanno).vol = Math.Round(Val(Frmselectfan.Txtflow.Text), voldecplaces)
+            'selected(fanno).vol = Math.Round(Val(Frmselectfan.Txtflow.Text), voldecplaces)
+            selected(fanno).vol = Math.Round(flowrate, voldecplaces)
             '--------calculating ftp
             gradftp = (ftps(fanno, datapoint2) - ftps(fanno, datapoint3)) / (PressCheck1 - PressCheck2)
             selected(fanno).ftp = ftps(fanno, datapoint3) + ((((PressCheck1 - pressure)) * gradftp))
@@ -254,12 +261,14 @@
             selected(fanno).BladeNumber = blade_number(fanno)
             selected(fanno).inletdia = datainletdia(fanno)
             selected(fanno).outletarea = dataoutletarea(fanno)
-            selected(fanno).inletdia = inletdia
-            selected(fanno).outletarea = outletsize
+            'selected(fanno).inletdia = inletdia
+            'selected(fanno).outletarea = outletsize
             selected(fanno).outletlen = dataoutletlen(fanno)
             selected(fanno).outletwid = dataoutletwid(fanno)
-            selected(fanno).outletlen = outletlength
-            selected(fanno).outletwid = outletwidth
+            'selected(fanno).outletlen = outletlength
+            'selected(fanno).outletwid = outletwidth
+            selected(fanno).outletdia = dataoutletdia(fanno)
+            'selected(fanno).outletdia = outletdiameter
 
 
         Catch ex As Exception

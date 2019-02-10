@@ -309,6 +309,8 @@ Public Class FrmFanChart
                 If Units(0).UnitSelected = 1 Then plotvol(i) = Vol_m3min(i)
                 If Units(0).UnitSelected = 2 Then plotvol(i) = Vol_m3sec(i)
                 If Units(0).UnitSelected = 3 Then plotvol(i) = Vol_cfm(i)
+                If Units(0).UnitSelected = 4 Then plotvol(i) = Vol_m3hr(i) * knowndensity
+                If Units(0).UnitSelected = 5 Then plotvol(i) = Vol_cfm(i) * knowndensity
 
                 If Units(4).UnitSelected = 0 Then plotpow(i) = Pow_kw(i)
                 If Units(4).UnitSelected = 1 Then plotpow(i) = Pow_hp(i)

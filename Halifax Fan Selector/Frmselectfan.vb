@@ -533,7 +533,8 @@ Public Class Frmselectfan
         Try
             FrmDensityCalcs.TextBox1.Text = TxtDesignTemperature.Text
             FrmDensityCalcs.TextBox4.Text = TxtAltitude.Text
-            FrmDensityCalcs.TextBox2.Text = TxtInletPressure.Text
+            'FrmDensityCalcs.TextBox2.Text = TxtInletPressure.Text
+            FrmDensityCalcs.TextBox2.Text = inletpress
             FrmDensityCalcs.TextBox3.Text = TxtHumidity.Text
             FrmDensityCalcs.ShowDialog()
         Catch ex As Exception
@@ -624,7 +625,7 @@ Public Class Frmselectfan
                 Exit Sub
             End If
             failindex = -1
-            pressrise = CDbl(Txtfsp.Text)
+            'pressrise = CDbl(Txtfsp.Text)
             maxspeed = CDbl(Txtspeedlimit.Text)
             If Opt2Pole.Checked = True Or Opt4Pole.Checked = True Or Opt6Pole.Checked = True Or Opt8Pole.Checked = True Or Opt10Pole.Checked = True Or Opt12Pole.Checked = True Then maxspeed = CDbl(Txtfanspeed.Text)
             Txtspeedlimit.Text = maxspeed.ToString

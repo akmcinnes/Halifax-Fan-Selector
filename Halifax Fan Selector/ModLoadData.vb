@@ -13,24 +13,42 @@ Module ModLoadData
             If Units(0).UnitSelected = 1 Then
                 voldecplaces = 2
             End If
-            If Val(Frmselectfan.Txtflow.Text) > 10000 Then
+            'If Val(Frmselectfan.Txtflow.Text) > 10000 Then
+            '    voldecplaces = 0
+            'ElseIf Val(Frmselectfan.Txtflow.Text) > 1000 Then
+            '    voldecplaces = 1
+            'ElseIf Val(Frmselectfan.Txtflow.Text) > 100 Then
+            '    voldecplaces = 2
+            'ElseIf Val(Frmselectfan.Txtflow.Text) > 10 Then
+            '    voldecplaces = 3
+            'End If
+            If flowrate > 10000 Then
                 voldecplaces = 0
-            ElseIf Val(Frmselectfan.Txtflow.Text) > 1000 Then
+            ElseIf flowrate > 1000 Then
                 voldecplaces = 1
-            ElseIf Val(Frmselectfan.Txtflow.Text) > 100 Then
+            ElseIf flowrate > 100 Then
                 voldecplaces = 2
-            ElseIf Val(Frmselectfan.Txtflow.Text) > 10 Then
+            ElseIf flowrate > 10 Then
                 voldecplaces = 3
             End If
 
             pressplaceRise = 2
-            If Val(Frmselectfan.Txtfsp.Text) > 10000 Then
+            'If Val(Frmselectfan.Txtfsp.Text) > 10000 Then
+            '    pressplaceRise = 0
+            'ElseIf Val(Frmselectfan.Txtfsp.Text) > 1000 Then
+            '    pressplaceRise = 1
+            'ElseIf Val(Frmselectfan.Txtfsp.Text) > 100 Then
+            '    pressplaceRise = 2
+            'ElseIf Val(Frmselectfan.Txtfsp.Text) > 10 Then
+            '    pressplaceRise = 3
+            'End If
+            If pressrise > 10000 Then
                 pressplaceRise = 0
-            ElseIf Val(Frmselectfan.Txtfsp.Text) > 1000 Then
+            ElseIf pressrise > 1000 Then
                 pressplaceRise = 1
-            ElseIf Val(Frmselectfan.Txtfsp.Text) > 100 Then
+            ElseIf pressrise > 100 Then
                 pressplaceRise = 2
-            ElseIf Val(Frmselectfan.Txtfsp.Text) > 10 Then
+            ElseIf pressrise > 10 Then
                 pressplaceRise = 3
             End If
 
@@ -73,6 +91,10 @@ Module ModLoadData
                     vol(fanno, count) = Vol_m3sec(count)
                 ElseIf Units(0).UnitSelected = 3 Then
                     vol(fanno, count) = Vol_cfm(count)
+                ElseIf Units(0).UnitSelected = 4 Then
+                    vol(fanno, count) = Vol_m3hr(count)
+                ElseIf Units(0).UnitSelected = 5 Then
+                    vol(fanno, count) = Vol_cfm(count)
                 End If
                 If Units(4).UnitSelected = 0 Then
                     Powr(fanno, count) = Pow_kw(count)
@@ -95,6 +117,7 @@ Module ModLoadData
             datafanspeed(fanno) = FanSpeed1
             dataoutletlen(fanno) = OutLen_mm
             dataoutletwid(fanno) = OutWid_mm
+            dataoutletdia(fanno) = OutDia_mm
             dataoutletarea(fanno) = OutArea_m2
             dataoutletareaftsq(fanno) = OutArea_ft2
             datainletdia(fanno) = In_Dia_mm
@@ -221,9 +244,11 @@ Module ModLoadData
             Most_Eff_Pt = br.ReadInt32()
             OutLen_mm = br.ReadDouble()
             OutWid_mm = br.ReadDouble()
+            OutDia_mm = br.ReadDouble()
             OutArea_m2 = br.ReadDouble()
             OutLen_ft = br.ReadDouble()
             OutWid_ft = br.ReadDouble()
+            OutDia_ft = br.ReadDouble()
             OutArea_ft2 = br.ReadDouble()
             In_Dia_mm = br.ReadDouble()
             Eye_Area_m2 = br.ReadDouble()

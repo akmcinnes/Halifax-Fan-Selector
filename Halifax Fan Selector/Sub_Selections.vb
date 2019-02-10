@@ -219,8 +219,10 @@ Module Sub_Selections
 
                     Dim tempsize As Double = CDbl(.Txtfansize.Text)
                     Dim tempspeed As Double = CDbl(.Txtfanspeed.Text)
-                    Dim tempflow As Double = CDbl(.Txtflow.Text)
-                    Dim tempfsp As Double = CDbl(.Txtfsp.Text)
+                    'Dim tempflow As Double = CDbl(.Txtflow.Text)
+                    Dim tempflow As Double = flowrate
+                    'Dim tempfsp As Double = CDbl(.Txtfsp.Text)
+                    Dim tempfsp As Double = pressrise
 
                     If .OptAnySpeed.Checked = True Then
                         tempspeed = 0.0

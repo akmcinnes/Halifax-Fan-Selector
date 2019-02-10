@@ -98,6 +98,7 @@ Module Variables
     Public datafanspeed(50) As Integer
     Public dataoutletlen(50) As Double
     Public dataoutletwid(50) As Double
+    Public dataoutletdia(50) As Double
     Public dataoutletsize(50) As Integer
     Public dataoutletarea(50) As Double
     Public datainletdia(50) As Double
@@ -207,9 +208,11 @@ Module Variables
     Public Most_Eff_Pt As Integer
     Public OutLen_mm As Double
     Public OutWid_mm As Double
+    Public OutDia_mm As Double
     Public OutArea_m2 As Double
     Public OutLen_ft As Double 'not used
     Public OutWid_ft As Double 'not used
+    Public OutDia_ft As Double
     Public OutArea_ft2 As Double
     Public In_Dia_mm As Double
     Public Eye_Area_m2 As Double 'not used
@@ -361,6 +364,7 @@ Module Variables
     'Public outletdia As Integer
     Public outletlength As Integer
     Public outletwidth As Integer
+    Public outletdiameter As Integer
     Public WScale(8) As Single
 
 

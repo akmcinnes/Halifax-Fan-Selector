@@ -80,6 +80,7 @@
         Public outletarea As Double
         Public outletlen As Double
         Public outletwid As Double
+        Public outletdia As Double
     End Structure
 
     Public selected(50) As fanstruct

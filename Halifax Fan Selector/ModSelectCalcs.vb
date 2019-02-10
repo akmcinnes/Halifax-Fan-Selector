@@ -86,12 +86,15 @@
             Else
                 Call LoadFanData(fantypefilename(k), k)
             End If
-            If Val(Frmselectfan.Txtfsp.Text) <> 0 Then
+            'If Val(Frmselectfan.Txtfsp.Text) <> 0 Then
+            If pressrise <> 0 Then
                 Frmselectfan.Txtdens.Text = originaldensity
                 'akmMsgBox("Fan Type " + k.ToString + ": " & fanclass(k) & ", A new value for Pressure has been calculated!", vbInformation)
             End If
             Call scaledensity(k, getscalefactor)
-            Call GetPressure(CDbl(Frmselectfan.Txtfansize.Text), CDbl(Frmselectfan.Txtfanspeed.Text), CDbl(Frmselectfan.Txtflow.Text), k)
+            'Call GetPressure(CDbl(Frmselectfan.Txtfansize.Text), CDbl(Frmselectfan.Txtfanspeed.Text), CDbl(Frmselectfan.Txtflow.Text), k)
+            Call GetPressure(CDbl(Frmselectfan.Txtfansize.Text), CDbl(Frmselectfan.Txtfanspeed.Text), flowrate, k)
+
 
         Catch ex As Exception
             'MsgBox("WithSpeedSizeVolume")
@@ -108,7 +111,8 @@
                 Call LoadFanData(fantypefilename(k), k)
             End If
             Call scaledensity(k, getscalefactor)
-            Call GetVol(Val(Frmselectfan.Txtfansize.Text), Val(Frmselectfan.Txtfanspeed.Text), Val(Frmselectfan.Txtfsp.Text), k)
+            'Call GetVol(Val(Frmselectfan.Txtfansize.Text), Val(Frmselectfan.Txtfanspeed.Text), Val(Frmselectfan.Txtfsp.Text), k)
+            Call GetVol(Val(Frmselectfan.Txtfansize.Text), Val(Frmselectfan.Txtfanspeed.Text), pressrise, k)
 
         Catch ex As Exception
             'MsgBox("WithSpeedPressure")

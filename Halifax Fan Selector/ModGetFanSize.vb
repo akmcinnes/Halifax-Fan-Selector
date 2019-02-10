@@ -15,8 +15,10 @@
                     vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), fsizes(fanno, count))
                     Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), fsizes(fanno, count))
                     '-scales for constant volume at each datapoint
-                    ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
-                    vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
+                    'ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
+                    'vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
+                    ftspeed(fanno, count1) = flowrate * datafanspeed(fanno) / vols(fanno, count1)
+                    vols(fanno, count1) = flowrate
                     fsps(fanno, count1) = ScalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                     ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                     Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
@@ -25,11 +27,13 @@
                 count2 = 0
                 '-finds the point where the pressure is nearest
                 If PresType = 0 Then
-                    Do While Math.Abs(Val(Frmselectfan.Txtfsp.Text) - fsps(fanno, count2)) ^ 2 > Math.Abs(Val(Frmselectfan.Txtfsp.Text) - fsps(fanno, count2 + 1)) ^ 2
+                    'Do While Math.Abs(Val(Frmselectfan.Txtfsp.Text) - fsps(fanno, count2)) ^ 2 > Math.Abs(Val(Frmselectfan.Txtfsp.Text) - fsps(fanno, count2 + 1)) ^ 2
+                    Do While Math.Abs(pressrise - fsps(fanno, count2)) ^ 2 > Math.Abs(pressrise - fsps(fanno, count2 + 1)) ^ 2
                         count2 = count2 + 1
                     Loop
                 Else
-                    Do While (Val(Frmselectfan.Txtfsp.Text) - ftps(fanno, count2)) ^ 2 > (Val(Frmselectfan.Txtfsp.Text) - ftps(fanno, count2 + 1)) ^ 2
+                    'Do While (Val(Frmselectfan.Txtfsp.Text) - ftps(fanno, count2)) ^ 2 > (Val(Frmselectfan.Txtfsp.Text) - ftps(fanno, count2 + 1)) ^ 2
+                    Do While (pressrise - ftps(fanno, count2)) ^ 2 > (pressrise - ftps(fanno, count2 + 1)) ^ 2
                         count2 = count2 + 1
                     Loop
                 End If

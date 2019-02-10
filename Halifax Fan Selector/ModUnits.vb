@@ -354,13 +354,23 @@
             If Units(0).UnitSelected = 1 Then
                 voldecplaces = 2
             End If
-            If Val(Frmselectfan.Txtflow.Text) * convflow > 10000 Then
+            'If Val(Frmselectfan.Txtflow.Text) * convflow > 10000 Then
+            '    voldecplaces = 0
+            'ElseIf Val(Frmselectfan.Txtflow.Text) * convflow > 1000 Then
+            '    voldecplaces = 1
+            'ElseIf Val(Frmselectfan.Txtflow.Text) * convflow > 100 Then
+            '    voldecplaces = 2
+            'ElseIf Val(Frmselectfan.Txtflow.Text) * convflow > 10 Then
+            '    voldecplaces = 3
+            'End If
+
+            If flowrate * convflow > 10000 Then
                 voldecplaces = 0
-            ElseIf Val(Frmselectfan.Txtflow.Text) * convflow > 1000 Then
+            ElseIf flowrate * convflow > 1000 Then
                 voldecplaces = 1
-            ElseIf Val(Frmselectfan.Txtflow.Text) * convflow > 100 Then
+            ElseIf flowrate * convflow > 100 Then
                 voldecplaces = 2
-            ElseIf Val(Frmselectfan.Txtflow.Text) * convflow > 10 Then
+            ElseIf flowrate * convflow > 10 Then
                 voldecplaces = 3
             End If
 
@@ -376,39 +386,67 @@
             End If
 
             pressplaceIn = 2
-            If Val(Frmselectfan.TxtInletPressure.Text) * convpres > 10000 Then
+            'If Val(Frmselectfan.TxtInletPressure.Text) * convpres > 10000 Then
+            '    pressplaceIn = 0
+            'ElseIf Val(Frmselectfan.TxtInletPressure.Text) * convpres > 1000 Then
+            '    pressplaceIn = 1
+            'ElseIf Val(Frmselectfan.TxtInletPressure.Text) * convpres > 100 Then
+            '    pressplaceIn = 2
+            'ElseIf Val(Frmselectfan.TxtInletPressure.Text) * convpres > 10 Then
+            '    pressplaceIn = 3
+            'End If
+            If inletpress * convpres > 10000 Then
                 pressplaceIn = 0
-            ElseIf Val(Frmselectfan.TxtInletPressure.Text) * convpres > 1000 Then
+            ElseIf inletpress * convpres > 1000 Then
                 pressplaceIn = 1
-            ElseIf Val(Frmselectfan.TxtInletPressure.Text) * convpres > 100 Then
+            ElseIf inletpress * convpres > 100 Then
                 pressplaceIn = 2
-            ElseIf Val(Frmselectfan.TxtInletPressure.Text) * convpres > 10 Then
+            ElseIf inletpress * convpres > 10 Then
                 pressplaceIn = 3
             End If
 
             pressplaceOut = 2
-            If Val(Frmselectfan.TxtDischargePressure.Text) * convpres > 10000 Then
+            'If Val(Frmselectfan.TxtDischargePressure.Text) * convpres > 10000 Then
+            '    pressplaceOut = 0
+            'ElseIf Val(Frmselectfan.TxtDischargePressure.Text) * convpres > 1000 Then
+            '    pressplaceOut = 1
+            'ElseIf Val(Frmselectfan.TxtDischargePressure.Text) * convpres > 100 Then
+            '    pressplaceOut = 2
+            'ElseIf Val(Frmselectfan.TxtDischargePressure.Text) * convpres > 10 Then
+            '    pressplaceOut = 3
+            'End If
+            If dischpress * convpres > 10000 Then
                 pressplaceOut = 0
-            ElseIf Val(Frmselectfan.TxtDischargePressure.Text) * convpres > 1000 Then
+            ElseIf dischpress * convpres > 1000 Then
                 pressplaceOut = 1
-            ElseIf Val(Frmselectfan.TxtDischargePressure.Text) * convpres > 100 Then
+            ElseIf dischpress * convpres > 100 Then
                 pressplaceOut = 2
-            ElseIf Val(Frmselectfan.TxtDischargePressure.Text) * convpres > 10 Then
+            ElseIf dischpress * convpres > 10 Then
                 pressplaceOut = 3
             End If
 
             pressplaceRise = 2
-            If Val(Frmselectfan.Txtfsp.Text) * convpres > 10000 Then
+            'If Val(Frmselectfan.Txtfsp.Text) * convpres > 10000 Then
+            '    pressplaceRise = 0
+            'ElseIf Val(Frmselectfan.Txtfsp.Text) * convpres > 1000 Then
+            '    pressplaceRise = 1
+            'ElseIf Val(Frmselectfan.Txtfsp.Text) * convpres > 100 Then
+            '    pressplaceRise = 2
+            'ElseIf Val(Frmselectfan.Txtfsp.Text) * convpres > 10 Then
+            '    pressplaceRise = 3
+            'End If
+            If pressrise * convpres > 10000 Then
                 pressplaceRise = 0
-            ElseIf Val(Frmselectfan.Txtfsp.Text) * convpres > 1000 Then
+            ElseIf pressrise * convpres > 1000 Then
                 pressplaceRise = 1
-            ElseIf Val(Frmselectfan.Txtfsp.Text) * convpres > 100 Then
+            ElseIf pressrise * convpres > 100 Then
                 pressplaceRise = 2
-            ElseIf Val(Frmselectfan.Txtfsp.Text) * convpres > 10 Then
+            ElseIf pressrise * convpres > 10 Then
                 pressplaceRise = 3
             End If
 
             Frmselectfan.Txtflow.Text = Math.Round(Val(Frmselectfan.Txtflow.Text) * convflow, voldecplaces).ToString
+            'Frmselectfan.Txtflow.Text = Math.Round(flowrate * convflow, voldecplaces).ToString
             Frmselectfan.TxtAtmosphericPressure.Text = Math.Round(Val(Frmselectfan.TxtAtmosphericPressure.Text) * convpres, pressplaceAtmos).ToString
             Frmselectfan.TxtInletPressure.Text = Math.Round(Val(Frmselectfan.TxtInletPressure.Text) * convpres, pressplaceIn).ToString
             Frmselectfan.TxtDischargePressure.Text = Math.Round(Val(Frmselectfan.TxtDischargePressure.Text) * convpres, pressplaceOut).ToString

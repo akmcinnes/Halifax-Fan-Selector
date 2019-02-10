@@ -63,7 +63,7 @@ Partial Class FrmDensityCalcs
         'ListBox1
         '
         Me.ListBox1.AllowDrop = True
-        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 25
         Me.ListBox1.Location = New System.Drawing.Point(21, 12)
@@ -74,7 +74,7 @@ Partial Class FrmDensityCalcs
         '
         'btnClear
         '
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnClear.Location = New System.Drawing.Point(21, 540)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnClear.Name = "btnClear"
@@ -137,7 +137,7 @@ Partial Class FrmDensityCalcs
         Me.GroupBox1.Controls.Add(Me.RadioButton3)
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Location = New System.Drawing.Point(843, 12)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -186,7 +186,7 @@ Partial Class FrmDensityCalcs
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(349, 491)
         Me.Label1.Name = "Label1"
@@ -196,7 +196,7 @@ Partial Class FrmDensityCalcs
         '
         'btnReturnToSelection
         '
-        Me.btnReturnToSelection.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReturnToSelection.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnReturnToSelection.Location = New System.Drawing.Point(949, 540)
         Me.btnReturnToSelection.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnReturnToSelection.Name = "btnReturnToSelection"
@@ -208,7 +208,7 @@ Partial Class FrmDensityCalcs
         'btnCalculate
         '
         Me.btnCalculate.Enabled = False
-        Me.btnCalculate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCalculate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnCalculate.Location = New System.Drawing.Point(485, 540)
         Me.btnCalculate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnCalculate.Name = "btnCalculate"
@@ -349,7 +349,7 @@ Partial Class FrmDensityCalcs
         Me.GroupBox2.Controls.Add(Me.TextBox2)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.TextBox1)
-        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Location = New System.Drawing.Point(843, 135)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -368,7 +368,7 @@ Partial Class FrmDensityCalcs
         Me.GroupBox3.Controls.Add(Me.TextBox6)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.TextBox7)
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
         Me.GroupBox3.Location = New System.Drawing.Point(843, 313)
         Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
