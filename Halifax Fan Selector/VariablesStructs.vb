@@ -58,6 +58,7 @@
     Public Units(8) As UnitsStruct
 
     Public Structure fanstruct
+        Public fanindex As Integer
         Public fansize As Double
         Public fantype As String
         Public fse As Double

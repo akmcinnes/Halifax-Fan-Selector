@@ -6,13 +6,17 @@
             Dim temp_size As Double
             '-----repeating if the fansize falls into the secondary data range
             temp_size = ModGetFanSize.GetFanSize(k)
-            If temp_size >= fansizelimit(k) And Val(fansizelimit(k)) <> 0 Then
-                Call LoadFanData(fantypesecfilename(k), k)
-                Call scaledensity(k, getscalefactor)
-            End If
+            'If temp_size >= fansizelimit(k) And Val(fansizelimit(k)) <> 0 Then 'akm 150219
+            '    Call LoadFanData(fantypesecfilename(k), k)
+            '    Call scaledensity(k, getscalefactor)
+            'End If
             If ModGetFanSize.GetFanSize(k) = 0 Then
                 'MsgBox("The duty is outside the selected fantype duty range")
                 'MsgBox("The duty is outside the " + fanclass(k) + " duty range")
+                failindex = failindex + 1
+                fanfailures(failindex, 0) = fanclass(k)
+                fanfailures(failindex, 1) = "The duty is outside the " + fanclass(k) + " duty range"
+
             Else
                 temp_size = ModGetFanSize.GetFanSize(k)
                 Call GetFanSpeed(ModGetFanSize.GetFanSize(k), k)
@@ -42,11 +46,11 @@
 
     Sub WithSpeedWithSize(k)
         Try
-            If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
-                Call LoadFanData(fantypesecfilename(k), k)
-            Else
-                Call LoadFanData(fantypefilename(k), k)
-            End If
+            'If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then'akm 150219
+            '    Call LoadFanData(fantypesecfilename(k), k)
+            'Else
+            Call LoadFanData(fantypefilename(k), k)
+            'End If'akm 150219
             Call scaledensity(k, getscalefactor)
             Call ScaleSizeSpeed(Frmselectfan.Txtfansize.Text, Frmselectfan.Txtfanspeed.Text, k)
 
@@ -65,7 +69,7 @@
                 fanfailures(failindex, 1) = "Sorry this duty is out of range for this fan type"
 
                 Exit Sub
-                Call LoadFanData(fantypesecfilename(k), k)
+                'Call LoadFanData(fantypesecfilename(k), k)'akm 150219
             Else
                 Call LoadFanData(fantypefilename(k), k)
             End If
@@ -81,11 +85,11 @@
 
     Sub WithSpeedSizeVolume(k)
         Try
-            If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
-                Call LoadFanData(fantypesecfilename(k), k)
-            Else
-                Call LoadFanData(fantypefilename(k), k)
-            End If
+            'If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then'akm 150219
+            '    Call LoadFanData(fantypesecfilename(k), k)
+            'Else
+            Call LoadFanData(fantypefilename(k), k)
+            'End If'akm 150219
             'If Val(Frmselectfan.Txtfsp.Text) <> 0 Then
             If pressrise <> 0 Then
                 Frmselectfan.Txtdens.Text = originaldensity
@@ -105,11 +109,11 @@
 
     Sub WithSpeedPressure(k)
         Try
-            If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
-                Call LoadFanData(fantypesecfilename(k), k)
-            Else
-                Call LoadFanData(fantypefilename(k), k)
-            End If
+            'If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then'akm 150219
+            '    Call LoadFanData(fantypesecfilename(k), k)
+            'Else
+            Call LoadFanData(fantypefilename(k), k)
+            'End If'akm 150219
             Call scaledensity(k, getscalefactor)
             'Call GetVol(Val(Frmselectfan.Txtfansize.Text), Val(Frmselectfan.Txtfanspeed.Text), Val(Frmselectfan.Txtfsp.Text), k)
             Call GetVol(Val(Frmselectfan.Txtfansize.Text), Val(Frmselectfan.Txtfanspeed.Text), pressrise, k)

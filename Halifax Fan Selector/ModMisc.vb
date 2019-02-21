@@ -146,4 +146,22 @@
             ErrorMessage(ex, 5514)
         End Try
     End Sub
+
+    'Sub RedBorder(Ctrl As System.Windows.Forms.TextBox)
+    '    Try
+    '        Dim g As System.Windows.Forms.PaintEventArgs
+    '        Dim pen As New Pen(Color.Red, 2.0)
+    '        g.Graphics.DrawRectangle(pen, New Rectangle(Ctrl.Location, Ctrl.Size))
+    '        pen.Dispose()
+
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 5515)
+    '    End Try
+    'End Sub
+    'Private Sub Form1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles FrmSelectFan.Paint
+    '    Dim g As Graphics = e.Graphics
+    '    Dim p As New Pen(Color.Red, 2)
+    '    g.DrawRectangle(p, TextBox1.Left, TextBox1.Top, TextBox1.Width, TextBox1.Height)
+
+    'End Sub
 End Module

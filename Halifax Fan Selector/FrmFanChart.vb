@@ -5,13 +5,14 @@ Public Class FrmFanChart
     Private Sub FanChart_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
             SeriesAdded = False
-            fan2plot = 0
-            Do While fanclass(fan2plot) <> Me.Text
-                fan2plot = fan2plot + 1
-            Loop
+            'fan2plot = 0
+            'Do While fanclass(fan2plot) <> Me.Text
+            '    fan2plot = fan2plot + 1
+            'Loop
             curvedesign = Me.Text
 
             Me.Text = lblTitleHidden.Text + " - " + final.fantype + " " + final.fansize.ToString + " " + lblRunningAtHidden.Text + " " + final.speed.ToString + " rpm"
+            If SelectDIDW = True Then Me.Text = Me.Text + " (DIDW)"
 
             tempyaxistitle = ""
             tempy2axistitle = ""

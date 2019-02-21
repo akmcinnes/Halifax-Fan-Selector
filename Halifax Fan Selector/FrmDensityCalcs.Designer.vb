@@ -28,7 +28,7 @@ Partial Class FrmDensityCalcs
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -54,7 +54,7 @@ Partial Class FrmDensityCalcs
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -83,7 +83,7 @@ Partial Class FrmDensityCalcs
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'DataGridView3
         '
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
@@ -92,9 +92,9 @@ Partial Class FrmDensityCalcs
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
+        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -102,10 +102,10 @@ Partial Class FrmDensityCalcs
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridView1.Location = New System.Drawing.Point(349, 12)
-        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridView3.Location = New System.Drawing.Point(349, 12)
+        Me.DataGridView3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.DataGridView3.Name = "DataGridView3"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -113,12 +113,12 @@ Partial Class FrmDensityCalcs
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridView3.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridView1.RowTemplate.Height = 24
-        Me.DataGridView1.Size = New System.Drawing.Size(437, 370)
-        Me.DataGridView1.TabIndex = 13
+        Me.DataGridView3.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridView3.RowTemplate.Height = 24
+        Me.DataGridView3.Size = New System.Drawing.Size(437, 170)
+        Me.DataGridView3.TabIndex = 13
         '
         'Column1
         '
@@ -188,7 +188,7 @@ Partial Class FrmDensityCalcs
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(349, 491)
+        Me.Label1.Location = New System.Drawing.Point(360, 313)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(291, 25)
         Me.Label1.TabIndex = 15
@@ -207,7 +207,6 @@ Partial Class FrmDensityCalcs
         '
         'btnCalculate
         '
-        Me.btnCalculate.Enabled = False
         Me.btnCalculate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
         Me.btnCalculate.Location = New System.Drawing.Point(485, 540)
         Me.btnCalculate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -391,13 +390,13 @@ Partial Class FrmDensityCalcs
         Me.Controls.Add(Me.btnReturnToSelection)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.ListBox1)
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FrmDensityCalcs"
         Me.Text = "Density Calculations"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -410,7 +409,7 @@ Partial Class FrmDensityCalcs
     End Sub
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents btnClear As Button
-    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents DataGridView3 As DataGridView
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents RadioButton3 As RadioButton
     Friend WithEvents RadioButton2 As RadioButton

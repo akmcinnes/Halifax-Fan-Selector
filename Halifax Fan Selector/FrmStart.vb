@@ -33,6 +33,7 @@ Public Class FrmStart
                 DataPath = DataPathDefault
                 chkAdvancedUser.Checked = True
                 chkAdvancedUser.Visible = True
+                grpLanguage.Visible = True
             ElseIf StartArg.ToLower.Contains("-b") Then
                 DataPath = DataPathDefault
             Else

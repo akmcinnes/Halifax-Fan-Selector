@@ -31,6 +31,9 @@
             Dim temp_flow As Double
             'temp_flow = CDbl(Frmselectfan.Txtflow.Text)
             temp_flow = flowrate
+            'If Units(0).UnitSelected = 4 Then
+            '    temp_flow = temp_flow * CDbl(Frmselectfan.TxtDensity.Text)
+            'End If
 
             Do While (vols(fanno, count) - temp_flow) ^ 2 > (vols(fanno, count + 1) - temp_flow) ^ 2
                 count = count + 1
@@ -78,6 +81,8 @@
             selected(fanno).mot = Math.Round(selected(fanno).mot, 2)
             selected(fanno).mot2 = GetMotorSize(selected(fanno).pow / 0.746, True)
             selected(fanno).mot2 = Math.Round(selected(fanno).mot2, 2)
+
+            selected(fanno).fanindex = fanno
 
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint3) - fse(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))

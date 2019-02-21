@@ -106,21 +106,42 @@ Module ModReadWriteXML
             End If
             ' #### AcousticInfo
             If countflag >= 4 Then
+                Dim i As Integer
                 Write_to_XML(textwriter, "Acoustic_information")
-                Write_to_XML(textwriter, "Known_Density", knowndensity.ToString)
-                Write_to_XML(textwriter, "Flow_Rate", flowrate.ToString)
-                Write_to_XML(textwriter, "Inlet_Pressure", inletpress.ToString)
-                Write_to_XML(textwriter, "Discharge_Pressure", dischpress.ToString)
-                Write_to_XML(textwriter, "Pressure_Rise", pressrise.ToString)
-                Write_to_XML(textwriter, "Reserve_Head", reshead.ToString)
-                Write_to_XML(textwriter, "Maximum_Speed", maxspeed.ToString)
+                'If NCoverall > 0 Then
+                For i = 0 To 7
+                        Write_to_XML(textwriter, "Ascale(" + i.ToString + ")", Ascale(i).ToString)
+                    Next i
+                    Write_to_XML(textwriter, "NCoverall", NCoverall.ToString)
+                'End If
+                'If inNCoverall > 0 Then
+                For i = 0 To 7
+                        Write_to_XML(textwriter, "INascale(" + i.ToString + ")", INascale(i).ToString)
+                    Next i
+                    Write_to_XML(textwriter, "inNCoverall", inNCoverall.ToString)
+                'End If
+                'If OUTNCoverall > 0 Then
+                For i = 0 To 7
+                        Write_to_XML(textwriter, "OUTascale(" + i.ToString + ")", OUTascale(i).ToString)
+                    Next i
+                    Write_to_XML(textwriter, "OUTNCoverall", OUTNCoverall.ToString)
+                'End If
+                'If BRGnoise > 0 Then
+                Write_to_XML(textwriter, "Bearing_Noise", BRGnoise.ToString)
+                'End If
+                'If CDbl(Frmselectfan.txtMotordba.Text) > 0 Then
+                Dim tempmt As Double = 0
+                If Frmselectfan.txtMotordba.Text IsNot "" Then tempmt = CDbl(Frmselectfan.txtMotordba.Text)
+                Write_to_XML(textwriter, "Motor_Noise", tempmt.ToString)
+                'End If
+                'If BPfreq > 0 Then
+                Write_to_XML(textwriter, "Blade_Passing_Frequency", BPfreq.ToString)
+                'End If
                 Write_to_XML(textwriter)
             End If
-
             textwriter.WriteEndDocument()
             textwriter.Close()
         Catch ex As Exception
-
         End Try
     End Sub
 

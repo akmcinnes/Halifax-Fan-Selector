@@ -2,6 +2,7 @@
 Imports System.IO
 Public Class FrmDensityCalcs
     Public FullFilePath As String
+    Public totalpercent As Double
     Private Sub DensityCalcs_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
             CenterToScreen()
@@ -72,21 +73,21 @@ Public Class FrmDensityCalcs
         Dim j As Integer
         For Each selectedItem In selectedItems
             ListBox1.Items.Remove(selectedItem)
-            DataGridView1.Rows(gasnum).Cells(0).Value = selectedItem
+            DataGridView3.Rows(gasnum).Cells(0).Value = selectedItem
             j = selectedItem.IndexOf(".")
             gaspicked(gasnum) = CInt(selectedItem.substring(0, j)) - 1
-            DataGridView1.Rows(gasnum).Cells(0).ReadOnly = True
+            DataGridView3.Rows(gasnum).Cells(0).ReadOnly = True
             For i = 1 To 1 '3
-                DataGridView1.Rows(gasnum).Cells(i).ReadOnly = False
+                DataGridView3.Rows(gasnum).Cells(i).ReadOnly = False
             Next i
 
             If gasnum = maxgasnum - 1 Then
                 ListBox1.Enabled = False
             End If
-            If RadioButton2.Checked = True And DataGridView1.Rows(gasnum).Cells(0).Value.contains("Air") = True And gasnum = 0 Then
-                DataGridView1.Rows(gasnum).Cells(1).Value = "1.0"
-                DataGridView1.Rows(maxgasnum).Cells(1).Value = "1.0"
-                    DataGridView1.Rows(0).Cells(1).Value = ""
+            If RadioButton2.Checked = True And DataGridView3.Rows(gasnum).Cells(0).Value.contains("Air") = True And gasnum = 0 Then
+                DataGridView3.Rows(gasnum).Cells(1).Value = "1.0"
+                DataGridView3.Rows(maxgasnum).Cells(1).Value = "1.0"
+                    DataGridView3.Rows(0).Cells(1).Value = ""
                 End If
             gasnum = gasnum + 1
         Next
@@ -101,11 +102,11 @@ Public Class FrmDensityCalcs
             ListBox1.Items.Clear()
             Dim i As Integer
             For i = 0 To gasnum
-                DataGridView1.Rows.Clear()
+                DataGridView3.Rows.Clear()
             Next
             TextBox7.Text = Nothing
             TextBox6.Text = Nothing
-            btnCalculate.Enabled = False
+            'btnCalculate.Enabled = False
             GasInitialise()
 
         Catch ex As Exception
@@ -116,43 +117,45 @@ Public Class FrmDensityCalcs
 
     Private Sub GasInitialise()
         Try
-            Dim filenameref As String = "Gas Data " + ChosenLanguage
+            Dim language As String = ChosenLanguage
+            If version_number.Contains("1.0.2") Then language = "en-US"
+            Dim filenameref As String = "Gas Data " + language
             'Dim filenameref As String = "Gas Data " + "en-US"
-            If RadioButton1.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
-            If RadioButton2.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
-            If RadioButton3.Checked Then DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
+            If RadioButton1.Checked Then DataGridView3.Columns(1).HeaderCell.Value = "Mass Factor"
+            If RadioButton2.Checked Then DataGridView3.Columns(1).HeaderCell.Value = "Volume Factor"
+            If RadioButton3.Checked Then DataGridView3.Columns(1).HeaderCell.Value = "Mole Factor"
             ListBox1.Items.Clear()
             Dim i, j As Integer
             For i = 0 To gasnum
-                DataGridView1.Rows.Clear()
+                DataGridView3.Rows.Clear()
             Next
             TextBox7.Text = Nothing
             TextBox6.Text = Nothing
-            btnCalculate.Enabled = False
+            'btnCalculate.Enabled = False
 
             ReadGasfromTextfile(filenameref)
             gasnum = 0
             gridrow = 0
             maxgasnum = 5
-            DataGridView1.RowCount = maxgasnum + 1
-            DataGridView1.Width = DataGridView1.RowHeadersWidth
+            DataGridView3.RowCount = maxgasnum + 1
+            DataGridView3.Width = DataGridView3.RowHeadersWidth
 
             For i = 0 To 1 '3
-                DataGridView1.Width = DataGridView1.Width + DataGridView1.Columns(i).Width
-                DataGridView1.Rows(maxgasnum).Cells(i).Style.BackColor = Color.Beige
-                DataGridView1.Rows(maxgasnum).Cells(i).ReadOnly = True
+                DataGridView3.Width = DataGridView3.Width + DataGridView3.Columns(i).Width
+                DataGridView3.Rows(maxgasnum).Cells(i).Style.BackColor = Color.Beige
+                DataGridView3.Rows(maxgasnum).Cells(i).ReadOnly = True
             Next i
-            DataGridView1.Height = 20 + DataGridView1.Rows(0).Height * DataGridView1.RowCount + DataGridView1.ColumnHeadersHeight
+            DataGridView3.Height = 20 + DataGridView3.Rows(0).Height * DataGridView3.RowCount + DataGridView3.ColumnHeadersHeight
 
             For i = 0 To 1 '3
                 For j = 0 To maxgasnum
-                    DataGridView1.Rows(j).Cells(i).ReadOnly = True
+                    DataGridView3.Rows(j).Cells(i).ReadOnly = True
                 Next j
             Next i
 
-            DataGridView1.Columns(0).ReadOnly = True
-            DataGridView1.Rows(maxgasnum).ReadOnly = True
-            DataGridView1.Rows(maxgasnum).Cells(0).Value = "TOTAL"
+            DataGridView3.Columns(0).ReadOnly = True
+            DataGridView3.Rows(maxgasnum).ReadOnly = True
+            DataGridView3.Rows(maxgasnum).Cells(0).Value = "TOTAL"
             ListBox1.Enabled = True
 
         Catch ex As Exception
@@ -160,50 +163,62 @@ Public Class FrmDensityCalcs
         End Try
     End Sub
 
-    Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
+    Private Sub DataGridView3_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellEndEdit
         Dim i As Integer
         Dim k As Double = 0.0
-        'MsgBox("DataGridView1_CellEndEdit")
+        'MsgBox("DataGridView3_CellEndEdit")
         Try
-            If IsNumeric(DataGridView1.CurrentCell.Value) = False Or IsNothing(DataGridView1.CurrentCell) = True Then
-                DataGridView1.CurrentCell.Value = ""
+            If IsNumeric(DataGridView3.CurrentCell.Value) = False Or IsNothing(DataGridView3.CurrentCell) = True Then
+                DataGridView3.CurrentCell.Value = ""
                 For i = 0 To maxgasnum - 1
-                    k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+                    k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
                     If k > 1.0 Then
                         MsgBox("total must be less than 1.0")
-                        k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-                        DataGridView1.Rows(i).Cells(1).Value = ""
+                        k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+                        DataGridView3.Rows(i).Cells(1).Value = ""
                         Exit For
                     End If
                 Next
-                DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
+                DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
                 Exit Sub
             End If
-            'DataGridView1.Rows(i).Cells(1)
+            ''DataGridView3.Rows(i).Cells(1)
+            'Dim allpercent As Boolean = True
+            'For i = 0 To maxgasnum - 1
+            '    If IsNumeric(DataGridView3.Rows(i).Cells(1).Value) = False Then
+            '        MsgBox("Not all gases selected have a %% value entered.")
+            '        allpercent = False
+            '        Exit For
+            '    End If
+            'Next
+            'If allpercent = True Then
             For i = 0 To maxgasnum - 1
-                k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+                k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
                 If k > 1.0 Then
                     MsgBox("total must be less than 1.0")
-                    k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-                    DataGridView1.Rows(i).Cells(1).Value = ""
+                    k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+                    DataGridView3.Rows(i).Cells(1).Value = ""
                     Exit For
                 End If
             Next
-            DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
-            btnCalculate.Enabled = False
-            If k > 0.999 And k < 1.0001 Then
-                btnCalculate.Enabled = True
-            End If
+            'End If
+
+            DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
+            totalpercent = k
+            ''btnCalculate.Enabled = False
+            'If k > 0.999 And k < 1.0001 Then
+            '    btnCalculate.Enabled = True
+            'End If
 
         Catch ex As Exception
-            'MsgBox("DataGridView1_CellEndEdit")
-            ErrorMessage(ex, 20006)
+            'MsgBox("DataGridView3_CellEndEdit")
+            'ErrorMessage(ex, 20006)
         End Try
     End Sub
 
     Private Sub RadioButton1_Click(sender As Object, e As EventArgs) Handles RadioButton1.Click
         Try
-            DataGridView1.Columns(1).HeaderCell.Value = "Mass Factor"
+            DataGridView3.Columns(1).HeaderCell.Value = "Mass Factor"
 
         Catch ex As Exception
             ErrorMessage(ex, 20007)
@@ -212,7 +227,7 @@ Public Class FrmDensityCalcs
 
     Private Sub RadioButton2_Click(sender As Object, e As EventArgs) Handles RadioButton2.Click
         Try
-            DataGridView1.Columns(1).HeaderCell.Value = "Volume Factor"
+            DataGridView3.Columns(1).HeaderCell.Value = "Volume Factor"
 
         Catch ex As Exception
             ErrorMessage(ex, 20008)
@@ -221,7 +236,7 @@ Public Class FrmDensityCalcs
 
     Private Sub RadioButton3_Click(sender As Object, e As EventArgs) Handles RadioButton3.Click
         Try
-            DataGridView1.Columns(1).HeaderCell.Value = "Mole Factor"
+            DataGridView3.Columns(1).HeaderCell.Value = "Mole Factor"
 
         Catch ex As Exception
             ErrorMessage(ex, 20009)
@@ -243,49 +258,57 @@ Public Class FrmDensityCalcs
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Try
+            If totalpercent < 0.999 Or totalpercent > 1.0001 Then
+                CalculatedDensity = 0.0
+                TextBox7.Text = ""
+                TextBox6.Text = ""
+
+                Exit Sub
+            End If
+
             Dim i As Integer
             altitude2 = CDbl(TextBox4.Text)
-        AtmosphericPressure()
-        pressure2 = CDbl(TextBox2.Text)
-        InletPressure()
-        temperature2 = CDbl(TextBox1.Text)
-        humidity2 = CDbl(TextBox3.Text)
-        CalculatedDensity = 0.0
-        Dim calcsum As Double = 0.0
-        For i = 0 To gasnum - 1
-            GasesOut(i) = GasesIn(gaspicked(i))
-            GasesOut(i).GasMassFraction = 0.0
-            GasesOut(i).GasVolumeFraction = 0.0
-            GasesOut(i).GasMoleFraction = 0.0
-            If GasesOut(i).GasName.ToLower = "air" Then
-                GasesOut(i).GasDensity = 1.2929 * (1 - (0.3783 * (humidity2 / 100) * WVSP) / (101325))
-            End If
+            AtmosphericPressure()
+            pressure2 = CDbl(TextBox2.Text)
+            InletPressure()
+            temperature2 = CDbl(TextBox1.Text)
+            humidity2 = CDbl(TextBox3.Text)
+            CalculatedDensity = 0.0
+            Dim calcsum As Double = 0.0
+            For i = 0 To gasnum - 1
+                GasesOut(i) = GasesIn(gaspicked(i))
+                GasesOut(i).GasMassFraction = 0.0
+                GasesOut(i).GasVolumeFraction = 0.0
+                GasesOut(i).GasMoleFraction = 0.0
+                If GasesOut(i).GasName.ToLower = "air" Then
+                    GasesOut(i).GasDensity = 1.2929 * (1 - (0.3783 * (humidity2 / 100) * WVSP) / (101325))
+                End If
+                If RadioButton1.Checked = True Then
+                    GasesOut(i).GasMassFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value)
+                    GasesOut(i).GasDensity = GasesOut(i).GasMassFraction / GasesOut(i).GasDensity
+                    calcsum = calcsum + GasesOut(i).GasDensity
+                ElseIf RadioButton2.Checked = True Then
+                    GasesOut(i).GasVolumeFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value)
+                    GasesOut(i).GasDensity = InletPressure() * GasesOut(i).GasMW * GasesOut(i).GasVolumeFraction / ((8.3144621 * (273.15 + temperature2)))
+                    calcsum = calcsum + GasesOut(i).GasDensity
+                ElseIf RadioButton3.Checked = True Then
+                    GasesOut(i).GasMoleFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value)
+                    GasesOut(i).GasDensity = GasesOut(i).GasMoleFraction * GasesOut(i).GasMW
+                    calcsum = calcsum + GasesOut(i).GasDensity
+                End If
+            Next
             If RadioButton1.Checked = True Then
-                GasesOut(i).GasMassFraction = CDbl(DataGridView1.Rows(i).Cells(1).Value)
-                GasesOut(i).GasDensity = GasesOut(i).GasMassFraction / GasesOut(i).GasDensity
-                calcsum = calcsum + GasesOut(i).GasDensity
+                CalculatedDensity = (273.15 / (temperature2 + 273)) * (InletPressure() / 101.325) / calcsum
             ElseIf RadioButton2.Checked = True Then
-                GasesOut(i).GasVolumeFraction = CDbl(DataGridView1.Rows(i).Cells(1).Value)
-                GasesOut(i).GasDensity = InletPressure() * GasesOut(i).GasMW * GasesOut(i).GasVolumeFraction / ((8.3144621 * (273.15 + temperature2)))
-                calcsum = calcsum + GasesOut(i).GasDensity
+                CalculatedDensity = calcsum
             ElseIf RadioButton3.Checked = True Then
-                GasesOut(i).GasMoleFraction = CDbl(DataGridView1.Rows(i).Cells(1).Value)
-                GasesOut(i).GasDensity = GasesOut(i).GasMoleFraction * GasesOut(i).GasMW
-                calcsum = calcsum + GasesOut(i).GasDensity
+                CalculatedDensity = (273.15 / (temperature2 + 273)) * (InletPressure() / 101.325) * calcsum / 22.414
             End If
-        Next
-        If RadioButton1.Checked = True Then
-            CalculatedDensity = (273.15 / (temperature2 + 273)) * (InletPressure() / 101.325) / calcsum
-        ElseIf RadioButton2.Checked = True Then
-            CalculatedDensity = calcsum
-        ElseIf RadioButton3.Checked = True Then
-            CalculatedDensity = (273.15 / (temperature2 + 273)) * (InletPressure() / 101.325) * calcsum / 22.414
-        End If
-        TextBox7.Text = CalculatedDensity.ToString("0.000")
-        TextBox6.Text = (CalculatedDensity * 0.0624).ToString("0.0000")
+            TextBox7.Text = CalculatedDensity.ToString("0.000")
+            TextBox6.Text = (CalculatedDensity * 0.0624).ToString("0.0000")
 
         Catch ex As Exception
-            ErrorMessage(ex, 20011)
+            'ErrorMessage(ex, 20011)
         End Try
     End Sub
 
@@ -321,30 +344,30 @@ Public Class FrmDensityCalcs
     End Function
 
 
-    'Private Sub DataGridView1_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView1.CellBeginEdit
+    'Private Sub DataGridView3_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView3.CellBeginEdit
     '    MsgBox("wwww")
     'End Sub
 
 
-    'Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
+    'Private Sub DataGridView3_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellValueChanged
 
     'End Sub
 
-    'Private Sub DataGridView1_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles DataGridView1.CurrentCellDirtyStateChanged
+    'Private Sub DataGridView3_CurrentCellDirtyStateChanged(sender As Object, e As EventArgs) Handles DataGridView3.CurrentCellDirtyStateChanged
     '    Try
-    '        MsgBox("DataGridView1_CurrentCellDirtyStateChanged")
+    '        MsgBox("DataGridView3_CurrentCellDirtyStateChanged")
     '        Dim i As Integer
     '        Dim k As Double = 0.0
     '        For i = 0 To maxgasnum - 1
-    '            k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+    '            k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
     '            If k > 1.0 Then
     '                MsgBox("total must be less than 1.0")
-    '                k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-    '                DataGridView1.Rows(i).Cells(1).Value = ""
+    '                k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+    '                DataGridView3.Rows(i).Cells(1).Value = ""
     '                Exit For
     '            End If
     '        Next
-    '        DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
+    '        DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
     '        btnCalculate.Enabled = False
     '        If k > 0.999 And k < 1.0001 Then
     '            btnCalculate.Enabled = True
@@ -354,21 +377,21 @@ Public Class FrmDensityCalcs
     '    End Try
     'End Sub
 
-    'Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
+    'Private Sub DataGridView3_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellValueChanged
     '    Try
-    '        MsgBox("DataGridView1_CellValueChanged")
+    '        MsgBox("DataGridView3_CellValueChanged")
     '        Dim i As Integer
     '        Dim k As Double = 0.0
     '        For i = 0 To maxgasnum - 1
-    '            k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+    '            k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
     '            If k > 1.0 Then
     '                MsgBox("total must be less than 1.0")
-    '                k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-    '                DataGridView1.Rows(i).Cells(1).Value = ""
+    '                k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+    '                DataGridView3.Rows(i).Cells(1).Value = ""
     '                Exit For
     '            End If
     '        Next
-    '        DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
+    '        DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
     '        btnCalculate.Enabled = False
     '        If k > 0.999 And k < 1.0001 Then
     '            btnCalculate.Enabled = True
@@ -379,21 +402,21 @@ Public Class FrmDensityCalcs
 
     'End Sub
 
-    'Private Sub DataGridView1_TextChanged(sender As Object, e As EventArgs) Handles DataGridView1.TextChanged
+    'Private Sub DataGridView3_TextChanged(sender As Object, e As EventArgs) Handles DataGridView3.TextChanged
     '    'Try
-    '    '    MsgBox("DataGridView1_TextChanged")
+    '    '    MsgBox("DataGridView3_TextChanged")
     '    '    Dim i As Integer
     '    '    Dim k As Double = 0.0
     '    '    For i = 0 To maxgasnum - 1
-    '    '        k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+    '    '        k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
     '    '        If k > 1.0 Then
     '    '            MsgBox("total must be less than 1.0")
-    '    '            k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-    '    '            DataGridView1.Rows(i).Cells(1).Value = ""
+    '    '            k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+    '    '            DataGridView3.Rows(i).Cells(1).Value = ""
     '    '            Exit For
     '    '        End If
     '    '    Next
-    '    '    DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
+    '    '    DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
     '    '    btnCalculate.Enabled = False
     '    '    If k > 0.999 And k < 1.0001 Then
     '    '        btnCalculate.Enabled = True
@@ -404,21 +427,21 @@ Public Class FrmDensityCalcs
 
     'End Sub
 
-    'Private Sub DataGridView1_Validating(sender As Object, e As CancelEventArgs) Handles DataGridView1.Validating
+    'Private Sub DataGridView3_Validating(sender As Object, e As CancelEventArgs) Handles DataGridView3.Validating
     '    'Try
-    '    '    MsgBox("DataGridView1_Validating")
+    '    '    MsgBox("DataGridView3_Validating")
     '    '    Dim i As Integer
     '    '    Dim k As Double = 0.0
     '    '    For i = 0 To maxgasnum - 1
-    '    '        k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+    '    '        k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
     '    '        If k > 1.0 Then
     '    '            MsgBox("total must be less than 1.0")
-    '    '            k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-    '    '            DataGridView1.Rows(i).Cells(1).Value = ""
+    '    '            k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+    '    '            DataGridView3.Rows(i).Cells(1).Value = ""
     '    '            Exit For
     '    '        End If
     '    '    Next
-    '    '    DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
+    '    '    DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
     '    '    btnCalculate.Enabled = False
     '    '    If k > 0.999 And k < 1.0001 Then
     '    '        btnCalculate.Enabled = True
@@ -429,21 +452,21 @@ Public Class FrmDensityCalcs
 
     'End Sub
 
-    'Private Sub DataGridView1_CellStateChanged(sender As Object, e As DataGridViewCellStateChangedEventArgs) Handles DataGridView1.CellStateChanged
+    'Private Sub DataGridView3_CellStateChanged(sender As Object, e As DataGridViewCellStateChangedEventArgs) Handles DataGridView3.CellStateChanged
     '    'Try
-    '    '    MsgBox("DataGridView1_CellStateChanged")
+    '    '    MsgBox("DataGridView3_CellStateChanged")
     '    '    Dim i As Integer
     '    '    Dim k As Double = 0.0
     '    '    For i = 0 To maxgasnum - 1
-    '    '        k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+    '    '        k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
     '    '        If k > 1.0 Then
     '    '            MsgBox("total must be less than 1.0")
-    '    '            k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-    '    '            DataGridView1.Rows(i).Cells(1).Value = ""
+    '    '            k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+    '    '            DataGridView3.Rows(i).Cells(1).Value = ""
     '    '            Exit For
     '    '        End If
     '    '    Next
-    '    '    DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
+    '    '    DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
     '    '    btnCalculate.Enabled = False
     '    '    If k > 0.999 And k < 1.0001 Then
     '    '        btnCalculate.Enabled = True
@@ -454,21 +477,21 @@ Public Class FrmDensityCalcs
 
     'End Sub
 
-    'Private Sub DataGridView1_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.RowEnter
+    'Private Sub DataGridView3_RowEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.RowEnter
     '    'Try
-    '    '    MsgBox("DataGridView1_RowEnter")
+    '    '    MsgBox("DataGridView3_RowEnter")
     '    '    Dim i As Integer
     '    '    Dim k As Double = 0.0
     '    '    For i = 0 To maxgasnum - 1
-    '    '        k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+    '    '        k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
     '    '        If k > 1.0 Then
     '    '            MsgBox("total must be less than 1.0")
-    '    '            k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-    '    '            DataGridView1.Rows(i).Cells(1).Value = ""
+    '    '            k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+    '    '            DataGridView3.Rows(i).Cells(1).Value = ""
     '    '            Exit For
     '    '        End If
     '    '    Next
-    '    '    DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
+    '    '    DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
     '    '    btnCalculate.Enabled = False
     '    '    If k > 0.999 And k < 1.0001 Then
     '    '        btnCalculate.Enabled = True
@@ -479,21 +502,21 @@ Public Class FrmDensityCalcs
 
     'End Sub
 
-    'Private Sub DataGridView1_MouseCaptureChanged(sender As Object, e As EventArgs) Handles DataGridView1.MouseCaptureChanged
+    'Private Sub DataGridView3_MouseCaptureChanged(sender As Object, e As EventArgs) Handles DataGridView3.MouseCaptureChanged
     '    'Try
-    '    '    MsgBox("DataGridView1_MouseCaptureChanged")
+    '    '    MsgBox("DataGridView3_MouseCaptureChanged")
     '    '    Dim i As Integer
     '    '    Dim k As Double = 0.0
     '    '    For i = 0 To maxgasnum - 1
-    '    '        k = k + CDbl(DataGridView1.Rows(i).Cells(1).Value)
+    '    '        k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
     '    '        If k > 1.0 Then
     '    '            MsgBox("total must be less than 1.0")
-    '    '            k = k - CDbl(DataGridView1.Rows(i).Cells(1).Value)
-    '    '            DataGridView1.Rows(i).Cells(1).Value = ""
+    '    '            k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
+    '    '            DataGridView3.Rows(i).Cells(1).Value = ""
     '    '            Exit For
     '    '        End If
     '    '    Next
-    '    '    DataGridView1.Rows(maxgasnum).Cells(1).Value = k.ToString
+    '    '    DataGridView3.Rows(maxgasnum).Cells(1).Value = k.ToString
     '    '    btnCalculate.Enabled = False
     '    '    If k > 0.999 And k < 1.0001 Then
     '    '        btnCalculate.Enabled = True

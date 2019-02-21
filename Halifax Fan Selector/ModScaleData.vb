@@ -229,7 +229,11 @@
 
         Catch ex As Exception
             'MsgBox("getfanspeed")
-            ErrorMessage(ex, 5806)
+            failindex = failindex + 1
+            fanfailures(failindex, 0) = fantypename(fanno)
+            fanfailures(failindex, 1) = ex.Message
+
+            'ErrorMessage(ex, 5806)
         End Try
 
     End Sub
@@ -248,6 +252,8 @@
             Pows(fanno, medpoint(fanno)) = ScalePowFSpeed(Pows(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
 
             '-end of scaling most efficient data point----- start of output to frmselections
+
+            selected(fanno).fanindex = fanno
 
             selected(fanno).fansize = size
             '-calculated the fan speed required to get the duty
@@ -375,7 +381,7 @@
                     AnyOutletVel = Volume / (outletsize - (casethickness / 1000) ^ 2)
                 Case 3 '4 'cfm
                     AnyOutletVel = Volume / (outletsize - (casethickness / 304.8) ^ 2)
-                Case 4 '4 'cfm
+                Case 4 '4 'm³/hr
                     AnyOutletVel = (Volume / 3600) / (outletsize - (casethickness / 1000) ^ 2)
                 Case 5 '4 'cfm
                     AnyOutletVel = Volume / (outletsize - (casethickness / 304.8) ^ 2)

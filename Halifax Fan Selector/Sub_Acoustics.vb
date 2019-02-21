@@ -4,14 +4,25 @@
             With Frmselectfan
                 .DataGridView2.Rows.Clear()
                 .DataGridView2.Controls.Clear()
-                .DataGridView2.ColumnCount = 9
-                .DataGridView2.RowCount = 14
-                'DataGridView2.Width = 0
+                .DataGridView2.ColumnCount = 10
+                .DataGridView2.RowCount = 14 - 5 - 1
+                .DataGridView2.Width = 0
                 .DataGridView2.Columns(0).Width = 280
 
                 For i = 1 To 8
-                    .DataGridView2.Columns(i).Width = 42
+                    .DataGridView2.Columns(i).Width = 35 '42
                 Next
+                .DataGridView2.Columns(9).Width = 55
+
+                For i = 0 To .DataGridView2.ColumnCount - 1
+                    .DataGridView2.Width = .DataGridView2.Width + .DataGridView2.Columns(i).Width
+                Next
+                'MsgBox(.DataGridView2.Width.ToString)
+
+                .DataGridView2.Width = .DataGridView2.Width * 1.01
+                'MsgBox(.DataGridView2.Width.ToString)
+
+
                 .DataGridView2.ColumnHeadersDefaultCellStyle.Font = New Font("Tahoma", 9, FontStyle.Bold)
                 .DataGridView2.DefaultCellStyle.Font = New Font("Tahoma", 9)
                 .DataGridView2.GridColor = Color.Red
@@ -34,15 +45,19 @@
                 Column_Header2(2, "125", "Oct125")
                 Column_Header2(3, "250", "Oct250")
                 Column_Header2(4, "500", "Oct500")
-                Column_Header2(5, "1000", "Oct1000")
-                Column_Header2(6, "2000", "Oct2000")
-                Column_Header2(7, "4000", "Oct4000")
-                Column_Header2(8, "8000", "Oct8000")
+                Column_Header2(5, "1k", "Oct1k")
+                Column_Header2(6, "2k", "Oct2k")
+                Column_Header2(7, "4k", "Oct4k")
+                Column_Header2(8, "8k", "Oct8k")
+                Column_Header2(9, "Overall", "Overall")
 
                 For i = 0 To .DataGridView2.Columns.Count - 1
                     .DataGridView2.Columns.Item(i).SortMode = DataGridViewColumnSortMode.Programmatic
                 Next i
+                .DataGridView2.Height = (.DataGridView2.RowCount * 22 + .DataGridView2.ColumnHeadersHeight) * 1.1
+                .lblFreeFieldComment.Location = New Point(.lblFreeFieldComment.Left, .DataGridView2.Bottom + 5)
             End With
+
 
         Catch ex As Exception
             ErrorMessage(ex, 1400)
@@ -81,17 +96,17 @@
             SetAcousticsGrid()
             OctaveBands()
 
-        CalcSPL()
-        Call DuctCalcs()
-        OutputSPL()
+            CalcSPL()
+            Call DuctCalcs()
+            OutputSPL()
 
-        Dim ipos As Integer = 0
+            Dim ipos As Integer = 0
             With Frmselectfan
                 .lblInDia.Text = final.inletdia.ToString + " mm"
                 If final.outletlen > 0 And final.outletwid > 0 Then
                     .lblOutDims.Text = final.outletlen.ToString + " x " + final.outletwid.ToString + " mm"
                 Else
-                    .lblOutDims.Text = final.outletdia.ToString + " mm dia."
+                    .lblOutDims.Text = Math.Round(final.outletdia).ToString + " mm dia."
                 End If
                 '.lblOutDims.Text = final.outletlen.ToString + " x " + final.outletwid.ToString + " mm"
                 .lblInletDiameter.Visible = False
@@ -99,7 +114,8 @@
 
                 .lblOutletDimensions.Visible = False
                 .lblOutDims.Visible = False
-
+                .lblFreeFieldComment.Visible = False
+                ipos = 3
                 If .chkDuct.Checked = True And .chkOpenInlet.Checked = True And .chkOpenOutlet.Checked = True Then
                     'Drow = 17
                     'OIrow = 26
@@ -109,20 +125,21 @@
                     'Motorrow = 44
 
                     Call DuctCalcs()
-                    Call OutputDuct(4)
+                    Call OutputDuct(ipos)
 
                     Call EntryandExitLoss()
                     Call OpenInletCalcs()
-                    Call OutputOpenInlet(6)
+                    Call OutputOpenInlet(ipos + 1)
                     .lblInletDiameter.Visible = True
                     .lblInDia.Visible = True
 
                     Call OpenOutletCalcs()
-                    Call OutputOpenOutlet(8)
+                    Call OutputOpenOutlet(ipos + 2)
                     .lblOutletDimensions.Visible = True
                     .lblOutDims.Visible = True
+                    .lblFreeFieldComment.Visible = True
 
-                    ipos = 9
+                    ipos = ipos + 2
                 End If
 
                 If .chkDuct.Checked = True And .chkOpenInlet.Checked = True And .chkOpenOutlet.Checked = False Then
@@ -133,15 +150,16 @@
                     'Motorrow = 38
 
                     Call DuctCalcs()
-                    Call OutputDuct(4)
+                    Call OutputDuct(ipos)
 
                     Call EntryandExitLoss()
                     Call OpenInletCalcs()
-                    Call OutputOpenInlet(6)
+                    Call OutputOpenInlet(ipos + 1)
                     .lblInletDiameter.Visible = True
                     .lblInDia.Visible = True
+                    .lblFreeFieldComment.Visible = True
 
-                    ipos = 7
+                    ipos = ipos + 1
                 End If
                 If .chkDuct.Checked = True And .chkOpenInlet.Checked = False And .chkOpenOutlet.Checked = True Then
                     'Drow = 17
@@ -151,14 +169,15 @@
                     'Motorrow = 38
 
                     Call DuctCalcs()
-                    Call OutputDuct(4)
+                    Call OutputDuct(ipos)
 
                     Call OpenOutletCalcs()
-                    Call OutputOpenOutlet(6)
+                    Call OutputOpenOutlet(ipos + 1)
                     .lblOutletDimensions.Visible = True
                     .lblOutDims.Visible = True
+                    .lblFreeFieldComment.Visible = True
 
-                    ipos = 7
+                    ipos = ipos + 1
                 End If
                 If .chkDuct.Checked = False And .chkOpenInlet.Checked = True And .chkOpenOutlet.Checked = True Then
                     'OIrow = 17
@@ -169,16 +188,17 @@
 
                     Call EntryandExitLoss()
                     Call OpenInletCalcs()
-                    Call OutputOpenInlet(4)
+                    Call OutputOpenInlet(ipos)
                     .lblInletDiameter.Visible = True
                     .lblInDia.Visible = True
 
                     Call OpenOutletCalcs()
-                    Call OutputOpenOutlet(6)
+                    Call OutputOpenOutlet(ipos + 1)
                     .lblOutletDimensions.Visible = True
                     .lblOutDims.Visible = True
+                    .lblFreeFieldComment.Visible = True
 
-                    ipos = 7
+                    ipos = ipos + 1
                 End If
 
                 If .chkDuct.Checked = True And .chkOpenInlet.Checked = False And .chkOpenOutlet.Checked = False Then
@@ -188,8 +208,10 @@
                     'Motorrow = 30
 
                     Call DuctCalcs()
-                    Call OutputDuct(4)
-                    ipos = 5
+                    Call OutputDuct(ipos)
+                    .lblFreeFieldComment.Visible = True
+
+                    'ipos = 4
                 End If
                 If .chkDuct.Checked = False And .chkOpenInlet.Checked = True And .chkOpenOutlet.Checked = False Then
                     'OIrow = 17
@@ -198,11 +220,12 @@
                     'Motorrow = 28
 
                     Call OpenInletCalcs()
-                    Call OutputOpenInlet(4)
+                    Call OutputOpenInlet(ipos)
                     .lblInletDiameter.Visible = True
                     .lblInDia.Visible = True
+                    .lblFreeFieldComment.Visible = True
 
-                    ipos = 5
+                    'ipos = 4
                 End If
                 If .chkDuct.Checked = False And .chkOpenInlet.Checked = False And .chkOpenOutlet.Checked = True Then
                     'OOrow = 17
@@ -211,19 +234,22 @@
                     'Motorrow = 28
 
                     Call OpenOutletCalcs()
-                    Call OutputOpenOutlet(4)
+                    Call OutputOpenOutlet(ipos)
                     .lblOutletDimensions.Visible = True
                     .lblOutDims.Visible = True
+                    .lblFreeFieldComment.Visible = True
 
-                    ipos = 5
+                    'ipos = 4
                 End If
                 If .chkDuct.Checked = False And .chkOpenInlet.Checked = False And .chkOpenOutlet.Checked = False Then
                     'OOrow = 17
                     'bpfroW = 24
                     'brgrow = 26
                     'Motorrow = 28
+                    .lblFreeFieldComment.Visible = False
 
-                    ipos = 2
+                    'ipos = 2
+                    ipos = ipos - 1
                 End If
                 If .chkBrg.Checked = True Then
                     Call CalcBrg()
@@ -236,9 +262,11 @@
                 End If
                 Call CalcBPFreq()
                 Call OutputBPF(ipos + 1)
+                .DataGridView2.RowCount = ipos + 1
+                .DataGridView2.Height = (.DataGridView2.RowCount * 22 + .DataGridView2.ColumnHeadersHeight) * 1.1
+                .lblFreeFieldComment.Location = New Point(.lblFreeFieldComment.Left, .DataGridView2.Bottom + 5)
 
             End With
-
         Catch ex As Exception
             ErrorMessage(ex, 1403)
         End Try

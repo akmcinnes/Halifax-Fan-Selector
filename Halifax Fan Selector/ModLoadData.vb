@@ -7,12 +7,13 @@ Module ModLoadData
             ''----setting the number of decimal places-------------------------------------------
             If Units(0).UnitSelected = 2 Then
                 voldecplaces = 3
+            ElseIf Units(0).UnitSelected = 1 Then
+                voldecplaces = 2
             Else
                 voldecplaces = 0
             End If
-            If Units(0).UnitSelected = 1 Then
-                voldecplaces = 2
-            End If
+
+            'End If
             'If Val(Frmselectfan.Txtflow.Text) > 10000 Then
             '    voldecplaces = 0
             'ElseIf Val(Frmselectfan.Txtflow.Text) > 1000 Then
@@ -243,13 +244,13 @@ Module ModLoadData
             Num_Readings = br.ReadInt32()
             Most_Eff_Pt = br.ReadInt32()
             OutLen_mm = br.ReadDouble()
-            OutWid_mm = br.ReadDouble()
-            OutDia_mm = br.ReadDouble()
-            OutArea_m2 = br.ReadDouble()
+            OutWid_mm = br.ReadDouble() * dimult
+            OutDia_mm = br.ReadDouble() * dimult ^ 0.5
+            OutArea_m2 = br.ReadDouble() * dimult
             OutLen_ft = br.ReadDouble()
-            OutWid_ft = br.ReadDouble()
-            OutDia_ft = br.ReadDouble()
-            OutArea_ft2 = br.ReadDouble()
+            OutWid_ft = br.ReadDouble() * dimult
+            OutDia_ft = br.ReadDouble() * dimult ^ 0.5
+            OutArea_ft2 = br.ReadDouble() * dimult
             In_Dia_mm = br.ReadDouble()
             Eye_Area_m2 = br.ReadDouble()
             Type_Blade = br.ReadString()

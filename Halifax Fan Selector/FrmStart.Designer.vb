@@ -63,8 +63,8 @@ Partial Class FrmStart
         '
         'btnContinue
         '
-        resources.ApplyResources(Me.btnContinue, "btnContinue")
         Me.btnContinue.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnContinue, "btnContinue")
         Me.btnContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnContinue.Name = "btnContinue"
         Me.btnContinue.UseVisualStyleBackColor = True
@@ -113,9 +113,9 @@ Partial Class FrmStart
         '
         'grpLanguage
         '
-        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Controls.Add(Me.optChinese)
         Me.grpLanguage.Controls.Add(Me.optEnglish)
+        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Name = "grpLanguage"
         Me.grpLanguage.TabStop = False
         '

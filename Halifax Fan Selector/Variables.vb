@@ -94,6 +94,8 @@ Module Variables
     Public fsizes(50, 500) As Double
     'Public effs(50, 500) As Double
 
+    Public datafanindex(50) As Integer
+
     Public datafansize(50) As Single
     Public datafanspeed(50) As Integer
     Public dataoutletlen(50) As Double

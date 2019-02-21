@@ -5,6 +5,7 @@ Module Sub_Selections
             With Frmselectfan
                 If .TabControl1.SelectedTab.Text.Contains("Selection") Then
                     Call initializeSelections()
+                    .btnNoiseDataForward.Enabled = False
                     .ColumnHeader(0) = Units(5).UnitName(Units(5).UnitSelected) '"mm" '.Comimpunits.Text
                     .ColumnHeader(1) = " "
                     .ColumnHeader(2) = "RPM"
@@ -29,6 +30,7 @@ Module Sub_Selections
                         .ColumnHeader(11) = "%"
                         .ColumnHeader(12) = "%"
                     End If
+                    .ColumnHeader(13) = ""
                     .LblGasDensityUnit.Text = Units(3).UnitName(Units(3).UnitSelected) '"kg/m³" '.Comairdenunits.Text
                     .TxtDensity.Text = .Txtdens.Text 'Round(originaldensity, 3)
                     originaldensity = Val(.Txtdens.Text)
@@ -100,6 +102,8 @@ Module Sub_Selections
                         i = i + 1
                         Column_Header1(i, "Volume TD", "Colvoltd", .ColumnHeader(12))
                     End If
+                    i = i + 1
+                    Column_Header1(i, "Fan Index", "ColIndex", "empty")
                     .DataGridView1.ColumnCount = i + 1
                     .DataGridView1.Width = .DataGridView1.Width * 1.1
 
@@ -127,7 +131,10 @@ Module Sub_Selections
                             fanint = fanint + 1
                         End If
                     Next
-
+                    Dim numrow As Integer
+                    numrow = .DataGridView1.RowCount
+                    Dim numcol As Integer
+                    numcol = .DataGridView1.ColumnCount
                     If Units(4).UnitSelected < 2 Then
                         For n = 0 To .DataGridView1.RowCount - 1
                             For m = 0 To .DataGridView1.ColumnCount - 1
@@ -198,10 +205,18 @@ Module Sub_Selections
                     If Units(4).UnitSelected = 2 Then
                         .DataGridView1.Columns(6).Width = .DataGridView1.Columns(6).Width * 1.5
                     End If
+                    .DataGridView1.Columns(13).Width = 0 '40
+                    .DataGridView1.Columns(13).Visible = False
+                    If StartArg.ToLower.Contains("-dev") Then
+                        .DataGridView1.Columns(13).Width = 40
+                        .DataGridView1.Columns(13).Visible = True
+                    End If
+
                     For i = 0 To .DataGridView1.ColumnCount - 1
                         .DataGridView1.Width = .DataGridView1.Width + .DataGridView1.Columns(i).Width
                     Next
-                    .DataGridView1.Width = .DataGridView1.Width * 1.03
+
+                    .DataGridView1.Width = .DataGridView1.Width * 1.01
                     .Width = .DataGridView1.Width + 5 * .DataGridView1.Location.X
                     .DataGridView1.Height = .DataGridView1.Height * 1.1 + .DataGridView1.Location.Y
                     If .DataGridView1.Height < 350 Then .DataGridView1.Height = 350
@@ -221,6 +236,9 @@ Module Sub_Selections
                     Dim tempspeed As Double = CDbl(.Txtfanspeed.Text)
                     'Dim tempflow As Double = CDbl(.Txtflow.Text)
                     Dim tempflow As Double = flowrate
+                    'If Units(0).UnitSelected = 4 Then
+                    '    tempflow = tempflow / CDbl(Frmselectfan.TxtDensity.Text)
+                    'End If
                     'Dim tempfsp As Double = CDbl(.Txtfsp.Text)
                     Dim tempfsp As Double = pressrise
 
@@ -231,6 +249,8 @@ Module Sub_Selections
                     If .OptAnySize.Checked = True Then
                         tempsize = 0.0
                     End If
+                    .Txtfansize.Text = tempsize.ToString
+                    .Txtfanspeed.Text = tempspeed.ToString
 
                     For k = 0 To fantypesQTY - 1 'akm200118
                         '-----------------------------------------------------------------------------
@@ -498,6 +518,7 @@ Module Sub_Selections
                             End If
 
                         End If
+                        .DataGridView1.Rows(fansuccess).Cells(13).Value = selected(k).fanindex.ToString
 
                         fansuccess = fansuccess + 1
                     End If
@@ -583,12 +604,12 @@ Module Sub_Selections
 
     Sub SelectionClick(e As DataGridViewCellEventArgs)
         Try
-            Dim ii As Integer
-            ii = 0
-            Do While Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selected(ii).fantype
-                ii = ii + 1
-            Loop
-            SelectRow(ii)
+            'Dim ii As Integer
+            'ii = 0
+            'Do While Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selected(ii).fantype Or selected(ii).resHD > 99.0
+            '    ii = ii + 1
+            'Loop
+            SelectRow(CInt(Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(13).Value))
 
         Catch ex As Exception
             ErrorMessage(ex, 1307)
@@ -599,15 +620,22 @@ Module Sub_Selections
         Try
             Frmselectfan.btnNoiseDataForward.Enabled = True
             Frmselectfan.TabPageNoise.Enabled = True
-        FrmFanChart.Text = Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString
+            FrmFanChart.Text = Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString
+            'Dim ii As Integer
+            'fan2plot = 0
+            'Do While Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selected(fan2plot).fantype Or selected(fan2plot).resHD > 99.0
+            '    fan2plot = fan2plot + 1
+            'Loop
+            fan2plot = CInt(Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(13).Value)
 
-        If AdvancedUser = True And Units(4).UnitSelected = 2 Then
-            FrmFanChart.optDisplayhp.Visible = True
-            FrmFanChart.optDisplaykW.Visible = True
-            FrmFanChart.optDisplaykW.Checked = True
-        End If
-        FrmFanChart.Show()
+            'FrmFanChart.Text = final.fantype + " " + final.fansize.ToString + " running at " + final.speed.ToString + " rpm"
 
+            If AdvancedUser = True And Units(4).UnitSelected = 2 Then
+                FrmFanChart.optDisplayhp.Visible = True
+                FrmFanChart.optDisplaykW.Visible = True
+                FrmFanChart.optDisplaykW.Checked = True
+            End If
+            FrmFanChart.Show()
         Catch ex As Exception
             ErrorMessage(ex, 1308)
         End Try

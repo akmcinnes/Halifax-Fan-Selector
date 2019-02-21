@@ -13,6 +13,10 @@
                 .Txtspeedlimit.Text = maxspeed.ToString
                 .Txtfansize.Text = fansize.ToString
                 .btnDutyInputForward.Focus()
+                '.Label8.TextAlign = ContentAlignment.MiddleRight
+                '.Label9.TextAlign = ContentAlignment.MiddleRight
+                '.Label10.TextAlign = ContentAlignment.MiddleRight
+                '.Label7.TextAlign = ContentAlignment.MiddleRight
             End With
         Catch ex As Exception
             ErrorMessage(ex, 1101)

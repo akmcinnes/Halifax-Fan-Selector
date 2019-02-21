@@ -63,6 +63,8 @@
                     convflow = 1.0 / 0.58857777021102 '3600.0 * 0.00047192
                 ElseIf Units(0).UnitSelected = 4 Then
                     convflow = 1.0
+                ElseIf Units(0).UnitSelected = 5 Then
+                    convflow = 60
                 End If
                 Units(0).UnitSelected = 0
                 'colvol = 9'300119
@@ -78,6 +80,8 @@
                 ElseIf Units(0).UnitSelected = 3 Then
                     convflow = 1.0 / 0.58857777021102 / 60.0
                 ElseIf Units(0).UnitSelected = 4 Then
+                    convflow = 1.0 / 60.0
+                ElseIf Units(0).UnitSelected = 5 Then
                     convflow = 1.0
                 End If
                 Units(0).UnitSelected = 1
@@ -324,6 +328,7 @@
             End If
 
             Frmselectfan.LblFlowRateUnits.Text = Units(0).UnitName(Units(0).UnitSelected)
+            Frmselectfan.GrpFlowRate.Text = "Flow Rate (" + Units(0).UnitName(Units(0).UnitSelected) + ")"
             Frmselectfan.GrpDesignPressure.Text = "Design Pressure (" + Units(1).UnitName(Units(1).UnitSelected) + ")"
             Frmselectfan.LblAtmosphericPressureUnits.Text = Units(1).UnitName(Units(1).UnitSelected)
             Frmselectfan.GrpInletTemperature.Text = "Inlet Temperature (" + Units(2).UnitName(Units(2).UnitSelected) + ")"
@@ -335,9 +340,11 @@
             Frmselectfan.lblAcousticFSPUnits.Text = Units(1).UnitName(Units(1).UnitSelected)
 
             If Units(0).UnitSelected < 4 Then
-                Frmselectfan.OptVolumeFlow.Checked = True
+                Frmselectfan.lblFlowType.Text = "Volume Flow"
+                'Frmselectfan.OptVolumeFlow.Checked = True
             Else
-                Frmselectfan.OptMassFlow.Checked = True
+                Frmselectfan.lblFlowType.Text = "Mass Flow"
+                'Frmselectfan.OptMassFlow.Checked = True
             End If
             'TxtAtmosphericPressure.Text = atmos
             '        colfte = 20
@@ -347,13 +354,14 @@
             'If FlowType = 3 Then
             If Units(0).UnitSelected = 2 Then
                 voldecplaces = 3
+            ElseIf Units(0).UnitSelected = 1 Then
+                voldecplaces = 2
             Else
                 voldecplaces = 0
             End If
             'If FlowType = 2 Then
-            If Units(0).UnitSelected = 1 Then
-                voldecplaces = 2
-            End If
+
+            'End If
             'If Val(Frmselectfan.Txtflow.Text) * convflow > 10000 Then
             '    voldecplaces = 0
             'ElseIf Val(Frmselectfan.Txtflow.Text) * convflow > 1000 Then

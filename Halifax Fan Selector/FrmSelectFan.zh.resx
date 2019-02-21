@@ -118,6 +118,33 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkCalcAtmos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 147</value>
+  </data>
+  <data name="chkCalcAtmos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 68</value>
+  </data>
+  <data name="chkCalcAtmos.Text" xml:space="preserve">
+    <value>从海拔高度计算大气压力</value>
+  </data>
+  <data name="LblAtmosphericPressure.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 110</value>
+  </data>
+  <data name="LblAtmosphericPressure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="LblAtmosphericPressure.Text" xml:space="preserve">
+    <value>大气压力</value>
+  </data>
+  <data name="LblHumidity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 84</value>
+  </data>
+  <data name="LblHumidity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="LblHumidity.Text" xml:space="preserve">
+    <value>湿度</value>
+  </data>
   <data name="LblAltitude.Location" type="System.Drawing.Point, System.Drawing">
     <value>140, 58</value>
   </data>
@@ -135,6 +162,9 @@
   </data>
   <data name="LblAmbientTemperature.Text" xml:space="preserve">
     <value>环境温度</value>
+  </data>
+  <data name="lblInstructions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 24</value>
   </data>
   <data name="lblInstructions.Text" xml:space="preserve">
     <value>* * 单点点击选择风扇, 双击查看图表 * *</value>
