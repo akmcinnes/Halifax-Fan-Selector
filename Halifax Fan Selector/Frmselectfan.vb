@@ -1,4 +1,6 @@
-﻿Imports System.IO
+﻿Imports Word = Microsoft.Office.Interop.Word
+Imports Microsoft.Office
+Imports System.IO
 Imports System.Xml
 Imports System.ComponentModel
 Imports System.Globalization
@@ -1421,6 +1423,250 @@ Public Class Frmselectfan
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         End
     End Sub
+
+
+    Private Sub AllPagesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllPagesToolStripMenuItem.Click
+        CreateFile("C:\Halifax\Templates\HFS Output Template.rtf")
+    End Sub
+
+    Private Sub PerformanceDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceDetailsToolStripMenuItem.Click
+        CreateFile("C:\Halifax\Templates\Performance Template.rtf")
+    End Sub
+
+    Private Sub AcousticsDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcousticsDetailsToolStripMenuItem.Click
+        CreateFile("C:\Halifax\Templates\Sound Template.rtf")
+    End Sub
+
+    Private Sub CreateFile(filename As String)
+        Try
+            'Dim OpenFileDialog1 As OpenFileDialog = New OpenFileDialog()
+            'OpenFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+            'OpenFileDialog1.InitialDirectory = "C:\Halifax\Templates"
+            'OpenFileDialog1.ShowDialog()
+
+            'filename = OpenFileDialog1.FileName
+            'Dim filename3 As String = "C:\Halifax\Output Files\test88.rtf"
+            Dim objReader As New System.IO.StreamReader(filename)
+            count = 0
+            Dim found_one As Boolean = False
+            Dim i As Integer
+
+            Dim charcount As Integer = 0
+            Dim j As Integer = 0
+
+            Using reader As New System.IO.StreamReader(filename)
+                While Not reader.EndOfStream
+                    Dim buffer(1) As Char
+                    reader.Read(buffer, 0, 1)
+                    outfile(charcount) = buffer(0)
+                    charcount = charcount + 1
+                    If buffer(0) = "#" And found_one = False Then
+                        found_one = True
+                        Found(count).startpoint = charcount - 1
+                    ElseIf buffer(0) = "#" And found_one = True Then
+                        found_one = False
+                        Found(count).labelstring = Found(count).labelstring + buffer(0)
+                        Found(count).endpoint = charcount - 1
+                        count = count + 1
+                    End If
+                    If found_one = True Then
+                        Found(count).labelstring = Found(count).labelstring + buffer(0)
+                    End If
+                End While
+            End Using
+            objReader.Close()
+
+            Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+            SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+            SaveFileDialog1.InitialDirectory = "C:\Halifax\Output Files"
+            SaveFileDialog1.CheckFileExists = True
+            SaveFileDialog1.ShowDialog()
+            filename = SaveFileDialog1.FileName
+
+            Dim objWriter As New System.IO.StreamWriter(filename)
+            Dim startpoint As Integer
+            Dim endpoint As Integer
+            For j = 0 To count - 1
+                If j = 0 Then
+                    startpoint = 0
+                    endpoint = Found(j).startpoint - 1
+                    For i = startpoint To endpoint
+                        objWriter.Write(outfile(i))
+                    Next
+                    objWriter.Write(bookmark(Found(j).labelstring))
+                Else
+                    startpoint = Found(j - 1).endpoint + 1
+                    endpoint = Found(j).startpoint - 1
+                    For i = startpoint To endpoint
+                        objWriter.Write(outfile(i))
+                    Next
+                    objWriter.Write(bookmark(Found(j).labelstring))
+                End If
+            Next
+            startpoint = Found(count - 1).endpoint + 1
+            endpoint = charcount - 1
+            For i = startpoint To endpoint
+                objWriter.Write(outfile(i))
+            Next
+            objWriter.Close()
+            'MsgBox("file converted")
+            'mergefiles(filename2, filename3)
+
+            Cursor = Cursors.WaitCursor
+
+            Dim oWord As Word.Application
+            Dim oDoc As Word.Document
+            oWord = CreateObject("Word.Application")
+            oWord.Visible = True
+            oDoc = oWord.Documents.Add(filename)
+
+            Cursor = Cursors.Default
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
+    Private Function bookmark(label As String) As String
+        Select Case label
+            Case "#size#"
+                Return final.fansize.ToString
+            Case "#design#"
+                Return final.fantype.ToString
+            Case "#flow#"
+                Return flowrate.ToString
+            Case "#flow_units#"
+                Return Units(0).UnitName(Units(0).UnitSelected)
+            Case "#density#"
+                Return knowndensity.ToString
+            Case "#density_units#"
+                Return Units(3).UnitName(Units(3).UnitSelected)
+            Case "#ftp#"
+                Return final.ftp.ToString
+            Case "#fsp#"
+                Return final.fsp.ToString
+            Case "#pressure_units#"
+                Return Units(1).UnitName(Units(1).UnitSelected)
+            Case "#rpm#"
+                Return final.speed.ToString
+            Case "#pwr#"
+                Return final.pow.ToString
+            Case "#pwr_u#"
+                Return Units(4).UnitName(Units(4).UnitSelected)
+            Case "#ov#"
+                Return final.ov.ToString
+            Case "#ov_units#"
+                Return Units(7).UnitName(Units(7).UnitSelected)
+            Case "#motor#"
+                Return final.mot.ToString
+            Case "#fse#"
+                Return final.fse.ToString
+            Case "#fte#"
+                Return final.fte.ToString
+            Case "#swl_1_1#"
+                Return IDSPL(0).ToString
+            Case "#swl_1_2#"
+                Return IDSPL(1).ToString
+            Case "#swl_1_3#"
+                Return IDSPL(2).ToString
+            Case "#swl_1_4#"
+                Return IDSPL(3).ToString
+            Case "#swl_1_5#"
+                Return IDSPL(4).ToString
+            Case "#swl_1_6#"
+                Return IDSPL(5).ToString
+            Case "#swl_1_7#"
+                Return IDSPL(6).ToString
+            Case "#swl_1_8#"
+                Return IDSPL(7).ToString
+            Case "#swl_oa#"
+                Return spl2.ToString
+            Case "#swl_bo#"
+                Return bospl2.ToString
+            Case "#spl_bo#"
+                Return bospl1M2.ToString
+            Case "#spl_1_1#"
+                Return Ascale(0).ToString
+            Case "#spl_1_2#"
+                Return Ascale(1).ToString
+            Case "#spl_1_3#"
+                Return Ascale(2).ToString
+            Case "#spl_1_4#"
+                Return Ascale(3).ToString
+            Case "#spl_1_5#"
+                Return Ascale(4).ToString
+            Case "#spl_1_6#"
+                Return Ascale(5).ToString
+            Case "#spl_1_7#"
+                Return Ascale(6).ToString
+            Case "#spl_1_8#"
+                Return Ascale(7).ToString
+            Case "#spl_bo_oa#"
+                Return NCoverall.ToString
+            Case "#india#"
+                Return final.inletdia.ToString
+            Case "#in_units#"
+                Return Units(5).UnitName(Units(5).UnitSelected)
+            Case "#spl_2_1#"
+                Return INascale(0).ToString
+            Case "#spl_2_2#"
+                Return INascale(1).ToString
+            Case "#spl_2_3#"
+                Return INascale(2).ToString
+            Case "#spl_2_4#"
+                Return INascale(3).ToString
+            Case "#spl_2_5#"
+                Return INascale(4).ToString
+            Case "#spl_2_6#"
+                Return INascale(5).ToString
+            Case "#spl_2_7#"
+                Return INascale(6).ToString
+            Case "#spl_2_8#"
+                Return INascale(7).ToString
+            Case "#spl_oi_oa#"
+                Return Math.Round(inNCoverall).ToString
+            Case "#outlen#"
+                Return final.outletlen.ToString
+            Case "#outwid#"
+                Return final.outletwid.ToString
+            Case "#out_units#"
+                Return Units(5).UnitName(Units(5).UnitSelected)
+            Case "#spl_3_1#"
+                Return OUTascale(0).ToString
+            Case "#spl_3_2#"
+                Return OUTascale(1).ToString
+            Case "#spl_3_3#"
+                Return OUTascale(2).ToString
+            Case "#spl_3_4#"
+                Return OUTascale(3).ToString
+            Case "#spl_3_5#"
+                Return OUTascale(4).ToString
+            Case "#spl_3_6#"
+                Return OUTascale(5).ToString
+            Case "#spl_3_7#"
+                Return OUTascale(6).ToString
+            Case "#spl_3_8#"
+                Return OUTascale(7).ToString
+            Case "#spl_oo_oa#"
+                Return Math.Round(OUTNCoverall).ToString
+            Case "#bpf#"
+                Return BPfreq.ToString
+            Case "#brg_noise#"
+                Return BRGnoise.ToString
+            Case "#motor_noise#"
+                '            Dim tempmt As Double = 0
+                '            If Frmselectfan.txtMotordba.Text IsNot "" Then tempmt = CDbl(Frmselectfan.txtMotordba.Text)
+                '"Motor_Noise", tempmt.ToString)
+                'Return tempmt.ToString
+            Case "#engineer#"
+                Return "A K McInnes"
+            Case "#date#"
+                Return Today.ToString("dd-MM-yyyy")
+            Case Else
+                Return "Hello"
+        End Select
+        Return "Bye"
+    End Function
 
     'Private Sub Frmselectfan_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
 

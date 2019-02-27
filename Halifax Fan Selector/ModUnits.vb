@@ -230,6 +230,7 @@
 
             'density units
             If Frmselectfan.OptDensityKgPerM3.Checked = True Then
+                DensType = 0
                 If Units(3).UnitSelected = 0 Then
                     convdens = 1.0
                 ElseIf Units(3).UnitSelected = 1 Then
@@ -238,6 +239,7 @@
                 Units(3).UnitSelected = 0
             End If
             If Frmselectfan.OptDensityLbPerFt3.Checked = True Then
+                DensType = 2
                 If Units(3).UnitSelected = 0 Then
                     convdens = 1.0 / 16.02
                 ElseIf Units(3).UnitSelected = 1 Then

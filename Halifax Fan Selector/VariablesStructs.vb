@@ -127,4 +127,12 @@
     Public Motor_Information(100) As Motor_Structure
     Public Motor_Pole_Speeds As Motor_Structure
 
+    Structure Label_struct
+        Dim labelstring As String
+        Dim startpoint As Integer
+        Dim endpoint As Integer
+    End Structure
+
+    Public Found(100) As Label_struct
+
 End Module

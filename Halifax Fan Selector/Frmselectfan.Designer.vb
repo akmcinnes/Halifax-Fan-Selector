@@ -22,8 +22,8 @@ Partial Class Frmselectfan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frmselectfan))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPageGeneral = New System.Windows.Forms.TabPage()
@@ -182,6 +182,8 @@ Partial Class Frmselectfan
         Me.Button3 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TabPageNoise = New System.Windows.Forms.TabPage()
+        Me.lblBPF2 = New System.Windows.Forms.Label()
+        Me.lblBPF = New System.Windows.Forms.Label()
         Me.lblFreeFieldComment = New System.Windows.Forms.Label()
         Me.lblOutDims = New System.Windows.Forms.Label()
         Me.lblInDia = New System.Windows.Forms.Label()
@@ -234,8 +236,9 @@ Partial Class Frmselectfan
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.lblBPF = New System.Windows.Forms.Label()
-        Me.lblBPF2 = New System.Windows.Forms.Label()
+        Me.PerformanceDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AcousticsDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AllPagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPageGeneral.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -2363,14 +2366,14 @@ Partial Class Frmselectfan
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToOrderColumns = True
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle18.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(19, 104)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -2422,6 +2425,26 @@ Partial Class Frmselectfan
         Me.TabPageNoise.Size = New System.Drawing.Size(1247, 600)
         Me.TabPageNoise.TabIndex = 3
         Me.TabPageNoise.Text = "Acoustics"
+        '
+        'lblBPF2
+        '
+        Me.lblBPF2.AutoSize = True
+        Me.lblBPF2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblBPF2.Location = New System.Drawing.Point(281, 409)
+        Me.lblBPF2.Name = "lblBPF2"
+        Me.lblBPF2.Size = New System.Drawing.Size(38, 18)
+        Me.lblBPF2.TabIndex = 30
+        Me.lblBPF2.Text = "AAA"
+        '
+        'lblBPF
+        '
+        Me.lblBPF.AutoSize = True
+        Me.lblBPF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.lblBPF.Location = New System.Drawing.Point(23, 409)
+        Me.lblBPF.Name = "lblBPF"
+        Me.lblBPF.Size = New System.Drawing.Size(235, 18)
+        Me.lblBPF.TabIndex = 29
+        Me.lblBPF.Text = "Blade Pass Cut Off Frequency"
         '
         'lblFreeFieldComment
         '
@@ -2828,14 +2851,14 @@ Partial Class Frmselectfan
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle17.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Enabled = False
         Me.DataGridView2.Location = New System.Drawing.Point(376, 33)
@@ -2923,6 +2946,7 @@ Partial Class Frmselectfan
         '
         'PrintToolStripMenuItem
         '
+        Me.PrintToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllPagesToolStripMenuItem, Me.PerformanceDetailsToolStripMenuItem, Me.AcousticsDetailsToolStripMenuItem})
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
         Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(203, 26)
         Me.PrintToolStripMenuItem.Text = "Print"
@@ -2980,25 +3004,23 @@ Partial Class Frmselectfan
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
         '
-        'lblBPF
+        'PerformanceDetailsToolStripMenuItem
         '
-        Me.lblBPF.AutoSize = True
-        Me.lblBPF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.lblBPF.Location = New System.Drawing.Point(23, 409)
-        Me.lblBPF.Name = "lblBPF"
-        Me.lblBPF.Size = New System.Drawing.Size(235, 18)
-        Me.lblBPF.TabIndex = 29
-        Me.lblBPF.Text = "Blade Pass Cut Off Frequency"
+        Me.PerformanceDetailsToolStripMenuItem.Name = "PerformanceDetailsToolStripMenuItem"
+        Me.PerformanceDetailsToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.PerformanceDetailsToolStripMenuItem.Text = "Performance Details"
         '
-        'lblBPF2
+        'AcousticsDetailsToolStripMenuItem
         '
-        Me.lblBPF2.AutoSize = True
-        Me.lblBPF2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.lblBPF2.Location = New System.Drawing.Point(281, 409)
-        Me.lblBPF2.Name = "lblBPF2"
-        Me.lblBPF2.Size = New System.Drawing.Size(38, 18)
-        Me.lblBPF2.TabIndex = 30
-        Me.lblBPF2.Text = "AAA"
+        Me.AcousticsDetailsToolStripMenuItem.Name = "AcousticsDetailsToolStripMenuItem"
+        Me.AcousticsDetailsToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.AcousticsDetailsToolStripMenuItem.Text = "Acoustics Details"
+        '
+        'AllPagesToolStripMenuItem
+        '
+        Me.AllPagesToolStripMenuItem.Name = "AllPagesToolStripMenuItem"
+        Me.AllPagesToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.AllPagesToolStripMenuItem.Text = "All Pages"
         '
         'Frmselectfan
         '
@@ -3296,4 +3318,7 @@ Partial Class Frmselectfan
     Friend WithEvents Button2 As Button
     Friend WithEvents lblBPF2 As Label
     Friend WithEvents lblBPF As Label
+    Friend WithEvents PerformanceDetailsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AcousticsDetailsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AllPagesToolStripMenuItem As ToolStripMenuItem
 End Class

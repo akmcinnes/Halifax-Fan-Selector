@@ -372,5 +372,9 @@ Module Variables
 
     Public Background_Color As Color
 
+    'Public count As Integer
+
+    Public outfile(300000) As Char
+    Public filename As String
 
 End Module
