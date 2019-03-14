@@ -2,7 +2,8 @@
     Public Function getscalefactor()
         getscalefactor = 0.0
         Try
-            If DensType = 2 Then
+            'If DensType = 2 Then
+            If Units(3).UnitSelected = 1 Then
                 'getscalefactor = Val(Frmselectfan.Txtdens.Text) / 0.075
                 getscalefactor = knowndensity / 0.075
             Else

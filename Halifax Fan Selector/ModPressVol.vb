@@ -99,17 +99,26 @@
             selected(fanno).fansize = size
             '--outlet velocity
             Call OutletVel(size, fanno)
-            selected(fanno).inletdia = datainletdia(fanno)
-            selected(fanno).outletarea = dataoutletarea(fanno)
-            'selected(fanno).inletdia = inletdia
-            'selected(fanno).outletarea = outletsize
+            'selected(fanno).inletdia = datainletdia(fanno)
+            'selected(fanno).outletarea = dataoutletarea(fanno)
+            ''selected(fanno).inletdia = inletdia
+            ''selected(fanno).outletarea = outletsize
             selected(fanno).BladeNumber = blade_number(fanno)
-            selected(fanno).outletlen = dataoutletlen(fanno)
-            selected(fanno).outletwid = dataoutletwid(fanno)
-            'selected(fanno).outletlen = outletlength
-            'selected(fanno).outletwid = outletwidth
-            selected(fanno).outletdia = dataoutletdia(fanno)
-            'selected(fanno).outletdia = outletdiameter
+            'selected(fanno).outletlen = dataoutletlen(fanno)
+            'selected(fanno).outletwid = dataoutletwid(fanno)
+            ''selected(fanno).outletlen = outletlength
+            ''selected(fanno).outletwid = outletwidth
+            'selected(fanno).outletdia = dataoutletdia(fanno)
+            ''selected(fanno).outletdia = outletdiameter
+
+            selected(fanno).inletdia = datainletdia(fanno) * (selected(fanno).fansize / datafansize(fanno))
+            selected(fanno).inletdia = selected(fanno).inletdia - (casethickness * 2)
+            selected(fanno).outletlen = dataoutletlen(fanno) * (selected(fanno).fansize / datafansize(fanno))
+            selected(fanno).outletwid = dataoutletwid(fanno) * (selected(fanno).fansize / datafansize(fanno))
+            selected(fanno).outletdia = dataoutletdia(fanno) * (selected(fanno).fansize / datafansize(fanno))
+            selected(fanno).outletdia = selected(fanno).outletdia - (casethickness * 2)
+            selected(fanno).outletarea = dataoutletarea(fanno) * (selected(fanno).fansize / datafansize(fanno)) ^ 2
+
 
             '-calculating FTP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))

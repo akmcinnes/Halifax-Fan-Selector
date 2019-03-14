@@ -7,6 +7,8 @@ Imports System.Globalization
 'Imports System.ComponentModel
 Imports System.Resources
 Imports System.Threading
+Imports System.Drawing.Printing
+
 Public Class Frmselectfan
     Public totalcolumnwidth As Integer
     Public ColumnHeader(20) As String
@@ -30,6 +32,12 @@ Public Class Frmselectfan
             '    'TabControl1.Controls.Remove(TabPageSelection)
             '    btnNoiseDataForward.Visible = False
             'End If
+            'TabControl1.Controls.Remove(TabPageGeneral)
+            ''TabControl1.Controls.Remove(TabPageDuty)
+            'TabControl1.Controls.Remove(TabPageFanParameters)
+            'TabControl1.Controls.Remove(TabPageSelection)
+            'TabControl1.Controls.Remove(TabPageNoise)
+            TabControl1.Controls.Remove(TabPageImpeller)
             If version_number = "V 1.0.0 Beta" Then
                 TabControl1.Controls.Remove(TabPageNoise)
                 TabControl1.Controls.Remove(TabPageSelection)
@@ -260,9 +268,9 @@ Public Class Frmselectfan
         Try
 
             If (e.RowIndex < 0) Or (e.RowIndex < 0 And e.ColumnIndex < 0) Then
-                    Exit Sub
-                End If
-                SelectionDoubleClick(e)
+                Exit Sub
+            End If
+            SelectionDoubleClick(e)
         Catch ex As Exception
             ErrorMessage(ex, 20317)
         End Try
@@ -521,7 +529,7 @@ Public Class Frmselectfan
         End Try
     End Sub
 
-    Private Sub PrintPreviewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintPreviewToolStripMenuItem.Click
+    Private Sub PrintPreviewToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Try
             Dim PrintPreviewDialog1 As PrintPreviewDialog = New PrintPreviewDialog()
             'PrintPreviewDialog1.InitialDirectory = "c:\Halifax\Projects\"
@@ -581,6 +589,13 @@ Public Class Frmselectfan
             Txtfsp.BackColor = Color.White
             txtUserDefinedDD.BackColor = Color.White
             txtRatioDD.BackColor = Color.White
+            TxtAmbientTemperature.Text = ambienttemp.ToString
+            TxtAltitude.Text = altitude.ToString
+            TxtHumidity.Text = humidity.ToString
+            TxtAtmosphericPressure.Text = atmospress.ToString
+            If freqHz = 50 Then Opt50Hz.Checked = True
+            If freqHz = 60 Then Opt60Hz.Checked = True
+            chkCalcAtmos.Checked = CalcAtmos
             TabControl1.SelectTab(TabPageGeneral)
         Catch ex As Exception
             ErrorMessage(ex, 20326)
@@ -618,6 +633,8 @@ Public Class Frmselectfan
                 If Units(0).UnitSelected = 5 Then
                     flowrate = CDbl(Txtflow.Text) / (CDbl(Txtdens.Text) * 60)
                 End If
+
+                designtemp = CDbl(TxtDesignTemperature.Text)
                 knowndensity = CDbl(Txtdens.Text)
                 pressrise = CDbl(Txtfsp.Text)
                 inletpress = CDbl(TxtInletPressure.Text)
@@ -882,7 +899,7 @@ Public Class Frmselectfan
     Private Sub OptPressurePa_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressurePa.CheckedChanged
         Try
             LblAtmosphericPressureUnits.Text = OptPressurePa.Text
-
+            CalcAtmosFromAlt()
         Catch ex As Exception
             ErrorMessage(ex, 20346)
         End Try
@@ -891,6 +908,7 @@ Public Class Frmselectfan
     Private Sub OptPressuremBar_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressuremBar.CheckedChanged
         Try
             LblAtmosphericPressureUnits.Text = OptPressuremBar.Text
+            CalcAtmosFromAlt()
         Catch ex As Exception
             ErrorMessage(ex, 20347)
         End Try
@@ -900,7 +918,7 @@ Public Class Frmselectfan
     Private Sub OptPressureinWG_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressureinWG.CheckedChanged
         Try
             LblAtmosphericPressureUnits.Text = OptPressureinWG.Text
-
+            CalcAtmosFromAlt()
         Catch ex As Exception
             ErrorMessage(ex, 20348)
         End Try
@@ -909,7 +927,7 @@ Public Class Frmselectfan
     Private Sub OptPressuremmWG_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressuremmWG.CheckedChanged
         Try
             LblAtmosphericPressureUnits.Text = OptPressuremmWG.Text
-
+            CalcAtmosFromAlt()
         Catch ex As Exception
             ErrorMessage(ex, 20349)
         End Try
@@ -918,7 +936,7 @@ Public Class Frmselectfan
     Private Sub OptPressurekPa_CheckedChanged(sender As Object, e As EventArgs) Handles OptPressurekPa.CheckedChanged
         Try
             LblAtmosphericPressureUnits.Text = OptPressurekPa.Text
-
+            CalcAtmosFromAlt()
         Catch ex As Exception
             ErrorMessage(ex, 20350)
         End Try
@@ -942,7 +960,6 @@ Public Class Frmselectfan
 
     Private Sub btnDutyInputForward_Click(sender As Object, e As EventArgs) Handles btnDutyInputForward.Click
         'open duty input tab
-        'Dim asdf As String = "test"
         Try
             move_on = True
             Flag(1) = True
@@ -952,8 +969,11 @@ Public Class Frmselectfan
             Yellow(TxtAtmosphericPressure)
 
             If move_on = True Then
-                'aa = 0 / asdf
                 SetUnitValues()
+                ambienttemp = CDbl(TxtAmbientTemperature.Text)
+                altitude = CDbl(TxtAltitude.Text)
+                humidity = CDbl(TxtHumidity.Text)
+                atmospress = CDbl(TxtAtmosphericPressure.Text)
                 If Opt50Hz.Checked = True Then freqHz = 50
                 If Opt60Hz.Checked = True Then freqHz = 60
                 CalcAtmos = chkCalcAtmos.Checked
@@ -963,26 +983,12 @@ Public Class Frmselectfan
                 Opt8Pole.Visible = True
                 Opt10Pole.Visible = True
                 Opt12Pole.Visible = True
-                'If StartArg.ToLower.Contains("-dev") Then
-                'Else
-                '    Opt2Pole.Enabled = False
-                '    Opt4Pole.Enabled = False
-                '    Opt6Pole.Enabled = False
-                '    Opt8Pole.Enabled = False
-                '    Opt10Pole.Enabled = False
-                '    Opt12Pole.Enabled = False
-                '    OptFixedSize.Enabled = False
-                '    Txtfanspeed.Enabled = False
-                '    Txtfansize.Enabled = False
-                'End If
-
-                'TabControl1.Controls.Add(TabPageDuty)
-
                 TabControl1.SelectTab(TabPageDuty)
-            End If
+                If CDbl(Txtdens.Text) > 0.0 Then
 
+                End If
+            End If
         Catch ex As Exception
-            'ErrorMessage(ex, 2000)
             ErrorMessage(ex, 20353)
         End Try
     End Sub
@@ -1289,13 +1295,9 @@ Public Class Frmselectfan
     'End Sub
 
     Private Sub TxtAltitude_TextChanged(sender As Object, e As EventArgs) Handles TxtAltitude.TextChanged
-        Dim p As Double
-        Dim h As Double
         Try
             If chkCalcAtmos.Checked = True Then
-                h = CDbl(TxtAltitude.Text)
-                p = 101325 * (1 - (h * 2.25577 * 10 ^ -5)) ^ 5.25588
-                TxtAtmosphericPressure.Text = Math.Round(p).ToString
+                CalcAtmosFromAlt()
                 Yellow(TxtAltitude, -100)
             End If
         Catch ex As Exception
@@ -1304,17 +1306,42 @@ Public Class Frmselectfan
     End Sub
 
     Private Sub chkCalcAtmos_Click(sender As Object, e As EventArgs) Handles chkCalcAtmos.Click
-        Dim p As Double
-        Dim h As Double
-        If chkCalcAtmos.Checked = True Then
-            h = CDbl(TxtAltitude.Text)
-            p = 101325 * (1 - (h * 2.25577 * 10 ^ -5)) ^ 5.25588
-            TxtAtmosphericPressure.Text = Math.Round(p).ToString
-            TxtAtmosphericPressure.Enabled = False
-        Else
-            TxtAtmosphericPressure.Enabled = True
+        Try
+            If chkCalcAtmos.Checked = True Then
+                CalcAtmosFromAlt()
+                TxtAtmosphericPressure.Enabled = False
+            Else
+                TxtAtmosphericPressure.Enabled = True
         End If
+
+        Catch ex As Exception
+
+        End Try
     End Sub
+    Private Sub CalcAtmosFromAlt()
+        Try
+            Dim p As Double
+            Dim h As Double
+            h = CDbl(TxtAltitude.Text)
+            p = 101325 * (1 - (h * 2.25577 * 10 ^ -5)) ^ 5.25588 ' in Pa
+            'convert to user units
+            If OptPressurePa.Checked Then p = p
+            If OptPressuremBar.Checked Then p = p / 100.0 'okay
+            If OptPressureinWG.Checked Then p = p / 249.0891 'okay
+            If OptPressuremmWG.Checked Then p = p / 9.80665 'okay
+            If OptPressurekPa.Checked Then p = p / 1000.0 'okay
+
+            If p > 10 Then pressplaceAtmos = 3
+            If p > 100 Then pressplaceAtmos = 2
+            If p > 1000 Then pressplaceAtmos = 1
+            If p > 10000 Then pressplaceAtmos = 0
+
+            TxtAtmosphericPressure.Text = Math.Round(p, pressplaceAtmos, MidpointRounding.AwayFromZero).ToString
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
 
     Private Sub DataGridView1_MouseClick(sender As Object, e As MouseEventArgs) Handles DataGridView1.MouseClick
 
@@ -1338,10 +1365,10 @@ Public Class Frmselectfan
                 ChkPlasticFan.Checked = True
             Else
                 ChkCurveBlade.Checked = False
-            ChkInclineBlade.Checked = False
-            ChkOtherFanType.Checked = False
-            ChkPlasticFan.Checked = False
-        End If
+                ChkInclineBlade.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlasticFan.Checked = False
+            End If
 
         Catch ex As Exception
             ErrorMessage(ex, 20377)
@@ -1424,249 +1451,130 @@ Public Class Frmselectfan
         End
     End Sub
 
-
+    ' Print Preview 
     Private Sub AllPagesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllPagesToolStripMenuItem.Click
-        CreateFile("C:\Halifax\Templates\HFS Output Template.rtf")
+        Dim i As Integer
+        Dim filenameref As String = "FILENAME REF DATA"
+        ReadReffromBinaryfile(filenameref)
+        Do While fanclass(i) <> final.fantype
+            i = i + 1
+        Loop
+        ReadfromBinaryfile(fantypefilename(i), 0)
+
+        FrmFanChart.ConvertPVtoChart(True)
+
+        Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+        SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+        SaveFileDialog1.InitialDirectory = "C:\Halifax\Output Files"
+        'SaveFileDialog1.CheckFileExists = True
+        SaveFileDialog1.ShowDialog()
+
+        Dim filename_read As String = "C:\Halifax\Templates\HFS Output Template.rtf"
+        Dim filename_write As String = SaveFileDialog1.FileName
+        Dim objReader As New System.IO.StreamReader(filename_read)
+        CreateFile(filename_read, filename_write, True, "#")
+        'CreateFile("C:\Halifax\Templates\Performance Template.rtf", True, "~")
+        objReader.Close()
+
+
+        'CreateFile("C:\Halifax\Templates\HFS Output Template.rtf", True, "#")
+        'CreateFile("C:\Halifax\Templates\HFS Output Template.rtf", True, "~")
     End Sub
 
     Private Sub PerformanceDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceDetailsToolStripMenuItem.Click
-        CreateFile("C:\Halifax\Templates\Performance Template.rtf")
+        Dim i As Integer
+        Dim filenameref As String = "FILENAME REF DATA"
+        ReadReffromBinaryfile(filenameref)
+        Do While fanclass(i) <> final.fantype
+            i = i + 1
+        Loop
+        ReadfromBinaryfile(fantypefilename(i), 0)
+
+        FrmFanChart.ConvertPVtoChart(True)
+
+        Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+        SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+        SaveFileDialog1.InitialDirectory = "C:\Halifax\Output Files"
+        'SaveFileDialog1.CheckFileExists = True
+        SaveFileDialog1.ShowDialog()
+
+        Dim filename_read As String = "C:\Halifax\Templates\Performance Template.rtf"
+        Dim filename_write As String = SaveFileDialog1.FileName
+        Dim objReader As New System.IO.StreamReader(filename_read)
+        CreateFile(filename_read, filename_write, True, "#")
+        'CreateFile("C:\Halifax\Templates\Performance Template.rtf", True, "~")
+        objReader.Close()
+
     End Sub
 
     Private Sub AcousticsDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcousticsDetailsToolStripMenuItem.Click
-        CreateFile("C:\Halifax\Templates\Sound Template.rtf")
+        Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+        SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+        SaveFileDialog1.InitialDirectory = "C:\Halifax\Output Files"
+        'SaveFileDialog1.CheckFileExists = True
+        SaveFileDialog1.ShowDialog()
+
+        Dim filename_read As String = "C:\Halifax\Templates\Sound Template.rtf"
+        Dim filename_write As String = SaveFileDialog1.FileName
+        Dim objReader As New System.IO.StreamReader(filename_read)
+        CreateFile(filename_read, filename_write, True, "#")
+        'CreateFile("C:\Halifax\Templates\Sound Template.rtf", True, "#")
+        'CreateFile("C:\Halifax\Templates\Sound Template.rtf", True, "~")
+        objReader.Close()
     End Sub
 
-    Private Sub CreateFile(filename As String)
-        Try
-            'Dim OpenFileDialog1 As OpenFileDialog = New OpenFileDialog()
-            'OpenFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
-            'OpenFileDialog1.InitialDirectory = "C:\Halifax\Templates"
-            'OpenFileDialog1.ShowDialog()
+    ''Print
+    'Private Sub AllPagesToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+    '    Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+    '    SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+    '    SaveFileDialog1.InitialDirectory = "C:\Halifax\Output Files"
+    '    'SaveFileDialog1.CheckFileExists = True
+    '    SaveFileDialog1.ShowDialog()
 
-            'filename = OpenFileDialog1.FileName
-            'Dim filename3 As String = "C:\Halifax\Output Files\test88.rtf"
-            Dim objReader As New System.IO.StreamReader(filename)
-            count = 0
-            Dim found_one As Boolean = False
-            Dim i As Integer
+    '    Dim filename_read As String = "C:\Halifax\Templates\HFS Output Template.rtf"
+    '    Dim filename_write As String = SaveFileDialog1.FileName
+    '    Dim objReader As New System.IO.StreamReader(filename_read)
+    '    CreateFile(filename_read, filename_write, False, "#")
 
-            Dim charcount As Integer = 0
-            Dim j As Integer = 0
+    '    'CreateFile("C:\Halifax\Templates\HFS Output Template.rtf", False, "#")
+    '    'CreateFile("C:\Halifax\Templates\HFS Output Template.rtf", False, "~")
+    '    objReader.Close()
+    'End Sub
 
-            Using reader As New System.IO.StreamReader(filename)
-                While Not reader.EndOfStream
-                    Dim buffer(1) As Char
-                    reader.Read(buffer, 0, 1)
-                    outfile(charcount) = buffer(0)
-                    charcount = charcount + 1
-                    If buffer(0) = "#" And found_one = False Then
-                        found_one = True
-                        Found(count).startpoint = charcount - 1
-                    ElseIf buffer(0) = "#" And found_one = True Then
-                        found_one = False
-                        Found(count).labelstring = Found(count).labelstring + buffer(0)
-                        Found(count).endpoint = charcount - 1
-                        count = count + 1
-                    End If
-                    If found_one = True Then
-                        Found(count).labelstring = Found(count).labelstring + buffer(0)
-                    End If
-                End While
-            End Using
-            objReader.Close()
+    'Private Sub PerformanceDetailsToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+    '    Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+    '    SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+    '    SaveFileDialog1.InitialDirectory = "C:\Halifax\Output Files"
+    '    'SaveFileDialog1.CheckFileExists = True
+    '    SaveFileDialog1.ShowDialog()
 
-            Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
-            SaveFileDialog1.InitialDirectory = "C:\Halifax\Output Files"
-            SaveFileDialog1.CheckFileExists = True
-            SaveFileDialog1.ShowDialog()
-            filename = SaveFileDialog1.FileName
+    '    Dim filename_read As String = "C:\Halifax\Templates\Performance Template.rtf"
+    '    Dim filename_write As String = SaveFileDialog1.FileName
+    '    Dim objReader As New System.IO.StreamReader(filename_read)
+    '    CreateFile(filename_read, filename_write, False, "#")
 
-            Dim objWriter As New System.IO.StreamWriter(filename)
-            Dim startpoint As Integer
-            Dim endpoint As Integer
-            For j = 0 To count - 1
-                If j = 0 Then
-                    startpoint = 0
-                    endpoint = Found(j).startpoint - 1
-                    For i = startpoint To endpoint
-                        objWriter.Write(outfile(i))
-                    Next
-                    objWriter.Write(bookmark(Found(j).labelstring))
-                Else
-                    startpoint = Found(j - 1).endpoint + 1
-                    endpoint = Found(j).startpoint - 1
-                    For i = startpoint To endpoint
-                        objWriter.Write(outfile(i))
-                    Next
-                    objWriter.Write(bookmark(Found(j).labelstring))
-                End If
-            Next
-            startpoint = Found(count - 1).endpoint + 1
-            endpoint = charcount - 1
-            For i = startpoint To endpoint
-                objWriter.Write(outfile(i))
-            Next
-            objWriter.Close()
-            'MsgBox("file converted")
-            'mergefiles(filename2, filename3)
+    '    'CreateFile("C:\Halifax\Templates\Performance Template.rtf", False, "#")
+    '    'CreateFile("C:\Halifax\Templates\Performance Template.rtf", False, "~")
+    '    objReader.Close()
+    'End Sub
 
-            Cursor = Cursors.WaitCursor
+    'Private Sub AcousticsDetailsToolStripMenuItem1_Click(sender As Object, e As EventArgs)
+    '    Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+    '    SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+    '    SaveFileDialog1.InitialDirectory = "C:\Halifax\Output Files"
+    '    'SaveFileDialog1.CheckFileExists = True
+    '    SaveFileDialog1.ShowDialog()
 
-            Dim oWord As Word.Application
-            Dim oDoc As Word.Document
-            oWord = CreateObject("Word.Application")
-            oWord.Visible = True
-            oDoc = oWord.Documents.Add(filename)
+    '    Dim filename_read As String = "C:\Halifax\Templates\Sound Template.rtf"
+    '    Dim filename_write As String = SaveFileDialog1.FileName
+    '    Dim objReader As New System.IO.StreamReader(filename_read)
+    '    CreateFile(filename_read, filename_write, False, "#")
 
-            Cursor = Cursors.Default
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+    '    'CreateFile("C:\Halifax\Templates\Sound Template.rtf", False, "#")
+    '    'CreateFile("C:\Halifax\Templates\Sound Template.rtf", False, "~")
+    '    objReader.Close()
+    'End Sub
 
-    End Sub
-
-    Private Function bookmark(label As String) As String
-        Select Case label
-            Case "#size#"
-                Return final.fansize.ToString
-            Case "#design#"
-                Return final.fantype.ToString
-            Case "#flow#"
-                Return flowrate.ToString
-            Case "#flow_units#"
-                Return Units(0).UnitName(Units(0).UnitSelected)
-            Case "#density#"
-                Return knowndensity.ToString
-            Case "#density_units#"
-                Return Units(3).UnitName(Units(3).UnitSelected)
-            Case "#ftp#"
-                Return final.ftp.ToString
-            Case "#fsp#"
-                Return final.fsp.ToString
-            Case "#pressure_units#"
-                Return Units(1).UnitName(Units(1).UnitSelected)
-            Case "#rpm#"
-                Return final.speed.ToString
-            Case "#pwr#"
-                Return final.pow.ToString
-            Case "#pwr_u#"
-                Return Units(4).UnitName(Units(4).UnitSelected)
-            Case "#ov#"
-                Return final.ov.ToString
-            Case "#ov_units#"
-                Return Units(7).UnitName(Units(7).UnitSelected)
-            Case "#motor#"
-                Return final.mot.ToString
-            Case "#fse#"
-                Return final.fse.ToString
-            Case "#fte#"
-                Return final.fte.ToString
-            Case "#swl_1_1#"
-                Return IDSPL(0).ToString
-            Case "#swl_1_2#"
-                Return IDSPL(1).ToString
-            Case "#swl_1_3#"
-                Return IDSPL(2).ToString
-            Case "#swl_1_4#"
-                Return IDSPL(3).ToString
-            Case "#swl_1_5#"
-                Return IDSPL(4).ToString
-            Case "#swl_1_6#"
-                Return IDSPL(5).ToString
-            Case "#swl_1_7#"
-                Return IDSPL(6).ToString
-            Case "#swl_1_8#"
-                Return IDSPL(7).ToString
-            Case "#swl_oa#"
-                Return spl2.ToString
-            Case "#swl_bo#"
-                Return bospl2.ToString
-            Case "#spl_bo#"
-                Return bospl1M2.ToString
-            Case "#spl_1_1#"
-                Return Ascale(0).ToString
-            Case "#spl_1_2#"
-                Return Ascale(1).ToString
-            Case "#spl_1_3#"
-                Return Ascale(2).ToString
-            Case "#spl_1_4#"
-                Return Ascale(3).ToString
-            Case "#spl_1_5#"
-                Return Ascale(4).ToString
-            Case "#spl_1_6#"
-                Return Ascale(5).ToString
-            Case "#spl_1_7#"
-                Return Ascale(6).ToString
-            Case "#spl_1_8#"
-                Return Ascale(7).ToString
-            Case "#spl_bo_oa#"
-                Return NCoverall.ToString
-            Case "#india#"
-                Return final.inletdia.ToString
-            Case "#in_units#"
-                Return Units(5).UnitName(Units(5).UnitSelected)
-            Case "#spl_2_1#"
-                Return INascale(0).ToString
-            Case "#spl_2_2#"
-                Return INascale(1).ToString
-            Case "#spl_2_3#"
-                Return INascale(2).ToString
-            Case "#spl_2_4#"
-                Return INascale(3).ToString
-            Case "#spl_2_5#"
-                Return INascale(4).ToString
-            Case "#spl_2_6#"
-                Return INascale(5).ToString
-            Case "#spl_2_7#"
-                Return INascale(6).ToString
-            Case "#spl_2_8#"
-                Return INascale(7).ToString
-            Case "#spl_oi_oa#"
-                Return Math.Round(inNCoverall).ToString
-            Case "#outlen#"
-                Return final.outletlen.ToString
-            Case "#outwid#"
-                Return final.outletwid.ToString
-            Case "#out_units#"
-                Return Units(5).UnitName(Units(5).UnitSelected)
-            Case "#spl_3_1#"
-                Return OUTascale(0).ToString
-            Case "#spl_3_2#"
-                Return OUTascale(1).ToString
-            Case "#spl_3_3#"
-                Return OUTascale(2).ToString
-            Case "#spl_3_4#"
-                Return OUTascale(3).ToString
-            Case "#spl_3_5#"
-                Return OUTascale(4).ToString
-            Case "#spl_3_6#"
-                Return OUTascale(5).ToString
-            Case "#spl_3_7#"
-                Return OUTascale(6).ToString
-            Case "#spl_3_8#"
-                Return OUTascale(7).ToString
-            Case "#spl_oo_oa#"
-                Return Math.Round(OUTNCoverall).ToString
-            Case "#bpf#"
-                Return BPfreq.ToString
-            Case "#brg_noise#"
-                Return BRGnoise.ToString
-            Case "#motor_noise#"
-                '            Dim tempmt As Double = 0
-                '            If Frmselectfan.txtMotordba.Text IsNot "" Then tempmt = CDbl(Frmselectfan.txtMotordba.Text)
-                '"Motor_Noise", tempmt.ToString)
-                'Return tempmt.ToString
-            Case "#engineer#"
-                Return "A K McInnes"
-            Case "#date#"
-                Return Today.ToString("dd-MM-yyyy")
-            Case Else
-                Return "Hello"
-        End Select
-        Return "Bye"
-    End Function
 
     'Private Sub Frmselectfan_Paint(sender As Object, e As PaintEventArgs) Handles Me.Paint
 

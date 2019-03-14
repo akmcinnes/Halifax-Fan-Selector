@@ -46,6 +46,7 @@ Partial Class FrmFanChart
         Me.lblPowerHidden = New System.Windows.Forms.Label()
         Me.lblTitleHidden = New System.Windows.Forms.Label()
         Me.lblRunningAtHidden = New System.Windows.Forms.Label()
+        Me.PrintPreviewDialog2 = New System.Windows.Forms.PrintPreviewDialog()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -287,6 +288,16 @@ Partial Class FrmFanChart
         Me.lblRunningAtHidden.Text = "running at"
         Me.lblRunningAtHidden.Visible = False
         '
+        'PrintPreviewDialog2
+        '
+        Me.PrintPreviewDialog2.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog2.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog2.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog2.Enabled = True
+        Me.PrintPreviewDialog2.Icon = CType(resources.GetObject("PrintPreviewDialog2.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog2.Name = "PrintPreviewDialog2"
+        Me.PrintPreviewDialog2.Visible = False
+        '
         'FrmFanChart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -341,4 +352,5 @@ Partial Class FrmFanChart
     Friend WithEvents lblPowerHidden As Label
     Friend WithEvents lblTitleHidden As Label
     Friend WithEvents lblRunningAtHidden As Label
+    Friend WithEvents PrintPreviewDialog2 As PrintPreviewDialog
 End Class

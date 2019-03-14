@@ -3,12 +3,24 @@
         Try
             With Frmselectfan
                 Dim temppower As Double
+                Dim presconv, flowconv As Double
                 Dim v As Double
                 Dim p As Double
                 'v = CDbl(.Txtflow.Text) / convflow / 3600.0
-                v = flowrate / convflow / 3600.0
+                ''v = flowrate / convflow / 3600.0
+                If Units(0).UnitSelected = 0 Then flowconv = 3600.0
+                If Units(0).UnitSelected = 1 Then flowconv = 60.0
+                If Units(0).UnitSelected = 2 Then flowconv = 1.0
+                If Units(0).UnitSelected = 3 Then flowconv = 2118.8799727597
+                v = flowrate / flowconv
                 'p = CDbl(.Txtfsp.Text) / convpres / 1000.0
-                p = pressrise / convpres / 1000.0
+                If Units(1).UnitSelected = 0 Then presconv = 1000.0
+                If Units(1).UnitSelected = 1 Then presconv = 10.0
+                If Units(1).UnitSelected = 2 Then presconv = 4.014742133113
+                If Units(1).UnitSelected = 3 Then presconv = 101.974428892211
+                If Units(1).UnitSelected = 4 Then presconv = 1.0
+
+                p = pressrise / presconv
                 temppower = v * p / 0.7
                 ReadMotorFromBinaryFile()
                 count = 0

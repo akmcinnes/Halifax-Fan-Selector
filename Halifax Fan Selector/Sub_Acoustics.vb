@@ -101,12 +101,15 @@
             OutputSPL()
 
             Dim ipos As Integer = 0
+            Dim lenconv As Double = 1.0
+            If Units(5).UnitSelected = 1 Then lenconv = 1.0 / 25.4
             With Frmselectfan
-                .lblInDia.Text = final.inletdia.ToString + " mm"
+
+                .lblInDia.Text = Math.Round(final.inletdia * lenconv, lengthdecplaces).ToString + " " + Units(5).UnitName(Units(5).UnitSelected)
                 If final.outletlen > 0 And final.outletwid > 0 Then
-                    .lblOutDims.Text = final.outletlen.ToString + " x " + final.outletwid.ToString + " mm"
+                    .lblOutDims.Text = Math.Round(final.outletlen * lenconv, lengthdecplaces).ToString + " x " + Math.Round(final.outletwid * lenconv, lengthdecplaces).ToString + " " + Units(5).UnitName(Units(5).UnitSelected)
                 Else
-                    .lblOutDims.Text = Math.Round(final.outletdia).ToString + " mm dia."
+                    .lblOutDims.Text = Math.Round(final.outletdia * lenconv).ToString + " " + Units(5).UnitName(Units(5).UnitSelected) + " dia."
                 End If
                 '.lblOutDims.Text = final.outletlen.ToString + " x " + final.outletwid.ToString + " mm"
                 .lblInletDiameter.Visible = False

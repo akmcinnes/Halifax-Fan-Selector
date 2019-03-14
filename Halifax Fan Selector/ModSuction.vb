@@ -112,8 +112,9 @@
     Function GetDensity1(ByVal density As Double) As Double
         GetDensity1 = 0.0
         Try
-            If DensType = 2 Then
-                density1 = density * 16
+            'If DensType = 2 Then
+            If Units(3).UnitSelected = 1 Then
+                density1 = density * 16.018476
             Else
                 density1 = density
             End If
@@ -126,8 +127,9 @@
     Function GetDensity2(ByVal k8 As Double)
         GetDensity2 = 0.0
         Try
-            If DensType = 2 Then
-                NEWdensity = k8 / 16
+            'If DensType = 2 Then
+            If Units(3).UnitSelected = 1 Then
+                NEWdensity = k8 / 16.018476
             Else
                 NEWdensity = k8
             End If

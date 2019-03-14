@@ -138,7 +138,7 @@ Module Variables
 
     'Public voldecplaces, pressplaceIn, pressplaceOut, pressplaceRise, pressplaceAtmos, FanPick As Integer
     Public voldecplaces, pressplaceIn, pressplaceOut, pressplaceRise, pressplaceAtmos As Integer
-    Public powerdecplaces As Integer
+    Public powerdecplaces, lengthdecplaces As Integer
 
     Public temppressure As Object
 
@@ -303,6 +303,9 @@ Module Variables
     Public plotfsp() As Double
     Public plotftp() As Double
     Public plotpow() As Double
+    Public plotfse() As Double
+    Public plotfte() As Double
+    Public plotov() As Double
 
     'Public NewCurve As Boolean
 
@@ -374,7 +377,7 @@ Module Variables
 
     'Public count As Integer
 
-    Public outfile(300000) As Char
+    Public outfile(10000000) As Char
     Public filename As String
 
 End Module

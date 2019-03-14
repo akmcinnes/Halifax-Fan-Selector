@@ -281,58 +281,109 @@ Public Class FrmFanChart
 
     End Sub
 
-    Public Sub ConvertPVtoChart()
+    Public Sub ConvertPVtoChart(Optional printout As Boolean = False)
         Try
             ReDim plotvol(Num_Readings)
             ReDim plotfsp(Num_Readings)
             ReDim plotftp(Num_Readings)
             ReDim plotpow(Num_Readings)
+            ReDim plotfse(Num_Readings)
+            ReDim plotfte(Num_Readings)
+            ReDim plotov(Num_Readings)
 
             Dim temp_kp As Double = kp
             If Frmselectfan.chkKP.Checked = True Then temp_kp = 1.0
+            Dim tempprconv As Double = 1.0
+            Dim tempvlconv As Double = 1.0
+            Dim temppwconv As Double = 1.0
+            Dim tempoaconv As Double = 1.0
+            If Units(5).UnitSelected = 1 Then
+                tempoaconv = 0.09290304
+            End If
 
             For i = 0 To Num_Readings - 1
-                If Units(1).UnitSelected = 0 Then plotfsp(i) = FSP_pa(i)
-                If Units(1).UnitSelected = 1 Then plotfsp(i) = FSP_insWG(i)
-                If Units(1).UnitSelected = 2 Then plotfsp(i) = FSP_mmwg(i)
-                If Units(1).UnitSelected = 3 Then plotfsp(i) = FSP_mbar(i)
-                If Units(1).UnitSelected = 4 Then plotfsp(i) = FSP_kpa(i)
+                Select Case Units(1).UnitSelected
+                    Case 0
+                        plotfsp(i) = FSP_pa(i)
+                        plotftp(i) = FTP_pa(i)
+                        tempprconv = 1 / 1000
+                    Case 1
+                        plotfsp(i) = FSP_insWG(i)
+                        plotftp(i) = FTP_insWG(i)
+                        tempprconv = 1 / 249.0891
+                    Case 2
+                        plotfsp(i) = FSP_mmwg(i)
+                        plotftp(i) = FTP_mmWG(i)
+                        tempprconv = 1 / 9.80665
+                    Case 3
+                        plotfsp(i) = FSP_mbar(i)
+                        plotftp(i) = FTP_mbar(i)
+                        tempprconv = 100.0 / 1000
+                    Case 4
+                        plotfsp(i) = FSP_kpa(i)
+                        plotftp(i) = FTP_kpa(i)
+                End Select
                 plotfsp(i) = plotfsp(i) * getscalefactor()
-
-                If Units(1).UnitSelected = 0 Then plotftp(i) = FTP_pa(i)
-                If Units(1).UnitSelected = 1 Then plotftp(i) = FTP_insWG(i)
-                If Units(1).UnitSelected = 2 Then plotftp(i) = FTP_mmWG(i)
-                If Units(1).UnitSelected = 3 Then plotftp(i) = FTP_mbar(i)
-                If Units(1).UnitSelected = 4 Then plotftp(i) = FTP_kpa(i)
                 plotftp(i) = plotftp(i) * getscalefactor()
 
-                If Units(0).UnitSelected = 0 Then plotvol(i) = Vol_m3hr(i)
-                If Units(0).UnitSelected = 1 Then plotvol(i) = Vol_m3min(i)
-                If Units(0).UnitSelected = 2 Then plotvol(i) = Vol_m3sec(i)
-                If Units(0).UnitSelected = 3 Then plotvol(i) = Vol_cfm(i)
-                If Units(0).UnitSelected = 4 Then plotvol(i) = Vol_m3hr(i) * knowndensity
-                If Units(0).UnitSelected = 5 Then plotvol(i) = Vol_cfm(i) * knowndensity
+                Select Case Units(0).UnitSelected
+                    Case 0
+                        plotvol(i) = Vol_m3hr(i)
+                        tempvlconv = 1 / 3600
+                    Case 1
+                        plotvol(i) = Vol_m3min(i)
+                        tempvlconv = 1 / 60
+                    Case 2
+                        plotvol(i) = Vol_m3sec(i)
+                    Case 3
+                        plotvol(i) = Vol_cfm(i)
+                        tempvlconv = 1 / 0.58857777021102 / 3600
+                    Case 4
+                        plotvol(i) = Vol_m3hr(i) * knowndensity
+                        tempvlconv = 1 / 3600
+                    Case 5
+                        plotvol(i) = Vol_cfm(i) * knowndensity
+                        tempvlconv = 1 / (3600 * 0.58857777021102)
+                End Select
 
-                If Units(4).UnitSelected = 0 Then plotpow(i) = Pow_kw(i)
-                If Units(4).UnitSelected = 1 Then plotpow(i) = Pow_hp(i)
+                Select Case Units(4).UnitSelected
+                    Case 0
+                        plotpow(i) = Pow_kw(i)
+                    Case 1
+                        plotpow(i) = Pow_hp(i)
+                        temppwconv = 1 / 1.34102209
+                End Select
                 If optDisplaykW.Checked = True Then plotpow(i) = Pow_kw(i)
                 If optDisplayhp.Checked = True Then plotpow(i) = Pow_hp(i)
                 plotpow(i) = plotpow(i) * getscalefactor()
             Next
 
+            Dim tempsize As Integer = selected(fan2plot).fansize
+            Dim tempspeed As Integer = selected(fan2plot).speed
+            Dim tempoutletarea As Double = selected(fan2plot).outletarea
+            If printout = True Then tempsize = final.fansize
+            If printout = True Then tempspeed = final.speed
+            If printout = True Then tempoutletarea = final.outletarea
+            tempoutletarea = tempoutletarea * ((tempsize / FanSize1) ^ 2)
+
             For i = 0 To Num_Readings - 1
                 '-scaling for fan size
-                plotvol(i) = ScaleVFSize(plotvol(i), FanSize1, selected(fan2plot).fansize)
-                plotfsp(i) = ScalePFSize(plotfsp(i), FanSize1, selected(fan2plot).fansize)
-                plotftp(i) = ScalePFSize(plotftp(i), FanSize1, selected(fan2plot).fansize)
-                plotpow(i) = ScalePowFSize(plotpow(i), FanSize1, selected(fan2plot).fansize)
+                plotvol(i) = ScaleVFSize(plotvol(i), FanSize1, tempsize)
+                plotfsp(i) = ScalePFSize(plotfsp(i), FanSize1, tempsize)
+                plotftp(i) = ScalePFSize(plotftp(i), FanSize1, tempsize)
+                plotpow(i) = ScalePowFSize(plotpow(i), FanSize1, tempsize)
+
                 '-scaling for fan speed
-                plotvol(i) = ScaleVFSpeed(plotvol(i), FanSpeed1, selected(fan2plot).speed)
-                plotfsp(i) = ScalePFSpeed(plotfsp(i), FanSpeed1, selected(fan2plot).speed)
-                plotftp(i) = ScalePFSpeed(plotftp(i), FanSpeed1, selected(fan2plot).speed)
-                plotpow(i) = ScalePowFSpeed(plotpow(i), FanSpeed1, selected(fan2plot).speed)
+                plotvol(i) = ScaleVFSpeed(plotvol(i), FanSpeed1, tempspeed)
+                plotfsp(i) = ScalePFSpeed(plotfsp(i), FanSpeed1, tempspeed)
+                plotftp(i) = ScalePFSpeed(plotftp(i), FanSpeed1, tempspeed)
+                plotpow(i) = ScalePowFSpeed(plotpow(i), FanSpeed1, tempspeed)
 
                 plotpow(i) = plotpow(i) / temp_kp
+
+                plotfse(i) = 100.0 * plotvol(i) * tempvlconv * plotfsp(i) * tempprconv / (plotpow(i) * temppwconv)
+                plotfte(i) = 100.0 * plotvol(i) * tempvlconv * plotftp(i) * tempprconv / (plotpow(i) * temppwconv)
+                plotov(i) = plotvol(i) * tempvlconv / (tempoutletarea * tempoaconv)
             Next
 
         Catch ex As Exception
@@ -563,6 +614,10 @@ Public Class FrmFanChart
         Catch ex As Exception
             ErrorMessage(ex, 20123)
         End Try
+    End Sub
+
+    Private Sub PrintPreviewDialog2_Load(sender As Object, e As EventArgs) Handles PrintPreviewDialog2.Load
+
     End Sub
 
     'Private Class printer

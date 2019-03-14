@@ -42,7 +42,10 @@
                 If (.OptDensityCalculated.Checked = True) Then
                     RunTemp = Val(.TxtDesignTemperature.Text)
                     If Units(2).UnitSelected = 1 Then RunTemp = Math.Round(((RunTemp - 32) * 5 / 9), 1)
-                    .Txtdens.Text = Math.Round((293 / (RunTemp + 273)) * 1.2, 3)
+                    Dim tempdens As Double
+                    tempdens = Math.Round((293 / (RunTemp + 273)) * 1.2, 3)
+                    If Units(3).UnitSelected = 1 Then tempdens = tempdens / 16.018476
+                    .Txtdens.Text = tempdens.ToString
                     .Txtdens.ReadOnly = True
                     .btnCalculateDensity.Enabled = True
                 Else

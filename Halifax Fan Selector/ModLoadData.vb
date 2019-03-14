@@ -13,6 +13,9 @@ Module ModLoadData
                 voldecplaces = 0
             End If
 
+            If Units(5).UnitSelected = 0 Then lengthdecplaces = 0
+            If Units(5).UnitSelected = 1 Then lengthdecplaces = 2
+
             'End If
             'If Val(Frmselectfan.Txtflow.Text) > 10000 Then
             '    voldecplaces = 0
@@ -230,7 +233,7 @@ Module ModLoadData
             Dim dimult As Integer = 1
             If SelectDIDW = True Then dimult = 2
             Dim i As Integer
-            filename = filename.Replace(".txt", ".bin")
+            'filename = filename.Replace(".txt", ".bin")
             Dim FullFilePathtxt As String
             FullFilePathtxt = DataPath + filename
 

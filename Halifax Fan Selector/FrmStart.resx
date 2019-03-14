@@ -483,60 +483,6 @@
   <data name="&gt;&gt;lblVersion.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;optChinese.Name" xml:space="preserve">
-    <value>optChinese</value>
-  </data>
-  <data name="&gt;&gt;optChinese.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;optChinese.Parent" xml:space="preserve">
-    <value>grpLanguage</value>
-  </data>
-  <data name="&gt;&gt;optChinese.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;optEnglish.Name" xml:space="preserve">
-    <value>optEnglish</value>
-  </data>
-  <data name="&gt;&gt;optEnglish.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;optEnglish.Parent" xml:space="preserve">
-    <value>grpLanguage</value>
-  </data>
-  <data name="&gt;&gt;optEnglish.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="grpLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 436</value>
-  </data>
-  <data name="grpLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="grpLanguage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="grpLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 58</value>
-  </data>
-  <data name="grpLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="grpLanguage.Text" xml:space="preserve">
-    <value>Select Language</value>
-  </data>
-  <data name="&gt;&gt;grpLanguage.Name" xml:space="preserve">
-    <value>grpLanguage</value>
-  </data>
-  <data name="&gt;&gt;grpLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;grpLanguage.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;grpLanguage.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="optChinese.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -601,6 +547,36 @@
     <value>grpLanguage</value>
   </data>
   <data name="&gt;&gt;optEnglish.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="grpLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 436</value>
+  </data>
+  <data name="grpLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="grpLanguage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="grpLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 58</value>
+  </data>
+  <data name="grpLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="grpLanguage.Text" xml:space="preserve">
+    <value>Select Language</value>
+  </data>
+  <data name="&gt;&gt;grpLanguage.Name" xml:space="preserve">
+    <value>grpLanguage</value>
+  </data>
+  <data name="&gt;&gt;grpLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpLanguage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpLanguage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="PictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">

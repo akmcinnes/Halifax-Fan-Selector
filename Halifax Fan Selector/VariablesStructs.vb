@@ -4,7 +4,7 @@
         '4 = power       '5 = length          '6 = altitude           '7 = velocity
 
         Private m_UnitName() As String
-        Private m_UnitConversion() As String
+        'Private m_UnitConversion() As String
         Private m_UnitPlaces() As String
 
         Public Property UnitName(Index As Integer) As String
@@ -18,16 +18,16 @@
             End Set
         End Property
 
-        Public Property UnitConversion(Index As Integer) As Double
-            Get
-                If m_UnitConversion Is Nothing Then initArray2()
-                Return m_UnitConversion(Index)
-            End Get
-            Set(value As Double)
-                If m_UnitConversion Is Nothing Then initArray2()
-                m_UnitConversion(Index) = value
-            End Set
-        End Property
+        'Public Property UnitConversion(Index As Integer) As Double
+        '    Get
+        '        If m_UnitConversion Is Nothing Then initArray2()
+        '        Return m_UnitConversion(Index)
+        '    End Get
+        '    Set(value As Double)
+        '        If m_UnitConversion Is Nothing Then initArray2()
+        '        m_UnitConversion(Index) = value
+        '    End Set
+        'End Property
 
         Public Property UnitPlaces(Index As Integer) As Integer
             Get
@@ -43,9 +43,9 @@
         Private Sub initArray1()
             ReDim m_UnitName(8)
         End Sub
-        Private Sub initArray2()
-            ReDim m_UnitConversion(8)
-        End Sub
+        'Private Sub initArray2()
+        '    ReDim m_UnitConversion(8)
+        'End Sub
         Private Sub initArray3()
             ReDim m_UnitPlaces(8)
         End Sub
@@ -133,6 +133,6 @@
         Dim endpoint As Integer
     End Structure
 
-    Public Found(100) As Label_struct
+    Public Found(500) As Label_struct
 
 End Module

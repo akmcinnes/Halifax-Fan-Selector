@@ -227,8 +227,10 @@ Partial Class Frmselectfan
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PrintPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AllPagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PerformanceDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AcousticsDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChangeLanguageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnglishToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChineseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -236,9 +238,6 @@ Partial Class Frmselectfan
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.PerformanceDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AcousticsDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AllPagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPageGeneral.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -335,7 +334,6 @@ Partial Class Frmselectfan
         Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox9.Controls.Add(Me.OptVelocityFtpermin)
         Me.GroupBox9.Controls.Add(Me.OptVelocityMpers)
-        Me.GroupBox9.Enabled = False
         Me.GroupBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.GroupBox9.ForeColor = System.Drawing.Color.Black
         Me.GroupBox9.Location = New System.Drawing.Point(995, 30)
@@ -346,7 +344,6 @@ Partial Class Frmselectfan
         Me.GroupBox9.TabIndex = 23
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Velocity"
-        Me.GroupBox9.Visible = False
         '
         'OptVelocityFtpermin
         '
@@ -538,7 +535,6 @@ Partial Class Frmselectfan
         Me.GroupBox11.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox11.Controls.Add(Me.OptLengthIn)
         Me.GroupBox11.Controls.Add(Me.OptLengthMm)
-        Me.GroupBox11.Enabled = False
         Me.GroupBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Me.GroupBox11.ForeColor = System.Drawing.Color.Black
         Me.GroupBox11.Location = New System.Drawing.Point(995, 310)
@@ -549,7 +545,6 @@ Partial Class Frmselectfan
         Me.GroupBox11.TabIndex = 18
         Me.GroupBox11.TabStop = False
         Me.GroupBox11.Text = "Length"
-        Me.GroupBox11.Visible = False
         '
         'OptLengthIn
         '
@@ -1635,7 +1630,7 @@ Partial Class Frmselectfan
         Me.Txtdens.Name = "Txtdens"
         Me.Txtdens.Size = New System.Drawing.Size(75, 30)
         Me.Txtdens.TabIndex = 0
-        Me.Txtdens.Text = "1.205"
+        Me.Txtdens.Text = "0"
         '
         'btnDutyExit
         '
@@ -2572,6 +2567,8 @@ Partial Class Frmselectfan
         'chkBrg
         '
         Me.chkBrg.AutoSize = True
+        Me.chkBrg.Checked = True
+        Me.chkBrg.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkBrg.Location = New System.Drawing.Point(19, 30)
         Me.chkBrg.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkBrg.Name = "chkBrg"
@@ -2600,6 +2597,8 @@ Partial Class Frmselectfan
         'chkOpenOutlet
         '
         Me.chkOpenOutlet.AutoSize = True
+        Me.chkOpenOutlet.Checked = True
+        Me.chkOpenOutlet.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkOpenOutlet.Location = New System.Drawing.Point(21, 80)
         Me.chkOpenOutlet.Name = "chkOpenOutlet"
         Me.chkOpenOutlet.Size = New System.Drawing.Size(224, 22)
@@ -2610,6 +2609,8 @@ Partial Class Frmselectfan
         'chkOpenInlet
         '
         Me.chkOpenInlet.AutoSize = True
+        Me.chkOpenInlet.Checked = True
+        Me.chkOpenInlet.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkOpenInlet.Location = New System.Drawing.Point(21, 57)
         Me.chkOpenInlet.Name = "chkOpenInlet"
         Me.chkOpenInlet.Size = New System.Drawing.Size(224, 22)
@@ -2915,7 +2916,7 @@ Partial Class Frmselectfan
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.OpenProjectToolStripMenuItem, Me.SaveProjectToolStripMenuItem, Me.PrintPreviewToolStripMenuItem, Me.PrintToolStripMenuItem, Me.ChangeLanguageToolStripMenuItem, Me.ExitProjectToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.OpenProjectToolStripMenuItem, Me.SaveProjectToolStripMenuItem, Me.PrintToolStripMenuItem, Me.ChangeLanguageToolStripMenuItem, Me.ExitProjectToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(44, 24)
         Me.FileToolStripMenuItem.Text = "File"
@@ -2938,18 +2939,30 @@ Partial Class Frmselectfan
         Me.SaveProjectToolStripMenuItem.Size = New System.Drawing.Size(203, 26)
         Me.SaveProjectToolStripMenuItem.Text = "Save Project"
         '
-        'PrintPreviewToolStripMenuItem
-        '
-        Me.PrintPreviewToolStripMenuItem.Name = "PrintPreviewToolStripMenuItem"
-        Me.PrintPreviewToolStripMenuItem.Size = New System.Drawing.Size(203, 26)
-        Me.PrintPreviewToolStripMenuItem.Text = "Print Preview"
-        '
         'PrintToolStripMenuItem
         '
         Me.PrintToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllPagesToolStripMenuItem, Me.PerformanceDetailsToolStripMenuItem, Me.AcousticsDetailsToolStripMenuItem})
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
         Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(203, 26)
-        Me.PrintToolStripMenuItem.Text = "Print"
+        Me.PrintToolStripMenuItem.Text = "Output to File"
+        '
+        'AllPagesToolStripMenuItem
+        '
+        Me.AllPagesToolStripMenuItem.Name = "AllPagesToolStripMenuItem"
+        Me.AllPagesToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.AllPagesToolStripMenuItem.Text = "All Pages"
+        '
+        'PerformanceDetailsToolStripMenuItem
+        '
+        Me.PerformanceDetailsToolStripMenuItem.Name = "PerformanceDetailsToolStripMenuItem"
+        Me.PerformanceDetailsToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.PerformanceDetailsToolStripMenuItem.Text = "Performance Details"
+        '
+        'AcousticsDetailsToolStripMenuItem
+        '
+        Me.AcousticsDetailsToolStripMenuItem.Name = "AcousticsDetailsToolStripMenuItem"
+        Me.AcousticsDetailsToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
+        Me.AcousticsDetailsToolStripMenuItem.Text = "Acoustics Details"
         '
         'ChangeLanguageToolStripMenuItem
         '
@@ -3003,24 +3016,6 @@ Partial Class Frmselectfan
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 2
         Me.PictureBox1.TabStop = False
-        '
-        'PerformanceDetailsToolStripMenuItem
-        '
-        Me.PerformanceDetailsToolStripMenuItem.Name = "PerformanceDetailsToolStripMenuItem"
-        Me.PerformanceDetailsToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
-        Me.PerformanceDetailsToolStripMenuItem.Text = "Performance Details"
-        '
-        'AcousticsDetailsToolStripMenuItem
-        '
-        Me.AcousticsDetailsToolStripMenuItem.Name = "AcousticsDetailsToolStripMenuItem"
-        Me.AcousticsDetailsToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
-        Me.AcousticsDetailsToolStripMenuItem.Text = "Acoustics Details"
-        '
-        'AllPagesToolStripMenuItem
-        '
-        Me.AllPagesToolStripMenuItem.Name = "AllPagesToolStripMenuItem"
-        Me.AllPagesToolStripMenuItem.Size = New System.Drawing.Size(217, 26)
-        Me.AllPagesToolStripMenuItem.Text = "All Pages"
         '
         'Frmselectfan
         '
@@ -3208,7 +3203,6 @@ Partial Class Frmselectfan
     Friend WithEvents LblAmbientTemperature As Label
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
-    Friend WithEvents PrintPreviewToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents TabPageFanParameters As TabPage

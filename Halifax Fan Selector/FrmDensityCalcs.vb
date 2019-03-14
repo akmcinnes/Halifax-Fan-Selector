@@ -7,26 +7,31 @@ Public Class FrmDensityCalcs
         Try
             CenterToScreen()
             GasInitialise()
-        TextBox1.Enabled = False
-        TextBox2.Enabled = False
-        TextBox3.Enabled = False
-        TextBox4.Enabled = False
-        TextBox5.Enabled = False
-        TextBox6.Enabled = False
-        TextBox7.Enabled = False
-        Dim dip As Double
+            TextBox1.Enabled = False
+            TextBox2.Enabled = False
+            TextBox3.Enabled = False
+            TextBox4.Enabled = False
+            'TextBox5.Enabled = False
+            'TextBox6.Enabled = False
+            TextBox7.Enabled = False
+            Dim dip As Double
             'dip = CDbl(Frmselectfan.TxtInletPressure.Text)
             dip = inletpress
-            If Frmselectfan.Optsucy.Checked Then
-                dip = dip * (-1)
-            End If
+            'If Frmselectfan.Optsucy.Checked Then
+            '    dip = dip * (-1)
+            'End If
             TextBox1.Text = Frmselectfan.TxtDesignTemperature.Text
-        TextBox2.Text = dip.ToString
-        TextBox3.Text = Frmselectfan.TxtHumidity.Text
-        TextBox4.Text = Frmselectfan.TxtAltitude.Text
-        TextBox5.Text = (CDbl(TextBox1.Text) * 9 / 5 + 32).ToString
-        TextBox6.Text = Nothing
-        TextBox7.Text = Nothing
+            lblPressureUnitsIn.Text = Units(1).UnitName(Units(1).UnitSelected)
+            lblTemperatureUnitsIn.Text = Units(2).UnitName(Units(2).UnitSelected)
+            lblDensityUnitsOut.Text = Units(3).UnitName(Units(3).UnitSelected)
+            lblAltitudeUnits.Text = Units(6).UnitName(Units(6).UnitSelected)
+            TextBox2.Text = dip.ToString
+            TextBox3.Text = Frmselectfan.TxtHumidity.Text
+            TextBox4.Text = Frmselectfan.TxtAltitude.Text
+            'Label1.Text = ContentAligment.MiddelCenter
+            'TextBox5.Text = (CDbl(TextBox1.Text) * 9 / 5 + 32).ToString
+            'TextBox6.Text = Nothing
+            TextBox7.Text = Nothing
 
         Catch ex As Exception
             ErrorMessage(ex, 20000)
@@ -85,9 +90,10 @@ Public Class FrmDensityCalcs
                 ListBox1.Enabled = False
             End If
             If RadioButton2.Checked = True And DataGridView3.Rows(gasnum).Cells(0).Value.contains("Air") = True And gasnum = 0 Then
-                DataGridView3.Rows(gasnum).Cells(1).Value = "1.0"
-                DataGridView3.Rows(maxgasnum).Cells(1).Value = "1.0"
-                    DataGridView3.Rows(0).Cells(1).Value = ""
+                    DataGridView3.Rows(gasnum).Cells(1).Value = "1.0"
+                    DataGridView3.Rows(maxgasnum).Cells(1).Value = "1.0"
+                    totalpercent = 1.0
+                    'DataGridView3.Rows(0).Cells(1).Value = ""
                 End If
             gasnum = gasnum + 1
         Next
@@ -342,7 +348,6 @@ Public Class FrmDensityCalcs
             Return InletPressure
         End Try
     End Function
-
 
     'Private Sub DataGridView3_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridView3.CellBeginEdit
     '    MsgBox("wwww")

@@ -350,7 +350,7 @@
 
             'If VelType = 1 Then
             If Units(7).UnitSelected = 1 Then
-                selected(fanno).ov = selected(fanno).ov / convvel
+                selected(fanno).ov = selected(fanno).ov * 196.850394 '/ convvel
             End If
             selected(fanno).ov = Math.Round(Val(selected(fanno).ov), 2)
 

@@ -12,7 +12,7 @@
                 .OptAltitudeM.Checked = True
                 .OptVelocityMpers.Checked = True
                 '.OptVelocityFtpermin.Checked = False
-                .TxtAltitude.Text = Math.Round(Val(.TxtAltitude.Text) * convalt, 0).ToString
+                ''.TxtAltitude.Text = Math.Round(Val(.TxtAltitude.Text) * convalt, 0).ToString
 
             End With
 
@@ -32,7 +32,7 @@
                 .OptLengthIn.Checked = True
                 .OptAltitudeFt.Checked = True
                 .OptVelocityFtpermin.Checked = True
-                .TxtAltitude.Text = Math.Round(Val(.TxtAltitude.Text) * convalt, 0).ToString
+                ''.TxtAltitude.Text = Math.Round(Val(.TxtAltitude.Text) * convalt, 0).ToString
 
             End With
 

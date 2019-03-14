@@ -106,6 +106,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModINI.vb" />
+    <Compile Include="ModPrinting.vb" />
     <Compile Include="ModReadWriteXML.vb" />
     <Compile Include="VariablesDensity.vb" />
     <Compile Include="FrmFanChart.Designer.vb">

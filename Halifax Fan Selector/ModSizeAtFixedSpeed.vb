@@ -36,7 +36,8 @@
                 count2 = 0
                 '-finds the point where the volume is nearest
                 'Do While (Val(Frmselectfan.Txtflow.Text) - vols(fanno, count2)) ^ 2 > (Val(Frmselectfan.Txtflow.Text) - vols(fanno, count2 + 1)) ^ 2
-                Do While (flowrate * convflow - vols(fanno, count2)) ^ 2 > (flowrate * convflow - vols(fanno, count2 + 1)) ^ 2
+                ''Do While (flowrate * convflow - vols(fanno, count2)) ^ 2 > (flowrate * convflow - vols(fanno, count2 + 1)) ^ 2
+                Do While (flowrate - vols(fanno, count2)) ^ 2 > (flowrate - vols(fanno, count2 + 1)) ^ 2
                     If count2 = 500 Then
                         Exit Do
                     Else
