@@ -4,7 +4,7 @@ Module Sub_ProjectFile
         Try
             'set values for saving
             Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            SaveFileDialog1.InitialDirectory = "c:\Halifax\Projects\"
+            SaveFileDialog1.InitialDirectory = ProjectPathDefault '"c:\Halifax\Projects\"
             SaveFileDialog1.Filter = "Halifax Selection|*.hfs"
             SaveFileDialog1.Title = "Save a Halifax Selection File"
             SaveFileDialog1.ShowDialog()
@@ -15,7 +15,7 @@ Module Sub_ProjectFile
                 MsgBox("File has been saved")
             End If
         Catch ex As Exception
-            ErrorMessage(ex, 5506)
+            ErrorMessage(ex, 1501)
         End Try
     End Sub
 
@@ -41,7 +41,7 @@ Module Sub_ProjectFile
                 ReadFromProjectFile = True
             End With
         Catch ex As Exception
-            ErrorMessage(ex, 1501)
+            ErrorMessage(ex, 1502)
         End Try
     End Sub
 End Module

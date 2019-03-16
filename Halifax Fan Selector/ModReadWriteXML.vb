@@ -110,21 +110,21 @@ Module ModReadWriteXML
                 Write_to_XML(textwriter, "Acoustic_information")
                 'If NCoverall > 0 Then
                 For i = 0 To 7
-                        Write_to_XML(textwriter, "Ascale(" + i.ToString + ")", Ascale(i).ToString)
-                    Next i
-                    Write_to_XML(textwriter, "NCoverall", NCoverall.ToString)
+                    Write_to_XML(textwriter, "Ascale(" + i.ToString + ")", Ascale(i).ToString)
+                Next i
+                Write_to_XML(textwriter, "NCoverall", NCoverall.ToString)
                 'End If
                 'If inNCoverall > 0 Then
                 For i = 0 To 7
-                        Write_to_XML(textwriter, "INascale(" + i.ToString + ")", INascale(i).ToString)
-                    Next i
-                    Write_to_XML(textwriter, "inNCoverall", inNCoverall.ToString)
+                    Write_to_XML(textwriter, "INascale(" + i.ToString + ")", INascale(i).ToString)
+                Next i
+                Write_to_XML(textwriter, "inNCoverall", inNCoverall.ToString)
                 'End If
                 'If OUTNCoverall > 0 Then
                 For i = 0 To 7
-                        Write_to_XML(textwriter, "OUTascale(" + i.ToString + ")", OUTascale(i).ToString)
-                    Next i
-                    Write_to_XML(textwriter, "OUTNCoverall", OUTNCoverall.ToString)
+                    Write_to_XML(textwriter, "OUTascale(" + i.ToString + ")", OUTascale(i).ToString)
+                Next i
+                Write_to_XML(textwriter, "OUTNCoverall", OUTNCoverall.ToString)
                 'End If
                 'If BRGnoise > 0 Then
                 Write_to_XML(textwriter, "Bearing_Noise", BRGnoise.ToString)
@@ -142,6 +142,7 @@ Module ModReadWriteXML
             textwriter.WriteEndDocument()
             textwriter.Close()
         Catch ex As Exception
+            ErrorMessage(ex, 6501)
         End Try
     End Sub
 
@@ -242,7 +243,7 @@ Module ModReadWriteXML
             textReader.Close()
             'MsgBox("header " + countflag.ToString)
         Catch ex As Exception
-            ErrorMessage(ex, 5511)
+            ErrorMessage(ex, 6502)
         End Try
     End Sub
 
@@ -254,7 +255,7 @@ Module ModReadWriteXML
             TextWriter.WriteString(Value)
             TextWriter.WriteEndElement()
         Catch ex As Exception
-            ErrorMessage(ex, 5507)
+            ErrorMessage(ex, 6503)
         End Try
     End Sub
 
@@ -262,7 +263,7 @@ Module ModReadWriteXML
         Try
             TextWriter.WriteStartElement(Parameter)
         Catch ex As Exception
-            ErrorMessage(ex, 5508)
+            ErrorMessage(ex, 6504)
         End Try
     End Sub
 
@@ -270,7 +271,7 @@ Module ModReadWriteXML
         Try
             TextWriter.WriteEndElement()
         Catch ex As Exception
-            ErrorMessage(ex, 5509)
+            ErrorMessage(ex, 6505)
         End Try
     End Sub
 End Module

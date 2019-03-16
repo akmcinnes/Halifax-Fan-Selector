@@ -287,8 +287,10 @@
 
         Catch ex As Exception
             'MsgBox("getvol")
-            ErrorMessage(ex, 5702)
-
+            'ErrorMessage(ex, 5702)
+            failindex = failindex + 1
+            fanfailures(failindex, 0) = fantypename(fanno)
+            fanfailures(failindex, 1) = ex.Message
         End Try
     End Sub
 End Module

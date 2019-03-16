@@ -151,12 +151,12 @@ Public Class FrmSettings
         Try
             'ComboBox1.Items.Clear()
             FolderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop
-        FolderBrowserDialog1.SelectedPath = "C:\Halifax\Performance Data\"
-        FolderBrowserDialog1.Description = "Select Application Configuration Files Path"
+            FolderBrowserDialog1.SelectedPath = DataPathDefault
+            FolderBrowserDialog1.Description = "Select Application Configuration Files Path"
         FolderBrowserDialog1.ShowNewFolderButton = False
         FolderBrowserDialog1.ShowDialog()
-        DataPath = FolderBrowserDialog1.SelectedPath + "\"
-        Label1.Text = "Data Path - " + DataPath
+            DataPath = FolderBrowserDialog1.SelectedPath ' + "\"
+            Label1.Text = "Data Path - " + DataPath
         Label1.ForeColor = Color.White
 
         Catch ex As Exception

@@ -13,7 +13,6 @@
             Return getscalefactor
         Catch ex As Exception
             ErrorMessage(ex, 5001)
-
         End Try
     End Function
 

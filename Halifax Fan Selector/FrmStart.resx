@@ -205,7 +205,7 @@
     <value>6</value>
   </data>
   <data name="lblHalifaxFanSelector.Text" xml:space="preserve">
-    <value> Halifax Fan Selector</value>
+    <value>Halifax Fan Selector</value>
   </data>
   <data name="&gt;&gt;lblHalifaxFanSelector.Name" xml:space="preserve">
     <value>lblHalifaxFanSelector</value>
@@ -502,7 +502,7 @@
     <value>1</value>
   </data>
   <data name="optChinese.Text" xml:space="preserve">
-    <value>Chinese</value>
+    <value>中文</value>
   </data>
   <data name="&gt;&gt;optChinese.Name" xml:space="preserve">
     <value>optChinese</value>
@@ -616,19 +616,13 @@
     <value>True</value>
   </data>
   <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 454</value>
+    <value>285, 467</value>
   </data>
   <data name="lblDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 17</value>
+    <value>71, 17</value>
   </data>
   <data name="lblDate.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
-  </data>
-  <data name="lblDate.Text" xml:space="preserve">
-    <value>Today's Date</value>
-  </data>
-  <data name="lblDate.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;lblDate.Name" xml:space="preserve">
     <value>lblDate</value>
@@ -642,9 +636,9 @@
   <data name="&gt;&gt;lblDate.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 16</value>
   </data>

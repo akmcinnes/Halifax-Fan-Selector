@@ -22,8 +22,8 @@ Partial Class Frmselectfan
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frmselectfan))
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPageGeneral = New System.Windows.Forms.TabPage()
@@ -1115,7 +1115,7 @@ Partial Class Frmselectfan
         Me.btnGeneralInformationBack.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnGeneralInformationBack.Name = "btnGeneralInformationBack"
         Me.btnGeneralInformationBack.Size = New System.Drawing.Size(251, 50)
-        Me.btnGeneralInformationBack.TabIndex = 15
+        Me.btnGeneralInformationBack.TabIndex = 5
         Me.btnGeneralInformationBack.Text = "<< General Information"
         Me.btnGeneralInformationBack.UseVisualStyleBackColor = True
         '
@@ -1137,7 +1137,7 @@ Partial Class Frmselectfan
         Me.btnFanParametersForward.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnFanParametersForward.Name = "btnFanParametersForward"
         Me.btnFanParametersForward.Size = New System.Drawing.Size(251, 50)
-        Me.btnFanParametersForward.TabIndex = 0
+        Me.btnFanParametersForward.TabIndex = 4
         Me.btnFanParametersForward.Text = "Fan Parameters >>" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.btnFanParametersForward.UseVisualStyleBackColor = True
         '
@@ -1168,7 +1168,7 @@ Partial Class Frmselectfan
         Me.GrpFlowRate.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpFlowRate.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.GrpFlowRate.Size = New System.Drawing.Size(366, 82)
-        Me.GrpFlowRate.TabIndex = 5
+        Me.GrpFlowRate.TabIndex = 0
         Me.GrpFlowRate.TabStop = False
         Me.GrpFlowRate.Text = "Flow Rate"
         '
@@ -1194,7 +1194,7 @@ Partial Class Frmselectfan
         Me.Txtflow.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Txtflow.Name = "Txtflow"
         Me.Txtflow.Size = New System.Drawing.Size(79, 30)
-        Me.Txtflow.TabIndex = 2
+        Me.Txtflow.TabIndex = 0
         Me.Txtflow.Text = "0"
         '
         'OptMassFlow
@@ -1341,7 +1341,7 @@ Partial Class Frmselectfan
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.GroupBox1.Size = New System.Drawing.Size(523, 149)
-        Me.GroupBox1.TabIndex = 11
+        Me.GroupBox1.TabIndex = 3
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Discharge Duct"
         '
@@ -1374,7 +1374,7 @@ Partial Class Frmselectfan
         Me.txtRatioDD.Margin = New System.Windows.Forms.Padding(4)
         Me.txtRatioDD.Name = "txtRatioDD"
         Me.txtRatioDD.Size = New System.Drawing.Size(79, 30)
-        Me.txtRatioDD.TabIndex = 8
+        Me.txtRatioDD.TabIndex = 1
         '
         'txtUserDefinedDD
         '
@@ -1383,7 +1383,7 @@ Partial Class Frmselectfan
         Me.txtUserDefinedDD.Margin = New System.Windows.Forms.Padding(4)
         Me.txtUserDefinedDD.Name = "txtUserDefinedDD"
         Me.txtUserDefinedDD.Size = New System.Drawing.Size(79, 30)
-        Me.txtUserDefinedDD.TabIndex = 7
+        Me.txtUserDefinedDD.TabIndex = 0
         '
         'optDDUserDefined
         '
@@ -1447,7 +1447,7 @@ Partial Class Frmselectfan
         Me.GrpDesignPressure.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpDesignPressure.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.GrpDesignPressure.Size = New System.Drawing.Size(366, 294)
-        Me.GrpDesignPressure.TabIndex = 6
+        Me.GrpDesignPressure.TabIndex = 1
         Me.GrpDesignPressure.TabStop = False
         Me.GrpDesignPressure.Text = "Design Pressure (Pa)"
         '
@@ -1474,7 +1474,7 @@ Partial Class Frmselectfan
         Me.CmbReserveHead.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.CmbReserveHead.Name = "CmbReserveHead"
         Me.CmbReserveHead.Size = New System.Drawing.Size(79, 33)
-        Me.CmbReserveHead.TabIndex = 15
+        Me.CmbReserveHead.TabIndex = 3
         Me.CmbReserveHead.Text = "5%"
         '
         'Txtfsp
@@ -1484,7 +1484,7 @@ Partial Class Frmselectfan
         Me.Txtfsp.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Txtfsp.Name = "Txtfsp"
         Me.Txtfsp.Size = New System.Drawing.Size(79, 30)
-        Me.Txtfsp.TabIndex = 14
+        Me.Txtfsp.TabIndex = 1
         Me.Txtfsp.Text = "0"
         '
         'TxtDischargePressure
@@ -1494,7 +1494,7 @@ Partial Class Frmselectfan
         Me.TxtDischargePressure.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtDischargePressure.Name = "TxtDischargePressure"
         Me.TxtDischargePressure.Size = New System.Drawing.Size(79, 30)
-        Me.TxtDischargePressure.TabIndex = 13
+        Me.TxtDischargePressure.TabIndex = 2
         Me.TxtDischargePressure.Text = "0"
         Me.TxtDischargePressure.Visible = False
         '
@@ -1505,7 +1505,7 @@ Partial Class Frmselectfan
         Me.TxtInletPressure.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TxtInletPressure.Name = "TxtInletPressure"
         Me.TxtInletPressure.Size = New System.Drawing.Size(79, 30)
-        Me.TxtInletPressure.TabIndex = 12
+        Me.TxtInletPressure.TabIndex = 0
         Me.TxtInletPressure.Text = "0"
         '
         'Label7
@@ -1548,7 +1548,7 @@ Partial Class Frmselectfan
         Me.Label10.Location = New System.Drawing.Point(46, 59)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(206, 59)
-        Me.Label10.TabIndex = 8
+        Me.Label10.TabIndex = 0
         Me.Label10.Text = "Inlet Static Pressure"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -1592,7 +1592,7 @@ Partial Class Frmselectfan
         Me.GrpInletDensity.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GrpInletDensity.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.GrpInletDensity.Size = New System.Drawing.Size(395, 82)
-        Me.GrpInletDensity.TabIndex = 4
+        Me.GrpInletDensity.TabIndex = 2
         Me.GrpInletDensity.TabStop = False
         Me.GrpInletDensity.Text = "Inlet Density (kg/m³)"
         '
@@ -1640,7 +1640,7 @@ Partial Class Frmselectfan
         Me.btnDutyExit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnDutyExit.Name = "btnDutyExit"
         Me.btnDutyExit.Size = New System.Drawing.Size(251, 50)
-        Me.btnDutyExit.TabIndex = 2
+        Me.btnDutyExit.TabIndex = 6
         Me.btnDutyExit.Text = "EXIT"
         Me.btnDutyExit.UseVisualStyleBackColor = True
         '
@@ -2361,14 +2361,14 @@ Partial Class Frmselectfan
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToOrderColumns = True
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(19, 104)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -2852,14 +2852,14 @@ Partial Class Frmselectfan
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView2.Enabled = False
         Me.DataGridView2.Location = New System.Drawing.Point(376, 33)
@@ -2885,7 +2885,7 @@ Partial Class Frmselectfan
         '
         'Button2
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!)
         Me.Button2.ForeColor = System.Drawing.Color.Red
         Me.Button2.Location = New System.Drawing.Point(385, 519)
         Me.Button2.Name = "Button2"

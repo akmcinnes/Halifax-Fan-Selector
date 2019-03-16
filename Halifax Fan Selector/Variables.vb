@@ -8,7 +8,12 @@ Module Variables
     Public AdvancedUser As Boolean
     'Public Developer As Boolean
     Public version_number As String = "V 1.0.2 Beta"
-    Public DataPathDefault As String = "C:\Halifax\Performance Data\"
+    Public DataPathMain As String ' = "C:\Halifax\"
+
+    Public DataPathDefault As String ' = DataPathMain + "Performance Data\"
+    Public OutputPathDefault As String ' = DataPathMain + "Output Files\"
+    Public ProjectPathDefault As String ' = DataPathMain + "Projects\"
+    Public TemplatesPathDefault As String ' = DataPathMain + "Templates\"
     'Public DataPathDefault As String = ".\Performance Data\"
     Public DataPath As String
 

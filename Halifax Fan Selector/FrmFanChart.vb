@@ -569,7 +569,7 @@ Public Class FrmFanChart
         Try
             Dim FullFilePathtxt As String
             '        FullFilePathtxt = "C:\Halifax\Performance Data new\" + filename + ".txt"
-            FullFilePathtxt = "C:\Halifax\Output Files\Fan Output.txt"
+            FullFilePathtxt = OutputPathDefault + "Fan Output.txt"
             Dim objStreamWriter As New StreamWriter(FullFilePathtxt)
             Dim i As Integer
             For i = 0 To Num_Readings - 1

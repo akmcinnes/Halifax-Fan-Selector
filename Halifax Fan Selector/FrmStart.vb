@@ -10,7 +10,6 @@ Public Class FrmStart
             Next
             Dim lng As String
             lng = CultureInfo.CurrentCulture.ThreeLetterISOLanguageName.ToString
-            'MsgBox(lng)
             If lng.ToLower.Contains("chi") Then
                 ChosenLanguage = "zh-CN"
                 optChinese.Checked = True
@@ -18,9 +17,9 @@ Public Class FrmStart
                 ChosenLanguage = "en-US"
                 optEnglish.Checked = True
             End If
-            Dim today As String = Date.Today.ToString("dd MMMM yyyy")
-            lblDate.Text = today
-            'lblStartVersion.Text = version_number
+            Dim todaydate As String
+            todaydate = Date.Today.ToString("dd MMMM yyyy")
+            lblDate.Text = todaydate
             Dim strArg() As String
             strArg = Command().Split(" ")
             DataPath = Nothing
@@ -28,6 +27,15 @@ Public Class FrmStart
             chkAdvancedUser.Visible = False
             btnContinue.Visible = True
             StartArg = strArg(0)
+#If DEBUG Then
+            DataPathMain = "C:\Halifax\"
+#Else
+            DataPathMain = ".\"
+#End If
+            DataPathDefault = DataPathMain + "Performance Data\"
+            OutputPathDefault = DataPathMain + "Output Files\"
+            ProjectPathDefault = DataPathMain + "Projects\"
+            TemplatesPathDefault = DataPathMain + "Templates\"
 
             If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-dev") Then
                 DataPath = DataPathDefault
@@ -40,7 +48,6 @@ Public Class FrmStart
                 DataPath = DataPathDefault
             End If
 
-            'Dim exists As Boolean
             SystemDrive = System.Environment.ExpandEnvironmentVariables("%SystemDrive%")
             UserProfile = System.Environment.ExpandEnvironmentVariables("%userprofile%")
             'Dim Path As String
@@ -61,7 +68,7 @@ Public Class FrmStart
 
             'End If
             btnSettings.Visible = False
-            DataPath_main = "C:\Halifax\"
+            DataPath_main = DataPathMain '"C:\Halifax\"
             Language = "English"
             User_Type = False
             SuppressErrorMessages = False
@@ -136,7 +143,6 @@ Public Class FrmStart
     Private Sub PictureBox1_MouseHover(sender As Object, e As EventArgs) Handles PictureBox1.MouseHover
         Try
             Cursor = Cursors.Hand
-
         Catch ex As Exception
             ErrorMessage(ex, 20504)
         End Try
@@ -145,7 +151,6 @@ Public Class FrmStart
     Private Sub PictureBox1_MouseLeave(sender As Object, e As EventArgs) Handles PictureBox1.MouseLeave
         Try
             Cursor = Cursors.Default
-
         Catch ex As Exception
             ErrorMessage(ex, 20505)
         End Try
@@ -154,7 +159,6 @@ Public Class FrmStart
     Private Sub btnContinue_MouseHover(sender As Object, e As EventArgs) Handles btnContinue.MouseHover
         Try
             Cursor = Cursors.Hand
-
         Catch ex As Exception
             ErrorMessage(ex, 20506)
         End Try
@@ -163,7 +167,6 @@ Public Class FrmStart
     Private Sub btnExit_MouseHover(sender As Object, e As EventArgs) Handles btnExit.MouseHover
         Try
             Cursor = Cursors.Hand
-
         Catch ex As Exception
             ErrorMessage(ex, 20507)
         End Try
@@ -172,7 +175,6 @@ Public Class FrmStart
     Private Sub btnContinue_MouseLeave(sender As Object, e As EventArgs) Handles btnContinue.MouseLeave
         Try
             Cursor = Cursors.Default
-
         Catch ex As Exception
             ErrorMessage(ex, 20508)
         End Try
@@ -181,7 +183,6 @@ Public Class FrmStart
     Private Sub btnExit_MouseLeave(sender As Object, e As EventArgs) Handles btnExit.MouseLeave
         Try
             Cursor = Cursors.Default
-
         Catch ex As Exception
             ErrorMessage(ex, 20509)
         End Try
@@ -190,7 +191,6 @@ Public Class FrmStart
     Private Sub txtUsername_MouseHover(sender As Object, e As EventArgs) Handles txtUsername.MouseHover
         Try
             Cursor = Cursors.Hand
-
         Catch ex As Exception
             ErrorMessage(ex, 20510)
         End Try
@@ -199,20 +199,18 @@ Public Class FrmStart
     Private Sub txtUsername_MouseLeave(sender As Object, e As EventArgs) Handles txtUsername.MouseLeave
         Try
             Cursor = Cursors.Default
-
         Catch ex As Exception
             ErrorMessage(ex, 20511)
         End Try
     End Sub
 
-    Private Sub btnContinue_DoubleClick(sender As Object, e As EventArgs) Handles btnContinue.DoubleClick
-        'FrmGeneralInfo.ShowDialog()
-    End Sub
+    'Private Sub btnContinue_DoubleClick(sender As Object, e As EventArgs) Handles btnContinue.DoubleClick
+    '    'FrmGeneralInfo.ShowDialog()
+    'End Sub
 
     Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
         Try
             FrmSettings.ShowDialog()
-
         Catch ex As Exception
             ErrorMessage(ex, 20512)
         End Try
@@ -224,8 +222,6 @@ Public Class FrmStart
                 ChosenLanguage = "en-US"
                 ApplyLocale(ChosenLanguage)
             End If
-            'Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 6, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte)) ',                        FontStyle.Bold Or FontStyle.Italic)
-
         Catch ex As Exception
             ErrorMessage(ex, 20513)
         End Try
@@ -237,8 +233,6 @@ Public Class FrmStart
                 ChosenLanguage = "zh-CN"
                 ApplyLocale(ChosenLanguage)
             End If
-            'Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 6, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte)) ',                        FontStyle.Bold Or FontStyle.Italic)
-
         Catch ex As Exception
             ErrorMessage(ex, 20514)
         End Try

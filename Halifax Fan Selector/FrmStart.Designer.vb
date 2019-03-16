@@ -191,4 +191,6 @@ Partial Class FrmStart
     Friend WithEvents optChinese As RadioButton
     Friend WithEvents optEnglish As RadioButton
     Friend WithEvents lblDate As Label
+    'Friend WithEvents lblDate As Label
+    'Friend WithEvents Label1 As Label
 End Class

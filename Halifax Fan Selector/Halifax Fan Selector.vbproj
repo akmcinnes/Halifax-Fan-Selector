@@ -196,6 +196,9 @@
       <DependentUpon>FrmSelectFan.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSelectFan.zh-Hans.resx">
+      <DependentUpon>FrmSelectFan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSelectFan.zh.resx">
       <DependentUpon>FrmSelectFan.vb</DependentUpon>
       <SubType>Designer</SubType>
