@@ -22,10 +22,11 @@ Partial Class FrmDensityCalcs
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmDensityCalcs))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
@@ -53,12 +54,18 @@ Partial Class FrmDensityCalcs
         Me.lblDensityUnitsOut = New System.Windows.Forms.Label()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.lblGasName = New System.Windows.Forms.Label()
+        Me.lblPerCentFactor = New System.Windows.Forms.Label()
+        Me.lblTotal = New System.Windows.Forms.Label()
+        Me.lblMsg1 = New System.Windows.Forms.Label()
+        Me.lblMsgTitle = New System.Windows.Forms.Label()
+        Me.lblMsgOK = New System.Windows.Forms.Label()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -68,73 +75,59 @@ Partial Class FrmDensityCalcs
         'ListBox1
         '
         Me.ListBox1.AllowDrop = True
-        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        resources.ApplyResources(Me.ListBox1, "ListBox1")
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.ItemHeight = 25
-        Me.ListBox1.Location = New System.Drawing.Point(21, 12)
-        Me.ListBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(273, 329)
-        Me.ListBox1.TabIndex = 1
         '
         'btnClear
         '
-        Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.btnClear.Location = New System.Drawing.Point(21, 540)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.btnClear, "btnClear")
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(251, 50)
-        Me.btnClear.TabIndex = 7
-        Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = True
         '
         'DataGridView3
         '
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle14
-        Me.DataGridView3.Location = New System.Drawing.Point(349, 12)
-        Me.DataGridView3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle2
+        resources.ApplyResources(Me.DataGridView3, "DataGridView3")
         Me.DataGridView3.Name = "DataGridView3"
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridView3.RowsDefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView3.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridView3.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridView3.RowTemplate.Height = 24
-        Me.DataGridView3.Size = New System.Drawing.Size(437, 170)
-        Me.DataGridView3.TabIndex = 13
         '
         'Column1
         '
-        Me.Column1.HeaderText = "Gas Name"
+        resources.ApplyResources(Me.Column1, "Column1")
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 200
         '
         'Column2
         '
-        Me.Column2.HeaderText = "% Factor"
+        resources.ApplyResources(Me.Column2, "Column2")
         Me.Column2.Name = "Column2"
         '
         'GroupBox1
@@ -142,210 +135,121 @@ Partial Class FrmDensityCalcs
         Me.GroupBox1.Controls.Add(Me.RadioButton3)
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(843, 12)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox1.Size = New System.Drawing.Size(322, 118)
-        Me.GroupBox1.TabIndex = 14
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "% Factor"
         '
         'RadioButton3
         '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(25, 73)
-        Me.RadioButton3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.RadioButton3, "RadioButton3")
         Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(104, 29)
-        Me.RadioButton3.TabIndex = 2
-        Me.RadioButton3.Text = "By Mole"
         Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'RadioButton2
         '
-        Me.RadioButton2.AutoSize = True
+        resources.ApplyResources(Me.RadioButton2, "RadioButton2")
         Me.RadioButton2.Checked = True
-        Me.RadioButton2.Location = New System.Drawing.Point(25, 46)
-        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(128, 29)
-        Me.RadioButton2.TabIndex = 1
         Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "By Volume"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
         'RadioButton1
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(25, 21)
-        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.RadioButton1, "RadioButton1")
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(109, 29)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.Text = "By Mass"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        resources.ApplyResources(Me.Label1, "Label1")
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(360, 313)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(291, 25)
-        Me.Label1.TabIndex = 15
-        Me.Label1.Text = "Enter % factors as a % of 1.0"
         '
         'btnReturnToSelection
         '
-        Me.btnReturnToSelection.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.btnReturnToSelection.Location = New System.Drawing.Point(949, 540)
-        Me.btnReturnToSelection.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.btnReturnToSelection, "btnReturnToSelection")
         Me.btnReturnToSelection.Name = "btnReturnToSelection"
-        Me.btnReturnToSelection.Size = New System.Drawing.Size(251, 50)
-        Me.btnReturnToSelection.TabIndex = 16
-        Me.btnReturnToSelection.Text = "Return to Selection"
         Me.btnReturnToSelection.UseVisualStyleBackColor = True
         '
         'btnCalculate
         '
-        Me.btnCalculate.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        Me.btnCalculate.Location = New System.Drawing.Point(485, 540)
-        Me.btnCalculate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.btnCalculate, "btnCalculate")
         Me.btnCalculate.Name = "btnCalculate"
-        Me.btnCalculate.Size = New System.Drawing.Size(251, 50)
-        Me.btnCalculate.TabIndex = 17
-        Me.btnCalculate.Text = "Calculate"
         Me.btnCalculate.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(154, 22)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.TextBox1, "TextBox1")
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox1.TabIndex = 18
         '
         'lblTemperatureUnitsIn
         '
-        Me.lblTemperatureUnitsIn.AutoSize = True
-        Me.lblTemperatureUnitsIn.Location = New System.Drawing.Point(260, 27)
+        resources.ApplyResources(Me.lblTemperatureUnitsIn, "lblTemperatureUnitsIn")
         Me.lblTemperatureUnitsIn.Name = "lblTemperatureUnitsIn"
-        Me.lblTemperatureUnitsIn.Size = New System.Drawing.Size(35, 25)
-        Me.lblTemperatureUnitsIn.TabIndex = 19
-        Me.lblTemperatureUnitsIn.Text = "°C"
         '
         'lblPressureUnitsIn
         '
-        Me.lblPressureUnitsIn.AutoSize = True
-        Me.lblPressureUnitsIn.Location = New System.Drawing.Point(260, 53)
+        resources.ApplyResources(Me.lblPressureUnitsIn, "lblPressureUnitsIn")
         Me.lblPressureUnitsIn.Name = "lblPressureUnitsIn"
-        Me.lblPressureUnitsIn.Size = New System.Drawing.Size(46, 25)
-        Me.lblPressureUnitsIn.TabIndex = 21
-        Me.lblPressureUnitsIn.Text = "kPa"
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(154, 50)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.TextBox2, "TextBox2")
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox2.TabIndex = 20
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(22, 78)
+        resources.ApplyResources(Me.Label4, "Label4")
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(116, 25)
-        Me.Label4.TabIndex = 23
-        Me.Label4.Text = "Air Humidity"
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(154, 78)
-        Me.TextBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.TextBox3, "TextBox3")
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox3.TabIndex = 22
         '
         'lblAltitudeUnits
         '
-        Me.lblAltitudeUnits.AutoSize = True
-        Me.lblAltitudeUnits.Location = New System.Drawing.Point(260, 111)
+        resources.ApplyResources(Me.lblAltitudeUnits, "lblAltitudeUnits")
         Me.lblAltitudeUnits.Name = "lblAltitudeUnits"
-        Me.lblAltitudeUnits.Size = New System.Drawing.Size(22, 25)
-        Me.lblAltitudeUnits.TabIndex = 25
-        Me.lblAltitudeUnits.Text = "ft"
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(154, 106)
-        Me.TextBox4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.TextBox4, "TextBox4")
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox4.TabIndex = 24
         '
         'lblTemperatureUnitsOut
         '
-        Me.lblTemperatureUnitsOut.AutoSize = True
-        Me.lblTemperatureUnitsOut.Location = New System.Drawing.Point(4, 82)
+        resources.ApplyResources(Me.lblTemperatureUnitsOut, "lblTemperatureUnitsOut")
         Me.lblTemperatureUnitsOut.Name = "lblTemperatureUnitsOut"
-        Me.lblTemperatureUnitsOut.Size = New System.Drawing.Size(163, 25)
-        Me.lblTemperatureUnitsOut.TabIndex = 31
-        Me.lblTemperatureUnitsOut.Text = "Temperature (°F)"
-        Me.lblTemperatureUnitsOut.Visible = False
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(197, 82)
-        Me.TextBox5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.TextBox5, "TextBox5")
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.ReadOnly = True
-        Me.TextBox5.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox5.TabIndex = 30
-        Me.TextBox5.Visible = False
         '
         'Label7
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(32, 55)
+        resources.ApplyResources(Me.Label7, "Label7")
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(134, 25)
-        Me.Label7.TabIndex = 29
-        Me.Label7.Text = "Density (lb/ft³)"
-        Me.Label7.Visible = False
         '
         'TextBox6
         '
-        Me.TextBox6.Location = New System.Drawing.Point(197, 55)
-        Me.TextBox6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.TextBox6, "TextBox6")
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.ReadOnly = True
-        Me.TextBox6.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox6.TabIndex = 28
-        Me.TextBox6.Visible = False
         '
         'lblDensityUnitsOut
         '
-        Me.lblDensityUnitsOut.AutoSize = True
-        Me.lblDensityUnitsOut.Location = New System.Drawing.Point(260, 30)
+        resources.ApplyResources(Me.lblDensityUnitsOut, "lblDensityUnitsOut")
         Me.lblDensityUnitsOut.Name = "lblDensityUnitsOut"
-        Me.lblDensityUnitsOut.Size = New System.Drawing.Size(62, 25)
-        Me.lblDensityUnitsOut.TabIndex = 27
-        Me.lblDensityUnitsOut.Text = "kg/m³"
         '
         'TextBox7
         '
-        Me.TextBox7.Location = New System.Drawing.Point(151, 27)
-        Me.TextBox7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        resources.ApplyResources(Me.TextBox7, "TextBox7")
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.ReadOnly = True
-        Me.TextBox7.Size = New System.Drawing.Size(100, 30)
-        Me.TextBox7.TabIndex = 26
         '
         'GroupBox2
         '
@@ -361,16 +265,30 @@ Partial Class FrmDensityCalcs
         Me.GroupBox2.Controls.Add(Me.TextBox2)
         Me.GroupBox2.Controls.Add(Me.lblTemperatureUnitsIn)
         Me.GroupBox2.Controls.Add(Me.TextBox1)
-        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
-        Me.GroupBox2.Location = New System.Drawing.Point(843, 135)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox2.Size = New System.Drawing.Size(329, 154)
-        Me.GroupBox2.TabIndex = 32
         Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Inputs"
+        '
+        'Label6
+        '
+        resources.ApplyResources(Me.Label6, "Label6")
+        Me.Label6.Name = "Label6"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.Name = "Label5"
+        '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.Name = "Label3"
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.Name = "Label2"
         '
         'GroupBox3
         '
@@ -381,68 +299,57 @@ Partial Class FrmDensityCalcs
         Me.GroupBox3.Controls.Add(Me.TextBox6)
         Me.GroupBox3.Controls.Add(Me.lblDensityUnitsOut)
         Me.GroupBox3.Controls.Add(Me.TextBox7)
-        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
-        Me.GroupBox3.Location = New System.Drawing.Point(843, 313)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.GroupBox3.Size = New System.Drawing.Size(329, 70)
-        Me.GroupBox3.TabIndex = 33
         Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Outputs"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 25)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(124, 25)
-        Me.Label2.TabIndex = 26
-        Me.Label2.Text = "Temperature"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(48, 53)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(90, 25)
-        Me.Label3.TabIndex = 27
-        Me.Label3.Text = "Pressure"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(260, 81)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(30, 25)
-        Me.Label5.TabIndex = 28
-        Me.Label5.Text = "%"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(61, 109)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(77, 25)
-        Me.Label6.TabIndex = 29
-        Me.Label6.Text = "Altitude"
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(61, 23)
+        resources.ApplyResources(Me.Label8, "Label8")
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(77, 25)
-        Me.Label8.TabIndex = 32
-        Me.Label8.Text = "Density"
+        '
+        'lblGasName
+        '
+        resources.ApplyResources(Me.lblGasName, "lblGasName")
+        Me.lblGasName.Name = "lblGasName"
+        '
+        'lblPerCentFactor
+        '
+        resources.ApplyResources(Me.lblPerCentFactor, "lblPerCentFactor")
+        Me.lblPerCentFactor.Name = "lblPerCentFactor"
+        '
+        'lblTotal
+        '
+        resources.ApplyResources(Me.lblTotal, "lblTotal")
+        Me.lblTotal.Name = "lblTotal"
+        '
+        'lblMsg1
+        '
+        resources.ApplyResources(Me.lblMsg1, "lblMsg1")
+        Me.lblMsg1.Name = "lblMsg1"
+        '
+        'lblMsgTitle
+        '
+        resources.ApplyResources(Me.lblMsgTitle, "lblMsgTitle")
+        Me.lblMsgTitle.Name = "lblMsgTitle"
+        '
+        'lblMsgOK
+        '
+        resources.ApplyResources(Me.lblMsgOK, "lblMsgOK")
+        Me.lblMsgOK.Name = "lblMsgOK"
         '
         'FrmDensityCalcs
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.MenuHighlight
-        Me.ClientSize = New System.Drawing.Size(1255, 668)
+        Me.Controls.Add(Me.lblMsgOK)
+        Me.Controls.Add(Me.lblMsgTitle)
+        Me.Controls.Add(Me.lblMsg1)
+        Me.Controls.Add(Me.lblTotal)
+        Me.Controls.Add(Me.lblPerCentFactor)
+        Me.Controls.Add(Me.lblGasName)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.btnCalculate)
@@ -452,9 +359,7 @@ Partial Class FrmDensityCalcs
         Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.ListBox1)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "FrmDensityCalcs"
-        Me.Text = "Density Calculations"
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -499,4 +404,10 @@ Partial Class FrmDensityCalcs
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label8 As Label
+    Friend WithEvents lblGasName As Label
+    Friend WithEvents lblPerCentFactor As Label
+    Friend WithEvents lblTotal As Label
+    Friend WithEvents lblMsg1 As Label
+    Friend WithEvents lblMsgTitle As Label
+    Friend WithEvents lblMsgOK As Label
 End Class

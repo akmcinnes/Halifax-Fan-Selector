@@ -55,7 +55,8 @@
                 Call GetPressure(size, speed, vols(fanno, count) - 0.01, fanno)
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
-                fanfailures(failindex, 1) = "Volume cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Volume available is " & Math.Round(vols(fanno, datapoint3), 2)
+                'fanfailures(failindex, 1) = "Volume cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Volume available is " & Math.Round(vols(fanno, datapoint3), 2)
+                fanfailures(failindex, 1) = "Volume cannot be achieved at this size and speed, the Max Volume available is " & Math.Round(vols(fanno, datapoint3), 2)
                 Exit Sub
             End If
             If Volume < vols(fanno, datapoint3) And vols(fanno, datapoint2) = 0 Then
@@ -63,7 +64,8 @@
                 Call GetPressure(size, speed, vols(fanno, 1) + 0.01, fanno)
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
-                fanfailures(failindex, 1) = fanclass(fanno) & " volume is too low and falls outside performance data, suggest a volume above " & Math.Round(vols(fanno, 1), 2)
+                'fanfailures(failindex, 1) = fanclass(fanno) & " volume is too low and falls outside performance data, suggest a volume above " & Math.Round(vols(fanno, 1), 2)
+                fanfailures(failindex, 1) = "The volume is too low and falls outside performance data, suggest a volume above " & Math.Round(vols(fanno, 1), 2)
                 Exit Sub
             End If
 
@@ -203,7 +205,8 @@
                     Call GetVol(size, speed, Math.Round(PressCheck1, 2) - 0.01, fanno)
                     failindex = failindex + 1
                     fanfailures(failindex, 0) = fantypename(fanno)
-                    fanfailures(failindex, 1) = "Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2)
+                    'fanfailures(failindex, 1) = "Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2)
+                    fanfailures(failindex, 1) = "Pressure cannot be achieved at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2)
 
                     Exit Sub
                 End If
@@ -212,7 +215,8 @@
                     Call GetVol(size, speed, Math.Round(fsps(fanno, count1 - 1), 2) + 0.01, fanno)
                     failindex = failindex + 1
                     fanfailures(failindex, 0) = fantypename(fanno)
-                    fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
+                    'fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
+                    fanfailures(failindex, 1) = "Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
 
                     Exit Sub
                 End If
@@ -223,7 +227,8 @@
                     Call GetVol(size, speed, Math.Round(ftps(fanno, count), 2) - 0.01, fanno)
                     failindex = failindex + 1
                     fanfailures(failindex, 0) = fantypename(fanno)
-                    fanfailures(failindex, 1) = "Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2)
+                    'fanfailures(failindex, 1) = "Pressure cannot be achieved with a " & fanclass(fanno) & " Fan at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2)
+                    fanfailures(failindex, 1) = "Pressure cannot be achieved with at this size and speed, the Max Pressure available is " & Math.Round(PressCheck1, 2)
 
                     Exit Sub
                 End If
@@ -232,7 +237,8 @@
                     Call GetVol(size, speed, Math.Round(ftps(fanno, count1 - 1), 2) + 0.01, fanno)
                     failindex = failindex + 1
                     fanfailures(failindex, 0) = fantypename(fanno)
-                    fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(ftps(fanno, count1 - 1), 2)
+                    'fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(ftps(fanno, count1 - 1), 2)
+                    fanfailures(failindex, 1) = "Pressure is too low and falls outside performance data, suggest a pressure above " & Math.Round(ftps(fanno, count1 - 1), 2)
 
                     Exit Sub
                 End If

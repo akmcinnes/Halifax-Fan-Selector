@@ -3,7 +3,8 @@ Module Sub_Selections
     Sub SetupSelectionPage()
         Try
             With Frmselectfan
-                If .TabControl1.SelectedTab.Text.Contains("Selection") Then
+                'If .TabControl1.SelectedTab.Text.Contains("Selection") Then
+                If .TabControl1.SelectedTab Is .TabPageSelection Then
                     Call initializeSelections()
                     .btnNoiseDataForward.Enabled = False
                     .ColumnHeader(0) = Units(5).UnitName(Units(5).UnitSelected) '"mm" '.Comimpunits.Text
@@ -59,51 +60,98 @@ Module Sub_Selections
                     .DataGridView1.ColumnCount = 50
                     i = 0
 
-                    Column_Header1(i, "SIZE", "Colsize", .ColumnHeader(0))
-                    Column_Header1(i, "Size", "Colsize", "empty")
+                    'Column_Header1(i, "SIZE", "Colsize", .ColumnHeader(0))
+                    'Column_Header1(i, "Size", "Colsize", "empty")
+                    'i = i + 1
+                    'Column_Header1(i, "Type", "Coltype", "empty")
+                    'i = i + 1
+                    'Column_Header1(i, "Speed", "Colspeed", .ColumnHeader(2))
+                    'i = i + 1
+                    'Column_Header1(i, "Flow", "Colvolume", .ColumnHeader(3))
+                    'i = i + 1
+                    'Column_Header1(i, "Fan Static Pressure", "Colfsp", .ColumnHeader(4))
+                    'i = i + 1
+                    'Column_Header1(i, "Fan Total Pressure", "Colftp", .ColumnHeader(5))
+                    'i = i + 1
+                    'If Units(4).UnitSelected < 2 Then
+                    '    Column_Header1(i, "Fan Power", "Colpower", .ColumnHeader(6))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Motor Power", "Colmotor", .ColumnHeader(7))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Fan Static Efficiency", "Colfse", .ColumnHeader(8))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Fan Total Efficiency", "Colfte", .ColumnHeader(9))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Outlet Velocity", "Coloutletvel", .ColumnHeader(10))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Reserve Head", "Colrhead", .ColumnHeader(11))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Volume TD", "Colvoltd", .ColumnHeader(12))
+                    'ElseIf Units(4).UnitSelected = 2 Then
+                    '    'combined columns
+                    '    Column_Header1(i, "Fan Power", "Colpower", .ColumnHeader(6))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Motor Power", "Colmotor", .ColumnHeader(7))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Fan Static Efficiency", "Colfse", .ColumnHeader(8))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Fan Total Efficiency", "Colfte", .ColumnHeader(9))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Outlet Velocity", "Coloutletvel", .ColumnHeader(10))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Reserve Head", "Colrhead", .ColumnHeader(11))
+                    '    i = i + 1
+                    '    Column_Header1(i, "Volume TD", "Colvoltd", .ColumnHeader(12))
+                    'End If
+                    'i = i + 1
+                    'Column_Header1(i, "Fan Index", "ColIndex", "empty")
+
+                    Column_Header1(i, Frmselectfan.lblSize.Text, "Colsize", .ColumnHeader(0))
+                    Column_Header1(i, Frmselectfan.lblSize.Text, "Colsize", "empty")
                     i = i + 1
-                    Column_Header1(i, "Type", "Coltype", "empty")
+                    Column_Header1(i, Frmselectfan.lblType.Text, "Coltype", "empty")
                     i = i + 1
-                    Column_Header1(i, "Speed", "Colspeed", .ColumnHeader(2))
+                    Column_Header1(i, Frmselectfan.lblSpeed.Text, "Colspeed", .ColumnHeader(2))
                     i = i + 1
-                    Column_Header1(i, "Flow", "Colvolume", .ColumnHeader(3))
+                    Column_Header1(i, Frmselectfan.lblFlow.Text, "Colvolume", .ColumnHeader(3))
                     i = i + 1
-                    Column_Header1(i, "Fan Static Pressure", "Colfsp", .ColumnHeader(4))
+                    Column_Header1(i, Frmselectfan.lblFanStaticPressure.Text, "Colfsp", .ColumnHeader(4))
                     i = i + 1
-                    Column_Header1(i, "Fan Total Pressure", "Colftp", .ColumnHeader(5))
+                    Column_Header1(i, Frmselectfan.lblFanTotalPressure.Text, "Colftp", .ColumnHeader(5))
                     i = i + 1
                     If Units(4).UnitSelected < 2 Then
-                        Column_Header1(i, "Fan Power", "Colpower", .ColumnHeader(6))
+                        Column_Header1(i, Frmselectfan.lblFanPower.Text, "Colpower", .ColumnHeader(6))
                         i = i + 1
-                        Column_Header1(i, "Motor Power", "Colmotor", .ColumnHeader(7))
+                        Column_Header1(i, Frmselectfan.lblMotorPower.Text, "Colmotor", .ColumnHeader(7))
                         i = i + 1
-                        Column_Header1(i, "Fan Static Efficiency", "Colfse", .ColumnHeader(8))
+                        Column_Header1(i, Frmselectfan.lblFanStaticEfficiency.Text, "Colfse", .ColumnHeader(8))
                         i = i + 1
-                        Column_Header1(i, "Fan Total Efficiency", "Colfte", .ColumnHeader(9))
+                        Column_Header1(i, Frmselectfan.lblFanTotalEfficiency.Text, "Colfte", .ColumnHeader(9))
                         i = i + 1
-                        Column_Header1(i, "Outlet Velocity", "Coloutletvel", .ColumnHeader(10))
+                        Column_Header1(i, Frmselectfan.lblOutletVelocity.Text, "Coloutletvel", .ColumnHeader(10))
                         i = i + 1
-                        Column_Header1(i, "Reserve Head", "Colrhead", .ColumnHeader(11))
+                        Column_Header1(i, Frmselectfan.lblReserveHead.Text, "Colrhead", .ColumnHeader(11))
                         i = i + 1
-                        Column_Header1(i, "Volume TD", "Colvoltd", .ColumnHeader(12))
+                        Column_Header1(i, Frmselectfan.lblVolumeTD.Text, "Colvoltd", .ColumnHeader(12))
                     ElseIf Units(4).UnitSelected = 2 Then
                         'combined columns
-                        Column_Header1(i, "Fan Power", "Colpower", .ColumnHeader(6))
+                        Column_Header1(i, Frmselectfan.lblFanPower.Text, "Colpower", .ColumnHeader(6))
                         i = i + 1
-                        Column_Header1(i, "Motor Power", "Colmotor", .ColumnHeader(7))
+                        Column_Header1(i, Frmselectfan.lblMotorPower.Text, "Colmotor", .ColumnHeader(7))
                         i = i + 1
-                        Column_Header1(i, "Fan Static Efficiency", "Colfse", .ColumnHeader(8))
+                        Column_Header1(i, Frmselectfan.lblFanStaticEfficiency.Text, "Colfse", .ColumnHeader(8))
                         i = i + 1
-                        Column_Header1(i, "Fan Total Efficiency", "Colfte", .ColumnHeader(9))
+                        Column_Header1(i, Frmselectfan.lblFanTotalEfficiency.Text, "Colfte", .ColumnHeader(9))
                         i = i + 1
-                        Column_Header1(i, "Outlet Velocity", "Coloutletvel", .ColumnHeader(10))
+                        Column_Header1(i, Frmselectfan.lblOutletVelocity.Text, "Coloutletvel", .ColumnHeader(10))
                         i = i + 1
-                        Column_Header1(i, "Reserve Head", "Colrhead", .ColumnHeader(11))
+                        Column_Header1(i, Frmselectfan.lblReserveHead.Text, "Colrhead", .ColumnHeader(11))
                         i = i + 1
-                        Column_Header1(i, "Volume TD", "Colvoltd", .ColumnHeader(12))
+                        Column_Header1(i, Frmselectfan.lblVolumeTD.Text, "Colvoltd", .ColumnHeader(12))
                     End If
                     i = i + 1
-                    Column_Header1(i, "Fan Index", "ColIndex", "empty")
+                    Column_Header1(i, Frmselectfan.lblFanIndex.Text, "ColIndex", "empty")
+
                     .DataGridView1.ColumnCount = i + 1
                     .DataGridView1.Width = .DataGridView1.Width * 1.1
 
@@ -222,14 +270,16 @@ Module Sub_Selections
                     If .DataGridView1.Height < 350 Then .DataGridView1.Height = 350
                     .chkKP.Visible = StartArg.ToLower.Contains("-dev")
 
-                    .chkDisplayAll.Visible = AdvancedUser
-                    .chkDisplayAll.Text = "Include fans < " + reshead.ToString + "% Reserve Head"
+                    .chkDisplayAllResHead.Visible = AdvancedUser
+                    '.chkDisplayAll.Text = "Include fans < " + reshead.ToString + "% Reserve Head"
+                    .chkDisplayAllResHead.Text = .lblIncludeReserveHead.text + " < " + reshead.ToString + "% "
 
                     .chkDisplayLowerEff.Visible = AdvancedUser
-                    .chkDisplayLowerEff.Text = "Include fans < 60% Fan Efficiency"
+                    '.chkDisplayLowerEff.Text = "Include fans < 60% Fan Efficiency"
+                    .chkDisplayLowerEff.Text = .lblIncludeAllFanEfficiency.Text + " < 60%"
 
                     Dim nRight As Integer
-                    nRight = .chkDisplayAll.Right
+                    nRight = .chkDisplayAllResHead.Right
                     .chkDisplayLowerEff.Right.Equals(nRight)
 
                     Dim tempsize As Double = CDbl(.Txtfansize.Text)
@@ -398,7 +448,7 @@ Module Sub_Selections
 
                 mineffs = 60.0
                 minefft = 60.0
-                If AdvancedUser And .chkDisplayAll.Checked = True Then minresHD = 0.0
+                If AdvancedUser And .chkDisplayAllResHead.Checked = True Then minresHD = 0.0
                 If AdvancedUser And .chkDisplayLowerEff.Checked = True Then mineffs = 0.0
                 If AdvancedUser And .chkDisplayLowerEff.Checked = True Then minefft = 0.0
 
@@ -566,10 +616,11 @@ Module Sub_Selections
             With Frmselectfan
                 .btnNoiseDataForward.Enabled = True
                 .Label3.Visible = True
-                .Label3.Text = "Selected Fan: "
+                .Label3.Text = .Label3.Text + ": "
                 .LblFanDetails.Visible = True
 
-                .LblFanDetails.Text = selected(ii).fantype + " " + selected(ii).fansize.ToString + " running at " + selected(ii).speed.ToString + " rpm"
+                '.LblFanDetails.Text = selected(ii).fantype + " " + selected(ii).fansize.ToString + " running at " + selected(ii).speed.ToString + " rpm"
+                .LblFanDetails.Text = selected(ii).fantype + " " + selected(ii).fansize.ToString + " " + .lblRunningAt.Text + " " + selected(ii).speed.ToString + " rpm"
                 If SelectDIDW = True Then .LblFanDetails.Text = .LblFanDetails.Text + " (DIDW)"
 
                 'final.fansize = selectedfansize(ii)

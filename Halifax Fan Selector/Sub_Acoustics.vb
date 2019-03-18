@@ -40,7 +40,8 @@
 
                 .DataGridView2.RowsDefaultCellStyle.BackColor = Color.Bisque
                 .DataGridView2.AlternatingRowsDefaultCellStyle.BackColor = Color.Beige
-                Column_Header2(0, "Octave Mid-Band Frequency (Hz)", "OctComment")
+                'Column_Header2(0, "Octave Mid-Band Frequency (Hz)", "OctComment")
+                Column_Header2(0, Frmselectfan.lblBand.Text + " (Hz)", "OctComment")
                 Column_Header2(1, "63", "Oct63")
                 Column_Header2(2, "125", "Oct125")
                 Column_Header2(3, "250", "Oct250")
@@ -49,7 +50,8 @@
                 Column_Header2(6, "2k", "Oct2k")
                 Column_Header2(7, "4k", "Oct4k")
                 Column_Header2(8, "8k", "Oct8k")
-                Column_Header2(9, "Overall", "Overall")
+                'Column_Header2(9, "Overall", "Overall")
+                Column_Header2(9, Frmselectfan.lblOverall.Text, "Overall")
 
                 For i = 0 To .DataGridView2.Columns.Count - 1
                     .DataGridView2.Columns.Item(i).SortMode = DataGridViewColumnSortMode.Programmatic

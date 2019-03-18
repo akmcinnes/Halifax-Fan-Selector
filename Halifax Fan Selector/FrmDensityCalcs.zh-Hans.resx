@@ -117,169 +117,125 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ColumnHeader1.Text" xml:space="preserve">
-    <value>Design</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ColumnHeader1.Width" type="System.Int32, mscorlib">
-    <value>200</value>
-  </data>
-  <data name="ColumnHeader2.Text" xml:space="preserve">
-    <value>Reason</value>
-  </data>
-  <data name="ColumnHeader2.Width" type="System.Int32, mscorlib">
-    <value>500</value>
+  <data name="btnClear.Text" xml:space="preserve">
+    <value>清楚</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lsvFailedFans.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
+  <data name="RadioButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
   </data>
-  <data name="lsvFailedFans.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+  <data name="RadioButton3.Text" xml:space="preserve">
+    <value>由鼹鼠</value>
   </data>
-  <data name="lsvFailedFans.Size" type="System.Drawing.Size, System.Drawing">
-    <value>777, 213</value>
+  <data name="RadioButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
   </data>
-  <data name="lsvFailedFans.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="RadioButton2.Text" xml:space="preserve">
+    <value>按容量</value>
   </data>
-  <data name="&gt;&gt;lsvFailedFans.Name" xml:space="preserve">
-    <value>lsvFailedFans</value>
+  <data name="RadioButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
   </data>
-  <data name="&gt;&gt;lsvFailedFans.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="RadioButton1.Text" xml:space="preserve">
+    <value>按质量</value>
   </data>
-  <data name="&gt;&gt;lsvFailedFans.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>% 系数</value>
   </data>
-  <data name="&gt;&gt;lsvFailedFans.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 25</value>
   </data>
-  <data name="Button1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>输入% 系数作为1.0 的%</value>
   </data>
-  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>294, 237</value>
+  <data name="btnReturnToSelection.Text" xml:space="preserve">
+    <value>返回到选择</value>
   </data>
-  <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 50</value>
+  <data name="btnCalculate.Text" xml:space="preserve">
+    <value>计算</value>
   </data>
-  <data name="Button1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 78</value>
   </data>
-  <data name="Button1.Text" xml:space="preserve">
-    <value>Exit</value>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
   </data>
-  <data name="&gt;&gt;Button1.Name" xml:space="preserve">
-    <value>Button1</value>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>湿度</value>
   </data>
-  <data name="&gt;&gt;Button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 109</value>
   </data>
-  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
   </data>
-  <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>高度</value>
   </data>
-  <data name="lblDesign.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 53</value>
   </data>
-  <data name="lblDesign.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 241</value>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
   </data>
-  <data name="lblDesign.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="Label3.Text" xml:space="preserve">
+    <value>压力</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 25</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>温度</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>输入</value>
+  </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 23</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>密度</value>
+  </data>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>输出</value>
+  </data>
+  <data name="lblGasName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="lblGasName.Text" xml:space="preserve">
+    <value>气体名称</value>
+  </data>
+  <data name="lblPerCentFactor.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 17</value>
   </data>
-  <data name="lblDesign.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="lblPerCentFactor.Text" xml:space="preserve">
+    <value>% 系数</value>
   </data>
-  <data name="lblDesign.Text" xml:space="preserve">
-    <value>Design</value>
+  <data name="lblTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 17</value>
   </data>
-  <data name="lblDesign.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="lblTotal.Text" xml:space="preserve">
+    <value>总</value>
   </data>
-  <data name="&gt;&gt;lblDesign.Name" xml:space="preserve">
-    <value>lblDesign</value>
+  <data name="lblMsg1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 17</value>
   </data>
-  <data name="&gt;&gt;lblDesign.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblMsg1.Text" xml:space="preserve">
+    <value>总数必须小于1。0</value>
   </data>
-  <data name="&gt;&gt;lblDesign.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lblMsgTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 17</value>
   </data>
-  <data name="&gt;&gt;lblDesign.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblReason.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblReason.Location" type="System.Drawing.Point, System.Drawing">
-    <value>626, 252</value>
-  </data>
-  <data name="lblReason.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 17</value>
-  </data>
-  <data name="lblReason.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="lblReason.Text" xml:space="preserve">
-    <value>Reason</value>
-  </data>
-  <data name="lblReason.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblReason.Name" xml:space="preserve">
-    <value>lblReason</value>
-  </data>
-  <data name="&gt;&gt;lblReason.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblReason.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblReason.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>801, 301</value>
-  </data>
-  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>819, 348</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>819, 348</value>
+  <data name="lblMsgTitle.Text" xml:space="preserve">
+    <value>哈利法克斯风扇选择器</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Rejected Fan Designs</value>
-  </data>
-  <data name="&gt;&gt;ColumnHeader1.Name" xml:space="preserve">
-    <value>ColumnHeader1</value>
-  </data>
-  <data name="&gt;&gt;ColumnHeader1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ColumnHeader2.Name" xml:space="preserve">
-    <value>ColumnHeader2</value>
-  </data>
-  <data name="&gt;&gt;ColumnHeader2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmDisplayRejects</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>密度计算</value>
   </data>
 </root>

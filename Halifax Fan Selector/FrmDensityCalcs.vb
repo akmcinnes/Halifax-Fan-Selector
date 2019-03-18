@@ -124,7 +124,7 @@ Public Class FrmDensityCalcs
     Private Sub GasInitialise()
         Try
             Dim language As String = ChosenLanguage
-            If version_number.Contains("1.0.2") Then language = "en-US"
+            'If version_number.Contains("1.0.2") Then language = "en-US"
             Dim filenameref As String = "Gas Data " + language
             'Dim filenameref As String = "Gas Data " + "en-US"
             If RadioButton1.Checked Then DataGridView3.Columns(1).HeaderCell.Value = "Mass Factor"
@@ -135,6 +135,8 @@ Public Class FrmDensityCalcs
             For i = 0 To gasnum
                 DataGridView3.Rows.Clear()
             Next
+            DataGridView3.Columns(0).HeaderText = lblGasName.Text
+            DataGridView3.Columns(1).HeaderText = lblPerCentFactor.Text
             TextBox7.Text = Nothing
             TextBox6.Text = Nothing
             'btnCalculate.Enabled = False
@@ -161,7 +163,7 @@ Public Class FrmDensityCalcs
 
             DataGridView3.Columns(0).ReadOnly = True
             DataGridView3.Rows(maxgasnum).ReadOnly = True
-            DataGridView3.Rows(maxgasnum).Cells(0).Value = "TOTAL"
+            DataGridView3.Rows(maxgasnum).Cells(0).Value = lblTotal.Text '"TOTAL"
             ListBox1.Enabled = True
 
         Catch ex As Exception
@@ -179,7 +181,7 @@ Public Class FrmDensityCalcs
                 For i = 0 To maxgasnum - 1
                     k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
                     If k > 1.0 Then
-                        MsgBox("total must be less than 1.0")
+                        MsgBox(lblMsg1.Text, vbInformation + vbOKOnly, lblMsgTitle.Text) '(("total must be less than 1.0")
                         k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
                         DataGridView3.Rows(i).Cells(1).Value = ""
                         Exit For
@@ -201,7 +203,7 @@ Public Class FrmDensityCalcs
             For i = 0 To maxgasnum - 1
                 k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
                 If k > 1.0 Then
-                    MsgBox("total must be less than 1.0")
+                    MsgBox(lblMsg1.Text, vbInformation + vbOKOnly, lblMsgTitle.Text) '(("total must be less than 1.0")
                     k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
                     DataGridView3.Rows(i).Cells(1).Value = ""
                     Exit For

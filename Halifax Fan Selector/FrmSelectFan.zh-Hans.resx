@@ -1,0 +1,1809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblDisplayBoth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="lblDisplayBoth.Text" xml:space="preserve">
+    <value>同时显示</value>
+  </data>
+  <data name="lblChkAtmosAlt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>232, 25</value>
+  </data>
+  <data name="lblChkAtmosAlt.Text" xml:space="preserve">
+    <value>从海拔高度计算大气压力</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnGeneralExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnGeneralExit.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="OptVelocityFtpermin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptVelocityMpers.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox9.Text" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="OptPowerBoth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptPowerBoth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 29</value>
+  </data>
+  <data name="OptPowerBoth.Text" xml:space="preserve">
+    <value>同时显示</value>
+  </data>
+  <data name="OptPowerHp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptPowerKW.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox8.Text" xml:space="preserve">
+    <value>功率</value>
+  </data>
+  <data name="btnImperialUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnImperialUnits.Text" xml:space="preserve">
+    <value>英制单位</value>
+  </data>
+  <data name="btnMetricUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnMetricUnits.Text" xml:space="preserve">
+    <value>公制单位</value>
+  </data>
+  <data name="OptDefaultNone.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox7.Text" xml:space="preserve">
+    <value>选择默认值</value>
+  </data>
+  <data name="OptAltitudeFt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptAltitudeM.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox10.Text" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="OptLengthIn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptLengthMm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox11.Text" xml:space="preserve">
+    <value>长度</value>
+  </data>
+  <data name="OptTemperatureF.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptTemperatureC.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox12.Text" xml:space="preserve">
+    <value>温度</value>
+  </data>
+  <data name="OptFlowLbPerHr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptFlowKgPerHr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptFlowCfm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptFlowM3PerHr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptFlowM3PerMin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptFlowM3PerSec.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox13.Text" xml:space="preserve">
+    <value>流量</value>
+  </data>
+  <data name="OptPressurekPa.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptPressuremmWG.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptPressureinWG.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptPressuremBar.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptPressurePa.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox14.Text" xml:space="preserve">
+    <value>压力</value>
+  </data>
+  <data name="OptDensityLbPerFt3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptDensityKgPerM3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox15.Text" xml:space="preserve">
+    <value>密度</value>
+  </data>
+  <data name="btnDutyInputForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDutyInputForward.Text" xml:space="preserve">
+    <value>工况数据输入 &gt;&gt;</value>
+  </data>
+  <data name="Opt50Hz.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Opt60Hz.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GrpFrequency.Text" xml:space="preserve">
+    <value>电机频率（Hz）</value>
+  </data>
+  <data name="chkCalcAtmos.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkCalcAtmos.Text" xml:space="preserve">
+    <value>从海拔高度计算大气压力</value>
+  </data>
+  <data name="LblAtmosphericPressureUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblHumidityUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblAltitudeUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblAmbientTemperatureUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblAtmosphericPressure.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblAtmosphericPressure.Location" type="System.Drawing.Point, System.Drawing">
+    <value>145, 112</value>
+  </data>
+  <data name="LblAtmosphericPressure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 25</value>
+  </data>
+  <data name="LblAtmosphericPressure.Text" xml:space="preserve">
+    <value>大气压</value>
+  </data>
+  <data name="LblHumidity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblHumidity.Location" type="System.Drawing.Point, System.Drawing">
+    <value>165, 84</value>
+  </data>
+  <data name="LblHumidity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="LblHumidity.Text" xml:space="preserve">
+    <value>湿度</value>
+  </data>
+  <data name="LblAltitude.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblAltitude.Location" type="System.Drawing.Point, System.Drawing">
+    <value>165, 58</value>
+  </data>
+  <data name="LblAltitude.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="LblAltitude.Text" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="LblAmbientTemperature.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblAmbientTemperature.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 30</value>
+  </data>
+  <data name="LblAmbientTemperature.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="LblAmbientTemperature.Text" xml:space="preserve">
+    <value>环境温度</value>
+  </data>
+  <data name="GrpGeneral.Text" xml:space="preserve">
+    <value>通用</value>
+  </data>
+  <data name="lblMassFlow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 18</value>
+  </data>
+  <data name="lblMassFlow.Text" xml:space="preserve">
+    <value>质量流量</value>
+  </data>
+  <data name="lblVolumeFlow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 18</value>
+  </data>
+  <data name="lblVolumeFlow.Text" xml:space="preserve">
+    <value>体积流量</value>
+  </data>
+  <data name="btnGeneralInformationBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnGeneralInformationBack.Text" xml:space="preserve">
+    <value>&lt;&lt;通用信息</value>
+  </data>
+  <data name="LblFlowRateUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFanParametersForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFanParametersForward.Text" xml:space="preserve">
+    <value>风机参数&gt;&gt;</value>
+  </data>
+  <data name="btnCalculateDensity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCalculateDensity.Text" xml:space="preserve">
+    <value>密度计算</value>
+  </data>
+  <data name="lblFlowType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 25</value>
+  </data>
+  <data name="lblFlowType.Text" xml:space="preserve">
+    <value>风机类型</value>
+  </data>
+  <data name="OptMassFlow.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptVolumeFlow.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GrpFlowRate.Text" xml:space="preserve">
+    <value>流量速度</value>
+  </data>
+  <data name="OptFlowDischarge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptFlowDischarge.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 29</value>
+  </data>
+  <data name="OptFlowDischarge.Text" xml:space="preserve">
+    <value>排出</value>
+  </data>
+  <data name="OptFlowNominal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptFlowNominal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 29</value>
+  </data>
+  <data name="OptFlowNominal.Text" xml:space="preserve">
+    <value>公称</value>
+  </data>
+  <data name="OpFlowInlet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OpFlowInlet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
+  </data>
+  <data name="OpFlowInlet.Text" xml:space="preserve">
+    <value>进风口</value>
+  </data>
+  <data name="OptXLS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptTXT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>数据源</value>
+  </data>
+  <data name="lblpercent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUserDefinedUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optDDUserDefined.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optDDUserDefined.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 29</value>
+  </data>
+  <data name="optDDUserDefined.Text" xml:space="preserve">
+    <value>用户定义</value>
+  </data>
+  <data name="optDDStandard.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optDDStandard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 29</value>
+  </data>
+  <data name="optDDStandard.Text" xml:space="preserve">
+    <value>标准</value>
+  </data>
+  <data name="optDDRatio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optDDRatio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 29</value>
+  </data>
+  <data name="optDDRatio.Text" xml:space="preserve">
+    <value>比率</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>排放管道</value>
+  </data>
+  <data name="Optsucy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Optsucy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 29</value>
+  </data>
+  <data name="Optsucy.Text" xml:space="preserve">
+    <value>吸气压力</value>
+  </data>
+  <data name="Label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 214</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>储备范围</value>
+  </data>
+  <data name="Label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>160, 114</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>压力上升</value>
+  </data>
+  <data name="Label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 156</value>
+  </data>
+  <data name="Label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="Label9.Text" xml:space="preserve">
+    <value>排出</value>
+  </data>
+  <data name="Label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label10.Text" xml:space="preserve">
+    <value>进口静压</value>
+  </data>
+  <data name="OptStaticPressure.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptStaticPressure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
+  </data>
+  <data name="OptStaticPressure.Text" xml:space="preserve">
+    <value>静止的</value>
+  </data>
+  <data name="OptTotalPressure.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptTotalPressure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 29</value>
+  </data>
+  <data name="OptTotalPressure.Text" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="GrpDesignPressure.Text" xml:space="preserve">
+    <value>设计流量</value>
+  </data>
+  <data name="OptDensityCalculated.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptDensityCalculated.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 29</value>
+  </data>
+  <data name="OptDensityCalculated.Text" xml:space="preserve">
+    <value>计算过的</value>
+  </data>
+  <data name="OptDensityKnown.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptDensityKnown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
+  </data>
+  <data name="OptDensityKnown.Text" xml:space="preserve">
+    <value>已知的</value>
+  </data>
+  <data name="GrpInletDensity.Text" xml:space="preserve">
+    <value>进口密度</value>
+  </data>
+  <data name="btnDutyExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDutyExit.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="LblMaximumTemperature.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblMaximumTemperature.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 25</value>
+  </data>
+  <data name="LblMaximumTemperature.Text" xml:space="preserve">
+    <value>最大值</value>
+  </data>
+  <data name="LblDesignTemperature.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblDesignTemperature.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="LblDesignTemperature.Text" xml:space="preserve">
+    <value>设计</value>
+  </data>
+  <data name="GrpInletTemperature.Text" xml:space="preserve">
+    <value>进口温度</value>
+  </data>
+  <data name="Button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button1.Text" xml:space="preserve">
+    <value>选择</value>
+  </data>
+  <data name="chkDIDW.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkDIDW.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 29</value>
+  </data>
+  <data name="chkDIDW.Text" xml:space="preserve">
+    <value>选择双进气风扇</value>
+  </data>
+  <data name="btnDutyInputBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDutyInputBack.Text" xml:space="preserve">
+    <value>&lt;&lt; 工况数据输入</value>
+  </data>
+  <data name="btnParametersExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnParametersExit.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="btnFanSelectionsForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFanSelectionsForward.Text" xml:space="preserve">
+    <value>风机选型&gt;&gt;</value>
+  </data>
+  <data name="LblLengthUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Lblfansize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Lblfansize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 25</value>
+  </data>
+  <data name="Lblfansize.Text" xml:space="preserve">
+    <value>风机尺寸</value>
+  </data>
+  <data name="OptAnySize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptAnySize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 29</value>
+  </data>
+  <data name="OptAnySize.Text" xml:space="preserve">
+    <value>任意尺寸</value>
+  </data>
+  <data name="OptFixedSize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptFixedSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 29</value>
+  </data>
+  <data name="OptFixedSize.Text" xml:space="preserve">
+    <value>固定尺寸</value>
+  </data>
+  <data name="GrpFanSize.Text" xml:space="preserve">
+    <value>风机尺寸</value>
+  </data>
+  <data name="OptFixedSpeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 29</value>
+  </data>
+  <data name="OptFixedSpeed.Text" xml:space="preserve">
+    <value>固定速度</value>
+  </data>
+  <data name="Opt12Pole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Opt12Pole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 29</value>
+  </data>
+  <data name="Opt12Pole.Text" xml:space="preserve">
+    <value>12极</value>
+  </data>
+  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>645, 62</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 25</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>风机转速 (RPM)</value>
+  </data>
+  <data name="Opt10Pole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Opt10Pole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 29</value>
+  </data>
+  <data name="Opt10Pole.Text" xml:space="preserve">
+    <value>10极</value>
+  </data>
+  <data name="Label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>645, 30</value>
+  </data>
+  <data name="Label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>164, 25</value>
+  </data>
+  <data name="Label11.Text" xml:space="preserve">
+    <value>最大转速 (RPM)</value>
+  </data>
+  <data name="Opt8Pole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Opt8Pole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 29</value>
+  </data>
+  <data name="Opt8Pole.Text" xml:space="preserve">
+    <value>8极</value>
+  </data>
+  <data name="Opt2Pole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Opt2Pole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 29</value>
+  </data>
+  <data name="Opt2Pole.Text" xml:space="preserve">
+    <value>2极</value>
+  </data>
+  <data name="Opt6Pole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Opt6Pole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 29</value>
+  </data>
+  <data name="Opt6Pole.Text" xml:space="preserve">
+    <value>6极</value>
+  </data>
+  <data name="OptAnySpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptAnySpeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 29</value>
+  </data>
+  <data name="OptAnySpeed.Text" xml:space="preserve">
+    <value>变频/带传动</value>
+  </data>
+  <data name="Opt4Pole.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Opt4Pole.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 29</value>
+  </data>
+  <data name="Opt4Pole.Text" xml:space="preserve">
+    <value>4极</value>
+  </data>
+  <data name="GrpFanSpeed.Text" xml:space="preserve">
+    <value>风机转速</value>
+  </data>
+  <data name="chkAllBlades.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkAllBlades.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 29</value>
+  </data>
+  <data name="chkAllBlades.Text" xml:space="preserve">
+    <value>所有设计</value>
+  </data>
+  <data name="ChkOldDesignFans.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChkOldDesignFans.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 29</value>
+  </data>
+  <data name="ChkOldDesignFans.Text" xml:space="preserve">
+    <value>旧的设计</value>
+  </data>
+  <data name="ChkAxialFans.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChkAxialFans.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 29</value>
+  </data>
+  <data name="ChkAxialFans.Text" xml:space="preserve">
+    <value>轴流风机</value>
+  </data>
+  <data name="ChkPlenumFans.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChkPlenumFans.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 29</value>
+  </data>
+  <data name="ChkPlenumFans.Text" xml:space="preserve">
+    <value>插入式风机</value>
+  </data>
+  <data name="ChkPlasticFan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChkPlasticFan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 29</value>
+  </data>
+  <data name="ChkPlasticFan.Text" xml:space="preserve">
+    <value>塑料</value>
+  </data>
+  <data name="ChkOtherFanType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChkOtherFanType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 29</value>
+  </data>
+  <data name="ChkOtherFanType.Text" xml:space="preserve">
+    <value>其它的</value>
+  </data>
+  <data name="ChkInclineBlade.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChkInclineBlade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 29</value>
+  </data>
+  <data name="ChkInclineBlade.Text" xml:space="preserve">
+    <value>后倾直叶片</value>
+  </data>
+  <data name="ChkCurveBlade.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ChkCurveBlade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 29</value>
+  </data>
+  <data name="ChkCurveBlade.Text" xml:space="preserve">
+    <value>弯曲叶片</value>
+  </data>
+  <data name="GrpFanTypes.Text" xml:space="preserve">
+    <value>风机类型</value>
+  </data>
+  <data name="lblRunningAt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 25</value>
+  </data>
+  <data name="lblRunningAt.Text" xml:space="preserve">
+    <value>运行在</value>
+  </data>
+  <data name="lblIncludeAllFanEfficiency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 25</value>
+  </data>
+  <data name="lblIncludeAllFanEfficiency.Text" xml:space="preserve">
+    <value>包括高效风扇</value>
+  </data>
+  <data name="lblIncludeReserveHead.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 25</value>
+  </data>
+  <data name="lblIncludeReserveHead.Text" xml:space="preserve">
+    <value>包括有储备头的粉丝</value>
+  </data>
+  <data name="lblFanIndex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="lblFanIndex.Text" xml:space="preserve">
+    <value>风扇索引</value>
+  </data>
+  <data name="lblVolumeTD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 25</value>
+  </data>
+  <data name="lblVolumeTD.Text" xml:space="preserve">
+    <value>卷 TD</value>
+  </data>
+  <data name="lblReserveHead.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="lblReserveHead.Text" xml:space="preserve">
+    <value>储备范围</value>
+  </data>
+  <data name="lblOutletVelocity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="lblOutletVelocity.Text" xml:space="preserve">
+    <value>出口速度</value>
+  </data>
+  <data name="lblFanTotalEfficiency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 25</value>
+  </data>
+  <data name="lblFanTotalEfficiency.Text" xml:space="preserve">
+    <value>风扇的总效率</value>
+  </data>
+  <data name="lblFanStaticEfficiency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>132, 25</value>
+  </data>
+  <data name="lblFanStaticEfficiency.Text" xml:space="preserve">
+    <value>风扇静态效率</value>
+  </data>
+  <data name="lblMotorPower.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="lblMotorPower.Text" xml:space="preserve">
+    <value>电机功率</value>
+  </data>
+  <data name="lblFanPower.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="lblFanPower.Text" xml:space="preserve">
+    <value>风扇电源</value>
+  </data>
+  <data name="lblFanTotalPressure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 25</value>
+  </data>
+  <data name="lblFanTotalPressure.Text" xml:space="preserve">
+    <value>风扇总压力</value>
+  </data>
+  <data name="lblFanStaticPressure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="lblFanStaticPressure.Text" xml:space="preserve">
+    <value>风机静压</value>
+  </data>
+  <data name="lblFlow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="lblFlow.Text" xml:space="preserve">
+    <value>流量</value>
+  </data>
+  <data name="lblSpeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="lblSpeed.Text" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="lblType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 25</value>
+  </data>
+  <data name="lblType.Text" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="lblSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="lblSize.Text" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="chkKP.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkKP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 29</value>
+  </data>
+  <data name="chkKP.Text" xml:space="preserve">
+    <value>排除 Kp</value>
+  </data>
+  <data name="lblInstructions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblInstructions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>358, 24</value>
+  </data>
+  <data name="lblInstructions.Text" xml:space="preserve">
+    <value>* * 单点点击选择风扇, 双击查看图表 * *</value>
+  </data>
+  <data name="chkDisplayLowerEff.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkDisplayLowerEff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>255, 29</value>
+  </data>
+  <data name="chkDisplayLowerEff.Text" xml:space="preserve">
+    <value>包括风扇 &lt; 60% 的效率</value>
+  </data>
+  <data name="btnSelectionsExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSelectionsExit.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Label19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFanParametersBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFanParametersBack.Text" xml:space="preserve">
+    <value>&lt;&lt; 风机参数</value>
+  </data>
+  <data name="btnNoiseDataForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnNoiseDataForward.Text" xml:space="preserve">
+    <value>声学 &gt;&gt;</value>
+  </data>
+  <data name="LblFanDetails.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 25</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>选定风机</value>
+  </data>
+  <data name="BtnClose.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LblGasDensityUnit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblOverall.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="lblOverall.Text" xml:space="preserve">
+    <value>整体</value>
+  </data>
+  <data name="lblBand.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 25</value>
+  </data>
+  <data name="lblBand.Text" xml:space="preserve">
+    <value>八度中频</value>
+  </data>
+  <data name="lblSWL1m.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 25</value>
+  </data>
+  <data name="lblSWL1m.Text" xml:space="preserve">
+    <value>SWL (dB) 线性</value>
+  </data>
+  <data name="lblSPL1m.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 25</value>
+  </data>
+  <data name="lblSPL1m.Text" xml:space="preserve">
+    <value>1m (dBA) 线性的 SPL</value>
+  </data>
+  <data name="lblSoundPowerLevel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 25</value>
+  </data>
+  <data name="lblSoundPowerLevel.Text" xml:space="preserve">
+    <value>声功率级别</value>
+  </data>
+  <data name="lblBreakOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 25</value>
+  </data>
+  <data name="lblBreakOut.Text" xml:space="preserve">
+    <value>突破</value>
+  </data>
+  <data name="lblBPF2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblBPF.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblBPF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 18</value>
+  </data>
+  <data name="lblBPF.Text" xml:space="preserve">
+    <value>刀片通切断频率</value>
+  </data>
+  <data name="lblFreeFieldComment.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFreeFieldComment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 18</value>
+  </data>
+  <data name="lblFreeFieldComment.Text" xml:space="preserve">
+    <value>* * 在自由场条件下的整体噪声 @ 1 m (dBA)</value>
+  </data>
+  <data name="lblOutDims.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblInDia.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblOutletDimensions.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblOutletDimensions.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 18</value>
+  </data>
+  <data name="lblOutletDimensions.Text" xml:space="preserve">
+    <value>出口尺寸</value>
+  </data>
+  <data name="lblInletDiameter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblInletDiameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 18</value>
+  </data>
+  <data name="lblInletDiameter.Text" xml:space="preserve">
+    <value>进风口尺寸</value>
+  </data>
+  <data name="btnFanSelectionsBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFanSelectionsBack.Text" xml:space="preserve">
+    <value>&lt;&lt;风机选型</value>
+  </data>
+  <data name="btnSaveProjectForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSaveProjectForward.Text" xml:space="preserve">
+    <value>保存项目 &gt;&gt;</value>
+  </data>
+  <data name="Label17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkMotor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkMotor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 22</value>
+  </data>
+  <data name="chkMotor.Text" xml:space="preserve">
+    <value>电机噪音</value>
+  </data>
+  <data name="chkBrg.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkBrg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 22</value>
+  </data>
+  <data name="chkBrg.Text" xml:space="preserve">
+    <value>轴承噪音</value>
+  </data>
+  <data name="GroupBox4.Text" xml:space="preserve">
+    <value>额外数据</value>
+  </data>
+  <data name="chkOpenOutlet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkOpenOutlet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
+  </data>
+  <data name="chkOpenOutlet.Text" xml:space="preserve">
+    <value>进风口接管道&amp;&amp;出风口</value>
+  </data>
+  <data name="chkOpenInlet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkOpenInlet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 22</value>
+  </data>
+  <data name="chkOpenInlet.Text" xml:space="preserve">
+    <value>进风口&amp;&amp;出风口接管道</value>
+  </data>
+  <data name="chkDuct.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkDuct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="chkDuct.Text" xml:space="preserve">
+    <value>管道入口&amp;&amp;管道出口</value>
+  </data>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>运行条件</value>
+  </data>
+  <data name="Label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 18</value>
+  </data>
+  <data name="Label18.Text" xml:space="preserve">
+    <value>风机类型</value>
+  </data>
+  <data name="Label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 18</value>
+  </data>
+  <data name="Label16.Text" xml:space="preserve">
+    <value>风机尺寸</value>
+  </data>
+  <data name="lblAcousticFSPUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="TxtStaticPressurenoise.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="Label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 18</value>
+  </data>
+  <data name="Label14.Text" xml:space="preserve">
+    <value>风机静压</value>
+  </data>
+  <data name="Label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 18</value>
+  </data>
+  <data name="Label12.Text" xml:space="preserve">
+    <value>风机转速</value>
+  </data>
+  <data name="lblAcousticFlowUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 18</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>体积流量</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblAcousticFTPUnits.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAcousticFTPUnits.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="lblAcousticFTPUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblAcousticFTPUnits.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 18</value>
+  </data>
+  <data name="Label20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 18</value>
+  </data>
+  <data name="Label20.Text" xml:space="preserve">
+    <value>风扇总压力</value>
+  </data>
+  <data name="TxtTotalPressurenoise.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="TxtTotalPressurenoise.Location" type="System.Drawing.Point, System.Drawing">
+    <value>191, 63</value>
+  </data>
+  <data name="TxtTotalPressurenoise.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnNoiseExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnNoiseExit.Text" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Button5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        YII=
+</value>
+  </data>
+  <data name="PictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
+    <value>新项目</value>
+  </data>
+  <data name="OpenProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="OpenProjectToolStripMenuItem.Text" xml:space="preserve">
+    <value>打开项目</value>
+  </data>
+  <data name="SaveProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="SaveProjectToolStripMenuItem.Text" xml:space="preserve">
+    <value>保存项目</value>
+  </data>
+  <data name="AllPagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 26</value>
+  </data>
+  <data name="AllPagesToolStripMenuItem.Text" xml:space="preserve">
+    <value>所有页面</value>
+  </data>
+  <data name="PerformanceDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 26</value>
+  </data>
+  <data name="PerformanceDetailsToolStripMenuItem.Text" xml:space="preserve">
+    <value>性能详细</value>
+  </data>
+  <data name="AcousticsDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 26</value>
+  </data>
+  <data name="AcousticsDetailsToolStripMenuItem.Text" xml:space="preserve">
+    <value>声学细节</value>
+  </data>
+  <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
+    <value>输出到文件</value>
+  </data>
+  <data name="EnglishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 26</value>
+  </data>
+  <data name="EnglishToolStripMenuItem.Text" xml:space="preserve">
+    <value>英语</value>
+  </data>
+  <data name="ChineseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 26</value>
+  </data>
+  <data name="ChineseToolStripMenuItem.Text" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="ChangeLanguageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="ChangeLanguageToolStripMenuItem.Text" xml:space="preserve">
+    <value>改变语言</value>
+  </data>
+  <data name="ExitProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="ExitProjectToolStripMenuItem.Text" xml:space="preserve">
+    <value>退出项目</value>
+  </data>
+  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 24</value>
+  </data>
+  <data name="FileToolStripMenuItem.Text" xml:space="preserve">
+    <value>文件</value>
+  </data>
+  <data name="ProjectDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 24</value>
+  </data>
+  <data name="ProjectDetailsToolStripMenuItem.Text" xml:space="preserve">
+    <value>项目细节</value>
+  </data>
+  <data name="UnitsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 24</value>
+  </data>
+  <data name="UnitsToolStripMenuItem.Text" xml:space="preserve">
+    <value>单位</value>
+  </data>
+  <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTabGeneralInformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="lblTabGeneralInformation.Text" xml:space="preserve">
+    <value>一般信息</value>
+  </data>
+  <data name="lblTabDutyInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="lblTabDutyInput.Text" xml:space="preserve">
+    <value>职责输入</value>
+  </data>
+  <data name="lblTabFanParameters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="lblTabFanParameters.Text" xml:space="preserve">
+    <value>风扇参数</value>
+  </data>
+  <data name="lblTabSelections.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 17</value>
+  </data>
+  <data name="lblTabSelections.Text" xml:space="preserve">
+    <value>选</value>
+  </data>
+  <data name="lblTabAcoustics.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
+  </data>
+  <data name="lblTabAcoustics.Text" xml:space="preserve">
+    <value>声学</value>
+  </data>
+  <data name="lblTabImpeller.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
+  </data>
+  <data name="lblTabImpeller.Text" xml:space="preserve">
+    <value>叶轮</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>哈利法克斯风扇选择软件</value>
+  </data>
+</root>

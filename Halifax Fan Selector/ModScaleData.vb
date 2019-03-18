@@ -137,7 +137,8 @@
                 'akm temp removed            MsgBox(("Fan type 1; " & fanclass(fanno) & " Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2) & " " & FrmSelections.ColumnHeader(4)), vbInformation)
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
-                fanfailures(failindex, 1) = fanclass(fanno) & " Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2)
+                'fanfailures(failindex, 1) = fanclass(fanno) & " Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2)
+                fanfailures(failindex, 1) = "Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2)
 
                 Exit Sub
             End If
@@ -146,7 +147,8 @@
                 'akm temp removed            MsgBox(("Fan type 1; " & fanclass(fanno) & " Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2) & " " & FrmSelections.ColumnHeader(4)), vbInformation)
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
-                fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
+                'fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
+                fanfailures(failindex, 1) = "Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
 
                 Exit Sub
             End If

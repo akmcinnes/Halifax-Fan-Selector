@@ -67,7 +67,7 @@ Public Class FrmStart
             '    SuppressErrorMessages = GetFromINI("Settings", "Suppress Error Messages", "False", ini_path)
 
             'End If
-            btnSettings.Visible = False
+            If Not StartArg.ToLower.Contains("-dev") Then btnSettings.Visible = False
             DataPath_main = DataPathMain '"C:\Halifax\"
             Language = "English"
             User_Type = False

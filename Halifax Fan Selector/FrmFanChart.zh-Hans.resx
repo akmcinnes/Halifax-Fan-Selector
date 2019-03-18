@@ -117,209 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Chart1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Chart1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="Chart1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>975, 431</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Chart1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Chart1.Text" xml:space="preserve">
-    <value>Chart1</value>
-  </data>
-  <data name="&gt;&gt;Chart1.Name" xml:space="preserve">
-    <value>Chart1</value>
-  </data>
-  <data name="&gt;&gt;Chart1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
-  </data>
-  <data name="&gt;&gt;Chart1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Chart1.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="btnClose.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
-  </data>
-  <data name="btnClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>739, 449</value>
-  </data>
-  <data name="btnClose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="btnClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 50</value>
-  </data>
-  <data name="btnClose.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="btnClose.Text" xml:space="preserve">
-    <value>Close</value>
+    <value>关</value>
   </data>
-  <data name="&gt;&gt;btnClose.Name" xml:space="preserve">
-    <value>btnClose</value>
-  </data>
-  <data name="&gt;&gt;btnClose.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnClose.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnClose.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="ChkStaticPressureCurve.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChkStaticPressureCurve.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
-  </data>
-  <data name="ChkStaticPressureCurve.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 336</value>
-  </data>
-  <data name="ChkStaticPressureCurve.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ChkStaticPressureCurve.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 22</value>
-  </data>
-  <data name="ChkStaticPressureCurve.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>78, 22</value>
   </data>
   <data name="ChkStaticPressureCurve.Text" xml:space="preserve">
-    <value>Static Pressure</value>
-  </data>
-  <data name="&gt;&gt;ChkStaticPressureCurve.Name" xml:space="preserve">
-    <value>ChkStaticPressureCurve</value>
-  </data>
-  <data name="&gt;&gt;ChkStaticPressureCurve.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChkStaticPressureCurve.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ChkStaticPressureCurve.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="ChkTotalPressureCurve.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChkTotalPressureCurve.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
-  </data>
-  <data name="ChkTotalPressureCurve.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 372</value>
-  </data>
-  <data name="ChkTotalPressureCurve.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>静压力</value>
   </data>
   <data name="ChkTotalPressureCurve.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 22</value>
-  </data>
-  <data name="ChkTotalPressureCurve.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>78, 22</value>
   </data>
   <data name="ChkTotalPressureCurve.Text" xml:space="preserve">
-    <value>Total Pressure</value>
-  </data>
-  <data name="&gt;&gt;ChkTotalPressureCurve.Name" xml:space="preserve">
-    <value>ChkTotalPressureCurve</value>
-  </data>
-  <data name="&gt;&gt;ChkTotalPressureCurve.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChkTotalPressureCurve.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ChkTotalPressureCurve.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="ChkFanPower.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChkFanPower.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
-  </data>
-  <data name="ChkFanPower.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 411</value>
-  </data>
-  <data name="ChkFanPower.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>总压力</value>
   </data>
   <data name="ChkFanPower.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 22</value>
-  </data>
-  <data name="ChkFanPower.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>94, 22</value>
   </data>
   <data name="ChkFanPower.Text" xml:space="preserve">
-    <value>Fan Power</value>
-  </data>
-  <data name="&gt;&gt;ChkFanPower.Name" xml:space="preserve">
-    <value>ChkFanPower</value>
-  </data>
-  <data name="&gt;&gt;ChkFanPower.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChkFanPower.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ChkFanPower.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="btnWritePointsToFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
-  </data>
-  <data name="btnWritePointsToFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>820, 449</value>
-  </data>
-  <data name="btnWritePointsToFile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="btnWritePointsToFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>167, 50</value>
-  </data>
-  <data name="btnWritePointsToFile.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>风扇电源</value>
   </data>
   <data name="btnWritePointsToFile.Text" xml:space="preserve">
-    <value>Write points to file</value>
-  </data>
-  <data name="&gt;&gt;btnWritePointsToFile.Name" xml:space="preserve">
-    <value>btnWritePointsToFile</value>
-  </data>
-  <data name="&gt;&gt;btnWritePointsToFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnWritePointsToFile.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnWritePointsToFile.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <metadata name="PrintPreviewDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="PrintPreviewDialog1.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PrintPreviewDialog1.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PrintPreviewDialog1.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 300</value>
-  </data>
-  <data name="PrintPreviewDialog1.Enabled" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>将点写入文件</value>
   </data>
   <data name="PrintPreviewDialog1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -494,392 +315,62 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
-  <data name="PrintPreviewDialog1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;PrintPreviewDialog1.Name" xml:space="preserve">
-    <value>PrintPreviewDialog1</value>
-  </data>
-  <data name="&gt;&gt;PrintPreviewDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <metadata name="PrintDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>178, 17</value>
-  </metadata>
-  <data name="btnPrintPreview.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 462</value>
-  </data>
-  <data name="btnPrintPreview.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnPrintPreview.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 44</value>
-  </data>
-  <data name="btnPrintPreview.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
   <data name="btnPrintPreview.Text" xml:space="preserve">
-    <value>Print Preview</value>
-  </data>
-  <data name="btnPrintPreview.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnPrintPreview.Name" xml:space="preserve">
-    <value>btnPrintPreview</value>
-  </data>
-  <data name="&gt;&gt;btnPrintPreview.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPrintPreview.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnPrintPreview.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <metadata name="PageSetupDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>297, 17</value>
-  </metadata>
-  <data name="ChkFanSystemCurve.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChkFanSystemCurve.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
-  </data>
-  <data name="ChkFanSystemCurve.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 299</value>
-  </data>
-  <data name="ChkFanSystemCurve.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>打印预览</value>
   </data>
   <data name="ChkFanSystemCurve.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="ChkFanSystemCurve.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>94, 22</value>
   </data>
   <data name="ChkFanSystemCurve.Text" xml:space="preserve">
-    <value>Fan System</value>
-  </data>
-  <data name="&gt;&gt;ChkFanSystemCurve.Name" xml:space="preserve">
-    <value>ChkFanSystemCurve</value>
-  </data>
-  <data name="&gt;&gt;ChkFanSystemCurve.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChkFanSystemCurve.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ChkFanSystemCurve.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <metadata name="PrintDocument1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>449, 17</value>
-  </metadata>
-  <data name="btnPrintDocument.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 462</value>
-  </data>
-  <data name="btnPrintDocument.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnPrintDocument.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 44</value>
-  </data>
-  <data name="btnPrintDocument.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>风扇系统</value>
   </data>
   <data name="btnPrintDocument.Text" xml:space="preserve">
-    <value>Print Document</value>
-  </data>
-  <data name="btnPrintDocument.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnPrintDocument.Name" xml:space="preserve">
-    <value>btnPrintDocument</value>
-  </data>
-  <data name="&gt;&gt;btnPrintDocument.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPrintDocument.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnPrintDocument.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="optDisplaykW.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="optDisplaykW.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
-  <data name="optDisplaykW.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 236</value>
-  </data>
-  <data name="optDisplaykW.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>打印文档</value>
   </data>
   <data name="optDisplaykW.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 21</value>
-  </data>
-  <data name="optDisplaykW.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>86, 21</value>
   </data>
   <data name="optDisplaykW.Text" xml:space="preserve">
-    <value>Display kW</value>
-  </data>
-  <data name="optDisplaykW.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;optDisplaykW.Name" xml:space="preserve">
-    <value>optDisplaykW</value>
-  </data>
-  <data name="&gt;&gt;optDisplaykW.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;optDisplaykW.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;optDisplaykW.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="optDisplayhp.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="optDisplayhp.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
-  <data name="optDisplayhp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>789, 265</value>
-  </data>
-  <data name="optDisplayhp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>显示 kW</value>
   </data>
   <data name="optDisplayhp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 21</value>
-  </data>
-  <data name="optDisplayhp.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>82, 21</value>
   </data>
   <data name="optDisplayhp.Text" xml:space="preserve">
-    <value>Display hp</value>
-  </data>
-  <data name="optDisplayhp.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;optDisplayhp.Name" xml:space="preserve">
-    <value>optDisplayhp</value>
-  </data>
-  <data name="&gt;&gt;optDisplayhp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;optDisplayhp.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;optDisplayhp.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>283, 462</value>
-  </data>
-  <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 44</value>
-  </data>
-  <data name="Button1.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>显示 hp</value>
   </data>
   <data name="Button1.Text" xml:space="preserve">
-    <value>View as Excel Chart</value>
-  </data>
-  <data name="Button1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;Button1.Name" xml:space="preserve">
-    <value>Button1</value>
-  </data>
-  <data name="&gt;&gt;Button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lblVolumeHidden.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblVolumeHidden.Location" type="System.Drawing.Point, System.Drawing">
-    <value>838, 90</value>
+    <value>查看Excel图表</value>
   </data>
   <data name="lblVolumeHidden.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 17</value>
-  </data>
-  <data name="lblVolumeHidden.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>36, 17</value>
   </data>
   <data name="lblVolumeHidden.Text" xml:space="preserve">
-    <value>VOLUME</value>
-  </data>
-  <data name="lblVolumeHidden.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblVolumeHidden.Name" xml:space="preserve">
-    <value>lblVolumeHidden</value>
-  </data>
-  <data name="&gt;&gt;lblVolumeHidden.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblVolumeHidden.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblVolumeHidden.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="lblPressureHidden.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblPressureHidden.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblPressureHidden.Location" type="System.Drawing.Point, System.Drawing">
-    <value>838, 116</value>
+    <value>体积</value>
   </data>
   <data name="lblPressureHidden.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 17</value>
-  </data>
-  <data name="lblPressureHidden.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>36, 17</value>
   </data>
   <data name="lblPressureHidden.Text" xml:space="preserve">
-    <value>PRESSURE</value>
-  </data>
-  <data name="lblPressureHidden.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblPressureHidden.Name" xml:space="preserve">
-    <value>lblPressureHidden</value>
-  </data>
-  <data name="&gt;&gt;lblPressureHidden.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPressureHidden.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblPressureHidden.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lblPowerHidden.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblPowerHidden.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblPowerHidden.Location" type="System.Drawing.Point, System.Drawing">
-    <value>838, 142</value>
+    <value>压力</value>
   </data>
   <data name="lblPowerHidden.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 17</value>
-  </data>
-  <data name="lblPowerHidden.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>36, 17</value>
   </data>
   <data name="lblPowerHidden.Text" xml:space="preserve">
-    <value>POWER</value>
-  </data>
-  <data name="lblPowerHidden.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblPowerHidden.Name" xml:space="preserve">
-    <value>lblPowerHidden</value>
-  </data>
-  <data name="&gt;&gt;lblPowerHidden.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPowerHidden.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblPowerHidden.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblTitleHidden.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblTitleHidden.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblTitleHidden.Location" type="System.Drawing.Point, System.Drawing">
-    <value>834, 180</value>
+    <value>功率</value>
   </data>
   <data name="lblTitleHidden.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 17</value>
-  </data>
-  <data name="lblTitleHidden.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>134, 17</value>
   </data>
   <data name="lblTitleHidden.Text" xml:space="preserve">
-    <value>Halifax Fan Company</value>
-  </data>
-  <data name="lblTitleHidden.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblTitleHidden.Name" xml:space="preserve">
-    <value>lblTitleHidden</value>
-  </data>
-  <data name="&gt;&gt;lblTitleHidden.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTitleHidden.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblTitleHidden.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblRunningAtHidden.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblRunningAtHidden.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblRunningAtHidden.Location" type="System.Drawing.Point, System.Drawing">
-    <value>834, 215</value>
+    <value>哈利法克斯风扇公司</value>
   </data>
   <data name="lblRunningAtHidden.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 17</value>
-  </data>
-  <data name="lblRunningAtHidden.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>64, 17</value>
   </data>
   <data name="lblRunningAtHidden.Text" xml:space="preserve">
-    <value>running at</value>
-  </data>
-  <data name="lblRunningAtHidden.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblRunningAtHidden.Name" xml:space="preserve">
-    <value>lblRunningAtHidden</value>
-  </data>
-  <data name="&gt;&gt;lblRunningAtHidden.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblRunningAtHidden.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblRunningAtHidden.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="PrintPreviewDialog2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>617, 17</value>
-  </metadata>
-  <data name="PrintPreviewDialog2.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PrintPreviewDialog2.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PrintPreviewDialog2.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>400, 300</value>
-  </data>
-  <data name="PrintPreviewDialog2.Enabled" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>跑来跑去</value>
   </data>
   <data name="PrintPreviewDialog2.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1054,55 +545,7 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
-  <data name="PrintPreviewDialog2.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;PrintPreviewDialog2.Name" xml:space="preserve">
-    <value>PrintPreviewDialog2</value>
-  </data>
-  <data name="&gt;&gt;PrintPreviewDialog2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1019, 521</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Fan Chart</value>
-  </data>
-  <data name="&gt;&gt;PrintDialog1.Name" xml:space="preserve">
-    <value>PrintDialog1</value>
-  </data>
-  <data name="&gt;&gt;PrintDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PrintDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PageSetupDialog1.Name" xml:space="preserve">
-    <value>PageSetupDialog1</value>
-  </data>
-  <data name="&gt;&gt;PageSetupDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PageSetupDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PrintDocument1.Name" xml:space="preserve">
-    <value>PrintDocument1</value>
-  </data>
-  <data name="&gt;&gt;PrintDocument1.Type" xml:space="preserve">
-    <value>System.Drawing.Printing.PrintDocument, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmFanChart</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>粉丝图</value>
   </data>
 </root>

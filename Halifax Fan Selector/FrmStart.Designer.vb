@@ -37,8 +37,8 @@ Partial Class FrmStart
         Me.grpLanguage = New System.Windows.Forms.GroupBox()
         Me.optChinese = New System.Windows.Forms.RadioButton()
         Me.optEnglish = New System.Windows.Forms.RadioButton()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblDate = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.grpLanguage.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -63,8 +63,8 @@ Partial Class FrmStart
         '
         'btnContinue
         '
-        Me.btnContinue.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.btnContinue, "btnContinue")
+        Me.btnContinue.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnContinue.Name = "btnContinue"
         Me.btnContinue.UseVisualStyleBackColor = True
@@ -113,9 +113,9 @@ Partial Class FrmStart
         '
         'grpLanguage
         '
+        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Controls.Add(Me.optChinese)
         Me.grpLanguage.Controls.Add(Me.optEnglish)
-        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Name = "grpLanguage"
         Me.grpLanguage.TabStop = False
         '
@@ -131,6 +131,11 @@ Partial Class FrmStart
         Me.optEnglish.Name = "optEnglish"
         Me.optEnglish.UseVisualStyleBackColor = True
         '
+        'lblDate
+        '
+        resources.ApplyResources(Me.lblDate, "lblDate")
+        Me.lblDate.Name = "lblDate"
+        '
         'PictureBox1
         '
         resources.ApplyResources(Me.PictureBox1, "PictureBox1")
@@ -138,11 +143,6 @@ Partial Class FrmStart
         Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.logo_2016
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
-        '
-        'lblDate
-        '
-        resources.ApplyResources(Me.lblDate, "lblDate")
-        Me.lblDate.Name = "lblDate"
         '
         'FrmStart
         '

@@ -516,7 +516,7 @@ Module ModNoiseMainFunctions
         Try
             OutputSPL = 0.0
             Dim txtSPLlabel = New Label()
-            txtSPLlabel.Text = "Sound Power Level (dB)"
+            txtSPLlabel.Text = Frmselectfan.lblSoundPowerLevel.Text + " (dB)"
             Frmselectfan.DataGridView2.Rows(0).Cells(0).Value = txtSPLlabel.Text
             Dim txtSPL(8) As Label
             For q As Integer = 0 To 7
@@ -529,9 +529,11 @@ Module ModNoiseMainFunctions
             Next
             'Frmselectfan.DataGridView2.Rows(1).Cells(0).Value = "Overall SWL (dB) Linear"
             Frmselectfan.DataGridView2.Rows(0).Cells(9).Value = spl2.ToString
-            Frmselectfan.DataGridView2.Rows(1).Cells(0).Value = "Break out SWL (dB) Linear"
+            'Frmselectfan.DataGridView2.Rows(1).Cells(0).Value = "Break out SWL (dB) Linear"
+            Frmselectfan.DataGridView2.Rows(1).Cells(0).Value = Frmselectfan.lblBreakOut.Text + " " + Frmselectfan.lblSWL1m.Text
             Frmselectfan.DataGridView2.Rows(1).Cells(1).Value = bospl2.ToString
-            Frmselectfan.DataGridView2.Rows(2).Cells(0).Value = "Break Out SPL at 1m (dBA) Linear"
+            'Frmselectfan.DataGridView2.Rows(2).Cells(0).Value = "Break Out SPL at 1m (dBA) Linear"
+            Frmselectfan.DataGridView2.Rows(2).Cells(0).Value = Frmselectfan.lblBreakOut.Text + " " + Frmselectfan.lblSPL1m.Text
             Frmselectfan.DataGridView2.Rows(2).Cells(1).Value = bospl1M2.ToString
 
         Catch ex As Exception
@@ -544,7 +546,9 @@ Module ModNoiseMainFunctions
         Try
             OutputDuct = 0.0
             Dim txtSPLlabel = New Label()
-            txtSPLlabel.Text = "**Duct Inlet SPL @ 1m (dBA)"
+            'txtSPLlabel.Text = "**Duct Inlet SPL @ 1m (dBA)"
+            txtSPLlabel.Text = "**" + Frmselectfan.chkDuct.Text + " SPL @ 1m (dBA)"
+            txtSPLlabel.Text = txtSPLlabel.Text.Replace("&&", "&")
             Frmselectfan.DataGridView2.Rows(rownum).Cells(0).Value = txtSPLlabel.Text
             Dim txtSPL(8) As Label
             For q As Integer = 0 To 7
@@ -569,7 +573,9 @@ Module ModNoiseMainFunctions
         Try
             OutputOpenInlet = 0.0
             Dim txtSPLlabel = New Label()
-            txtSPLlabel.Text = "**Open Inlet, Ducted Outlet SPL @ 1m (dBA)"
+            'txtSPLlabel.Text = "**Open Inlet, Ducted Outlet SPL @ 1m (dBA)"
+            txtSPLlabel.Text = "**" + Frmselectfan.chkOpenInlet.Text + " SPL @ 1m (dBA)"
+            txtSPLlabel.Text = txtSPLlabel.Text.Replace("&&", "&")
             Frmselectfan.DataGridView2.Rows(rownum).Cells(0).Value = txtSPLlabel.Text
             Dim txtSPL(8) As Label
             For q As Integer = 0 To 7
@@ -592,7 +598,9 @@ Module ModNoiseMainFunctions
         Try
             OutputOpenOutlet = 0.0
             Dim txtSPLlabel = New Label()
-            txtSPLlabel.Text = "**Ducted Inlet, Open Outlet SPL @ 1m (dBA)"
+            'txtSPLlabel.Text = "**Ducted Inlet, Open Outlet SPL @ 1m (dBA)"
+            txtSPLlabel.Text = "**" + Frmselectfan.chkOpenOutlet.Text + " SPL @ 1m (dBA)"
+            txtSPLlabel.Text = txtSPLlabel.Text.Replace("&&", "&")
             Frmselectfan.DataGridView2.Rows(rownum).Cells(0).Value = txtSPLlabel.Text
             Dim txtSPL(8) As Label
             For q As Integer = 0 To 7
@@ -617,7 +625,8 @@ Module ModNoiseMainFunctions
             Dim txtSPLlabel = New Label()
             Dim txtSPL As Label
             If Frmselectfan.chkBrg.Checked = True Then
-                txtSPLlabel.Text = "Bearing Noise (dBA)"
+                'txtSPLlabel.Text = "Bearing Noise (dBA)"
+                txtSPLlabel.Text = Frmselectfan.chkBrg.Text + " (dBA)"
                 Frmselectfan.DataGridView2.Rows(rownum).Cells(0).Value = txtSPLlabel.Text
                 txtSPL = New Label()
                 txtSPL.Text = BRGnoise.ToString
@@ -639,7 +648,8 @@ Module ModNoiseMainFunctions
             Dim txtSPLlabel = New Label()
             Dim txtSPL As Label
             If Frmselectfan.chkMotor.Checked = True Then
-                txtSPLlabel.Text = "Motor Noise (dBA)"
+                'txtSPLlabel.Text = "Motor Noise (dBA)"
+                txtSPLlabel.Text = Frmselectfan.chkMotor.Text + " (dBA)"
                 Frmselectfan.DataGridView2.Rows(rownum).Cells(0).Value = txtSPLlabel.Text
                 txtSPL = New Label()
                 'IDSPL

@@ -180,16 +180,25 @@
     <EmbeddedResource Include="FrmDensityCalcs.resx">
       <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDensityCalcs.zh-Hans.resx">
+      <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDisplayRejects.resx">
+      <DependentUpon>FrmDisplayRejects.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDisplayRejects.zh-Hans.resx">
       <DependentUpon>FrmDisplayRejects.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFanChart.resx">
       <DependentUpon>FrmFanChart.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmFanChart.zh.resx">
+    <EmbeddedResource Include="FrmFanChart.zh-Hans.resx">
       <DependentUpon>FrmFanChart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProjectDetails.resx">
+      <DependentUpon>FrmProjectDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProjectDetails.zh-Hans.resx">
       <DependentUpon>FrmProjectDetails.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSelectFan.resx">
@@ -198,18 +207,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSelectFan.zh-Hans.resx">
       <DependentUpon>FrmSelectFan.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelectFan.zh.resx">
-      <DependentUpon>FrmSelectFan.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSettings.resx">
       <DependentUpon>FrmSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSettings.zh.resx">
+    <EmbeddedResource Include="FrmSettings.zh-Hans.resx">
       <DependentUpon>FrmSettings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStart.zh.resx">
+    <EmbeddedResource Include="FrmStart.zh-Hans.resx">
       <DependentUpon>FrmStart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

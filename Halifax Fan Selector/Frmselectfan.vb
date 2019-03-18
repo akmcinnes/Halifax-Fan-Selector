@@ -20,10 +20,17 @@ Public Class Frmselectfan
             NewProject = True
             'TabControl1.Controls.Remove(TabPageDuty)
             If StartArg.ToLower.Contains("-b") Then TabControl1.Controls.Remove(TabPageImpeller)
-            Me.Text = "Halifax Fan Selection Software" + " - " + version_number
+            'Me.Text = "Halifax Fan Selection Software" + " - " + version_number
+            Me.Text = Me.Text + " - " + version_number
             If StartArg.ToLower.Contains("-dev") Then
                 Me.Text = Me.Text.ToUpper()
             End If
+            TabPageGeneral.Text = lblTabGeneralInformation.Text
+            TabPageDuty.Text = lblTabDutyInput.Text
+            TabPageFanParameters.Text = lblTabFanParameters.Text
+            TabPageSelection.Text = lblTabSelections.Text
+            TabPageNoise.Text = lblTabAcoustics.Text
+            TabPageImpeller.Text = lblTabImpeller.Text
             'If StartArg Is Nothing Then
             'If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-b") Or UserName.ToLower.Contains("akmci") Then
             'If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-b") Or StartArg.ToLower.Contains("-dev") Then
@@ -61,6 +68,8 @@ Public Class Frmselectfan
 
             End If
             Initialize(True)
+            chkCalcAtmos.Text = lblChkAtmosAlt.Text
+            OptPowerBoth.Text = lblDisplayBoth.Text
         Catch ex As Exception
             ErrorMessage(ex, 20300)
             'MsgBox("load")
@@ -199,6 +208,7 @@ Public Class Frmselectfan
 
     Private Sub TabPageDuty_Leave(sender As Object, e As EventArgs) Handles TabPageDuty.Leave
         Try
+            ''Check_Leave_Duty()
             Dim str_temp As String
             If CmbReserveHead.SelectedIndex < 0 Then CmbReserveHead.SelectedIndex = 0
             str_temp = CmbReserveHead.Items(CmbReserveHead.SelectedIndex)
@@ -294,7 +304,8 @@ Public Class Frmselectfan
             Dim textSize As Size
 
             TxtFlownoise.Text = final.vol.ToString
-            TxtPressurenoise.Text = final.fsp.ToString
+            TxtStaticPressurenoise.Text = final.fsp.ToString
+            TxtTotalPressurenoise.Text = final.ftp.ToString
             TxtSizenoise.Text = final.fansize.ToString
             TxtSpeednoise.Text = final.speed.ToString
             TxtTypenoise.Text = final.fantype
@@ -498,8 +509,11 @@ Public Class Frmselectfan
     Private Sub TabPageGeneral_Enter(sender As Object, e As EventArgs) Handles TabPageGeneral.Enter
         Try
             'TabPageGeneral.BackColor = Background_Color
-            chkCalcAtmos.Text = "Calculate Atmospheric" + vbCrLf + "Pressure from Altitude"
-
+            If ChosenLanguage.Contains("zh") Then
+                chkCalcAtmos.Text = lblChkAtmosAlt.Text
+            Else
+                chkCalcAtmos.Text = "Calculate Atmospheric" + vbCrLf + "Pressure from Altitude"
+            End If
         Catch ex As Exception
             ErrorMessage(ex, 20319)
         End Try
@@ -605,6 +619,7 @@ Public Class Frmselectfan
     Private Sub btnFanParametersForward_Click(sender As Object, e As EventArgs) Handles btnFanParametersForward.Click
         'open fan parameters tab
         Try
+            'Check_Leave_Duty()
             Flag(2) = True
             move_on = True
             Yellow(Txtflow)
@@ -710,11 +725,11 @@ Public Class Frmselectfan
         Try
             Flag(4) = True
             TabControl1.SelectTab(TabPageNoise)
-            If OptStaticPressure.Checked Then
-                Label14.Text = "Fan Static Pressure"
-            Else
-                Label14.Text = "Fan Total Pressure"
-            End If
+            'If OptStaticPressure.Checked Then
+            '    Label14.Text = "Fan Static Pressure"
+            'Else
+            '    Label14.Text = "Fan Total Pressure"
+            'End If
         Catch ex As Exception
             ErrorMessage(ex, 20331)
         End Try
@@ -1063,7 +1078,7 @@ Public Class Frmselectfan
         End Try
     End Sub
 
-    Private Sub chkDisplayAll_CheckedChanged(sender As Object, e As EventArgs) Handles chkDisplayAll.CheckedChanged
+    Private Sub chkDisplayAll_CheckedChanged(sender As Object, e As EventArgs) Handles chkDisplayAllResHead.CheckedChanged
         Try
             failindex = -1
             TabPageSelection_Enter(sender, e)
@@ -1543,6 +1558,44 @@ Public Class Frmselectfan
             ErrorMessage(ex, 20388)
         End Try
     End Sub
+
+    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
+
+    End Sub
+
+    Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
+
+    End Sub
+
+    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
+
+    End Sub
+
+    Private Sub TxtTypenoise_TextChanged(sender As Object, e As EventArgs) Handles TxtTypenoise.TextChanged
+
+    End Sub
+
+
+
+    ''Private Sub TabPageFanParameters_Click(sender As Object, e As EventArgs) Handles TabPageFanParameters.Click
+    ''    Try
+    ''        Check_Leave_Duty()
+    ''    Catch ex As Exception
+    ''        ErrorMessage(ex, 20389)
+    ''    End Try
+    ''End Sub
+
+    ''Private Sub TabPageSelection_Click(sender As Object, e As EventArgs) Handles TabPageSelection.Click
+    ''    Try
+
+    ''    Catch ex As Exception
+    ''        ErrorMessage(ex, 20390)
+    ''    End Try
+    ''End Sub
+
+    ''Private Sub TabPageFanParameters_Enter(sender As Object, e As EventArgs) Handles TabPageFanParameters.Enter
+    ''    Check_Leave_Duty()
+    ''End Sub
 
     ''Print
     'Private Sub AllPagesToolStripMenuItem1_Click(sender As Object, e As EventArgs)

@@ -15,7 +15,8 @@
                 'MsgBox("The duty is outside the " + fanclass(k) + " duty range")
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fanclass(k)
-                fanfailures(failindex, 1) = "The duty is outside the " + fanclass(k) + " duty range"
+                'fanfailures(failindex, 1) = "The duty is outside the " + fanclass(k) + " duty range"
+                fanfailures(failindex, 1) = "Sorry this duty is out of range for this fan type"
 
             Else
                 temp_size = ModGetFanSize.GetFanSize(k)
