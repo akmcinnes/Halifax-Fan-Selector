@@ -69,9 +69,9 @@ Module ModPrinting
             For i = startpoint To endpoint
                 objWriter.Write(outfile(i))
             Next
-            If filename_excel.Length > 0 Then
-                curvetoexcel(filename_excel)
-            End If
+            'If filename_excel.Length > 0 Then
+            '    curvetoexcel(filename_excel)
+            'End If
             objWriter.Close()
 
             'Cursor = Cursors.WaitCursor
@@ -102,84 +102,84 @@ Module ModPrinting
 
     Public Sub curvetoexcel(filename_excel As String)
 
-        'Dim xls As Microsoft.Office.Interop.Excel.Application
-        'Dim xlsWorkBook As Microsoft.Office.Interop.Excel.Workbook
-        'Dim xlsWorkSheet As Microsoft.Office.Interop.Excel.Worksheet
-        'Dim misValue As Object = System.Reflection.Missing.Value
+        ''Dim xls As Microsoft.Office.Interop.Excel.Application
+        ''Dim xlsWorkBook As Microsoft.Office.Interop.Excel.Workbook
+        ''Dim xlsWorkSheet As Microsoft.Office.Interop.Excel.Worksheet
+        ''Dim misValue As Object = System.Reflection.Missing.Value
 
-        'xls = New Microsoft.Office.Interop.Excel.Application
-        'xlsWorkBook = xls.Workbooks.Open("D:\bookl.xlsx")
-        'xlsWorkSheet = xlsWorkBook.Sheets("sheet1")
+        ''xls = New Microsoft.Office.Interop.Excel.Application
+        ''xlsWorkBook = xls.Workbooks.Open("D:\bookl.xlsx")
+        ''xlsWorkSheet = xlsWorkBook.Sheets("sheet1")
 
-        'xlsWorkSheet.Cells(1, 1) = TextBox1.Text
+        ''xlsWorkSheet.Cells(1, 1) = TextBox1.Text
 
-        'xlsWorkBook.Close()
-        'xls.Quit()
+        ''xlsWorkBook.Close()
+        ''xls.Quit()
 
-        Try
-            Dim xlsApp As Excel.Application ' = Nothing
-            'Dim xlsWorkBooks As Excel.Workbooks = Nothing
-            Dim xlsWB As Excel.Workbook ' = Nothing
-            Dim xlsWS As Excel.Worksheet
+        'Try
+        '    Dim xlsApp As Excel.Application ' = Nothing
+        '    'Dim xlsWorkBooks As Excel.Workbooks = Nothing
+        '    Dim xlsWB As Excel.Workbook ' = Nothing
+        '    Dim xlsWS As Excel.Worksheet
 
-            xlsApp = New Microsoft.Office.Interop.Excel.Application
-            'xlsApp.Visible = False
-            'xlsWorkBooks = xlsApp.Workbooks
-            xlsWB = xlsApp.Workbooks.Open(filename_excel)
-            xlsWS = xlsWB.Sheets("Sheet1")
+        '    xlsApp = New Microsoft.Office.Interop.Excel.Application
+        '    'xlsApp.Visible = False
+        '    'xlsWorkBooks = xlsApp.Workbooks
+        '    xlsWB = xlsApp.Workbooks.Open(filename_excel)
+        '    xlsWS = xlsWB.Sheets("Sheet1")
 
 
-            'FanSize1 = Val(xlsWB.Worksheets(1).Cells(2, 2).Value) 'x
-            'If FanSize1 < 0.00001 Then Exit Sub
-            Dim IN1 As Integer
-            Dim IN2 As Integer
-            Dim INext As Integer
-            Dim JNext As Integer
-            Dim IData As Integer = 1
-            Dim cellrow As Integer
-            IN1 = Int((IData - 1) / 2)
-            IN2 = IData - 2 * IN1
-            INext = (IN2 - 1) * 5
-            JNext = IN1 * 35
-            '    varResults = ActiveWorkbook
-            'With xlsWB(filename_excel)
-            'aa = xlsWB.Name
-            '.title = "fan curve"
-            '.Activate
-            If IData = 1 Then xlsWS.Cells(1, 1).Value = "FAN PERFORMANCE FIGURES"
-            xlsWS.Cells(7 + JNext, 2 + INext).Value = "curvefsp"
-            xlsWS.Cells(8 + JNext, 2 + INext).Value = "Pa" 'presunits
-            xlsWS.Cells(7 + JNext, 4 + INext).Value = "curvepower"
-            xlsWS.Cells(8 + JNext, 4 + INext).Value = "kw" 'powunits
-            xlsWS.Cells(7 + JNext, 1 + INext).Value = "curvevol"
-            xlsWS.Cells(8 + JNext, 1 + INext).Value = "cfm" 'curvevolunits
-            xlsWS.Cells(7 + JNext, 3 + INext).Value = "curveftp"
-            xlsWS.Cells(8 + JNext, 3 + INext).Value = "kPa" 'presunits
+        '    'FanSize1 = Val(xlsWB.Worksheets(1).Cells(2, 2).Value) 'x
+        '    'If FanSize1 < 0.00001 Then Exit Sub
+        '    Dim IN1 As Integer
+        '    Dim IN2 As Integer
+        '    Dim INext As Integer
+        '    Dim JNext As Integer
+        '    Dim IData As Integer = 1
+        '    Dim cellrow As Integer
+        '    IN1 = Int((IData - 1) / 2)
+        '    IN2 = IData - 2 * IN1
+        '    INext = (IN2 - 1) * 5
+        '    JNext = IN1 * 35
+        '    '    varResults = ActiveWorkbook
+        '    'With xlsWB(filename_excel)
+        '    'aa = xlsWB.Name
+        '    '.title = "fan curve"
+        '    '.Activate
+        '    If IData = 1 Then xlsWS.Cells(1, 1).Value = "FAN PERFORMANCE FIGURES"
+        '    xlsWS.Cells(7 + JNext, 2 + INext).Value = "curvefsp"
+        '    xlsWS.Cells(8 + JNext, 2 + INext).Value = "Pa" 'presunits
+        '    xlsWS.Cells(7 + JNext, 4 + INext).Value = "curvepower"
+        '    xlsWS.Cells(8 + JNext, 4 + INext).Value = "kw" 'powunits
+        '    xlsWS.Cells(7 + JNext, 1 + INext).Value = "curvevol"
+        '    xlsWS.Cells(8 + JNext, 1 + INext).Value = "cfm" 'curvevolunits
+        '    xlsWS.Cells(7 + JNext, 3 + INext).Value = "curveftp"
+        '    xlsWS.Cells(8 + JNext, 3 + INext).Value = "kPa" 'presunits
 
-            count = 0
-            cellrow = 9 + JNext
+        '    count = 0
+        '    cellrow = 9 + JNext
 
-            'Do While count <= Num_Readings - 1 'datasets - 1
-            '    xlsWS.Cells(cellrow, 2 + INext).Value = 12 'curvefsp(IData, count)
-            '    xlsWS.Cells(cellrow, 4 + INext).Value = 34 'curvepower(IData, count) * Widthratio
-            '    xlsWS.Cells(cellrow, 1 + INext).Value = 56 'curvevol(IData, count) * Widthratio
-            '    xlsWS.Cells(cellrow, 3 + INext).Value = 78 'curveftp(IData, count)
+        '    'Do While count <= Num_Readings - 1 'datasets - 1
+        '    '    xlsWS.Cells(cellrow, 2 + INext).Value = 12 'curvefsp(IData, count)
+        '    '    xlsWS.Cells(cellrow, 4 + INext).Value = 34 'curvepower(IData, count) * Widthratio
+        '    '    xlsWS.Cells(cellrow, 1 + INext).Value = 56 'curvevol(IData, count) * Widthratio
+        '    '    xlsWS.Cells(cellrow, 3 + INext).Value = 78 'curveftp(IData, count)
 
-            '    count = count + 1
-            '    cellrow = cellrow + 1
-            'Loop
-            ''End With
+        '    '    count = count + 1
+        '    '    cellrow = cellrow + 1
+        '    'Loop
+        '    ''End With
 
-            xlsWB.Close()
-            'xlsWB = Nothing
-            'xlsWorkBooks.Close()
-            'xlsWorkBooks = Nothing
-            xlsApp.Quit()
-            'xlsApp = Nothing
+        '    xlsWB.Close()
+        '    'xlsWB = Nothing
+        '    'xlsWorkBooks.Close()
+        '    'xlsWorkBooks = Nothing
+        '    xlsApp.Quit()
+        '    'xlsApp = Nothing
 
-        Catch ex As Exception
-            ErrorMessage(ex, 6404)
-        End Try
+        'Catch ex As Exception
+        '    ErrorMessage(ex, 6404)
+        'End Try
 
 
     End Sub
@@ -187,6 +187,8 @@ Module ModPrinting
 
     Public Function bookmark(label As String) As String
         Dim templabel As String
+        Dim lenconv As Double = 1.0
+        If Units(5).UnitSelected = 1 Then lenconv = 1.0 / 25.4
         Try
             If label = "#size#" Then Return label.Replace("#size#", final.fansize.ToString)
             If label = "#design#" Then Return label.Replace("#design#", final.fantype.ToString)
@@ -221,7 +223,7 @@ Module ModPrinting
                 Next
             End If
             If label = "#spl_bo_oa#" Then Return label.Replace("#spl_bo_oa#", NCoverall.ToString)
-            If label = "#india#" Then Return label.Replace("#india#", Math.Round(final.inletdia * convlen, lengthdecplaces).ToString)
+            If label = "#india#" Then Return label.Replace("#india#", Math.Round(final.inletdia * lenconv, lengthdecplaces).ToString)
             If label = "#in_units#" Then Return label.Replace("#in_units#", Units(5).UnitName(Units(5).UnitSelected))
             If label.Contains("#spl_2_") Then
                 For i = 1 To 8
@@ -230,8 +232,8 @@ Module ModPrinting
                 Next
             End If
             If label = "#spl_oi_oa#" Then Return label.Replace("#spl_oi_oa#", Math.Round(inNCoverall).ToString)
-            If label = "#outlen#" Then Return label.Replace("#outlen#", Math.Round(final.outletlen * convlen, lengthdecplaces).ToString)
-            If label = "#outwid#" Then Return label.Replace("#outwid#", Math.Round(final.outletwid * convlen, lengthdecplaces).ToString)
+            If label = "#outlen#" Then Return label.Replace("#outlen#", Math.Round(final.outletlen * lenconv, lengthdecplaces).ToString)
+            If label = "#outwid#" Then Return label.Replace("#outwid#", Math.Round(final.outletwid * lenconv, lengthdecplaces).ToString)
             If label = "#out_units#" Then Return label.Replace("#out_units#", Units(5).UnitName(Units(5).UnitSelected))
             If label.Contains("#spl_3_") Then
                 For i = 1 To 8
@@ -242,8 +244,9 @@ Module ModPrinting
             If label = "#spl_oo_oa#" Then Return label.Replace("#spl_oo_oa#", Math.Round(OUTNCoverall).ToString)
             If label = "#bpf#" Then Return label.Replace("#bpf#", BPfreq.ToString)
             If label = "#brg_noise#" Then Return label.Replace("#brg_noise#", BRGnoise.ToString)
-            'If label = "#motor_noise#" Then Return label.Replace("#motor_noise#"               '            Dim tempmt As Double = 0
-            '            If Frmselectfan.txtMotordba.Text IsNot "" Then tempmt = CDbl(Frmselectfan.txtMotordba.Text)
+            Dim tempmt As Double = 0
+            If Frmselectfan.txtMotordba.Text IsNot "" Then tempmt = CDbl(Frmselectfan.txtMotordba.Text)
+            If label = "#motor_noise#" Then Return label.Replace("#motor_noise#", tempmt.ToString)
             '"Motor_Noise", tempmt.ToString)
             'Return tempmt.ToString
             If label = "#engineer#" Then Return "A K McInnes"

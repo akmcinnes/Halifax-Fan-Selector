@@ -4,7 +4,8 @@
             Dim company As String = "Halifax Fan Limited - "
             Dim ErrMsg As String
             ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
-            If StartArg.ToLower.Contains("-dev") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            'If StartArg.ToLower.Contains("-dev") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
             Select Case ErrNo
 'Sub errors 1000 to 1999
                 Case 1000 To 1099
@@ -54,6 +55,8 @@
                     ErrMsg = company + "ModPrinting" + ErrMsg
                 Case 6500 To 6599
                     ErrMsg = company + "ModReadWriteXML" + ErrMsg
+                Case 6600 To 6699
+                    ErrMsg = company + "ModINI" + ErrMsg
 'Form errors 20000 to 29999
                 Case 20000 To 20099
                     ErrMsg = company + "FrmDensityCalcs" + ErrMsg

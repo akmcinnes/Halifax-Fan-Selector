@@ -74,7 +74,7 @@
                 .TabControl1.SelectTab(.TabPageFanParameters)
 
                 'kp = CalculateKP(1.4, CDbl(.TxtAtmosphericPressure.Text), CDbl(.Txtfsp.Text), CDbl(.TxtInletPressure.Text))
-                kp = CalculateKP(1.4, CDbl(.TxtAtmosphericPressure.Text), pressrise, inletpress)
+                ''kp = CalculateKP(1.4, CDbl(.TxtAtmosphericPressure.Text), pressrise, inletpress)
             End With
         Catch ex As Exception
             ErrorMessage(ex, 1201)
@@ -96,11 +96,10 @@
         Try
             Dim a, b, c As Double
             a = gamma / (gamma - 1)
-        b = (gamma - 1) / gamma
-        c = (atmos + fsp) / (atmos + ip)
-        kp = (a * ((c ^ b) - 1)) / (c - 1)
-
-
+            b = (gamma - 1) / gamma
+            c = (atmos + fsp) / (atmos + ip)
+            kp = (a * ((c ^ b) - 1)) / (c - 1)
+            Return kp
         Catch ex As Exception
             ErrorMessage(ex, 1203)
         End Try

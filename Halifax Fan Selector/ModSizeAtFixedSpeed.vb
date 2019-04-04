@@ -63,11 +63,12 @@
             Loop
             count = 0
             '-finds the point nearest the specified pressure point
-            fsizes(fanno, 0) = 1
+            fsizes(fanno, 0) = 1 'akm200319
             'fsizes(0, 0) = 1
             If PresType = 0 Then
                 'Do While (Val(Frmselectfan.Txtfsp.Text) - fspI(fanno, count)) ^ 2 >= (Val(Frmselectfan.Txtfsp.Text) - fspI(fanno, count + 1)) ^ 2
-                Do While (pressrise * convpres - fspI(fanno, count)) ^ 2 >= (pressrise * convpres - fspI(fanno, count + 1)) ^ 2
+                'Do While (pressrise * convpres - fspI(fanno, count)) ^ 2 >= (pressrise * convpres - fspI(fanno, count + 1)) ^ 2
+                Do While (pressrise - fspI(fanno, count)) ^ 2 >= (pressrise - fspI(fanno, count + 1)) ^ 2
                     If count = 500 Then
                         SizeAtFixedSpeed = 0
                         Exit Do
@@ -76,7 +77,8 @@
                 Loop
             Else
                 'Do While (Val(Frmselectfan.Txtfsp.Text) - ftpI(fanno, count)) ^ 2 >= (Val(Frmselectfan.Txtfsp.Text) - ftpI(fanno, count + 1)) ^ 2
-                Do While (pressrise * convpres - ftpI(fanno, count)) ^ 2 >= (pressrise * convpres - ftpI(fanno, count + 1)) ^ 2
+                'Do While (pressrise * convpres - ftpI(fanno, count)) ^ 2 >= (pressrise * convpres - ftpI(fanno, count + 1)) ^ 2
+                Do While (pressrise - ftpI(fanno, count)) ^ 2 >= (pressrise - ftpI(fanno, count + 1)) ^ 2
                     If count = 500 Then
                         SizeAtFixedSpeed = 0
                         Exit Do
@@ -105,7 +107,8 @@
             If SizeAtFixedSpeed = 0 Then
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
-                fanfailures(failindex, 1) = "Sorry this duty is out of range for this fan type"
+                fanfailures(failindex, 1) = 9 '"Sorry this duty is out of range for this fan type"
+                failurevalue(failindex) = ""
                 'MsgBox("Fan Type " + fanclass(fanno) + ": Sorry this duty is out of range for this fan type")
                 Exit Sub
             End If

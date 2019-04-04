@@ -135,4 +135,26 @@
 
     Public Found(500) As Label_struct
 
+    Structure Failures_Structure
+        Dim IndexLan As Integer
+        Private m_Languages() As String
+        Public Property Languages(Index As Integer) As String
+            Get
+                If m_Languages Is Nothing Then initLanguages()
+                Return m_Languages(Index)
+            End Get
+            Set(value As String)
+                If m_Languages Is Nothing Then initLanguages()
+                m_Languages(Index) = value
+            End Set
+        End Property
+
+        Private Sub initLanguages()
+            ReDim m_Languages(5)
+        End Sub
+    End Structure
+
+    Public FailuresList(50) As Failures_Structure
+
+
 End Module

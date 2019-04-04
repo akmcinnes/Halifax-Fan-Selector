@@ -70,8 +70,27 @@
             ErrorMessage(ex, 5805)
         End Try
     End Function
-    Public Sub GetFanSpeed(fansize, fanno)
+
+    Public Function CorrectForKP(P1, kpatmos)
+        CorrectForKP = P1
         Try
+            Dim calckp As Double = 1.0
+            calckp = CalculateKP(1.4, kpatmos, P1, 0)
+            CorrectForKP = P1 * 1.0 / calckp
+
+        Catch ex As Exception
+            ErrorMessage(ex, 5810)
+        End Try
+    End Function
+
+    Public Sub GetFanSpeed(fansize, fanno)
+        'Dim kpatmos As Double
+        Try
+            'If Units(1).UnitSelected = 0 Then kpatmos = 101325
+            'If Units(1).UnitSelected = 1 Then kpatmos = 408.782
+            'If Units(1).UnitSelected = 2 Then kpatmos = 10332.275
+            'If Units(1).UnitSelected = 3 Then kpatmos = 1013.25
+            'If Units(1).UnitSelected = 4 Then kpatmos = 101.325
             count1 = 0
             Do While fsp(fanno, count1) <> 0
                 '-scaling for fan sizes
@@ -81,13 +100,27 @@
                 vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), fansize)
                 Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), fansize)
                 '-scales for constant volume at each datapoint
-                'ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
+                ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
                 'vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
-                ftspeed(fanno, count1) = flowrate * datafanspeed(fanno) / vols(fanno, count1)
+                'ftspeed(fanno, count1) = flowrate * datafanspeed(fanno) / vols(fanno, count1)
                 vols(fanno, count1) = flowrate
                 fsps(fanno, count1) = ScalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                 ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                 Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
+
+                ''correct for kp akm 260319 size no speed
+                Dim tempkp As Double = 1.0
+                tempkp = CalculateKP(1.4, kpatmos, fsps(fanno, count1), 0)
+                If Frmselectfan.chkKP.Checked = False Then
+                    fsps(fanno, count1) = fsps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
+                    ftps(fanno, count1) = ftps(fanno, count1) * tempkp '1.0 / tempkp 1.0 / tempkp
+                    Pows(fanno, count1) = Pows(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
+                    ''If Frmselectfan.chkKP.Checked = False Then
+                    ''    fsps(fanno, count1) = CorrectForKP(fsps(fanno, count1), kpatmos)
+                    ''    ftps(fanno, count1) = CorrectForKP(ftps(fanno, count1), kpatmos)
+                    ''    Pows(fanno, count1) = CorrectForKP(Pows(fanno, count1), kpatmos)
+                    ''End If
+                End If
                 count1 = count1 + 1
             Loop
             '--------------------------------------------
@@ -138,8 +171,8 @@
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
                 'fanfailures(failindex, 1) = fanclass(fanno) & " Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2)
-                fanfailures(failindex, 1) = "Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2)
-
+                fanfailures(failindex, 1) = 7 '"Pressure cannot be achieved at this volume, the Max Pressure available is " & Math.Round(PressCheck3, 2)
+                failurevalue(failindex) = Math.Round(PressCheck3, 2).ToString
                 Exit Sub
             End If
             'If Val(Frmselectfan.Txtfsp.Text) < PressCheck2 And PressCheck3 = 0 Then
@@ -148,8 +181,8 @@
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(fanno)
                 'fanfailures(failindex, 1) = fanclass(fanno) & " Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
-                fanfailures(failindex, 1) = "Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
-
+                fanfailures(failindex, 1) = 8 ' "Pressure is too low at this volume and falls outside performance data, suggest a pressure above " & Math.Round(fsps(fanno, count1 - 1), 2)
+                failurevalue(failindex) = Math.Round(fsps(fanno, count1 - 1), 2).ToString
                 Exit Sub
             End If
             '----this piece of code more accurate for calculating speed
@@ -234,61 +267,10 @@
             failindex = failindex + 1
             fanfailures(failindex, 0) = fantypename(fanno)
             fanfailures(failindex, 1) = ex.Message
-
+            failurevalue(failindex) = ""
             'ErrorMessage(ex, 5806)
         End Try
 
-    End Sub
-
-    Public Sub ScaleSizeSpeed(size, speed, fanno)
-        Try
-            'scaling most efficient datapoint values to the selected fan size
-            fsps(fanno, medpoint(fanno)) = ScalePFSize(fsp(fanno, medpoint(fanno)), datafansize(fanno), size)
-            ftps(fanno, medpoint(fanno)) = ScalePFSize(ftp(fanno, medpoint(fanno)), datafansize(fanno), size)
-            vols(fanno, medpoint(fanno)) = ScaleVFSize(vol(fanno, medpoint(fanno)), datafansize(fanno), size)
-            Pows(fanno, medpoint(fanno)) = ScalePowFSize(Powr(fanno, medpoint(fanno)), datafansize(fanno), size)
-            '-scales for constant speed at each datapoint
-            vols(fanno, medpoint(fanno)) = ScaleVFSpeed(vols(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
-            fsps(fanno, medpoint(fanno)) = ScalePFSpeed(fsps(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
-            ftps(fanno, medpoint(fanno)) = ScalePFSpeed(ftps(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
-            Pows(fanno, medpoint(fanno)) = ScalePowFSpeed(Pows(fanno, medpoint(fanno)), datafanspeed(fanno), speed)
-
-            '-end of scaling most efficient data point----- start of output to frmselections
-
-            selected(fanno).fanindex = fanno
-
-            selected(fanno).fansize = size
-            '-calculated the fan speed required to get the duty
-            '-now calculating the power
-            selected(fanno).pow = Math.Round(Pows(fanno, medpoint(fanno)), 2)
-            '-calculating fan static efficiency
-            selected(fanno).fse = Math.Round(fse(fanno, medpoint(fanno)), 1)
-            '-calculating fan total efficiency
-            selected(fanno).fte = Math.Round(fte(fanno, medpoint(fanno)), 1)
-            '-output volume
-            Frmselectfan.Txtflow.Text = Math.Round(vols(fanno, medpoint(fanno)), voldecplaces)
-            selected(fanno).fsp = Math.Round(fsps(fanno, medpoint(fanno)), 2)
-            '-calculating FTP
-
-            selected(fanno).ftp = Math.Round(ftps(fanno, medpoint(fanno)), 2)
-            selected(fanno).fantype = fanclass(fanno)
-            selected(fanno).speed = speed
-            Call OutletVel(size, fanno)
-            selected(fanno).inletdia = inletdia
-            'selectedoutletd(fanno)=outletdia
-
-            '---corecting for suction
-            If Frmselectfan.Optsucy.Checked = True Then
-                'Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), Val(Frmselectfan.Txtdens.Text))
-                Call SuctionCorrection(Val(selected(fanno).fsp), Val(selected(fanno).pow), knowndensity)
-                selected(fanno).pow = Math.Round(NEWpower, 2)
-                selected(fanno).fsp = Math.Round(NEWpressure, 2)
-            End If
-
-        Catch ex As Exception
-            MsgBox("scalesizespeed")
-            ErrorMessage(ex, 5807)
-        End Try
     End Sub
 
     'Public Sub OutletVel(fansize, fanno)

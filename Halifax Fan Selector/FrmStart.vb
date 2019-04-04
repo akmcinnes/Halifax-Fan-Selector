@@ -5,20 +5,33 @@ Imports System.Threading
 Public Class FrmStart
     Private Sub Start_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
+            Dim Path As String
+            Dim exists As Boolean
+            UserProfile = System.Environment.ExpandEnvironmentVariables("%userprofile%")
+            Path = UserProfile + "\Halifax.ini"
+            exists = System.IO.File.Exists(Path)
+            If exists = True Then
+                btnSettings.Visible = True 'False
+            Else
+                btnSettings.Visible = True
+            End If
+            ReadWriteINI()
             For i = 0 To 9
                 Flag(i) = False
             Next
-            Dim lng As String
-            lng = CultureInfo.CurrentCulture.ThreeLetterISOLanguageName.ToString
-            If lng.ToLower.Contains("chi") Then
-                ChosenLanguage = "zh-CN"
-                optChinese.Checked = True
-            Else
-                ChosenLanguage = "en-US"
-                optEnglish.Checked = True
-            End If
+            'Dim lng As String
+            'lng = CultureInfo.CurrentCulture.ThreeLetterISOLanguageName.ToString
+            'If lng.ToLower.Contains("chi") Then
+            '    ChosenLanguage = "zh-CN"
+            '    optChinese.Checked = True
+            'Else
+            '    ChosenLanguage = "en-GB"
+            '    optEnglish.Checked = True
+            'End If
+            If ChosenLanguage = "zh-CN" Then optChinese.Checked = True
+            If ChosenLanguage = "en-GB" Then optEnglish.Checked = True
             Dim todaydate As String
-            todaydate = Date.Today.ToString("dd MMMM yyyy")
+            todaydate = Date.Today.ToString("dd/MM/yyyy")
             lblDate.Text = todaydate
             Dim strArg() As String
             strArg = Command().Split(" ")
@@ -40,7 +53,7 @@ Public Class FrmStart
             If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-dev") Then
                 DataPath = DataPathDefault
                 chkAdvancedUser.Checked = True
-                chkAdvancedUser.Visible = True
+                'chkAdvancedUser.Visible = True
                 grpLanguage.Visible = True
             ElseIf StartArg.ToLower.Contains("-b") Then
                 DataPath = DataPathDefault
@@ -85,7 +98,7 @@ Public Class FrmStart
             'objStreamWriterDebug.WriteLine("start")
             'Background_Color = Color.White
             CenterToScreen()
-            If ChosenLanguage Is Nothing Then ChosenLanguage = "en-US"
+            If ChosenLanguage Is Nothing Then ChosenLanguage = "en-GB"
             ApplyLocale(ChosenLanguage)
 
             ''If txtUsername.Text.ToLower.Contains("akm") Then
@@ -219,7 +232,7 @@ Public Class FrmStart
     Private Sub optEnglish_CheckedChanged(sender As Object, e As EventArgs) Handles optEnglish.CheckedChanged
         Try
             If optEnglish.Checked Then
-                ChosenLanguage = "en-US"
+                ChosenLanguage = "en-GB"
                 ApplyLocale(ChosenLanguage)
             End If
         Catch ex As Exception
@@ -319,6 +332,26 @@ Public Class FrmStart
 
         Catch ex As Exception
             ErrorMessage(ex, 20517)
+        End Try
+    End Sub
+
+    Private Sub lblWelcome_DoubleClick(sender As Object, e As EventArgs) Handles lblWelcome.DoubleClick
+        OpenSettings()
+    End Sub
+
+    Private Sub lblToThe_DoubleClick(sender As Object, e As EventArgs) Handles lblToThe.DoubleClick
+        OpenSettings()
+    End Sub
+
+    Private Sub lblHalifaxFanSelector_DoubleClick(sender As Object, e As EventArgs) Handles lblHalifaxFanSelector.DoubleClick
+        OpenSettings()
+    End Sub
+
+    Private Sub OpenSettings()
+        Try
+            FrmSettings.ShowDialog()
+        Catch ex As Exception
+            ErrorMessage(ex, 20512)
         End Try
     End Sub
 

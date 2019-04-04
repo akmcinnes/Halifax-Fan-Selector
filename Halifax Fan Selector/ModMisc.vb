@@ -56,47 +56,6 @@
         End Try
     End Sub
 
-    Sub ModifyDatapoints(ByVal fanno As Integer, ByVal count1 As Integer, ByVal fsize As Double, ByVal fspeed As Double, ByVal num As Integer)
-        Try
-            fsps(fanno, count1) = ScalePFSize(fsp(fanno, count1), datafansize(fanno), fsize)
-            ftps(fanno, count1) = ScalePFSize(ftp(fanno, count1), datafansize(fanno), fsize)
-            vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), fsize)
-            Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), fsize)
-            '-scales for constant volume at each datapoint
-            'If (num = 1) Then
-            '    fspeed = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
-            '    vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
-            'ElseIf (num = 2) Then
-            '    vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), fspeed)
-            'ElseIf (num = 3) Then
-            '    ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
-            '    vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
-            'ElseIf (num = 4) Then
-            '    fspeed = Val(Frmselectfan.Txtfanspeed.Text)
-            '    vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), fspeed)
-            'End If
-            If (num = 1) Then
-                fspeed = flowrate * datafanspeed(fanno) / vols(fanno, count1)
-                vols(fanno, count1) = flowrate
-            ElseIf (num = 2) Then
-                vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), fspeed)
-            ElseIf (num = 3) Then
-                ftspeed(fanno, count1) = flowrate * datafanspeed(fanno) / vols(fanno, count1)
-                vols(fanno, count1) = flowrate
-            ElseIf (num = 4) Then
-                fspeed = Val(Frmselectfan.Txtfanspeed.Text)
-                vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), fspeed)
-            End If
-            fsps(fanno, count1) = ScalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), fspeed)
-            ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), fspeed)
-            Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), fspeed)
-            'count1 = count1 + 1
-
-        Catch ex As Exception
-            ErrorMessage(ex, 5512)
-        End Try
-    End Sub
-
     Public Function IntToByteArray(toBeConverted As Integer) As String
         Dim result As Integer = 0
         Try

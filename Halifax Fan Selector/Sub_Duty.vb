@@ -10,8 +10,11 @@
                 .TxtMaximumTemperature.Text = maximumtemp.ToString
                 .TxtAmbientTemperature.Text = ambienttemp.ToString
                 .TxtAtmosphericPressure.Text = atmospress.ToString
-                If freqHz = 50 Then maxspeed = 3000
-                If freqHz = 60 Then maxspeed = 3600
+                If .Opt50Hz.Checked = True Then freqHz = 50
+                If .Opt60Hz.Checked = True Then freqHz = 60
+
+                If freqHz = 50 Then maxspeed = 3600 '3000
+                If freqHz = 60 Then maxspeed = 4320 '3600
                 .Txtspeedlimit.Text = maxspeed.ToString
                 .Txtfansize.Text = fansize.ToString
                 .btnDutyInputForward.Focus()

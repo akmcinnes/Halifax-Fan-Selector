@@ -2,6 +2,7 @@
 Module Sub_Selections
     Sub SetupSelectionPage()
         Try
+            failindex = 0
             With Frmselectfan
                 'If .TabControl1.SelectedTab.Text.Contains("Selection") Then
                 If .TabControl1.SelectedTab Is .TabPageSelection Then
@@ -272,7 +273,7 @@ Module Sub_Selections
 
                     .chkDisplayAllResHead.Visible = AdvancedUser
                     '.chkDisplayAll.Text = "Include fans < " + reshead.ToString + "% Reserve Head"
-                    .chkDisplayAllResHead.Text = .lblIncludeReserveHead.text + " < " + reshead.ToString + "% "
+                    .chkDisplayAllResHead.Text = .lblIncludeReserveHead.Text + " < " + reshead.ToString + "% "
 
                     .chkDisplayLowerEff.Visible = AdvancedUser
                     '.chkDisplayLowerEff.Text = "Include fans < 60% Fan Efficiency"
@@ -302,6 +303,12 @@ Module Sub_Selections
                     .Txtfansize.Text = tempsize.ToString
                     .Txtfanspeed.Text = tempspeed.ToString
 
+                    If Units(1).UnitSelected = 0 Then kpatmos = 101325
+                    If Units(1).UnitSelected = 1 Then kpatmos = 408.782
+                    If Units(1).UnitSelected = 2 Then kpatmos = 10332.275
+                    If Units(1).UnitSelected = 3 Then kpatmos = 1013.25
+                    If Units(1).UnitSelected = 4 Then kpatmos = 101.325
+
                     For k = 0 To fantypesQTY - 1 'akm200118
                         '-----------------------------------------------------------------------------
                         '----- FOR KNOWN DUTY BUT NO SPEED OR FAN SIZE GIVEN -------------------------
@@ -309,43 +316,43 @@ Module Sub_Selections
 
                         'Dim size As Double = CDbl(.Txtfansize.Text)
                         If tempsize = 0 And tempspeed = 0 And tempflow <> 0 And tempfsp <> 0 Then
-                            Call NoSpeedNosize(k)
+                            Call NoSpeedNosize(k) 'used
                         End If
 
                         '----------------------------------------------------------------------------------------
                         '---------------start of selecting fan size based on a given speed and duty point--------
                         '-----------------------------------------------------------------------------------------
                         If tempspeed <> 0 And tempflow <> 0 And tempfsp <> 0 And tempsize = 0 Then
-                            Call WithSpeedNoSize(k)
+                            Call WithSpeedNoSize(k) 'used
                         End If
 
                         '----------------------------------------------------------------------------------------
                         '-----------------------Start of listing duty of known fan size and speed
                         '---------------------------------------------------------------------------------------------
-                        If tempsize <> 0 And tempspeed <> 0 And tempflow = 0 And tempfsp = 0 Then
-                            Call WithSpeedWithSize(k)
-                        End If
+                        'If tempsize <> 0 And tempspeed <> 0 And tempflow = 0 And tempfsp = 0 Then
+                        '    Call WithSpeedWithSize(k) 'not used
+                        'End If
 
                         '-----------------------------------------------------------------------------------------------
                         '-----------------------------start of selecting fan with size and volume & pressure------------
                         '-----------------------------------------------------------------------------------------------
                         If tempsize <> 0 And tempflow <> 0 And tempfsp <> 0 And tempspeed = 0 Then
-                            Call WithSizeVolPressure(k)
+                            Call WithSizeVolPressure(k) 'used
                         End If
 
                         '-------------------------------------------------------------------------------------------------
                         '-------------------------start of finding pressure for selected fan speed size and volume--------
                         '-------------------------------------------------------------------------------------------------
                         If tempsize <> 0 And tempflow <> 0 And tempspeed <> 0 Then
-                            Call WithSpeedSizeVolume(k)
+                            Call WithSpeedSizeVolume(k) 'used
                         End If
 
                         '--------------------------------------------------------------------------------------
                         '-----------------------start of finding volume for given pressure and fan speed------
                         '-------------------------------------------------------------------------------------
-                        If tempsize <> 0 And tempflow = 0 And tempfsp <> 0 And tempspeed <> 0 Then
-                            Call WithSpeedPressure(k)
-                        End If
+                        'If tempsize <> 0 And tempflow = 0 And tempfsp <> 0 And tempspeed <> 0 Then
+                        '    Call WithSpeedPressure(k) 'not used
+                        'End If
                         'If selectedfansize(k) > 0 Then
                         'End If
                         Call ResHDandVolTD(k)
@@ -459,6 +466,8 @@ Module Sub_Selections
                 Dim pressrangemin As Double = 0.99
                 Dim pressrangemax As Double = 1.01
                 Dim pressok As Boolean
+                Dim iiii As Integer = 0
+                .Label13.Text = iiii.ToString
 
                 For k = 0 To fantypesQTY - 1 'akm 201018
                     pressok = False
@@ -470,18 +479,21 @@ Module Sub_Selections
                         pressok = True
                     End If
 
+
                     If selected(k).fansize > 0 And
                         selected(k).resHD >= minresHD And
                         (PresType = 0 And selected(k).fse > mineffs Or PresType = 1 And selected(k).fte > minefft) And
                         selected(k).resHD < maxresHD And
                         pressok = True And
                         fanclass(k) IsNot Nothing Then
-                        .DataGridView1.Rows(fansuccess).Cells(0).Value = selected(k).fansize.ToString
+                        iiii = iiii + 1
+                        .Label13.Text = iiii.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(0).Value = selected(k).fansize '.ToString
                         .DataGridView1.Rows(fansuccess).Cells(1).Value = fanclass(k)
-                        .DataGridView1.Rows(fansuccess).Cells(2).Value = selected(k).speed.ToString
-                        .DataGridView1.Rows(fansuccess).Cells(3).Value = selected(k).vol.ToString
-                        .DataGridView1.Rows(fansuccess).Cells(4).Value = selected(k).fsp.ToString
-                        .DataGridView1.Rows(fansuccess).Cells(5).Value = selected(k).ftp.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(2).Value = selected(k).speed '.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(3).Value = selected(k).vol '.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(4).Value = selected(k).fsp '.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(5).Value = selected(k).ftp '.ToString
                         .DataGridView1.Rows(fansuccess).Cells(6).Style.BackColor = .DataGridView1.Rows(fansuccess).Cells(0).Style.BackColor
                         'decimal places 2 for < 100, 1 for >= 100 < 1000, 0 for >= 1000
                         powerdecplaces = 2
@@ -497,10 +509,10 @@ Module Sub_Selections
                             Else
                                 .DataGridView1.Rows(fansuccess).Cells(7).Value = "Non Std"
                             End If
-                            .DataGridView1.Rows(fansuccess).Cells(8).Value = selected(k).fse.ToString
-                            .DataGridView1.Rows(fansuccess).Cells(9).Value = selected(k).fte.ToString
-                            .DataGridView1.Rows(fansuccess).Cells(10).Value = selected(k).ov.ToString
-                            .DataGridView1.Rows(fansuccess).Cells(11).Value = selected(k).resHD.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(8).Value = selected(k).fse '.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(9).Value = selected(k).fte '.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(10).Value = selected(k).ov '.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(11).Value = selected(k).resHD '.ToString
 
                             If selected(k).VD < 0 Then
                                 .DataGridView1.Rows(fansuccess).Cells(12).Value = "Stall"
@@ -538,10 +550,10 @@ Module Sub_Selections
                             Else
                                 .DataGridView1.Rows(fansuccess).Cells(7).Value = .DataGridView1.Rows(fansuccess).Cells(7).Value + "Non Std"
                             End If
-                            .DataGridView1.Rows(fansuccess).Cells(8).Value = selected(k).fse.ToString
-                            .DataGridView1.Rows(fansuccess).Cells(9).Value = selected(k).fte.ToString
-                            .DataGridView1.Rows(fansuccess).Cells(10).Value = selected(k).ov.ToString
-                            .DataGridView1.Rows(fansuccess).Cells(11).Value = selected(k).resHD.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(8).Value = selected(k).fse '.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(9).Value = selected(k).fte '.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(10).Value = selected(k).ov '.ToString
+                            .DataGridView1.Rows(fansuccess).Cells(11).Value = selected(k).resHD '.ToString
 
                             If selected(k).VD < 0 Then
                                 .DataGridView1.Rows(fansuccess).Cells(12).Value = "Stall"
@@ -568,7 +580,7 @@ Module Sub_Selections
                             End If
 
                         End If
-                        .DataGridView1.Rows(fansuccess).Cells(13).Value = selected(k).fanindex.ToString
+                        .DataGridView1.Rows(fansuccess).Cells(13).Value = selected(k).fanindex '.ToString
 
                         fansuccess = fansuccess + 1
                     End If
@@ -616,7 +628,7 @@ Module Sub_Selections
             With Frmselectfan
                 .btnNoiseDataForward.Enabled = True
                 .Label3.Visible = True
-                .Label3.Text = .Label3.Text + ": "
+                '.Label3.Text = .Label3.Text + ": "
                 .LblFanDetails.Visible = True
 
                 '.LblFanDetails.Text = selected(ii).fantype + " " + selected(ii).fansize.ToString + " running at " + selected(ii).speed.ToString + " rpm"

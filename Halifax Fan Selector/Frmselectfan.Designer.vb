@@ -101,9 +101,6 @@ Partial Class Frmselectfan
         Me.OptFlowDischarge = New System.Windows.Forms.RadioButton()
         Me.OptFlowNominal = New System.Windows.Forms.RadioButton()
         Me.OpFlowInlet = New System.Windows.Forms.RadioButton()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.OptXLS = New System.Windows.Forms.RadioButton()
-        Me.OptTXT = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblpercent = New System.Windows.Forms.Label()
         Me.lblUserDefinedUnits = New System.Windows.Forms.Label()
@@ -134,7 +131,6 @@ Partial Class Frmselectfan
         Me.LblMaximumTemperature = New System.Windows.Forms.Label()
         Me.LblDesignTemperature = New System.Windows.Forms.Label()
         Me.TxtDesignTemperature = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.TabPageFanParameters = New System.Windows.Forms.TabPage()
         Me.chkDIDW = New System.Windows.Forms.CheckBox()
         Me.btnDutyInputBack = New System.Windows.Forms.Button()
@@ -169,6 +165,7 @@ Partial Class Frmselectfan
         Me.ChkInclineBlade = New System.Windows.Forms.CheckBox()
         Me.ChkCurveBlade = New System.Windows.Forms.CheckBox()
         Me.TabPageSelection = New System.Windows.Forms.TabPage()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.lblRunningAt = New System.Windows.Forms.Label()
         Me.lblIncludeAllFanEfficiency = New System.Windows.Forms.Label()
         Me.lblIncludeReserveHead = New System.Windows.Forms.Label()
@@ -218,7 +215,7 @@ Partial Class Frmselectfan
         Me.lblOutletDimensions = New System.Windows.Forms.Label()
         Me.lblInletDiameter = New System.Windows.Forms.Label()
         Me.btnFanSelectionsBack = New System.Windows.Forms.Button()
-        Me.btnSaveProjectForward = New System.Windows.Forms.Button()
+        Me.btnImpellerDetailsForward = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.txtMotordba = New System.Windows.Forms.TextBox()
@@ -251,8 +248,9 @@ Partial Class Frmselectfan
         Me.Button6 = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.TabPageImpeller = New System.Windows.Forms.TabPage()
+        Me.lblPhase2 = New System.Windows.Forms.Label()
+        Me.btnNoiseDataBack = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -269,12 +267,6 @@ Partial Class Frmselectfan
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.lblTabGeneralInformation = New System.Windows.Forms.Label()
-        Me.lblTabDutyInput = New System.Windows.Forms.Label()
-        Me.lblTabFanParameters = New System.Windows.Forms.Label()
-        Me.lblTabSelections = New System.Windows.Forms.Label()
-        Me.lblTabAcoustics = New System.Windows.Forms.Label()
-        Me.lblTabImpeller = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.TabPageGeneral.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -291,7 +283,6 @@ Partial Class Frmselectfan
         Me.TabPageDuty.SuspendLayout()
         Me.GrpFlowRate.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GrpDesignPressure.SuspendLayout()
         Me.GrpInletDensity.SuspendLayout()
@@ -308,28 +299,27 @@ Partial Class Frmselectfan
         Me.GroupBox5.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPageImpeller.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TabControl1
         '
-        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Controls.Add(Me.TabPageGeneral)
         Me.TabControl1.Controls.Add(Me.TabPageDuty)
         Me.TabControl1.Controls.Add(Me.TabPageFanParameters)
         Me.TabControl1.Controls.Add(Me.TabPageSelection)
         Me.TabControl1.Controls.Add(Me.TabPageNoise)
         Me.TabControl1.Controls.Add(Me.TabPageImpeller)
+        resources.ApplyResources(Me.TabControl1, "TabControl1")
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         '
         'TabPageGeneral
         '
-        resources.ApplyResources(Me.TabPageGeneral, "TabPageGeneral")
         Me.TabPageGeneral.BackColor = System.Drawing.Color.Transparent
         Me.TabPageGeneral.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
+        resources.ApplyResources(Me.TabPageGeneral, "TabPageGeneral")
         Me.TabPageGeneral.Controls.Add(Me.lblDisplayBoth)
         Me.TabPageGeneral.Controls.Add(Me.lblChkAtmosAlt)
         Me.TabPageGeneral.Controls.Add(Me.Label5)
@@ -365,17 +355,17 @@ Partial Class Frmselectfan
         '
         'btnGeneralExit
         '
-        resources.ApplyResources(Me.btnGeneralExit, "btnGeneralExit")
         Me.btnGeneralExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnGeneralExit, "btnGeneralExit")
         Me.btnGeneralExit.Name = "btnGeneralExit"
         Me.btnGeneralExit.UseVisualStyleBackColor = True
         '
         'GroupBox9
         '
-        resources.ApplyResources(Me.GroupBox9, "GroupBox9")
         Me.GroupBox9.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox9.Controls.Add(Me.OptVelocityFtpermin)
         Me.GroupBox9.Controls.Add(Me.OptVelocityMpers)
+        resources.ApplyResources(Me.GroupBox9, "GroupBox9")
         Me.GroupBox9.ForeColor = System.Drawing.Color.Black
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.TabStop = False
@@ -398,11 +388,11 @@ Partial Class Frmselectfan
         '
         'GroupBox8
         '
-        resources.ApplyResources(Me.GroupBox8, "GroupBox8")
         Me.GroupBox8.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox8.Controls.Add(Me.OptPowerBoth)
         Me.GroupBox8.Controls.Add(Me.OptPowerHp)
         Me.GroupBox8.Controls.Add(Me.OptPowerKW)
+        resources.ApplyResources(Me.GroupBox8, "GroupBox8")
         Me.GroupBox8.ForeColor = System.Drawing.Color.Black
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.TabStop = False
@@ -433,26 +423,26 @@ Partial Class Frmselectfan
         '
         'GroupBox7
         '
-        resources.ApplyResources(Me.GroupBox7, "GroupBox7")
         Me.GroupBox7.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox7.Controls.Add(Me.btnImperialUnits)
         Me.GroupBox7.Controls.Add(Me.btnMetricUnits)
         Me.GroupBox7.Controls.Add(Me.OptDefaultNone)
+        resources.ApplyResources(Me.GroupBox7, "GroupBox7")
         Me.GroupBox7.ForeColor = System.Drawing.Color.Black
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.TabStop = False
         '
         'btnImperialUnits
         '
-        resources.ApplyResources(Me.btnImperialUnits, "btnImperialUnits")
         Me.btnImperialUnits.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        resources.ApplyResources(Me.btnImperialUnits, "btnImperialUnits")
         Me.btnImperialUnits.Name = "btnImperialUnits"
         Me.btnImperialUnits.UseVisualStyleBackColor = True
         '
         'btnMetricUnits
         '
-        resources.ApplyResources(Me.btnMetricUnits, "btnMetricUnits")
         Me.btnMetricUnits.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        resources.ApplyResources(Me.btnMetricUnits, "btnMetricUnits")
         Me.btnMetricUnits.Name = "btnMetricUnits"
         Me.btnMetricUnits.UseVisualStyleBackColor = True
         '
@@ -466,10 +456,10 @@ Partial Class Frmselectfan
         '
         'GroupBox10
         '
-        resources.ApplyResources(Me.GroupBox10, "GroupBox10")
         Me.GroupBox10.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox10.Controls.Add(Me.OptAltitudeFt)
         Me.GroupBox10.Controls.Add(Me.OptAltitudeM)
+        resources.ApplyResources(Me.GroupBox10, "GroupBox10")
         Me.GroupBox10.ForeColor = System.Drawing.Color.Black
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.TabStop = False
@@ -492,10 +482,10 @@ Partial Class Frmselectfan
         '
         'GroupBox11
         '
-        resources.ApplyResources(Me.GroupBox11, "GroupBox11")
         Me.GroupBox11.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox11.Controls.Add(Me.OptLengthIn)
         Me.GroupBox11.Controls.Add(Me.OptLengthMm)
+        resources.ApplyResources(Me.GroupBox11, "GroupBox11")
         Me.GroupBox11.ForeColor = System.Drawing.Color.Black
         Me.GroupBox11.Name = "GroupBox11"
         Me.GroupBox11.TabStop = False
@@ -518,10 +508,10 @@ Partial Class Frmselectfan
         '
         'GroupBox12
         '
-        resources.ApplyResources(Me.GroupBox12, "GroupBox12")
         Me.GroupBox12.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox12.Controls.Add(Me.OptTemperatureF)
         Me.GroupBox12.Controls.Add(Me.OptTemperatureC)
+        resources.ApplyResources(Me.GroupBox12, "GroupBox12")
         Me.GroupBox12.ForeColor = System.Drawing.Color.Black
         Me.GroupBox12.Name = "GroupBox12"
         Me.GroupBox12.TabStop = False
@@ -544,7 +534,6 @@ Partial Class Frmselectfan
         '
         'GroupBox13
         '
-        resources.ApplyResources(Me.GroupBox13, "GroupBox13")
         Me.GroupBox13.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox13.Controls.Add(Me.OptFlowLbPerHr)
         Me.GroupBox13.Controls.Add(Me.OptFlowKgPerHr)
@@ -552,6 +541,7 @@ Partial Class Frmselectfan
         Me.GroupBox13.Controls.Add(Me.OptFlowM3PerHr)
         Me.GroupBox13.Controls.Add(Me.OptFlowM3PerMin)
         Me.GroupBox13.Controls.Add(Me.OptFlowM3PerSec)
+        resources.ApplyResources(Me.GroupBox13, "GroupBox13")
         Me.GroupBox13.ForeColor = System.Drawing.Color.Black
         Me.GroupBox13.Name = "GroupBox13"
         Me.GroupBox13.TabStop = False
@@ -606,13 +596,13 @@ Partial Class Frmselectfan
         '
         'GroupBox14
         '
-        resources.ApplyResources(Me.GroupBox14, "GroupBox14")
         Me.GroupBox14.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox14.Controls.Add(Me.OptPressurekPa)
         Me.GroupBox14.Controls.Add(Me.OptPressuremmWG)
         Me.GroupBox14.Controls.Add(Me.OptPressureinWG)
         Me.GroupBox14.Controls.Add(Me.OptPressuremBar)
         Me.GroupBox14.Controls.Add(Me.OptPressurePa)
+        resources.ApplyResources(Me.GroupBox14, "GroupBox14")
         Me.GroupBox14.ForeColor = System.Drawing.Color.Black
         Me.GroupBox14.Name = "GroupBox14"
         Me.GroupBox14.TabStop = False
@@ -659,10 +649,10 @@ Partial Class Frmselectfan
         '
         'GroupBox15
         '
-        resources.ApplyResources(Me.GroupBox15, "GroupBox15")
         Me.GroupBox15.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox15.Controls.Add(Me.OptDensityLbPerFt3)
         Me.GroupBox15.Controls.Add(Me.OptDensityKgPerM3)
+        resources.ApplyResources(Me.GroupBox15, "GroupBox15")
         Me.GroupBox15.ForeColor = System.Drawing.Color.Black
         Me.GroupBox15.Name = "GroupBox15"
         Me.GroupBox15.TabStop = False
@@ -691,10 +681,10 @@ Partial Class Frmselectfan
         '
         'GrpFrequency
         '
-        resources.ApplyResources(Me.GrpFrequency, "GrpFrequency")
         Me.GrpFrequency.BackColor = System.Drawing.Color.Transparent
         Me.GrpFrequency.Controls.Add(Me.Opt50Hz)
         Me.GrpFrequency.Controls.Add(Me.Opt60Hz)
+        resources.ApplyResources(Me.GrpFrequency, "GrpFrequency")
         Me.GrpFrequency.ForeColor = System.Drawing.Color.Black
         Me.GrpFrequency.Name = "GrpFrequency"
         Me.GrpFrequency.TabStop = False
@@ -715,7 +705,6 @@ Partial Class Frmselectfan
         '
         'GrpGeneral
         '
-        resources.ApplyResources(Me.GrpGeneral, "GrpGeneral")
         Me.GrpGeneral.BackColor = System.Drawing.Color.Transparent
         Me.GrpGeneral.Controls.Add(Me.chkCalcAtmos)
         Me.GrpGeneral.Controls.Add(Me.LblAtmosphericPressureUnits)
@@ -730,6 +719,7 @@ Partial Class Frmselectfan
         Me.GrpGeneral.Controls.Add(Me.LblHumidity)
         Me.GrpGeneral.Controls.Add(Me.LblAltitude)
         Me.GrpGeneral.Controls.Add(Me.LblAmbientTemperature)
+        resources.ApplyResources(Me.GrpGeneral, "GrpGeneral")
         Me.GrpGeneral.ForeColor = System.Drawing.Color.Black
         Me.GrpGeneral.Name = "GrpGeneral"
         Me.GrpGeneral.TabStop = False
@@ -802,9 +792,9 @@ Partial Class Frmselectfan
         '
         'TabPageDuty
         '
-        resources.ApplyResources(Me.TabPageDuty, "TabPageDuty")
         Me.TabPageDuty.BackColor = System.Drawing.Color.Transparent
         Me.TabPageDuty.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
+        resources.ApplyResources(Me.TabPageDuty, "TabPageDuty")
         Me.TabPageDuty.Controls.Add(Me.lblMassFlow)
         Me.TabPageDuty.Controls.Add(Me.lblVolumeFlow)
         Me.TabPageDuty.Controls.Add(Me.btnGeneralInformationBack)
@@ -813,13 +803,11 @@ Partial Class Frmselectfan
         Me.TabPageDuty.Controls.Add(Me.btnCalculateDensity)
         Me.TabPageDuty.Controls.Add(Me.GrpFlowRate)
         Me.TabPageDuty.Controls.Add(Me.GroupBox6)
-        Me.TabPageDuty.Controls.Add(Me.GroupBox2)
         Me.TabPageDuty.Controls.Add(Me.GroupBox1)
         Me.TabPageDuty.Controls.Add(Me.GrpDesignPressure)
         Me.TabPageDuty.Controls.Add(Me.GrpInletDensity)
         Me.TabPageDuty.Controls.Add(Me.btnDutyExit)
         Me.TabPageDuty.Controls.Add(Me.GrpInletTemperature)
-        Me.TabPageDuty.Controls.Add(Me.Button1)
         Me.TabPageDuty.ForeColor = System.Drawing.SystemColors.ControlText
         Me.TabPageDuty.Name = "TabPageDuty"
         '
@@ -858,12 +846,12 @@ Partial Class Frmselectfan
         '
         'GrpFlowRate
         '
-        resources.ApplyResources(Me.GrpFlowRate, "GrpFlowRate")
         Me.GrpFlowRate.BackColor = System.Drawing.Color.Transparent
         Me.GrpFlowRate.Controls.Add(Me.lblFlowType)
         Me.GrpFlowRate.Controls.Add(Me.Txtflow)
         Me.GrpFlowRate.Controls.Add(Me.OptMassFlow)
         Me.GrpFlowRate.Controls.Add(Me.OptVolumeFlow)
+        resources.ApplyResources(Me.GrpFlowRate, "GrpFlowRate")
         Me.GrpFlowRate.ForeColor = System.Drawing.Color.Black
         Me.GrpFlowRate.Name = "GrpFlowRate"
         Me.GrpFlowRate.TabStop = False
@@ -894,12 +882,12 @@ Partial Class Frmselectfan
         '
         'GroupBox6
         '
-        resources.ApplyResources(Me.GroupBox6, "GroupBox6")
         Me.GroupBox6.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox6.Controls.Add(Me.OptFlowDischarge)
         Me.GroupBox6.Controls.Add(Me.OptFlowNominal)
         Me.GroupBox6.Controls.Add(Me.OpFlowInlet)
         Me.GroupBox6.ForeColor = System.Drawing.Color.Black
+        resources.ApplyResources(Me.GroupBox6, "GroupBox6")
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.TabStop = False
         '
@@ -923,34 +911,8 @@ Partial Class Frmselectfan
         Me.OpFlowInlet.TabStop = True
         Me.OpFlowInlet.UseVisualStyleBackColor = True
         '
-        'GroupBox2
-        '
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
-        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox2.Controls.Add(Me.OptXLS)
-        Me.GroupBox2.Controls.Add(Me.OptTXT)
-        Me.GroupBox2.ForeColor = System.Drawing.Color.Black
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.TabStop = False
-        '
-        'OptXLS
-        '
-        resources.ApplyResources(Me.OptXLS, "OptXLS")
-        Me.OptXLS.Name = "OptXLS"
-        Me.OptXLS.TabStop = True
-        Me.OptXLS.UseVisualStyleBackColor = True
-        '
-        'OptTXT
-        '
-        resources.ApplyResources(Me.OptTXT, "OptTXT")
-        Me.OptTXT.Checked = True
-        Me.OptTXT.Name = "OptTXT"
-        Me.OptTXT.TabStop = True
-        Me.OptTXT.UseVisualStyleBackColor = True
-        '
         'GroupBox1
         '
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.lblpercent)
         Me.GroupBox1.Controls.Add(Me.lblUserDefinedUnits)
@@ -959,6 +921,7 @@ Partial Class Frmselectfan
         Me.GroupBox1.Controls.Add(Me.optDDUserDefined)
         Me.GroupBox1.Controls.Add(Me.optDDStandard)
         Me.GroupBox1.Controls.Add(Me.optDDRatio)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.ForeColor = System.Drawing.Color.Black
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
@@ -1005,7 +968,6 @@ Partial Class Frmselectfan
         '
         'GrpDesignPressure
         '
-        resources.ApplyResources(Me.GrpDesignPressure, "GrpDesignPressure")
         Me.GrpDesignPressure.BackColor = System.Drawing.Color.Transparent
         Me.GrpDesignPressure.Controls.Add(Me.Optsucy)
         Me.GrpDesignPressure.Controls.Add(Me.CmbReserveHead)
@@ -1018,6 +980,7 @@ Partial Class Frmselectfan
         Me.GrpDesignPressure.Controls.Add(Me.Label10)
         Me.GrpDesignPressure.Controls.Add(Me.OptStaticPressure)
         Me.GrpDesignPressure.Controls.Add(Me.OptTotalPressure)
+        resources.ApplyResources(Me.GrpDesignPressure, "GrpDesignPressure")
         Me.GrpDesignPressure.ForeColor = System.Drawing.Color.Black
         Me.GrpDesignPressure.Name = "GrpDesignPressure"
         Me.GrpDesignPressure.TabStop = False
@@ -1086,11 +1049,11 @@ Partial Class Frmselectfan
         '
         'GrpInletDensity
         '
-        resources.ApplyResources(Me.GrpInletDensity, "GrpInletDensity")
         Me.GrpInletDensity.BackColor = System.Drawing.Color.Transparent
         Me.GrpInletDensity.Controls.Add(Me.OptDensityCalculated)
         Me.GrpInletDensity.Controls.Add(Me.OptDensityKnown)
         Me.GrpInletDensity.Controls.Add(Me.Txtdens)
+        resources.ApplyResources(Me.GrpInletDensity, "GrpInletDensity")
         Me.GrpInletDensity.ForeColor = System.Drawing.Color.Black
         Me.GrpInletDensity.Name = "GrpInletDensity"
         Me.GrpInletDensity.TabStop = False
@@ -1116,19 +1079,19 @@ Partial Class Frmselectfan
         '
         'btnDutyExit
         '
-        resources.ApplyResources(Me.btnDutyExit, "btnDutyExit")
         Me.btnDutyExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnDutyExit, "btnDutyExit")
         Me.btnDutyExit.Name = "btnDutyExit"
         Me.btnDutyExit.UseVisualStyleBackColor = True
         '
         'GrpInletTemperature
         '
-        resources.ApplyResources(Me.GrpInletTemperature, "GrpInletTemperature")
         Me.GrpInletTemperature.BackColor = System.Drawing.Color.Transparent
         Me.GrpInletTemperature.Controls.Add(Me.TxtMaximumTemperature)
         Me.GrpInletTemperature.Controls.Add(Me.LblMaximumTemperature)
         Me.GrpInletTemperature.Controls.Add(Me.LblDesignTemperature)
         Me.GrpInletTemperature.Controls.Add(Me.TxtDesignTemperature)
+        resources.ApplyResources(Me.GrpInletTemperature, "GrpInletTemperature")
         Me.GrpInletTemperature.ForeColor = System.Drawing.Color.Black
         Me.GrpInletTemperature.Name = "GrpInletTemperature"
         Me.GrpInletTemperature.TabStop = False
@@ -1153,18 +1116,11 @@ Partial Class Frmselectfan
         resources.ApplyResources(Me.TxtDesignTemperature, "TxtDesignTemperature")
         Me.TxtDesignTemperature.Name = "TxtDesignTemperature"
         '
-        'Button1
-        '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'TabPageFanParameters
         '
-        resources.ApplyResources(Me.TabPageFanParameters, "TabPageFanParameters")
         Me.TabPageFanParameters.BackColor = System.Drawing.Color.Transparent
         Me.TabPageFanParameters.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
+        resources.ApplyResources(Me.TabPageFanParameters, "TabPageFanParameters")
         Me.TabPageFanParameters.Controls.Add(Me.chkDIDW)
         Me.TabPageFanParameters.Controls.Add(Me.btnDutyInputBack)
         Me.TabPageFanParameters.Controls.Add(Me.btnParametersExit)
@@ -1189,8 +1145,8 @@ Partial Class Frmselectfan
         '
         'btnParametersExit
         '
-        resources.ApplyResources(Me.btnParametersExit, "btnParametersExit")
         Me.btnParametersExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnParametersExit, "btnParametersExit")
         Me.btnParametersExit.Name = "btnParametersExit"
         Me.btnParametersExit.UseVisualStyleBackColor = True
         '
@@ -1202,13 +1158,13 @@ Partial Class Frmselectfan
         '
         'GrpFanSize
         '
-        resources.ApplyResources(Me.GrpFanSize, "GrpFanSize")
         Me.GrpFanSize.BackColor = System.Drawing.Color.Transparent
         Me.GrpFanSize.Controls.Add(Me.LblLengthUnits)
         Me.GrpFanSize.Controls.Add(Me.Txtfansize)
         Me.GrpFanSize.Controls.Add(Me.Lblfansize)
         Me.GrpFanSize.Controls.Add(Me.OptAnySize)
         Me.GrpFanSize.Controls.Add(Me.OptFixedSize)
+        resources.ApplyResources(Me.GrpFanSize, "GrpFanSize")
         Me.GrpFanSize.ForeColor = System.Drawing.Color.Black
         Me.GrpFanSize.Name = "GrpFanSize"
         Me.GrpFanSize.TabStop = False
@@ -1244,7 +1200,6 @@ Partial Class Frmselectfan
         '
         'GrpFanSpeed
         '
-        resources.ApplyResources(Me.GrpFanSpeed, "GrpFanSpeed")
         Me.GrpFanSpeed.BackColor = System.Drawing.Color.Transparent
         Me.GrpFanSpeed.Controls.Add(Me.OptFixedSpeed)
         Me.GrpFanSpeed.Controls.Add(Me.Opt12Pole)
@@ -1258,6 +1213,7 @@ Partial Class Frmselectfan
         Me.GrpFanSpeed.Controls.Add(Me.Opt6Pole)
         Me.GrpFanSpeed.Controls.Add(Me.OptAnySpeed)
         Me.GrpFanSpeed.Controls.Add(Me.Opt4Pole)
+        resources.ApplyResources(Me.GrpFanSpeed, "GrpFanSpeed")
         Me.GrpFanSpeed.ForeColor = System.Drawing.Color.Black
         Me.GrpFanSpeed.Name = "GrpFanSpeed"
         Me.GrpFanSpeed.TabStop = False
@@ -1334,7 +1290,6 @@ Partial Class Frmselectfan
         '
         'GrpFanTypes
         '
-        resources.ApplyResources(Me.GrpFanTypes, "GrpFanTypes")
         Me.GrpFanTypes.BackColor = System.Drawing.Color.Transparent
         Me.GrpFanTypes.Controls.Add(Me.chkAllBlades)
         Me.GrpFanTypes.Controls.Add(Me.ChkOldDesignFans)
@@ -1344,6 +1299,7 @@ Partial Class Frmselectfan
         Me.GrpFanTypes.Controls.Add(Me.ChkOtherFanType)
         Me.GrpFanTypes.Controls.Add(Me.ChkInclineBlade)
         Me.GrpFanTypes.Controls.Add(Me.ChkCurveBlade)
+        resources.ApplyResources(Me.GrpFanTypes, "GrpFanTypes")
         Me.GrpFanTypes.ForeColor = System.Drawing.Color.Black
         Me.GrpFanTypes.Name = "GrpFanTypes"
         Me.GrpFanTypes.TabStop = False
@@ -1402,9 +1358,10 @@ Partial Class Frmselectfan
         '
         'TabPageSelection
         '
-        resources.ApplyResources(Me.TabPageSelection, "TabPageSelection")
         Me.TabPageSelection.BackColor = System.Drawing.Color.Transparent
         Me.TabPageSelection.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
+        resources.ApplyResources(Me.TabPageSelection, "TabPageSelection")
+        Me.TabPageSelection.Controls.Add(Me.Label13)
         Me.TabPageSelection.Controls.Add(Me.lblRunningAt)
         Me.TabPageSelection.Controls.Add(Me.lblIncludeAllFanEfficiency)
         Me.TabPageSelection.Controls.Add(Me.lblIncludeReserveHead)
@@ -1440,6 +1397,11 @@ Partial Class Frmselectfan
         Me.TabPageSelection.Controls.Add(Me.Button3)
         Me.TabPageSelection.Controls.Add(Me.DataGridView1)
         Me.TabPageSelection.Name = "TabPageSelection"
+        '
+        'Label13
+        '
+        resources.ApplyResources(Me.Label13, "Label13")
+        Me.Label13.Name = "Label13"
         '
         'lblRunningAt
         '
@@ -1555,8 +1517,8 @@ Partial Class Frmselectfan
         '
         'btnSelectionsExit
         '
-        resources.ApplyResources(Me.btnSelectionsExit, "btnSelectionsExit")
         Me.btnSelectionsExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnSelectionsExit, "btnSelectionsExit")
         Me.btnSelectionsExit.Name = "btnSelectionsExit"
         Me.btnSelectionsExit.UseVisualStyleBackColor = True
         '
@@ -1623,22 +1585,21 @@ Partial Class Frmselectfan
         '
         'TxtDensity
         '
-        resources.ApplyResources(Me.TxtDensity, "TxtDensity")
         Me.TxtDensity.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.TxtDensity, "TxtDensity")
         Me.TxtDensity.ForeColor = System.Drawing.Color.Black
         Me.TxtDensity.Name = "TxtDensity"
         '
         'Button3
         '
-        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.BackColor = System.Drawing.Color.Transparent
+        resources.ApplyResources(Me.Button3, "Button3")
         Me.Button3.ForeColor = System.Drawing.Color.Black
         Me.Button3.Name = "Button3"
         Me.Button3.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
-        resources.ApplyResources(Me.DataGridView1, "DataGridView1")
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToOrderColumns = True
@@ -1651,15 +1612,16 @@ Partial Class Frmselectfan
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        resources.ApplyResources(Me.DataGridView1, "DataGridView1")
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowTemplate.Height = 24
         '
         'TabPageNoise
         '
-        resources.ApplyResources(Me.TabPageNoise, "TabPageNoise")
         Me.TabPageNoise.BackColor = System.Drawing.Color.Transparent
         Me.TabPageNoise.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
+        resources.ApplyResources(Me.TabPageNoise, "TabPageNoise")
         Me.TabPageNoise.Controls.Add(Me.lblOverall)
         Me.TabPageNoise.Controls.Add(Me.lblBand)
         Me.TabPageNoise.Controls.Add(Me.lblSWL1m)
@@ -1674,7 +1636,7 @@ Partial Class Frmselectfan
         Me.TabPageNoise.Controls.Add(Me.lblOutletDimensions)
         Me.TabPageNoise.Controls.Add(Me.lblInletDiameter)
         Me.TabPageNoise.Controls.Add(Me.btnFanSelectionsBack)
-        Me.TabPageNoise.Controls.Add(Me.btnSaveProjectForward)
+        Me.TabPageNoise.Controls.Add(Me.btnImpellerDetailsForward)
         Me.TabPageNoise.Controls.Add(Me.GroupBox4)
         Me.TabPageNoise.Controls.Add(Me.GroupBox3)
         Me.TabPageNoise.Controls.Add(Me.TxtTypenoise)
@@ -1770,20 +1732,20 @@ Partial Class Frmselectfan
         Me.btnFanSelectionsBack.Name = "btnFanSelectionsBack"
         Me.btnFanSelectionsBack.UseVisualStyleBackColor = True
         '
-        'btnSaveProjectForward
+        'btnImpellerDetailsForward
         '
-        resources.ApplyResources(Me.btnSaveProjectForward, "btnSaveProjectForward")
-        Me.btnSaveProjectForward.Name = "btnSaveProjectForward"
-        Me.btnSaveProjectForward.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.btnImpellerDetailsForward, "btnImpellerDetailsForward")
+        Me.btnImpellerDetailsForward.Name = "btnImpellerDetailsForward"
+        Me.btnImpellerDetailsForward.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
-        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox4.Controls.Add(Me.Label17)
         Me.GroupBox4.Controls.Add(Me.txtMotordba)
         Me.GroupBox4.Controls.Add(Me.chkMotor)
         Me.GroupBox4.Controls.Add(Me.chkBrg)
+        resources.ApplyResources(Me.GroupBox4, "GroupBox4")
         Me.GroupBox4.ForeColor = System.Drawing.Color.Black
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.TabStop = False
@@ -1814,11 +1776,11 @@ Partial Class Frmselectfan
         '
         'GroupBox3
         '
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.chkOpenOutlet)
         Me.GroupBox3.Controls.Add(Me.chkOpenInlet)
         Me.GroupBox3.Controls.Add(Me.chkDuct)
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.ForeColor = System.Drawing.Color.Black
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False
@@ -1849,8 +1811,8 @@ Partial Class Frmselectfan
         '
         'TxtTypenoise
         '
-        resources.ApplyResources(Me.TxtTypenoise, "TxtTypenoise")
         Me.TxtTypenoise.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.TxtTypenoise, "TxtTypenoise")
         Me.TxtTypenoise.ForeColor = System.Drawing.Color.Black
         Me.TxtTypenoise.Name = "TxtTypenoise"
         Me.TxtTypenoise.ReadOnly = True
@@ -1871,8 +1833,8 @@ Partial Class Frmselectfan
         '
         'TxtSizenoise
         '
-        resources.ApplyResources(Me.TxtSizenoise, "TxtSizenoise")
         Me.TxtSizenoise.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.TxtSizenoise, "TxtSizenoise")
         Me.TxtSizenoise.ForeColor = System.Drawing.Color.Black
         Me.TxtSizenoise.Name = "TxtSizenoise"
         Me.TxtSizenoise.ReadOnly = True
@@ -1893,8 +1855,8 @@ Partial Class Frmselectfan
         '
         'TxtStaticPressurenoise
         '
-        resources.ApplyResources(Me.TxtStaticPressurenoise, "TxtStaticPressurenoise")
         Me.TxtStaticPressurenoise.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.TxtStaticPressurenoise, "TxtStaticPressurenoise")
         Me.TxtStaticPressurenoise.ForeColor = System.Drawing.Color.Black
         Me.TxtStaticPressurenoise.Name = "TxtStaticPressurenoise"
         Me.TxtStaticPressurenoise.ReadOnly = True
@@ -1915,8 +1877,8 @@ Partial Class Frmselectfan
         '
         'TxtSpeednoise
         '
-        resources.ApplyResources(Me.TxtSpeednoise, "TxtSpeednoise")
         Me.TxtSpeednoise.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.TxtSpeednoise, "TxtSpeednoise")
         Me.TxtSpeednoise.ForeColor = System.Drawing.Color.Black
         Me.TxtSpeednoise.Name = "TxtSpeednoise"
         Me.TxtSpeednoise.ReadOnly = True
@@ -1937,8 +1899,8 @@ Partial Class Frmselectfan
         '
         'TxtFlownoise
         '
-        resources.ApplyResources(Me.TxtFlownoise, "TxtFlownoise")
         Me.TxtFlownoise.BackColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.TxtFlownoise, "TxtFlownoise")
         Me.TxtFlownoise.ForeColor = System.Drawing.Color.Black
         Me.TxtFlownoise.Name = "TxtFlownoise"
         Me.TxtFlownoise.ReadOnly = True
@@ -1952,20 +1914,20 @@ Partial Class Frmselectfan
         '
         'GroupBox5
         '
-        resources.ApplyResources(Me.GroupBox5, "GroupBox5")
         Me.GroupBox5.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox5.Controls.Add(Me.lblAcousticFTPUnits)
         Me.GroupBox5.Controls.Add(Me.Label20)
         Me.GroupBox5.Controls.Add(Me.TxtTotalPressurenoise)
+        resources.ApplyResources(Me.GroupBox5, "GroupBox5")
         Me.GroupBox5.ForeColor = System.Drawing.Color.Black
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.TabStop = False
         '
         'lblAcousticFTPUnits
         '
-        resources.ApplyResources(Me.lblAcousticFTPUnits, "lblAcousticFTPUnits")
         Me.lblAcousticFTPUnits.BackColor = System.Drawing.Color.Transparent
         Me.lblAcousticFTPUnits.ForeColor = System.Drawing.Color.Black
+        resources.ApplyResources(Me.lblAcousticFTPUnits, "lblAcousticFTPUnits")
         Me.lblAcousticFTPUnits.Name = "lblAcousticFTPUnits"
         '
         'Label20
@@ -1977,16 +1939,16 @@ Partial Class Frmselectfan
         '
         'TxtTotalPressurenoise
         '
-        resources.ApplyResources(Me.TxtTotalPressurenoise, "TxtTotalPressurenoise")
         Me.TxtTotalPressurenoise.BackColor = System.Drawing.Color.White
         Me.TxtTotalPressurenoise.ForeColor = System.Drawing.Color.Black
+        resources.ApplyResources(Me.TxtTotalPressurenoise, "TxtTotalPressurenoise")
         Me.TxtTotalPressurenoise.Name = "TxtTotalPressurenoise"
         Me.TxtTotalPressurenoise.ReadOnly = True
         '
         'btnNoiseExit
         '
-        resources.ApplyResources(Me.btnNoiseExit, "btnNoiseExit")
         Me.btnNoiseExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnNoiseExit, "btnNoiseExit")
         Me.btnNoiseExit.Name = "btnNoiseExit"
         Me.btnNoiseExit.UseVisualStyleBackColor = True
         '
@@ -2006,7 +1968,6 @@ Partial Class Frmselectfan
         '
         'DataGridView2
         '
-        resources.ApplyResources(Me.DataGridView2, "DataGridView2")
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
@@ -2019,110 +1980,118 @@ Partial Class Frmselectfan
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        resources.ApplyResources(Me.DataGridView2, "DataGridView2")
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
         Me.DataGridView2.RowTemplate.Height = 24
         '
         'TabPageImpeller
         '
+        Me.TabPageImpeller.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
         resources.ApplyResources(Me.TabPageImpeller, "TabPageImpeller")
+        Me.TabPageImpeller.Controls.Add(Me.lblPhase2)
+        Me.TabPageImpeller.Controls.Add(Me.btnNoiseDataBack)
         Me.TabPageImpeller.Controls.Add(Me.Button2)
-        Me.TabPageImpeller.Controls.Add(Me.PictureBox2)
         Me.TabPageImpeller.Name = "TabPageImpeller"
         Me.TabPageImpeller.UseVisualStyleBackColor = True
+        '
+        'lblPhase2
+        '
+        resources.ApplyResources(Me.lblPhase2, "lblPhase2")
+        Me.lblPhase2.Name = "lblPhase2"
+        '
+        'btnNoiseDataBack
+        '
+        resources.ApplyResources(Me.btnNoiseDataBack, "btnNoiseDataBack")
+        Me.btnNoiseDataBack.Name = "btnNoiseDataBack"
+        Me.btnNoiseDataBack.UseVisualStyleBackColor = True
         '
         'Button2
         '
         resources.ApplyResources(Me.Button2, "Button2")
-        Me.Button2.ForeColor = System.Drawing.Color.Red
+        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Button2.Name = "Button2"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'PictureBox2
-        '
-        resources.ApplyResources(Me.PictureBox2, "PictureBox2")
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.TabStop = False
-        '
         'MenuStrip1
         '
-        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem, Me.ProjectDetailsToolStripMenuItem, Me.UnitsToolStripMenuItem})
+        resources.ApplyResources(Me.MenuStrip1, "MenuStrip1")
         Me.MenuStrip1.Name = "MenuStrip1"
         '
         'FileToolStripMenuItem
         '
-        resources.ApplyResources(Me.FileToolStripMenuItem, "FileToolStripMenuItem")
         Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.OpenProjectToolStripMenuItem, Me.SaveProjectToolStripMenuItem, Me.PrintToolStripMenuItem, Me.ChangeLanguageToolStripMenuItem, Me.ExitProjectToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
+        resources.ApplyResources(Me.FileToolStripMenuItem, "FileToolStripMenuItem")
         '
         'OpenToolStripMenuItem
         '
-        resources.ApplyResources(Me.OpenToolStripMenuItem, "OpenToolStripMenuItem")
         Me.OpenToolStripMenuItem.Name = "OpenToolStripMenuItem"
+        resources.ApplyResources(Me.OpenToolStripMenuItem, "OpenToolStripMenuItem")
         '
         'OpenProjectToolStripMenuItem
         '
-        resources.ApplyResources(Me.OpenProjectToolStripMenuItem, "OpenProjectToolStripMenuItem")
         Me.OpenProjectToolStripMenuItem.Name = "OpenProjectToolStripMenuItem"
+        resources.ApplyResources(Me.OpenProjectToolStripMenuItem, "OpenProjectToolStripMenuItem")
         '
         'SaveProjectToolStripMenuItem
         '
-        resources.ApplyResources(Me.SaveProjectToolStripMenuItem, "SaveProjectToolStripMenuItem")
         Me.SaveProjectToolStripMenuItem.Name = "SaveProjectToolStripMenuItem"
+        resources.ApplyResources(Me.SaveProjectToolStripMenuItem, "SaveProjectToolStripMenuItem")
         '
         'PrintToolStripMenuItem
         '
-        resources.ApplyResources(Me.PrintToolStripMenuItem, "PrintToolStripMenuItem")
         Me.PrintToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllPagesToolStripMenuItem, Me.PerformanceDetailsToolStripMenuItem, Me.AcousticsDetailsToolStripMenuItem})
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
+        resources.ApplyResources(Me.PrintToolStripMenuItem, "PrintToolStripMenuItem")
         '
         'AllPagesToolStripMenuItem
         '
-        resources.ApplyResources(Me.AllPagesToolStripMenuItem, "AllPagesToolStripMenuItem")
         Me.AllPagesToolStripMenuItem.Name = "AllPagesToolStripMenuItem"
+        resources.ApplyResources(Me.AllPagesToolStripMenuItem, "AllPagesToolStripMenuItem")
         '
         'PerformanceDetailsToolStripMenuItem
         '
-        resources.ApplyResources(Me.PerformanceDetailsToolStripMenuItem, "PerformanceDetailsToolStripMenuItem")
         Me.PerformanceDetailsToolStripMenuItem.Name = "PerformanceDetailsToolStripMenuItem"
+        resources.ApplyResources(Me.PerformanceDetailsToolStripMenuItem, "PerformanceDetailsToolStripMenuItem")
         '
         'AcousticsDetailsToolStripMenuItem
         '
-        resources.ApplyResources(Me.AcousticsDetailsToolStripMenuItem, "AcousticsDetailsToolStripMenuItem")
         Me.AcousticsDetailsToolStripMenuItem.Name = "AcousticsDetailsToolStripMenuItem"
+        resources.ApplyResources(Me.AcousticsDetailsToolStripMenuItem, "AcousticsDetailsToolStripMenuItem")
         '
         'ChangeLanguageToolStripMenuItem
         '
-        resources.ApplyResources(Me.ChangeLanguageToolStripMenuItem, "ChangeLanguageToolStripMenuItem")
         Me.ChangeLanguageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnglishToolStripMenuItem, Me.ChineseToolStripMenuItem})
         Me.ChangeLanguageToolStripMenuItem.Name = "ChangeLanguageToolStripMenuItem"
+        resources.ApplyResources(Me.ChangeLanguageToolStripMenuItem, "ChangeLanguageToolStripMenuItem")
         '
         'EnglishToolStripMenuItem
         '
-        resources.ApplyResources(Me.EnglishToolStripMenuItem, "EnglishToolStripMenuItem")
         Me.EnglishToolStripMenuItem.Name = "EnglishToolStripMenuItem"
+        resources.ApplyResources(Me.EnglishToolStripMenuItem, "EnglishToolStripMenuItem")
         '
         'ChineseToolStripMenuItem
         '
-        resources.ApplyResources(Me.ChineseToolStripMenuItem, "ChineseToolStripMenuItem")
         Me.ChineseToolStripMenuItem.Name = "ChineseToolStripMenuItem"
+        resources.ApplyResources(Me.ChineseToolStripMenuItem, "ChineseToolStripMenuItem")
         '
         'ExitProjectToolStripMenuItem
         '
-        resources.ApplyResources(Me.ExitProjectToolStripMenuItem, "ExitProjectToolStripMenuItem")
         Me.ExitProjectToolStripMenuItem.Name = "ExitProjectToolStripMenuItem"
+        resources.ApplyResources(Me.ExitProjectToolStripMenuItem, "ExitProjectToolStripMenuItem")
         '
         'ProjectDetailsToolStripMenuItem
         '
-        resources.ApplyResources(Me.ProjectDetailsToolStripMenuItem, "ProjectDetailsToolStripMenuItem")
         Me.ProjectDetailsToolStripMenuItem.Name = "ProjectDetailsToolStripMenuItem"
+        resources.ApplyResources(Me.ProjectDetailsToolStripMenuItem, "ProjectDetailsToolStripMenuItem")
         '
         'UnitsToolStripMenuItem
         '
-        resources.ApplyResources(Me.UnitsToolStripMenuItem, "UnitsToolStripMenuItem")
         Me.UnitsToolStripMenuItem.Name = "UnitsToolStripMenuItem"
+        resources.ApplyResources(Me.UnitsToolStripMenuItem, "UnitsToolStripMenuItem")
         '
         'PictureBox1
         '
@@ -2131,47 +2100,11 @@ Partial Class Frmselectfan
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
-        'lblTabGeneralInformation
-        '
-        resources.ApplyResources(Me.lblTabGeneralInformation, "lblTabGeneralInformation")
-        Me.lblTabGeneralInformation.Name = "lblTabGeneralInformation"
-        '
-        'lblTabDutyInput
-        '
-        resources.ApplyResources(Me.lblTabDutyInput, "lblTabDutyInput")
-        Me.lblTabDutyInput.Name = "lblTabDutyInput"
-        '
-        'lblTabFanParameters
-        '
-        resources.ApplyResources(Me.lblTabFanParameters, "lblTabFanParameters")
-        Me.lblTabFanParameters.Name = "lblTabFanParameters"
-        '
-        'lblTabSelections
-        '
-        resources.ApplyResources(Me.lblTabSelections, "lblTabSelections")
-        Me.lblTabSelections.Name = "lblTabSelections"
-        '
-        'lblTabAcoustics
-        '
-        resources.ApplyResources(Me.lblTabAcoustics, "lblTabAcoustics")
-        Me.lblTabAcoustics.Name = "lblTabAcoustics"
-        '
-        'lblTabImpeller
-        '
-        resources.ApplyResources(Me.lblTabImpeller, "lblTabImpeller")
-        Me.lblTabImpeller.Name = "lblTabImpeller"
-        '
         'Frmselectfan
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnDutyExit
-        Me.Controls.Add(Me.lblTabImpeller)
-        Me.Controls.Add(Me.lblTabAcoustics)
-        Me.Controls.Add(Me.lblTabSelections)
-        Me.Controls.Add(Me.lblTabFanParameters)
-        Me.Controls.Add(Me.lblTabDutyInput)
-        Me.Controls.Add(Me.lblTabGeneralInformation)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -2209,8 +2142,6 @@ Partial Class Frmselectfan
         Me.GrpFlowRate.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GrpDesignPressure.ResumeLayout(False)
@@ -2240,7 +2171,7 @@ Partial Class Frmselectfan
         Me.GroupBox5.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPageImpeller.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPageImpeller.PerformLayout()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2254,10 +2185,8 @@ Partial Class Frmselectfan
     Friend WithEvents GrpInletTemperature As GroupBox
     Friend WithEvents LblDesignTemperature As Label
     Friend WithEvents TxtDesignTemperature As TextBox
-    Friend WithEvents Button1 As Button
     Friend WithEvents TabPageSelection As TabPage
     Friend WithEvents TabPageNoise As TabPage
-    Friend WithEvents TabPageImpeller As TabPage
     Friend WithEvents btnDutyExit As Button
     Friend WithEvents TxtMaximumTemperature As TextBox
     Friend WithEvents LblMaximumTemperature As Label
@@ -2304,9 +2233,6 @@ Partial Class Frmselectfan
     Friend WithEvents Button3 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents OptXLS As RadioButton
-    Friend WithEvents OptTXT As RadioButton
     Friend WithEvents Label3 As Label
     Friend WithEvents LblFanDetails As Label
     Friend WithEvents TxtTypenoise As TextBox
@@ -2387,7 +2313,7 @@ Partial Class Frmselectfan
     Friend WithEvents btnFanParametersBack As Button
     Friend WithEvents btnNoiseDataForward As Button
     Friend WithEvents btnFanSelectionsBack As Button
-    Friend WithEvents btnSaveProjectForward As Button
+    Friend WithEvents btnImpellerDetailsForward As Button
     Friend WithEvents GroupBox9 As GroupBox
     Friend WithEvents OptVelocityFtpermin As RadioButton
     Friend WithEvents OptVelocityMpers As RadioButton
@@ -2455,19 +2381,11 @@ Partial Class Frmselectfan
     Friend WithEvents lblFreeFieldComment As Label
     Friend WithEvents lblFlowType As Label
     Friend WithEvents OptFixedSpeed As RadioButton
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Button2 As Button
     Friend WithEvents lblBPF2 As Label
     Friend WithEvents lblBPF As Label
     Friend WithEvents PerformanceDetailsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AcousticsDetailsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AllPagesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents lblTabGeneralInformation As Label
-    Friend WithEvents lblTabDutyInput As Label
-    Friend WithEvents lblTabFanParameters As Label
-    Friend WithEvents lblTabSelections As Label
-    Friend WithEvents lblTabAcoustics As Label
-    Friend WithEvents lblTabImpeller As Label
     Friend WithEvents lblDisplayBoth As Label
     Friend WithEvents lblChkAtmosAlt As Label
     Friend WithEvents Label5 As Label
@@ -2499,4 +2417,9 @@ Partial Class Frmselectfan
     Friend WithEvents lblMassFlow As Label
     Friend WithEvents lblVolumeFlow As Label
     Friend WithEvents lblRunningAt As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents TabPageImpeller As TabPage
+    Friend WithEvents Button2 As Button
+    Friend WithEvents btnNoiseDataBack As Button
+    Friend WithEvents lblPhase2 As Label
 End Class

@@ -30,7 +30,6 @@ Partial Class FrmStart
         Me.btnExit = New System.Windows.Forms.Button()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.txtUsername = New System.Windows.Forms.TextBox()
-        Me.chkByDialogs = New System.Windows.Forms.CheckBox()
         Me.btnSettings = New System.Windows.Forms.Button()
         Me.chkAdvancedUser = New System.Windows.Forms.CheckBox()
         Me.lblVersion = New System.Windows.Forms.Label()
@@ -85,12 +84,6 @@ Partial Class FrmStart
         '
         resources.ApplyResources(Me.txtUsername, "txtUsername")
         Me.txtUsername.Name = "txtUsername"
-        '
-        'chkByDialogs
-        '
-        resources.ApplyResources(Me.chkByDialogs, "chkByDialogs")
-        Me.chkByDialogs.Name = "chkByDialogs"
-        Me.chkByDialogs.UseVisualStyleBackColor = True
         '
         'btnSettings
         '
@@ -155,15 +148,14 @@ Partial Class FrmStart
         Me.Controls.Add(Me.lblVersion)
         Me.Controls.Add(Me.chkAdvancedUser)
         Me.Controls.Add(Me.btnSettings)
-        Me.Controls.Add(Me.chkByDialogs)
         Me.Controls.Add(Me.txtUsername)
         Me.Controls.Add(Me.lblUsername)
         Me.Controls.Add(Me.btnExit)
-        Me.Controls.Add(Me.btnContinue)
         Me.Controls.Add(Me.lblHalifaxFanSelector)
         Me.Controls.Add(Me.lblToThe)
         Me.Controls.Add(Me.lblWelcome)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.btnContinue)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmStart"
@@ -183,7 +175,6 @@ Partial Class FrmStart
     Friend WithEvents btnExit As Button
     Friend WithEvents lblUsername As Label
     Friend WithEvents txtUsername As TextBox
-    Friend WithEvents chkByDialogs As CheckBox
     Friend WithEvents btnSettings As Button
     Friend WithEvents chkAdvancedUser As CheckBox
     Friend WithEvents lblVersion As Label

@@ -117,18 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblWelcome.Location" type="System.Drawing.Point, System.Drawing">
+    <value>125, 188</value>
+  </data>
+  <data name="lblWelcome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 59</value>
+  </data>
   <data name="lblWelcome.Text" xml:space="preserve">
     <value>高级用户</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblToThe.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 243</value>
+  </data>
   <data name="lblToThe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 48</value>
+    <value>110, 59</value>
   </data>
   <data name="lblToThe.Text" xml:space="preserve">
     <value>   到</value>
   </data>
+  <data name="lblHalifaxFanSelector.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 307</value>
+  </data>
   <data name="lblHalifaxFanSelector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>450, 48</value>
+    <value>503, 54</value>
   </data>
   <data name="lblHalifaxFanSelector.Text" xml:space="preserve">
     <value>哈利法克斯风扇选择器</value>
@@ -139,8 +151,17 @@
   <data name="btnExit.Text" xml:space="preserve">
     <value>退出</value>
   </data>
+  <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 157</value>
+  </data>
+  <data name="txtUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>123, 150</value>
+  </data>
+  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>275, 380</value>
+  </data>
   <data name="btnSettings.Text" xml:space="preserve">
-    <value>设置</value>
+    <value>设置默认值</value>
   </data>
   <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 22</value>

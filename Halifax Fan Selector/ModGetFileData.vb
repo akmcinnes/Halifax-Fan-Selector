@@ -15,6 +15,7 @@ Module ModGetFileData
                     fanclass(j) = br.ReadString()
                     fantypefilename(j) = br.ReadString()
                     fansizelimit(j) = br.ReadInt32()
+                    If fansizelimit(j) = 0 Then fansizelimit(j) = 102
                     fantypesecfilename(j) = br.ReadString()
                     fanunits(j) = br.ReadString()
                     fanwidthing(j) = br.ReadBoolean()

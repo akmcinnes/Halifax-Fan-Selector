@@ -124,9 +124,9 @@ Public Class FrmDensityCalcs
     Private Sub GasInitialise()
         Try
             Dim language As String = ChosenLanguage
-            'If version_number.Contains("1.0.2") Then language = "en-US"
+            'If version_number.Contains("1.0.2") Then language = "en-GB"
             Dim filenameref As String = "Gas Data " + language
-            'Dim filenameref As String = "Gas Data " + "en-US"
+            'Dim filenameref As String = "Gas Data " + "en-GB"
             If RadioButton1.Checked Then DataGridView3.Columns(1).HeaderCell.Value = "Mass Factor"
             If RadioButton2.Checked Then DataGridView3.Columns(1).HeaderCell.Value = "Volume Factor"
             If RadioButton3.Checked Then DataGridView3.Columns(1).HeaderCell.Value = "Mole Factor"

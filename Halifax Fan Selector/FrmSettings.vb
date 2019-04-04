@@ -7,10 +7,21 @@ Public Class FrmSettings
     Private PrintPageSettings As New PageSettings
     Private Sub btnEnd_Click(sender As Object, e As EventArgs) Handles btnEnd.Click
         Try
-            Background_Color = ColorDialog1.Color
+            'Background_Color = ColorDialog1.Color
+            Dim Path As String
+            Path = UserProfile + "\Halifax.ini"
+
+            Dim str As String
+            str = SystemDrive + "\Halifax\"
+            writeIni(Path, "Settings", "Halifax Root Folder", str)
+            writeIni(Path, "Settings", "Language", ChosenLanguage)
+            If username.Length < 1 Then username = "HFL Sales"
+            writeIni(Path, "Settings", "User", username)
             ReadWriteINI()
-            FrmStart.Hide()
-            FrmStart.Show()
+            'FrmStart.Hide()
+            'FrmStart.Show()
+            FrmStart.optEnglish.Checked = optEnglish.Checked
+            FrmStart.optChinese.Checked = optChinese.Checked
 
             If DataPath IsNot Nothing Then
                 FrmStart.btnContinue.Visible = True
@@ -23,27 +34,34 @@ Public Class FrmSettings
         End Try
     End Sub
 
-    Private Sub btnBackgroundColour_Click(sender As Object, e As EventArgs) Handles btnBackgroundColour.Click
-        Try
-            ColorDialog1.ShowDialog()
+    'Private Sub btnBackgroundColour_Click(sender As Object, e As EventArgs) Handles btnBackgroundColour.Click
+    '    Try
+    '        ColorDialog1.ShowDialog()
 
-        Catch ex As Exception
-            ErrorMessage(ex, 20401)
-        End Try
-    End Sub
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 20401)
+    '    End Try
+    'End Sub
 
     Private Sub FrmSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
+            'Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture
             CenterToScreen()
             txtUsername.Text = Environment.UserName
             'UserName = Environment.UserName'300119
+            DataPath_main = GetFromINI("Settings", "Halifax Root Folder", SystemDrive + "\Halifax\", ini_path)
+            ChosenLanguage = GetFromINI("Settings", "Language", "en-GB", ini_path)
+            username = GetFromINI("Settings", "User", "HFL Sales", ini_path)
             If txtUsername.Text.ToLower.Contains("akm") Then
-            grpLanguage.Visible = True
-            optEnglish.Visible = True
-            optChinese.Visible = True
-            chkAdvancedUser.Visible = True
-        End If
-        chkAdvancedUser.Checked = False
+                grpLanguage.Visible = True
+                optEnglish.Visible = True
+                optChinese.Visible = True
+                'chkAdvancedUser.Visible = True
+                If ChosenLanguage = "zh-CN" Then optChinese.Checked = True
+                If ChosenLanguage = "en-GB" Then optEnglish.Checked = True
+            End If
+
+            chkAdvancedUser.Checked = False
 
         Catch ex As Exception
             ErrorMessage(ex, 20402)
@@ -52,7 +70,8 @@ Public Class FrmSettings
 
     Private Sub optEnglish_CheckedChanged(sender As Object, e As EventArgs) Handles optEnglish.CheckedChanged
         Try
-            ChosenLanguage = "en_US"
+            Dim lans As String = CultureInfo.CurrentCulture.ThreeLetterISOLanguageName
+            ChosenLanguage = "en-GB"
             If optEnglish.Checked Then ApplyLocale(ChosenLanguage)
             'If optEnglish.Checked Then ApplyLocale()
 
@@ -76,34 +95,34 @@ Public Class FrmSettings
         Try
             ' Make a CultureInfo and ComponentResourceManager.
             Dim culture_info As New CultureInfo(locale_name)
-        Dim component_resource_manager As New ComponentResourceManager(Me.GetType)
+            Dim component_resource_manager As New ComponentResourceManager(Me.GetType)
 
-        ' Make the thread use this locale. This doesn't change
-        ' existing controls but will apply to those loaded later
-        ' and to messages we get for Help About (see below).
-        Thread.CurrentThread.CurrentUICulture = culture_info
-        Thread.CurrentThread.CurrentCulture = culture_info
+            ' Make the thread use this locale. This doesn't change
+            ' existing controls but will apply to those loaded later
+            ' and to messages we get for Help About (see below).
+            Thread.CurrentThread.CurrentUICulture = culture_info
+            Thread.CurrentThread.CurrentCulture = culture_info
 
-        ' Apply the locale to the form itself.
-        ' Debug.WriteLine("$this")
-        component_resource_manager.ApplyResources(Me, "$this", culture_info)
-        'If grpLanguage.Visible = False Then MsgBox("invisible")
-        ' Apply the locale to the form's controls.
-        For Each ctl As Control In Me.Controls
-            ApplyLocaleToControl(ctl, component_resource_manager, culture_info)
-        Next ctl
-        'Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte)) ',                        FontStyle.Bold Or FontStyle.Italic)
+            ' Apply the locale to the form itself.
+            ' Debug.WriteLine("$this")
+            component_resource_manager.ApplyResources(Me, "$this", culture_info)
+            'If grpLanguage.Visible = False Then MsgBox("invisible")
+            ' Apply the locale to the form's controls.
+            For Each ctl As Control In Me.Controls
+                ApplyLocaleToControl(ctl, component_resource_manager, culture_info)
+            Next ctl
+            'Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte)) ',                        FontStyle.Bold Or FontStyle.Italic)
 
-        ' Perform manual localizations.
-        ' These resources are stored in the Form1 resource files.
-        'Dim resource_manager As New ResourceManager("Localized.Form1", Me.GetType.Assembly)
-        Dim resource_manager As New ResourceManager("Localized.FrmSettings", Me.GetType.Assembly)
-        If txtUsername.Text.ToLower.Contains("akm") Then
-            grpLanguage.Visible = True
-            optEnglish.Visible = True
-            optChinese.Visible = True
-            chkAdvancedUser.Visible = True
-        End If
+            ' Perform manual localizations.
+            ' These resources are stored in the Form1 resource files.
+            'Dim resource_manager As New ResourceManager("Localized.Form1", Me.GetType.Assembly)
+            Dim resource_manager As New ResourceManager("Localized.FrmSettings", Me.GetType.Assembly)
+            If txtUsername.Text.ToLower.Contains("akm") Then
+                grpLanguage.Visible = True
+                optEnglish.Visible = True
+                optChinese.Visible = True
+                'chkAdvancedUser.Visible = True
+            End If
             'btnContinue.Text = resource_manager.GetString("btnContinue.Text")
             'btnExit.Text = resource_manager.GetString("btnExit.Text")
             'btnSettings.Text = resource_manager.GetString("btnSettings.Text")
@@ -138,8 +157,8 @@ Public Class FrmSettings
             'Else
             ' Apply the new locale to the control's children.
             For Each child As Control In ctl.Controls
-            ApplyLocaleToControl(child, component_resource_manager, culture_info)
-        Next child
+                ApplyLocaleToControl(child, component_resource_manager, culture_info)
+            Next child
             'End If
 
         Catch ex As Exception
@@ -153,11 +172,11 @@ Public Class FrmSettings
             FolderBrowserDialog1.RootFolder = Environment.SpecialFolder.Desktop
             FolderBrowserDialog1.SelectedPath = DataPathDefault
             FolderBrowserDialog1.Description = "Select Application Configuration Files Path"
-        FolderBrowserDialog1.ShowNewFolderButton = False
-        FolderBrowserDialog1.ShowDialog()
+            FolderBrowserDialog1.ShowNewFolderButton = False
+            FolderBrowserDialog1.ShowDialog()
             DataPath = FolderBrowserDialog1.SelectedPath ' + "\"
             Label1.Text = "Data Path - " + DataPath
-        Label1.ForeColor = Color.White
+            Label1.ForeColor = Color.White
 
         Catch ex As Exception
             ErrorMessage(ex, 20407)
@@ -173,5 +192,9 @@ Public Class FrmSettings
         Catch ex As Exception
             ErrorMessage(ex, 20408)
         End Try
+    End Sub
+
+    Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
+        username = txtUsername.Text
     End Sub
 End Class

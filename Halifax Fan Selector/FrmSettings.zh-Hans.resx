@@ -130,14 +130,8 @@
   <data name="chkAdvancedUser.Text" xml:space="preserve">
     <value>高级用户</value>
   </data>
-  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 21</value>
-  </data>
-  <data name="optChinese.Text" xml:space="preserve">
-    <value>中文</value>
-  </data>
   <data name="grpLanguage.Text" xml:space="preserve">
-    <value>选择语言</value>
+    <value>选择默认语言</value>
   </data>
   <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 21</value>

@@ -655,9 +655,11 @@ Module ModNoiseMainFunctions
                 'IDSPL
                 txtSPL.Text = Frmselectfan.txtMotordba.Text
                 Frmselectfan.DataGridView2.Rows(rownum).Cells(1).Value = txtSPL.Text
+                MTRnoise = CInt(Frmselectfan.txtMotordba.Text)
             Else
                 Frmselectfan.DataGridView2.Rows(rownum).Cells(0).Value = ""
                 Frmselectfan.DataGridView2.Rows(rownum).Cells(1).Value = ""
+                MTRnoise = 0
             End If
 
         Catch ex As Exception

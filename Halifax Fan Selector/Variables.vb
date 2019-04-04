@@ -17,6 +17,10 @@ Module Variables
     'Public DataPathDefault As String = ".\Performance Data\"
     Public DataPath As String
 
+    Public FullFilePathtxt As String
+
+    Public username As String
+
     Public StartArg As String
 
     Public Flag(9) As Boolean
@@ -123,6 +127,7 @@ Module Variables
     Public datapointI(50, 10000) As Double
 
     Public fanfailures(50, 1) As String
+    Public failurevalue(50) As String
     Public failindex As Integer
 
     Public originaldensity As Double
@@ -315,7 +320,7 @@ Module Variables
     'Public NewCurve As Boolean
 
     Public fan2plot As Integer
-    'Public objStreamWriterDebug As New StreamWriter("c:\Halifax\debugnew.txt")
+    'Public objStreamWriter As New StreamWriter("c:\Halifax\output.txt")
 
     'noise variables
     Public SPL As Single
@@ -365,6 +370,7 @@ Module Variables
     Public outX As Single
     'Public OUTarea As Single
     Public BRGnoise As Integer
+    Public MTRnoise As Integer
     'Public brgrow As Integer
     'Public Motorrow As Integer
     Public BPfreq As Integer
@@ -384,5 +390,7 @@ Module Variables
 
     Public outfile(10000000) As Char
     Public filename As String
+
+    Public kpatmos As Double
 
 End Module

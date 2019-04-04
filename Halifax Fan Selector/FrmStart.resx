@@ -118,21 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnSettings.Text" xml:space="preserve">
+    <value>Set Defaults</value>
   </data>
   <data name="&gt;&gt;optEnglish.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnSettings.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="chkByDialogs.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkAdvancedUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 389</value>
+    <value>168, 480</value>
   </data>
   <data name="PictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -148,13 +145,10 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="btnExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 337</value>
+    <value>15, 433</value>
   </data>
   <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
-  </data>
-  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
   </data>
   <data name="btnSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -168,26 +162,26 @@
   <data name="btnExit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Neue Haas Grotesk Text Pro, 10.2pt, style=Bold</value>
   </data>
-  <data name="lblToThe.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 22.2pt, style=Bold</value>
-  </data>
   <data name="lblVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>285, 467</value>
+    <value>22, 480</value>
   </data>
   <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="chkAdvancedUser.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
   <data name="lblHalifaxFanSelector.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="&gt;&gt;grpLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblUsername.Name" xml:space="preserve">
+    <value>lblUsername</value>
   </data>
   <data name="&gt;&gt;btnContinue.Parent" xml:space="preserve">
     <value>$this</value>
@@ -196,7 +190,7 @@
     <value>btnSettings</value>
   </data>
   <data name="lblToThe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 48</value>
+    <value>168, 59</value>
   </data>
   <data name="&gt;&gt;lblHalifaxFanSelector.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -205,34 +199,25 @@
     <value>$this</value>
   </data>
   <data name="lblHalifaxFanSelector.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 22.2pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>Neue Haas Grotesk Text Pro, 25.8pt, style=Bold</value>
   </data>
   <data name="lblHalifaxFanSelector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 258</value>
+    <value>35, 293</value>
   </data>
   <data name="lblDate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;btnExit.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="lblToThe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 219</value>
+    <value>158, 237</value>
   </data>
   <data name="lblHalifaxFanSelector.Text" xml:space="preserve">
     <value>Halifax Fan Selector</value>
   </data>
   <data name="chkAdvancedUser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="chkByDialogs.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;chkByDialogs.Name" xml:space="preserve">
-    <value>chkByDialogs</value>
   </data>
   <data name="PictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 11</value>
@@ -243,11 +228,14 @@
   <data name="&gt;&gt;grpLanguage.Name" xml:space="preserve">
     <value>grpLanguage</value>
   </data>
+  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 21</value>
+  </data>
   <data name="optChinese.Location" type="System.Drawing.Point, System.Drawing">
     <value>115, 25</value>
   </data>
-  <data name="optEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 25</value>
+  <data name="lblToThe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnContinue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -255,14 +243,14 @@
   <data name="btnContinue.Text" xml:space="preserve">
     <value>Continue &gt;&gt;</value>
   </data>
-  <data name="lblHalifaxFanSelector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>393, 48</value>
+  <data name="grpLanguage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="&gt;&gt;txtUsername.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
-  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 21</value>
+  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
   </data>
   <data name="&gt;&gt;btnContinue.Name" xml:space="preserve">
     <value>btnContinue</value>
@@ -276,7 +264,7 @@
   <data name="btnExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="chkByDialogs.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="optEnglish.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="&gt;&gt;lblDate.Name" xml:space="preserve">
@@ -297,8 +285,8 @@
   <data name="lblVersion.Location" type="System.Drawing.Point, System.Drawing">
     <value>345, 480</value>
   </data>
-  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblToThe.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Neue Haas Grotesk Text Pro, 28.1999989pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;grpLanguage.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -306,17 +294,14 @@
   <data name="&gt;&gt;btnContinue.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkByDialogs.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 352</value>
-  </data>
   <data name="btnContinue.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
   <data name="&gt;&gt;optChinese.Name" xml:space="preserve">
     <value>optChinese</value>
   </data>
-  <data name="&gt;&gt;chkByDialogs.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblHalifaxFanSelector.Name" xml:space="preserve">
     <value>lblHalifaxFanSelector</value>
@@ -325,19 +310,16 @@
     <value>FrmStart</value>
   </data>
   <data name="&gt;&gt;lblHalifaxFanSelector.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 36</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
   </data>
   <data name="lblToThe.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
   <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 157</value>
+    <value>15, 154</value>
   </data>
   <data name="lblWelcome.Text" xml:space="preserve">
     <value>Welcome</value>
@@ -346,7 +328,7 @@
     <value>Advanced User</value>
   </data>
   <data name="&gt;&gt;PictureBox1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>11</value>
   </data>
   <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 21</value>
@@ -360,20 +342,17 @@
   <data name="btnExit.Text" xml:space="preserve">
     <value>Exit</value>
   </data>
-  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;grpLanguage.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="lblToThe.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblWelcome.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 59</value>
   </data>
   <data name="btnContinue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>276, 337</value>
+    <value>275, 433</value>
   </data>
-  <data name="lblWelcome.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 48</value>
+  <data name="grpLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
   <data name="PictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -387,20 +366,17 @@
   <data name="lblWelcome.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="chkByDialogs.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.Name" xml:space="preserve">
-    <value>lblUsername</value>
+  <data name="grpLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 371</value>
   </data>
   <data name="txtUsername.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="chkAdvancedUser.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="&gt;&gt;optChinese.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="grpLanguage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+  <data name="PictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="&gt;&gt;chkAdvancedUser.Parent" xml:space="preserve">
     <value>$this</value>
@@ -414,14 +390,11 @@
   <data name="&gt;&gt;lblHalifaxFanSelector.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="chkByDialogs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 21</value>
-  </data>
   <data name="&gt;&gt;txtUsername.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="grpLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+  <data name="&gt;&gt;PictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -442,22 +415,28 @@
     <value>True</value>
   </data>
   <data name="&gt;&gt;lblWelcome.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;lblUsername.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;optChinese.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="lblHalifaxFanSelector.Size" type="System.Drawing.Size, System.Drawing">
+    <value>446, 54</value>
   </data>
   <data name="chkAdvancedUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="txtUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>225, 150</value>
+    <value>121, 147</value>
   </data>
   <data name="lblWelcome.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 22.2pt, style=Bold</value>
+    <value>Neue Haas Grotesk Text Pro, 28.1999989pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;optEnglish.Parent" xml:space="preserve">
     <value>grpLanguage</value>
@@ -474,8 +453,8 @@
   <data name="lblToThe.Text" xml:space="preserve">
     <value>to the </value>
   </data>
-  <data name="lblHalifaxFanSelector.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="grpLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 58</value>
   </data>
   <data name="&gt;&gt;lblDate.Parent" xml:space="preserve">
     <value>$this</value>
@@ -487,7 +466,7 @@
     <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
   </data>
   <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>276, 400</value>
+    <value>275, 378</value>
   </data>
   <data name="&gt;&gt;lblToThe.Name" xml:space="preserve">
     <value>lblToThe</value>
@@ -497,9 +476,6 @@
   </data>
   <data name="btnSettings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
-  </data>
-  <data name="chkByDialogs.Text" xml:space="preserve">
-    <value>By Dialogs</value>
   </data>
   <data name="lblUsername.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -516,8 +492,8 @@
   <data name="&gt;&gt;PictureBox1.Name" xml:space="preserve">
     <value>PictureBox1</value>
   </data>
-  <data name="grpLanguage.Text" xml:space="preserve">
-    <value>Select Language</value>
+  <data name="optEnglish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 25</value>
   </data>
   <data name="chkAdvancedUser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -525,8 +501,8 @@
   <data name="btnContinue.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 36</value>
   </data>
-  <data name="grpLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 436</value>
+  <data name="txtUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 28</value>
   </data>
   <data name="lblWelcome.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -562,7 +538,7 @@
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblWelcome.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 180</value>
+    <value>125, 182</value>
   </data>
   <data name="&gt;&gt;lblDate.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -570,11 +546,8 @@
   <data name="txtUsername.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;chkByDialogs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkByDialogs.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="lblHalifaxFanSelector.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="optChinese.Text" xml:space="preserve">
     <value>中文</value>
@@ -585,8 +558,8 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>443, 506</value>
   </data>
-  <data name="chkByDialogs.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="&gt;&gt;lblUsername.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;optChinese.Parent" xml:space="preserve">
     <value>grpLanguage</value>
@@ -595,22 +568,13 @@
     <value>lblVersion</value>
   </data>
   <data name="&gt;&gt;btnContinue.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="&gt;&gt;btnExit.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="PictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="grpLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 58</value>
-  </data>
   <data name="&gt;&gt;chkAdvancedUser.Type" xml:space="preserve">
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="optEnglish.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
   </data>
   <data name="txtUsername.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -642,11 +606,11 @@
   <data name="optChinese.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="txtUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 28</value>
+  <data name="grpLanguage.Text" xml:space="preserve">
+    <value>Select Language</value>
   </data>
   <data name="&gt;&gt;lblToThe.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="&gt;&gt;btnExit.Name" xml:space="preserve">
     <value>btnExit</value>

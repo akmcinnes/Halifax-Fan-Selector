@@ -60,9 +60,9 @@ Partial Class FrmSettings
         '
         'grpLanguage
         '
-        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Controls.Add(Me.optChinese)
         Me.grpLanguage.Controls.Add(Me.optEnglish)
+        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Name = "grpLanguage"
         Me.grpLanguage.TabStop = False
         '
@@ -75,7 +75,9 @@ Partial Class FrmSettings
         'optEnglish
         '
         resources.ApplyResources(Me.optEnglish, "optEnglish")
+        Me.optEnglish.Checked = True
         Me.optEnglish.Name = "optEnglish"
+        Me.optEnglish.TabStop = True
         Me.optEnglish.UseVisualStyleBackColor = True
         '
         'txtUsername
@@ -87,10 +89,6 @@ Partial Class FrmSettings
         '
         resources.ApplyResources(Me.lblUsername, "lblUsername")
         Me.lblUsername.Name = "lblUsername"
-        '
-        'FolderBrowserDialog1
-        '
-        resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
         '
         'btnDataFolder
         '

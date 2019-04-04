@@ -327,4 +327,39 @@ Module ModLoadData
             fanfailures(failindex, 1) = ex.Message
         End Try
     End Sub
+
+    Public Sub ReadFailuresFromBinaryFile()
+        Try
+            If DataPath Is Nothing Then
+                Exit Sub
+            End If
+
+            Dim FullFilePathtxt As String
+            FullFilePathtxt = DataPath + "Failures List.bin"
+
+            fs = New System.IO.FileStream(FullFilePathtxt, IO.FileMode.Open)
+            br = New System.IO.BinaryReader(fs)
+
+            br.BaseStream.Seek(0, IO.SeekOrigin.Begin)
+
+            Dim i As Integer
+            Dim j As Integer
+            For i = 0 To 20
+                'FailuresList(i).IndexLan = xlsWB.Worksheets(1).Cells(i + 1, 1).Value
+                'For j = 0 To 5
+                '    FailuresList(i).Languages(j) = xlsWB.Worksheets(1).Cells(i + 1, 2 + j).Value
+                '    'FailuresList(i).Languages(1) = xlsWB.Worksheets(1).Cells(i, 3).Value
+                'Next
+                FailuresList(i).IndexLan = br.ReadInt32()
+                For j = 0 To 5
+                    FailuresList(i).Languages(j) = br.ReadString
+                Next
+            Next
+            br.Close()
+
+        Catch ex As Exception
+            If StartArg.ToLower.Contains("-dev") Then ErrorMessage(ex, 5404)
+        End Try
+    End Sub
+
 End Module
