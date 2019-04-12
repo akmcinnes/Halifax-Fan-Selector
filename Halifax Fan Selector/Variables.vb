@@ -16,6 +16,7 @@ Module Variables
     Public TemplatesPathDefault As String ' = DataPathMain + "Templates\"
     'Public DataPathDefault As String = ".\Performance Data\"
     Public DataPath As String
+    Public lang_dict(150) As String
 
     Public FullFilePathtxt As String
 

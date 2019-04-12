@@ -125,25 +125,25 @@
     <value>233, 59</value>
   </data>
   <data name="lblWelcome.Text" xml:space="preserve">
-    <value>高级用户</value>
+    <value>欢迎来到</value>
   </data>
   <data name="lblToThe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 243</value>
+    <value>98, 243</value>
   </data>
   <data name="lblToThe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 59</value>
+    <value>285, 59</value>
   </data>
   <data name="lblToThe.Text" xml:space="preserve">
-    <value>   到</value>
+    <value>哈利法克斯</value>
   </data>
   <data name="lblHalifaxFanSelector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 307</value>
+    <value>87, 307</value>
   </data>
   <data name="lblHalifaxFanSelector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>503, 54</value>
+    <value>311, 54</value>
   </data>
   <data name="lblHalifaxFanSelector.Text" xml:space="preserve">
-    <value>哈利法克斯风扇选择器</value>
+    <value>风机选型软件</value>
   </data>
   <data name="btnContinue.Text" xml:space="preserve">
     <value>继续  &gt;&gt;</value>
@@ -170,6 +170,6 @@
     <value>高级用户</value>
   </data>
   <data name="grpLanguage.Text" xml:space="preserve">
-    <value>高级用户</value>
+    <value>选择语言</value>
   </data>
 </root>

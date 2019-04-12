@@ -150,6 +150,9 @@
   <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
+  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
   <data name="btnSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -228,9 +231,6 @@
   <data name="&gt;&gt;grpLanguage.Name" xml:space="preserve">
     <value>grpLanguage</value>
   </data>
-  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 21</value>
-  </data>
   <data name="optChinese.Location" type="System.Drawing.Point, System.Drawing">
     <value>115, 25</value>
   </data>
@@ -249,8 +249,8 @@
   <data name="&gt;&gt;txtUsername.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
+  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 21</value>
   </data>
   <data name="&gt;&gt;btnContinue.Name" xml:space="preserve">
     <value>btnContinue</value>

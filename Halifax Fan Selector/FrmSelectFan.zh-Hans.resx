@@ -419,15 +419,6 @@
   <data name="OpFlowInlet.Text" xml:space="preserve">
     <value>进风口</value>
   </data>
-  <data name="OptXLS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="OptTXT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="GroupBox2.Text" xml:space="preserve">
-    <value>数据源</value>
-  </data>
   <data name="lblpercent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -583,12 +574,6 @@
   </data>
   <data name="GrpInletTemperature.Text" xml:space="preserve">
     <value>进口温度</value>
-  </data>
-  <data name="Button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Button1.Text" xml:space="preserve">
-    <value>选择</value>
   </data>
   <data name="TabPageDuty.Text" xml:space="preserve">
     <value>工况数据输入</value>
@@ -1269,68 +1254,35 @@
   <data name="TabPageImpeller.Text" xml:space="preserve">
     <value>叶轮详细信息</value>
   </data>
-  <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
-  </data>
   <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
     <value>新项目</value>
   </data>
-  <data name="OpenProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
-  </data>
   <data name="OpenProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>打开项目</value>
-  </data>
-  <data name="SaveProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>保存项目</value>
   </data>
   <data name="AllPagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 26</value>
+    <value>181, 26</value>
   </data>
   <data name="AllPagesToolStripMenuItem.Text" xml:space="preserve">
     <value>所有页面</value>
   </data>
   <data name="PerformanceDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 26</value>
+    <value>181, 26</value>
   </data>
   <data name="PerformanceDetailsToolStripMenuItem.Text" xml:space="preserve">
     <value>性能详细</value>
   </data>
   <data name="AcousticsDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 26</value>
+    <value>181, 26</value>
   </data>
   <data name="AcousticsDetailsToolStripMenuItem.Text" xml:space="preserve">
     <value>声学细节</value>
   </data>
-  <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
-  </data>
   <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
     <value>输出到文件</value>
-  </data>
-  <data name="EnglishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 26</value>
-  </data>
-  <data name="EnglishToolStripMenuItem.Text" xml:space="preserve">
-    <value>英语</value>
-  </data>
-  <data name="ChineseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 26</value>
-  </data>
-  <data name="ChineseToolStripMenuItem.Text" xml:space="preserve">
-    <value>中文</value>
-  </data>
-  <data name="ChangeLanguageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
-  </data>
-  <data name="ChangeLanguageToolStripMenuItem.Text" xml:space="preserve">
-    <value>改变语言</value>
-  </data>
-  <data name="ExitProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
   </data>
   <data name="ExitProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>退出项目</value>

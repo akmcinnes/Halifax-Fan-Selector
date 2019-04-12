@@ -349,13 +349,13 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="OptPowerBoth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 29</value>
+    <value>154, 29</value>
   </data>
   <data name="OptPowerBoth.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="OptPowerBoth.Text" xml:space="preserve">
-    <value>DB</value>
+    <value>Display Both</value>
   </data>
   <data name="&gt;&gt;OptPowerBoth.Name" xml:space="preserve">
     <value>OptPowerBoth</value>
@@ -7262,19 +7262,19 @@
     <value>17, 17</value>
   </metadata>
   <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 26</value>
+    <value>175, 26</value>
   </data>
   <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
     <value>New Project</value>
   </data>
   <data name="OpenProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 26</value>
+    <value>175, 26</value>
   </data>
   <data name="OpenProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>Open Project</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 26</value>
+    <value>175, 26</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>Save Project</value>
@@ -7298,34 +7298,13 @@
     <value>Acoustics Details</value>
   </data>
   <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 26</value>
+    <value>175, 26</value>
   </data>
   <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
     <value>Output to File</value>
   </data>
-  <data name="EnglishToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 26</value>
-  </data>
-  <data name="EnglishToolStripMenuItem.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="ChineseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 26</value>
-  </data>
-  <data name="ChineseToolStripMenuItem.Text" xml:space="preserve">
-    <value>Chinese</value>
-  </data>
-  <data name="ChangeLanguageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 26</value>
-  </data>
-  <data name="ChangeLanguageToolStripMenuItem.Text" xml:space="preserve">
-    <value>Change Language</value>
-  </data>
-  <data name="ChangeLanguageToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="ExitProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 26</value>
+    <value>175, 26</value>
   </data>
   <data name="ExitProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit Project</value>
@@ -7487,24 +7466,6 @@
     <value>AcousticsDetailsToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;AcousticsDetailsToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChangeLanguageToolStripMenuItem.Name" xml:space="preserve">
-    <value>ChangeLanguageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ChangeLanguageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EnglishToolStripMenuItem.Name" xml:space="preserve">
-    <value>EnglishToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;EnglishToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ChineseToolStripMenuItem.Name" xml:space="preserve">
-    <value>ChineseToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ChineseToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ExitProjectToolStripMenuItem.Name" xml:space="preserve">

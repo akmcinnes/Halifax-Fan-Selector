@@ -260,9 +260,6 @@ Partial Class Frmselectfan
         Me.AllPagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PerformanceDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcousticsDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChangeLanguageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnglishToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ChineseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -2022,7 +2019,7 @@ Partial Class Frmselectfan
         '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.OpenProjectToolStripMenuItem, Me.SaveProjectToolStripMenuItem, Me.PrintToolStripMenuItem, Me.ChangeLanguageToolStripMenuItem, Me.ExitProjectToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenToolStripMenuItem, Me.OpenProjectToolStripMenuItem, Me.SaveProjectToolStripMenuItem, Me.PrintToolStripMenuItem, Me.ExitProjectToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         resources.ApplyResources(Me.FileToolStripMenuItem, "FileToolStripMenuItem")
         '
@@ -2061,22 +2058,6 @@ Partial Class Frmselectfan
         '
         Me.AcousticsDetailsToolStripMenuItem.Name = "AcousticsDetailsToolStripMenuItem"
         resources.ApplyResources(Me.AcousticsDetailsToolStripMenuItem, "AcousticsDetailsToolStripMenuItem")
-        '
-        'ChangeLanguageToolStripMenuItem
-        '
-        Me.ChangeLanguageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnglishToolStripMenuItem, Me.ChineseToolStripMenuItem})
-        Me.ChangeLanguageToolStripMenuItem.Name = "ChangeLanguageToolStripMenuItem"
-        resources.ApplyResources(Me.ChangeLanguageToolStripMenuItem, "ChangeLanguageToolStripMenuItem")
-        '
-        'EnglishToolStripMenuItem
-        '
-        Me.EnglishToolStripMenuItem.Name = "EnglishToolStripMenuItem"
-        resources.ApplyResources(Me.EnglishToolStripMenuItem, "EnglishToolStripMenuItem")
-        '
-        'ChineseToolStripMenuItem
-        '
-        Me.ChineseToolStripMenuItem.Name = "ChineseToolStripMenuItem"
-        resources.ApplyResources(Me.ChineseToolStripMenuItem, "ChineseToolStripMenuItem")
         '
         'ExitProjectToolStripMenuItem
         '
@@ -2375,9 +2356,6 @@ Partial Class Frmselectfan
     Friend WithEvents chkDIDW As CheckBox
     Friend WithEvents chkCalcAtmos As CheckBox
     Friend WithEvents chkAllBlades As CheckBox
-    Friend WithEvents ChangeLanguageToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EnglishToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ChineseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents lblFreeFieldComment As Label
     Friend WithEvents lblFlowType As Label
     Friend WithEvents OptFixedSpeed As RadioButton

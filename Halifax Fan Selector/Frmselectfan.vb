@@ -1444,32 +1444,32 @@ Public Class Frmselectfan
         End Try
     End Sub
 
-    Private Sub EnglishToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnglishToolStripMenuItem.Click
-        Try
-            ChosenLanguage = "en-GB"
-            ApplyLocale(ChosenLanguage)
+    'Private Sub EnglishToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnglishToolStripMenuItem.Click
+    '    Try
+    '        ChosenLanguage = "en-GB"
+    '        ApplyLocale(ChosenLanguage)
 
-            'reload()
-            'Form1_Load(Me, Nothing)
-            'Me.Refresh()
+    '        'reload()
+    '        'Form1_Load(Me, Nothing)
+    '        'Me.Refresh()
 
-        Catch ex As Exception
-            ErrorMessage(ex, 20380)
-        End Try
-    End Sub
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 20380)
+    '    End Try
+    'End Sub
 
-    Private Sub ChineseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChineseToolStripMenuItem.Click
-        Try
-            ChosenLanguage = "zh-CN"
-            ApplyLocale(ChosenLanguage)
-            'reload()
-            'Form1_Load(Me, Nothing)
-            'Me.Refresh()
+    'Private Sub ChineseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChineseToolStripMenuItem.Click
+    '    Try
+    '        ChosenLanguage = "zh-CN"
+    '        ApplyLocale(ChosenLanguage)
+    '        'reload()
+    '        'Form1_Load(Me, Nothing)
+    '        'Me.Refresh()
 
-        Catch ex As Exception
-            ErrorMessage(ex, 20381)
-        End Try
-    End Sub
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 20381)
+    '    End Try
+    'End Sub
     Private Sub ApplyLocale(ByVal locale_name As String)
         Try
             Dim culture_info As New CultureInfo(locale_name)
@@ -1592,19 +1592,20 @@ Public Class Frmselectfan
 
     Private Sub AcousticsDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcousticsDetailsToolStripMenuItem.Click
         Try
-            Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
-            SaveFileDialog1.InitialDirectory = OutputPathDefault '"C:\Halifax\Output Files"
-            'SaveFileDialog1.CheckFileExists = True
-            SaveFileDialog1.ShowDialog()
+            'Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
+            'SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
+            'SaveFileDialog1.InitialDirectory = OutputPathDefault '"C:\Halifax\Output Files"
+            ''SaveFileDialog1.CheckFileExists = True
+            'SaveFileDialog1.ShowDialog()
 
-            Dim filename_read As String = TemplatesPathDefault + "Sound Template " + ChosenLanguage + ".rtf"
-            Dim filename_write As String = SaveFileDialog1.FileName
-            Dim objReader As New System.IO.StreamReader(filename_read)
-            CreateFile(filename_read, filename_write, True, "#")
+            'Dim filename_read As String = TemplatesPathDefault + "Sound Template " + ChosenLanguage + ".rtf"
+            'Dim filename_write As String = SaveFileDialog1.FileName
+            'Dim objReader As New System.IO.StreamReader(filename_read)
+            'CreateFile(filename_read, filename_write, True, "#")
+            CreateFile("", "", True, "#")
             'CreateFile("C:\Halifax\Templates\Sound Template.rtf", True, "#")
             'CreateFile("C:\Halifax\Templates\Sound Template.rtf", True, "~")
-            objReader.Close()
+            'objReader.Close()
 
         Catch ex As Exception
             ErrorMessage(ex, 20388)

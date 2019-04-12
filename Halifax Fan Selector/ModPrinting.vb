@@ -1,5 +1,7 @@
 ﻿Imports Word = Microsoft.Office.Interop.Word
 Imports Excel = Microsoft.Office.Interop.Excel
+'Imports Microsoft.Office.Interop.Excel.Constants
+
 Imports Microsoft.Office
 'Imports System.IO
 'Imports System.Resources
@@ -10,6 +12,11 @@ Imports System.Drawing.Printing
 Module ModPrinting
     Public Sub CreateFile(filename_read As String, filename_write As String, previewonly As Boolean, charfind As Char, Optional filename_excel As String = "")
         Try
+            getLanguageDictionary()
+            PopulatePrintout()
+            Exit Sub
+
+
             count = 0
             Dim found_one As Boolean = False
             Dim i As Integer
@@ -99,6 +106,357 @@ Module ModPrinting
         End Try
 
     End Sub
+
+    Public Sub getLanguageDictionary()
+        Try
+            ' read language dictionary
+            Dim xlsApp As Excel.Application = Nothing
+        Dim xlsWorkBooks As Excel.Workbooks = Nothing
+        Dim xlsWB As Excel.Workbook = Nothing
+
+        Dim filename_lang_dict As String = TemplatesPathDefault + "Halifax Output Dictionary.xlsx"
+
+        xlsApp = New Microsoft.Office.Interop.Excel.Application
+        xlsApp.Visible = False
+        xlsWorkBooks = xlsApp.Workbooks
+        xlsWB = xlsWorkBooks.Open(filename_lang_dict)
+
+        Dim ii As Integer
+        For ii = 1 To 150
+            lang_dict(ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 1).Value
+            'lang_dict(ii - 1) = xlsWB.Worksheets(ChosenLanguage).Cells(ii + 2, 2).Value
+        Next
+        xlsWB.Close(SaveChanges:=False)
+        xlsWB = Nothing
+        xlsWorkBooks.Close()
+        xlsWorkBooks = Nothing
+        xlsApp.Quit()
+        xlsApp = Nothing
+
+        Catch ex As Exception
+            ErrorMessage(ex, 64021)
+
+        End Try
+    End Sub
+
+    Sub PopulatePrintout()
+        Try
+            Dim xlsApp As Excel.Application = Nothing
+            Dim xlsWorkBooks As Excel.Workbooks = Nothing
+            Dim xlsWB As Excel.Workbook = Nothing
+
+            Dim filename_printout As String = TemplatesPathDefault + "Output Template.xlsx"
+            'Dim ContactDetails, Address As String
+
+            'ContactDetails = "Tel:- " & "+44(0)1484 475123" & "       email:- " & "sales@halifax-fan.com"
+            'Address = "Brookfoot Business Park, Brighouse" & ", " & "West Yorks, United Kingdom, HD6 2SD"
+
+            xlsApp = New Microsoft.Office.Interop.Excel.Application
+            xlsApp.Visible = False
+            xlsWorkBooks = xlsApp.Workbooks
+            xlsWB = xlsWorkBooks.Open(filename_printout)
+
+            xlsWB.ActiveSheet.Name = "Sound"
+            With xlsWB.ActiveSheet
+                .Activate
+                .Range("A1:Z250").Font.Name = "Arial"
+                .Range("A1:Z250").Font.size = 10
+                .Range("A1:Z250").WrapText = False
+                .Columns("A:Z").ColumnWidth = 5
+                '.Shapes.AddShape(msoTextOrientationHorizontal, 315, 5, 174, 48).Fill.UserPicture(headerlocation)
+                '.Shapes(1).Line.Visible = False
+                '.Cells(1, 1).Value = "Halifax Fan Ltd."
+                '.Cells(1, 1).Font.size = 11
+                '.Cells(1, 1).Font.Bold = True
+                '.Cells(2, 1).Value = Address
+                '.Cells(2, 1).Font.size = 8
+                '.Cells(2, 1).Font.Italic = True
+                '.Cells(3, 1).Value = "www.halifax-fan.co.uk"
+                '.Cells(3, 1).Font.size = 8
+                '.Cells(4, 1).Value = ContactDetails
+                '.Cells(4, 1).Font.size = 8
+                '.Cells(4, 1).WrapText = False
+                .Cells(6, 1).Value = lang_dict(24) & " " & final.fansize.ToString & " " & final.fantype 'fantitles(FanSave)
+                .Cells(6, 1).Font.size = 11
+                .Cells(6, 1).Font.Bold = True
+                .Cells(6, 1).Font.Underline = True
+                .Range("a6:p6").Merge
+                .Cells(6, 1).HorizontalAlignment = Excel.Constants.xlCenter
+
+                .Cells(7, 1).Value = lang_dict(4)
+                .Cells(7, 1).Font.Bold = True
+
+                .Cells(8, 3).Value = lang_dict(5)
+                .Cells(8, 7).Value = final.vol.ToString
+                .Cells(8, 8).Value = Units(0).UnitName(Units(0).UnitSelected)
+
+                .Cells(8, 11).Value = lang_dict(9)
+                .Cells(8, 14).Value = knowndensity.ToString
+                .Cells(8, 15).Value = Units(3).UnitName(Units(3).UnitSelected)
+
+                If PresType = 0 Then
+                    .Cells(9, 3).Value = lang_dict(6)
+                    .Cells(9, 7).Value = final.fsp.ToString
+                    .Cells(9, 8).Value = Units(1).UnitName(Units(1).UnitSelected)
+                Else
+                    .Cells(9, 3).Value = lang_dict(7)
+                    .Cells(9, 7).Value = final.ftp.ToString
+                    .Cells(9, 8).Value = Units(1).UnitName(Units(1).UnitSelected)
+                End If
+
+                .Cells(9, 11).Value = lang_dict(8)
+                .Cells(9, 14).Value = final.speed
+                .Cells(9, 15).Value = "RPM"
+
+                .Cells(12, 1).Value = lang_dict(25)
+                .Cells(12, 1).Font.Bold = True
+                .Cells(12, 1).Font.size = 11
+                .Range("A12:P12").Merge
+                .Cells(12, 1).HorizontalAlignment = Excel.Constants.xlCenter
+
+                .Cells(13, 1).Value = lang_dict(26)
+                .Range("A13:H13").Merge
+                .Cells(13, 9).Value = 63
+                .Cells(13, 10).Value = 125
+                .Cells(13, 11).Value = 250
+                .Cells(13, 12).Value = 500
+                .Cells(13, 13).Value = 1000
+                .Cells(13, 14).Value = 2000
+                .Cells(13, 15).Value = 4000
+                .Cells(13, 16).Value = 8000
+
+                .Cells(14, 1).Value = lang_dict(27)
+                .Range("A14:H14").Merge
+                'count = 1
+                For count = 0 To 7
+                    .Cells(14, (count + 9)).Value = IDSPL(count)
+                Next count
+
+                .Cells(15, 1).Value = lang_dict(28) & " " & spl2 & " " & lang_dict(29)
+                .Cells(15, 1).Font.size = 11
+                .Range("A15:P15").Merge
+
+
+                '.Range("a12:p15").Borders.LineStyle = .xlContinuous
+
+                .Cells(45, 1).Value = lang_dict(14) & " " & Engineer
+                .Cells(45, 1).Font.size = 9
+                .Cells(45, 10).Value = lang_dict(15) & " " '&  & Format(Of Date, "dd/mm/yy")()
+                .Cells(45, 1).Font.size = 9
+
+                .Cells(47, 1).Value = lang_dict(16)
+                .Cells(47, 1).Font.size = 7
+                .Range(.Cells(45, 1), .Cells(47, 1)).HorizontalAlignment = Excel.Constants.xlLeft
+                outputductPO(xlsWB, 18)
+                outputopeninletPO(xlsWB, 25)
+                outputopenoutletPO(xlsWB, 32)
+                outputbrgPO(xlsWB, 39)
+                outputmotorPO(xlsWB, 41)
+                outputbpfPO(xlsWB, 43)
+            End With
+
+            'do something here
+            xlsWB.Close(SaveChanges:=True)
+            xlsWB = Nothing
+            xlsWorkBooks.Close()
+            xlsWorkBooks = Nothing
+            xlsApp.Quit()
+            xlsApp = Nothing
+
+        Catch ex As Exception
+            ErrorMessage(ex, 64031)
+
+        End Try
+    End Sub
+
+    Public Sub outputbrgPO(xlsWB, brgrow)
+        xlsWB.ActiveSheet.Name = "Sound"
+        With xlsWB.ActiveSheet
+            .Cells(brgrow, 1).Value = lang_dict(45) & " " & BRGnoise & " dBA"
+            .Cells(brgrow, 1).Font.Bold = True
+            .Cells(brgrow, 1).Font.Italic = True
+            .Range(.Cells(brgrow, 1), .Cells(brgrow, 6)).Merge
+            '.Range(.Cells(brgrow, 1), .Cells(brgrow, 6)).Borders.LineStyle = .xlContinuous
+        End With
+    End Sub
+    Public Sub outputmotorPO(xlsWB, Motorrow)
+        xlsWB.ActiveSheet.Name = "Sound"
+        With xlsWB.ActiveSheet
+            .Cells(Motorrow, 1).Value = lang_dict(46) & " " '& frmNoisemain.txtmotor.Value & " dBA"
+            .Cells(Motorrow, 1).Font.Bold = True
+            .Cells(Motorrow, 1).Font.Italic = True
+            .Range(.Cells(Motorrow, 1), .Cells(Motorrow, 6)).Merge
+            '.Range(.Cells(Motorrow, 1), .Cells(Motorrow, 6)).Borders.LineStyle = .xlContinuous
+        End With
+    End Sub
+    Public Sub outputbpfPO(xlsWB, bpfroW)
+        xlsWB.ActiveSheet.Name = "Sound"
+        With xlsWB.ActiveSheet
+            .Cells(bpfroW, 1).Value = lang_dict(44) & " " & BPfreq & " Hz"
+            .Cells(bpfroW, 1).Font.Bold = True
+            .Cells(bpfroW, 1).Font.Italic = True
+            .Range(.Cells(bpfroW, 1), .Cells(bpfroW, 8)).Merge
+            '.Range(.Cells(bpfroW, 1), .Cells(bpfroW, 8)).Borders.LineStyle = .xlContinuous
+        End With
+    End Sub
+
+    Public Sub outputductPO(xlsWB, Drow)
+        xlsWB.ActiveSheet.Name = "Sound"
+        With xlsWB.ActiveSheet
+
+            .Cells(Drow + 3, 1).Value = lang_dict(32)
+            .Cells(Drow + 3, 1).Font.size = 11
+            .Cells(Drow + 3, 1).Font.Bold = True
+            .Cells(Drow + 3, 1).HorizontalAlignment = Excel.Constants.xlCenter
+
+            .Cells(Drow, 1).Value = lang_dict(30) & " " & bospl2 & " " & lang_dict(29)
+            .Cells(Drow + 1, 1).Value = lang_dict(31) & " " & bospl1M2 & " " & lang_dict(29)
+
+            .Cells(Drow + 4, 1).Value = lang_dict(33)
+            .Cells(Drow + 4, 1).Font.Bold = True
+            .Cells(Drow + 4, 1).Font.size = 10
+
+
+            .Cells(Drow + 5, 1).Value = lang_dict(26)
+            .Cells(Drow + 5, 9).Value = 63
+            .Cells(Drow + 5, 10).Value = 125
+            .Cells(Drow + 5, 11).Value = 250
+            .Cells(Drow + 5, 12).Value = 500
+            .Cells(Drow + 5, 13).Value = 1000
+            .Cells(Drow + 5, 14).Value = 2000
+            .Cells(Drow + 5, 15).Value = 4000
+            .Cells(Drow + 5, 16).Value = 8000
+
+            .Cells(Drow + 6, 1).Value = lang_dict(34)
+            'count = 1
+            For count = 0 To 7
+                .Cells(Drow + 6, (count + 9)).Value = Ascale(count)
+            Next count
+
+            .Cells(Drow + 7, 1).Value = lang_dict(35) & " " & NCoverall & " " & lang_dict(36)
+            .Cells(Drow + 7, 1).Font.Bold = True
+            .Cells(Drow + 7, 1).Font.Italic = True
+            '.Range(.Cells(Drow, 1), .Cells(Drow + 1, 16)).Borders.LineStyle = .xlContinuous
+            '.Range(.Cells(Drow + 3, 1), .Cells(Drow + 7, 16)).Borders.LineStyle = .xlContinuous
+
+            .Range(.Cells(Drow, 1), .Cells(Drow, 16)).Merge
+            .Range(.Cells(Drow + 1, 1), .Cells(Drow + 1, 16)).Merge
+            .Range(.Cells(Drow + 3, 1), .Cells(Drow + 3, 16)).Merge
+            .Range(.Cells(Drow + 4, 1), .Cells(Drow + 4, 16)).Merge
+            .Range(.Cells(Drow + 5, 1), .Cells(Drow + 5, 8)).Merge
+            .Range(.Cells(Drow + 6, 1), .Cells(Drow + 6, 8)).Merge
+            .Range(.Cells(Drow + 7, 1), .Cells(Drow + 7, 16)).Merge
+        End With
+
+    End Sub
+
+    Public Sub outputopeninletPO(xlsWB, OIrow)
+
+        xlsWB.ActiveSheet.Name = "Sound"
+        With xlsWB.ActiveSheet
+            .Cells(OIrow, 1).Value = lang_dict(37)
+            .Cells(OIrow, 1).Font.size = 11
+            .Cells(OIrow, 1).Font.Bold = True
+            .Cells(OIrow, 1).HorizontalAlignment = Excel.Constants.xlCenter
+
+            .Cells(OIrow + 1, 1).Value = lang_dict(38) & " " & final.inletdia.ToString & Units(5).UnitName(Units(5).UnitSelected)
+
+            .Cells(OIrow + 2, 1).Value = lang_dict(33)
+            .Cells(OIrow + 2, 1).Font.Bold = True
+            .Cells(OIrow + 2, 1).Font.size = 10
+
+
+            .Cells(OIrow + 3, 1).Value = lang_dict(26)
+            .Cells(OIrow + 3, 9).Value = 63
+            .Cells(OIrow + 3, 10).Value = 125
+            .Cells(OIrow + 3, 11).Value = 250
+            .Cells(OIrow + 3, 12).Value = 500
+            .Cells(OIrow + 3, 13).Value = 1000
+            .Cells(OIrow + 3, 14).Value = 2000
+            .Cells(OIrow + 3, 15).Value = 4000
+            .Cells(OIrow + 3, 16).Value = 8000
+
+            .Cells(OIrow + 4, 1).Value = lang_dict(39)
+            'count = 1
+            For count = 0 To 7
+                .Cells(OIrow + 4, (count + 9)).Value = INascale(count)
+            Next count
+
+            .Cells(OIrow + 5, 1).Value = lang_dict(40) & " " & Math.Round(inNCoverall) & " " & lang_dict(36)
+            .Cells(OIrow + 5, 1).Font.Bold = True
+            .Cells(OIrow + 5, 1).Font.Italic = True
+            '.Range(.Cells(OIrow, 1), .Cells(OIrow + 5, 16)).Borders.LineStyle = .xlContinuous
+
+            .Range(.Cells(OIrow, 1), .Cells(OIrow, 16)).Merge
+            .Range(.Cells(OIrow + 1, 1), .Cells(OIrow + 1, 16)).Merge
+            .Range(.Cells(OIrow + 2, 1), .Cells(OIrow + 2, 16)).Merge
+            .Range(.Cells(OIrow + 3, 1), .Cells(OIrow + 3, 8)).Merge
+            .Range(.Cells(OIrow + 4, 1), .Cells(OIrow + 4, 8)).Merge
+            .Range(.Cells(OIrow + 5, 1), .Cells(OIrow + 5, 16)).Merge
+        End With
+
+    End Sub
+
+    Public Sub outputopenoutletPO(xlsWB, OOrow)
+
+        xlsWB.ActiveSheet.Name = "Sound"
+        With xlsWB.ActiveSheet
+            .Cells(OOrow, 1).Value = lang_dict(41)
+            .Cells(OOrow, 1).Font.size = 11
+            .Cells(OOrow, 1).Font.Bold = True
+            .Cells(OOrow, 1).HorizontalAlignment = Excel.Constants.xlCenter
+            'If frmNoisemain.Optsquare.Value = True Then
+            If final.outletlen > 0 And final.outletwid > 0 Then
+                .Cells(OOrow + 1, 1).Value = lang_dict(42) & " " & final.outletlen.ToString & " x " & final.outletwid.ToString & Units(5).UnitName(Units(5).UnitSelected)
+            Else
+                .Cells(OOrow + 1, 1).Value = lang_dict(47) & " " & final.outletdia.ToString & Units(5).UnitName(Units(5).UnitSelected)
+            End If
+
+            .Cells(OOrow + 2, 1).Value = lang_dict(33)
+            .Cells(OOrow + 2, 1).Font.Bold = True
+            .Cells(OOrow + 2, 1).Font.size = 10
+
+
+            .Cells(OOrow + 3, 1).Value = lang_dict(26)
+            .Cells(OOrow + 3, 9).Value = 63
+            .Cells(OOrow + 3, 10).Value = 125
+            .Cells(OOrow + 3, 11).Value = 250
+            .Cells(OOrow + 3, 12).Value = 500
+            .Cells(OOrow + 3, 13).Value = 1000
+            .Cells(OOrow + 3, 14).Value = 2000
+            .Cells(OOrow + 3, 15).Value = 4000
+            .Cells(OOrow + 3, 16).Value = 8000
+
+            .Cells(OOrow + 4, 1).Value = lang_dict(39)
+            'count = 1
+            For count = 0 To 7
+                .Cells(OOrow + 4, (count + 9)).Value = OUTascale(count)
+            Next count
+
+            .Cells(OOrow + 5, 1).Value = lang_dict(43) & " " & Math.Round(OUTNCoverall) & " " & lang_dict(36)
+            .Cells(OOrow + 5, 1).Font.Bold = True
+            .Cells(OOrow + 5, 1).Font.Italic = True
+            '.Range(.Cells(OOrow, 1), .Cells(OOrow + 5, 16)).Borders.LineStyle = .xlContinuous
+
+            .Range(.Cells(OOrow, 1), .Cells(OOrow, 16)).Merge
+            .Range(.Cells(OOrow + 1, 1), .Cells(OOrow + 1, 16)).Merge
+            .Range(.Cells(OOrow + 2, 1), .Cells(OOrow + 2, 16)).Merge
+            .Range(.Cells(OOrow + 3, 1), .Cells(OOrow + 3, 8)).Merge
+            .Range(.Cells(OOrow + 4, 1), .Cells(OOrow + 4, 8)).Merge
+            .Range(.Cells(OOrow + 5, 1), .Cells(OOrow + 5, 16)).Merge
+        End With
+
+    End Sub
+
+
+    'Private Function xlCenter() As Object
+    '    Try
+    '        Throw New NotImplementedException()
+
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 64041)
+    '    End Try
+    'End Function
 
     Public Sub curvetoexcel(filename_excel As String)
 
