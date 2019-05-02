@@ -235,6 +235,7 @@
             selected(fanno).ftp = Math.Round(selected(fanno).ftp, 2)
 
             selected(fanno).fantype = fanclass(fanno)
+            selected(fanno).fantypename = fantypename(fanno)
 
             'selected(fanno).fanfile = fantypefilename(fanno)'300119
 

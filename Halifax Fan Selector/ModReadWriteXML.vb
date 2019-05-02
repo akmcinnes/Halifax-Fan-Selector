@@ -93,6 +93,7 @@ Module ModReadWriteXML
                 Write_to_XML(textwriter, "Selection_information")
                 Write_to_XML(textwriter, "SI_Fan_Size", final.fansize.ToString)
                 Write_to_XML(textwriter, "SI_Fan_Type", final.fantype.ToString)
+                Write_to_XML(textwriter, "SI_Fan_Type_Description", final.fantypename.ToString)
                 Write_to_XML(textwriter, "SI_Fan_Speed", final.speed.ToString)
                 Write_to_XML(textwriter, "SI_Fan_Flow", final.vol.ToString)
                 Write_to_XML(textwriter, "SI_Static_Pressure", final.fsp.ToString)
@@ -161,6 +162,11 @@ Module ModReadWriteXML
                 'End If
                 'If BPfreq > 0 Then
                 Write_to_XML(textwriter, "Blade_Passing_Frequency", BPfreq.ToString)
+                Write_to_XML(textwriter, "Include_Duct_Noise", InclDuctNoise.ToString)
+                Write_to_XML(textwriter, "Include_Open_Inlet_Noise", InclOpenInletNoise.ToString)
+                Write_to_XML(textwriter, "Include_Open_Outlet_Noise", InclOpenOutletNoise.ToString)
+                Write_to_XML(textwriter, "Include_Bearing_Noise", InclBrgNoise.ToString)
+                Write_to_XML(textwriter, "Include_Motor_Noise", InclMotorNoise.ToString)
                 'End If
                 Write_to_XML(textwriter)
             End If
@@ -234,6 +240,7 @@ Module ModReadWriteXML
                         ' #### Selection - checked
                         If textReader.Name = "SI_Fan_Size" Then final.fansize = CDbl(textReader.ReadString)
                         If textReader.Name = "SI_Fan_Type" Then final.fantype = textReader.ReadString
+                        If textReader.Name = "SI_Fan_Type_Description" Then final.fantypename = textReader.ReadString
                         If textReader.Name = "SI_Fan_Speed" Then final.speed = CDbl(textReader.ReadString)
                         If textReader.Name = "SI_Fan_Flow" Then final.vol = CDbl(textReader.ReadString)
                         If textReader.Name = "SI_Static_Pressure" Then final.fsp = CDbl(textReader.ReadString)
@@ -270,7 +277,11 @@ Module ModReadWriteXML
                         If textReader.Name = "Bearing_Noise" Then BRGnoise = CInt(textReader.ReadString)
                         If textReader.Name = "Motor_Noise" Then MTRnoise = CInt(textReader.ReadString)
                         If textReader.Name = "Blade_Passing_Frequency" Then BPfreq = CInt(textReader.ReadString)
-
+                        If textReader.Name = "Include_Duct_Noise" Then InclDuctNoise = CBool(textReader.ReadString)
+                        If textReader.Name = "Include_Open_Inlet_Noise" Then InclOpenInletNoise = CBool(textReader.ReadString)
+                        If textReader.Name = "Include_Open_Outlet_Noise" Then InclOpenOutletNoise = CBool(textReader.ReadString)
+                        If textReader.Name = "Include_Bearing_Noise" Then InclBrgNoise = CBool(textReader.ReadString)
+                        If textReader.Name = "Include_Motor_Noise" Then InclMotorNoise = CBool(textReader.ReadString)
 
                         'If TextReader.Name = "Design_Temperature" Then designtemp = TextReader.ReadString
                         'If TextReader.Name = "Maximum_Temperature" Then maximumtemp = TextReader.ReadString

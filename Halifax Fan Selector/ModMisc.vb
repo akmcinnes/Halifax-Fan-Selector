@@ -17,7 +17,7 @@
                 Next II
                 'Customer = ""
                 FileSaved = False
-                designtemp = 0.0
+                designtemp = 20.0
                 maximumtemp = 0.0
                 ambienttemp = 0.0
                 altitude = 0.0

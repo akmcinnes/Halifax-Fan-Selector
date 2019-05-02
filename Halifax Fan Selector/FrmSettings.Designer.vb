@@ -24,7 +24,6 @@ Partial Class FrmSettings
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSettings))
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.btnBackgroundColour = New System.Windows.Forms.Button()
         Me.btnEnd = New System.Windows.Forms.Button()
         Me.chkAdvancedUser = New System.Windows.Forms.CheckBox()
         Me.grpLanguage = New System.Windows.Forms.GroupBox()
@@ -37,14 +36,16 @@ Partial Class FrmSettings
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnPageSetup = New System.Windows.Forms.Button()
         Me.SetupPage = New System.Windows.Forms.PageSetupDialog()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.lblEmail = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.optXian = New System.Windows.Forms.RadioButton()
+        Me.optShenzhen = New System.Windows.Forms.RadioButton()
+        Me.optShangai = New System.Windows.Forms.RadioButton()
+        Me.optUK = New System.Windows.Forms.RadioButton()
         Me.grpLanguage.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnBackgroundColour
-        '
-        resources.ApplyResources(Me.btnBackgroundColour, "btnBackgroundColour")
-        Me.btnBackgroundColour.Name = "btnBackgroundColour"
-        Me.btnBackgroundColour.UseVisualStyleBackColor = True
         '
         'btnEnd
         '
@@ -111,11 +112,60 @@ Partial Class FrmSettings
         Me.btnPageSetup.Name = "btnPageSetup"
         Me.btnPageSetup.UseVisualStyleBackColor = True
         '
+        'txtEmail
+        '
+        resources.ApplyResources(Me.txtEmail, "txtEmail")
+        Me.txtEmail.Name = "txtEmail"
+        '
+        'lblEmail
+        '
+        resources.ApplyResources(Me.lblEmail, "lblEmail")
+        Me.lblEmail.Name = "lblEmail"
+        '
+        'GroupBox1
+        '
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
+        Me.GroupBox1.Controls.Add(Me.optXian)
+        Me.GroupBox1.Controls.Add(Me.optShenzhen)
+        Me.GroupBox1.Controls.Add(Me.optShangai)
+        Me.GroupBox1.Controls.Add(Me.optUK)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.TabStop = False
+        '
+        'optXian
+        '
+        resources.ApplyResources(Me.optXian, "optXian")
+        Me.optXian.Name = "optXian"
+        Me.optXian.UseVisualStyleBackColor = True
+        '
+        'optShenzhen
+        '
+        resources.ApplyResources(Me.optShenzhen, "optShenzhen")
+        Me.optShenzhen.Name = "optShenzhen"
+        Me.optShenzhen.UseVisualStyleBackColor = True
+        '
+        'optShangai
+        '
+        resources.ApplyResources(Me.optShangai, "optShangai")
+        Me.optShangai.Name = "optShangai"
+        Me.optShangai.UseVisualStyleBackColor = True
+        '
+        'optUK
+        '
+        resources.ApplyResources(Me.optUK, "optUK")
+        Me.optUK.Checked = True
+        Me.optUK.Name = "optUK"
+        Me.optUK.TabStop = True
+        Me.optUK.UseVisualStyleBackColor = True
+        '
         'FrmSettings
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.txtEmail)
+        Me.Controls.Add(Me.lblEmail)
         Me.Controls.Add(Me.btnPageSetup)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnDataFolder)
@@ -124,17 +174,17 @@ Partial Class FrmSettings
         Me.Controls.Add(Me.grpLanguage)
         Me.Controls.Add(Me.chkAdvancedUser)
         Me.Controls.Add(Me.btnEnd)
-        Me.Controls.Add(Me.btnBackgroundColour)
         Me.Name = "FrmSettings"
         Me.grpLanguage.ResumeLayout(False)
         Me.grpLanguage.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents ColorDialog1 As ColorDialog
-    Friend WithEvents btnBackgroundColour As Button
     Friend WithEvents btnEnd As Button
     Friend WithEvents chkAdvancedUser As CheckBox
     Friend WithEvents grpLanguage As GroupBox
@@ -147,4 +197,11 @@ Partial Class FrmSettings
     Friend WithEvents Label1 As Label
     Friend WithEvents btnPageSetup As Button
     Friend WithEvents SetupPage As PageSetupDialog
+    Friend WithEvents txtEmail As TextBox
+    Friend WithEvents lblEmail As Label
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents optXian As RadioButton
+    Friend WithEvents optShenzhen As RadioButton
+    Friend WithEvents optShangai As RadioButton
+    Friend WithEvents optUK As RadioButton
 End Class

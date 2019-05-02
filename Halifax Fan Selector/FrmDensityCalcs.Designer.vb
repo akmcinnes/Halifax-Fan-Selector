@@ -74,8 +74,8 @@ Partial Class FrmDensityCalcs
         '
         'ListBox1
         '
-        Me.ListBox1.AllowDrop = True
         resources.ApplyResources(Me.ListBox1, "ListBox1")
+        Me.ListBox1.AllowDrop = True
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Name = "ListBox1"
         '
@@ -87,6 +87,7 @@ Partial Class FrmDensityCalcs
         '
         'DataGridView3
         '
+        resources.ApplyResources(Me.DataGridView3, "DataGridView3")
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -105,7 +106,6 @@ Partial Class FrmDensityCalcs
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle2
-        resources.ApplyResources(Me.DataGridView3, "DataGridView3")
         Me.DataGridView3.Name = "DataGridView3"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
@@ -132,10 +132,10 @@ Partial Class FrmDensityCalcs
         '
         'GroupBox1
         '
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.RadioButton3)
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
@@ -253,6 +253,7 @@ Partial Class FrmDensityCalcs
         '
         'GroupBox2
         '
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label3)
@@ -265,7 +266,6 @@ Partial Class FrmDensityCalcs
         Me.GroupBox2.Controls.Add(Me.TextBox2)
         Me.GroupBox2.Controls.Add(Me.lblTemperatureUnitsIn)
         Me.GroupBox2.Controls.Add(Me.TextBox1)
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
@@ -292,6 +292,7 @@ Partial Class FrmDensityCalcs
         '
         'GroupBox3
         '
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.lblTemperatureUnitsOut)
         Me.GroupBox3.Controls.Add(Me.TextBox5)
@@ -299,7 +300,6 @@ Partial Class FrmDensityCalcs
         Me.GroupBox3.Controls.Add(Me.TextBox6)
         Me.GroupBox3.Controls.Add(Me.lblDensityUnitsOut)
         Me.GroupBox3.Controls.Add(Me.TextBox7)
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False

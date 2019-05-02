@@ -265,6 +265,14 @@
                     ipos = ipos + 1
                     OutputMotor(ipos)
                 End If
+
+                InclDuctNoise = .chkDuct.Checked
+                InclOpenInletNoise = .chkOpenInlet.Checked
+                InclOpenOutletNoise = .chkOpenOutlet.Checked
+                InclBrgNoise = .chkBrg.Checked
+                InclMotorNoise = .chkMotor.Checked
+
+
                 Call CalcBPFreq()
                 Call OutputBPF(ipos + 1)
                 .DataGridView2.RowCount = ipos + 1

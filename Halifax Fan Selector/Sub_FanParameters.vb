@@ -94,11 +94,15 @@
     End Sub
     Public Function CalculateKP(gamma As Double, atmos As Double, fsp As Double, ip As Double) As Double
         Try
-            Dim a, b, c As Double
-            a = gamma / (gamma - 1)
-            b = (gamma - 1) / gamma
-            c = (atmos + fsp) / (atmos + ip)
-            kp = (a * ((c ^ b) - 1)) / (c - 1)
+            If fsp < 0.001 Then
+                kp = 1.0
+            Else
+                Dim a, b, c As Double
+                a = gamma / (gamma - 1)
+                b = (gamma - 1) / gamma
+                c = (atmos + fsp) / (atmos + ip)
+                kp = (a * ((c ^ b) - 1)) / (c - 1)
+            End If
             Return kp
         Catch ex As Exception
             ErrorMessage(ex, 1203)

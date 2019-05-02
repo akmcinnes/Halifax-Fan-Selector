@@ -91,6 +91,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCurveOptions.Designer.vb">
+      <DependentUpon>FrmCurveOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCurveOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmDisplayRejects.Designer.vb">
       <DependentUpon>FrmDisplayRejects.vb</DependentUpon>
     </Compile>
@@ -106,7 +112,11 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModINI.vb" />
+    <Compile Include="ModPrintCurve.vb" />
+    <Compile Include="ModPrintDatapoints.vb" />
     <Compile Include="ModPrinting.vb" />
+    <Compile Include="ModPrintPerformance.vb" />
+    <Compile Include="ModPrintSound.vb" />
     <Compile Include="ModReadWriteXML.vb" />
     <Compile Include="VariablesDensity.vb" />
     <Compile Include="FrmFanChart.Designer.vb">
@@ -177,6 +187,9 @@
     <Compile Include="VariablesStructs.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmCurveOptions.resx">
+      <DependentUpon>FrmCurveOptions.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDensityCalcs.resx">
       <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +268,15 @@
     <None Include="Resources\logo-2016.png" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="ExcelPlugInShell">
+      <Guid>{CD2194AA-11BE-4EFD-97A6-74C39C6508FF}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>

@@ -21,13 +21,19 @@ Public Class Frmselectfan
             FullFilePathtxt = OutputPathDefault + "Fan Output.txt"
 
             NewProject = True
+
             'TabControl1.Controls.Remove(TabPageDuty)
             'If StartArg.ToLower.Contains("-b") Then TabControl1.Controls.Remove(TabPageImpeller)
             'Me.Text = "Halifax Fan Selection Software" + " - " + version_number
             Me.Text = Me.Text + " - " + version_number
+
+            PrintToolStripMenuItem.Enabled = False
             If StartArg.ToLower.Contains("-dev") Then
+                PrintToolStripMenuItem.Enabled = True
                 Me.Text = Me.Text.ToUpper()
             End If
+            DefaultHeader = Me.Text
+
             'TabPageGeneral.Text = lblTabGeneralInformation.Text
             'TabPageDuty.Text = lblTabDutyInput.Text
             'TabPageFanParameters.Text = lblTabFanParameters.Text
@@ -179,6 +185,8 @@ Public Class Frmselectfan
             OpenFileName = OpenFileDialog1.FileName
             If OpenFileName = "" Then Exit Sub
             ReadProjectFile(OpenFileName)
+
+            Me.Text = DefaultHeader + " (" + OpenFileDialog1.SafeFileName + " Selected)"
         Catch ex As Exception
             ErrorMessage(ex, 20308)
         End Try
@@ -1527,34 +1535,7 @@ Public Class Frmselectfan
     ' Print Preview 
     Private Sub AllPagesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllPagesToolStripMenuItem.Click
         Try
-            Dim i As Integer
-            Dim filenameref As String = "FILENAME REF DATA"
-            ReadReffromBinaryfile(filenameref)
-            Do While fanclass(i) <> final.fantype
-                i = i + 1
-            Loop
-            ReadfromBinaryfile(fantypefilename(i), 0)
-
-            FrmFanChart.ConvertPVtoChart(True)
-
-            Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
-            SaveFileDialog1.InitialDirectory = OutputPathDefault '"C:\Halifax\Output Files"
-            'SaveFileDialog1.CheckFileExists = True
-            SaveFileDialog1.ShowDialog()
-
-            Dim filename_read As String = TemplatesPathDefault + "HFS Output Template.rtf"
-            Dim filename_excel As String = TemplatesPathDefault + "Curve Template.xlsx"
-            Dim filename_write As String = SaveFileDialog1.FileName
-            Dim objReader As New System.IO.StreamReader(filename_read)
-            CreateFile(filename_read, filename_write, True, "#", filename_excel)
-            'CreateFile("C:\Halifax\Templates\Performance Template.rtf", True, "~")
-            objReader.Close()
-
-
-            'CreateFile("C:\Halifax\Templates\HFS Output Template.rtf", True, "#")
-            'CreateFile("C:\Halifax\Templates\HFS Output Template.rtf", True, "~")
-
+            CreateFile(0)
         Catch ex As Exception
             ErrorMessage(ex, 20386)
         End Try
@@ -1562,29 +1543,7 @@ Public Class Frmselectfan
 
     Private Sub PerformanceDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceDetailsToolStripMenuItem.Click
         Try
-            Dim i As Integer
-            Dim filenameref As String = "FILENAME REF DATA"
-            ReadReffromBinaryfile(filenameref)
-            Do While fanclass(i) <> final.fantype
-                i = i + 1
-            Loop
-            ReadfromBinaryfile(fantypefilename(i), 0)
-
-            FrmFanChart.ConvertPVtoChart(True)
-
-            Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
-            SaveFileDialog1.InitialDirectory = OutputPathDefault '"C:\Halifax\Output Files"
-            'SaveFileDialog1.CheckFileExists = True
-            SaveFileDialog1.ShowDialog()
-
-            Dim filename_read As String = TemplatesPathDefault + "Performance Template.rtf"
-            Dim filename_excel As String = TemplatesPathDefault + "Curve Template.xlsx"
-            Dim filename_write As String = SaveFileDialog1.FileName
-            Dim objReader As New System.IO.StreamReader(filename_read)
-            CreateFile(filename_read, filename_write, True, "#", filename_excel)
-            'CreateFile("C:\Halifax\Templates\Performance Template.rtf", True, "~")
-            objReader.Close()
+            CreateFile(1)
         Catch ex As Exception
             ErrorMessage(ex, 20387)
         End Try
@@ -1592,21 +1551,7 @@ Public Class Frmselectfan
 
     Private Sub AcousticsDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcousticsDetailsToolStripMenuItem.Click
         Try
-            'Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            'SaveFileDialog1.Filter = "RTF files (*.rtf)|*.rtf"
-            'SaveFileDialog1.InitialDirectory = OutputPathDefault '"C:\Halifax\Output Files"
-            ''SaveFileDialog1.CheckFileExists = True
-            'SaveFileDialog1.ShowDialog()
-
-            'Dim filename_read As String = TemplatesPathDefault + "Sound Template " + ChosenLanguage + ".rtf"
-            'Dim filename_write As String = SaveFileDialog1.FileName
-            'Dim objReader As New System.IO.StreamReader(filename_read)
-            'CreateFile(filename_read, filename_write, True, "#")
-            CreateFile("", "", True, "#")
-            'CreateFile("C:\Halifax\Templates\Sound Template.rtf", True, "#")
-            'CreateFile("C:\Halifax\Templates\Sound Template.rtf", True, "~")
-            'objReader.Close()
-
+            CreateFile(2)
         Catch ex As Exception
             ErrorMessage(ex, 20388)
         End Try
@@ -1666,6 +1611,10 @@ Public Class Frmselectfan
         Catch ex As Exception
             ErrorMessage(ex, 20391)
         End Try
+    End Sub
+
+    Private Sub PerformanceCurveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceCurveToolStripMenuItem.Click
+        CreateFile(3)
     End Sub
 
     ''Private Sub TabPageFanParameters_Click(sender As Object, e As EventArgs) Handles TabPageFanParameters.Click

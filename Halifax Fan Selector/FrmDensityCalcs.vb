@@ -90,9 +90,9 @@ Public Class FrmDensityCalcs
                 ListBox1.Enabled = False
             End If
             If RadioButton2.Checked = True And DataGridView3.Rows(gasnum).Cells(0).Value.contains("Air") = True And gasnum = 0 Then
-                    DataGridView3.Rows(gasnum).Cells(1).Value = "1.0"
-                    DataGridView3.Rows(maxgasnum).Cells(1).Value = "1.0"
-                    totalpercent = 1.0
+                    DataGridView3.Rows(gasnum).Cells(1).Value = "100.0"
+                    DataGridView3.Rows(maxgasnum).Cells(1).Value = "100.0"
+                    totalpercent = 100.0
                     'DataGridView3.Rows(0).Cells(1).Value = ""
                 End If
             gasnum = gasnum + 1
@@ -180,8 +180,8 @@ Public Class FrmDensityCalcs
                 DataGridView3.CurrentCell.Value = ""
                 For i = 0 To maxgasnum - 1
                     k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
-                    If k > 1.0 Then
-                        MsgBox(lblMsg1.Text, vbInformation + vbOKOnly, lblMsgTitle.Text) '(("total must be less than 1.0")
+                    If k > 100.0 Then
+                        MsgBox(lblMsg1.Text, vbInformation + vbOKOnly, lblMsgTitle.Text) '(("total must be less than 100.0")
                         k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
                         DataGridView3.Rows(i).Cells(1).Value = ""
                         Exit For
@@ -202,8 +202,8 @@ Public Class FrmDensityCalcs
             'If allpercent = True Then
             For i = 0 To maxgasnum - 1
                 k = k + CDbl(DataGridView3.Rows(i).Cells(1).Value)
-                If k > 1.0 Then
-                    MsgBox(lblMsg1.Text, vbInformation + vbOKOnly, lblMsgTitle.Text) '(("total must be less than 1.0")
+                If k > 100.0 Then
+                    MsgBox(lblMsg1.Text, vbInformation + vbOKOnly, lblMsgTitle.Text) '(("total must be less than 100.0")
                     k = k - CDbl(DataGridView3.Rows(i).Cells(1).Value)
                     DataGridView3.Rows(i).Cells(1).Value = ""
                     Exit For
@@ -266,7 +266,7 @@ Public Class FrmDensityCalcs
 
     Private Sub btnCalculate_Click(sender As Object, e As EventArgs) Handles btnCalculate.Click
         Try
-            If totalpercent < 0.999 Or totalpercent > 1.0001 Then
+            If totalpercent < 99.9 Or totalpercent > 100.1 Then
                 CalculatedDensity = 0.0
                 TextBox7.Text = ""
                 TextBox6.Text = ""
@@ -292,15 +292,15 @@ Public Class FrmDensityCalcs
                     GasesOut(i).GasDensity = 1.2929 * (1 - (0.3783 * (humidity2 / 100) * WVSP) / (101325))
                 End If
                 If RadioButton1.Checked = True Then
-                    GasesOut(i).GasMassFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value)
+                    GasesOut(i).GasMassFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value) / 100.0
                     GasesOut(i).GasDensity = GasesOut(i).GasMassFraction / GasesOut(i).GasDensity
                     calcsum = calcsum + GasesOut(i).GasDensity
                 ElseIf RadioButton2.Checked = True Then
-                    GasesOut(i).GasVolumeFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value)
+                    GasesOut(i).GasVolumeFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value) / 100.0
                     GasesOut(i).GasDensity = InletPressure() * GasesOut(i).GasMW * GasesOut(i).GasVolumeFraction / ((8.3144621 * (273.15 + temperature2)))
                     calcsum = calcsum + GasesOut(i).GasDensity
                 ElseIf RadioButton3.Checked = True Then
-                    GasesOut(i).GasMoleFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value)
+                    GasesOut(i).GasMoleFraction = CDbl(DataGridView3.Rows(i).Cells(1).Value) / 100.0
                     GasesOut(i).GasDensity = GasesOut(i).GasMoleFraction * GasesOut(i).GasMW
                     calcsum = calcsum + GasesOut(i).GasDensity
                 End If

@@ -7262,19 +7262,19 @@
     <value>17, 17</value>
   </metadata>
   <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 26</value>
+    <value>181, 26</value>
   </data>
   <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
     <value>New Project</value>
   </data>
   <data name="OpenProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 26</value>
+    <value>181, 26</value>
   </data>
   <data name="OpenProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>Open Project</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 26</value>
+    <value>181, 26</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>Save Project</value>
@@ -7297,14 +7297,20 @@
   <data name="AcousticsDetailsToolStripMenuItem.Text" xml:space="preserve">
     <value>Acoustics Details</value>
   </data>
+  <data name="PerformanceCurveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 26</value>
+  </data>
+  <data name="PerformanceCurveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fan Curve</value>
+  </data>
   <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 26</value>
+    <value>181, 26</value>
   </data>
   <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
     <value>Output to File</value>
   </data>
   <data name="ExitProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 26</value>
+    <value>181, 26</value>
   </data>
   <data name="ExitProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>Exit Project</value>
@@ -7466,6 +7472,12 @@
     <value>AcousticsDetailsToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;AcousticsDetailsToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PerformanceCurveToolStripMenuItem.Name" xml:space="preserve">
+    <value>PerformanceCurveToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;PerformanceCurveToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ExitProjectToolStripMenuItem.Name" xml:space="preserve">

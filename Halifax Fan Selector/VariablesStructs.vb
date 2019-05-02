@@ -82,6 +82,7 @@
         Public outletlen As Double
         Public outletwid As Double
         Public outletdia As Double
+        Public fantypename As String
     End Structure
 
     Public selected(50) As fanstruct

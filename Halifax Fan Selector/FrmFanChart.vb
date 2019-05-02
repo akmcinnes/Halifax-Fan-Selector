@@ -308,6 +308,13 @@ Public Class FrmFanChart
                 tempoaconv = 0.09290304
             End If
 
+            If Units(1).UnitSelected = 0 Then kpatmos = 101325
+            If Units(1).UnitSelected = 1 Then kpatmos = 408.782
+            If Units(1).UnitSelected = 2 Then kpatmos = 10332.275
+            If Units(1).UnitSelected = 3 Then kpatmos = 1013.25
+            If Units(1).UnitSelected = 4 Then kpatmos = 101.325
+
+
             For i = 0 To Num_Readings - 1
                 Select Case Units(1).UnitSelected
                     Case 0
@@ -387,6 +394,8 @@ Public Class FrmFanChart
                 plotpow(i) = ScalePowFSpeed(plotpow(i), FanSpeed1, tempspeed)
 
                 'plotpow(i) = plotpow(i) / temp_kp
+
+
 
                 Dim tempkp As Double = 1.0
                 tempkp = CalculateKP(1.4, kpatmos, plotfsp(i), 0)

@@ -16,11 +16,22 @@ Module Variables
     Public TemplatesPathDefault As String ' = DataPathMain + "Templates\"
     'Public DataPathDefault As String = ".\Performance Data\"
     Public DataPath As String
-    Public lang_dict(150) As String
+    Public lang_dict(250) As String
+    Public lang_dictEN(250) As String
 
     Public FullFilePathtxt As String
 
     Public username As String
+    Public emailaddress As String
+    Public phonenumber As String
+    Public address As String
+
+    Public headercompany As String
+    Public headeraddress As String
+    Public headeremail As String
+    Public headerphone As String
+    Public headerweb As String
+
 
     Public StartArg As String
 
@@ -384,6 +395,11 @@ Module Variables
     Public outletdiameter As Integer
     Public WScale(8) As Single
 
+    Public InclDuctNoise As Boolean
+    Public InclOpenInletNoise As Boolean
+    Public InclOpenOutletNoise As Boolean
+    Public InclBrgNoise As Boolean
+    Public InclMotorNoise As Boolean
 
     Public Background_Color As Color
 
@@ -393,5 +409,11 @@ Module Variables
     Public filename As String
 
     Public kpatmos As Double
+
+    Public DefaultHeader As String
+
+    Public sheet As String
+
+    Public IncludeDampers As Boolean
 
 End Module

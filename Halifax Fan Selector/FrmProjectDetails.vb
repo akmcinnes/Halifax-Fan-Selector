@@ -13,6 +13,7 @@
             If (TxtCustomer.TextLength > 0) Then
                 'Frmselectfan.Text = "Halifax Fan Selection Software - " + TxtCustomer.Text
                 Frmselectfan.Text = Frmselectfan.Text + " - " + TxtCustomer.Text
+                DefaultHeader = Frmselectfan.Text
                 'Else
                 '    Frmselectfan.Text = "Halifax Fan Selection Software"
             End If

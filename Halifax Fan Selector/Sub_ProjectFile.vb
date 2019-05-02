@@ -13,6 +13,7 @@ Module Sub_ProjectFile
             If (SaveFileName.Length > 0) Then
                 WriteAllFile(SaveFileName)
                 MsgBox("File has been saved")
+                Frmselectfan.Text = DefaultHeader + " (" + SaveFileDialog1.FileName + ")"
             End If
         Catch ex As Exception
             ErrorMessage(ex, 1501)

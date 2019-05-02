@@ -370,6 +370,7 @@ Module Sub_Selections
             For i = 0 To 49
                 selected(i).fansize = 0.0
                 selected(i).fantype = ""
+                selected(i).fantypename = ""
                 selected(i).fse = 0.0
                 selected(i).speed = 0.0
                 selected(i).pow = 0.0

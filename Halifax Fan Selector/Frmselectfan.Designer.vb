@@ -260,6 +260,7 @@ Partial Class Frmselectfan
         Me.AllPagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PerformanceDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcousticsDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PerformanceCurveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -2040,7 +2041,7 @@ Partial Class Frmselectfan
         '
         'PrintToolStripMenuItem
         '
-        Me.PrintToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllPagesToolStripMenuItem, Me.PerformanceDetailsToolStripMenuItem, Me.AcousticsDetailsToolStripMenuItem})
+        Me.PrintToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllPagesToolStripMenuItem, Me.PerformanceDetailsToolStripMenuItem, Me.AcousticsDetailsToolStripMenuItem, Me.PerformanceCurveToolStripMenuItem})
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
         resources.ApplyResources(Me.PrintToolStripMenuItem, "PrintToolStripMenuItem")
         '
@@ -2058,6 +2059,11 @@ Partial Class Frmselectfan
         '
         Me.AcousticsDetailsToolStripMenuItem.Name = "AcousticsDetailsToolStripMenuItem"
         resources.ApplyResources(Me.AcousticsDetailsToolStripMenuItem, "AcousticsDetailsToolStripMenuItem")
+        '
+        'PerformanceCurveToolStripMenuItem
+        '
+        Me.PerformanceCurveToolStripMenuItem.Name = "PerformanceCurveToolStripMenuItem"
+        resources.ApplyResources(Me.PerformanceCurveToolStripMenuItem, "PerformanceCurveToolStripMenuItem")
         '
         'ExitProjectToolStripMenuItem
         '
@@ -2400,4 +2406,5 @@ Partial Class Frmselectfan
     Friend WithEvents Button2 As Button
     Friend WithEvents btnNoiseDataBack As Button
     Friend WithEvents lblPhase2 As Label
+    Friend WithEvents PerformanceCurveToolStripMenuItem As ToolStripMenuItem
 End Class

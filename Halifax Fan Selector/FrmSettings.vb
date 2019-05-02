@@ -34,15 +34,6 @@ Public Class FrmSettings
         End Try
     End Sub
 
-    'Private Sub btnBackgroundColour_Click(sender As Object, e As EventArgs) Handles btnBackgroundColour.Click
-    '    Try
-    '        ColorDialog1.ShowDialog()
-
-    '    Catch ex As Exception
-    '        ErrorMessage(ex, 20401)
-    '    End Try
-    'End Sub
-
     Private Sub FrmSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
             'Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture
