@@ -41,6 +41,14 @@ Module Variables
 
     Public ChosenLanguage As String
 
+    Public ChosenSite As Integer ' 1 = uk, 2 = Shanghai, 3 = Shenzen, 4 = Xian
+
+    Public estring As String
+    Public tstring As String
+    Public cstring As String
+    Public astring As String
+
+
     Public SelectDIDW As Boolean
 
     Public move_on As Boolean
@@ -415,5 +423,6 @@ Module Variables
     Public sheet As String
 
     Public IncludeDampers As Boolean
+    Public IncludeSystem As Boolean
 
 End Module

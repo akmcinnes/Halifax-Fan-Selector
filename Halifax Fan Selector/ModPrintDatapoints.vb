@@ -53,6 +53,7 @@
 
     Public Sub OutputDataTableDamperVolPowPO(xlsWB, text1, factor, col1, col2)
         Dim vol, pwr As Double
+        xlsWB.ActiveSheet.Name = sheet
         'Dim factors(3) As Double
         'Dim Factor = New Integer() {0.9, 0.8, 0.67, 0.5}
         'ConvertData()
@@ -61,7 +62,6 @@
         PlaceData(xlsWB, sheet, text1, 7, col2)
         PlaceData(xlsWB, sheet, Math.Round(factor * 100).ToString + "%", 8, col2)
         Dim i As Integer
-        xlsWB.ActiveSheet.Name = sheet
         For i = 1 To Num_Readings
             vol = plotvol(i - 1) * factor
             pwr = plotpow(i - 1) * factor
@@ -71,7 +71,27 @@
         Next
     End Sub
 
-	
+    Public Sub OutputDataTableSystemPO(xlsWB, text1, text2, text3, col1, col2)
+        Dim vol, prs As Double
+
+        xlsWB.ActiveSheet.Name = sheet
+        PlaceData(xlsWB, sheet, text1, 7, col1)
+        PlaceData(xlsWB, sheet, text2, 8, col1)
+        PlaceData(xlsWB, sheet, text3, 8, col2)
+        Dim i As Integer
+        For i = 0 To 21
+            vol = i * final.vol / 20
+            If PresType = 0 Then
+                prs = final.fsp * (vol / final.vol) ^ 2.0
+            Else
+                prs = final.ftp * (vol / final.vol) ^ 2.0
+            End If
+            SetPlaces(vol)
+            PlaceData(xlsWB, sheet, Math.Round(vol, voldecplaces), 9 + i, col1) 'performance data header
+            PlaceData(xlsWB, sheet, Math.Round(prs, pressplaceRise), 9 + i, col2) 'performance data header
+        Next
+    End Sub
+
     Public Sub OutputDutyPointsPO(xlsWB)
         ConvertData()
         Dim i As Integer

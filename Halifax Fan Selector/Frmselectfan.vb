@@ -1,4 +1,4 @@
-﻿Imports Word = Microsoft.Office.Interop.Word
+﻿'Imports Word = Microsoft.Office.Interop.Word
 Imports Microsoft.Office
 Imports System.IO
 Imports System.Xml

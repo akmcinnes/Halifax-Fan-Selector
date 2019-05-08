@@ -16,4 +16,8 @@
             optFTPonly.Checked = True
         End If
     End Sub
+
+    Private Sub chkSystem_CheckedChanged(sender As Object, e As EventArgs) Handles chkSystem.CheckedChanged
+        IncludeSystem = chkSystem.Checked
+    End Sub
 End Class

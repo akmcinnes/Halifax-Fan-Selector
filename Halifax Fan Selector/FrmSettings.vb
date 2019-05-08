@@ -11,10 +11,16 @@ Public Class FrmSettings
             Dim Path As String
             Path = UserProfile + "\Halifax.ini"
 
+            ChosenSite = 0
+            If optShangai.Checked = True Then ChosenSite = 1
+            If optShenzhen.Checked = True Then ChosenSite = 2
+            If optXian.Checked = True Then ChosenSite = 3
+
             Dim str As String
             str = SystemDrive + "\Halifax\"
             writeIni(Path, "Settings", "Halifax Root Folder", str)
             writeIni(Path, "Settings", "Language", ChosenLanguage)
+            writeIni(Path, "Settings", "Site", ChosenSite.ToString)
             If username.Length < 1 Then username = "HFL Sales"
             writeIni(Path, "Settings", "User", username)
             ReadWriteINI()
@@ -42,6 +48,7 @@ Public Class FrmSettings
             'UserName = Environment.UserName'300119
             DataPath_main = GetFromINI("Settings", "Halifax Root Folder", SystemDrive + "\Halifax\", ini_path)
             ChosenLanguage = GetFromINI("Settings", "Language", "en-GB", ini_path)
+            ChosenSite = GetFromINI("Settings", "Site", "0", ini_path)
             username = GetFromINI("Settings", "User", "HFL Sales", ini_path)
             If txtUsername.Text.ToLower.Contains("akm") Then
                 grpLanguage.Visible = True
@@ -53,6 +60,20 @@ Public Class FrmSettings
             End If
 
             chkAdvancedUser.Checked = False
+
+            Select Case ChosenSite
+                Case 0
+                    optUK.Checked = True
+                Case 1
+                    optShangai.Checked = True
+                Case 2
+                    optShenzhen.Checked = True
+                Case 3
+                    optXian.Checked = True
+                Case Else
+                    optUK.Checked = True
+            End Select
+
 
         Catch ex As Exception
             ErrorMessage(ex, 20402)

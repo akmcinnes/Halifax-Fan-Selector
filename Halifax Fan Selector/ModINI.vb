@@ -46,6 +46,7 @@ Module modINI
             'Dim SuppressErrorMessages As Boolean
             DataPath_main = GetFromINI("Settings", "Halifax Root Folder", SystemDrive + "\Halifax\", ini_path)
             ChosenLanguage = GetFromINI("Settings", "Language", "en-GB", ini_path)
+            ChosenSite = GetFromINI("Settings", "Site", "0", ini_path)
             username = GetFromINI("Settings", "User", "HFL Sales", ini_path)
             'SuppressErrorMessages = GetFromINI("Settings", "Suppress Error Messages", "False", ini_path)
             'Form1.Text = DataPath_main + " " + Language + " " + User_Type.ToString + " " + SuppressErrorMessages.ToString

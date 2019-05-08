@@ -40,6 +40,9 @@
                     OutputDataTableDamperVolPowPO(xlsWB, "BLADES 40º", 0.67, 8, 16)
                     OutputDataTableDamperVolPowPO(xlsWB, "BLADES 30º", 0.5, 9, 17)
                 End If
+                If IncludeSystem = True Then
+                    OutputDataTableSystemPO(xlsWB, "System CURVE", "curvevol", "Pressure", 11, 12)
+                End If
                 'OutputopeninletPO(xlsWB, 26)
                 'OutputopenoutletPO(xlsWB, 33)
                 'OutputbrgPO(xlsWB, 42)

@@ -27,12 +27,13 @@ Partial Class FrmCurveOptions
         Me.optFSPonly = New System.Windows.Forms.RadioButton()
         Me.optFTPonly = New System.Windows.Forms.RadioButton()
         Me.optFSPandFTP = New System.Windows.Forms.RadioButton()
+        Me.chkSystem = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'chkDamper
         '
         Me.chkDamper.AutoSize = True
-        Me.chkDamper.Location = New System.Drawing.Point(297, 97)
+        Me.chkDamper.Location = New System.Drawing.Point(74, 213)
         Me.chkDamper.Name = "chkDamper"
         Me.chkDamper.Size = New System.Drawing.Size(136, 21)
         Me.chkDamper.TabIndex = 0
@@ -81,11 +82,22 @@ Partial Class FrmCurveOptions
         Me.optFSPandFTP.Text = "FSP && FTP"
         Me.optFSPandFTP.UseVisualStyleBackColor = True
         '
+        'chkSystem
+        '
+        Me.chkSystem.AutoSize = True
+        Me.chkSystem.Location = New System.Drawing.Point(74, 240)
+        Me.chkSystem.Name = "chkSystem"
+        Me.chkSystem.Size = New System.Drawing.Size(166, 21)
+        Me.chkSystem.TabIndex = 5
+        Me.chkSystem.Text = "Include System Curve"
+        Me.chkSystem.UseVisualStyleBackColor = True
+        '
         'FrmCurveOptions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(447, 425)
+        Me.Controls.Add(Me.chkSystem)
         Me.Controls.Add(Me.optFSPandFTP)
         Me.Controls.Add(Me.optFTPonly)
         Me.Controls.Add(Me.optFSPonly)
@@ -103,4 +115,5 @@ Partial Class FrmCurveOptions
     Friend WithEvents optFSPonly As RadioButton
     Friend WithEvents optFTPonly As RadioButton
     Friend WithEvents optFSPandFTP As RadioButton
+    Friend WithEvents chkSystem As CheckBox
 End Class

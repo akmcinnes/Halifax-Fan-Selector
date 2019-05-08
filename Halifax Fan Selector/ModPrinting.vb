@@ -31,11 +31,40 @@ Module ModPrinting
             'open the excel file
             Frmselectfan.Cursor = Cursors.WaitCursor
             xlsWB = xlsWorkBooks.Open(filename_printout)
+
+            'Dim ws As Excel.Worksheet
+            'ws = xlsWB.Worksheets.Add(After:=xlsWB.Worksheets(1))
+            'ws.Name = "Chart 1"
+            'ws = Nothing
+
+
             'make the sheets visible/hidden
             Dim isheet As Integer
             For isheet = 1 To xlsWB.Sheets.Count
                 xlsWB.Sheets(isheet).Visible = Excel.XlSheetVisibility.xlSheetVisible
             Next
+            'xlsWB.Worksheets("Chart 1").Activate
+
+            ''xlsWB.ChartWizard(Source:=xlsWB.Worksheets("Datapoints").Range("a9:d39"), gallery:=xlsWB.Worksheets("Chart 1").ChartObjects.XlChartType.xlXYScatter, title:="Halifax No." & "curvefanname" & "cnztitle" & "DIDWtxt" & " Performance Curve")
+            ''xlsWB.PlotBy = xlsWB.XlChartType.xlColumns
+            ''xlsWB.ChartType = xlsWB.XlChartType.xlXYScatterSmoothNoMarkers
+
+            'Dim charts As Excel.ChartObjects = CType(xlsWB.ChartObjects(), Excel.ChartObjects)
+
+
+            '' Adds a chart at x = 100, y = 300, 500 points wide and 300 tall.
+            'Dim chartObj As Excel.ChartObject = charts.Add(100, 300, 500, 300)
+            'Dim chart As Excel.Chart = chartObj.Chart
+
+            '' Gets the cells that define the bounds of the data to be charted.
+            'Dim chartRange As Excel.Range = xlsWB.Range("A2", "B8")
+            'chart.SetSourceData(chartRange)
+
+            'chart.ChartType = Excel.XlChartType.xlXYScatter
+            'Dim series As Excel.Series
+            'Dim seriesCollection As Excel.SeriesCollection = CType(chart.SeriesCollection(), Excel.SeriesCollection)
+            'series = seriesCollection.Item(seriesCollection.Count)
+
             Select Case PagesToPrint
                 Case 0 'all pages
                     xlsWB.Worksheets("Performance").Activate
@@ -107,6 +136,36 @@ Module ModPrinting
                 lang_dictEN(ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 2).Value
             Next
             xlsWB.Close(SaveChanges:=False)
+            Select Case ChosenSite
+                Case 0
+                    cstring = lang_dict(17)
+                    astring = lang_dict(18)
+                    tstring = lang_dict(19)
+                    estring = lang_dict(20)
+                Case 1
+                    cstring = lang_dict(22)
+                    astring = lang_dict(23)
+                    tstring = lang_dict(24)
+                    estring = lang_dict(29)
+                Case 2
+                    cstring = lang_dict(22)
+                    astring = lang_dict(25)
+                    tstring = lang_dict(26)
+                    estring = lang_dict(29)
+                Case 3
+                    cstring = lang_dict(22)
+                    astring = lang_dict(27)
+                    tstring = lang_dict(28)
+                    estring = lang_dict(29)
+                Case Else
+                    cstring = lang_dict(17)
+                    astring = lang_dict(18)
+                    tstring = lang_dict(19)
+                    estring = lang_dict(20)
+            End Select
+
+
+
         Catch ex As Exception
             ErrorMessage(ex, 64021)
         End Try
@@ -414,11 +473,11 @@ Module ModPrinting
 
     Public Sub OutputHeaderPO(xlsWB)
         xlsWB.ActiveSheet.Name = sheet
-        PlaceData(xlsWB, sheet, lang_dict(17), 1, 1, True,,,,,,, 11) 'company name
-        PlaceData(xlsWB, sheet, lang_dict(18), 2, 1,, True,,,,,, 8) 'company address
+        PlaceData(xlsWB, sheet, cstring, 1, 1, True,,,,,,, 11) 'company name
+        PlaceData(xlsWB, sheet, astring, 2, 1,, True,,,,,, 8) 'company address
         PlaceData(xlsWB, sheet, lang_dict(21), 3, 1,,,,,,,, 8) 'company
-        PlaceData(xlsWB, sheet, lang_dict(20), 4, 1,,,,,,,, 8, False) 'company email
-        PlaceData(xlsWB, sheet, lang_dict(19), 4, 1,,,,,,,, 8, False) 'company phone
+        PlaceData(xlsWB, sheet, estring, 4, 1,,,,,,,, 8, False) 'company email
+        PlaceData(xlsWB, sheet, tstring, 4, 5,,,,,,,, 8, False) 'company phone
     End Sub
 
     Public Sub OutputFooterPO(xlsWB)
@@ -583,11 +642,13 @@ Module ModPrinting
 
     End Sub
     Private Sub ExporttoPDFPO(xlsWB)
-        Dim ExportName As String = OpenFileName.Replace(".hfs", ".pdf")
-        'UserProfile = System.Environment.ExpandEnvironmentVariables("%userprofile%")
-        If System.IO.File.Exists(ExportName) = True Then File.Delete(ExportName)
-        xlsWB.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, Filename:=ExportName)
-        System.Diagnostics.Process.Start(ExportName)
+        Try
+            Dim ExportName As String = OpenFileName.Replace(".hfs", ".pdf")
+            xlsWB.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, Filename:=ExportName)
+            System.Diagnostics.Process.Start(ExportName)
+        Catch ex As Exception
+            ErrorMessage(ex, 55555)
+        End Try
     End Sub
 
     Public Sub ConvertData()
