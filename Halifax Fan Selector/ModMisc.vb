@@ -5,17 +5,10 @@
                 SetUnitStructure()
 
                 SetUnits()
-                'populating Pressure Type
-                '        Frmselectfan.cmbPressType.AddItem "Fan Static"
-                '        Frmselectfan.cmbPressType.AddItem "Fan Total"
-                '        DensMult = 1
-
-                'NextSpeed = "2 Pole"'300119
                 RunTemp = 20
                 For II = 0 To 50 - 1
                     Widthratios(II) = 1
                 Next II
-                'Customer = ""
                 FileSaved = False
                 designtemp = 20.0
                 maximumtemp = 0.0
@@ -24,7 +17,6 @@
                 humidity = 0.0
                 atmospress = 0.0
                 knowndensity = 0.0
-                'calcdensity = 0.0'300119
                 flowrate = 0.0
                 reshead = 5.0
                 inletpress = 0.0
@@ -32,26 +24,20 @@
                 pressrise = 0.0
                 maxspeed = 0.0
                 fansize = 0.0
-                'If UserName.ToLower.Contains("akm") = True Then
+                DDInputArea = 0.0
+                DDInputRatio = 0.0
                 If StartArg.ToLower.Contains("-dev") = True Then
                     designtemp = 20.0
                     maximumtemp = 20.0
                     ambienttemp = 20.0
                     atmospress = 101325.0
-                    'knowndensity = 1.2
-                    'flowrate = 10000.0
-                    'pressrise = 4000.0
                     knowndensity = 1.2
                     flowrate = 10000.0
                     pressrise = 4000.0
                     maxspeed = 3600.0
-                    'Frmselectfan.Txtflow.Text = flowrate.ToString 'akm 080219
-                    'Frmselectfan.Txtfsp.Text = pressrise.ToString 'akm 080219
                 End If
             End If
-
         Catch ex As Exception
-            '            MsgBox("Initialize")
             ErrorMessage(ex, 5501)
         End Try
     End Sub
@@ -82,7 +68,7 @@
             Return result.ToString("0000")
 
         Catch ex As Exception
-            ErrorMessage(ex, 5513)
+            ErrorMessage(ex, 5502)
             Return result.ToString
         End Try
     End Function
@@ -102,25 +88,20 @@
                 Ctrl.BackColor = Color.White
             End If
         Catch ex As Exception
-            ErrorMessage(ex, 5514)
+            ErrorMessage(ex, 5503)
         End Try
     End Sub
 
-    'Sub RedBorder(Ctrl As System.Windows.Forms.TextBox)
-    '    Try
-    '        Dim g As System.Windows.Forms.PaintEventArgs
-    '        Dim pen As New Pen(Color.Red, 2.0)
-    '        g.Graphics.DrawRectangle(pen, New Rectangle(Ctrl.Location, Ctrl.Size))
-    '        pen.Dispose()
-
-    '    Catch ex As Exception
-    '        ErrorMessage(ex, 5515)
-    '    End Try
-    'End Sub
-    'Private Sub Form1_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles FrmSelectFan.Paint
-    '    Dim g As Graphics = e.Graphics
-    '    Dim p As New Pen(Color.Red, 2)
-    '    g.DrawRectangle(p, TextBox1.Left, TextBox1.Top, TextBox1.Width, TextBox1.Height)
-
-    'End Sub
+    Public Sub Kill_Excel()
+        Dim Process1() As Process
+        Dim Process2 As New Process
+        Try
+            Process1 = Process.GetProcessesByName("Excel")
+            For Each Process2 In Process1
+                Process2.Kill()
+            Next
+        Catch ex As Exception
+            ErrorMessage(ex, 5504)
+        End Try
+    End Sub
 End Module

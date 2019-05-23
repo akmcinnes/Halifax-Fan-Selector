@@ -172,4 +172,7 @@
   <data name="grpLanguage.Text" xml:space="preserve">
     <value>选择语言</value>
   </data>
+  <data name="lblLanguageMessage.Text" xml:space="preserve">
+    <value>Loading Chinese (Simplified) Language Pack</value>
+  </data>
 </root>

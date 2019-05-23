@@ -1,12 +1,9 @@
-﻿Imports System.IO
-Imports System.Xml
-Module ModGetFileData
+﻿Module ModGetFileData
     Sub ReadReffromBinaryfile(filename)
         Try
             FullFilePath = DataPath + filename + ".bin"
             fs = New System.IO.FileStream(FullFilePath, IO.FileMode.Open)
             br = New System.IO.BinaryReader(fs)
-
             Dim j As Integer
             br.BaseStream.Seek(0, IO.SeekOrigin.Begin)
             Try

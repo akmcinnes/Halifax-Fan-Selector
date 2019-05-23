@@ -50,6 +50,7 @@ Module Variables
 
 
     Public SelectDIDW As Boolean
+    Public AccessCode As String
 
     Public move_on As Boolean
 
@@ -205,6 +206,9 @@ Module Variables
     Public convvel As Double
 
     Public CalcAtmos As Boolean
+
+    Public DDInputArea As Double
+    Public DDInputRatio As Double
 
     Public fspmax As Double
     Public ftpmax As Double

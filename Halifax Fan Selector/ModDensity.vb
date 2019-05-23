@@ -1,13 +1,11 @@
 ﻿Module ModDensity
     Public Function getscalefactor()
+        'scaling factor for density
         getscalefactor = 0.0
         Try
-            'If DensType = 2 Then
             If Units(3).UnitSelected = 1 Then
-                'getscalefactor = Val(Frmselectfan.Txtdens.Text) / 0.075
                 getscalefactor = knowndensity / 0.075
             Else
-                'getscalefactor = Val(Frmselectfan.Txtdens.Text) / 1.2
                 getscalefactor = knowndensity / 1.2
             End If
             Return getscalefactor
@@ -17,6 +15,7 @@
     End Function
 
     Public Sub scaledensity(fanno, scalefactor)
+        'modify curve points for density & width
         Try
             count = 0
             Do While count <= 50

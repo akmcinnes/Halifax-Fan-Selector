@@ -2,9 +2,9 @@
     Public Structure UnitsStruct
         '0 = flow        '1 = pressure        '2 = temperature        '3 = density
         '4 = power       '5 = length          '6 = altitude           '7 = velocity
+        '8 = area
 
         Private m_UnitName() As String
-        'Private m_UnitConversion() As String
         Private m_UnitPlaces() As String
 
         Public Property UnitName(Index As Integer) As String
@@ -17,17 +17,6 @@
                 m_UnitName(Index) = value
             End Set
         End Property
-
-        'Public Property UnitConversion(Index As Integer) As Double
-        '    Get
-        '        If m_UnitConversion Is Nothing Then initArray2()
-        '        Return m_UnitConversion(Index)
-        '    End Get
-        '    Set(value As Double)
-        '        If m_UnitConversion Is Nothing Then initArray2()
-        '        m_UnitConversion(Index) = value
-        '    End Set
-        'End Property
 
         Public Property UnitPlaces(Index As Integer) As Integer
             Get
@@ -43,9 +32,6 @@
         Private Sub initArray1()
             ReDim m_UnitName(8)
         End Sub
-        'Private Sub initArray2()
-        '    ReDim m_UnitConversion(8)
-        'End Sub
         Private Sub initArray3()
             ReDim m_UnitPlaces(8)
         End Sub
@@ -157,5 +143,31 @@
 
     Public FailuresList(50) As Failures_Structure
 
+    ' ### TEMPORARY INFORMATION ###
+    Structure Temporary_Structure
+        Dim A, B, C, D, E As Integer
+        ' Dim Pt1Coord, Pt2Coord As Inventor.Point2d
+        Dim Value1, Value2, Value3, Value4, Value5 As Double
+        Dim String1, String2, String3, String4, String5 As String
+    End Structure
+
+    Public Temporary As Temporary_Structure
+
+
+    ' ### GENERAL INFORMATION ###
+    Structure General_Information_Structure
+        Dim Initials As String
+        Dim Time As String
+        Dim Contract_number As String
+        Dim Client_reference As String
+        Dim Project_name As String
+        Dim Country_template As String
+        Dim Fan_type As String
+        Dim Units As String
+        Dim State As Integer
+        Dim State_Message As String
+    End Structure
+
+    Public General_Information As General_Information_Structure
 
 End Module

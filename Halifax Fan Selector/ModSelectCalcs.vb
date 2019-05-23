@@ -1,5 +1,4 @@
-﻿Imports System.IO
-Module ModSelectCalcs
+﻿Module ModSelectCalcs
     Sub NoSpeedNosize(k)
         Try
             Call LoadFanData(fantypefilename(k), k)
@@ -15,13 +14,13 @@ Module ModSelectCalcs
                 'MsgBox("The duty is outside the selected fantype duty range")
                 'MsgBox("The duty is outside the " + fanclass(k) + " duty range")
                 failindex = failindex + 1
-                    fanfailures(failindex, 0) = fantypename(k)
-                    'fanfailures(failindex, 1) = "The duty is outside the " + fanclass(k) + " duty range"
-                    fanfailures(failindex, 1) = 9 ' "Sorry this duty is out of range for this fan type"
-                    failurevalue(failindex) = ""
-                Else
-                    'temp_size = ModGetFanSize.GetFanSize(k)'280319
-                    Call GetFanSpeed(ModGetFanSize.GetFanSize(k), k) '280319
+                fanfailures(failindex, 0) = fantypename(k)
+                'fanfailures(failindex, 1) = "The duty is outside the " + fanclass(k) + " duty range"
+                fanfailures(failindex, 1) = 9 ' "Sorry this duty is out of range for this fan type"
+                failurevalue(failindex) = ""
+            Else
+                'temp_size = ModGetFanSize.GetFanSize(k)'280319
+                Call GetFanSpeed(ModGetFanSize.GetFanSize(k), k) '280319
                 'Call GetFanSpeed(temp_size, k)
             End If
         Catch ex As Exception
@@ -64,7 +63,7 @@ Module ModSelectCalcs
 
         Catch ex As Exception
             'MsgBox("WithSizeVolPressure")
-            ErrorMessage(ex, 5904)
+            ErrorMessage(ex, 5903)
 
         End Try
     End Sub
@@ -88,7 +87,7 @@ Module ModSelectCalcs
 
         Catch ex As Exception
             'MsgBox("WithSpeedSizeVolume")
-            ErrorMessage(ex, 5905)
+            ErrorMessage(ex, 5904)
 
         End Try
     End Sub
@@ -116,7 +115,7 @@ Module ModSelectCalcs
 
         Catch ex As Exception
             'MsgBox("ResHDandVolTD")
-            ErrorMessage(ex, 5907)
+            ErrorMessage(ex, 5905)
 
         End Try
 

@@ -26,7 +26,7 @@
                 lsvFailedFans.Items.Add(itm)
             Next
         Catch ex As Exception
-            ErrorMessage(ex, 20600)
+            ErrorMessage(ex, 20601)
         End Try
     End Sub
 
@@ -34,7 +34,7 @@
         Try
             Close()
         Catch ex As Exception
-            ErrorMessage(ex, 20601)
+            ErrorMessage(ex, 20602)
         End Try
     End Sub
 End Class

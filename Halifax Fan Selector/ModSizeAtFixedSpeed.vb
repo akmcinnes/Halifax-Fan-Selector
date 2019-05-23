@@ -21,15 +21,18 @@
                         vol(fanno, count1) = 0.0001
                     End If
                     'Call ModifyDatapoints(fanno, count1, fansize, speed, 4)
-                    fsps(fanno, count1) = ScalePFSize(fsp(fanno, count1), datafansize(fanno), fansize)
-                    ftps(fanno, count1) = ScalePFSize(ftp(fanno, count1), datafansize(fanno), fansize)
                     vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), fansize)
+                    ftps(fanno, count1) = ScalePFSize(ftp(fanno, count1), datafansize(fanno), fansize)
+                    fsps(fanno, count1) = ScalePFSize(fsp(fanno, count1), datafansize(fanno), fansize)
+                    If Frmselectfan.optDDUserDefined.Checked = True Then
+                        fsps(fanno, count1) = fsps(fanno, count1) - CorrectforDDArea(dataoutletarea(fanno), datafansize(fanno), fansize)
+                    End If
                     Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), fansize)
                     '-scales for constant speed at each datapoint
                     speed = Val(Frmselectfan.Txtfanspeed.Text)
                     vols(fanno, count1) = ScaleVFSpeed(vols(fanno, count1), datafanspeed(fanno), speed)
-                    fsps(fanno, count1) = ScalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
                     ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
+                    fsps(fanno, count1) = ScalePFSpeed(fsps(fanno, count1), datafanspeed(fanno), speed)
                     Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
                     count1 = count1 + 1
                 Loop

@@ -17,7 +17,7 @@
             End With
 
         Catch ex As Exception
-            ErrorMessage(ex, 1000)
+            ErrorMessage(ex, 1001)
         End Try
     End Sub
 
@@ -37,7 +37,7 @@
             End With
 
         Catch ex As Exception
-            ErrorMessage(ex, 1001)
+            ErrorMessage(ex, 1002)
         End Try
     End Sub
 

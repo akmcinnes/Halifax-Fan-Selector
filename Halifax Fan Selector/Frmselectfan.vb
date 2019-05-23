@@ -1,15 +1,18 @@
 ﻿'Imports Word = Microsoft.Office.Interop.Word
-Imports Microsoft.Office
-Imports System.IO
-Imports System.Xml
+'Imports Microsoft.Office
+'Imports System.IO
+'Imports System.Xml
 Imports System.ComponentModel
 Imports System.Globalization
 'Imports System.ComponentModel
 Imports System.Resources
 Imports System.Threading
-Imports System.Drawing.Printing
+
+'Imports System.Drawing.Printing
 
 Public Class Frmselectfan
+    Public Thread As Threading.Thread
+
     Public totalcolumnwidth As Integer
     Public ColumnHeader(20) As String
 
@@ -19,6 +22,7 @@ Public Class Frmselectfan
             Me.CenterToScreen()
             '        FullFilePathtxt = "C:\Halifax\Performance Data new\" + filename + ".txt"
             FullFilePathtxt = OutputPathDefault + "Fan Output.txt"
+            'getLanguageDictionary()
 
             NewProject = True
 
@@ -27,7 +31,7 @@ Public Class Frmselectfan
             'Me.Text = "Halifax Fan Selection Software" + " - " + version_number
             Me.Text = Me.Text + " - " + version_number
 
-            PrintToolStripMenuItem.Enabled = False
+            'PrintToolStripMenuItem.Enabled = False' set to false to disabled printing
             If StartArg.ToLower.Contains("-dev") Then
                 PrintToolStripMenuItem.Enabled = True
                 Me.Text = Me.Text.ToUpper()
@@ -68,6 +72,11 @@ Public Class Frmselectfan
                 btnCalculateDensity.Visible = False
                 OptDensityCalculated.Visible = False
                 OptDensityKnown.Visible = False
+                'optDDUserDefined.Visible = False
+                'optDDRatio.Visible = False
+                'txtUserDefinedDD.Visible = False
+                'txtRatioDD.Visible = False
+                GroupBox1.Visible = False
             End If
             If StartArg.ToLower.Contains("-dev") Then
                 optDDUserDefined.Enabled = True
@@ -76,11 +85,17 @@ Public Class Frmselectfan
                 txtRatioDD.Enabled = True
 
             End If
+            txtUserDefinedDD.Enabled = False
+            txtRatioDD.Enabled = False
+            lblUserDefinedUnits.Enabled = False
+            lblpercent.Enabled = False
+            txtUserDefinedDD.Text = ""
+            txtRatioDD.Text = ""
             Initialize(True)
             chkCalcAtmos.Text = lblChkAtmosAlt.Text
             OptPowerBoth.Text = lblDisplayBoth.Text
         Catch ex As Exception
-            ErrorMessage(ex, 20300)
+            ErrorMessage(ex, 20301)
             'MsgBox("load")
         End Try
     End Sub
@@ -163,7 +178,7 @@ Public Class Frmselectfan
             NewProject = True
             Initialize(True)
         Catch ex As Exception
-            ErrorMessage(ex, 20306)
+            ErrorMessage(ex, 20305)
         End Try
     End Sub
 
@@ -171,7 +186,7 @@ Public Class Frmselectfan
         Try
             SaveProjectFile()
         Catch ex As Exception
-            ErrorMessage(ex, 20307)
+            ErrorMessage(ex, 20306)
         End Try
     End Sub
 
@@ -188,7 +203,7 @@ Public Class Frmselectfan
 
             Me.Text = DefaultHeader + " (" + OpenFileDialog1.SafeFileName + " Selected)"
         Catch ex As Exception
-            ErrorMessage(ex, 20308)
+            ErrorMessage(ex, 20307)
         End Try
     End Sub
 
@@ -200,7 +215,7 @@ Public Class Frmselectfan
                 End If
             End If
         Catch ex As Exception
-            ErrorMessage(ex, 20309)
+            ErrorMessage(ex, 20308)
         End Try
     End Sub
 
@@ -213,7 +228,7 @@ Public Class Frmselectfan
         Try
             SetupDutyPage()
         Catch ex As Exception
-            ErrorMessage(ex, 20310)
+            ErrorMessage(ex, 20309)
         End Try
     End Sub
 
@@ -227,7 +242,7 @@ Public Class Frmselectfan
             'If move_on = False Then TabControl1.SelectedTab = TabPageDuty
             'MsgBox("leave duty page")
         Catch ex As Exception
-            ErrorMessage(ex, 20311)
+            ErrorMessage(ex, 20310)
         End Try
     End Sub
 
@@ -235,7 +250,7 @@ Public Class Frmselectfan
         Try
             DensityCalculate()
         Catch ex As Exception
-            ErrorMessage(ex, 20312)
+            ErrorMessage(ex, 20311)
         End Try
     End Sub
 
@@ -254,7 +269,7 @@ Public Class Frmselectfan
                 Label3.Visible = False
             End If
         Catch ex As Exception
-            ErrorMessage(ex, 20313)
+            ErrorMessage(ex, 20312)
         End Try
     End Sub
 
@@ -292,7 +307,7 @@ Public Class Frmselectfan
 
 
         Catch ex As Exception
-            ErrorMessage(ex, 20314)
+            ErrorMessage(ex, 20313)
         End Try
     End Sub
 
@@ -301,7 +316,7 @@ Public Class Frmselectfan
             Close()
             End
         Catch ex As Exception
-            ErrorMessage(ex, 20315)
+            ErrorMessage(ex, 20314)
         End Try
     End Sub
 
@@ -312,7 +327,7 @@ Public Class Frmselectfan
             End If
             SelectionClick(e)
         Catch ex As Exception
-            ErrorMessage(ex, 20316)
+            ErrorMessage(ex, 20315)
         End Try
     End Sub
 
@@ -324,7 +339,7 @@ Public Class Frmselectfan
             End If
             SelectionDoubleClick(e)
         Catch ex As Exception
-            ErrorMessage(ex, 20317)
+            ErrorMessage(ex, 20316)
         End Try
 
     End Sub
@@ -486,7 +501,7 @@ Public Class Frmselectfan
             'End If
 
         Catch ex As Exception
-            ErrorMessage(ex, 20318)
+            ErrorMessage(ex, 20317)
         End Try
 
 
@@ -557,7 +572,7 @@ Public Class Frmselectfan
                 chkCalcAtmos.Text = "Calculate Atmospheric" + vbCrLf + "Pressure from Altitude"
             End If
         Catch ex As Exception
-            ErrorMessage(ex, 20319)
+            ErrorMessage(ex, 20318)
         End Try
     End Sub
 
@@ -573,7 +588,7 @@ Public Class Frmselectfan
 
 
         Catch ex As Exception
-            ErrorMessage(ex, 20320)
+            ErrorMessage(ex, 20319)
         End Try
     End Sub
 
@@ -581,7 +596,7 @@ Public Class Frmselectfan
         Try
             End
         Catch ex As Exception
-            ErrorMessage(ex, 20321)
+            ErrorMessage(ex, 20320)
         End Try
     End Sub
 
@@ -595,7 +610,7 @@ Public Class Frmselectfan
             'SaveFileName = PrintPreviewDialog1.FileName
 
         Catch ex As Exception
-            ErrorMessage(ex, 20322)
+            ErrorMessage(ex, 20321)
         End Try
 
     End Sub
@@ -610,7 +625,7 @@ Public Class Frmselectfan
             'SaveFileName = PrintPreviewDialog1.FileName
 
         Catch ex As Exception
-            ErrorMessage(ex, 20323)
+            ErrorMessage(ex, 20322)
         End Try
 
     End Sub
@@ -624,7 +639,7 @@ Public Class Frmselectfan
             FrmDensityCalcs.TextBox3.Text = TxtHumidity.Text
             FrmDensityCalcs.ShowDialog()
         Catch ex As Exception
-            ErrorMessage(ex, 20324)
+            ErrorMessage(ex, 20323)
         End Try
     End Sub
 
@@ -632,7 +647,7 @@ Public Class Frmselectfan
         Try
 
         Catch ex As Exception
-            ErrorMessage(ex, 20325)
+            ErrorMessage(ex, 20324)
         End Try
     End Sub
 
@@ -654,7 +669,7 @@ Public Class Frmselectfan
             chkCalcAtmos.Checked = CalcAtmos
             TabControl1.SelectTab(TabPageGeneral)
         Catch ex As Exception
-            ErrorMessage(ex, 20326)
+            ErrorMessage(ex, 20325)
         End Try
     End Sub
 
@@ -695,7 +710,10 @@ Public Class Frmselectfan
                 knowndensity = CDbl(Txtdens.Text)
                 pressrise = CDbl(Txtfsp.Text)
                 inletpress = CDbl(TxtInletPressure.Text)
-
+                DDInputArea = 0.0
+                DDInputRatio = 0.0
+                If Not txtRatioDD.Text = "" Then DDInputRatio = CDbl(txtRatioDD.Text)
+                If Not txtUserDefinedDD.Text = "" Then DDInputArea = CDbl(txtUserDefinedDD.Text)
                 dischpress = CDbl(TxtDischargePressure.Text)
                 Dim str_temp As String
                 If CmbReserveHead.SelectedIndex < 0 Then CmbReserveHead.SelectedIndex = 0
@@ -706,7 +724,7 @@ Public Class Frmselectfan
             End If
 
         Catch ex As Exception
-            ErrorMessage(ex, 20327)
+            ErrorMessage(ex, 20326)
         End Try
     End Sub
 
@@ -716,7 +734,7 @@ Public Class Frmselectfan
             Flag(2) = False
             TabControl1.SelectTab(TabPageDuty)
         Catch ex As Exception
-            ErrorMessage(ex, 20328)
+            ErrorMessage(ex, 20327)
         End Try
     End Sub
 
@@ -748,7 +766,7 @@ Public Class Frmselectfan
             TabControl1.SelectTab(TabPageSelection)
 
         Catch ex As Exception
-            ErrorMessage(ex, 20329)
+            ErrorMessage(ex, 20328)
         End Try
     End Sub
 
@@ -758,7 +776,7 @@ Public Class Frmselectfan
             Flag(3) = False
             TabControl1.SelectTab(TabPageFanParameters)
         Catch ex As Exception
-            ErrorMessage(ex, 20330)
+            ErrorMessage(ex, 20329)
         End Try
     End Sub
 
@@ -773,7 +791,7 @@ Public Class Frmselectfan
             '    Label14.Text = "Fan Total Pressure"
             'End If
         Catch ex As Exception
-            ErrorMessage(ex, 20331)
+            ErrorMessage(ex, 20330)
         End Try
     End Sub
 
@@ -785,7 +803,7 @@ Public Class Frmselectfan
             TabControl1.SelectTab(TabPageSelection)
 
         Catch ex As Exception
-            ErrorMessage(ex, 20332)
+            ErrorMessage(ex, 20331)
         End Try
     End Sub
 
@@ -802,7 +820,7 @@ Public Class Frmselectfan
             Flag(5) = True
             TabControl1.SelectTab(TabPageImpeller)
         Catch ex As Exception
-            ErrorMessage(ex, 20333)
+            ErrorMessage(ex, 20332)
         End Try
     End Sub
 
@@ -810,7 +828,7 @@ Public Class Frmselectfan
         Try
 
         Catch ex As Exception
-            ErrorMessage(ex, 20334)
+            ErrorMessage(ex, 20333)
         End Try
     End Sub
 
@@ -820,7 +838,7 @@ Public Class Frmselectfan
             Txtspeedlimit.Enabled = False
             Txtfanspeed.Enabled = False
         Catch ex As Exception
-            ErrorMessage(ex, 20335)
+            ErrorMessage(ex, 20334)
         End Try
     End Sub
 
@@ -830,7 +848,7 @@ Public Class Frmselectfan
             Txtspeedlimit.Enabled = False
             Txtfanspeed.Enabled = False
         Catch ex As Exception
-            ErrorMessage(ex, 20336)
+            ErrorMessage(ex, 20335)
         End Try
     End Sub
 
@@ -840,7 +858,7 @@ Public Class Frmselectfan
             Txtspeedlimit.Enabled = False
             Txtfanspeed.Enabled = False
         Catch ex As Exception
-            ErrorMessage(ex, 20337)
+            ErrorMessage(ex, 20336)
         End Try
     End Sub
 
@@ -850,7 +868,7 @@ Public Class Frmselectfan
             Txtspeedlimit.Enabled = False
             Txtfanspeed.Enabled = False
         Catch ex As Exception
-            ErrorMessage(ex, 20338)
+            ErrorMessage(ex, 20337)
         End Try
     End Sub
 
@@ -860,7 +878,7 @@ Public Class Frmselectfan
             Txtspeedlimit.Enabled = False
             Txtfanspeed.Enabled = False
         Catch ex As Exception
-            ErrorMessage(ex, 20339)
+            ErrorMessage(ex, 20338)
         End Try
     End Sub
 
@@ -870,7 +888,7 @@ Public Class Frmselectfan
             Txtspeedlimit.Enabled = False
             Txtfanspeed.Enabled = False
         Catch ex As Exception
-            ErrorMessage(ex, 20340)
+            ErrorMessage(ex, 20339)
         End Try
     End Sub
 
@@ -882,14 +900,17 @@ Public Class Frmselectfan
             Txtspeedlimit.Enabled = False
             Txtfanspeed.Enabled = False
         Catch ex As Exception
-            ErrorMessage(ex, 20341)
+            ErrorMessage(ex, 20340)
         End Try
     End Sub
 
     Private Sub OptFixedSpeed_CheckedChanged(sender As Object, e As EventArgs) Handles OptFixedSpeed.CheckedChanged
-        Txtspeedlimit.Enabled = False
-        Txtfanspeed.Enabled = True
-
+        Try
+            Txtspeedlimit.Enabled = False
+            Txtfanspeed.Enabled = True
+        Catch ex As Exception
+            ErrorMessage(ex, 20341)
+        End Try
     End Sub
 
     '###############################################################################################################
@@ -1109,6 +1130,8 @@ Public Class Frmselectfan
             txtRatioDD.Enabled = False
             lblUserDefinedUnits.Enabled = False
             lblpercent.Enabled = False
+            txtUserDefinedDD.Text = ""
+            txtRatioDD.Text = ""
         Catch ex As Exception
             ErrorMessage(ex, 20358)
         End Try
@@ -1121,6 +1144,7 @@ Public Class Frmselectfan
             txtRatioDD.Enabled = False
             lblUserDefinedUnits.Enabled = True
             lblpercent.Enabled = False
+            txtRatioDD.Text = ""
         Catch ex As Exception
             ErrorMessage(ex, 20359)
         End Try
@@ -1133,6 +1157,7 @@ Public Class Frmselectfan
             txtRatioDD.Enabled = True
             lblUserDefinedUnits.Enabled = False
             lblpercent.Enabled = True
+            txtUserDefinedDD.Text = ""
         Catch ex As Exception
             ErrorMessage(ex, 20360)
         End Try
@@ -1240,6 +1265,16 @@ Public Class Frmselectfan
     Private Sub OptStaticPressure_CheckedChanged(sender As Object, e As EventArgs) Handles OptStaticPressure.CheckedChanged
         Try
             PresType = 0
+            optDDRatio.Checked = False
+            optDDUserDefined.Checked = False
+            txtRatioDD.Enabled = True
+            txtUserDefinedDD.Enabled = True
+            optDDRatio.Enabled = True
+            optDDUserDefined.Enabled = True
+            optDDStandard.Checked = True
+            lblUserDefinedUnits.Enabled = True
+            lblpercent.Enabled = True
+
 
         Catch ex As Exception
             ErrorMessage(ex, 20364)
@@ -1249,6 +1284,17 @@ Public Class Frmselectfan
     Private Sub OptTotalPressure_CheckedChanged(sender As Object, e As EventArgs) Handles OptTotalPressure.CheckedChanged
         Try
             PresType = 1
+            optDDRatio.Checked = False
+            optDDUserDefined.Checked = False
+            txtRatioDD.Enabled = False
+            txtUserDefinedDD.Enabled = False
+            optDDRatio.Enabled = False
+            optDDUserDefined.Enabled = False
+            optDDStandard.Checked = True
+            lblUserDefinedUnits.Enabled = False
+            lblpercent.Enabled = False
+            txtUserDefinedDD.Text = ""
+            txtRatioDD.Text = ""
 
         Catch ex As Exception
             ErrorMessage(ex, 20365)
@@ -1387,7 +1433,7 @@ Public Class Frmselectfan
                 TxtAtmosphericPressure.Enabled = False
             Else
                 TxtAtmosphericPressure.Enabled = True
-        End If
+            End If
 
         Catch ex As Exception
             ErrorMessage(ex, 20376)
@@ -1492,7 +1538,7 @@ Public Class Frmselectfan
             Next ctl
             Dim resource_manager As New ResourceManager("Localized.FrmSelectFan", Me.GetType.Assembly)
         Catch ex As Exception
-            ErrorMessage(ex, 20382)
+            ErrorMessage(ex, 20380)
         End Try
     End Sub
 
@@ -1503,7 +1549,7 @@ Public Class Frmselectfan
                 ApplyLocaleToControl(child, component_resource_manager, culture_info)
             Next child
         Catch ex As Exception
-            ErrorMessage(ex, 20383)
+            ErrorMessage(ex, 20381)
         End Try
     End Sub
 
@@ -1519,7 +1565,7 @@ Public Class Frmselectfan
         Try
             Txtfansize.Text = "0"
         Catch ex As Exception
-            ErrorMessage(ex, 20384)
+            ErrorMessage(ex, 20382)
         End Try
 
     End Sub
@@ -1528,7 +1574,7 @@ Public Class Frmselectfan
         Try
             End
         Catch ex As Exception
-            ErrorMessage(ex, 20385)
+            ErrorMessage(ex, 20383)
         End Try
     End Sub
 
@@ -1537,7 +1583,7 @@ Public Class Frmselectfan
         Try
             CreateFile(0)
         Catch ex As Exception
-            ErrorMessage(ex, 20386)
+            ErrorMessage(ex, 20384)
         End Try
     End Sub
 
@@ -1545,7 +1591,7 @@ Public Class Frmselectfan
         Try
             CreateFile(1)
         Catch ex As Exception
-            ErrorMessage(ex, 20387)
+            ErrorMessage(ex, 20385)
         End Try
     End Sub
 
@@ -1553,30 +1599,34 @@ Public Class Frmselectfan
         Try
             CreateFile(2)
         Catch ex As Exception
-            ErrorMessage(ex, 20388)
+            ErrorMessage(ex, 20386)
         End Try
     End Sub
 
-    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
+    'Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
 
-    End Sub
+    'End Sub
 
-    Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
+    'Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
 
-    End Sub
+    'End Sub
 
-    Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
+    'Private Sub Label18_Click(sender As Object, e As EventArgs) Handles Label18.Click
 
-    End Sub
+    'End Sub
 
-    Private Sub TxtTypenoise_TextChanged(sender As Object, e As EventArgs) Handles TxtTypenoise.TextChanged
+    'Private Sub TxtTypenoise_TextChanged(sender As Object, e As EventArgs) Handles TxtTypenoise.TextChanged
 
-    End Sub
+    'End Sub
 
 
     Private Sub TabPageFanParameters_Enter(sender As Object, e As EventArgs) Handles TabPageFanParameters.Enter
-        Check_Leave_Duty()
-        If move_on = False Then TabControl1.SelectedTab = TabPageDuty
+        Try
+            Check_Leave_Duty()
+            If move_on = False Then TabControl1.SelectedTab = TabPageDuty
+        Catch ex As Exception
+            ErrorMessage(ex, 205387)
+        End Try
     End Sub
 
     Private Sub Txtfansize_TextChanged(sender As Object, e As EventArgs) Handles Txtfansize.TextChanged
@@ -1590,12 +1640,20 @@ Public Class Frmselectfan
     End Sub
 
     Private Sub OptFixedSize_CheckedChanged(sender As Object, e As EventArgs) Handles OptFixedSize.CheckedChanged
-        Txtfansize.Enabled = True
+        Try
+            Txtfansize.Enabled = True
+        Catch ex As Exception
+            ErrorMessage(ex, 20388)
+        End Try
     End Sub
 
     Private Sub OptAnySize_CheckedChanged(sender As Object, e As EventArgs) Handles OptAnySize.CheckedChanged
-        Txtfansize.Enabled = False
-        Txtfansize.Text = 0
+        Try
+            Txtfansize.Enabled = False
+            Txtfansize.Text = 0
+        Catch ex As Exception
+            ErrorMessage(ex, 20389)
+        End Try
     End Sub
 
     Private Sub btnNoiseDataBack_Click(sender As Object, e As EventArgs) Handles btnNoiseDataBack.Click
@@ -1609,12 +1667,43 @@ Public Class Frmselectfan
             '    Label14.Text = "Fan Total Pressure"
             'End If
         Catch ex As Exception
-            ErrorMessage(ex, 20391)
+            ErrorMessage(ex, 20390)
         End Try
     End Sub
 
     Private Sub PerformanceCurveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceCurveToolStripMenuItem.Click
-        CreateFile(3)
+        Try
+            '' ### Prepare the thread Server ###
+            'Thread = New System.Threading.Thread(AddressOf Server)
+            'Thread.Start()
+            'Form5.Show()
+            'While Temporary.A = 0
+            '    Form5.Refresh()
+            '    Form5.BringToFront()
+            '    System.Threading.Thread.Sleep(50)
+            '    Dim fs As New FileStream(DataPathDefault + "\State.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+            '    Dim sr As New StreamReader(fs)
+            '    Temporary.String1 = sr.ReadLine()
+            '    Temporary.String2 = sr.ReadLine()
+            '    sr.Close()
+            '    fs.Close()
+            '    Form5.ProgressBar1.Refresh()
+            '    Form5.ProgressBar1.Value = Temporary.String1
+            '    Form5.lblProgress.Text = Temporary.String2
+            '    'RunCheck2()
+            '    'Form5.Text = Form5.Text + " " + Version_Text()
+
+
+            CreateFile(3)
+            'End While
+            ' ### End of the thread ###
+
+            'Thread.Join()
+        Catch ex As Exception
+            ErrorMessage(ex, 20391)
+        End Try
+
+
     End Sub
 
     ''Private Sub TabPageFanParameters_Click(sender As Object, e As EventArgs) Handles TabPageFanParameters.Click

@@ -1,14 +1,9 @@
 ﻿Imports System.IO
-Imports System.Drawing.Printing
 Public Class FrmFanChart
     Public SeriesAdded As Boolean
     Private Sub FanChart_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
             SeriesAdded = False
-            'fan2plot = 0
-            'Do While fanclass(fan2plot) <> Me.Text
-            '    fan2plot = fan2plot + 1
-            'Loop
             curvedesign = Me.Text
 
             Me.Text = lblTitleHidden.Text + " - " + final.fantype + " " + final.fansize.ToString + " " + lblRunningAtHidden.Text + " " + final.speed.ToString + " rpm"
@@ -33,16 +28,11 @@ Public Class FrmFanChart
             Dim i As Integer
             Dim tempsize As Integer = selected(fan2plot).fansize
             Dim tempdesign(10) As String
-            'If printout = True Then tempsize = final.fansize
-
             Dim filenameref As String = "FILENAME REF DATA"
             ReadReffromBinaryfile(filenameref)
             For i = 0 To fantypesQTY - 1
                 If fanclass(i) = curvedesign And tempsize <= fansizelimit(i) Then Exit For
             Next
-            'Do While fanclass(i) <> curvedesign ' And fansizelimit(i) < CDbl(tempsize)
-            '    i = i + 1
-            'Loop
             ReadfromBinaryfile(fantypefilename(i), 0)
             PlotStaticPVCurve()
             PlotTotalPVCurve()
@@ -275,8 +265,6 @@ Public Class FrmFanChart
                 Else
                     temppres(i) = Math.Pow(tempvol(i) / selected(fan2plot).vol, 2) * selected(fan2plot).ftp
                 End If
-                'temppres(i) = Math.Pow(tempvol(i) / selected(fan2plot).vol, 2) * selected(fan2plot).ftp
-                'temppres(i) = Math.Pow(tempvol(i) / selected(fan2plot).vol, 2) * selected(fan2plot).fsp
                 Chart1.Series(legend).Points.AddXY(tempvol(i), temppres(i))
                 i = i + 1
             Next
@@ -393,29 +381,18 @@ Public Class FrmFanChart
                 plotftp(i) = ScalePFSpeed(plotftp(i), FanSpeed1, tempspeed)
                 plotpow(i) = ScalePowFSpeed(plotpow(i), FanSpeed1, tempspeed)
 
-                'plotpow(i) = plotpow(i) / temp_kp
-
-
-
                 Dim tempkp As Double = 1.0
                 tempkp = CalculateKP(1.4, kpatmos, plotfsp(i), 0)
                 If Frmselectfan.chkKP.Checked = False Then
                     plotfsp(i) = plotfsp(i) * tempkp '1.0 / tempkp
                     plotftp(i) = plotftp(i) * tempkp '1.0 / tempkp
                     plotpow(i) = plotpow(i) * tempkp '1.0 / tempkp
-                    ''If Frmselectfan.chkKP.Checked = False Then
-                    ''    fsps(fanno, count1) = CorrectForKP(fsps(fanno, count1), kpatmos)
-                    ''    ftps(fanno, count1) = CorrectForKP(ftps(fanno, count1), kpatmos)
-                    ''    Pows(fanno, count1) = CorrectForKP(Pows(fanno, count1), kpatmos)
-                    ''End If
                 End If
-
 
                 plotfse(i) = 100.0 * plotvol(i) * tempvlconv * plotfsp(i) * tempprconv / (plotpow(i) * temppwconv)
                 plotfte(i) = 100.0 * plotvol(i) * tempvlconv * plotftp(i) * tempprconv / (plotpow(i) * temppwconv)
                 plotov(i) = plotvol(i) * tempvlconv / (tempoutletarea * tempoaconv)
             Next
-
         Catch ex As Exception
             ErrorMessage(ex, 20108)
         End Try
@@ -488,7 +465,7 @@ Public Class FrmFanChart
             tempy2axistitle = Chart1.ChartAreas("ChartArea1").AxisY2.Title
             Chart1.ChartAreas("ChartArea1").AxisY2.Title = ""
         Catch ex As Exception
-            ErrorMessage(ex, 20113)
+            ErrorMessage(ex, 20112)
         End Try
     End Sub
 
@@ -497,7 +474,7 @@ Public Class FrmFanChart
             Dim series1 As DataVisualization.Charting.Series = Chart1.Series(ChkFanSystemCurve.Text)
             Chart1.Series.Remove(series1)
         Catch ex As Exception
-            ErrorMessage(ex, 20112)
+            ErrorMessage(ex, 20113)
         End Try
     End Sub
 
@@ -645,14 +622,4 @@ Public Class FrmFanChart
             ErrorMessage(ex, 20123)
         End Try
     End Sub
-
-    Private Sub PrintPreviewDialog2_Load(sender As Object, e As EventArgs) Handles PrintPreviewDialog2.Load
-
-    End Sub
-
-    'Private Class printer
-    '    Friend Function PaperSize() As Object
-    '        Throw New NotImplementedException
-    '    End Function
-    'End Class
 End Class

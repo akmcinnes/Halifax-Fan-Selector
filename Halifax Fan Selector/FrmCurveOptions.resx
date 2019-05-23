@@ -117,4 +117,1101 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chkDamper.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkDamper.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 18</value>
+  </data>
+  <data name="chkDamper.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 21</value>
+  </data>
+  <data name="chkDamper.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="chkDamper.Text" xml:space="preserve">
+    <value>Include Dampers</value>
+  </data>
+  <data name="&gt;&gt;chkDamper.Name" xml:space="preserve">
+    <value>chkDamper</value>
+  </data>
+  <data name="&gt;&gt;chkDamper.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkDamper.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkDamper.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="btnContinue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 75</value>
+  </data>
+  <data name="btnContinue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 32</value>
+  </data>
+  <data name="btnContinue.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnContinue.Text" xml:space="preserve">
+    <value>Continue</value>
+  </data>
+  <data name="&gt;&gt;btnContinue.Name" xml:space="preserve">
+    <value>btnContinue</value>
+  </data>
+  <data name="&gt;&gt;btnContinue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnContinue.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnContinue.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="optFSPonly.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optFSPonly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 17</value>
+  </data>
+  <data name="optFSPonly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 21</value>
+  </data>
+  <data name="optFSPonly.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="optFSPonly.Text" xml:space="preserve">
+    <value>FSP Only</value>
+  </data>
+  <data name="&gt;&gt;optFSPonly.Name" xml:space="preserve">
+    <value>optFSPonly</value>
+  </data>
+  <data name="&gt;&gt;optFSPonly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optFSPonly.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;optFSPonly.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="optFTPonly.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optFTPonly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 44</value>
+  </data>
+  <data name="optFTPonly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 21</value>
+  </data>
+  <data name="optFTPonly.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="optFTPonly.Text" xml:space="preserve">
+    <value>FTP Only</value>
+  </data>
+  <data name="&gt;&gt;optFTPonly.Name" xml:space="preserve">
+    <value>optFTPonly</value>
+  </data>
+  <data name="&gt;&gt;optFTPonly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optFTPonly.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;optFTPonly.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="optFSPandFTP.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optFSPandFTP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 75</value>
+  </data>
+  <data name="optFSPandFTP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 21</value>
+  </data>
+  <data name="optFSPandFTP.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="optFSPandFTP.Text" xml:space="preserve">
+    <value>FSP &amp;&amp; FTP</value>
+  </data>
+  <data name="&gt;&gt;optFSPandFTP.Name" xml:space="preserve">
+    <value>optFSPandFTP</value>
+  </data>
+  <data name="&gt;&gt;optFSPandFTP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optFSPandFTP.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;optFSPandFTP.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="chkSystem.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkSystem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 45</value>
+  </data>
+  <data name="chkSystem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 21</value>
+  </data>
+  <data name="chkSystem.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="chkSystem.Text" xml:space="preserve">
+    <value>Include System Curve</value>
+  </data>
+  <data name="&gt;&gt;chkSystem.Name" xml:space="preserve">
+    <value>chkSystem</value>
+  </data>
+  <data name="&gt;&gt;chkSystem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkSystem.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkSystem.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtNoSpeeds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 455</value>
+  </data>
+  <data name="txtNoSpeeds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 22</value>
+  </data>
+  <data name="txtNoSpeeds.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="txtNoSpeeds.Text" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtNoSpeeds.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtNoSpeeds.Name" xml:space="preserve">
+    <value>txtNoSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtNoSpeeds.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNoSpeeds.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtNoSpeeds.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtNoDensities.Location" type="System.Drawing.Point, System.Drawing">
+    <value>235, 455</value>
+  </data>
+  <data name="txtNoDensities.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 22</value>
+  </data>
+  <data name="txtNoDensities.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="txtNoDensities.Text" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtNoDensities.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtNoDensities.Name" xml:space="preserve">
+    <value>txtNoDensities</value>
+  </data>
+  <data name="&gt;&gt;txtNoDensities.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNoDensities.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtNoDensities.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtSpeed1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 25</value>
+  </data>
+  <data name="txtSpeed1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtSpeed1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed1.Name" xml:space="preserve">
+    <value>txtSpeed1</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed1.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="txtSpeed2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 55</value>
+  </data>
+  <data name="txtSpeed2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtSpeed2.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="txtSpeed2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed2.Name" xml:space="preserve">
+    <value>txtSpeed2</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed2.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtSpeed3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 85</value>
+  </data>
+  <data name="txtSpeed3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtSpeed3.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="txtSpeed3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed3.Name" xml:space="preserve">
+    <value>txtSpeed3</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed3.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtSpeed4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 115</value>
+  </data>
+  <data name="txtSpeed4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtSpeed4.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="txtSpeed4.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed4.Name" xml:space="preserve">
+    <value>txtSpeed4</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed4.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed4.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtSpeed5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 145</value>
+  </data>
+  <data name="txtSpeed5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtSpeed5.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="txtSpeed5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed5.Name" xml:space="preserve">
+    <value>txtSpeed5</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed5.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed5.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtSpeed6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 175</value>
+  </data>
+  <data name="txtSpeed6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtSpeed6.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="txtSpeed6.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed6.Name" xml:space="preserve">
+    <value>txtSpeed6</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed6.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed6.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtSpeed7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 205</value>
+  </data>
+  <data name="txtSpeed7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtSpeed7.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="txtSpeed7.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed7.Name" xml:space="preserve">
+    <value>txtSpeed7</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed7.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed7.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="txtSpeed8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>77, 235</value>
+  </data>
+  <data name="txtSpeed8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtSpeed8.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="txtSpeed8.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed8.Name" xml:space="preserve">
+    <value>txtSpeed8</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed8.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;txtSpeed8.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="txtDensity8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 235</value>
+  </data>
+  <data name="txtDensity8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtDensity8.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="txtDensity8.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtDensity8.Name" xml:space="preserve">
+    <value>txtDensity8</value>
+  </data>
+  <data name="&gt;&gt;txtDensity8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDensity8.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;txtDensity8.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="txtDensity7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 205</value>
+  </data>
+  <data name="txtDensity7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtDensity7.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="txtDensity7.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtDensity7.Name" xml:space="preserve">
+    <value>txtDensity7</value>
+  </data>
+  <data name="&gt;&gt;txtDensity7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDensity7.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;txtDensity7.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="txtDensity6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 175</value>
+  </data>
+  <data name="txtDensity6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtDensity6.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="txtDensity6.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtDensity6.Name" xml:space="preserve">
+    <value>txtDensity6</value>
+  </data>
+  <data name="&gt;&gt;txtDensity6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDensity6.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;txtDensity6.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="txtDensity5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 145</value>
+  </data>
+  <data name="txtDensity5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtDensity5.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="txtDensity5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtDensity5.Name" xml:space="preserve">
+    <value>txtDensity5</value>
+  </data>
+  <data name="&gt;&gt;txtDensity5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDensity5.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;txtDensity5.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="txtDensity4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 115</value>
+  </data>
+  <data name="txtDensity4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtDensity4.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="txtDensity4.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtDensity4.Name" xml:space="preserve">
+    <value>txtDensity4</value>
+  </data>
+  <data name="&gt;&gt;txtDensity4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDensity4.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;txtDensity4.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtDensity3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 85</value>
+  </data>
+  <data name="txtDensity3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtDensity3.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="txtDensity3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtDensity3.Name" xml:space="preserve">
+    <value>txtDensity3</value>
+  </data>
+  <data name="&gt;&gt;txtDensity3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDensity3.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;txtDensity3.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="txtDensity2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 55</value>
+  </data>
+  <data name="txtDensity2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtDensity2.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="txtDensity2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtDensity2.Name" xml:space="preserve">
+    <value>txtDensity2</value>
+  </data>
+  <data name="&gt;&gt;txtDensity2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDensity2.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;txtDensity2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtDensity1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>73, 25</value>
+  </data>
+  <data name="txtDensity1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 22</value>
+  </data>
+  <data name="txtDensity1.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;txtDensity1.Name" xml:space="preserve">
+    <value>txtDensity1</value>
+  </data>
+  <data name="&gt;&gt;txtDensity1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDensity1.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;txtDensity1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="optNoSpeeds2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoSpeeds2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 55</value>
+  </data>
+  <data name="optNoSpeeds2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoSpeeds2.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="optNoSpeeds2.Text" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds2.Name" xml:space="preserve">
+    <value>optNoSpeeds2</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds2.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds2.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="optNoSpeeds3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoSpeeds3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 86</value>
+  </data>
+  <data name="optNoSpeeds3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoSpeeds3.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="optNoSpeeds3.Text" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds3.Name" xml:space="preserve">
+    <value>optNoSpeeds3</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds3.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds3.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="optNoSpeeds4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoSpeeds4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 115</value>
+  </data>
+  <data name="optNoSpeeds4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoSpeeds4.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="optNoSpeeds4.Text" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds4.Name" xml:space="preserve">
+    <value>optNoSpeeds4</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds4.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds4.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="optNoSpeeds5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoSpeeds5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 145</value>
+  </data>
+  <data name="optNoSpeeds5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoSpeeds5.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="optNoSpeeds5.Text" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds5.Name" xml:space="preserve">
+    <value>optNoSpeeds5</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds5.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds5.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="optNoSpeeds6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoSpeeds6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 175</value>
+  </data>
+  <data name="optNoSpeeds6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoSpeeds6.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="optNoSpeeds6.Text" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds6.Name" xml:space="preserve">
+    <value>optNoSpeeds6</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds6.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds6.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="optNoSpeeds7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoSpeeds7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 205</value>
+  </data>
+  <data name="optNoSpeeds7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoSpeeds7.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="optNoSpeeds7.Text" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds7.Name" xml:space="preserve">
+    <value>optNoSpeeds7</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds7.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds7.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="optNoSpeeds8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoSpeeds8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 235</value>
+  </data>
+  <data name="optNoSpeeds8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoSpeeds8.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="optNoSpeeds8.Text" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds8.Name" xml:space="preserve">
+    <value>optNoSpeeds8</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds8.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds8.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="optNoDensities8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoDensities8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 236</value>
+  </data>
+  <data name="optNoDensities8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoDensities8.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="optNoDensities8.Text" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities8.Name" xml:space="preserve">
+    <value>optNoDensities8</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities8.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities8.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="optNoDensities7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoDensities7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 206</value>
+  </data>
+  <data name="optNoDensities7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoDensities7.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="optNoDensities7.Text" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities7.Name" xml:space="preserve">
+    <value>optNoDensities7</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities7.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities7.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="optNoDensities6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoDensities6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 176</value>
+  </data>
+  <data name="optNoDensities6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoDensities6.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="optNoDensities6.Text" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities6.Name" xml:space="preserve">
+    <value>optNoDensities6</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities6.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities6.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="optNoDensities5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoDensities5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 146</value>
+  </data>
+  <data name="optNoDensities5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoDensities5.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="optNoDensities5.Text" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities5.Name" xml:space="preserve">
+    <value>optNoDensities5</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities5.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities5.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="optNoDensities4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoDensities4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 116</value>
+  </data>
+  <data name="optNoDensities4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoDensities4.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="optNoDensities4.Text" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities4.Name" xml:space="preserve">
+    <value>optNoDensities4</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities4.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities4.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="optNoDensities3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoDensities3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 87</value>
+  </data>
+  <data name="optNoDensities3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoDensities3.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="optNoDensities3.Text" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities3.Name" xml:space="preserve">
+    <value>optNoDensities3</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities3.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities3.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="optNoDensities2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoDensities2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 56</value>
+  </data>
+  <data name="optNoDensities2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoDensities2.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="optNoDensities2.Text" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities2.Name" xml:space="preserve">
+    <value>optNoDensities2</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities2.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities2.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="optNoSpeeds1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoSpeeds1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 25</value>
+  </data>
+  <data name="optNoSpeeds1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoSpeeds1.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="optNoSpeeds1.Text" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds1.Name" xml:space="preserve">
+    <value>optNoSpeeds1</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds1.Parent" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;optNoSpeeds1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="optNoDensities1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optNoDensities1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="optNoDensities1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 21</value>
+  </data>
+  <data name="optNoDensities1.TabIndex" type="System.Int32, mscorlib">
+    <value>41</value>
+  </data>
+  <data name="optNoDensities1.Text" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities1.Name" xml:space="preserve">
+    <value>optNoDensities1</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities1.Parent" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;optNoDensities1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grpMultipleSpeeds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 119</value>
+  </data>
+  <data name="grpMultipleSpeeds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 290</value>
+  </data>
+  <data name="grpMultipleSpeeds.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
+  <data name="grpMultipleSpeeds.Text" xml:space="preserve">
+    <value>Multiple Speeds</value>
+  </data>
+  <data name="grpMultipleSpeeds.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;grpMultipleSpeeds.Name" xml:space="preserve">
+    <value>grpMultipleSpeeds</value>
+  </data>
+  <data name="&gt;&gt;grpMultipleSpeeds.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpMultipleSpeeds.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpMultipleSpeeds.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="grpMultipleDensities.Location" type="System.Drawing.Point, System.Drawing">
+    <value>210, 119</value>
+  </data>
+  <data name="grpMultipleDensities.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 290</value>
+  </data>
+  <data name="grpMultipleDensities.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="grpMultipleDensities.Text" xml:space="preserve">
+    <value>Multiple Densities</value>
+  </data>
+  <data name="grpMultipleDensities.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;grpMultipleDensities.Name" xml:space="preserve">
+    <value>grpMultipleDensities</value>
+  </data>
+  <data name="&gt;&gt;grpMultipleDensities.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpMultipleDensities.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpMultipleDensities.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>447, 117</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Halifax Fan Performance Curve Plot Options</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmCurveOptions</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

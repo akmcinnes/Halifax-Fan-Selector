@@ -10,6 +10,7 @@
                 .TxtMaximumTemperature.Text = maximumtemp.ToString
                 .TxtAmbientTemperature.Text = ambienttemp.ToString
                 .TxtAtmosphericPressure.Text = atmospress.ToString
+                .lblUserDefinedUnits.Text = Units(8).UnitName(Units(8).UnitSelected)
                 If .Opt50Hz.Checked = True Then freqHz = 50
                 If .Opt60Hz.Checked = True Then freqHz = 60
 
@@ -65,8 +66,9 @@
     End Sub
 
     Public Sub Check_Leave_Duty()
-        Flag(2) = True
-        move_on = True
+        Try
+            Flag(2) = True
+            move_on = True
         Yellow(Frmselectfan.Txtflow)
         'RedBorder(Txtflow)
         Yellow(Frmselectfan.Txtdens)
@@ -107,6 +109,10 @@
             reshead = CDbl(str_temp.Remove(str_temp.Length - 1))
             SetupFanParametersPage()
         End If
+
+        Catch ex As Exception
+            ErrorMessage(ex, 1104)
+        End Try
 
     End Sub
 End Module

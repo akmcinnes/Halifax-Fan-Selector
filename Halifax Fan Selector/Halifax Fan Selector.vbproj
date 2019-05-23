@@ -69,6 +69,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
@@ -91,6 +92,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCurveProgress.designer.vb">
+      <DependentUpon>FrmCurveProgress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCurveProgress.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmCurveOptions.Designer.vb">
       <DependentUpon>FrmCurveOptions.vb</DependentUpon>
     </Compile>
@@ -112,6 +119,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ModINI.vb" />
+    <Compile Include="ModLicencing.vb" />
     <Compile Include="ModPrintCurve.vb" />
     <Compile Include="ModPrintDatapoints.vb" />
     <Compile Include="ModPrinting.vb" />
@@ -187,11 +195,18 @@
     <Compile Include="VariablesStructs.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FrmCurveProgress.resx">
+      <DependentUpon>FrmCurveProgress.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCurveOptions.resx">
+      <DependentUpon>FrmCurveOptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCurveOptions.zh-Hans.resx">
       <DependentUpon>FrmCurveOptions.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDensityCalcs.resx">
       <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDensityCalcs.zh-Hans.resx">
       <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
@@ -286,6 +301,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="MMC20">
+      <Guid>{8E80422B-CAC4-472B-B272-9635F1DFEF3B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>
@@ -334,6 +358,18 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\animated.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlocked67.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Locked.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

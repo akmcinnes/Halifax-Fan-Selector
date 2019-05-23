@@ -12,7 +12,7 @@
             ScalePFSize = P1 * (ScalePFSize / d1) ^ 2
 
         Catch ex As Exception
-            ErrorMessage(ex, 5800)
+            ErrorMessage(ex, 5801)
         End Try
     End Function
     Public Function ScaleVFSize(V1, d1, d2)
@@ -31,7 +31,7 @@
             ScaleVFSize = V1 * (ScaleVFSize / d1) ^ 3
 
         Catch ex As Exception
-            ErrorMessage(ex, 5801)
+            ErrorMessage(ex, 5802)
         End Try
     End Function
     Public Function ScalePowFSize(Pow1, d1, d2)
@@ -40,7 +40,7 @@
             ScalePowFSize = Pow1 * (d2 / d1) ^ 5
 
         Catch ex As Exception
-            ErrorMessage(ex, 5802)
+            ErrorMessage(ex, 5803)
         End Try
     End Function
     Public Function ScalePFSpeed(P1, N1, N2)
@@ -49,7 +49,7 @@
             ScalePFSpeed = P1 * (N2 / N1) ^ 2
 
         Catch ex As Exception
-            ErrorMessage(ex, 5803)
+            ErrorMessage(ex, 5804)
         End Try
     End Function
     Public Function ScaleVFSpeed(V1, N1, N2)
@@ -58,7 +58,7 @@
             ScaleVFSpeed = V1 * (N2 / N1)
 
         Catch ex As Exception
-            ErrorMessage(ex, 5804)
+            ErrorMessage(ex, 5805)
         End Try
     End Function
     Public Function ScalePowFSpeed(Pow1, N1, N2)
@@ -67,7 +67,7 @@
             ScalePowFSpeed = Pow1 * (N2 / N1) ^ 3
 
         Catch ex As Exception
-            ErrorMessage(ex, 5805)
+            ErrorMessage(ex, 5806)
         End Try
     End Function
 
@@ -79,9 +79,23 @@
             CorrectForKP = P1 * 1.0 / calckp
 
         Catch ex As Exception
-            ErrorMessage(ex, 5810)
+            ErrorMessage(ex, 5807)
         End Try
     End Function
+
+    Public Function CorrectforDDArea(o1, d1, d2)
+        Dim correction As Double = 1.0
+        Dim stdDDarea As Double
+        Try
+            stdDDarea = (o1 * (d2 / d1) ^ 2)
+            correction = (stdDDarea ^ 2) / (DDInputArea ^ 2)
+            Return correction
+        Catch ex As Exception
+            ErrorMessage(ex, 5808)
+            Return correction
+        End Try
+    End Function
+
 
     Public Sub GetFanSpeed(fansize, fanno)
         'Dim kpatmos As Double
@@ -99,6 +113,9 @@
                 ftps(fanno, count1) = ScalePFSize(ftp(fanno, count1), datafansize(fanno), fansize)
                 vols(fanno, count1) = ScaleVFSize(vol(fanno, count1), datafansize(fanno), fansize)
                 Pows(fanno, count1) = ScalePowFSize(Powr(fanno, count1), datafansize(fanno), fansize)
+                If Frmselectfan.optDDUserDefined.Checked = True Then
+                    fsps(fanno, count1) = fsps(fanno, count1) - CorrectforDDArea(dataoutletarea(fanno), datafansize(fanno), fansize)
+                End If
                 '-scales for constant volume at each datapoint
                 ftspeed(fanno, count1) = Val(Frmselectfan.Txtflow.Text) * datafanspeed(fanno) / vols(fanno, count1)
                 'vols(fanno, count1) = Val(Frmselectfan.Txtflow.Text)
@@ -215,15 +232,9 @@
 
             selected(fanno).inletdia = datainletdia(fanno)
             selected(fanno).outletarea = dataoutletarea(fanno)
-            'selected(fanno).inletdia = inletdia
-            'selected(fanno).outletarea = outletsize
             selected(fanno).outletlen = dataoutletlen(fanno)
             selected(fanno).outletwid = dataoutletwid(fanno)
-            'selected(fanno).outletlen = outletlength
-            'selected(fanno).outletwid = outletwidth
             selected(fanno).outletdia = dataoutletdia(fanno)
-            'selected(fanno).outletdia = outletdiameter
-
 
             '-calculating FSP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
@@ -269,7 +280,7 @@
             fanfailures(failindex, 0) = fantypename(fanno)
             fanfailures(failindex, 1) = ex.Message
             failurevalue(failindex) = ""
-            'ErrorMessage(ex, 5806)
+            'ErrorMessage(ex, 5809)
         End Try
 
     End Sub
@@ -340,7 +351,7 @@
             selected(fanno).ov = Math.Round(Val(selected(fanno).ov), 2)
 
         Catch ex As Exception
-            ErrorMessage(ex, 5808)
+            ErrorMessage(ex, 5810)
         End Try
     End Sub
 
@@ -374,7 +385,8 @@
             Return AnyOutletVel
 
         Catch ex As Exception
-            ErrorMessage(ex, 5809)
+            ErrorMessage(ex, 5811)
+            Return 0.0
         End Try
     End Function
 End Module

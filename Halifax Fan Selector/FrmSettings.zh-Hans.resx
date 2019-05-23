@@ -127,6 +127,12 @@
   <data name="chkAdvancedUser.Text" xml:space="preserve">
     <value>高级用户</value>
   </data>
+  <data name="optChinese.Text" xml:space="preserve">
+    <value>中文 (Chinese)</value>
+  </data>
+  <data name="optEnglish.Text" xml:space="preserve">
+    <value>英语 (English)</value>
+  </data>
   <data name="grpLanguage.Text" xml:space="preserve">
     <value>选择语言</value>
   </data>
@@ -156,6 +162,45 @@
   </data>
   <data name="GroupBox1.Text" xml:space="preserve">
     <value>选择默认站点</value>
+  </data>
+  <data name="lblUserCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 25</value>
+  </data>
+  <data name="lblUserCode.Text" xml:space="preserve">
+    <value>用户代码</value>
+  </data>
+  <data name="lblAccessCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>85, 361</value>
+  </data>
+  <data name="lblAccessCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 25</value>
+  </data>
+  <data name="lblAccessCode.Text" xml:space="preserve">
+    <value>访问代码</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>389, 17</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>没有运行此软件的许可证。请联系哈利法克斯范有限公司, 报价</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>487, 17</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>您正在尝试使用无效的许可证运行该软件。请联系哈利法克斯范有限公司, 报价</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 17</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>以获得许可证。</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 17</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>有效的许可证。 重新启动软件以继续。</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>设置</value>

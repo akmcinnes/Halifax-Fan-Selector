@@ -117,24 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="TabPageGeneral.Text" xml:space="preserve">
-    <value>通用信息</value>
-  </data>
-  <data name="TabPageDuty.Text" xml:space="preserve">
-    <value>工况数据输入</value>
-  </data>
-  <data name="TabPageFanParameters.Text" xml:space="preserve">
-    <value>风机参数</value>
-  </data>
-  <data name="TabPageSelection.Text" xml:space="preserve">
-    <value>选型</value>
-  </data>
-  <data name="TabPageNoise.Text" xml:space="preserve">
-    <value>声学</value>
-  </data>
-  <data name="TabPageImpeller.Text" xml:space="preserve">
-    <value>叶轮详细信息</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblDisplayBoth.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 25</value>
@@ -155,17 +137,14 @@
   <data name="btnGeneralExit.Text" xml:space="preserve">
     <value>退出</value>
   </data>
-  <data name="GroupBox9.Text" xml:space="preserve">
-    <value>速度</value>
-  </data>
   <data name="OptVelocityFtpermin.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="OptVelocityMpers.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GroupBox8.Text" xml:space="preserve">
-    <value>功率</value>
+  <data name="GroupBox9.Text" xml:space="preserve">
+    <value>速度</value>
   </data>
   <data name="OptPowerBoth.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -182,8 +161,8 @@
   <data name="OptPowerKW.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GroupBox7.Text" xml:space="preserve">
-    <value>选择默认值</value>
+  <data name="GroupBox8.Text" xml:space="preserve">
+    <value>功率</value>
   </data>
   <data name="btnImperialUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -200,8 +179,8 @@
   <data name="OptDefaultNone.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GroupBox10.Text" xml:space="preserve">
-    <value>高度</value>
+  <data name="GroupBox7.Text" xml:space="preserve">
+    <value>选择默认值</value>
   </data>
   <data name="OptAltitudeFt.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -209,8 +188,8 @@
   <data name="OptAltitudeM.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GroupBox11.Text" xml:space="preserve">
-    <value>长度</value>
+  <data name="GroupBox10.Text" xml:space="preserve">
+    <value>高度</value>
   </data>
   <data name="OptLengthIn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -218,8 +197,8 @@
   <data name="OptLengthMm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GroupBox12.Text" xml:space="preserve">
-    <value>温度</value>
+  <data name="GroupBox11.Text" xml:space="preserve">
+    <value>长度</value>
   </data>
   <data name="OptTemperatureF.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -227,8 +206,8 @@
   <data name="OptTemperatureC.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GroupBox13.Text" xml:space="preserve">
-    <value>流量</value>
+  <data name="GroupBox12.Text" xml:space="preserve">
+    <value>温度</value>
   </data>
   <data name="OptFlowLbPerHr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -248,8 +227,8 @@
   <data name="OptFlowM3PerSec.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GroupBox14.Text" xml:space="preserve">
-    <value>压力</value>
+  <data name="GroupBox13.Text" xml:space="preserve">
+    <value>流量</value>
   </data>
   <data name="OptPressurekPa.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -266,8 +245,8 @@
   <data name="OptPressurePa.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GroupBox15.Text" xml:space="preserve">
-    <value>密度</value>
+  <data name="GroupBox14.Text" xml:space="preserve">
+    <value>压力</value>
   </data>
   <data name="OptDensityLbPerFt3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -275,14 +254,17 @@
   <data name="OptDensityKgPerM3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="GroupBox15.Text" xml:space="preserve">
+    <value>密度</value>
+  </data>
   <data name="btnDutyInputForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnDutyInputForward.Location" type="System.Drawing.Point, System.Drawing">
+    <value>939, 540</value>
+  </data>
   <data name="btnDutyInputForward.Text" xml:space="preserve">
     <value>工况数据输入 &gt;&gt;</value>
-  </data>
-  <data name="GrpFrequency.Text" xml:space="preserve">
-    <value>电机频率（Hz）</value>
   </data>
   <data name="Opt50Hz.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -290,8 +272,8 @@
   <data name="Opt60Hz.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="GrpGeneral.Text" xml:space="preserve">
-    <value>通用</value>
+  <data name="GrpFrequency.Text" xml:space="preserve">
+    <value>电机频率（Hz）</value>
   </data>
   <data name="chkCalcAtmos.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -359,6 +341,12 @@
   <data name="LblAmbientTemperature.Text" xml:space="preserve">
     <value>环境温度</value>
   </data>
+  <data name="GrpGeneral.Text" xml:space="preserve">
+    <value>通用</value>
+  </data>
+  <data name="TabPageGeneral.Text" xml:space="preserve">
+    <value>通用信息</value>
+  </data>
   <data name="lblMassFlow.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 18</value>
   </data>
@@ -374,6 +362,9 @@
   <data name="btnGeneralInformationBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnGeneralInformationBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>681, 540</value>
+  </data>
   <data name="btnGeneralInformationBack.Text" xml:space="preserve">
     <value>&lt;&lt;通用信息</value>
   </data>
@@ -383,6 +374,9 @@
   <data name="btnFanParametersForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnFanParametersForward.Location" type="System.Drawing.Point, System.Drawing">
+    <value>939, 540</value>
+  </data>
   <data name="btnFanParametersForward.Text" xml:space="preserve">
     <value>风机参数&gt;&gt;</value>
   </data>
@@ -391,9 +385,6 @@
   </data>
   <data name="btnCalculateDensity.Text" xml:space="preserve">
     <value>密度计算</value>
-  </data>
-  <data name="GrpFlowRate.Text" xml:space="preserve">
-    <value>流量速度</value>
   </data>
   <data name="lblFlowType.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 25</value>
@@ -406,6 +397,9 @@
   </data>
   <data name="OptVolumeFlow.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="GrpFlowRate.Text" xml:space="preserve">
+    <value>流量速度</value>
   </data>
   <data name="OptFlowDischarge.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -433,9 +427,6 @@
   </data>
   <data name="OpFlowInlet.Text" xml:space="preserve">
     <value>进风口</value>
-  </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>排放管道</value>
   </data>
   <data name="lblpercent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -470,8 +461,8 @@
   <data name="optDDRatio.Text" xml:space="preserve">
     <value>比率</value>
   </data>
-  <data name="GrpDesignPressure.Text" xml:space="preserve">
-    <value>设计流量</value>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>排放管道</value>
   </data>
   <data name="Optsucy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -542,8 +533,8 @@
   <data name="OptTotalPressure.Text" xml:space="preserve">
     <value>全部</value>
   </data>
-  <data name="GrpInletDensity.Text" xml:space="preserve">
-    <value>进口密度</value>
+  <data name="GrpDesignPressure.Text" xml:space="preserve">
+    <value>设计流量</value>
   </data>
   <data name="OptDensityCalculated.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -563,14 +554,14 @@
   <data name="OptDensityKnown.Text" xml:space="preserve">
     <value>已知的</value>
   </data>
+  <data name="GrpInletDensity.Text" xml:space="preserve">
+    <value>进口密度</value>
+  </data>
   <data name="btnDutyExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnDutyExit.Text" xml:space="preserve">
     <value>退出</value>
-  </data>
-  <data name="GrpInletTemperature.Text" xml:space="preserve">
-    <value>进口温度</value>
   </data>
   <data name="LblMaximumTemperature.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -590,6 +581,12 @@
   <data name="LblDesignTemperature.Text" xml:space="preserve">
     <value>设计</value>
   </data>
+  <data name="GrpInletTemperature.Text" xml:space="preserve">
+    <value>进口温度</value>
+  </data>
+  <data name="TabPageDuty.Text" xml:space="preserve">
+    <value>工况数据输入</value>
+  </data>
   <data name="chkDIDW.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -601,6 +598,9 @@
   </data>
   <data name="btnDutyInputBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="btnDutyInputBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>681, 540</value>
   </data>
   <data name="btnDutyInputBack.Text" xml:space="preserve">
     <value>&lt;&lt; 工况数据输入</value>
@@ -614,11 +614,11 @@
   <data name="btnFanSelectionsForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnFanSelectionsForward.Location" type="System.Drawing.Point, System.Drawing">
+    <value>939, 540</value>
+  </data>
   <data name="btnFanSelectionsForward.Text" xml:space="preserve">
     <value>风机选型&gt;&gt;</value>
-  </data>
-  <data name="GrpFanSize.Text" xml:space="preserve">
-    <value>风机尺寸</value>
   </data>
   <data name="LblLengthUnits.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -650,8 +650,8 @@
   <data name="OptFixedSize.Text" xml:space="preserve">
     <value>固定尺寸</value>
   </data>
-  <data name="GrpFanSpeed.Text" xml:space="preserve">
-    <value>风机转速</value>
+  <data name="GrpFanSize.Text" xml:space="preserve">
+    <value>风机尺寸</value>
   </data>
   <data name="OptFixedSpeed.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 29</value>
@@ -746,8 +746,8 @@
   <data name="Opt4Pole.Text" xml:space="preserve">
     <value>4极</value>
   </data>
-  <data name="GrpFanTypes.Text" xml:space="preserve">
-    <value>风机类型</value>
+  <data name="GrpFanSpeed.Text" xml:space="preserve">
+    <value>风机转速</value>
   </data>
   <data name="chkAllBlades.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -820,6 +820,12 @@
   </data>
   <data name="ChkCurveBlade.Text" xml:space="preserve">
     <value>弯曲叶片</value>
+  </data>
+  <data name="GrpFanTypes.Text" xml:space="preserve">
+    <value>风机类型</value>
+  </data>
+  <data name="TabPageFanParameters.Text" xml:space="preserve">
+    <value>风机参数</value>
   </data>
   <data name="lblRunningAt.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
@@ -962,11 +968,17 @@
   <data name="btnFanParametersBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnFanParametersBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>682, 540</value>
+  </data>
   <data name="btnFanParametersBack.Text" xml:space="preserve">
     <value>&lt;&lt; 风机参数</value>
   </data>
   <data name="btnNoiseDataForward.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="btnNoiseDataForward.Location" type="System.Drawing.Point, System.Drawing">
+    <value>940, 540</value>
   </data>
   <data name="btnNoiseDataForward.Text" xml:space="preserve">
     <value>声学 &gt;&gt;</value>
@@ -997,6 +1009,9 @@
   </data>
   <data name="Button3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="TabPageSelection.Text" xml:space="preserve">
+    <value>选型</value>
   </data>
   <data name="lblOverall.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 25</value>
@@ -1082,14 +1097,17 @@
   <data name="btnFanSelectionsBack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnFanSelectionsBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>681, 540</value>
+  </data>
   <data name="btnFanSelectionsBack.Text" xml:space="preserve">
     <value>&lt;&lt;风机选型</value>
   </data>
+  <data name="btnImpellerDetailsForward.Location" type="System.Drawing.Point, System.Drawing">
+    <value>939, 540</value>
+  </data>
   <data name="btnImpellerDetailsForward.Text" xml:space="preserve">
     <value>叶轮详细信息 &gt;&gt;</value>
-  </data>
-  <data name="GroupBox4.Text" xml:space="preserve">
-    <value>额外数据</value>
   </data>
   <data name="Label17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1112,8 +1130,8 @@
   <data name="chkBrg.Text" xml:space="preserve">
     <value>轴承噪音</value>
   </data>
-  <data name="GroupBox3.Text" xml:space="preserve">
-    <value>运行条件</value>
+  <data name="GroupBox4.Text" xml:space="preserve">
+    <value>额外数据</value>
   </data>
   <data name="chkOpenOutlet.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1141,6 +1159,9 @@
   </data>
   <data name="chkDuct.Text" xml:space="preserve">
     <value>管道入口&amp;&amp;管道出口</value>
+  </data>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>运行条件</value>
   </data>
   <data name="Label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1242,11 +1263,17 @@
   <data name="Button6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="TabPageNoise.Text" xml:space="preserve">
+    <value>声学</value>
+  </data>
   <data name="lblPhase2.Size" type="System.Drawing.Size, System.Drawing">
     <value>488, 135</value>
   </data>
   <data name="lblPhase2.Text" xml:space="preserve">
     <value>第2阶段</value>
+  </data>
+  <data name="btnNoiseDataBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>681, 540</value>
   </data>
   <data name="btnNoiseDataBack.Text" xml:space="preserve">
     <value>&lt;&lt; 声学</value>
@@ -1254,65 +1281,68 @@
   <data name="Button2.Text" xml:space="preserve">
     <value>退出</value>
   </data>
-  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 24</value>
-  </data>
-  <data name="FileToolStripMenuItem.Text" xml:space="preserve">
-    <value>文件</value>
+  <data name="TabPageImpeller.Text" xml:space="preserve">
+    <value>叶轮详细信息</value>
   </data>
   <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
+    <value>160, 26</value>
   </data>
   <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
     <value>新项目</value>
   </data>
   <data name="OpenProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
+    <value>160, 26</value>
   </data>
   <data name="OpenProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>打开项目</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
+    <value>160, 26</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>保存项目</value>
   </data>
-  <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
-  </data>
-  <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
-    <value>输出到文件</value>
-  </data>
   <data name="AllPagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
+    <value>146, 26</value>
   </data>
   <data name="AllPagesToolStripMenuItem.Text" xml:space="preserve">
     <value>所有页面</value>
   </data>
   <data name="PerformanceDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
+    <value>146, 26</value>
   </data>
   <data name="PerformanceDetailsToolStripMenuItem.Text" xml:space="preserve">
     <value>性能详细</value>
   </data>
   <data name="AcousticsDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
+    <value>146, 26</value>
   </data>
   <data name="AcousticsDetailsToolStripMenuItem.Text" xml:space="preserve">
     <value>声学细节</value>
   </data>
   <data name="PerformanceCurveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
+    <value>146, 26</value>
   </data>
   <data name="PerformanceCurveToolStripMenuItem.Text" xml:space="preserve">
     <value>粉丝曲线</value>
   </data>
+  <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
+    <value>输出到文件</value>
+  </data>
   <data name="ExitProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 26</value>
+    <value>160, 26</value>
   </data>
   <data name="ExitProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>退出项目</value>
+  </data>
+  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 24</value>
+  </data>
+  <data name="FileToolStripMenuItem.Text" xml:space="preserve">
+    <value>文件</value>
   </data>
   <data name="ProjectDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 24</value>

@@ -5,9 +5,17 @@ Imports System.Threading
 Imports System.Drawing.Printing
 Public Class FrmSettings
     Private PrintPageSettings As New PageSettings
+    Public changed As Boolean = True
+    Public codecheck As Integer = 1
+    Public Language_has_changed As Boolean = False
     Private Sub btnEnd_Click(sender As Object, e As EventArgs) Handles btnEnd.Click
         Try
             'Background_Color = ColorDialog1.Color
+            'If AccessCode = "" Then
+            '    MsgBox("No license is present to run this software" + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited, quoting " + GetUserCode().ToString + " to obtain a license.")
+            '    End
+            'End If
+
             Dim Path As String
             Path = UserProfile + "\Halifax.ini"
 
@@ -15,12 +23,19 @@ Public Class FrmSettings
             If optShangai.Checked = True Then ChosenSite = 1
             If optShenzhen.Checked = True Then ChosenSite = 2
             If optXian.Checked = True Then ChosenSite = 3
+            If txtCode.Text = AccessCode Then
+                changed = False
+            Else
+                changed = True
+            End If
+            AccessCode = txtCode.Text
 
             Dim str As String
             str = SystemDrive + "\Halifax\"
             writeIni(Path, "Settings", "Halifax Root Folder", str)
             writeIni(Path, "Settings", "Language", ChosenLanguage)
             writeIni(Path, "Settings", "Site", ChosenSite.ToString)
+            writeIni(Path, "Settings", "Access Code", AccessCode)
             If username.Length < 1 Then username = "HFL Sales"
             writeIni(Path, "Settings", "User", username)
             ReadWriteINI()
@@ -32,19 +47,52 @@ Public Class FrmSettings
             If DataPath IsNot Nothing Then
                 FrmStart.btnContinue.Visible = True
             End If
-            'FrmStart.Refresh()
-            Me.Close()
-
+            '#########################################################
+            codecheck = CalculateUserCode()
+            If codecheck >= 1 Then
+                FrmStart.Show()
+                Me.Close()
+            Else
+                End
+            End If
+            'If changed = True And codecheck = 1 Then
+            '    changed = False
+            '    Me.Close()
+            'End If
+            'If changed = True Then Me.FrmSettings_Load(sender, e)
+            ''If changed = True Then End
+            'If changed = True Then Me.FrmSettings_Load(sender, e)
+            'If codecheck > 0 Then FrmStart.Refresh()
+            'If codecheck > 0 Then Me.Close()
+            ''Me.Close()
+            '##########################################################
         Catch ex As Exception
-            ErrorMessage(ex, 20400)
+            ErrorMessage(ex, 20401)
         End Try
     End Sub
 
     Private Sub FrmSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
             'Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture
+            Label2.Text = ""
+            changed = False
             CenterToScreen()
             txtUsername.Text = Environment.UserName
+            lblCode.Text = GetUserCode()
+            txtCode.Text = AccessCode
+            'Dim codecheck As Integer = CalculateUserCode()
+            codecheck = CalculateUserCode()
+            Label2.Text = ""
+            If codecheck = -1 Then
+                Label2.Text = Label3.Text + " " + GetUserCode().ToString + " " + Label5.Text
+                'End If
+            ElseIf codecheck = 0 Then
+                Label2.Text = Label4.Text + " " + GetUserCode().ToString + " " + Label5.Text
+                Label2.ForeColor = Color.Red
+            Else
+                'txtCode.Enabled = False
+            End If
+
             'UserName = Environment.UserName'300119
             DataPath_main = GetFromINI("Settings", "Halifax Root Folder", SystemDrive + "\Halifax\", ini_path)
             ChosenLanguage = GetFromINI("Settings", "Language", "en-GB", ini_path)
@@ -82,11 +130,18 @@ Public Class FrmSettings
 
     Private Sub optEnglish_CheckedChanged(sender As Object, e As EventArgs) Handles optEnglish.CheckedChanged
         Try
-            Dim lans As String = CultureInfo.CurrentCulture.ThreeLetterISOLanguageName
-            ChosenLanguage = "en-GB"
+            'Dim lans As String = CultureInfo.CurrentCulture.ThreeLetterISOLanguageName
+            If Not ChosenLanguage = "en-GB" Then
+                Language_has_changed = True
+                ChosenLanguage = "en-GB"
+            Else
+                Language_has_changed = False
+            End If
             If optEnglish.Checked Then ApplyLocale(ChosenLanguage)
             'If optEnglish.Checked Then ApplyLocale()
+            'getLanguageDictionary()
 
+            CodeMessage()
         Catch ex As Exception
             ErrorMessage(ex, 20403)
         End Try
@@ -94,9 +149,16 @@ Public Class FrmSettings
 
     Private Sub optChinese_CheckedChanged(sender As Object, e As EventArgs) Handles optChinese.CheckedChanged
         Try
-            ChosenLanguage = "zh-CN"
+            If Not ChosenLanguage = "zh-CN" Then
+                Language_has_changed = True
+                ChosenLanguage = "zh-CN"
+            Else
+                Language_has_changed = False
+            End If
             If optChinese.Checked Then ApplyLocale(ChosenLanguage)
             'If optChinese.Checked Then ApplyLocale()
+            'getLanguageDictionary()
+            CodeMessage()
 
         Catch ex As Exception
             ErrorMessage(ex, 20404)
@@ -207,6 +269,32 @@ Public Class FrmSettings
     End Sub
 
     Private Sub txtUsername_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
-        username = txtUsername.Text
+        Try
+            username = txtUsername.Text
+        Catch ex As Exception
+            ErrorMessage(ex, 20409)
+        End Try
+    End Sub
+
+    Private Sub txtCode_TextChanged(sender As Object, e As EventArgs) Handles txtCode.TextChanged
+        AccessCode = txtCode.Text
+        CodeMessage()
+    End Sub
+
+    Private Sub CodeMessage()
+        codecheck = CalculateUserCode()
+        If codecheck = -1 Then
+            Label2.Text = Label3.Text + " " + GetUserCode().ToString + " " + Label5.Text
+            Label2.ForeColor = Color.Yellow
+            'End If
+        ElseIf codecheck = 0 Then
+            Label2.Text = Label4.Text + " " + GetUserCode().ToString + " " + Label5.Text
+            Label2.ForeColor = Color.Red
+        Else
+            Label2.Text = Label6.Text
+            Label2.ForeColor = Color.White
+
+            'txtCode.Enabled = False
+        End If
     End Sub
 End Class

@@ -1,11 +1,13 @@
 ﻿Module ModErrorMessages
     Sub ErrorMessage(ex As Exception, ErrNo As Integer)
+        'create error message to enable location of errors, if any.
         Try
             Dim company As String = "Halifax Fan Limited - "
             Dim ErrMsg As String
-            ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
-            'If StartArg.ToLower.Contains("-dev") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
-            If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            'ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            'If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + lang_dict(201) '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + lang_dict(201) '"" '= "Error Number HF0x000" + Hex(1004).ToString
             Select Case ErrNo
 'Sub errors 1000 to 1999
                 Case 1000 To 1099
@@ -57,6 +59,16 @@
                     ErrMsg = company + "ModReadWriteXML" + ErrMsg
                 Case 6600 To 6699
                     ErrMsg = company + "ModINI" + ErrMsg
+                Case 6700 To 6799
+                    ErrMsg = company + "ModLicencing" + ErrMsg
+                Case 6800 To 6899
+                    ErrMsg = company + "ModPrintCurve" + ErrMsg
+                Case 6900 To 6999
+                    ErrMsg = company + "ModPrintDatapoints" + ErrMsg
+                Case 7000 To 7099
+                    ErrMsg = company + "ModPrintPerformance" + ErrMsg
+                Case 7100 To 7199
+                    ErrMsg = company + "ModPrintSound" + ErrMsg
 'Form errors 20000 to 29999
                 Case 20000 To 20099
                     ErrMsg = company + "FrmDensityCalcs" + ErrMsg
@@ -72,6 +84,12 @@
                     ErrMsg = company + "FrmStart" + ErrMsg
                 Case 20600 To 20699
                     ErrMsg = company + "FrmDisplayRejects" + ErrMsg
+                Case 20700 To 20799
+                    ErrMsg = company + "FrmCurveOptions" + ErrMsg
+                Case 20800 To 20899
+                    ErrMsg = company + "FrmCurveProgress" + ErrMsg
+                Case Else
+                    ErrMsg = company + "FrmMiscellaneous" + ErrMsg
             End Select
             MsgBox(ErrMsg, vbOKOnly + vbSystemModal + vbCritical, "Error Message")
         Catch ex1 As Exception

@@ -18,11 +18,11 @@
                 OutputFooterPO(xlsWB) 'ok
             End With
         Catch ex As Exception
-            ErrorMessage(ex, 64031)
+            ErrorMessage(ex, 7001)
         End Try
     End Sub
 
-	    Public Sub PopulatePrintoutDatapoints(xlsWB)
+    Public Sub PopulatePrintoutDatapoints(xlsWB)
         Try
             sheet = "Datapoints"
             xlsWB.ActiveSheet.Name = sheet
@@ -51,7 +51,7 @@
                 'OutputFooterPO(xlsWB) 'ok
             End With
         Catch ex As Exception
-        ErrorMessage(ex, 64031)
+            ErrorMessage(ex, 7002)
         End Try
     End Sub
 

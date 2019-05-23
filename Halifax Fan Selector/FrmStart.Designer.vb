@@ -38,6 +38,8 @@ Partial Class FrmStart
         Me.optEnglish = New System.Windows.Forms.RadioButton()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.lblLanguageMessage = New System.Windows.Forms.Label()
         Me.grpLanguage.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -137,12 +139,24 @@ Partial Class FrmStart
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
+        '
+        'lblLanguageMessage
+        '
+        resources.ApplyResources(Me.lblLanguageMessage, "lblLanguageMessage")
+        Me.lblLanguageMessage.ForeColor = System.Drawing.Color.White
+        Me.lblLanguageMessage.Name = "lblLanguageMessage"
+        '
         'FrmStart
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ControlBox = False
+        Me.Controls.Add(Me.lblLanguageMessage)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.grpLanguage)
         Me.Controls.Add(Me.lblVersion)
@@ -182,6 +196,8 @@ Partial Class FrmStart
     Friend WithEvents optChinese As RadioButton
     Friend WithEvents optEnglish As RadioButton
     Friend WithEvents lblDate As Label
+    Friend WithEvents OpenFileDialog1 As OpenFileDialog
+    Friend WithEvents lblLanguageMessage As Label
     'Friend WithEvents lblDate As Label
     'Friend WithEvents Label1 As Label
 End Class

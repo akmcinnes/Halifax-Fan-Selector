@@ -43,6 +43,15 @@ Partial Class FrmSettings
         Me.optShenzhen = New System.Windows.Forms.RadioButton()
         Me.optShangai = New System.Windows.Forms.RadioButton()
         Me.optUK = New System.Windows.Forms.RadioButton()
+        Me.lblUserCode = New System.Windows.Forms.Label()
+        Me.lblAccessCode = New System.Windows.Forms.Label()
+        Me.lblCode = New System.Windows.Forms.Label()
+        Me.txtCode = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.grpLanguage.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -61,9 +70,9 @@ Partial Class FrmSettings
         '
         'grpLanguage
         '
+        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Controls.Add(Me.optChinese)
         Me.grpLanguage.Controls.Add(Me.optEnglish)
-        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Name = "grpLanguage"
         Me.grpLanguage.TabStop = False
         '
@@ -90,6 +99,10 @@ Partial Class FrmSettings
         '
         resources.ApplyResources(Me.lblUsername, "lblUsername")
         Me.lblUsername.Name = "lblUsername"
+        '
+        'FolderBrowserDialog1
+        '
+        resources.ApplyResources(Me.FolderBrowserDialog1, "FolderBrowserDialog1")
         '
         'btnDataFolder
         '
@@ -120,11 +133,11 @@ Partial Class FrmSettings
         '
         'GroupBox1
         '
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.optXian)
         Me.GroupBox1.Controls.Add(Me.optShenzhen)
         Me.GroupBox1.Controls.Add(Me.optShangai)
         Me.GroupBox1.Controls.Add(Me.optUK)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
         '
@@ -154,11 +167,70 @@ Partial Class FrmSettings
         Me.optUK.TabStop = True
         Me.optUK.UseVisualStyleBackColor = True
         '
+        'lblUserCode
+        '
+        resources.ApplyResources(Me.lblUserCode, "lblUserCode")
+        Me.lblUserCode.ForeColor = System.Drawing.Color.White
+        Me.lblUserCode.Name = "lblUserCode"
+        '
+        'lblAccessCode
+        '
+        resources.ApplyResources(Me.lblAccessCode, "lblAccessCode")
+        Me.lblAccessCode.ForeColor = System.Drawing.Color.White
+        Me.lblAccessCode.Name = "lblAccessCode"
+        '
+        'lblCode
+        '
+        resources.ApplyResources(Me.lblCode, "lblCode")
+        Me.lblCode.ForeColor = System.Drawing.Color.White
+        Me.lblCode.Name = "lblCode"
+        '
+        'txtCode
+        '
+        resources.ApplyResources(Me.txtCode, "txtCode")
+        Me.txtCode.Name = "txtCode"
+        '
+        'Label2
+        '
+        resources.ApplyResources(Me.Label2, "Label2")
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label2.Name = "Label2"
+        Me.Label2.Tag = "Label2"
+        '
+        'Label3
+        '
+        resources.ApplyResources(Me.Label3, "Label3")
+        Me.Label3.Name = "Label3"
+        '
+        'Label4
+        '
+        resources.ApplyResources(Me.Label4, "Label4")
+        Me.Label4.Name = "Label4"
+        '
+        'Label5
+        '
+        resources.ApplyResources(Me.Label5, "Label5")
+        Me.Label5.Name = "Label5"
+        '
+        'Label6
+        '
+        resources.ApplyResources(Me.Label6, "Label6")
+        Me.Label6.Name = "Label6"
+        '
         'FrmSettings
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.MenuHighlight
+        Me.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtCode)
+        Me.Controls.Add(Me.lblCode)
+        Me.Controls.Add(Me.lblAccessCode)
+        Me.Controls.Add(Me.lblUserCode)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.txtEmail)
         Me.Controls.Add(Me.lblEmail)
@@ -200,4 +272,13 @@ Partial Class FrmSettings
     Friend WithEvents optShenzhen As RadioButton
     Friend WithEvents optShangai As RadioButton
     Friend WithEvents optUK As RadioButton
+    Friend WithEvents lblUserCode As Label
+    Friend WithEvents lblAccessCode As Label
+    Friend WithEvents lblCode As Label
+    Friend WithEvents txtCode As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label6 As Label
 End Class

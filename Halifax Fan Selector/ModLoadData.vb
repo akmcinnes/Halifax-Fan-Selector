@@ -1,5 +1,4 @@
-﻿Imports System.IO
-Module ModLoadData
+﻿Module ModLoadData
     Public Function LoadFanData(filename, fanno) As String
         LoadFanData = ""
         Try
@@ -16,16 +15,6 @@ Module ModLoadData
             If Units(5).UnitSelected = 0 Then lengthdecplaces = 0
             If Units(5).UnitSelected = 1 Then lengthdecplaces = 2
 
-            'End If
-            'If Val(Frmselectfan.Txtflow.Text) > 10000 Then
-            '    voldecplaces = 0
-            'ElseIf Val(Frmselectfan.Txtflow.Text) > 1000 Then
-            '    voldecplaces = 1
-            'ElseIf Val(Frmselectfan.Txtflow.Text) > 100 Then
-            '    voldecplaces = 2
-            'ElseIf Val(Frmselectfan.Txtflow.Text) > 10 Then
-            '    voldecplaces = 3
-            'End If
             If flowrate > 10000 Then
                 voldecplaces = 0
             ElseIf flowrate > 1000 Then
@@ -37,15 +26,6 @@ Module ModLoadData
             End If
 
             pressplaceRise = 2
-            'If Val(Frmselectfan.Txtfsp.Text) > 10000 Then
-            '    pressplaceRise = 0
-            'ElseIf Val(Frmselectfan.Txtfsp.Text) > 1000 Then
-            '    pressplaceRise = 1
-            'ElseIf Val(Frmselectfan.Txtfsp.Text) > 100 Then
-            '    pressplaceRise = 2
-            'ElseIf Val(Frmselectfan.Txtfsp.Text) > 10 Then
-            '    pressplaceRise = 3
-            'End If
             If pressrise > 10000 Then
                 pressplaceRise = 0
             ElseIf pressrise > 1000 Then
@@ -57,7 +37,6 @@ Module ModLoadData
             End If
 
             count = 0
-
             countefft = 0
             counteffs = 0
             row = 9
@@ -128,6 +107,10 @@ Module ModLoadData
             blade_type(fanno) = Type_Blade
             blade_number(fanno) = Num_Blades
             datapoints1 = Num_Readings
+
+            For count = 0 To Num_Readings - 1
+            Next
+
             If PresType = 0 Then
                 medpoint(fanno) = counteffs
             Else
@@ -320,8 +303,30 @@ Module ModLoadData
                 fsizes(fanno, i) = STD_Fan_Size(i)
             Next
             br.Close() 'Close 
+
+            If Not DDInputRatio = 0.0 Then
+                OutLen_mm = OutLen_mm * DDInputRatio ^ 0.5
+                OutWid_mm = OutWid_mm * DDInputRatio ^ 0.5
+                OutDia_mm = OutDia_mm * DDInputRatio ^ 0.5
+                OutArea_m2 = OutArea_m2 * DDInputRatio
+                OutLen_ft = OutLen_ft * DDInputRatio ^ 0.5
+                OutWid_ft = OutWid_ft * DDInputRatio ^ 0.5
+                OutDia_ft = OutDia_ft * DDInputRatio ^ 0.5
+                OutArea_ft2 = OutArea_ft2 * DDInputRatio
+                Dim hv As Double
+                For i = 0 To Num_Readings - 1
+                    hv = 0.5 * 1.2 * (Vol_m3sec(i) / OutArea_m2) ^ 2
+                    FSP_pa(i) = FTP_pa(i) - hv
+                    FSP_kpa(i) = FSP_pa(i) / 1000.0
+                    FSP_insWG(i) = FTP_insWG(i) - hv * 40146307866177
+                    FSP_mbar(i) = FTP_mbar(i) - hv * 0.01
+                    FSP_mmwg(i) = FTP_mmWG(i) - hv * 0.10197162129779283
+                Next
+
+            End If
+
+            'modify FSP for discharge duct ratio
         Catch ex As Exception
-            'If StartArg.ToLower.Contains("-def") Then ErrorMessage(ex, 5404)
             failindex = failindex + 1
             fanfailures(failindex, 0) = fantypename(fanno)
             fanfailures(failindex, 1) = ex.Message
@@ -345,11 +350,6 @@ Module ModLoadData
             Dim i As Integer
             Dim j As Integer
             For i = 0 To 20
-                'FailuresList(i).IndexLan = xlsWB.Worksheets(1).Cells(i + 1, 1).Value
-                'For j = 0 To 5
-                '    FailuresList(i).Languages(j) = xlsWB.Worksheets(1).Cells(i + 1, 2 + j).Value
-                '    'FailuresList(i).Languages(1) = xlsWB.Worksheets(1).Cells(i, 3).Value
-                'Next
                 FailuresList(i).IndexLan = br.ReadInt32()
                 For j = 0 To 5
                     FailuresList(i).Languages(j) = br.ReadString
@@ -358,8 +358,7 @@ Module ModLoadData
             br.Close()
 
         Catch ex As Exception
-            If StartArg.ToLower.Contains("-dev") Then ErrorMessage(ex, 5404)
+            If StartArg.ToLower.Contains("-dev") Then ErrorMessage(ex, 5405)
         End Try
     End Sub
-
 End Module
