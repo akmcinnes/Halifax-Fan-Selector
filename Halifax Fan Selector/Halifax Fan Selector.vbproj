@@ -13,6 +13,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,10 +24,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -64,6 +65,21 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LogoBadge256.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F0D2E63C870026650892854AA7B80684D212C0B7</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Halifax Fan Selector_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -92,6 +108,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.vb" />
     <Compile Include="FrmCurveProgress.designer.vb">
       <DependentUpon>FrmCurveProgress.vb</DependentUpon>
     </Compile>
@@ -190,7 +207,6 @@
     <Compile Include="Sub_ProjectFile.vb" />
     <Compile Include="Sub_Selections.vb" />
     <Compile Include="ModSuction.vb" />
-    <Compile Include="ModUserDetails.vb" />
     <Compile Include="Variables.vb" />
     <Compile Include="VariablesStructs.vb" />
   </ItemGroup>
@@ -203,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCurveOptions.zh-Hans.resx">
       <DependentUpon>FrmCurveOptions.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCurveProgress.zh-Hans.resx">
+      <DependentUpon>FrmCurveProgress.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDensityCalcs.resx">
       <DependentUpon>FrmDensityCalcs.vb</DependentUpon>
@@ -258,6 +277,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Halifax Fan Selector_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -370,6 +390,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Locked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo-2019.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo-2019a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LogoBadge.ico" />
+    <Content Include="LogoBadge256.ico" />
+    <Content Include="LogoIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

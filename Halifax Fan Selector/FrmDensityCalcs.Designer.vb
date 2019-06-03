@@ -23,10 +23,10 @@ Partial Class FrmDensityCalcs
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmDensityCalcs))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
@@ -74,8 +74,8 @@ Partial Class FrmDensityCalcs
         '
         'ListBox1
         '
-        resources.ApplyResources(Me.ListBox1, "ListBox1")
         Me.ListBox1.AllowDrop = True
+        resources.ApplyResources(Me.ListBox1, "ListBox1")
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.Name = "ListBox1"
         '
@@ -87,36 +87,36 @@ Partial Class FrmDensityCalcs
         '
         'DataGridView3
         '
-        resources.ApplyResources(Me.DataGridView3, "DataGridView3")
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView3.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView3.DefaultCellStyle = DataGridViewCellStyle6
+        resources.ApplyResources(Me.DataGridView3, "DataGridView3")
         Me.DataGridView3.Name = "DataGridView3"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView3.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridView3.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView3.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridView3.RowsDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView3.RowTemplate.Height = 24
         '
         'Column1
@@ -132,10 +132,10 @@ Partial Class FrmDensityCalcs
         '
         'GroupBox1
         '
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Controls.Add(Me.RadioButton3)
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
@@ -253,7 +253,6 @@ Partial Class FrmDensityCalcs
         '
         'GroupBox2
         '
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.Label3)
@@ -266,6 +265,7 @@ Partial Class FrmDensityCalcs
         Me.GroupBox2.Controls.Add(Me.TextBox2)
         Me.GroupBox2.Controls.Add(Me.lblTemperatureUnitsIn)
         Me.GroupBox2.Controls.Add(Me.TextBox1)
+        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
         Me.GroupBox2.ForeColor = System.Drawing.Color.White
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.TabStop = False
@@ -292,7 +292,6 @@ Partial Class FrmDensityCalcs
         '
         'GroupBox3
         '
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.lblTemperatureUnitsOut)
         Me.GroupBox3.Controls.Add(Me.TextBox5)
@@ -300,6 +299,7 @@ Partial Class FrmDensityCalcs
         Me.GroupBox3.Controls.Add(Me.TextBox6)
         Me.GroupBox3.Controls.Add(Me.lblDensityUnitsOut)
         Me.GroupBox3.Controls.Add(Me.TextBox7)
+        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
         Me.GroupBox3.ForeColor = System.Drawing.Color.White
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.TabStop = False

@@ -6,15 +6,14 @@ Module Variables
     Public fs As System.IO.FileStream
 
     Public AdvancedUser As Boolean
-    'Public Developer As Boolean
-    Public version_number As String = "V 1.0.2 Beta"
+    'Public version_number As String = "V 1.0.2 Beta"
+    Public version_number As String = "V 1.0.3"
     Public DataPathMain As String ' = "C:\Halifax\"
 
     Public DataPathDefault As String ' = DataPathMain + "Performance Data\"
     Public OutputPathDefault As String ' = DataPathMain + "Output Files\"
     Public ProjectPathDefault As String ' = DataPathMain + "Projects\"
     Public TemplatesPathDefault As String ' = DataPathMain + "Templates\"
-    'Public DataPathDefault As String = ".\Performance Data\"
     Public DataPath As String
     Public lang_dict(250) As String
     Public lang_dictEN(250) As String
@@ -32,11 +31,9 @@ Module Variables
     Public headerphone As String
     Public headerweb As String
 
-
     Public StartArg As String
 
     Public Flag(9) As Boolean
-    'Public UserName As String = Environment.UserName
     Public countflag As Integer
 
     Public ChosenLanguage As String
@@ -48,38 +45,21 @@ Module Variables
     Public cstring As String
     Public astring As String
 
-
     Public SelectDIDW As Boolean
     Public AccessCode As String
 
     Public move_on As Boolean
 
-    'Public UserType As Integer
-    'Public locale_name As String
-
     Public Widthratios(50) As Single
 
-    'Public PresType, FlowType, DensType, VelType As Integer
     Public PresType, DensType As Integer
 
     Public Customer As String
-    'Public FanNameSave, FanSizeSave, FanVol, FanSP, FanTP, FanSpeed, FanPower, FanMotor, FanSE, FanTE, FanOutVel As String
-
-    'Public correctedforSUCTIONS(50) As String
-
-    'Public NextSpeed As String
     Public RunTemp As Single
-
 
     Public datapoints1 As Integer
     Public Const casethickness = 6 '-twice the thickness of the case
 
-    'Public fspcol As Integer
-    'Public ftpcol As Integer
-    'Public colvol As Integer
-    'Public colpow As Integer
-    'Public coleff As Integer
-    '-------------------------------------------fan type 1 ONLY variables
     Public fansizelimit(50) As Double
     Public fantypesecfilename(50) As String
     Public dataoutletareaftsq(50) As Double
@@ -94,14 +74,6 @@ Module Variables
 
     Public ReadFromProjectFile As Boolean
 
-    'Public ShowCurvedFanTypes As Boolean
-    'Public ShowInclinedFanTypes As Boolean
-    'Public ShowOtherFanTypes As Boolean
-    'Public ShowPlasticFanTypes As Boolean
-    'Public ShowPlenumFanTypes As Boolean
-    'Public ShowAxialFanTypes As Boolean
-    'Public ShowOldFanTypes As Boolean
-
     Public fsp(,) As Double '1
     Public ftp(,) As Double '2
     Public vol(,) As Double '3
@@ -109,7 +81,6 @@ Module Variables
     Public fse(,) As Double '5
     Public fte(,) As Double '6
     Public ovel(,) As Double '7
-    'Public eff(50, 50) As Double
 
     Public fansize As Double
     Public stepsize As Double
@@ -118,11 +89,7 @@ Module Variables
     Public ftps(50, 500) As Double '2 
     Public vols(50, 500) As Double '3
     Public Pows(50, 500) As Double '4
-    'Public fses(50, 500) As Double '5
-    'Public ftes(50, 500) As Double '6
-    'Public ovs(50, 500) As Double '7
     Public fsizes(50, 500) As Double
-    'Public effs(50, 500) As Double
 
     Public datafanindex(50) As Integer
 
@@ -140,10 +107,6 @@ Module Variables
     Public blade_number(50) As Integer
     Public fspI(50, 10000) As Double '1
     Public ftpI(50, 10000) As Double '2
-    'Public volI(50, 10000) As Double '3
-    'Public powI(50, 10000) As Double '4
-    'Public fseI(50, 10000) As Double '5
-    'Public fteI(50, 10000) As Double '6
     Public fanspeedI(50, 10000) As Double
     Public datapointI(50, 10000) As Double
 
@@ -158,7 +121,6 @@ Module Variables
     Public fantypefilename(50) As String
     Public fantypename(50) As String
     Public fanclass(50) As String
-    'Public FanSave, FanMaxCount(50) As Integer
     Public FanMaxCount(50) As Integer
     Public SizeAtFixedSpeed As Double
 
@@ -167,13 +129,11 @@ Module Variables
     Public NEWdensity As Double
     Public runonce As String
 
-    'Public voldecplaces, pressplaceIn, pressplaceOut, pressplaceRise, pressplaceAtmos, FanPick As Integer
     Public voldecplaces, pressplaceIn, pressplaceOut, pressplaceRise, pressplaceAtmos As Integer
     Public powerdecplaces, lengthdecplaces As Integer
 
     Public temppressure As Object
 
-    ''--- used by AKM
     Public Engineer As String
 
     Public atmos As Double
@@ -189,18 +149,14 @@ Module Variables
     Public altitude As Double
     Public humidity As Double
     Public atmospress, inletpress, dischpress, pressrise As Double
-    'Public knowndensity, calcdensity As Double
     Public knowndensity As Double
     Public flowrate As Double
     Public reshead As Double
     Public maxspeed As Double
-    'Public minspeed As Double
     Public convflow As Double
     Public convpres As Double
-    'Public convtemp As Double
     Public convdens As Double
     Public convalt As Double
-    'Public convatmo As Double
     Public convpow As Double
     Public convlen As Double
     Public convvel As Double
@@ -214,27 +170,12 @@ Module Variables
     Public ftpmax As Double
     Public volmax As Double
 
-    'added 
-    'Public colfsp As Integer
-    'Public colftp As Integer
-    'Public colfse As Integer
-    'Public colfte As Integer
-    'Public colstdfansizes As Integer
-    'Public coloutletvel As Integer
     Public count As Integer
     Public countefft As Integer
     Public counteffs As Integer
     Public row As Integer
 
     Public kp As Double
-
-    'Public filename(50) As String
-    'Public filepath1 As String = "C:\Halifax\Performance Data\"
-    'Public filepath2 As String = "C:\Halifax\Performance Data New\"
-    'Public filepath1 As String = DataPath
-    'Public filepath2 As String = DataPath
-    'Public extension1 As String = ".xls"
-    'Public extension2 As String = ".txt"
 
     'excel values
     Public FanSize1 As Double
@@ -280,8 +221,6 @@ Module Variables
     Public FSE1(30) As Double
     Public FTE1(30) As Double
 
-    'Public OVEL1(30) As Double
-
     Public STD_Fan_Size(50) As Double '30
 
     Public count1 As Integer
@@ -313,12 +252,7 @@ Module Variables
 
     Public legend As String
 
-    '    Public atmos As Double
-
     Public FullFilePath As String
-
-
-    'Public motorsize(2, 100) As Double
 
     Public freqHz As Integer
 
@@ -329,9 +263,6 @@ Module Variables
     Public xaxistitle As String
     Public tempyaxistitle As String
     Public tempy2axistitle As String
-    'Public curvevolunits As String
-    'Public presunits As String
-    'Public powunits As String
 
     Public plotvol() As Double
     Public plotfsp() As Double
@@ -341,10 +272,7 @@ Module Variables
     Public plotfte() As Double
     Public plotov() As Double
 
-    'Public NewCurve As Boolean
-
     Public fan2plot As Integer
-    'Public objStreamWriter As New StreamWriter("c:\Halifax\output.txt")
 
     'noise variables
     Public SPL As Single
@@ -353,8 +281,6 @@ Module Variables
     Public NCQ As Single
     Public NCFSP As Single
     Public NCN As Single
-    'Public NCimpdia As Single
-    'Public oboSPL As Single
     Public NCINdia As Single
     Public CF(8) As Integer
     Public IDSPL(8) As Integer
@@ -364,44 +290,22 @@ Module Variables
     Public diameters(22) As Integer
     Public sounddata(22, 9) As Integer
 
-    'Public count As Integer
     Public spl2 As Integer
     Public bospl2 As Integer
     Public bospl1M2 As Integer
-    'Public oboSPL2 As Integer
     Public NCoverall As Integer
-    'Public stopprogram As Integer
-    'Public T2col, T2row As Integer
-    'Public bladetype As String '1=bc 2=bi 3=fc 4=radial 5=axial
-    'Public bladecount As Integer
-    'Public OPcond As String
     Public inX As Single ' constant for each size of duct diameter
     Public INascale(8) As Integer ' variable of inlet duct scale
     Public Octaves(8) As Single
-    'Public Last As Integer
-    'Public sort As Integer
     Public inNCoverall As Single
-    'Public indiff As Single
-    'Public addindiff As Single
     Public OUTascale(8) As Integer
     Public OUTdia As Single
-    'Public OUTdiff As Single
-    'Public addOUTdiff As Single
     Public OUTNCoverall As Single
-    'Public Drow As Integer
-    'Public OOrow As Integer
-    'Public OIrow As Integer
     Public outX As Single
-    'Public OUTarea As Single
     Public BRGnoise As Integer
     Public MTRnoise As Integer
-    'Public brgrow As Integer
-    'Public Motorrow As Integer
     Public BPfreq As Integer
-    'Public bpfroW As Integer
-    'Public NCscalefactor As Single
     Public inletdia As Integer
-    'Public outletdia As Integer
     Public outletlength As Integer
     Public outletwidth As Integer
     Public outletdiameter As Integer
@@ -414,8 +318,6 @@ Module Variables
     Public InclMotorNoise As Boolean
 
     Public Background_Color As Color
-
-    'Public count As Integer
 
     Public outfile(10000000) As Char
     Public filename As String

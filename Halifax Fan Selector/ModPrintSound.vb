@@ -1,4 +1,29 @@
 ﻿Module ModPrintSound
+    'subroutines
+    'PopulatePrintoutSound
+    'script to write acoustics to excel worksheet
+
+    'OutputSWLPO
+    'write SWL to excel worksheet
+
+    'OutputductPO
+    'write duct inlet to excel worksheet
+
+    'OutputopeninletPO
+    'write open inlet to excel worksheet
+
+    'OutputopeninletPO
+    'write open outlet to excel worksheet
+
+    'OutputbrgPO
+    'write bearing sound to excel worksheet
+
+    'OutputmotorPO
+    'write motor sound to excel worksheet
+
+    'OutputbpfPO
+    'write bpf to excel worksheet
+
     Sub PopulatePrintoutSound(xlsWB)
         Try
             sheet = "Sound"
@@ -21,6 +46,7 @@
             ErrorMessage(ex, 7101)
         End Try
     End Sub
+
     Public Sub OutputSWLPO(xlsWB, swlrow)
         Try
             xlsWB.ActiveSheet.Name = sheet
@@ -184,6 +210,5 @@
             ErrorMessage(ex, 7108)
         End Try
     End Sub
-
 
 End Module

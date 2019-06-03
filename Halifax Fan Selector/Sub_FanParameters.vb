@@ -6,14 +6,11 @@
                 Dim presconv, flowconv As Double
                 Dim v As Double
                 Dim p As Double
-                'v = CDbl(.Txtflow.Text) / convflow / 3600.0
-                ''v = flowrate / convflow / 3600.0
                 If Units(0).UnitSelected = 0 Then flowconv = 3600.0
                 If Units(0).UnitSelected = 1 Then flowconv = 60.0
                 If Units(0).UnitSelected = 2 Then flowconv = 1.0
                 If Units(0).UnitSelected = 3 Then flowconv = 2118.8799727597
                 v = flowrate / flowconv
-                'p = CDbl(.Txtfsp.Text) / convpres / 1000.0
                 If Units(1).UnitSelected = 0 Then presconv = 1000.0
                 If Units(1).UnitSelected = 1 Then presconv = 10.0
                 If Units(1).UnitSelected = 2 Then presconv = 4.014742133113
@@ -72,9 +69,6 @@
                         If .Opt12Pole.Checked = True Then .Txtfanspeed.Text = Motor_Pole_Speeds.Speed60(5).ToString
                 End Select
                 .TabControl1.SelectTab(.TabPageFanParameters)
-
-                'kp = CalculateKP(1.4, CDbl(.TxtAtmosphericPressure.Text), CDbl(.Txtfsp.Text), CDbl(.TxtInletPressure.Text))
-                ''kp = CalculateKP(1.4, CDbl(.TxtAtmosphericPressure.Text), pressrise, inletpress)
             End With
         Catch ex As Exception
             ErrorMessage(ex, 1201)

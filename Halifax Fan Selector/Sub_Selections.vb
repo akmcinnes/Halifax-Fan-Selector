@@ -4,7 +4,6 @@ Module Sub_Selections
         Try
             failindex = 0
             With Frmselectfan
-                'If .TabControl1.SelectedTab.Text.Contains("Selection") Then
                 If .TabControl1.SelectedTab Is .TabPageSelection Then
                     Call initializeSelections()
                     .btnNoiseDataForward.Enabled = False
@@ -60,52 +59,6 @@ Module Sub_Selections
                     .DataGridView1.RowCount = 10
                     .DataGridView1.ColumnCount = 50
                     i = 0
-
-                    'Column_Header1(i, "SIZE", "Colsize", .ColumnHeader(0))
-                    'Column_Header1(i, "Size", "Colsize", "empty")
-                    'i = i + 1
-                    'Column_Header1(i, "Type", "Coltype", "empty")
-                    'i = i + 1
-                    'Column_Header1(i, "Speed", "Colspeed", .ColumnHeader(2))
-                    'i = i + 1
-                    'Column_Header1(i, "Flow", "Colvolume", .ColumnHeader(3))
-                    'i = i + 1
-                    'Column_Header1(i, "Fan Static Pressure", "Colfsp", .ColumnHeader(4))
-                    'i = i + 1
-                    'Column_Header1(i, "Fan Total Pressure", "Colftp", .ColumnHeader(5))
-                    'i = i + 1
-                    'If Units(4).UnitSelected < 2 Then
-                    '    Column_Header1(i, "Fan Power", "Colpower", .ColumnHeader(6))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Motor Power", "Colmotor", .ColumnHeader(7))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Fan Static Efficiency", "Colfse", .ColumnHeader(8))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Fan Total Efficiency", "Colfte", .ColumnHeader(9))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Outlet Velocity", "Coloutletvel", .ColumnHeader(10))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Reserve Head", "Colrhead", .ColumnHeader(11))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Volume TD", "Colvoltd", .ColumnHeader(12))
-                    'ElseIf Units(4).UnitSelected = 2 Then
-                    '    'combined columns
-                    '    Column_Header1(i, "Fan Power", "Colpower", .ColumnHeader(6))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Motor Power", "Colmotor", .ColumnHeader(7))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Fan Static Efficiency", "Colfse", .ColumnHeader(8))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Fan Total Efficiency", "Colfte", .ColumnHeader(9))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Outlet Velocity", "Coloutletvel", .ColumnHeader(10))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Reserve Head", "Colrhead", .ColumnHeader(11))
-                    '    i = i + 1
-                    '    Column_Header1(i, "Volume TD", "Colvoltd", .ColumnHeader(12))
-                    'End If
-                    'i = i + 1
-                    'Column_Header1(i, "Fan Index", "ColIndex", "empty")
 
                     Column_Header1(i, Frmselectfan.lblSize.Text, "Colsize", .ColumnHeader(0))
                     Column_Header1(i, Frmselectfan.lblSize.Text, "Colsize", "empty")
@@ -221,7 +174,6 @@ Module Sub_Selections
                                 Select Case m
                                     Case 1
                                         If fanclass(n) IsNot Nothing Then
-                                            '                            .DataGridView1.Rows(n).Cells(m).Value = fanclass(n)
                                             len = If(fanclass(n).Length < .DataGridView1.Columns(m).Width / 8, .DataGridView1.Columns(m).Width / 8, fanclass(n).Length)
                                             .DataGridView1.Columns(m).Width = len * 8
                                             .DataGridView1.Width = .DataGridView1.Width + .DataGridView1.Columns(m).Width
@@ -272,11 +224,9 @@ Module Sub_Selections
                     .chkKP.Visible = StartArg.ToLower.Contains("-dev")
 
                     .chkDisplayAllResHead.Visible = AdvancedUser
-                    '.chkDisplayAll.Text = "Include fans < " + reshead.ToString + "% Reserve Head"
                     .chkDisplayAllResHead.Text = .lblIncludeReserveHead.Text + " < " + reshead.ToString + "% "
 
                     .chkDisplayLowerEff.Visible = AdvancedUser
-                    '.chkDisplayLowerEff.Text = "Include fans < 60% Fan Efficiency"
                     .chkDisplayLowerEff.Text = .lblIncludeAllFanEfficiency.Text + " < 60%"
 
                     Dim nRight As Integer
@@ -285,12 +235,7 @@ Module Sub_Selections
 
                     Dim tempsize As Double = CDbl(.Txtfansize.Text)
                     Dim tempspeed As Double = CDbl(.Txtfanspeed.Text)
-                    'Dim tempflow As Double = CDbl(.Txtflow.Text)
                     Dim tempflow As Double = flowrate
-                    'If Units(0).UnitSelected = 4 Then
-                    '    tempflow = tempflow / CDbl(Frmselectfan.TxtDensity.Text)
-                    'End If
-                    'Dim tempfsp As Double = CDbl(.Txtfsp.Text)
                     Dim tempfsp As Double = pressrise
 
                     If .OptAnySpeed.Checked = True Then
@@ -314,7 +259,6 @@ Module Sub_Selections
                         '----- FOR KNOWN DUTY BUT NO SPEED OR FAN SIZE GIVEN -------------------------
                         '------------------------------------------------------------------------------
 
-                        'Dim size As Double = CDbl(.Txtfansize.Text)
                         If tempsize = 0 And tempspeed = 0 And tempflow <> 0 And tempfsp <> 0 Then
                             Call NoSpeedNosize(k) 'used
                         End If
@@ -361,7 +305,6 @@ Module Sub_Selections
                 End If
             End With
         Catch ex As Exception
-            'MsgBox("SetupSelectionPage")
             ErrorMessage(ex, 1301)
         End Try
     End Sub
@@ -389,7 +332,6 @@ Module Sub_Selections
             fantypesQTY = 0
 
         Catch ex As Exception
-            'MsgBox("Initializeselections")
             ErrorMessage(ex, 1302)
         End Try
     End Sub
@@ -636,27 +578,6 @@ Module Sub_Selections
                 .LblFanDetails.Text = selected(ii).fantype + " " + selected(ii).fansize.ToString + " " + .lblRunningAt.Text + " " + selected(ii).speed.ToString + " rpm"
                 If SelectDIDW = True Then .LblFanDetails.Text = .LblFanDetails.Text + " (DIDW)"
 
-                'final.fansize = selectedfansize(ii)
-                'final.fantype = selectedfantype(ii) 'string
-                'final.fse = selectedfse(ii)
-                'final.speed = selectedspeed(ii)
-                'final.pow = selectedpow(ii)
-                'final.fsp = selectedfsp(ii)
-                'final.fte = selectedfte(ii)
-                'final.ftp = selectedftp(ii)
-                'final.ov = selectedov(ii)
-                'final.vol = selectedvol(ii)
-                'final.mot = selectedmot(ii)
-                'final.resHD = selectedresHD(ii)
-                'final.VD = selectedVD(ii)
-                'final.BladeType = selectedBladeType(ii)
-                'final.BladeNumber = selectedBladeNumber(ii)
-                'final.fanfile = selectedfanfile(ii)
-                'final.inletdia = selectedinletdia(ii)
-                'final.outletarea = selectedoutletarea(ii)
-                'final.outletlen = selectedoutletlen(ii)
-                'final.outletwid = selectedoutletwid(ii)
-
                 final = selected(ii)
 
                 .TabControl1.TabPages(3).Enabled = True
@@ -668,11 +589,6 @@ Module Sub_Selections
 
     Sub SelectionClick(e As DataGridViewCellEventArgs)
         Try
-            'Dim ii As Integer
-            'ii = 0
-            'Do While Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selected(ii).fantype Or selected(ii).resHD > 99.0
-            '    ii = ii + 1
-            'Loop
             SelectRow(CInt(Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(13).Value))
 
         Catch ex As Exception
@@ -685,14 +601,7 @@ Module Sub_Selections
             Frmselectfan.btnNoiseDataForward.Enabled = True
             Frmselectfan.TabPageNoise.Enabled = True
             FrmFanChart.Text = Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value.ToString
-            'Dim ii As Integer
-            'fan2plot = 0
-            'Do While Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(1).Value <> selected(fan2plot).fantype Or selected(fan2plot).resHD > 99.0
-            '    fan2plot = fan2plot + 1
-            'Loop
             fan2plot = CInt(Frmselectfan.DataGridView1.Rows(e.RowIndex).Cells(13).Value)
-
-            'FrmFanChart.Text = final.fantype + " " + final.fansize.ToString + " running at " + final.speed.ToString + " rpm"
 
             If AdvancedUser = True And Units(4).UnitSelected = 2 Then
                 FrmFanChart.optDisplayhp.Visible = True

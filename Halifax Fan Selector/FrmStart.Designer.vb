@@ -37,9 +37,9 @@ Partial Class FrmStart
         Me.optChinese = New System.Windows.Forms.RadioButton()
         Me.optEnglish = New System.Windows.Forms.RadioButton()
         Me.lblDate = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.lblLanguageMessage = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.grpLanguage.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -64,8 +64,8 @@ Partial Class FrmStart
         '
         'btnContinue
         '
-        resources.ApplyResources(Me.btnContinue, "btnContinue")
         Me.btnContinue.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        resources.ApplyResources(Me.btnContinue, "btnContinue")
         Me.btnContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnContinue.Name = "btnContinue"
         Me.btnContinue.UseVisualStyleBackColor = True
@@ -108,9 +108,9 @@ Partial Class FrmStart
         '
         'grpLanguage
         '
-        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Controls.Add(Me.optChinese)
         Me.grpLanguage.Controls.Add(Me.optEnglish)
+        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Name = "grpLanguage"
         Me.grpLanguage.TabStop = False
         '
@@ -131,24 +131,23 @@ Partial Class FrmStart
         resources.ApplyResources(Me.lblDate, "lblDate")
         Me.lblDate.Name = "lblDate"
         '
-        'PictureBox1
-        '
-        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
-        Me.PictureBox1.BackColor = System.Drawing.SystemColors.Menu
-        Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.logo_2016
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.TabStop = False
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
         '
         'lblLanguageMessage
         '
-        resources.ApplyResources(Me.lblLanguageMessage, "lblLanguageMessage")
         Me.lblLanguageMessage.ForeColor = System.Drawing.Color.White
+        resources.ApplyResources(Me.lblLanguageMessage, "lblLanguageMessage")
         Me.lblLanguageMessage.Name = "lblLanguageMessage"
+        '
+        'PictureBox1
+        '
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Image = Global.Halifax_Fan_Selector.My.Resources.Resources.Logo_2019a
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.TabStop = False
         '
         'FrmStart
         '

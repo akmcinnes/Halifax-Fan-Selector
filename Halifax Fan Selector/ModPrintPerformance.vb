@@ -1,4 +1,11 @@
 ﻿Module ModPrintPerformance
+    'subroutines
+    'PopulatePrintoutPerformance
+    'script to populate performance excel sheet
+
+    'PopulatePrintoutDatapoints
+    'script to populate curve excel points
+
     Sub PopulatePrintoutPerformance(xlsWB)
         Try
             sheet = "Performance"
@@ -10,11 +17,6 @@
                 OutputFanDetailsPO(xlsWB, 1)
                 OutputDataTableHeaderPO(xlsWB) 'ok
                 OutputDataTablePO(xlsWB)
-                'OutputopeninletPO(xlsWB, 26)
-                'OutputopenoutletPO(xlsWB, 33)
-                'OutputbrgPO(xlsWB, 42)
-                'OutputmotorPO(xlsWB, 44)
-                'OutputbpfPO(xlsWB, 40)
                 OutputFooterPO(xlsWB) 'ok
             End With
         Catch ex As Exception
@@ -29,9 +31,6 @@
             With xlsWB.ActiveSheet
                 .Activate
                 SetupPagePO(xlsWB, 10)
-                'OutputHeaderPO(xlsWB) 'ok
-                'OutputFanDetailsPO(xlsWB, 1)
-                'OutputDataTableHeaderPO(xlsWB) 'ok
                 OutputDutyPointsPO(xlsWB)
                 OutputDataDutyPO(xlsWB)
                 If IncludeDampers = True Then
@@ -43,16 +42,9 @@
                 If IncludeSystem = True Then
                     OutputDataTableSystemPO(xlsWB, "System CURVE", "curvevol", "Pressure", 11, 12)
                 End If
-                'OutputopeninletPO(xlsWB, 26)
-                'OutputopenoutletPO(xlsWB, 33)
-                'OutputbrgPO(xlsWB, 42)
-                'OutputmotorPO(xlsWB, 44)
-                'OutputbpfPO(xlsWB, 40)
-                'OutputFooterPO(xlsWB) 'ok
             End With
         Catch ex As Exception
             ErrorMessage(ex, 7002)
         End Try
     End Sub
-
 End Module

@@ -117,4 +117,200 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Progress_box.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt, style=Bold</value>
+  </data>
+  <data name="Progress_box.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 50</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Progress_box.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="Progress_box.Size" type="System.Drawing.Size, System.Drawing">
+    <value>359, 22</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Progress_box.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Progress_box.Text" xml:space="preserve">
+    <value>This may take several minutes</value>
+  </data>
+  <data name="Progress_box.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="&gt;&gt;Progress_box.Name" xml:space="preserve">
+    <value>Progress_box</value>
+  </data>
+  <data name="&gt;&gt;Progress_box.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Progress_box.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Progress_box.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 12pt, style=Bold</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 15</value>
+  </data>
+  <data name="Label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 24</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Creation in progress...</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PictureBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>150, 85</value>
+  </data>
+  <data name="PictureBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="PictureBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 129</value>
+  </data>
+  <data name="PictureBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="PictureBox3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;PictureBox3.Name" xml:space="preserve">
+    <value>PictureBox3</value>
+  </data>
+  <data name="&gt;&gt;PictureBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PictureBox3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PictureBox3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>435, 82</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAA
+        AAD////////////////////////////////////////////////+/v7//v78//3+/f/9/f7//v3+//z9
+        /v/8/v7//f39//v+/f/9/v3//v79//7+/v//////////////////////////////////////////////
+        //////////////////////////////////////////////////////////7///3+/v/9/vv//Pz9//v9
+        /f/8/P3//fz+//f5+//4+fz/+/z7//r+/P/8/vz//v7+//////////////////7+/v/+/v7///3+//7+
+        /v/////////+/////v///////////////////////////////////////////////////v///v3+//z9
+        /P/7/Pz//P39//b4+//Y2e7/vbjP/9nSz//8+/f//Pz8//z9/f/+/v7//////////////////v7+//79
+        /v/+/f7//v7+//7+/v////7////+//////////////////////////////////7////+/////v7+//39
+        /f/9/f3//f36//f49v/b2/D/s7DQ/6eRk/+tgk//wKR+//f48//8/fv//f39//7+/v/+/v7//v79//7+
+        /v/+//////////7//v/9/f3//f39//7+/v////////////////////////////7//v/+/v7//f7+//3+
+        /v/9/f3/+/z7//b28P/l4Nj/ubXP/5GJs/+rjHn/onld/4lwmv98c8P/5+b2//z9/f/9/vz//f79//v9
+        /f/9/fz/+/r1/+3i0P/ex6P/2MGd//b07v/8/f3//f39//7+/////////////////////////v/+//v+
+        /v/8/f3/+/37//39/f/19O3/zMK0/56Wvv+jmLX/oJKl/2xgt/9MRsz/U0rL/3dnr//i3eX//f39//r+
+        /P/7/fz/+f7+//Do3P/LpnH/t3kk/7RtCf+xdiL/7OPS//r+/v/8/vz//v7+////////////////////
+        ///+//7//P7+//z9/f/7/fv/4+Ty/9TQ4P+kn8b/kpLX/3d1zv9dWMn/alam/4xndv+sek7/sYA9/+HU
+        vf/9/f7//P39//3+/f/z7+X/xplY/7JrB/+4bQX/uG4F/6xvFP/i07v//P79//39/P/+/v7/////////
+        //////////////7+///8/v7//f39//T1+/+Njt3/gH/c/2pr1P9XWNT/cGfH/6OOpv+mi3//qI6I/6qY
+        oP+4qKz/4d7b//z8+//8/fz/+vj0/9Ozhf+zbwv/tm0H/7VsBf+2cA//snon/9/Osf/7/v7/+/39//7+
+        /v///////////////////////v7+//z+/v/8/f3/s7Ts/zU12f8pKd3/SkzZ/5CR3/+PiMb/pZzG/8TD
+        4f/W2fD/4+T2/+vq+f/39/v//Pz8//z+/f/k173/sXQe/7ZtA/+zbg//w5VV/+LNrP/v5NT/9fXv//r8
+        /f/8/f3//v7+///////////////////////+/v7//v79//f5/P9wb93/Ih/e/zk72/+CfMf/opCg/76x
+        sv/l4d3/+vr3//3+/f/+/v3//v79//39/f/8/f3//Pz7/9Cue/+xagX/vIAx/9i9kv/q3sP/4c2h/9q6
+        ff/eyp7/9vbs//39/f/+/f7///////////////////////79/f/9/f3/7e75/11e2v84ONX/oZKx/7eX
+        bP/Sv5v/5trC//Xz7v/7/P3//vz7//7+/v/+/v7//v7+//z9/f/49e7/vo9L/7eDNf/j0rT/5tev/8GX
+        PP+7gAr/vn4A/7qDEf/eyJf/+/v5//3+/v///////////////////////f3+//3+/f/Jy/D/Mi/d/z07
+        2/+2oaP/4M+z/+3s8//KtJf/8Ofa//z+/P/+/f7//v7+//7+/v/9/f3//f3+//Dp3v/HpXj/7N/H/9O1
+        eP+8gBT/vH4A/72BAP/BgQH/vYIG/9rBi//8/Pn//v7+///////////////////////+/v7//v7+/9DP
+        8/8/PNr/NjTa/6yt5v/z8/b/r63k/6eiyv/08e3//fz8//39/v/+/v7//v7+//7+/v/8/f3/9fTw/+3l
+        1//Vwpf/xqBQ/9OvZf/StGr/yKFL/7uCDv++iRz/7uTL//3+///+/f7////////////////////////+
+        /v/+/vz/6On3/19g1P91ddv/vL7r/7a36v+Xld3/ko/Z/8nI6f/7/Pv//f39//7+/v/+/v7//v7+//z9
+        /f/5/f3/9PPs/+Tbwv/v6tP/6+fV//Dv4v/29Ob/17+J/8amYf/49ev//f3+//7+/v//////////////
+        //////////7+//78/v/09vz/g4PZ/7i03//r6u//dnbd/0JE0f+2rsL/1tDV//v7/P/9/f3//f3+//79
+        /v/+/f7//v79//39/f/9/v3/6OfX/6udTf+djCL/opI2/9LNoP/7+fP/8Ovf//z8+//9/fz//v79////
+        /////////////////////v7//v3+//v9/f/a2/L/w7e7/9bEr/+SkuH/Ly7W/3Jmuf+/pIL/8evg//3+
+        /v///////v////7///////7////+//v9/f/z9O3/wLRy/5WBBf+afwD/ppMy/+/t3P/7/v3//P37//39
+        /f/+/v7///////////////7////+///+/f/9/v3//P39//z+/P/q4NH/tZRp/5yVwv98fN3/SkjU/3py
+        u//Lw8T/2Mmw/+TSu//q28r/5NvW/9vX5v/a2ez/8PL2//z9+//w7t3/qp1E/5mCAP+ehhH/4d3A//3+
+        /v/8/fz//f39/////f/////////////+/v/+/v7//v79//39/f/9/f7//f37//r59f/f0bb/oJeu/3Z1
+        z/+tq+L/b2rJ/4aCy//Txb//qpCS/4Nuo/9vY7b/l5TW/9ja7v/3+Pr/7/Dm/+js2P/Vzp3/moIH/52G
+        C//d2rX//v7+//v+/v/9/v3//v/9/////////////v3+//39/v/9/P3//Pv5//j8+f/7/f3/+/z7//v8
+        +f/v7vD/wb/p/8C/3P/JuKf/r5R6/9HDtP/Hxen/nZ/j/8fJ7f/w8fr//v39//39/f/e4sP/v8mS/+bk
+        w/+eiBf/n4si/+XkzP/+/v7//v7+//3+/v/+//7////////////+/f7//fz9//39/P/X58b/rdCQ/+Hu
+        1f/5+vb/+/3+//39/v/+/vz/9vr4//f38v/y6NH/8+3g//z9+P/6/PX//v38//j89v/o7d7/+fv3/83T
+        of+qtWX/7OvS/6CUPv/JwIv/+/v2//39/P/+/f3//f39//7+/v///////v7///3+/v/+/v3/+/z2/53J
+        e/9Zqh3/cLE7/6DLfP/S58H/5/Lc//D37P/z9+//8vft/+305f/b7M//vdan/9flzP/9/Pv/197B/7fB
+        l//4+Ov/s71s/6eyWP/u79z/0c6t//f48P/7/fz//v39//z++//+/f7//v7+///////9/vz//f39//7+
+        /f/m8dr/crVB/1iuGv9Yrhz/Wq0c/2SwKv9ytjz/frlP/4G8VP9+vFD/c7c//3u1TP/E3a//9Pnx/9nh
+        u/+Tq1X/2uPB/+vu2P+Pmy7/rrdo//r78//6+ff//Pz8//39/f/+/v7//v7+//7+/v///v////////z+
+        +//9/P3//f38/77co/9eriP/Wa8d/1qvHf9asBz/Wq8c/1muHP9ZrRv/V60Z/1isGv95uEn/xN+x//r9
+        +P/d5MX/hKA2/5StU//4+e7/0tep/3+RDv/AyYr//v78//39/f/9/f3//v7+//7+/v/+/v7/////////
+        /////////P39//79/v/r9eP/g75X/1muHP9arx3/W68d/1qvHv9Zrx3/Wa8c/1avGf9frSj/k8Fu/+Xw
+        2f/6/Pf/zdiw/4CgMf9rkhD/x9Sk//z99v+uuGH/gpQT/9rgu////v///P7+//7+/v/+/v7//v7+//7+
+        /v/////////////////8/Pz//Pz+/7vXof9bqSH/WK4c/1qvHP9arxv/Wa0b/1esG/9erCT/hLxV/8Ld
+        rP/z+e//9fjs/7zMkv93mh//aJAG/6G4Zv/09ur/4+fK/4iYIP+Zpj7/8vTk//79/f/9/fz//v/9////
+        //////////////////////////////39+//8/Pz/0OTA/47CZ/9wtT7/Z7Iy/2mzMv92uUH/kMFk/7zY
+        ov/v9uX/+/z5/+br0/+iuGf/b5YR/2uSBP+CoDL/5OvR//Dx5P+lsWH/jp4z/83TpP/7/fn/+/37//39
+        /P/+/v3//////////////////////////////////vz+//79+//9/vv/9/r1/+fx3P/d69D/3+3T/+r0
+        4//4+vX//v78//b38P/H06P/gJ4x/22TB/9skwX/dZcc/8jSof/7/Pf/0ti7/73Gj//r7dX//Pv6//z9
+        /f/8/f7//f78//7+/v///////////////////////////////////P///v39//3+/P/9/f3//v3///3/
+        /v/9/////v79//n49f/O2K7/lbBR/3SZFP9tlAX/bJMF/3iaIv/K16f/+fn1//r8+v/2+PT//P35//v9
+        /f/9/P3//v38//79/P/+/f7//v7+//////////////////////////////////79/v/+/v3//v79//39
+        /v/8/f3//P78//z9/f/+/f3/7vHi/5evWv9rkQf/bJQE/2yTCf+HpT3/yNal//z8+f/8/P3//f36//3+
+        /f/8/v3//f3+//79/P/+/fz//f39//7+/f/+/v///////////////////////////////////v/+//7/
+        /v///v7//v7+//7+/v///v7//v3+//7+/f/8/fz/6+/c/6q8dv97myv/nrVj/+bs1f/7/Pz//fz9//39
+        /v///v7//v7+//7+///+/v7//v7+//7+/v/+/v7//v/+//7/////////////////////////////////
+        ///////////////////////////////////+/v7//v7+//7+/v/9/f7/+Pnz/+bq1v/3+O///fz8//v8
+        /P/9/v3//v7+////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////3//f/9//z////////9
+        ///+/f3//f78//7//v//////////////////////////////////////////////////////////////
+        ////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Halifax Fan Document</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmDocumentProgress</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

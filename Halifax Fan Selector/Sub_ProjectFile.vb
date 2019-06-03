@@ -1,5 +1,4 @@
-﻿Imports System.Xml
-Module Sub_ProjectFile
+﻿Module Sub_ProjectFile
     Sub SaveProjectFile()
         Try
             'set values for saving

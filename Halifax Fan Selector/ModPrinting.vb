@@ -1,6 +1,46 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
-Imports System.IO
+'Imports System.IO
 Module ModPrinting
+    Public Thread As Threading.Thread
+    'subroutines
+    'server
+    'thread to show progress - not activated
+
+    'CreateFile
+    'script to crate worksheets and output to pdf file
+
+    'getLanguageDictionary
+    'read language dictionary for outputs
+
+    'SetupPagePO
+    'set up excel worksheet ready to populate
+
+    'OutputHeaderPO
+    'populate header
+
+    'OutputFooterPO
+    'populate footer
+
+    'OutputFanDetailsPO
+    'populate fan details 
+
+    'PlaceData
+    'populate cells in worksheet, merge, font size, etc
+
+    'ExporttoPDFPO
+    'exports excel worksheets to pdf file
+
+    'ConvertData
+    'convert data for chart
+
+    'SetPlaces
+    'reset places for output values
+
+    'State_Link
+    'info on progress of worksheets - thread not activited
+
+    'SiteDetails
+    'set site details for language option
 
     Public xlsApp As Excel.Application = Nothing
     Public xlsWorkBooks As Excel.Workbooks = Nothing
@@ -18,14 +58,20 @@ Module ModPrinting
 
     Sub CreateFile(PagesToPrint As Integer)
         Try
-            'Kill_Excel()
+            ' ### Prepare the thread Server ###
+            Thread = New System.Threading.Thread(AddressOf Server)
+            Thread.Start()
+            'While Temporary.A = 0
 
             'set cursor
             If PagesToPrint = 3 Or PagesToPrint = 0 Then
                 FrmCurveOptions.ShowDialog()
             End If
+            frmDocumentProgress.Show()
+            'frmDocumentProgress.Refresh()
+            frmDocumentProgress.BringToFront()
             Frmselectfan.Cursor = Cursors.WaitCursor
-            Dim MasterFile As String = TemplatesPathDefault + "Output Template New.xlsx"
+            Dim MasterFile As String = TemplatesPathDefault + "Output Template v1.0.xlsx"
             Dim NewFileName As String
             NewFileName = OpenFileName.Replace(".hfs", ".xlsx")
             My.Computer.FileSystem.CopyFile(MasterFile, NewFileName, overwrite:=True)
@@ -34,8 +80,10 @@ Module ModPrinting
             SiteDetails()
             'open the excel file
             Frmselectfan.Cursor = Cursors.WaitCursor
+            xlsApp = New Microsoft.Office.Interop.Excel.Application
+            xlsApp.Visible = False
+            xlsWorkBooks = xlsApp.Workbooks
             xlsWB = xlsWorkBooks.Open(filename_printout)
-
             'make the sheets visible/hidden
             Dim isheet As Integer
             For isheet = 1 To xlsWB.Sheets.Count
@@ -92,25 +140,48 @@ Module ModPrinting
             xlsApp = Nothing
 
             Frmselectfan.Cursor = Cursors.Default
+            frmDocumentProgress.Close()
+
+
+            Thread.Join()
+            Thread.Abort()
         Catch ex As Exception
             ErrorMessage(ex, 6402)
         End Try
     End Sub
 
+    'Public Sub getLanguageDictionaryXLS()
+    '    Try
+    '        ' read language dictionary
+    '        Dim filename_lang_dict As String = TemplatesPathDefault + "Halifax Output Dictionary.xlsx"
+    '        xlsApp = New Microsoft.Office.Interop.Excel.Application
+    '        xlsApp.Visible = False
+    '        xlsWorkBooks = xlsApp.Workbooks
+    '        xlsWB = xlsWorkBooks.Open(filename_lang_dict)
+    '        Dim ii As Integer
+    '        For ii = 1 To 250
+    '            lang_dict(ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 1).Value
+    '            lang_dictEN(ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 2).Value
+    '        Next
+    '        xlsWB.Close(SaveChanges:=False)
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 640399)
+    '    End Try
+    'End Sub
     Public Sub getLanguageDictionary()
         Try
             ' read language dictionary
-            Dim filename_lang_dict As String = TemplatesPathDefault + "Halifax Output Dictionary.xlsx"
-            xlsApp = New Microsoft.Office.Interop.Excel.Application
-            xlsApp.Visible = False
-            xlsWorkBooks = xlsApp.Workbooks
-            xlsWB = xlsWorkBooks.Open(filename_lang_dict)
+            Dim filename_lang_dict As String = DataPathDefault + "Halifax Output Dictionary_" + ChosenLanguage + ".bin"
             Dim ii As Integer
+            fs = New System.IO.FileStream(filename_lang_dict, IO.FileMode.Open)
+            br = New System.IO.BinaryReader(fs)
+
+            br.BaseStream.Seek(0, IO.SeekOrigin.Begin)
             For ii = 1 To 250
-                lang_dict(ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 1).Value
-                lang_dictEN(ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 2).Value
+                lang_dict(ii) = br.ReadString()
+                lang_dictEN(ii) = br.ReadString()
             Next
-            xlsWB.Close(SaveChanges:=False)
+            br.Close()
         Catch ex As Exception
             ErrorMessage(ex, 6403)
         End Try
@@ -120,7 +191,7 @@ Module ModPrinting
         Try
             General_Information.State = 8
             General_Information.State_Message = "Set up Page"
-            Call State_link()
+            'Call State_link()
 
             xlsWB.ActiveSheet.Name = sheet
             With xlsWB.ActiveSheet
@@ -288,6 +359,7 @@ Module ModPrinting
             ErrorMessage(ex, 6408)
         End Try
     End Sub
+
     Private Sub ExporttoPDFPO(xlsWB, PagesToPrint)
         Try
             Dim ExportName As String
@@ -313,7 +385,6 @@ Module ModPrinting
         Try
             Dim filenameref As String = "FILENAME REF DATA"
             ReadReffromBinaryfile(filenameref)
-            'Do While fanclass(i) <> final.fantype
             For i = 0 To fantypesQTY - 1
                 If fanclass(i) = final.fantype And final.fansize <= fansizelimit(i) Then Exit For
             Next
@@ -356,17 +427,17 @@ Module ModPrinting
         End Try
     End Sub
 
-    Public Sub State_link()
-        Try
-            ' ### Write the state value in the state file ###
-            Dim Write_savefile As StreamWriter = New StreamWriter(DataPathDefault + "\State.txt")
-            Write_savefile.WriteLine(General_Information.State)
-            Write_savefile.WriteLine(General_Information.State_Message)
-            Write_savefile.Close()
-        Catch ex As Exception
-            ErrorMessage(ex, 6412) ', ex.Message, General_Information.State_Message)
-        End Try
-    End Sub
+    'Public Sub State_link()
+    '    Try
+    '        ' ### Write the state value in the state file ###
+    '        Dim Write_savefile As StreamWriter = New StreamWriter(DataPathDefault + "\State.txt")
+    '        Write_savefile.WriteLine(General_Information.State)
+    '        Write_savefile.WriteLine(General_Information.State_Message)
+    '        Write_savefile.Close()
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 6412) ', ex.Message, General_Information.State_Message)
+    '    End Try
+    'End Sub
 
     Public Sub SiteDetails()
         Try

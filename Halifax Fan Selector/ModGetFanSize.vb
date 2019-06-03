@@ -1,7 +1,6 @@
 ﻿Module ModGetFanSize
     Public Function GetFanSize(ByVal fanno As Integer)
         Dim retval As Double = 0.0
-
         Try
             count = 0
             Do While fsizes(fanno, count) <> 0

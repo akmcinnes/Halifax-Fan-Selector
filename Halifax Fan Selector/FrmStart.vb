@@ -3,6 +3,75 @@ Imports System.ComponentModel
 Imports System.Resources
 Imports System.Threading
 
+'Subroutines
+'Start_Load
+'Load user profile, language and level, set up folder paths, etc
+
+'btnContinue_Click
+'Continue to selection process
+
+'btnContinue_MouseHover
+'change cursor to hand
+
+'btnContinue_MouseLeave
+'change cursor to default
+
+'btnContinue_DoubleClick
+'btnExit_Click
+'end software
+
+'btnExit_MouseHover
+'change cursor to hand
+
+'btnExit_MouseLeave
+'change cursor to default
+
+'PictureBox1_Click
+'load Halifax website
+
+'PictureBox1_MouseHover
+'change cursor to hand
+
+'PictureBox1_MouseLeave
+'change cursor to default
+
+'txtUsername_MouseHover - hidden
+'change cursor to hand
+
+'txtUsername_MouseLeave - hidden
+'change cursor to default
+
+'BtnSettings_Click
+'open settings form
+
+'optEnglish_CheckedChanged - hidden
+'change language to english GB
+
+'optChinese_CheckedChanged - hidden
+'change language to chinese simplified
+
+'ApplyLocale
+'change controls to selected language
+
+'ApplyLocaleToControl
+'apply language change to controls
+
+'FrmStart_DoubleClick
+'software details
+
+'lblWelcome_DoubleClick
+'open settings form
+
+'lblToThe_DoubleClick
+'open settings form
+
+'lblHalifaxFanSelector_DoubleClick
+'open settings form
+
+'OpenSettings
+'open settings dialog
+
+
 Public Class FrmStart
     Private Sub Start_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
@@ -33,20 +102,17 @@ Public Class FrmStart
             chkAdvancedUser.Visible = False
             btnContinue.Visible = True
             StartArg = strArg(0)
-            'If AccessCode = "" Then
-            '    MsgBox("No license is present to run this software" + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited, quoting " + GetUserCode().ToString + " to obtain a license.")
-            '    End
 
-            'End If
             If CalculateUserCode() < 1 Then
                 FrmSettings.ShowDialog()
                 End
             End If
-            'Kill_Excel()
 #If DEBUG Then
             DataPathMain = "C:\Halifax\"
 #Else
-            DataPathMain = ".\"
+            Dim appPath As String = Application.StartupPath()
+            DataPathMain = appPath + "\"
+            'MsgBox("DataPathMain = " & DataPathMain)
 #End If
             DataPathDefault = DataPathMain + "Performance Data\"
             OutputPathDefault = DataPathMain + "Output Files\"
@@ -66,11 +132,12 @@ Public Class FrmStart
                     End If
                 Loop
             Else
-                MessageBox.Show("File Does Not Exist")
+                'MessageBox.Show("File Does Not Exist")
             End If
 
             'If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-dev") Then
             If StartArg.ToLower.Contains("-a") Or userarg.ToLower.Contains("-a") Then
+                'If StartArg.ToLower.Contains("-a") Then
                 DataPath = DataPathDefault
                 chkAdvancedUser.Checked = True
                 'chkAdvancedUser.Visible = True
@@ -192,10 +259,6 @@ Public Class FrmStart
             ErrorMessage(ex, 20512)
         End Try
     End Sub
-
-    'Private Sub btnContinue_DoubleClick(sender As Object, e As EventArgs) Handles btnContinue.DoubleClick
-    '    'FrmGeneralInfo.ShowDialog()
-    'End Sub
 
     Private Sub BtnSettings_Click(sender As Object, e As EventArgs) Handles btnSettings.Click
         Try

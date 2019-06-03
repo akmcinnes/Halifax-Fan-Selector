@@ -117,1114 +117,1286 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ListBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ListBox1.ItemHeight" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="ListBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 12</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ListBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="ListBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 329</value>
+  </data>
+  <data name="ListBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ListBox1.Name" xml:space="preserve">
+    <value>ListBox1</value>
+  </data>
+  <data name="&gt;&gt;ListBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ListBox1.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="btnClear.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="btnClear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 540</value>
+  </data>
+  <data name="btnClear.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btnClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 50</value>
+  </data>
+  <data name="btnClear.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnClear.Text" xml:space="preserve">
+    <value>CLEAR</value>
+  </data>
+  <data name="&gt;&gt;btnClear.Name" xml:space="preserve">
+    <value>btnClear</value>
+  </data>
+  <data name="&gt;&gt;btnClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnClear.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnClear.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Column1.HeaderText" xml:space="preserve">
+    <value>Gas Name</value>
+  </data>
   <data name="Column1.Width" type="System.Int32, mscorlib">
     <value>200</value>
   </data>
-  <data name="&gt;&gt;TextBox4.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Column2.HeaderText" xml:space="preserve">
+    <value>% Factor</value>
+  </data>
+  <data name="DataGridView3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 12</value>
+  </data>
+  <data name="DataGridView3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="DataGridView3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>437, 170</value>
+  </data>
+  <data name="DataGridView3.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;DataGridView3.Name" xml:space="preserve">
+    <value>DataGridView3</value>
+  </data>
+  <data name="&gt;&gt;DataGridView3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DataGridView3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;DataGridView3.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;RadioButton3.Name" xml:space="preserve">
+    <value>RadioButton3</value>
+  </data>
+  <data name="&gt;&gt;RadioButton3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButton3.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;RadioButton3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;RadioButton2.Name" xml:space="preserve">
+    <value>RadioButton2</value>
+  </data>
+  <data name="&gt;&gt;RadioButton2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButton2.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;RadioButton2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.Name" xml:space="preserve">
+    <value>RadioButton1</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>843, 12</value>
+  </data>
+  <data name="GroupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="GroupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>322, 118</value>
+  </data>
+  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>% Factor</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="RadioButton3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioButton3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 73</value>
+  </data>
+  <data name="RadioButton3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="RadioButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 29</value>
+  </data>
+  <data name="RadioButton3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="RadioButton3.Text" xml:space="preserve">
+    <value>By Mole</value>
+  </data>
+  <data name="&gt;&gt;RadioButton3.Name" xml:space="preserve">
+    <value>RadioButton3</value>
+  </data>
+  <data name="&gt;&gt;RadioButton3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButton3.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;RadioButton3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RadioButton2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 46</value>
+  </data>
   <data name="RadioButton2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;lblTotal.Type" xml:space="preserve">
+  <data name="RadioButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 29</value>
+  </data>
+  <data name="RadioButton2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="RadioButton2.Text" xml:space="preserve">
+    <value>By Volume</value>
+  </data>
+  <data name="&gt;&gt;RadioButton2.Name" xml:space="preserve">
+    <value>RadioButton2</value>
+  </data>
+  <data name="&gt;&gt;RadioButton2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButton2.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;RadioButton2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="RadioButton1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 21</value>
+  </data>
+  <data name="RadioButton1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="RadioButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 29</value>
+  </data>
+  <data name="RadioButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="RadioButton1.Text" xml:space="preserve">
+    <value>By Mass</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.Name" xml:space="preserve">
+    <value>RadioButton1</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;RadioButton1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>360, 313</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 25</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Enter % factors as a % of 100.0</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblMsgTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 436</value>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
-  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnReturnToSelection.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
+  <data name="btnReturnToSelection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>949, 540</value>
   </data>
-  <data name="lblMsg1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 395</value>
-  </data>
-  <data name="&gt;&gt;RadioButton3.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
-  </data>
-  <data name="&gt;&gt;TextBox6.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="TextBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 82</value>
-  </data>
-  <data name="TextBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="btnReturnToSelection.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblPressureUnitsIn.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 23</value>
-  </data>
-  <data name="btnCalculate.Text" xml:space="preserve">
-    <value>Calculate</value>
-  </data>
-  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lblMsgTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
-  </data>
-  <data name="ListBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Label6.Text" xml:space="preserve">
-    <value>Altitude</value>
-  </data>
-  <data name="lblMsgOK.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="GroupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="&gt;&gt;GroupBox3.Name" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="&gt;&gt;TextBox3.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="RadioButton3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 73</value>
-  </data>
-  <data name="TextBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 30</value>
-  </data>
-  <data name="GroupBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="lblPressureUnitsIn.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="GroupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="lblMsgOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>245, 474</value>
-  </data>
-  <data name="TextBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="TextBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 78</value>
   </data>
   <data name="btnReturnToSelection.Size" type="System.Drawing.Size, System.Drawing">
     <value>251, 50</value>
   </data>
-  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 55</value>
+  <data name="btnReturnToSelection.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
-  <data name="&gt;&gt;lblPerCentFactor.Name" xml:space="preserve">
-    <value>lblPerCentFactor</value>
+  <data name="btnReturnToSelection.Text" xml:space="preserve">
+    <value>Return to Selection</value>
   </data>
-  <data name="RadioButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;btnReturnToSelection.Name" xml:space="preserve">
+    <value>btnReturnToSelection</value>
   </data>
-  <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;btnReturnToSelection.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
+  <data name="&gt;&gt;btnReturnToSelection.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="lblAltitudeUnits.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 25</value>
+  <data name="&gt;&gt;btnReturnToSelection.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
+  <data name="btnCalculate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
-  <data name="lblGasName.TabIndex" type="System.Int32, mscorlib">
-    <value>34</value>
+  <data name="btnCalculate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>485, 540</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="btnCalculate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;TextBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnCalculate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 50</value>
   </data>
-  <data name="Column1.HeaderText" xml:space="preserve">
-    <value>Gas Name</value>
+  <data name="btnCalculate.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnCalculate.Text" xml:space="preserve">
+    <value>Calculate</value>
   </data>
-  <data name="&gt;&gt;lblMsgOK.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;btnCalculate.Name" xml:space="preserve">
+    <value>btnCalculate</value>
+  </data>
+  <data name="&gt;&gt;btnCalculate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCalculate.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnCalculate.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="TextBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 22</value>
   </data>
+  <data name="TextBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="TextBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 30</value>
+  </data>
+  <data name="TextBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;TextBox1.Name" xml:space="preserve">
+    <value>TextBox1</value>
+  </data>
+  <data name="&gt;&gt;TextBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox1.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;TextBox1.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lblTemperatureUnitsIn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTemperatureUnitsIn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 27</value>
+  </data>
+  <data name="lblTemperatureUnitsIn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 25</value>
+  </data>
+  <data name="lblTemperatureUnitsIn.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="lblTemperatureUnitsIn.Text" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="&gt;&gt;lblTemperatureUnitsIn.Name" xml:space="preserve">
+    <value>lblTemperatureUnitsIn</value>
+  </data>
+  <data name="&gt;&gt;lblTemperatureUnitsIn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTemperatureUnitsIn.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;lblTemperatureUnitsIn.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblPressureUnitsIn.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPressureUnitsIn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 53</value>
+  </data>
   <data name="lblPressureUnitsIn.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 25</value>
   </data>
-  <data name="lblMsgTitle.Text" xml:space="preserve">
-    <value>Halifax Fan Selector</value>
+  <data name="lblPressureUnitsIn.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
   </data>
-  <data name="&gt;&gt;Label8.Type" xml:space="preserve">
+  <data name="lblPressureUnitsIn.Text" xml:space="preserve">
+    <value>kPa</value>
+  </data>
+  <data name="&gt;&gt;lblPressureUnitsIn.Name" xml:space="preserve">
+    <value>lblPressureUnitsIn</value>
+  </data>
+  <data name="&gt;&gt;lblPressureUnitsIn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblAltitudeUnits.Text" xml:space="preserve">
-    <value>ft</value>
-  </data>
-  <data name="&gt;&gt;TextBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblPressureUnitsIn.Parent" xml:space="preserve">
     <value>GroupBox2</value>
   </data>
-  <data name="&gt;&gt;RadioButton2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;lblPressureUnitsIn.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
-  <data name="TextBox4.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="TextBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 50</value>
   </data>
-  <data name="&gt;&gt;lblDensityUnitsOut.Name" xml:space="preserve">
-    <value>lblDensityUnitsOut</value>
+  <data name="TextBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="TextBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 30</value>
+  </data>
+  <data name="TextBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="&gt;&gt;TextBox2.Name" xml:space="preserve">
+    <value>TextBox2</value>
   </data>
   <data name="&gt;&gt;TextBox2.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblMsgOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 17</value>
+  <data name="&gt;&gt;TextBox2.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
   </data>
-  <data name="&gt;&gt;lblMsg1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;TextBox2.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 78</value>
   </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
-  </data>
-  <data name="TextBox7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="ListBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="&gt;&gt;btnReturnToSelection.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblTemperatureUnitsOut.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lblMsgTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblGasName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 394</value>
-  </data>
-  <data name="btnClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 50</value>
-  </data>
-  <data name="lblAltitudeUnits.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblTemperatureUnitsIn.Text" xml:space="preserve">
-    <value>°C</value>
-  </data>
-  <data name="lblMsg1.TabIndex" type="System.Int32, mscorlib">
-    <value>37</value>
-  </data>
-  <data name="RadioButton3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnReturnToSelection.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;lblPerCentFactor.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblDensityUnitsOut.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="RadioButton1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDensityUnitsOut.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
-  </data>
-  <data name="&gt;&gt;btnClear.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="RadioButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 29</value>
-  </data>
-  <data name="btnClear.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="TextBox3.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="lblTemperatureUnitsIn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 27</value>
-  </data>
-  <data name="&gt;&gt;ListBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TextBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 30</value>
-  </data>
-  <data name="&gt;&gt;lblTemperatureUnitsOut.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="RadioButton3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="lblPressureUnitsIn.Text" xml:space="preserve">
-    <value>kPa</value>
-  </data>
-  <data name="&gt;&gt;ListBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btnReturnToSelection.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="RadioButton1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;lblTotal.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;TextBox7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnCalculate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 50</value>
-  </data>
-  <data name="lblTemperatureUnitsOut.Text" xml:space="preserve">
-    <value>Temperature (°F)</value>
-  </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="ListBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 12</value>
-  </data>
-  <data name="btnCalculate.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;DataGridView3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="TextBox5.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 25</value>
   </data>
   <data name="Label4.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
   </data>
-  <data name="TextBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 55</value>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>Air Humidity</value>
   </data>
-  <data name="&gt;&gt;lblPressureUnitsIn.Type" xml:space="preserve">
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="GroupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTemperatureUnitsIn.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="TextBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="lblGasName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblPressureUnitsIn.Name" xml:space="preserve">
-    <value>lblPressureUnitsIn</value>
-  </data>
-  <data name="&gt;&gt;TextBox3.Name" xml:space="preserve">
-    <value>TextBox3</value>
-  </data>
-  <data name="Label8.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnClear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
     <value>GroupBox2</value>
   </data>
-  <data name="lblMsgOK.Text" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="&gt;&gt;lblPressureUnitsIn.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
-    <value>Label6</value>
-  </data>
-  <data name="lblMsg1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>%</value>
-  </data>
-  <data name="lblPerCentFactor.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 453</value>
-  </data>
-  <data name="ListBox1.ItemHeight" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="RadioButton2.Text" xml:space="preserve">
-    <value>By Volume</value>
-  </data>
-  <data name="lblMsgTitle.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Name" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;RadioButton3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>48, 53</value>
-  </data>
-  <data name="RadioButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 21</value>
-  </data>
-  <data name="&gt;&gt;TextBox5.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="&gt;&gt;lblMsgOK.Name" xml:space="preserve">
-    <value>lblMsgOK</value>
-  </data>
-  <data name="TextBox6.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="GroupBox3.Text" xml:space="preserve">
-    <value>Outputs</value>
-  </data>
-  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 109</value>
-  </data>
-  <data name="lblTotal.Text" xml:space="preserve">
-    <value>TOTAL</value>
-  </data>
-  <data name="lblTotal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 17</value>
-  </data>
-  <data name="lblTotal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 490</value>
-  </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>Pressure</value>
-  </data>
-  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
-    <value>Label8</value>
-  </data>
-  <data name="&gt;&gt;lblMsgTitle.Name" xml:space="preserve">
-    <value>lblMsgTitle</value>
-  </data>
-  <data name="TextBox7.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;btnClear.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblPressureUnitsIn.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="ListBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;TextBox6.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="RadioButton3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 29</value>
-  </data>
-  <data name="GroupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 70</value>
-  </data>
-  <data name="GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>843, 313</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;btnClear.Name" xml:space="preserve">
-    <value>btnClear</value>
-  </data>
-  <data name="btnCalculate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="&gt;&gt;lblMsg1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DataGridView3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;RadioButton3.Name" xml:space="preserve">
-    <value>RadioButton3</value>
-  </data>
-  <data name="&gt;&gt;lblMsgTitle.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblMsgTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DataGridView3.Name" xml:space="preserve">
-    <value>DataGridView3</value>
-  </data>
-  <data name="&gt;&gt;GroupBox2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Column2.HeaderText" xml:space="preserve">
-    <value>% Factor</value>
-  </data>
-  <data name="TextBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;TextBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblMsgOK.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="GroupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="TextBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 30</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblMsgTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 17</value>
-  </data>
-  <data name="&gt;&gt;GroupBox3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="btnCalculate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>485, 540</value>
+  <data name="TextBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>154, 78</value>
   </data>
-  <data name="btnClear.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;RadioButton3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 25</value>
-  </data>
-  <data name="&gt;&gt;TextBox5.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>843, 12</value>
-  </data>
-  <data name="&gt;&gt;lblTotal.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblAltitudeUnits.Name" xml:space="preserve">
-    <value>lblAltitudeUnits</value>
-  </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 25</value>
-  </data>
-  <data name="lblAltitudeUnits.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="TextBox7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 30</value>
-  </data>
-  <data name="&gt;&gt;lblTemperatureUnitsIn.Name" xml:space="preserve">
-    <value>lblTemperatureUnitsIn</value>
-  </data>
-  <data name="&gt;&gt;TextBox2.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lblPerCentFactor.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblGasName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ListBox1.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;lblTemperatureUnitsIn.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="&gt;&gt;TextBox7.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="lblMsg1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnReturnToSelection.Text" xml:space="preserve">
-    <value>Return to Selection</value>
-  </data>
-  <data name="lblPerCentFactor.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnClear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 540</value>
-  </data>
-  <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>843, 135</value>
-  </data>
-  <data name="TextBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="TextBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;RadioButton1.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
-  </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 25</value>
-  </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>% Factor</value>
-  </data>
-  <data name="&gt;&gt;TextBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label7.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.Name" xml:space="preserve">
-    <value>btnCalculate</value>
-  </data>
-  <data name="&gt;&gt;TextBox7.Name" xml:space="preserve">
-    <value>TextBox7</value>
-  </data>
-  <data name="TextBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="RadioButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 29</value>
-  </data>
-  <data name="&gt;&gt;btnReturnToSelection.Name" xml:space="preserve">
-    <value>btnReturnToSelection</value>
   </data>
   <data name="TextBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 30</value>
   </data>
-  <data name="&gt;&gt;lblDensityUnitsOut.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="TextBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
-  <data name="lblGasName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 17</value>
+  <data name="&gt;&gt;TextBox3.Name" xml:space="preserve">
+    <value>TextBox3</value>
   </data>
-  <data name="lblTemperatureUnitsIn.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="&gt;&gt;TextBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox3.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;TextBox3.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblAltitudeUnits.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAltitudeUnits.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 111</value>
+  </data>
+  <data name="lblAltitudeUnits.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 25</value>
+  </data>
+  <data name="lblAltitudeUnits.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="lblAltitudeUnits.Text" xml:space="preserve">
+    <value>ft</value>
+  </data>
+  <data name="&gt;&gt;lblAltitudeUnits.Name" xml:space="preserve">
+    <value>lblAltitudeUnits</value>
   </data>
   <data name="&gt;&gt;lblAltitudeUnits.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="GroupBox2.Text" xml:space="preserve">
-    <value>Inputs</value>
+  <data name="&gt;&gt;lblAltitudeUnits.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
   </data>
-  <data name="&gt;&gt;btnReturnToSelection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTemperatureUnitsOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 82</value>
-  </data>
-  <data name="&gt;&gt;TextBox2.Name" xml:space="preserve">
-    <value>TextBox2</value>
-  </data>
-  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>322, 118</value>
-  </data>
-  <data name="&gt;&gt;lblTemperatureUnitsOut.Name" xml:space="preserve">
-    <value>lblTemperatureUnitsOut</value>
-  </data>
-  <data name="&gt;&gt;lblMsgOK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox5.Name" xml:space="preserve">
-    <value>TextBox5</value>
-  </data>
-  <data name="&gt;&gt;DataGridView3.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;RadioButton1.Name" xml:space="preserve">
-    <value>RadioButton1</value>
-  </data>
-  <data name="&gt;&gt;RadioButton2.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
-  </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>Air Humidity</value>
-  </data>
-  <data name="&gt;&gt;btnReturnToSelection.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lblPerCentFactor.Text" xml:space="preserve">
-    <value>% Factor</value>
-  </data>
-  <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>329, 154</value>
-  </data>
-  <data name="lblMsgOK.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmDensityCalcs</value>
-  </data>
-  <data name="lblPerCentFactor.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
+  <data name="&gt;&gt;lblAltitudeUnits.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="TextBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>154, 106</value>
   </data>
-  <data name="Label7.Text" xml:space="preserve">
-    <value>Density (lb/ft³)</value>
-  </data>
-  <data name="&gt;&gt;GroupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="TextBox7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>151, 27</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>315, 25</value>
-  </data>
-  <data name="lblGasName.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lblTemperatureUnitsOut.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblMsg1.Name" xml:space="preserve">
-    <value>lblMsg1</value>
-  </data>
-  <data name="&gt;&gt;Label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblPerCentFactor.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 17</value>
-  </data>
-  <data name="lblTemperatureUnitsIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 25</value>
-  </data>
-  <data name="lblTemperatureUnitsOut.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;lblGasName.Name" xml:space="preserve">
-    <value>lblGasName</value>
-  </data>
-  <data name="lblTemperatureUnitsOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 25</value>
-  </data>
-  <data name="&gt;&gt;lblGasName.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lblMsgOK.TabIndex" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDensityUnitsOut.Text" xml:space="preserve">
-    <value>kg/m³</value>
-  </data>
-  <data name="GroupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="TextBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="TextBox4.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 30</value>
   </data>
-  <data name="TextBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 50</value>
-  </data>
-  <data name="DataGridView3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 12</value>
-  </data>
-  <data name="&gt;&gt;lblTemperatureUnitsIn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblTemperatureUnitsIn.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;ListBox1.Name" xml:space="preserve">
-    <value>ListBox1</value>
-  </data>
-  <data name="lblMsgTitle.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="TextBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="&gt;&gt;TextBox4.Name" xml:space="preserve">
     <value>TextBox4</value>
   </data>
-  <data name="&gt;&gt;TextBox1.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="GroupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;lblAltitudeUnits.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 25</value>
-  </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 81</value>
-  </data>
-  <data name="lblTotal.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="GroupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="lblMsg1.Text" xml:space="preserve">
-    <value>total must be less than 100.0</value>
-  </data>
-  <data name="DataGridView3.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label7.Name" xml:space="preserve">
-    <value>Label7</value>
-  </data>
-  <data name="TextBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
-    <value>Column1</value>
-  </data>
-  <data name="btnClear.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;lblPerCentFactor.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblMsg1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;RadioButton2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RadioButton3.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 25</value>
-  </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
-  </data>
-  <data name="DataGridView3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="lblPressureUnitsIn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 53</value>
-  </data>
-  <data name="lblAltitudeUnits.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 111</value>
-  </data>
-  <data name="TextBox6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 25</value>
-  </data>
-  <data name="btnReturnToSelection.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="GroupBox3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>360, 313</value>
-  </data>
-  <data name="&gt;&gt;lblDensityUnitsOut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;GroupBox3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="btnCalculate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="Label2.Text" xml:space="preserve">
-    <value>Temperature</value>
-  </data>
-  <data name="&gt;&gt;TextBox7.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;Column2.Name" xml:space="preserve">
-    <value>Column2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="Label8.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Enter % factors as a % of 100.0</value>
-  </data>
-  <data name="RadioButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 46</value>
-  </data>
-  <data name="&gt;&gt;RadioButton2.Name" xml:space="preserve">
-    <value>RadioButton2</value>
+  <data name="&gt;&gt;TextBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TextBox4.Parent" xml:space="preserve">
     <value>GroupBox2</value>
   </data>
-  <data name="&gt;&gt;lblGasName.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;TextBox4.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;Label7.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
+  <data name="lblTemperatureUnitsOut.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="Label8.Text" xml:space="preserve">
-    <value>Density</value>
+  <data name="lblTemperatureUnitsOut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 82</value>
   </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+  <data name="lblTemperatureUnitsOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 25</value>
   </data>
-  <data name="&gt;&gt;lblPerCentFactor.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="lblTemperatureUnitsOut.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
   </data>
-  <data name="btnReturnToSelection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>949, 540</value>
+  <data name="lblTemperatureUnitsOut.Text" xml:space="preserve">
+    <value>Temperature (°F)</value>
   </data>
-  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 25</value>
+  <data name="lblTemperatureUnitsOut.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1255, 668</value>
-  </data>
-  <data name="GroupBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;btnCalculate.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="ListBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>273, 329</value>
-  </data>
-  <data name="&gt;&gt;RadioButton1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblDensityUnitsOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 30</value>
-  </data>
-  <data name="&gt;&gt;TextBox1.ZOrder" xml:space="preserve">
-    <value>11</value>
-  </data>
-  <data name="&gt;&gt;lblAltitudeUnits.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Density Calculations</value>
-  </data>
-  <data name="&gt;&gt;Label8.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
-  </data>
-  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
-    <value>GroupBox1</value>
-  </data>
-  <data name="&gt;&gt;TextBox6.Name" xml:space="preserve">
-    <value>TextBox6</value>
-  </data>
-  <data name="lblMsgOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 25</value>
-  </data>
-  <data name="lblMsg1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 17</value>
-  </data>
-  <data name="&gt;&gt;TextBox5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblTemperatureUnitsOut.Name" xml:space="preserve">
+    <value>lblTemperatureUnitsOut</value>
   </data>
   <data name="&gt;&gt;lblTemperatureUnitsOut.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TextBox3.Parent" xml:space="preserve">
-    <value>GroupBox2</value>
+  <data name="&gt;&gt;lblTemperatureUnitsOut.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
   </data>
-  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RadioButton2.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;lblTemperatureUnitsOut.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblDensityUnitsOut.Parent" xml:space="preserve">
-    <value>GroupBox3</value>
+  <data name="TextBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>197, 82</value>
   </data>
   <data name="TextBox5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
+  <data name="TextBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 30</value>
   </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+  <data name="TextBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="TextBox5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TextBox5.Name" xml:space="preserve">
+    <value>TextBox5</value>
+  </data>
+  <data name="&gt;&gt;TextBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox5.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;TextBox5.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 55</value>
+  </data>
+  <data name="Label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 25</value>
+  </data>
+  <data name="Label7.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="Label7.Text" xml:space="preserve">
+    <value>Density (lb/ft³)</value>
+  </data>
+  <data name="Label7.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Label7.Name" xml:space="preserve">
+    <value>Label7</value>
+  </data>
+  <data name="&gt;&gt;Label7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnClear.Text" xml:space="preserve">
-    <value>CLEAR</value>
+  <data name="&gt;&gt;Label7.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
   </data>
-  <data name="lblDensityUnitsOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 25</value>
+  <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="TextBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="TextBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>197, 55</value>
+  </data>
+  <data name="TextBox6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="lblGasName.Text" xml:space="preserve">
-    <value>Gas Name</value>
+  <data name="TextBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 30</value>
+  </data>
+  <data name="TextBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="TextBox6.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TextBox6.Name" xml:space="preserve">
+    <value>TextBox6</value>
   </data>
   <data name="&gt;&gt;TextBox6.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblTemperatureUnitsOut.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TextBox6.Parent" xml:space="preserve">
     <value>GroupBox3</value>
   </data>
-  <data name="&gt;&gt;lblMsgTitle.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;TextBox6.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TextBox1.Name" xml:space="preserve">
-    <value>TextBox1</value>
-  </data>
-  <data name="lblTotal.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lblTotal.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblDensityUnitsOut.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="lblDensityUnitsOut.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 30</value>
   </data>
-  <data name="&gt;&gt;lblTotal.Name" xml:space="preserve">
-    <value>lblTotal</value>
+  <data name="lblDensityUnitsOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 25</value>
   </data>
-  <data name="RadioButton2.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblDensityUnitsOut.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="lblDensityUnitsOut.Text" xml:space="preserve">
+    <value>kg/m³</value>
+  </data>
+  <data name="&gt;&gt;lblDensityUnitsOut.Name" xml:space="preserve">
+    <value>lblDensityUnitsOut</value>
+  </data>
+  <data name="&gt;&gt;lblDensityUnitsOut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblDensityUnitsOut.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblDensityUnitsOut.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="TextBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>151, 27</value>
+  </data>
+  <data name="TextBox7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="TextBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 30</value>
+  </data>
+  <data name="TextBox7.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;TextBox7.Name" xml:space="preserve">
+    <value>TextBox7</value>
+  </data>
+  <data name="&gt;&gt;TextBox7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TextBox7.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;TextBox7.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
+    <value>Label6</value>
+  </data>
+  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="GroupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>843, 135</value>
+  </data>
+  <data name="GroupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="GroupBox2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>329, 154</value>
+  </data>
+  <data name="GroupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="GroupBox2.Text" xml:space="preserve">
+    <value>Inputs</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Name" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupBox2.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 109</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 25</value>
+  </data>
+  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="Label6.Text" xml:space="preserve">
+    <value>Altitude</value>
+  </data>
+  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
+    <value>Label6</value>
+  </data>
+  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 81</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>30, 25</value>
+  </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>%</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 53</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 25</value>
+  </data>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>Pressure</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 25</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 25</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>GroupBox2</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
+    <value>Label8</value>
+  </data>
+  <data name="&gt;&gt;Label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label8.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="GroupBox3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
+  <data name="GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>843, 313</value>
+  </data>
+  <data name="GroupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="GroupBox3.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="GroupBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>329, 70</value>
+  </data>
+  <data name="GroupBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>Outputs</value>
+  </data>
+  <data name="&gt;&gt;GroupBox3.Name" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;GroupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupBox3.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="Label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 23</value>
+  </data>
+  <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 25</value>
+  </data>
+  <data name="Label8.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="Label8.Text" xml:space="preserve">
+    <value>Density</value>
+  </data>
+  <data name="&gt;&gt;Label8.Name" xml:space="preserve">
+    <value>Label8</value>
+  </data>
+  <data name="&gt;&gt;Label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label8.Parent" xml:space="preserve">
+    <value>GroupBox3</value>
+  </data>
+  <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblGasName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblGasName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 394</value>
+  </data>
+  <data name="lblGasName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 17</value>
+  </data>
+  <data name="lblGasName.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
+  </data>
+  <data name="lblGasName.Text" xml:space="preserve">
+    <value>Gas Name</value>
+  </data>
+  <data name="lblGasName.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblGasName.Name" xml:space="preserve">
+    <value>lblGasName</value>
+  </data>
+  <data name="&gt;&gt;lblGasName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblGasName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblGasName.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblPerCentFactor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPerCentFactor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 453</value>
+  </data>
+  <data name="lblPerCentFactor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="lblPerCentFactor.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
+  <data name="lblPerCentFactor.Text" xml:space="preserve">
+    <value>% Factor</value>
+  </data>
+  <data name="lblPerCentFactor.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblPerCentFactor.Name" xml:space="preserve">
+    <value>lblPerCentFactor</value>
+  </data>
+  <data name="&gt;&gt;lblPerCentFactor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblPerCentFactor.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblPerCentFactor.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblTotal.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblTotal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="lblTotal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 490</value>
+  </data>
+  <data name="lblTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 17</value>
+  </data>
+  <data name="lblTotal.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="lblTotal.Text" xml:space="preserve">
+    <value>TOTAL</value>
+  </data>
+  <data name="lblTotal.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblTotal.Name" xml:space="preserve">
+    <value>lblTotal</value>
+  </data>
+  <data name="&gt;&gt;lblTotal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTotal.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblTotal.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblMsg1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblMsg1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblMsg1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 395</value>
+  </data>
+  <data name="lblMsg1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 17</value>
+  </data>
+  <data name="lblMsg1.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
+  </data>
+  <data name="lblMsg1.Text" xml:space="preserve">
+    <value>total must be less than 100.0</value>
+  </data>
+  <data name="lblMsg1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblMsg1.Name" xml:space="preserve">
+    <value>lblMsg1</value>
+  </data>
+  <data name="&gt;&gt;lblMsg1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblMsg1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
   <data name="&gt;&gt;lblMsg1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="DataGridView3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>437, 170</value>
-  </data>
-  <data name="RadioButton1.Text" xml:space="preserve">
-    <value>By Mass</value>
-  </data>
-  <data name="TextBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 30</value>
-  </data>
-  <data name="RadioButton3.Text" xml:space="preserve">
-    <value>By Mole</value>
-  </data>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="lblMsgTitle.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
+  <data name="lblMsgTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblMsgTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 436</value>
+  </data>
+  <data name="lblMsgTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 17</value>
+  </data>
+  <data name="lblMsgTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="lblMsgTitle.Text" xml:space="preserve">
+    <value>Halifax Fan Selector</value>
+  </data>
+  <data name="lblMsgTitle.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblMsgTitle.Name" xml:space="preserve">
+    <value>lblMsgTitle</value>
+  </data>
+  <data name="&gt;&gt;lblMsgTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblMsgTitle.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblMsgTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblMsgOK.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblMsgOK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblMsgOK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>245, 474</value>
+  </data>
+  <data name="lblMsgOK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 17</value>
+  </data>
+  <data name="lblMsgOK.TabIndex" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="lblMsgOK.Text" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="lblMsgOK.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblMsgOK.Name" xml:space="preserve">
+    <value>lblMsgOK</value>
+  </data>
+  <data name="&gt;&gt;lblMsgOK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblMsgOK.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblMsgOK.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1255, 668</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAA
+        AAD////////////////////////////////////////////////+/v7//v78//3+/f/9/f7//v3+//z9
+        /v/8/v7//f39//v+/f/9/v3//v79//7+/v//////////////////////////////////////////////
+        //////////////////////////////////////////////////////////7///3+/v/9/vv//Pz9//v9
+        /f/8/P3//fz+//f5+//4+fz/+/z7//r+/P/8/vz//v7+//////////////////7+/v/+/v7///3+//7+
+        /v/////////+/////v///////////////////////////////////////////////////v///v3+//z9
+        /P/7/Pz//P39//b4+//Y2e7/vbjP/9nSz//8+/f//Pz8//z9/f/+/v7//////////////////v7+//79
+        /v/+/f7//v7+//7+/v////7////+//////////////////////////////////7////+/////v7+//39
+        /f/9/f3//f36//f49v/b2/D/s7DQ/6eRk/+tgk//wKR+//f48//8/fv//f39//7+/v/+/v7//v79//7+
+        /v/+//////////7//v/9/f3//f39//7+/v////////////////////////////7//v/+/v7//f7+//3+
+        /v/9/f3/+/z7//b28P/l4Nj/ubXP/5GJs/+rjHn/onld/4lwmv98c8P/5+b2//z9/f/9/vz//f79//v9
+        /f/9/fz/+/r1/+3i0P/ex6P/2MGd//b07v/8/f3//f39//7+/////////////////////////v/+//v+
+        /v/8/f3/+/37//39/f/19O3/zMK0/56Wvv+jmLX/oJKl/2xgt/9MRsz/U0rL/3dnr//i3eX//f39//r+
+        /P/7/fz/+f7+//Do3P/LpnH/t3kk/7RtCf+xdiL/7OPS//r+/v/8/vz//v7+////////////////////
+        ///+//7//P7+//z9/f/7/fv/4+Ty/9TQ4P+kn8b/kpLX/3d1zv9dWMn/alam/4xndv+sek7/sYA9/+HU
+        vf/9/f7//P39//3+/f/z7+X/xplY/7JrB/+4bQX/uG4F/6xvFP/i07v//P79//39/P/+/v7/////////
+        //////////////7+///8/v7//f39//T1+/+Njt3/gH/c/2pr1P9XWNT/cGfH/6OOpv+mi3//qI6I/6qY
+        oP+4qKz/4d7b//z8+//8/fz/+vj0/9Ozhf+zbwv/tm0H/7VsBf+2cA//snon/9/Osf/7/v7/+/39//7+
+        /v///////////////////////v7+//z+/v/8/f3/s7Ts/zU12f8pKd3/SkzZ/5CR3/+PiMb/pZzG/8TD
+        4f/W2fD/4+T2/+vq+f/39/v//Pz8//z+/f/k173/sXQe/7ZtA/+zbg//w5VV/+LNrP/v5NT/9fXv//r8
+        /f/8/f3//v7+///////////////////////+/v7//v79//f5/P9wb93/Ih/e/zk72/+CfMf/opCg/76x
+        sv/l4d3/+vr3//3+/f/+/v3//v79//39/f/8/f3//Pz7/9Cue/+xagX/vIAx/9i9kv/q3sP/4c2h/9q6
+        ff/eyp7/9vbs//39/f/+/f7///////////////////////79/f/9/f3/7e75/11e2v84ONX/oZKx/7eX
+        bP/Sv5v/5trC//Xz7v/7/P3//vz7//7+/v/+/v7//v7+//z9/f/49e7/vo9L/7eDNf/j0rT/5tev/8GX
+        PP+7gAr/vn4A/7qDEf/eyJf/+/v5//3+/v///////////////////////f3+//3+/f/Jy/D/Mi/d/z07
+        2/+2oaP/4M+z/+3s8//KtJf/8Ofa//z+/P/+/f7//v7+//7+/v/9/f3//f3+//Dp3v/HpXj/7N/H/9O1
+        eP+8gBT/vH4A/72BAP/BgQH/vYIG/9rBi//8/Pn//v7+///////////////////////+/v7//v7+/9DP
+        8/8/PNr/NjTa/6yt5v/z8/b/r63k/6eiyv/08e3//fz8//39/v/+/v7//v7+//7+/v/8/f3/9fTw/+3l
+        1//Vwpf/xqBQ/9OvZf/StGr/yKFL/7uCDv++iRz/7uTL//3+///+/f7////////////////////////+
+        /v/+/vz/6On3/19g1P91ddv/vL7r/7a36v+Xld3/ko/Z/8nI6f/7/Pv//f39//7+/v/+/v7//v7+//z9
+        /f/5/f3/9PPs/+Tbwv/v6tP/6+fV//Dv4v/29Ob/17+J/8amYf/49ev//f3+//7+/v//////////////
+        //////////7+//78/v/09vz/g4PZ/7i03//r6u//dnbd/0JE0f+2rsL/1tDV//v7/P/9/f3//f3+//79
+        /v/+/f7//v79//39/f/9/v3/6OfX/6udTf+djCL/opI2/9LNoP/7+fP/8Ovf//z8+//9/fz//v79////
+        /////////////////////v7//v3+//v9/f/a2/L/w7e7/9bEr/+SkuH/Ly7W/3Jmuf+/pIL/8evg//3+
+        /v///////v////7///////7////+//v9/f/z9O3/wLRy/5WBBf+afwD/ppMy/+/t3P/7/v3//P37//39
+        /f/+/v7///////////////7////+///+/f/9/v3//P39//z+/P/q4NH/tZRp/5yVwv98fN3/SkjU/3py
+        u//Lw8T/2Mmw/+TSu//q28r/5NvW/9vX5v/a2ez/8PL2//z9+//w7t3/qp1E/5mCAP+ehhH/4d3A//3+
+        /v/8/fz//f39/////f/////////////+/v/+/v7//v79//39/f/9/f7//f37//r59f/f0bb/oJeu/3Z1
+        z/+tq+L/b2rJ/4aCy//Txb//qpCS/4Nuo/9vY7b/l5TW/9ja7v/3+Pr/7/Dm/+js2P/Vzp3/moIH/52G
+        C//d2rX//v7+//v+/v/9/v3//v/9/////////////v3+//39/v/9/P3//Pv5//j8+f/7/f3/+/z7//v8
+        +f/v7vD/wb/p/8C/3P/JuKf/r5R6/9HDtP/Hxen/nZ/j/8fJ7f/w8fr//v39//39/f/e4sP/v8mS/+bk
+        w/+eiBf/n4si/+XkzP/+/v7//v7+//3+/v/+//7////////////+/f7//fz9//39/P/X58b/rdCQ/+Hu
+        1f/5+vb/+/3+//39/v/+/vz/9vr4//f38v/y6NH/8+3g//z9+P/6/PX//v38//j89v/o7d7/+fv3/83T
+        of+qtWX/7OvS/6CUPv/JwIv/+/v2//39/P/+/f3//f39//7+/v///////v7///3+/v/+/v3/+/z2/53J
+        e/9Zqh3/cLE7/6DLfP/S58H/5/Lc//D37P/z9+//8vft/+305f/b7M//vdan/9flzP/9/Pv/197B/7fB
+        l//4+Ov/s71s/6eyWP/u79z/0c6t//f48P/7/fz//v39//z++//+/f7//v7+///////9/vz//f39//7+
+        /f/m8dr/crVB/1iuGv9Yrhz/Wq0c/2SwKv9ytjz/frlP/4G8VP9+vFD/c7c//3u1TP/E3a//9Pnx/9nh
+        u/+Tq1X/2uPB/+vu2P+Pmy7/rrdo//r78//6+ff//Pz8//39/f/+/v7//v7+//7+/v///v////////z+
+        +//9/P3//f38/77co/9eriP/Wa8d/1qvHf9asBz/Wq8c/1muHP9ZrRv/V60Z/1isGv95uEn/xN+x//r9
+        +P/d5MX/hKA2/5StU//4+e7/0tep/3+RDv/AyYr//v78//39/f/9/f3//v7+//7+/v/+/v7/////////
+        /////////P39//79/v/r9eP/g75X/1muHP9arx3/W68d/1qvHv9Zrx3/Wa8c/1avGf9frSj/k8Fu/+Xw
+        2f/6/Pf/zdiw/4CgMf9rkhD/x9Sk//z99v+uuGH/gpQT/9rgu////v///P7+//7+/v/+/v7//v7+//7+
+        /v/////////////////8/Pz//Pz+/7vXof9bqSH/WK4c/1qvHP9arxv/Wa0b/1esG/9erCT/hLxV/8Ld
+        rP/z+e//9fjs/7zMkv93mh//aJAG/6G4Zv/09ur/4+fK/4iYIP+Zpj7/8vTk//79/f/9/fz//v/9////
+        //////////////////////////////39+//8/Pz/0OTA/47CZ/9wtT7/Z7Iy/2mzMv92uUH/kMFk/7zY
+        ov/v9uX/+/z5/+br0/+iuGf/b5YR/2uSBP+CoDL/5OvR//Dx5P+lsWH/jp4z/83TpP/7/fn/+/37//39
+        /P/+/v3//////////////////////////////////vz+//79+//9/vv/9/r1/+fx3P/d69D/3+3T/+r0
+        4//4+vX//v78//b38P/H06P/gJ4x/22TB/9skwX/dZcc/8jSof/7/Pf/0ti7/73Gj//r7dX//Pv6//z9
+        /f/8/f7//f78//7+/v///////////////////////////////////P///v39//3+/P/9/f3//v3///3/
+        /v/9/////v79//n49f/O2K7/lbBR/3SZFP9tlAX/bJMF/3iaIv/K16f/+fn1//r8+v/2+PT//P35//v9
+        /f/9/P3//v38//79/P/+/f7//v7+//////////////////////////////////79/v/+/v3//v79//39
+        /v/8/f3//P78//z9/f/+/f3/7vHi/5evWv9rkQf/bJQE/2yTCf+HpT3/yNal//z8+f/8/P3//f36//3+
+        /f/8/v3//f3+//79/P/+/fz//f39//7+/f/+/v///////////////////////////////////v/+//7/
+        /v///v7//v7+//7+/v///v7//v3+//7+/f/8/fz/6+/c/6q8dv97myv/nrVj/+bs1f/7/Pz//fz9//39
+        /v///v7//v7+//7+///+/v7//v7+//7+/v/+/v7//v/+//7/////////////////////////////////
+        ///////////////////////////////////+/v7//v7+//7+/v/9/f7/+Pnz/+bq1v/3+O///fz8//v8
+        /P/9/v3//v7+////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////3//f/9//z////////9
+        ///+/f3//f78//7//v//////////////////////////////////////////////////////////////
+        ////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Density Calculations</value>
+  </data>
+  <data name="&gt;&gt;Column1.Name" xml:space="preserve">
+    <value>Column1</value>
+  </data>
+  <data name="&gt;&gt;Column1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Column2.Name" xml:space="preserve">
+    <value>Column2</value>
+  </data>
+  <data name="&gt;&gt;Column2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmDensityCalcs</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

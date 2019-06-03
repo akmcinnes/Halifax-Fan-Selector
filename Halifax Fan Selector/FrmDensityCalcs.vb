@@ -1,6 +1,4 @@
-﻿Imports System.ComponentModel
-Imports System.IO
-Public Class FrmDensityCalcs
+﻿Public Class FrmDensityCalcs
     Public FullFilePath As String
     Public totalpercent As Double
     Private Sub DensityCalcs_Load(sender As Object, e As EventArgs) Handles Me.Load

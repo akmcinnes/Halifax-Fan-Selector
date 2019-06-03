@@ -117,743 +117,227 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="optUK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;optShenzhen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="ColorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>95, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>638, 17</value>
+  <data name="btnEnd.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="optXian.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="&gt;&gt;txtUsername.Name" xml:space="preserve">
-    <value>txtUsername</value>
-  </data>
-  <data name="&gt;&gt;optEnglish.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkAdvancedUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 11</value>
-  </data>
-  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblUserCode.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="optShangai.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnEnd.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
-    <value>Label4</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
-  <data name="&gt;&gt;txtUsername.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="txtUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 28</value>
-  </data>
-  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="btnPageSetup.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="&gt;&gt;ColorDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblUserCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, -3</value>
-  </data>
-  <data name="txtCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 361</value>
-  </data>
-  <data name="lblUserCode.Text" xml:space="preserve">
-    <value>User Code</value>
-  </data>
-  <data name="Label3.Text" xml:space="preserve">
-    <value>No license is present to run this software. Please contact Halifax Fan Limited, quoting</value>
-  </data>
-  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="optShenzhen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblUsername.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="chkAdvancedUser.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="lblCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, -3</value>
-  </data>
-  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;grpLanguage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.Name" xml:space="preserve">
-    <value>lblUsername</value>
-  </data>
-  <data name="&gt;&gt;btnEnd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnDataFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="txtCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 28</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>476, 470</value>
-  </data>
-  <data name="lblAccessCode.Text" xml:space="preserve">
-    <value>Access Code</value>
-  </data>
-  <data name="btnDataFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblEmail.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;optShangai.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
-  </data>
-  <data name="btnDataFolder.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnPageSetup.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="optShenzhen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 75</value>
-  </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>to obtain a license.</value>
-  </data>
-  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 421</value>
-  </data>
-  <data name="optShangai.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 50</value>
-  </data>
-  <data name="txtCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.8pt, style=Bold</value>
-  </data>
-  <data name="lblAccessCode.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="optXian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 25</value>
-  </data>
-  <data name="txtEmail.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="lblAccessCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>39, 361</value>
-  </data>
-  <data name="&gt;&gt;txtEmail.Name" xml:space="preserve">
-    <value>txtEmail</value>
-  </data>
-  <data name="chkAdvancedUser.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
-    <value>Label1</value>
-  </data>
-  <data name="&gt;&gt;btnDataFolder.Name" xml:space="preserve">
-    <value>btnDataFolder</value>
-  </data>
-  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="optChinese.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 75</value>
-  </data>
-  <data name="optXian.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblAccessCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold, Underline</value>
-  </data>
-  <data name="optShenzhen.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;optUK.Name" xml:space="preserve">
-    <value>optUK</value>
-  </data>
-  <data name="&gt;&gt;grpLanguage.Name" xml:space="preserve">
-    <value>grpLanguage</value>
-  </data>
-  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 25</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="optEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 50</value>
-  </data>
-  <data name="lblCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 24</value>
-  </data>
-  <data name="&gt;&gt;optShenzhen.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
-  </data>
-  <data name="txtEmail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="grpLanguage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="optShenzhen.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label4.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
-  </data>
-  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 332</value>
-  </data>
-  <data name="&gt;&gt;btnDataFolder.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblUserCode.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblAccessCode.Name" xml:space="preserve">
-    <value>lblAccessCode</value>
-  </data>
-  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>457, 64</value>
-  </data>
-  <data name="&gt;&gt;optChinese.Parent" xml:space="preserve">
-    <value>grpLanguage</value>
-  </data>
-  <data name="&gt;&gt;lblCode.Name" xml:space="preserve">
-    <value>lblCode</value>
-  </data>
-  <data name="Label3.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="optEnglish.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="grpLanguage.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="chkAdvancedUser.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="optEnglish.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="Label1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lblEmail.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 10.2pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;btnEnd.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="grpLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
-    <value>Label6</value>
-  </data>
-  <data name="optChinese.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;btnEnd.Name" xml:space="preserve">
-    <value>btnEnd</value>
-  </data>
-  <data name="btnEnd.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="optXian.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="txtEmail.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 10.2pt</value>
-  </data>
-  <data name="&gt;&gt;grpLanguage.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
-    <value>Label5</value>
-  </data>
-  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;lblUserCode.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblCode.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;optShangai.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="optUK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;optChinese.Name" xml:space="preserve">
-    <value>optChinese</value>
-  </data>
-  <data name="lblUserCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt, style=Bold, Underline</value>
-  </data>
-  <data name="lblEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 78</value>
-  </data>
-  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblAccessCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>141, 25</value>
-  </data>
-  <data name="lblEmail.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;optChinese.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
-    <value>Label3</value>
-  </data>
-  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="lblCode.Text" xml:space="preserve">
-    <value>1234567890</value>
-  </data>
-  <data name="optEnglish.Text" xml:space="preserve">
-    <value>English (英语)</value>
-  </data>
-  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 298</value>
-  </data>
-  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;btnPageSetup.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="optShenzhen.Text" xml:space="preserve">
-    <value>Shenzhen（深圳)</value>
-  </data>
-  <data name="&gt;&gt;btnPageSetup.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="Label5.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;lblUserCode.Name" xml:space="preserve">
-    <value>lblUserCode</value>
-  </data>
-  <data name="&gt;&gt;lblCode.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 36</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Name" xml:space="preserve">
-    <value>lblEmail</value>
-  </data>
-  <data name="btnEnd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 44</value>
-  </data>
-  <data name="&gt;&gt;txtCode.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="chkAdvancedUser.Text" xml:space="preserve">
-    <value>Advanced User</value>
-  </data>
-  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
-    <value>GroupBox1</value>
-  </data>
-  <data name="txtEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 71</value>
   </data>
   <data name="btnEnd.Location" type="System.Drawing.Point, System.Drawing">
     <value>124, 408</value>
   </data>
-  <data name="&gt;&gt;optUK.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="btnDataFolder.Text" xml:space="preserve">
-    <value>Data Folder</value>
-  </data>
-  <data name="&gt;&gt;SetupPage.Name" xml:space="preserve">
-    <value>SetupPage</value>
-  </data>
-  <data name="&gt;&gt;chkAdvancedUser.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 21</value>
-  </data>
-  <data name="optChinese.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>Select Default Site </value>
-  </data>
-  <data name="btnPageSetup.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnPageSetup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>345, 71</value>
-  </data>
-  <data name="lblCode.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;grpLanguage.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;lblUserCode.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmSettings</value>
-  </data>
-  <data name="GroupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;txtUsername.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtEmail.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="grpLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
-    <value>Label2</value>
-  </data>
-  <data name="txtUsername.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 10.2pt</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnDataFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="grpLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>263, 125</value>
-  </data>
-  <data name="&gt;&gt;optChinese.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblCode.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnPageSetup.Text" xml:space="preserve">
-    <value>Page Setup</value>
-  </data>
-  <data name="btnPageSetup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 44</value>
-  </data>
-  <data name="&gt;&gt;chkAdvancedUser.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtUsername.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblUserCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 25</value>
-  </data>
-  <data name="btnEnd.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
-  </data>
-  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;FolderBrowserDialog1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblUsername.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;optShenzhen.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;chkAdvancedUser.Name" xml:space="preserve">
-    <value>chkAdvancedUser</value>
-  </data>
-  <data name="optUK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 25</value>
-  </data>
-  <data name="lblUserCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;txtEmail.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lblEmail.Text" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="&gt;&gt;optShangai.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="grpLanguage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 10.2pt</value>
-  </data>
-  <data name="&gt;&gt;optShenzhen.Name" xml:space="preserve">
-    <value>optShenzhen</value>
-  </data>
-  <data name="optShangai.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;FolderBrowserDialog1.Name" xml:space="preserve">
-    <value>FolderBrowserDialog1</value>
-  </data>
-  <data name="Label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;optXian.Name" xml:space="preserve">
-    <value>optXian</value>
-  </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>127, 17</value>
-  </data>
-  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 276</value>
-  </data>
-  <data name="optXian.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 100</value>
-  </data>
-  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="GroupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="chkAdvancedUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="txtUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>195, 29</value>
-  </data>
-  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 18</value>
-  </data>
-  <data name="lblAccessCode.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="optUK.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="optChinese.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
   <data name="btnEnd.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;btnPageSetup.Name" xml:space="preserve">
-    <value>btnPageSetup</value>
+  <data name="btnEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 44</value>
   </data>
-  <data name="&gt;&gt;optEnglish.Parent" xml:space="preserve">
-    <value>grpLanguage</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnEnd.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;optXian.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="btnEnd.Text" xml:space="preserve">
+    <value>End</value>
   </data>
-  <data name="btnDataFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>347, 25</value>
+  <data name="&gt;&gt;btnEnd.Name" xml:space="preserve">
+    <value>btnEnd</value>
   </data>
-  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Label1.Text" xml:space="preserve">
-    <value>Data Folder</value>
-  </data>
-  <data name="grpLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 139</value>
-  </data>
-  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblAccessCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 315</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblAccessCode.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 17</value>
-  </data>
-  <data name="&gt;&gt;btnPageSetup.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnEnd.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;btnEnd.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;lblUserCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnEnd.ZOrder" xml:space="preserve">
+    <value>19</value>
   </data>
-  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 125</value>
-  </data>
-  <data name="&gt;&gt;txtEmail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="optXian.Text" xml:space="preserve">
-    <value>Xian（西安)</value>
-  </data>
-  <data name="lblCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="optUK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 25</value>
-  </data>
-  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 332</value>
-  </data>
-  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="chkAdvancedUser.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="chkAdvancedUser.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;btnDataFolder.ZOrder" xml:space="preserve">
-    <value>14</value>
+  <data name="chkAdvancedUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkAdvancedUser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 11</value>
   </data>
   <data name="chkAdvancedUser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
   </data>
-  <data name="btnDataFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="chkAdvancedUser.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="chkAdvancedUser.Text" xml:space="preserve">
+    <value>Advanced User</value>
   </data>
-  <data name="lblEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 21</value>
+  <data name="chkAdvancedUser.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;txtCode.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;chkAdvancedUser.Name" xml:space="preserve">
+    <value>chkAdvancedUser</value>
   </data>
-  <data name="&gt;&gt;ColorDialog1.Name" xml:space="preserve">
-    <value>ColorDialog1</value>
+  <data name="&gt;&gt;chkAdvancedUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;optXian.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;chkAdvancedUser.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="optUK.AutoSize" type="System.Boolean, mscorlib">
+  <data name="&gt;&gt;chkAdvancedUser.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="optChinese.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  <data name="optChinese.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="optXian.AutoSize" type="System.Boolean, mscorlib">
+  <data name="optChinese.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 75</value>
+  </data>
+  <data name="optChinese.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="optChinese.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 25</value>
+  </data>
+  <data name="optChinese.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="optChinese.Text" xml:space="preserve">
+    <value>Chinese (中文)</value>
+  </data>
+  <data name="&gt;&gt;optChinese.Name" xml:space="preserve">
+    <value>optChinese</value>
+  </data>
+  <data name="&gt;&gt;optChinese.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optChinese.Parent" xml:space="preserve">
+    <value>grpLanguage</value>
+  </data>
+  <data name="&gt;&gt;optChinese.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="optEnglish.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="optEnglish.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="chkAdvancedUser.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  <data name="optEnglish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 50</value>
   </data>
-  <data name="optChinese.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="optEnglish.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
   </data>
-  <data name="&gt;&gt;lblCode.Parent" xml:space="preserve">
+  <data name="optEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 25</value>
+  </data>
+  <data name="optEnglish.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="optEnglish.Text" xml:space="preserve">
+    <value>English (英语)</value>
+  </data>
+  <data name="&gt;&gt;optEnglish.Name" xml:space="preserve">
+    <value>optEnglish</value>
+  </data>
+  <data name="&gt;&gt;optEnglish.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optEnglish.Parent" xml:space="preserve">
+    <value>grpLanguage</value>
+  </data>
+  <data name="&gt;&gt;optEnglish.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="grpLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Neue Haas Grotesk Text Pro, 10.2pt</value>
+  </data>
+  <data name="grpLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>263, 125</value>
+  </data>
+  <data name="grpLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="grpLanguage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="grpLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 139</value>
+  </data>
+  <data name="grpLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="grpLanguage.Text" xml:space="preserve">
+    <value>Select Default Language</value>
+  </data>
+  <data name="&gt;&gt;grpLanguage.Name" xml:space="preserve">
+    <value>grpLanguage</value>
+  </data>
+  <data name="&gt;&gt;grpLanguage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpLanguage.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
+  <data name="&gt;&gt;grpLanguage.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="txtUsername.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtUsername.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Neue Haas Grotesk Text Pro, 10.2pt</value>
+  </data>
+  <data name="txtUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 29</value>
+  </data>
+  <data name="txtUsername.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="txtUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 28</value>
+  </data>
+  <data name="txtUsername.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;txtUsername.Name" xml:space="preserve">
+    <value>txtUsername</value>
+  </data>
+  <data name="&gt;&gt;txtUsername.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtUsername.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtUsername.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="lblUsername.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblUsername.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Neue Haas Grotesk Text Pro, 10.2pt, style=Bold</value>
+  </data>
+  <data name="lblUsername.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
+    <value>89, 36</value>
+  </data>
+  <data name="lblUsername.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 21</value>
   </data>
   <data name="lblUsername.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -861,172 +345,767 @@
   <data name="lblUsername.Text" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="optShangai.Size" type="System.Drawing.Size, System.Drawing">
-    <value>155, 25</value>
+  <data name="&gt;&gt;lblUsername.Name" xml:space="preserve">
+    <value>lblUsername</value>
   </data>
-  <data name="&gt;&gt;optXian.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
+  <data name="&gt;&gt;lblUsername.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtCode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblUsername.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="txtCode.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+  <data name="&gt;&gt;lblUsername.ZOrder" xml:space="preserve">
+    <value>16</value>
   </data>
-  <data name="&gt;&gt;optEnglish.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <metadata name="FolderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>218, 17</value>
+  </metadata>
+  <data name="btnDataFolder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
-  <data name="txtUsername.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="lblEmail.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnDataFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="optShangai.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="btnDataFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>347, 25</value>
+  </data>
+  <data name="btnDataFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="btnDataFolder.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 44</value>
   </data>
-  <data name="&gt;&gt;SetupPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PageSetupDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnDataFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
-  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="btnDataFolder.Text" xml:space="preserve">
+    <value>Data Folder</value>
   </data>
-  <data name="optChinese.Text" xml:space="preserve">
-    <value>Chinese (中文)</value>
-  </data>
-  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="txtEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 28</value>
-  </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>You are trying to run the software with an invalid license. Please contact Halifax Fan Limited, quoting</value>
-  </data>
-  <data name="btnDataFolder.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
-  </data>
-  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 139</value>
-  </data>
-  <data name="optShenzhen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 25</value>
-  </data>
-  <data name="optShangai.Text" xml:space="preserve">
-    <value>Shanghai（上海)</value>
-  </data>
-  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>543, 17</value>
-  </data>
-  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 10.2pt</value>
-  </data>
-  <data name="Label6.Visible" type="System.Boolean, mscorlib">
+  <data name="btnDataFolder.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;chkAdvancedUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnDataFolder.Name" xml:space="preserve">
+    <value>btnDataFolder</value>
   </data>
-  <data name="&gt;&gt;txtCode.Name" xml:space="preserve">
-    <value>txtCode</value>
+  <data name="&gt;&gt;btnDataFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtUsername.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="&gt;&gt;btnDataFolder.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="lblUserCode.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="&gt;&gt;btnDataFolder.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
-  <data name="btnPageSetup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="Label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="Label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 421</value>
+  </data>
+  <data name="Label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 18</value>
+  </data>
+  <data name="Label1.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>Data Folder</value>
+  </data>
+  <data name="Label1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Label1.Name" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;Label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label1.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="btnPageSetup.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
-  <data name="optUK.Text" xml:space="preserve">
-    <value>Halifax, UK</value>
-  </data>
-  <data name="&gt;&gt;lblAccessCode.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="optEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 25</value>
-  </data>
-  <data name="lblAccessCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnPageSetup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="btnPageSetup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 71</value>
+  </data>
+  <data name="btnPageSetup.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnPageSetup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 44</value>
+  </data>
+  <data name="btnPageSetup.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="btnPageSetup.Text" xml:space="preserve">
+    <value>Page Setup</value>
+  </data>
+  <data name="btnPageSetup.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;btnPageSetup.Name" xml:space="preserve">
+    <value>btnPageSetup</value>
+  </data>
+  <data name="&gt;&gt;btnPageSetup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPageSetup.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnPageSetup.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <metadata name="SetupPage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>389, 17</value>
+  </metadata>
+  <data name="txtEmail.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Neue Haas Grotesk Text Pro, 10.2pt</value>
+  </data>
+  <data name="txtEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>193, 71</value>
+  </data>
+  <data name="txtEmail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="txtEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 28</value>
+  </data>
+  <data name="txtEmail.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="txtEmail.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;txtEmail.Name" xml:space="preserve">
+    <value>txtEmail</value>
+  </data>
+  <data name="&gt;&gt;txtEmail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtEmail.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtEmail.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblEmail.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEmail.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Neue Haas Grotesk Text Pro, 10.2pt, style=Bold</value>
+  </data>
+  <data name="lblEmail.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 78</value>
+  </data>
+  <data name="lblEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 21</value>
+  </data>
+  <data name="lblEmail.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="lblEmail.Text" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="lblEmail.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblEmail.Name" xml:space="preserve">
+    <value>lblEmail</value>
+  </data>
+  <data name="&gt;&gt;lblEmail.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEmail.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;lblEmail.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="Label1.AutoSize" type="System.Boolean, mscorlib">
+  <data name="optXian.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optXian.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optXian.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 100</value>
+  </data>
+  <data name="optXian.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="optXian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 25</value>
+  </data>
+  <data name="optXian.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="optXian.Text" xml:space="preserve">
+    <value>Xian（西安)</value>
+  </data>
+  <data name="&gt;&gt;optXian.Name" xml:space="preserve">
+    <value>optXian</value>
+  </data>
+  <data name="&gt;&gt;optXian.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optXian.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;optXian.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="optShenzhen.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optShenzhen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optShenzhen.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 75</value>
+  </data>
+  <data name="optShenzhen.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="optShenzhen.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 25</value>
+  </data>
+  <data name="optShenzhen.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="optShenzhen.Text" xml:space="preserve">
+    <value>Shenzhen（深圳)</value>
+  </data>
+  <data name="&gt;&gt;optShenzhen.Name" xml:space="preserve">
+    <value>optShenzhen</value>
+  </data>
+  <data name="&gt;&gt;optShenzhen.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optShenzhen.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;optShenzhen.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="optShangai.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optShangai.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optShangai.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 50</value>
+  </data>
+  <data name="optShangai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="optShangai.Size" type="System.Drawing.Size, System.Drawing">
+    <value>155, 25</value>
+  </data>
+  <data name="optShangai.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="optShangai.Text" xml:space="preserve">
+    <value>Shanghai（上海)</value>
+  </data>
+  <data name="&gt;&gt;optShangai.Name" xml:space="preserve">
+    <value>optShangai</value>
+  </data>
+  <data name="&gt;&gt;optShangai.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optShangai.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;optShangai.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="optUK.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optUK.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optUK.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 25</value>
+  </data>
+  <data name="optUK.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="optUK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 25</value>
+  </data>
+  <data name="optUK.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="optUK.Text" xml:space="preserve">
+    <value>Halifax, UK</value>
+  </data>
+  <data name="&gt;&gt;optUK.Name" xml:space="preserve">
+    <value>optUK</value>
+  </data>
+  <data name="&gt;&gt;optUK.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optUK.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;optUK.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Neue Haas Grotesk Text Pro, 10.2pt</value>
+  </data>
+  <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 125</value>
+  </data>
+  <data name="GroupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="GroupBox1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 139</value>
+  </data>
+  <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>Select Default Site </value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Name" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblUserCode.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblUserCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold, Underline</value>
+  </data>
+  <data name="lblUserCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblUserCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>153, -3</value>
+  </data>
+  <data name="lblUserCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 25</value>
+  </data>
+  <data name="lblUserCode.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="lblUserCode.Text" xml:space="preserve">
+    <value>User Code</value>
+  </data>
+  <data name="lblUserCode.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblUserCode.Name" xml:space="preserve">
+    <value>lblUserCode</value>
+  </data>
+  <data name="&gt;&gt;lblUserCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblUserCode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblUserCode.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblAccessCode.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblAccessCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold, Underline</value>
+  </data>
+  <data name="lblAccessCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblAccessCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 361</value>
+  </data>
+  <data name="lblAccessCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 25</value>
+  </data>
+  <data name="lblAccessCode.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="lblAccessCode.Text" xml:space="preserve">
+    <value>Access Code</value>
+  </data>
+  <data name="&gt;&gt;lblAccessCode.Name" xml:space="preserve">
+    <value>lblAccessCode</value>
+  </data>
+  <data name="&gt;&gt;lblAccessCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblAccessCode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblAccessCode.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblCode.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblCode.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt, style=Bold</value>
   </data>
-  <data name="optEnglish.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>343, -3</value>
+  </data>
+  <data name="lblCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 24</value>
+  </data>
+  <data name="lblCode.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="lblCode.Text" xml:space="preserve">
+    <value>1234567890</value>
+  </data>
+  <data name="lblCode.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;lblCode.Name" xml:space="preserve">
+    <value>lblCode</value>
+  </data>
+  <data name="&gt;&gt;lblCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lblCode.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="txtCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt, style=Bold</value>
+  </data>
+  <data name="txtCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 361</value>
+  </data>
+  <data name="txtCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 28</value>
+  </data>
+  <data name="txtCode.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;txtCode.Name" xml:space="preserve">
+    <value>txtCode</value>
+  </data>
+  <data name="&gt;&gt;txtCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtCode.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="Label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt, style=Bold</value>
+  </data>
+  <data name="Label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 276</value>
+  </data>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 64</value>
+  </data>
+  <data name="Label2.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="Label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="&gt;&gt;Label2.Name" xml:space="preserve">
+    <value>Label2</value>
+  </data>
+  <data name="&gt;&gt;Label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblUsername.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 298</value>
+  </data>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>543, 17</value>
+  </data>
+  <data name="Label3.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>No license is present to run this software. Please contact Halifax Fan Limited, quoting</value>
+  </data>
+  <data name="Label3.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Label3.Name" xml:space="preserve">
+    <value>Label3</value>
+  </data>
+  <data name="&gt;&gt;Label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 315</value>
+  </data>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>638, 17</value>
+  </data>
+  <data name="Label4.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>You are trying to run the software with an invalid license. Please contact Halifax Fan Limited, quoting</value>
+  </data>
+  <data name="Label4.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Label4.Name" xml:space="preserve">
+    <value>Label4</value>
+  </data>
+  <data name="&gt;&gt;Label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 332</value>
+  </data>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>127, 17</value>
+  </data>
+  <data name="Label5.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>to obtain a license.</value>
+  </data>
+  <data name="Label5.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;Label5.Name" xml:space="preserve">
+    <value>Label5</value>
+  </data>
+  <data name="&gt;&gt;Label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Label5.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="optChinese.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="grpLanguage.Text" xml:space="preserve">
-    <value>Select Default Language</value>
+  <data name="Label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;optUK.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
+  <data name="Label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>168, 332</value>
+  </data>
+  <data name="Label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 17</value>
+  </data>
+  <data name="Label6.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
   </data>
   <data name="Label6.Text" xml:space="preserve">
-    <value>Valid license.  Restart software to continue.</value>
+    <value>Valid license.  </value>
   </data>
-  <data name="optShangai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+  <data name="Label6.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;optShangai.Name" xml:space="preserve">
-    <value>optShangai</value>
+  <data name="&gt;&gt;Label6.Name" xml:space="preserve">
+    <value>Label6</value>
   </data>
-  <data name="lblUsername.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Neue Haas Grotesk Text Pro, 10.2pt, style=Bold</value>
+  <data name="&gt;&gt;Label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="btnEnd.Text" xml:space="preserve">
-    <value>End</value>
+  <data name="&gt;&gt;Label6.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;optUK.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;Label6.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="optShenzhen.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="&gt;&gt;optEnglish.Name" xml:space="preserve">
-    <value>optEnglish</value>
-  </data>
-  <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <metadata name="FolderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>218, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="SetupPage.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>389, 17</value>
-  </metadata>
-  <metadata name="ColorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>95, 17</value>
-  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>476, 470</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAA
+        AAD////////////////////////////////////////////////+/v7//v78//3+/f/9/f7//v3+//z9
+        /v/8/v7//f39//v+/f/9/v3//v79//7+/v//////////////////////////////////////////////
+        //////////////////////////////////////////////////////////7///3+/v/9/vv//Pz9//v9
+        /f/8/P3//fz+//f5+//4+fz/+/z7//r+/P/8/vz//v7+//////////////////7+/v/+/v7///3+//7+
+        /v/////////+/////v///////////////////////////////////////////////////v///v3+//z9
+        /P/7/Pz//P39//b4+//Y2e7/vbjP/9nSz//8+/f//Pz8//z9/f/+/v7//////////////////v7+//79
+        /v/+/f7//v7+//7+/v////7////+//////////////////////////////////7////+/////v7+//39
+        /f/9/f3//f36//f49v/b2/D/s7DQ/6eRk/+tgk//wKR+//f48//8/fv//f39//7+/v/+/v7//v79//7+
+        /v/+//////////7//v/9/f3//f39//7+/v////////////////////////////7//v/+/v7//f7+//3+
+        /v/9/f3/+/z7//b28P/l4Nj/ubXP/5GJs/+rjHn/onld/4lwmv98c8P/5+b2//z9/f/9/vz//f79//v9
+        /f/9/fz/+/r1/+3i0P/ex6P/2MGd//b07v/8/f3//f39//7+/////////////////////////v/+//v+
+        /v/8/f3/+/37//39/f/19O3/zMK0/56Wvv+jmLX/oJKl/2xgt/9MRsz/U0rL/3dnr//i3eX//f39//r+
+        /P/7/fz/+f7+//Do3P/LpnH/t3kk/7RtCf+xdiL/7OPS//r+/v/8/vz//v7+////////////////////
+        ///+//7//P7+//z9/f/7/fv/4+Ty/9TQ4P+kn8b/kpLX/3d1zv9dWMn/alam/4xndv+sek7/sYA9/+HU
+        vf/9/f7//P39//3+/f/z7+X/xplY/7JrB/+4bQX/uG4F/6xvFP/i07v//P79//39/P/+/v7/////////
+        //////////////7+///8/v7//f39//T1+/+Njt3/gH/c/2pr1P9XWNT/cGfH/6OOpv+mi3//qI6I/6qY
+        oP+4qKz/4d7b//z8+//8/fz/+vj0/9Ozhf+zbwv/tm0H/7VsBf+2cA//snon/9/Osf/7/v7/+/39//7+
+        /v///////////////////////v7+//z+/v/8/f3/s7Ts/zU12f8pKd3/SkzZ/5CR3/+PiMb/pZzG/8TD
+        4f/W2fD/4+T2/+vq+f/39/v//Pz8//z+/f/k173/sXQe/7ZtA/+zbg//w5VV/+LNrP/v5NT/9fXv//r8
+        /f/8/f3//v7+///////////////////////+/v7//v79//f5/P9wb93/Ih/e/zk72/+CfMf/opCg/76x
+        sv/l4d3/+vr3//3+/f/+/v3//v79//39/f/8/f3//Pz7/9Cue/+xagX/vIAx/9i9kv/q3sP/4c2h/9q6
+        ff/eyp7/9vbs//39/f/+/f7///////////////////////79/f/9/f3/7e75/11e2v84ONX/oZKx/7eX
+        bP/Sv5v/5trC//Xz7v/7/P3//vz7//7+/v/+/v7//v7+//z9/f/49e7/vo9L/7eDNf/j0rT/5tev/8GX
+        PP+7gAr/vn4A/7qDEf/eyJf/+/v5//3+/v///////////////////////f3+//3+/f/Jy/D/Mi/d/z07
+        2/+2oaP/4M+z/+3s8//KtJf/8Ofa//z+/P/+/f7//v7+//7+/v/9/f3//f3+//Dp3v/HpXj/7N/H/9O1
+        eP+8gBT/vH4A/72BAP/BgQH/vYIG/9rBi//8/Pn//v7+///////////////////////+/v7//v7+/9DP
+        8/8/PNr/NjTa/6yt5v/z8/b/r63k/6eiyv/08e3//fz8//39/v/+/v7//v7+//7+/v/8/f3/9fTw/+3l
+        1//Vwpf/xqBQ/9OvZf/StGr/yKFL/7uCDv++iRz/7uTL//3+///+/f7////////////////////////+
+        /v/+/vz/6On3/19g1P91ddv/vL7r/7a36v+Xld3/ko/Z/8nI6f/7/Pv//f39//7+/v/+/v7//v7+//z9
+        /f/5/f3/9PPs/+Tbwv/v6tP/6+fV//Dv4v/29Ob/17+J/8amYf/49ev//f3+//7+/v//////////////
+        //////////7+//78/v/09vz/g4PZ/7i03//r6u//dnbd/0JE0f+2rsL/1tDV//v7/P/9/f3//f3+//79
+        /v/+/f7//v79//39/f/9/v3/6OfX/6udTf+djCL/opI2/9LNoP/7+fP/8Ovf//z8+//9/fz//v79////
+        /////////////////////v7//v3+//v9/f/a2/L/w7e7/9bEr/+SkuH/Ly7W/3Jmuf+/pIL/8evg//3+
+        /v///////v////7///////7////+//v9/f/z9O3/wLRy/5WBBf+afwD/ppMy/+/t3P/7/v3//P37//39
+        /f/+/v7///////////////7////+///+/f/9/v3//P39//z+/P/q4NH/tZRp/5yVwv98fN3/SkjU/3py
+        u//Lw8T/2Mmw/+TSu//q28r/5NvW/9vX5v/a2ez/8PL2//z9+//w7t3/qp1E/5mCAP+ehhH/4d3A//3+
+        /v/8/fz//f39/////f/////////////+/v/+/v7//v79//39/f/9/f7//f37//r59f/f0bb/oJeu/3Z1
+        z/+tq+L/b2rJ/4aCy//Txb//qpCS/4Nuo/9vY7b/l5TW/9ja7v/3+Pr/7/Dm/+js2P/Vzp3/moIH/52G
+        C//d2rX//v7+//v+/v/9/v3//v/9/////////////v3+//39/v/9/P3//Pv5//j8+f/7/f3/+/z7//v8
+        +f/v7vD/wb/p/8C/3P/JuKf/r5R6/9HDtP/Hxen/nZ/j/8fJ7f/w8fr//v39//39/f/e4sP/v8mS/+bk
+        w/+eiBf/n4si/+XkzP/+/v7//v7+//3+/v/+//7////////////+/f7//fz9//39/P/X58b/rdCQ/+Hu
+        1f/5+vb/+/3+//39/v/+/vz/9vr4//f38v/y6NH/8+3g//z9+P/6/PX//v38//j89v/o7d7/+fv3/83T
+        of+qtWX/7OvS/6CUPv/JwIv/+/v2//39/P/+/f3//f39//7+/v///////v7///3+/v/+/v3/+/z2/53J
+        e/9Zqh3/cLE7/6DLfP/S58H/5/Lc//D37P/z9+//8vft/+305f/b7M//vdan/9flzP/9/Pv/197B/7fB
+        l//4+Ov/s71s/6eyWP/u79z/0c6t//f48P/7/fz//v39//z++//+/f7//v7+///////9/vz//f39//7+
+        /f/m8dr/crVB/1iuGv9Yrhz/Wq0c/2SwKv9ytjz/frlP/4G8VP9+vFD/c7c//3u1TP/E3a//9Pnx/9nh
+        u/+Tq1X/2uPB/+vu2P+Pmy7/rrdo//r78//6+ff//Pz8//39/f/+/v7//v7+//7+/v///v////////z+
+        +//9/P3//f38/77co/9eriP/Wa8d/1qvHf9asBz/Wq8c/1muHP9ZrRv/V60Z/1isGv95uEn/xN+x//r9
+        +P/d5MX/hKA2/5StU//4+e7/0tep/3+RDv/AyYr//v78//39/f/9/f3//v7+//7+/v/+/v7/////////
+        /////////P39//79/v/r9eP/g75X/1muHP9arx3/W68d/1qvHv9Zrx3/Wa8c/1avGf9frSj/k8Fu/+Xw
+        2f/6/Pf/zdiw/4CgMf9rkhD/x9Sk//z99v+uuGH/gpQT/9rgu////v///P7+//7+/v/+/v7//v7+//7+
+        /v/////////////////8/Pz//Pz+/7vXof9bqSH/WK4c/1qvHP9arxv/Wa0b/1esG/9erCT/hLxV/8Ld
+        rP/z+e//9fjs/7zMkv93mh//aJAG/6G4Zv/09ur/4+fK/4iYIP+Zpj7/8vTk//79/f/9/fz//v/9////
+        //////////////////////////////39+//8/Pz/0OTA/47CZ/9wtT7/Z7Iy/2mzMv92uUH/kMFk/7zY
+        ov/v9uX/+/z5/+br0/+iuGf/b5YR/2uSBP+CoDL/5OvR//Dx5P+lsWH/jp4z/83TpP/7/fn/+/37//39
+        /P/+/v3//////////////////////////////////vz+//79+//9/vv/9/r1/+fx3P/d69D/3+3T/+r0
+        4//4+vX//v78//b38P/H06P/gJ4x/22TB/9skwX/dZcc/8jSof/7/Pf/0ti7/73Gj//r7dX//Pv6//z9
+        /f/8/f7//f78//7+/v///////////////////////////////////P///v39//3+/P/9/f3//v3///3/
+        /v/9/////v79//n49f/O2K7/lbBR/3SZFP9tlAX/bJMF/3iaIv/K16f/+fn1//r8+v/2+PT//P35//v9
+        /f/9/P3//v38//79/P/+/f7//v7+//////////////////////////////////79/v/+/v3//v79//39
+        /v/8/f3//P78//z9/f/+/f3/7vHi/5evWv9rkQf/bJQE/2yTCf+HpT3/yNal//z8+f/8/P3//f36//3+
+        /f/8/v3//f3+//79/P/+/fz//f39//7+/f/+/v///////////////////////////////////v/+//7/
+        /v///v7//v7+//7+/v///v7//v3+//7+/f/8/fz/6+/c/6q8dv97myv/nrVj/+bs1f/7/Pz//fz9//39
+        /v///v7//v7+//7+///+/v7//v7+//7+/v/+/v7//v/+//7/////////////////////////////////
+        ///////////////////////////////////+/v7//v7+//7+/v/9/f7/+Pnz/+bq1v/3+O///fz8//v8
+        /P/9/v3//v7+////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////3//f/9//z////////9
+        ///+/f3//f78//7//v//////////////////////////////////////////////////////////////
+        ////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;ColorDialog1.Name" xml:space="preserve">
+    <value>ColorDialog1</value>
+  </data>
+  <data name="&gt;&gt;ColorDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FolderBrowserDialog1.Name" xml:space="preserve">
+    <value>FolderBrowserDialog1</value>
+  </data>
+  <data name="&gt;&gt;FolderBrowserDialog1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SetupPage.Name" xml:space="preserve">
+    <value>SetupPage</value>
+  </data>
+  <data name="&gt;&gt;SetupPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PageSetupDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmSettings</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

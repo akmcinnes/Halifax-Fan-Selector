@@ -1,30 +1,33 @@
 ﻿Module ModSelectCalcs
+    'subroutines
+    'NoSpeedNosize
+    'calculate fan sizes & speeds
+
+    'WithSpeedNoSize
+    'calculate fan sizes with fixed speed
+
+    'WithSizeVolPressure
+    'calculate speed from fan size, volume and pressure
+
+    'WithSpeedVolPressure
+    'calculate size from fan speed, volume and pressure
+
+    'ResHDandVolTD
+    'calculate reserve head and voluem turndown
+
     Sub NoSpeedNosize(k)
         Try
             Call LoadFanData(fantypefilename(k), k)
             Call scaledensity(k, getscalefactor)
-            'Dim temp_size As Double'280319
-            '-----repeating if the fansize falls into the secondary data range
-            'temp_size = ModGetFanSize.GetFanSize(k)'280319
-            'If temp_size >= fansizelimit(k) And Val(fansizelimit(k)) <> 0 Then 'akm 150219
-            '    Call LoadFanData(fantypesecfilename(k), k)
-            '    Call scaledensity(k, getscalefactor)
-            'End If
-            If ModGetFanSize.GetFanSize(k) = 0 Then '280319
-                'MsgBox("The duty is outside the selected fantype duty range")
-                'MsgBox("The duty is outside the " + fanclass(k) + " duty range")
+            If ModGetFanSize.GetFanSize(k) = 0 Then
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(k)
-                'fanfailures(failindex, 1) = "The duty is outside the " + fanclass(k) + " duty range"
-                fanfailures(failindex, 1) = 9 ' "Sorry this duty is out of range for this fan type"
+                fanfailures(failindex, 1) = 9
                 failurevalue(failindex) = ""
             Else
-                'temp_size = ModGetFanSize.GetFanSize(k)'280319
-                Call GetFanSpeed(ModGetFanSize.GetFanSize(k), k) '280319
-                'Call GetFanSpeed(temp_size, k)
+                Call GetFanSpeed(ModGetFanSize.GetFanSize(k), k)
             End If
         Catch ex As Exception
-            'MsgBox("NoSpeedNoSize")
             ErrorMessage(ex, 5901)
         End Try
     End Sub
@@ -37,12 +40,8 @@
             runonce = "no"
             Call GetSizeAtfixedSpeed(k)
             selected(k).speed = speed
-            'selectedfansize(k) = Size
-
         Catch ex As Exception
-            'MsgBox("WithSpeedNoSize")
             ErrorMessage(ex, 5902)
-
         End Try
     End Sub
 
@@ -51,10 +50,9 @@
             If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(k)
-                fanfailures(failindex, 1) = 9 ' "Sorry this duty is out of range for this fan type"
+                fanfailures(failindex, 1) = 9
                 failurevalue(failindex) = ""
                 Exit Sub
-                'Call LoadFanData(fantypesecfilename(k), k)'akm 150219
             Else
                 Call LoadFanData(fantypefilename(k), k)
             End If
@@ -62,7 +60,6 @@
             Call GetFanSpeed(Val(Frmselectfan.Txtfansize.Text), k)
 
         Catch ex As Exception
-            'MsgBox("WithSizeVolPressure")
             ErrorMessage(ex, 5903)
 
         End Try
@@ -70,25 +67,14 @@
 
     Sub WithSpeedSizeVolume(k)
         Try
-            'If Val(Frmselectfan.Txtfansize.Text) >= fansizelimit(k) And fansizelimit(k) <> 0 Then'akm 150219
-            '    Call LoadFanData(fantypesecfilename(k), k)
-            'Else
             Call LoadFanData(fantypefilename(k), k)
-            'End If'akm 150219
-            'If Val(Frmselectfan.Txtfsp.Text) <> 0 Then
             If pressrise <> 0 Then
                 Frmselectfan.Txtdens.Text = originaldensity
-                'akmMsgBox("Fan Type " + k.ToString + ": " & fanclass(k) & ", A new value for Pressure has been calculated!", vbInformation)
             End If
             Call scaledensity(k, getscalefactor)
-            'Call GetPressure(CDbl(Frmselectfan.Txtfansize.Text), CDbl(Frmselectfan.Txtfanspeed.Text), CDbl(Frmselectfan.Txtflow.Text), k)
             Call GetPressure(CDbl(Frmselectfan.Txtfansize.Text), CDbl(Frmselectfan.Txtfanspeed.Text), flowrate, k)
-
-
         Catch ex As Exception
-            'MsgBox("WithSpeedSizeVolume")
             ErrorMessage(ex, 5904)
-
         End Try
     End Sub
 
@@ -107,18 +93,8 @@
             Else
                 selected(fanno).resHD = Math.Round((1 - selected(fanno).fsp / fspmax) * 100, 1)
             End If
-
-            'FrmSelections.txtpow1.BackColor = &H80FF80
-            'PowMin = Val(FrmSelections.txtpow1.Value)
-
-            'End If
-
         Catch ex As Exception
-            'MsgBox("ResHDandVolTD")
             ErrorMessage(ex, 5905)
-
         End Try
-
     End Sub
-
 End Module

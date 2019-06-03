@@ -423,7 +423,7 @@ Public Class FrmFanChart
                 Chart1.ChartAreas("ChartArea1").AxisY.Title = ""
             End If
             If ChkStaticPressureCurve.Checked = False And PresType = 0 Then
-                RemoveFanSystemCurve()
+                If ChkFanSystemCurve.Checked = True Then RemoveFanSystemCurve()
                 ChkFanSystemCurve.Checked = False
             End If
         Catch ex As Exception
@@ -445,7 +445,7 @@ Public Class FrmFanChart
                 Chart1.ChartAreas("ChartArea1").AxisY.Title = ""
             End If
             If ChkTotalPressureCurve.Checked = False And PresType = 1 Then
-                RemoveFanSystemCurve()
+                If ChkFanSystemCurve.Checked = True Then RemoveFanSystemCurve()
                 ChkFanSystemCurve.Checked = False
             End If
         Catch ex As Exception

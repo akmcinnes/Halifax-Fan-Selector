@@ -3,7 +3,6 @@
         Try
             lsvFailedFans.Columns(0).Text = lblDesign.Text
             lsvFailedFans.Columns(1).Text = lblReason.Text
-            'Listview1.columns(0).name = "column1Name"
             ReadFailuresFromBinaryFile()
             Dim i As Integer
             Dim k As Integer

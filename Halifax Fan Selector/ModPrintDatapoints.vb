@@ -1,4 +1,23 @@
 ﻿Module ModPrintDatapoints
+    'subroutines
+    'OutputDataTableHeaderPO
+    'populate table headers in worksheet
+
+    'OutputDataTablePO
+    'populate table with data in worksheet
+
+    'OutputDataDutyPO
+    'populate duty in worksheet
+
+    'OutputDataTableDamperVolPowPO
+    'populate damper volume & power in worksheet
+
+    'OutputDataTableSystemPO
+    'populate system curve in worksheet
+
+    'OutputDutyPointsPO
+    'populate performance data in worksheet
+
     Public Sub OutputDataTableHeaderPO(xlsWB)
         Try
             'sheet = "Performance"
@@ -45,7 +64,7 @@
         Try
             General_Information.State = 22
             General_Information.State_Message = "Populate Duty Worksheet"
-            Call State_link()
+            'Call State_link()
             xlsWB.ActiveSheet.Name = sheet
             PlaceData(xlsWB, sheet, "Duty", 7, 19) 'performance data header
             PlaceData(xlsWB, sheet, "Duty", 7, 20) 'performance data header
@@ -69,12 +88,10 @@
     Public Sub OutputDataTableDamperVolPowPO(xlsWB, text1, factor, col1, col2)
         Try
             General_Information.State = 30
-            Call State_link()
+            'Call State_link()
             General_Information.State_Message = "Dampers"
             Dim vol, pwr As Double
             xlsWB.ActiveSheet.Name = sheet
-            'Dim factors(3) As Double
-            'Dim Factor = New Integer() {0.9, 0.8, 0.67, 0.5}
             'ConvertData()
             PlaceData(xlsWB, sheet, text1, 7, col1)
             PlaceData(xlsWB, sheet, Math.Round(factor * 100).ToString + "%", 8, col1)
@@ -121,7 +138,7 @@
         Try
             General_Information.State = 15
             General_Information.State_Message = "Convert Data"
-            Call State_link()
+            'Call State_link()
 
             ConvertData()
             Dim i As Integer
@@ -142,13 +159,9 @@
                 PlaceData(xlsWB, sheet, Math.Round(plotfsp(i - 1), pressplaceRise), 8 + i, 2)
                 PlaceData(xlsWB, sheet, Math.Round(plotftp(i - 1), pressplaceRise), 8 + i, 3)
                 PlaceData(xlsWB, sheet, Math.Round(plotpow(i - 1), powerdecplaces), 8 + i, 4)
-                'PlaceData(xlsWB, sheet, Math.Round(plotfse(i - 1), 2), 18 + i, 10,,, True, 18 + i, 10, 18 + i, 11) 'performance data header
-                'PlaceData(xlsWB, sheet, Math.Round(plotfte(i - 1), 2), 18 + i, 12,,, True, 18 + i, 12, 18 + i, 13) 'performance data header
-                'PlaceData(xlsWB, sheet, Math.Round(plotov(i - 1), 2), 18 + i, 14,,, True, 18 + i, 14, 18 + i, 15) 'performance data header
             Next
         Catch ex As Exception
             ErrorMessage(ex, 6906)
         End Try
     End Sub
-
 End Module

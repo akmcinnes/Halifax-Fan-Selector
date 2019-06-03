@@ -1,5 +1,15 @@
 ﻿Imports System.Xml
 Module ModReadWriteXML
+    'subroutines
+    'WriteAllFile
+    'writes all fan details to xml file
+
+    'ReadAllFile
+    'reads all fan details from xml file
+
+    'Write_to_XML (3 overloads)
+    'writes line to xml file (start of node, info & end of node)
+
     Sub WriteAllFile(ByVal SaveFileName As String)
         Try
             Dim textwriter As XmlTextWriter = New XmlTextWriter(SaveFileName, Nothing)
@@ -12,7 +22,6 @@ Module ModReadWriteXML
             ' ### Write the data ###
             textwriter.WriteStartDocument()
             Write_to_XML(textwriter, "HFS_File")
-            'Dim countflag As Integer = 0
             Do While Flag(countflag) = True
                 countflag = countflag + 1
             Loop
@@ -52,8 +61,6 @@ Module ModReadWriteXML
             If countflag >= 1 Then
                 Write_to_XML(textwriter, "Duty_information")
                 Write_to_XML(textwriter, "Design_Temperature", designtemp.ToString)
-                'Write_to_XML(textwriter, "Maximum_Temperature", maximumtemp.ToString)
-                'Write_to_XML(textwriter, "Relative_Humidity", humidity.ToString)
                 Write_to_XML(textwriter, "Flow_Rate", flowrate.ToString)
                 Write_to_XML(textwriter, "Pressure_Type", PresType.ToString)
                 Write_to_XML(textwriter, "Inlet_Pressure", inletpress.ToString)
@@ -61,31 +68,14 @@ Module ModReadWriteXML
                 Write_to_XML(textwriter, "Reserve_Head", reshead.ToString)
                 Write_to_XML(textwriter, "Inlet_Density", knowndensity.ToString)
                 Write_to_XML(textwriter, "Density_Type", CalculatedDensity.ToString) '???????
-                'Write_to_XML(textwriter, "Discharg_Duct_Type", DischargeDuct.ToString) '???????
-                'Write_to_XML(textwriter, "Discharge_Pressure", Units(1).UnitSelected)
-                'Write_to_XML(textwriter, "Temperature_Units", Units(2).UnitSelected)
-                'Write_to_XML(textwriter, "Density_Units", Units(3).UnitSelected)
-                'Write_to_XML(textwriter, "Power_Units", Units(4).UnitSelected)
-                'Write_to_XML(textwriter, "Size_Units", Units(5).UnitSelected)
-                'Write_to_XML(textwriter, "Altitude_Units", Units(6).UnitSelected)
                 Write_to_XML(textwriter)
-                End If
-                ' #### FanParameterInfo
-                If countflag >= 2 Then
+            End If
+            ' #### FanParameterInfo
+            If countflag >= 2 Then
                 Write_to_XML(textwriter, "Fan_Parameter_information")
-                'Write_to_XML(textwriter, "Design_Temperature", designtemp.ToString)
                 Write_to_XML(textwriter, "Maximum_Speed", maxspeed.ToString)
                 Write_to_XML(textwriter, "Fan_Size", fansize.ToString)
                 Write_to_XML(textwriter, "Double_Inlet", SelectDIDW.ToString)
-                'Write_to_XML(textwriter, "Relative_Humidity", humidity.ToString)
-                'Write_to_XML(textwriter, "Atmospheric_Pressure", atmospress.ToString)
-                'Write_to_XML(textwriter, "Known_Density", knowndensity.ToString)
-                'Write_to_XML(textwriter, "Flow_Rate", flowrate.ToString)
-                'Write_to_XML(textwriter, "Inlet_Pressure", inletpress.ToString)
-                'Write_to_XML(textwriter, "Discharge_Pressure", dischpress.ToString)
-                'Write_to_XML(textwriter, "Pressure_Rise", pressrise.ToString)
-                'Write_to_XML(textwriter, "Reserve_Head", reshead.ToString)
-                'Write_to_XML(textwriter, "Maximum_Speed", maxspeed.ToString)
                 Write_to_XML(textwriter)
             End If
             ' #### SelectionInfo
@@ -119,16 +109,6 @@ Module ModReadWriteXML
             If countflag >= 4 Then
                 Dim i As Integer
                 Write_to_XML(textwriter, "Acoustic_information")
-                'If NCoverall > 0 Then
-                'If Label.Contains("#swl_1_") Then
-                '    For i = 1 To 8
-                '        templabel = "#swl_1_" + i.ToString + "#"
-                '        If Label = templabel Then Return templabel.Replace(templabel, IDSPL(i - 1).ToString)
-                '    Next
-                'End If
-                'If Label = "#swl_oa#" Then Return Label.Replace("#swl_oa#", spl2.ToString)
-                'If Label = "#swl_bo#" Then Return Label.Replace("#swl_bo#", bospl2.ToString)
-                'If Label = "#spl_bo#" Then Return Label.Replace("#spl_bo#", bospl1M2.ToString)
                 'IDSPL
                 For i = 0 To 7
                     Write_to_XML(textwriter, "IDSPL_" + i.ToString, IDSPL(i).ToString)
@@ -140,34 +120,22 @@ Module ModReadWriteXML
                     Write_to_XML(textwriter, "Ascale_" + i.ToString, Ascale(i).ToString)
                 Next i
                 Write_to_XML(textwriter, "NCoverall", NCoverall.ToString)
-                'End If
-                'If inNCoverall > 0 Then
                 For i = 0 To 7
                     Write_to_XML(textwriter, "INascale_" + i.ToString, INascale(i).ToString)
                 Next i
                 Write_to_XML(textwriter, "inNCoverall", inNCoverall.ToString)
-                'End If
-                'If OUTNCoverall > 0 Then
                 For i = 0 To 7
                     Write_to_XML(textwriter, "OUTascale_" + i.ToString, OUTascale(i).ToString)
                 Next i
                 Write_to_XML(textwriter, "OUTNCoverall", OUTNCoverall.ToString)
-                'End If
-                'If BRGnoise > 0 Then
                 Write_to_XML(textwriter, "Bearing_Noise", BRGnoise.ToString)
-                'End If
-                'If CDbl(Frmselectfan.txtMotordba.Text) > 0 Then
-                'Dim tempmt As Double = 0
                 Write_to_XML(textwriter, "Motor_Noise", MTRnoise.ToString)
-                'End If
-                'If BPfreq > 0 Then
                 Write_to_XML(textwriter, "Blade_Passing_Frequency", BPfreq.ToString)
                 Write_to_XML(textwriter, "Include_Duct_Noise", InclDuctNoise.ToString)
                 Write_to_XML(textwriter, "Include_Open_Inlet_Noise", InclOpenInletNoise.ToString)
                 Write_to_XML(textwriter, "Include_Open_Outlet_Noise", InclOpenOutletNoise.ToString)
                 Write_to_XML(textwriter, "Include_Bearing_Noise", InclBrgNoise.ToString)
                 Write_to_XML(textwriter, "Include_Motor_Noise", InclMotorNoise.ToString)
-                'End If
                 Write_to_XML(textwriter)
             End If
             textwriter.WriteEndDocument()
@@ -204,27 +172,8 @@ Module ModReadWriteXML
                         If textReader.Name = "Size_Units" Then Units(5).UnitSelected = CInt(textReader.ReadString)
                         If textReader.Name = "Altitude_Units" Then Units(6).UnitSelected = CInt(textReader.ReadString)
                         If textReader.Name = "Velocity_Units" Then Units(7).UnitSelected = CInt(textReader.ReadString)
-                        ' #### Duty Info
-                        'If TextReader.Name = "Ambient_Temperature" Then ambienttemp = TextReader.ReadString
-                        'If TextReader.Name = "Altitude" Then altitude = TextReader.ReadString
-                        'If TextReader.Name = "Relative_Humidity" Then humidity = TextReader.ReadString
-                        'If TextReader.Name = "Atmospheric_Pressure" Then atmospress = TextReader.ReadString
-                        'If TextReader.Name = "Calculate_Atmospheric_Pressure" Then CalcAtmos = TextReader.ReadString
-                        'If TextReader.Name = "Frequency" Then freqHz = TextReader.ReadString
-                        'If TextReader.Name = "Flow_Units" Then Units(0).UnitSelected = TextReader.ReadString
-                        'If TextReader.Name = "Pressure_Units" Then Units(1).UnitSelected = TextReader.ReadString
-                        'If TextReader.Name = "Temperature_Units" Then Units(2).UnitSelected = TextReader.ReadString
-                        'If TextReader.Name = "Density_Units" Then Units(3).UnitSelected = TextReader.ReadString
-                        'If TextReader.Name = "Power_Units" Then Units(4).UnitSelected = TextReader.ReadString
-                        'If TextReader.Name = "Size_Units" Then Units(5).UnitSelected = TextReader.ReadString
-                        'If TextReader.Name = "Altitude_Units" Then Units(6).UnitSelected = TextReader.ReadString
                         '' #### Fan Parameters
                         If textReader.Name = "Design_Temperature" Then designtemp = CDbl(textReader.ReadString)
-                        'If textReader.Name = "Maximum_Temperature" Then maximumtemp = CDbl(textReader.ReadString)
-                        'If TextReader.Name = "Ambient_Temperature" Then ambienttemp = TextReader.ReadString
-                        'If TextReader.Name = "Altitude" Then altitude = TextReader.ReadString
-                        'If textReader.Name = "Relative_Humidity" Then humidity = CDbl(textReader.ReadString)
-                        'If TextReader.Name = "Atmospheric_Pressure" Then atmospress = TextReader.ReadString
                         If textReader.Name = "Flow_Rate" Then flowrate = CDbl(textReader.ReadString)
                         If textReader.Name = "Pressure_Type" Then PresType = CInt(textReader.ReadString)
                         If textReader.Name = "Inlet_Pressure" Then inletpress = CDbl(textReader.ReadString)
@@ -232,7 +181,6 @@ Module ModReadWriteXML
                         If textReader.Name = "Reserve_Head" Then reshead = CDbl(textReader.ReadString)
                         If textReader.Name = "Inlet_Density" Then knowndensity = CDbl(textReader.ReadString)
                         If textReader.Name = "Density_Type" Then CalculatedDensity = CDbl(textReader.ReadString)
-                        'If TextReader.Name = "Discharge_Pressure" Then dischpress = TextReader.ReadString
                         ' #### FanParameterInfo
                         If textReader.Name = "Maximum_Speed" Then maxspeed = CDbl(textReader.ReadString)
                         If textReader.Name = "Fan_Size" Then fansize = CDbl(textReader.ReadString)
@@ -282,25 +230,10 @@ Module ModReadWriteXML
                         If textReader.Name = "Include_Open_Outlet_Noise" Then InclOpenOutletNoise = CBool(textReader.ReadString)
                         If textReader.Name = "Include_Bearing_Noise" Then InclBrgNoise = CBool(textReader.ReadString)
                         If textReader.Name = "Include_Motor_Noise" Then InclMotorNoise = CBool(textReader.ReadString)
-
-                        'If TextReader.Name = "Design_Temperature" Then designtemp = TextReader.ReadString
-                        'If TextReader.Name = "Maximum_Temperature" Then maximumtemp = TextReader.ReadString
-                        'If TextReader.Name = "Ambient_Temperature" Then ambienttemp = TextReader.ReadString
-                        'If TextReader.Name = "Altitude" Then altitude = TextReader.ReadString
-                        'If TextReader.Name = "Relative_Humidity" Then humidity = TextReader.ReadString
-                        'If TextReader.Name = "Atmospheric_Pressure" Then atmospress = TextReader.ReadString
-                        'If TextReader.Name = "Known_Density" Then knowndensity = TextReader.ReadString
-                        'If TextReader.Name = "Flow_Rate" Then flowrate = TextReader.ReadString
-                        'If TextReader.Name = "Inlet_Pressure" Then inletpress = TextReader.ReadString
-                        'If TextReader.Name = "Discharge_Pressure" Then dischpress = TextReader.ReadString
-                        'If TextReader.Name = "Pressure_Rise" Then pressrise = TextReader.ReadString
-                        'If TextReader.Name = "Reserve_Head" Then reshead = TextReader.ReadString
-                        'If TextReader.Name = "Maximum_Speed" Then maxspeed = TextReader.ReadString
                     End If
                 End While
             Loop
             textReader.Close()
-            'MsgBox("header " + countflag.ToString)
         Catch ex As Exception
             ErrorMessage(ex, 6502)
         End Try

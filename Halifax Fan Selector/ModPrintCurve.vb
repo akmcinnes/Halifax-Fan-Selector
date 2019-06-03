@@ -1,5 +1,20 @@
 ﻿Imports Excel = Microsoft.Office.Interop.Excel
 Module ModPrintCurve
+    'subroutines & Functions
+    'PopulatePrintoutChart
+
+    'ChartDamper
+    'draw damper curves
+
+    'Chartdamperpower
+    'draw damper power curves
+
+    'Chartfansystem
+    'draw fan system curve
+
+    'deletecurveftp - not used
+    'deletes ftp curve
+
     Sub PopulatePrintoutChart(xlsWB)
         Try
             Dim i As Integer
@@ -50,9 +65,9 @@ Module ModPrintCurve
                     '.FullSeriesCollection(ser).Name = "=""Fan Curve"""
                     .SeriesCollection(ser).Name = "FSP"
                     .SeriesCollection(ser).Border.ColorIndex = 1
-                    With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1) '(Num_Readings - 1)
+                    With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1)
                         .HasDataLabel = True
-                        .DataLabel.Text = lang_dict(126) '"Fully Open" ' & snme(1)
+                        .DataLabel.Text = lang_dict(126)
                         .DataLabel.Font.Name = "Arial"
                         .DataLabel.Font.size = 8
                         .DataLabel.Font.Italic = True
@@ -67,9 +82,9 @@ Module ModPrintCurve
                     .FullSeriesCollection(ser).Values = "=Datapoints!$c$9:$c$" + (Num_Readings + 9).ToString
                     .SeriesCollection(ser).Name = "FTP"
                     .SeriesCollection(ser).Border.ColorIndex = 1
-                    With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1) '(Num_Readings - 1)
+                    With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1)
                         .HasDataLabel = True
-                        .DataLabel.Text = lang_dict(126) '"Fully Open" ' & snme(1)
+                        .DataLabel.Text = lang_dict(126)
                         .DataLabel.Font.Name = "Arial"
                         .DataLabel.Font.size = 8
                         .DataLabel.Font.Italic = True
@@ -86,8 +101,7 @@ Module ModPrintCurve
                 .SeriesCollection(ser).Border.ColorIndex = 1
                 .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDash
 
-                'With .SeriesCollection(ser).Points(datasets - 1)
-                With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1) '(Num_Readings - 1)
+                With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1)
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(112) '"Power Fully Open" ' & snme(1)
                     .DataLabel.Font.Name = "Arial"
@@ -98,12 +112,8 @@ Module ModPrintCurve
 
                 ser = ser + 1
                 .SeriesCollection.NewSeries
-                'If FrmCurveOptions.chkdidw.Value = False Then
-                .SeriesCollection(ser).XValues = "=Datapoints!$s$9" 'Worksheets("Sheet1").Cells(9, 19).Value
-                .SeriesCollection(ser).Values = "=Datapoints!$t$9" 'Worksheets("Sheet1").Cells(9, 19).Value
-                'Else
-                '    .SeriesCollection(a).XValues = Worksheets("Sheet1").Cells(10, 19).Value
-                'End If
+                .SeriesCollection(ser).XValues = "=Datapoints!$s$9"
+                .SeriesCollection(ser).Values = "=Datapoints!$t$9"
                 .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlPrimary
                 .SeriesCollection(ser).Name = "Duty Point"
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleCircle
@@ -123,12 +133,8 @@ Module ModPrintCurve
 
                 ser = ser + 1
                 .SeriesCollection.NewSeries
-                'If FrmCurveOptions.chkdidw.Value = False Then
-                .SeriesCollection(ser).XValues = "=Datapoints!$s$9" 'Worksheets("Sheet1").Cells(9, 19).Value
-                .SeriesCollection(ser).Values = "=Datapoints!$u$9" 'Worksheets("Sheet1").Cells(9, 19).Value
-                'Else
-                '    .SeriesCollection(a).XValues = Worksheets("Sheet1").Cells(10, 19).Value
-                'End If
+                .SeriesCollection(ser).XValues = "=Datapoints!$s$9"
+                .SeriesCollection(ser).Values = "=Datapoints!$u$9"
                 .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlSecondary
                 .SeriesCollection(ser).Name = "Power Duty"
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleCircle
@@ -181,7 +187,6 @@ Module ModPrintCurve
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlPrimary).TickLabels.Font.size = 8
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlPrimary).TickLabels.Font.Italic = True
 
-                '.Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).HasTitle = True
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).HasTitle = True
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).HasMajorGridlines = True
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).MajorGridlines.Border.LineStyle = Excel.XlLineStyle.xlDashDot
@@ -203,7 +208,7 @@ Module ModPrintCurve
                 Dim MM As Integer = 27
                 ' shape 1 is the logo
                 'textbox 2 - copyright
-                .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 80, 415, 600, 30).TextFrame.Characters.Text = lang_dict(16) '"All copyright in this document is vested in Halifax Fan Ltd. It contains proprietary information and may not be disclosed to any third party or reproduced in any form without the written permission of Halifax Fan Ltd."
+                .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 80, 415, 600, 30).TextFrame.Characters.Text = lang_dict(16)
                 .Shapes(si + 1).TextFrame.Characters.Font.Name = "Arial"
                 .Shapes(si + 1).TextFrame.Characters.Font.size = 6
 
@@ -277,7 +282,7 @@ Module ModPrintCurve
                 lastheight = 0
 
                 .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 425, NN + 36, 250, lastheight).TextFrame.Characters.Text = LastString
-                .Shapes.AddShape(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 580, 0, 145, 30).Fill.UserPicture(DataPath + "header2015.jpg")
+                .Shapes.AddShape(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 580, 0, 145, 30).Fill.UserPicture(DataPath + "Logo-2019.jpg") 'Logo-2019a.jpg'header2015.jpg
                 .Shapes(.Shapes.count).Line.Visible = False
             End With
 
@@ -288,16 +293,6 @@ Module ModPrintCurve
             If FrmCurveOptions.chkSystem.Checked = True Then
                 ser = Chartfansystem(xlsWB, ser)
             End If
-            'If FrmCurveOptions.optFSPonly.Checked = True Or FrmCurveOptions.optFTPonly.Checked = True Then
-            '    deletecurveftp(xlsWB)
-            'End If
-            'xlsWB.Close(SaveChanges:=True)
-            'xlsWB = Nothing
-            'xlsWorkBooks.Close()
-            'xlsWorkBooks = Nothing
-            'xlsApp.Quit()
-            'xlsApp = Nothing
-
         Catch ex As Exception
             ErrorMessage(ex, 6802)
         End Try
@@ -306,10 +301,7 @@ Module ModPrintCurve
 
     Function Chartdamper(xlsWB, ser) As Integer
         Try
-            'Dim countpts As Integer = CInt(Math.Round(Num_Readings * 0.33) + 1) + 9
             Dim DATASETS1 As Single
-
-
             DATASETS1 = Num_Readings * 0.33
             count = 1
 
@@ -317,7 +309,7 @@ Module ModPrintCurve
                 count = count + 1
             Loop
 
-            With xlsWB.ActiveChart '        With ActiveWorkbook.Charts("CHART1")
+            With xlsWB.ActiveChart
                 ser = ser + 1
                 .SeriesCollection.NewSeries
                 .FullSeriesCollection(ser).Values = "=Datapoints!$b$" + (count + 9).ToString + ":$b$39"
@@ -327,7 +319,6 @@ Module ModPrintCurve
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.ColorIndex = 41
                 .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count)
                 With .SeriesCollection(ser).Points(Num_Readings - (count + 1))
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(110) + " 60º"
@@ -367,7 +358,6 @@ Module ModPrintCurve
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.Color = RGB(0, 102, 0)
                 .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count)
                 With .SeriesCollection(ser).Points(Num_Readings - (count + 1))
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(110) + " 40º"
@@ -387,7 +377,6 @@ Module ModPrintCurve
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.Color = RGB(255, 0, 0)
                 .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count)
                 With .SeriesCollection(ser).Points(Num_Readings - (count + 1))
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(110) + " 30º"
@@ -399,39 +388,25 @@ Module ModPrintCurve
                 End With
 
                 .FullSeriesCollection(ser).Values = "=Datapoints!$b$" + (count + 9).ToString + ":$b$39"
-                '.FullSeriesCollection(ser).Name = "=""Fan Curve"""
                 .SeriesCollection(ser).Name = "FSP"
                 .SeriesCollection(ser).Border.ColorIndex = 1
             End With
-            'With ActiveChart.SeriesCollection(1).Points(datasets - 1)
-            '    .HasDataLabel = True
-            '    .DataLabel.Text = "Fully Open" & snme(1)
-            '    .DataLabel.Font.Name = "Arial"
-            '    .DataLabel.Font.size = 8
-            '    .DataLabel.Font.Italic = True
-            '    .DataLabel.Interior.ColorIndex = 2
-            'End With
             Return ser
-
         Catch ex As Exception
             ErrorMessage(ex, 6803)
-
         End Try
         Return ser
     End Function
 
     Public Function Chartdamperpower(xlsWB, ser)
         Try
-            'Dim countpts As Integer = CInt(Math.Round(Num_Readings * 0.33) + 1) + 9
             Dim DATASETS1 As Single
-
-
             DATASETS1 = Num_Readings * 0.33
             count = 1
 
-                Do While count < DATASETS1
-                    count = count + 1
-                Loop
+            Do While count < DATASETS1
+                count = count + 1
+            Loop
             With xlsWB.ActiveChart
                 ser = ser + 1
                 .SeriesCollection.NewSeries
@@ -443,7 +418,6 @@ Module ModPrintCurve
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.ColorIndex = 41
                 .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count)
                 With .SeriesCollection(ser).Points(Num_Readings - (count + 1))
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(120) + " 60º"
@@ -464,7 +438,6 @@ Module ModPrintCurve
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.Color = RGB(0, 51, 102)
                 .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count)
                 With .SeriesCollection(ser).Points(Num_Readings - (count + 1))
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(120) + " 50º"
@@ -485,7 +458,6 @@ Module ModPrintCurve
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.Color = RGB(0, 102, 0)
                 .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count)
                 With .SeriesCollection(ser).Points(Num_Readings - (count + 1))
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(120) + " 40º"
@@ -506,7 +478,6 @@ Module ModPrintCurve
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.Color = RGB(255, 0, 0)
                 .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count)
                 With .SeriesCollection(ser).Points(Num_Readings - (count + 1))
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(120) + " 30º"
@@ -517,21 +488,9 @@ Module ModPrintCurve
                     .DataLabel.Font.Color = RGB(255, 0, 0)
                 End With
             End With
-
-            'With ActiveChart.SeriesCollection(3).Points(datasets - 1)
-            '    .HasDataLabel = True
-            '    .DataLabel.Text = "Power Fully Open" & snme(1)
-            '    .DataLabel.Font.Name = "Arial"
-            '    .DataLabel.Font.size = 8
-            '    .DataLabel.Font.Italic = True
-            '    .DataLabel.Interior.ColorIndex = 2
-            'End With
-
             Return ser
-
         Catch ex As Exception
             ErrorMessage(ex, 6804)
-
         End Try
         Return ser
     End Function
@@ -540,7 +499,7 @@ Module ModPrintCurve
         Try
             count = 0
 
-            With xlsWB.ActiveChart '        With ActiveWorkbook.Charts("CHART1")
+            With xlsWB.ActiveChart
                 ser = ser + 1
                 .SeriesCollection.NewSeries
                 .FullSeriesCollection(ser).Values = "=Datapoints!$l$9:$l$39"
@@ -550,7 +509,6 @@ Module ModPrintCurve
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.ColorIndex = 1
                 .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDot
-                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count)
                 With .SeriesCollection(ser).Points(Num_Readings - (count + 1))
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(127)
@@ -560,13 +518,10 @@ Module ModPrintCurve
                     .DataLabel.Interior.ColorIndex = 2
                     .DataLabel.Font.ColorIndex = 1
                 End With
-
             End With
             Return ser
-
         Catch ex As Exception
             ErrorMessage(ex, 6805)
-
         End Try
         Return ser
     End Function
@@ -577,39 +532,11 @@ Module ModPrintCurve
             xlsWB.ActiveChart.Name = sheet
             With xlsWB.activechart
                 Dim NN As Integer
-                'If FrmCurveOptions.optFSPonly.Checked = True Or FrmCurveOptions.optFTPonly.Checked = True Then
                 NN = PresType
-                'If FrmCurveOptions.txtfanspd8.Visible = True Or FrmCurveOptions.txtgd8.Visible = True Then
-                '    ActiveChart.SeriesCollection(23 - NN).Delete
-                'End If
-                'If FrmCurveOptions.txtfanspd7.Visible = True Or FrmCurveOptions.txtgd7.Visible = True Then
-                '    ActiveChart.SeriesCollection(20 - NN).Delete
-                'End If
-                'If FrmCurveOptions.txtfanspd6.Visible = True Or FrmCurveOptions.txtgd6.Visible = True Then
-                '    ActiveChart.SeriesCollection(17 - NN).Delete
-                'End If
-                'If FrmCurveOptions.txtfanspd5.Visible = True Or FrmCurveOptions.txtgd5.Visible = True Then
-                '    ActiveChart.SeriesCollection(14 - NN).Delete
-                'End If
-                'If FrmCurveOptions.txtfanspd4.Visible = True Or FrmCurveOptions.txtgd4.Visible = True Then
-                '    ActiveChart.SeriesCollection(11 - NN).Delete
-                'End If
-                'If FrmCurveOptions.txtfanspd3.Visible = True Or FrmCurveOptions.txtgd3.Visible = True Then
-                '    ActiveChart.SeriesCollection(8 - NN).Delete
-                'End If
-                'If FrmCurveOptions.txtfanspd2.Visible = True Or FrmCurveOptions.txtgd2.Visible = True Then
-                '    ActiveChart.SeriesCollection(5 - NN).Delete
-                'End If
                 .SeriesCollection(2 - NN).Delete
-                'End If
-
             End With
-
         Catch ex As Exception
             ErrorMessage(ex, 6806)
         End Try
-
     End Sub
-
-
 End Module

@@ -1,5 +1,22 @@
 ﻿Module ModSuction
-    'Public atmos As Double
+    'Subroutines & Functions
+    'SuctionCorrection
+    'correct inlet pressure and density for suction
+
+    'InletDensity
+    'returns inlet density for known inlet pressure
+
+    'SuckVol
+    'not used
+
+    'GetAtmos
+    'set atmospheric pressure
+
+    'GetDensity1
+    'density conversion
+
+    'GetDensity2
+    'density conversion
 
     Public Sub SuctionCorrection(fsp, power, density)
         '---iterative method for calculating suction pressure and density
@@ -38,7 +55,6 @@
     Public Function InletDensity(fsp, density)
         InletDensity = 0.0
         '---returns the inlet density for a known inlet pressure
-        'Dim py, b3, b4, a4, k2, k3, k7, k8, k1, py2 As Double
         Dim py, b3, a4, k2, k3, k7, k8, k1 As Double
         Dim atmos As Double
         Try
@@ -68,24 +84,24 @@
         End Try
     End Function
 
-    Public Function SuckVol(Volume, pressure)
-        SuckVol = 0.0
-        Try
-            Dim atmos As Double
-            If Volume = 0 Then
-                Volume = 0.001
-            End If
+    'Public Function SuckVol(Volume, pressure)
+    '    SuckVol = 0.0
+    '    Try
+    '        Dim atmos As Double
+    '        If Volume = 0 Then
+    '            Volume = 0.001
+    '        End If
 
-            atmos = GetAtmos()
+    '        atmos = GetAtmos()
 
-            Dim a, b As Double
-            a = ((atmos - pressure) * (Volume ^ 1.4)) / atmos
-            b = (Math.Log(a)) / 1.4
-            SuckVol = Math.Exp(b)
-        Catch ex As Exception
-            ErrorMessage(ex, 6103)
-        End Try
-    End Function
+    '        Dim a, b As Double
+    '        a = ((atmos - pressure) * (Volume ^ 1.4)) / atmos
+    '        b = (Math.Log(a)) / 1.4
+    '        SuckVol = Math.Exp(b)
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 6103)
+    '    End Try
+    'End Function
 
     Function GetAtmos() As Double
         GetAtmos = 0.0

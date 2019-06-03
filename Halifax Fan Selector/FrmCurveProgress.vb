@@ -1,3 +1,3 @@
-﻿Public Class Form5
+﻿Public Class frmDocumentProgress
 
 End Class

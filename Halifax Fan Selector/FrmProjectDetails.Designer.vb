@@ -47,30 +47,30 @@ Partial Class FrmProjectDetails
         '
         'TxtCustomer
         '
-        resources.ApplyResources(Me.TxtCustomer, "TxtCustomer")
         Me.TxtCustomer.BackColor = System.Drawing.SystemColors.HighlightText
+        resources.ApplyResources(Me.TxtCustomer, "TxtCustomer")
         Me.TxtCustomer.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.TxtCustomer.Name = "TxtCustomer"
         '
         'TxtEngineer
         '
-        resources.ApplyResources(Me.TxtEngineer, "TxtEngineer")
         Me.TxtEngineer.BackColor = System.Drawing.SystemColors.HighlightText
+        resources.ApplyResources(Me.TxtEngineer, "TxtEngineer")
         Me.TxtEngineer.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.TxtEngineer.Name = "TxtEngineer"
         '
         'BtnCancel
         '
-        resources.ApplyResources(Me.BtnCancel, "BtnCancel")
         Me.BtnCancel.BackColor = System.Drawing.SystemColors.MenuHighlight
+        resources.ApplyResources(Me.BtnCancel, "BtnCancel")
         Me.BtnCancel.ForeColor = System.Drawing.Color.White
         Me.BtnCancel.Name = "BtnCancel"
         Me.BtnCancel.UseVisualStyleBackColor = False
         '
         'BtnExit
         '
-        resources.ApplyResources(Me.BtnExit, "BtnExit")
         Me.BtnExit.BackColor = System.Drawing.SystemColors.MenuHighlight
+        resources.ApplyResources(Me.BtnExit, "BtnExit")
         Me.BtnExit.ForeColor = System.Drawing.Color.White
         Me.BtnExit.Name = "BtnExit"
         Me.BtnExit.UseVisualStyleBackColor = False

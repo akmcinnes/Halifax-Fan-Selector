@@ -1,4 +1,8 @@
 ﻿Module ModSizeAtFixedSpeed
+    'subroutines
+    'GetSizeAtfixedSpeed
+    'modifies curve points for fan diameters fixed speed 
+
     Public Sub GetSizeAtfixedSpeed(ByVal fanno As Integer)
         SizeAtFixedSpeed = 0.0
         Try
@@ -128,5 +132,4 @@
         End Try
         'Return GetSizeAtfixedSpeed
     End Sub
-
 End Module

@@ -7,13 +7,11 @@
         Dim GasMassFraction As Double
         Dim GasVolumeFraction As Double
         Dim GasMoleFraction As Double
-        'Dim GasDensityFraction As Double
     End Structure
 
     Public GasesIn(100) As Gas_Structure
     Public GasesOut(10) As Gas_Structure
 
-    'Public focuseditem As Integer
     Public gridrow As Integer
     Public gasnum As Integer
     Public maxgasnum As Integer

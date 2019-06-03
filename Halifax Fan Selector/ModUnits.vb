@@ -1,4 +1,14 @@
 ﻿Module ModUnits
+    'Subroutines
+    'SetUnits
+    'Sets options in form from unit structure
+
+    'SetUnitValues
+    'Sets units structure and labels to values from options in form
+
+    'SetUnitStructure
+    'Sets unit name and places for each unit parameter
+
     Public Sub SetUnits()
         Try
             'Flow
@@ -43,10 +53,8 @@
 
             'Set defaults
         Catch ex As Exception
-            'MsgBox("load")
             ErrorMessage(ex, 6201)
         End Try
-
     End Sub
 
     Public Sub SetUnitValues()
@@ -365,10 +373,8 @@
                     Units(i).UnitSelected = Units(i).UnitDefault
                 Next
             End If
-
         Catch ex As Exception
             ErrorMessage(ex, 6203)
         End Try
-
     End Sub
 End Module
