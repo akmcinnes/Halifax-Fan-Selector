@@ -150,13 +150,34 @@
                 Units(7).UnitSelected = 1
             End If
 
+            Dim aaaa As String
+
+            aaaa = Frmselectfan.GrpFlowRate.Text
+            If aaaa.Contains("(") Then aaaa = aaaa.Remove(aaaa.IndexOf("("))
+            aaaa = aaaa + " (" + Units(0).UnitName(Units(0).UnitSelected) + ")"
+            Frmselectfan.GrpFlowRate.Text = aaaa
+
+
+            aaaa = Frmselectfan.GrpDesignPressure.Text
+            If aaaa.Contains("(") Then aaaa = aaaa.Remove(aaaa.IndexOf("("))
+            aaaa = aaaa + " (" + Units(1).UnitName(Units(1).UnitSelected) + ")"
+            Frmselectfan.GrpDesignPressure.Text = aaaa
+
+
+            aaaa = Frmselectfan.GrpInletTemperature.Text
+            If aaaa.Contains("(") Then aaaa = aaaa.Remove(aaaa.IndexOf("("))
+            aaaa = aaaa + " (" + Units(2).UnitName(Units(2).UnitSelected) + ")"
+            Frmselectfan.GrpInletTemperature.Text = aaaa
+
+
+            aaaa = Frmselectfan.GrpInletDensity.Text
+            If aaaa.Contains("(") Then aaaa = aaaa.Remove(aaaa.IndexOf("("))
+            aaaa = aaaa + " (" + Units(3).UnitName(Units(3).UnitSelected) + ")"
+            Frmselectfan.GrpInletDensity.Text = aaaa
+
             Frmselectfan.LblFlowRateUnits.Text = Units(0).UnitName(Units(0).UnitSelected)
-            If Not Frmselectfan.GrpFlowRate.Text.Contains("(") Then Frmselectfan.GrpFlowRate.Text = Frmselectfan.GrpFlowRate.Text + " (" + Units(0).UnitName(Units(0).UnitSelected) + ")"
-            If Not Frmselectfan.GrpDesignPressure.Text.Contains("(") Then Frmselectfan.GrpDesignPressure.Text = Frmselectfan.GrpDesignPressure.Text + " (" + Units(1).UnitName(Units(1).UnitSelected) + ")"
             Frmselectfan.LblAtmosphericPressureUnits.Text = Units(1).UnitName(Units(1).UnitSelected)
-            If Not Frmselectfan.GrpInletTemperature.Text.Contains("(") Then Frmselectfan.GrpInletTemperature.Text = Frmselectfan.GrpInletTemperature.Text + " (" + Units(2).UnitName(Units(2).UnitSelected) + ")"
             Frmselectfan.LblAmbientTemperatureUnits.Text = Units(2).UnitName(Units(2).UnitSelected)
-            If Not Frmselectfan.GrpInletDensity.Text.Contains("(") Then Frmselectfan.GrpInletDensity.Text = Frmselectfan.GrpInletDensity.Text + " (" + Units(3).UnitName(Units(3).UnitSelected) + ")"
             Frmselectfan.LblLengthUnits.Text = Units(5).UnitName(Units(5).UnitSelected)
             Frmselectfan.LblAltitudeUnits.Text = Units(6).UnitName(Units(6).UnitSelected)
             Frmselectfan.lblAcousticFlowUnits.Text = Units(0).UnitName(Units(0).UnitSelected)

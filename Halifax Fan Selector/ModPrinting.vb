@@ -73,6 +73,8 @@ Module ModPrinting
             Frmselectfan.Cursor = Cursors.WaitCursor
             Dim MasterFile As String = TemplatesPathDefault + "Output Template v1.0.xlsx"
             Dim NewFileName As String
+            'Dim File2Change As String = OpenFileName
+            If OpenFileName = Nothing Then OpenFileName = SaveFileName
             NewFileName = OpenFileName.Replace(".hfs", ".xlsx")
             My.Computer.FileSystem.CopyFile(MasterFile, NewFileName, overwrite:=True)
             Dim filename_printout As String = NewFileName

@@ -3044,7 +3044,7 @@
     <value>79, 33</value>
   </data>
   <data name="CmbReserveHead.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="CmbReserveHead.Text" xml:space="preserve">
     <value>5%</value>
@@ -3530,7 +3530,7 @@
     <value>2</value>
   </data>
   <data name="GrpInletDensity.Text" xml:space="preserve">
-    <value>Inlet Density (kg/m³)</value>
+    <value>Inlet Density</value>
   </data>
   <data name="&gt;&gt;GrpInletDensity.Name" xml:space="preserve">
     <value>GrpInletDensity</value>

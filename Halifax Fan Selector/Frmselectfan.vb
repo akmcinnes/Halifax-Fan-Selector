@@ -708,7 +708,7 @@ Public Class Frmselectfan
             Yellow(TxtAtmosphericPressure)
 
             If move_on = True Then
-                SetUnitValues()
+                'SetUnitValues()
                 ambienttemp = CDbl(TxtAmbientTemperature.Text)
                 altitude = CDbl(TxtAltitude.Text)
                 humidity = CDbl(TxtHumidity.Text)
