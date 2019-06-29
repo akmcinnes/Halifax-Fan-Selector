@@ -47,6 +47,7 @@ Partial Class FrmFanChart
         Me.lblTitleHidden = New System.Windows.Forms.Label()
         Me.lblRunningAtHidden = New System.Windows.Forms.Label()
         Me.PrintPreviewDialog2 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -193,11 +194,18 @@ Partial Class FrmFanChart
         resources.ApplyResources(Me.PrintPreviewDialog2, "PrintPreviewDialog2")
         Me.PrintPreviewDialog2.Name = "PrintPreviewDialog2"
         '
+        'Button2
+        '
+        resources.ApplyResources(Me.Button2, "Button2")
+        Me.Button2.Name = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'FrmFanChart
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Halifax_Fan_Selector.My.Resources.Resources._0_faded1
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.lblRunningAtHidden)
         Me.Controls.Add(Me.lblTitleHidden)
         Me.Controls.Add(Me.lblPowerHidden)
@@ -244,4 +252,5 @@ Partial Class FrmFanChart
     Friend WithEvents lblTitleHidden As Label
     Friend WithEvents lblRunningAtHidden As Label
     Friend WithEvents PrintPreviewDialog2 As PrintPreviewDialog
+    Friend WithEvents Button2 As Button
 End Class

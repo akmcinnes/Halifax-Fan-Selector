@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkDamper.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btnContinue.Location" type="System.Drawing.Point, System.Drawing">
     <value>159, 75</value>
@@ -168,7 +168,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnContinue.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="optFSPonly.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -195,7 +195,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;optFSPonly.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="optFTPonly.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -222,7 +222,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;optFTPonly.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="optFSPandFTP.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -249,7 +249,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;optFSPandFTP.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="chkSystem.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -276,7 +276,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkSystem.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="txtNoSpeeds.Location" type="System.Drawing.Point, System.Drawing">
     <value>53, 455</value>
@@ -290,9 +290,6 @@
   <data name="txtNoSpeeds.Text" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="txtNoSpeeds.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;txtNoSpeeds.Name" xml:space="preserve">
     <value>txtNoSpeeds</value>
   </data>
@@ -303,7 +300,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtNoSpeeds.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txtNoDensities.Location" type="System.Drawing.Point, System.Drawing">
     <value>235, 455</value>
@@ -317,9 +314,6 @@
   <data name="txtNoDensities.Text" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="txtNoDensities.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;txtNoDensities.Name" xml:space="preserve">
     <value>txtNoDensities</value>
   </data>
@@ -330,7 +324,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtNoDensities.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="txtSpeed1.Location" type="System.Drawing.Point, System.Drawing">
     <value>77, 25</value>
@@ -1154,9 +1148,6 @@
   <data name="grpMultipleSpeeds.Text" xml:space="preserve">
     <value>Multiple Speeds</value>
   </data>
-  <data name="grpMultipleSpeeds.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;grpMultipleSpeeds.Name" xml:space="preserve">
     <value>grpMultipleSpeeds</value>
   </data>
@@ -1167,7 +1158,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpMultipleSpeeds.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="grpMultipleDensities.Location" type="System.Drawing.Point, System.Drawing">
     <value>210, 119</value>
@@ -1181,9 +1172,6 @@
   <data name="grpMultipleDensities.Text" xml:space="preserve">
     <value>Multiple Densities</value>
   </data>
-  <data name="grpMultipleDensities.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;grpMultipleDensities.Name" xml:space="preserve">
     <value>grpMultipleDensities</value>
   </data>
@@ -1194,6 +1182,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;grpMultipleDensities.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 75</value>
+  </data>
+  <data name="Button1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 32</value>
+  </data>
+  <data name="Button1.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="Button1.Text" xml:space="preserve">
+    <value>End (temp)</value>
+  </data>
+  <data name="&gt;&gt;Button1.Name" xml:space="preserve">
+    <value>Button1</value>
+  </data>
+  <data name="&gt;&gt;Button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -1203,7 +1215,7 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>447, 117</value>
+    <value>447, 401</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

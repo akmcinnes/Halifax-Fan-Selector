@@ -6,7 +6,7 @@
             Dim ErrMsg As String
             'ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
             'If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
-            ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + lang_dict(201) '"" '= "Error Number HF0x000" + Hex(1004).ToString
+            ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + lang_dict(PrintLanguage, 201) '"" '= "Error Number HF0x000" + Hex(1004).ToString
             'If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + lang_dict(201) '"" '= "Error Number HF0x000" + Hex(1004).ToString
             Select Case ErrNo
 'Sub errors 1000 to 1999

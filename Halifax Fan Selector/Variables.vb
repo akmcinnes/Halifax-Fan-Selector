@@ -15,8 +15,9 @@ Module Variables
     Public ProjectPathDefault As String ' = DataPathMain + "Projects\"
     Public TemplatesPathDefault As String ' = DataPathMain + "Templates\"
     Public DataPath As String
-    Public lang_dict(250) As String
-    Public lang_dictEN(250) As String
+    Public lang_dict(2, 250) As String
+    'Public lang_dictEN(250) As String
+    Public PrintLanguage As Integer
 
     Public FullFilePathtxt As String
 
@@ -24,6 +25,15 @@ Module Variables
     Public emailaddress As String
     Public phonenumber As String
     Public address As String
+
+    Public site_label(10) As String
+    Public site_name(10) As String
+    Public site_company(2, 10) As String
+    Public site_address(2, 10) As String
+    Public site_phone(10) As String
+    Public site_email(10) As String
+    Public site_website(10) As String
+
 
     Public headercompany As String
     Public headeraddress As String
@@ -44,6 +54,7 @@ Module Variables
     Public tstring As String
     Public cstring As String
     Public astring As String
+    Public wstring As String
 
     Public SelectDIDW As Boolean
     Public AccessCode As String
@@ -330,5 +341,10 @@ Module Variables
 
     Public IncludeDampers As Boolean
     Public IncludeSystem As Boolean
+
+    Public AddedDensities(8) As Double
+    Public AddedSpeeds(8) As Double
+    Public numspeeds As Integer
+    Public numdensities As Integer
 
 End Module

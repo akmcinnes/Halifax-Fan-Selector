@@ -17,6 +17,7 @@ Public Class FrmSettings
             If optShangai.Checked = True Then ChosenSite = 1
             If optShenzhen.Checked = True Then ChosenSite = 2
             If optXian.Checked = True Then ChosenSite = 3
+            If optOhio.Checked = True Then ChosenSite = 4
             If txtCode.Text = AccessCode Then
                 changed = False
             Else
@@ -57,6 +58,13 @@ Public Class FrmSettings
             Label2.Text = ""
             changed = False
             CenterToScreen()
+            'get site info
+            GetSites()
+            Me.optUK.Text = site_name(1)
+            Me.optShangai.Text = site_name(2)
+            Me.optShenzhen.Text = site_name(3)
+            Me.optXian.Text = site_name(4)
+            Me.optOhio.Text = site_name(5)
             txtUsername.Text = Environment.UserName
             lblCode.Text = GetUserCode()
             txtCode.Text = AccessCode
@@ -86,6 +94,8 @@ Public Class FrmSettings
                     optShenzhen.Checked = True
                 Case 3
                     optXian.Checked = True
+                Case 4
+                    optOhio.Checked = True
                 Case Else
                     optUK.Checked = True
             End Select

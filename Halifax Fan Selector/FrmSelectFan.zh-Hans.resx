@@ -891,56 +891,68 @@
   <data name="TabPageImpeller.Text" xml:space="preserve">
     <value>叶轮详细信息</value>
   </data>
-  <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
-  </data>
   <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
     <value>新项目</value>
   </data>
-  <data name="OpenProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
-  </data>
   <data name="OpenProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>打开项目</value>
-  </data>
-  <data name="SaveProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>保存项目</value>
   </data>
   <data name="AllPagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 26</value>
+    <value>190, 26</value>
   </data>
   <data name="AllPagesToolStripMenuItem.Text" xml:space="preserve">
     <value>所有页面</value>
   </data>
   <data name="PerformanceDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 26</value>
+    <value>190, 26</value>
   </data>
   <data name="PerformanceDetailsToolStripMenuItem.Text" xml:space="preserve">
     <value>性能详细</value>
   </data>
   <data name="AcousticsDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 26</value>
+    <value>190, 26</value>
   </data>
   <data name="AcousticsDetailsToolStripMenuItem.Text" xml:space="preserve">
     <value>声学细节</value>
   </data>
   <data name="PerformanceCurveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 26</value>
+    <value>190, 26</value>
   </data>
   <data name="PerformanceCurveToolStripMenuItem.Text" xml:space="preserve">
     <value>粉丝曲线</value>
   </data>
-  <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
+  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 6</value>
+  </data>
+  <data name="AllPages2ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 26</value>
+  </data>
+  <data name="AllPages2ToolStripMenuItem.Text" xml:space="preserve">
+    <value>所有页面 (英文)</value>
+  </data>
+  <data name="PerformanceDetails2ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 26</value>
+  </data>
+  <data name="PerformanceDetails2ToolStripMenuItem.Text" xml:space="preserve">
+    <value>性能详细 (英文)</value>
+  </data>
+  <data name="AcousticDetails2ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 26</value>
+  </data>
+  <data name="AcousticDetails2ToolStripMenuItem.Text" xml:space="preserve">
+    <value>声学细节 (英文)</value>
+  </data>
+  <data name="FanCurve2ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 26</value>
+  </data>
+  <data name="FanCurve2ToolStripMenuItem.Text" xml:space="preserve">
+    <value>粉丝曲线 (英文)</value>
   </data>
   <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
     <value>输出到文件</value>
-  </data>
-  <data name="ExitProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
   </data>
   <data name="ExitProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>退出项目</value>

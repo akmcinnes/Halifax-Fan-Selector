@@ -1,5 +1,21 @@
 ﻿Imports System.IO
 Public Class FrmFanChart
+
+    'Private Declare Function GetActiveWindow Lib "user32" Alias "GetActiveWindow" () As IntPtr
+
+    'Private Declare Function GetWindowRect Lib "user32" _
+    '            (ByVal hwnd As IntPtr,
+    '            ByRef lpRect As RECT) _
+    '            As Integer
+
+    'Private Structure RECT
+    '    Public Left As Integer
+    '    Public Top As Integer
+    '    Public Right As Integer
+    '    Public Bottom As Integer
+    'End Structure
+
+
     Public SeriesAdded As Boolean
     Private Sub FanChart_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
@@ -30,8 +46,11 @@ Public Class FrmFanChart
             Dim tempdesign(10) As String
             Dim filenameref As String = "FILENAME REF DATA"
             ReadReffromBinaryfile(filenameref)
+            Dim sizecon As Double
             For i = 0 To fantypesQTY - 1
-                If fanclass(i) = curvedesign And tempsize <= fansizelimit(i) Then Exit For
+                sizecon = 1.0
+                If fanunits(i) = "mm" Then sizecon = 25.4
+                If fanclass(i) = curvedesign And tempsize / sizecon <= fansizelimit(i) Then Exit For
             Next
             ReadfromBinaryfile(fantypefilename(i), 0)
             PlotStaticPVCurve()
@@ -621,5 +640,31 @@ Public Class FrmFanChart
         Catch ex As Exception
             ErrorMessage(ex, 20123)
         End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'Dim bm As New Bitmap(1037, 568)
+        'Dim g As Graphics = Graphics.FromImage(bm)
+        'g.CopyFromScreen(Me.Location, New Point(0, 0), New Size(1037, 568))
+        'bm.Save("C:\Halifax\Output Files\formgrab.bmp", Drawing.Imaging.ImageFormat.Bmp)
+
+
+        'Dim r As New RECT
+        'GetWindowRect(GetActiveWindow, r)
+        ''Dim img As New Bitmap(r.Right - r.Left, r.Bottom - r.Top)
+        'Dim img As New Bitmap(1037, 568)
+        'Dim gr As Graphics = Graphics.FromImage(img)
+        'gr.CopyFromScreen(New Point(r.Left, r.Top), Point.Empty, img.Size)
+        'img.Save("test.png")
+        'Process.Start("test.png")
+
+        'SendKeys.Send("%{PRTSC}")
+        'SendKeys.Send("%(PRTSC)") 'for Ctrl-C
+        'Then continue the normal way
+        'Dim Screenshot As Image = Clipboard.GetImage()
+
+        SendKeys.Send("%{PRTSC}")
+        Dim Screenshot As Image = Clipboard.GetImage()
+        Screenshot.Save("c:\Halifax\Output Files\ScreenShot.jpg", System.Drawing.Imaging.ImageFormat.Jpeg)
     End Sub
 End Class

@@ -23,8 +23,8 @@ Partial Class Frmselectfan
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Frmselectfan))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPageGeneral = New System.Windows.Forms.TabPage()
         Me.lblDisplayBoth = New System.Windows.Forms.Label()
@@ -261,6 +261,11 @@ Partial Class Frmselectfan
         Me.PerformanceDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AcousticsDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PerformanceCurveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AllPages2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PerformanceDetails2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AcousticDetails2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FanCurve2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProjectDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -1601,14 +1606,14 @@ Partial Class Frmselectfan
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToOrderColumns = True
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         resources.ApplyResources(Me.DataGridView1, "DataGridView1")
         Me.DataGridView1.Name = "DataGridView1"
@@ -1969,14 +1974,14 @@ Partial Class Frmselectfan
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.BackgroundColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         resources.ApplyResources(Me.DataGridView2, "DataGridView2")
         Me.DataGridView2.Name = "DataGridView2"
@@ -2041,7 +2046,7 @@ Partial Class Frmselectfan
         '
         'PrintToolStripMenuItem
         '
-        Me.PrintToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllPagesToolStripMenuItem, Me.PerformanceDetailsToolStripMenuItem, Me.AcousticsDetailsToolStripMenuItem, Me.PerformanceCurveToolStripMenuItem})
+        Me.PrintToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AllPagesToolStripMenuItem, Me.PerformanceDetailsToolStripMenuItem, Me.AcousticsDetailsToolStripMenuItem, Me.PerformanceCurveToolStripMenuItem, Me.ToolStripSeparator1, Me.AllPages2ToolStripMenuItem, Me.PerformanceDetails2ToolStripMenuItem, Me.AcousticDetails2ToolStripMenuItem, Me.FanCurve2ToolStripMenuItem})
         Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
         resources.ApplyResources(Me.PrintToolStripMenuItem, "PrintToolStripMenuItem")
         '
@@ -2064,6 +2069,31 @@ Partial Class Frmselectfan
         '
         Me.PerformanceCurveToolStripMenuItem.Name = "PerformanceCurveToolStripMenuItem"
         resources.ApplyResources(Me.PerformanceCurveToolStripMenuItem, "PerformanceCurveToolStripMenuItem")
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
+        '
+        'AllPages2ToolStripMenuItem
+        '
+        Me.AllPages2ToolStripMenuItem.Name = "AllPages2ToolStripMenuItem"
+        resources.ApplyResources(Me.AllPages2ToolStripMenuItem, "AllPages2ToolStripMenuItem")
+        '
+        'PerformanceDetails2ToolStripMenuItem
+        '
+        Me.PerformanceDetails2ToolStripMenuItem.Name = "PerformanceDetails2ToolStripMenuItem"
+        resources.ApplyResources(Me.PerformanceDetails2ToolStripMenuItem, "PerformanceDetails2ToolStripMenuItem")
+        '
+        'AcousticDetails2ToolStripMenuItem
+        '
+        Me.AcousticDetails2ToolStripMenuItem.Name = "AcousticDetails2ToolStripMenuItem"
+        resources.ApplyResources(Me.AcousticDetails2ToolStripMenuItem, "AcousticDetails2ToolStripMenuItem")
+        '
+        'FanCurve2ToolStripMenuItem
+        '
+        Me.FanCurve2ToolStripMenuItem.Name = "FanCurve2ToolStripMenuItem"
+        resources.ApplyResources(Me.FanCurve2ToolStripMenuItem, "FanCurve2ToolStripMenuItem")
         '
         'ExitProjectToolStripMenuItem
         '
@@ -2408,4 +2438,9 @@ Partial Class Frmselectfan
     Friend WithEvents btnNoiseDataBack As Button
     Friend WithEvents lblPhase2 As Label
     Friend WithEvents PerformanceCurveToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents AllPages2ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PerformanceDetails2ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents AcousticDetails2ToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents FanCurve2ToolStripMenuItem As ToolStripMenuItem
 End Class

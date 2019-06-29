@@ -93,14 +93,14 @@ Module ModPrinting
             Next
             Select Case PagesToPrint
                 Case 0 'all pages
-                    xlsWB.Worksheets("Performance").Activate
-                    PopulatePrintoutPerformance(xlsWB)
-                    xlsWB.Worksheets("Sound").Activate
-                    PopulatePrintoutSound(xlsWB)
                     xlsWB.Worksheets("Datapoints").Activate
                     PopulatePrintoutDatapoints(xlsWB)
                     xlsWB.Charts("Chart").Activate
                     PopulatePrintoutChart(xlsWB)
+                    xlsWB.Worksheets("Performance").Activate
+                    PopulatePrintoutPerformance(xlsWB)
+                    xlsWB.Worksheets("Sound").Activate
+                    PopulatePrintoutSound(xlsWB)
                 Case 1 'performance details
                     xlsWB.Worksheets("Performance").Activate
                     PopulatePrintoutPerformance(xlsWB)
@@ -162,14 +162,41 @@ Module ModPrinting
     '        xlsWB = xlsWorkBooks.Open(filename_lang_dict)
     '        Dim ii As Integer
     '        For ii = 1 To 250
-    '            lang_dict(ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 1).Value
-    '            lang_dictEN(ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 2).Value
+    '            lang_dict(1,ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 1).Value
+    '            lang_dict(2,ii) = xlsWB.Worksheets(ChosenLanguage).Cells(ii, 2).Value
     '        Next
     '        xlsWB.Close(SaveChanges:=False)
     '    Catch ex As Exception
     '        ErrorMessage(ex, 640399)
     '    End Try
     'End Sub
+    Public Sub GetSites()
+        Try
+            Dim filename_sites As String = DataPathDefault + "Site Addresses.bin"
+            Dim jj As Integer = 1
+            fs = New System.IO.FileStream(filename_sites, IO.FileMode.Open)
+            br = New System.IO.BinaryReader(fs)
+
+            br.BaseStream.Seek(0, IO.SeekOrigin.Begin)
+            For jj = 1 To 5 'count
+                site_label(jj) = br.ReadString()
+                site_name(jj) = br.ReadString()
+                site_company(1, jj) = br.ReadString()
+                site_company(2, jj) = br.ReadString()
+                site_address(1, jj) = br.ReadString()
+                site_address(2, jj) = br.ReadString()
+                site_phone(jj) = br.ReadString()
+                site_email(jj) = br.ReadString()
+                site_website(jj) = br.ReadString()
+                'Loop
+            Next
+            br.Close()
+        Catch ex As Exception
+        ErrorMessage(ex, 6403)
+        End Try
+
+    End Sub
+
     Public Sub getLanguageDictionary()
         Try
             ' read language dictionary
@@ -180,8 +207,8 @@ Module ModPrinting
 
             br.BaseStream.Seek(0, IO.SeekOrigin.Begin)
             For ii = 1 To 250
-                lang_dict(ii) = br.ReadString()
-                lang_dictEN(ii) = br.ReadString()
+                lang_dict(1, ii) = br.ReadString()
+                lang_dict(2, ii) = br.ReadString()
             Next
             br.Close()
         Catch ex As Exception
@@ -212,7 +239,7 @@ Module ModPrinting
             xlsWB.ActiveSheet.Name = sheet
             PlaceData(xlsWB, sheet, cstring, 1, 1, True,,,,,,, 11) 'company name
             PlaceData(xlsWB, sheet, astring, 2, 1,, True,,,,,, 8) 'company address
-            PlaceData(xlsWB, sheet, lang_dict(21), 3, 1,,,,,,,, 8) 'company
+            PlaceData(xlsWB, sheet, wstring, 3, 1,,,,,,,, 8) 'company
             PlaceData(xlsWB, sheet, estring, 4, 1,,,,,,,, 8, False) 'company email
             PlaceData(xlsWB, sheet, tstring, 4, 5,,,,,,,, 8, False) 'company phone
         Catch ex As Exception
@@ -223,9 +250,9 @@ Module ModPrinting
     Public Sub OutputFooterPO(xlsWB)
         Try
             xlsWB.ActiveSheet.Name = sheet
-            PlaceData(xlsWB, sheet, lang_dict(14) & " " & Engineer, 46, 1, ,,,,,,, 9) 'engineer
-            PlaceData(xlsWB, sheet, lang_dict(15) & " " & Date.Now.ToString("dd/MM/yyyy HH:mm"), 46, 10, ,,,,,,, 9) 'date
-            PlaceData(xlsWB, sheet, lang_dict(16), 47, 1, ,,,,,,, 7,, 1) 'legal bit
+            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 14) & " " & Engineer, 46, 1, ,,,,,,, 9) 'engineer
+            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 15) & " " & Date.Now.ToString("dd/MM/yyyy HH:mm"), 46, 10, ,,,,,,, 9) 'date
+            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 16), 47, 1, ,,,,,,, 7,, 1) 'legal bit
         Catch ex As Exception
             ErrorMessage(ex, 6406)
         End Try
@@ -237,7 +264,7 @@ Module ModPrinting
         Dim found As Boolean = False
         Try
             For i = 141 To 170
-                If final.fantypename = lang_dictEN(i) Then
+                If final.fantypename = lang_dict(2, i) Then
                     found = True
                     Exit For
                 End If
@@ -250,50 +277,68 @@ Module ModPrinting
                     With xlsWB.ActiveSheet
                         'title
                         If found = False Then
-                            PlaceData(xlsWB, sheet, lang_dict(75) & " " & final.fansize.ToString & " " & final.fantypename & " " & lang_dict(3) & didw, 7, 1, True,, True, 7, 1, 7, 16, 11,, 3) 'company name
+                            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 75) & " " & final.fansize.ToString & " " & final.fantypename & " " & lang_dict(PrintLanguage, 3) & didw, 7, 1, True,, True, 7, 1, 7, 16, 11,, 3) 'company name
                         Else
-                            PlaceData(xlsWB, sheet, lang_dict(75) & " " & final.fansize.ToString & " " & lang_dict(i) & " " & lang_dict(3) & didw, 7, 1, True,, True, 7, 1, 7, 16, 11,, 3) 'company name
+                            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 75) & " " & final.fansize.ToString & " " & lang_dict(PrintLanguage, i) & " " & lang_dict(PrintLanguage, 3) & didw, 7, 1, True,, True, 7, 1, 7, 16, 11,, 3) 'company name
                         End If
                         'duty point
-                        PlaceData(xlsWB, sheet, lang_dict(4), 8, 1, True)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 4), 8, 1, True)
                         'volume flow rate
-                        PlaceData(xlsWB, sheet, lang_dict(5), 9, 3)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 5), 9, 3)
                         PlaceData(xlsWB, sheet, final.vol, 9, 7)
                         PlaceData(xlsWB, sheet, Units(0).UnitName(Units(0).UnitSelected), 9, 8)
                         'fsp
-                        PlaceData(xlsWB, sheet, lang_dict(6), 10, 3)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 6), 10, 3)
                         PlaceData(xlsWB, sheet, final.fsp, 10, 7)
                         PlaceData(xlsWB, sheet, Units(1).UnitName(Units(1).UnitSelected), 10, 8)
                         'ftp
-                        PlaceData(xlsWB, sheet, lang_dict(7), 11, 3)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 7), 11, 3)
                         PlaceData(xlsWB, sheet, final.ftp, 11, 7)
                         PlaceData(xlsWB, sheet, Units(1).UnitName(Units(1).UnitSelected), 11, 8)
                         'fan speed
-                        PlaceData(xlsWB, sheet, lang_dict(8), 12, 3)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 8), 12, 3)
                         PlaceData(xlsWB, sheet, final.speed, 12, 7)
                         PlaceData(xlsWB, sheet, "RPM", 12, 8)
                         'gas density
-                        PlaceData(xlsWB, sheet, lang_dict(9), 13, 3)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 9), 13, 3)
                         PlaceData(xlsWB, sheet, knowndensity, 13, 7)
                         PlaceData(xlsWB, sheet, Units(3).UnitName(Units(3).UnitSelected), 13, 8)
                         'fan power
-                        PlaceData(xlsWB, sheet, lang_dict(10), 14, 3)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 10), 14, 3)
                         PlaceData(xlsWB, sheet, final.pow, 14, 7)
                         PlaceData(xlsWB, sheet, Units(4).UnitName(Units(4).UnitSelected), 14, 8)
                         'outlet velocity
-                        PlaceData(xlsWB, sheet, lang_dict(11), 9, 11)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 11), 9, 11)
                         PlaceData(xlsWB, sheet, final.ov, 9, 14)
                         PlaceData(xlsWB, sheet, Units(7).UnitName(Units(7).UnitSelected), 9, 15)
                         'fse
-                        PlaceData(xlsWB, sheet, lang_dict(12), 10, 11)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 12), 10, 11)
                         PlaceData(xlsWB, sheet, final.fse, 10, 14)
                         PlaceData(xlsWB, sheet, "%", 10, 15)
                         'fte
-                        PlaceData(xlsWB, sheet, lang_dict(13), 11, 11)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 13), 11, 11)
                         PlaceData(xlsWB, sheet, final.fte, 11, 14)
                         PlaceData(xlsWB, sheet, "%", 11, 15)
+                        'inlet dimensions
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 48), 12, 11)
+                        PlaceData(xlsWB, sheet, Math.Round(final.inletdia).ToString, 12, 14)
+                        PlaceData(xlsWB, sheet, Units(5).UnitName(Units(5).UnitSelected), 12, 15)
+                        ''outlet dimensions
+                        'If final.outletlen > 0 And final.outletwid > 0 Then
+                        '    PlaceData(xlsWB, sheet, lang_dict(PrintLanguage,52), 13, 11)
+                        '    PlaceData(xlsWB, sheet, Math.Round(final.outletlen).ToString & " x " & Math.Round(final.outletwid).ToString, 13, 13)
+                        '    PlaceData(xlsWB, sheet, Units(5).UnitName(Units(5).UnitSelected), 13, 15)
+                        'Else
+                        '    PlaceData(xlsWB, sheet, lang_dict(PrintLanguage,57), 13, 11)
+                        '    PlaceData(xlsWB, sheet, Math.Round(final.outletdia).ToString, 13, 14)
+                        '    PlaceData(xlsWB, sheet, Units(5).UnitName(Units(5).UnitSelected), 13, 15)
+                        'End If
+                        'outlet area
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 83), 13, 11)
+                        PlaceData(xlsWB, sheet, Math.Round(final.outletarea, 3).ToString, 13, 14)
+                        PlaceData(xlsWB, sheet, Units(8).UnitName(Units(8).UnitSelected), 13, 15)
                         'motor power
-                        PlaceData(xlsWB, sheet, lang_dict(82), 14, 11)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 82), 14, 11)
                         PlaceData(xlsWB, sheet, final.mot, 14, 14)
                         PlaceData(xlsWB, sheet, Units(4).UnitName(Units(4).UnitSelected), 14, 15)
                     End With
@@ -302,32 +347,32 @@ Module ModPrinting
                     With xlsWB.ActiveSheet
                         'title
                         If found = False Then
-                            PlaceData(xlsWB, sheet, lang_dict(34) & " " & final.fansize.ToString & " " & final.fantypename & " " & lang_dict(3) & didw, 7, 1, True,, True, 7, 1, 7, 16, 11,, 3) 'company name
+                            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 34) & " " & final.fansize.ToString & " " & final.fantypename & " " & lang_dict(PrintLanguage, 3) & didw, 7, 1, True,, True, 7, 1, 7, 16, 11,, 3) 'company name
                         Else
-                            PlaceData(xlsWB, sheet, lang_dict(34) & " " & final.fansize.ToString & " " & lang_dict(i) & " " & lang_dict(3) & didw, 7, 1, True,, True, 7, 1, 7, 16, 11,, 3) 'company name
+                            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 34) & " " & final.fansize.ToString & " " & lang_dict(PrintLanguage, i) & " " & lang_dict(PrintLanguage, 3) & didw, 7, 1, True,, True, 7, 1, 7, 16, 11,, 3) 'company name
                         End If
                         'duty point
-                        PlaceData(xlsWB, sheet, lang_dict(4), 8, 1, True)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 4), 8, 1, True)
                         'volume flow rate
-                        PlaceData(xlsWB, sheet, lang_dict(5), 9, 3)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 5), 9, 3)
                         PlaceData(xlsWB, sheet, final.vol, 9, 7)
                         PlaceData(xlsWB, sheet, Units(0).UnitName(Units(0).UnitSelected), 9, 8)
                         'fsp
                         If PresType = 0 Then
-                            PlaceData(xlsWB, sheet, lang_dict(6), 10, 3)
+                            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 6), 10, 3)
                             PlaceData(xlsWB, sheet, final.fsp, 10, 7)
                             PlaceData(xlsWB, sheet, Units(1).UnitName(Units(1).UnitSelected), 10, 8)
                         Else
-                            PlaceData(xlsWB, sheet, lang_dict(7), 10, 3)
+                            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 7), 10, 3)
                             PlaceData(xlsWB, sheet, final.ftp, 10, 7)
                             PlaceData(xlsWB, sheet, Units(1).UnitName(Units(1).UnitSelected), 10, 8)
                         End If
                         'gas density
-                        PlaceData(xlsWB, sheet, lang_dict(9), 9, 11)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 9), 9, 11)
                         PlaceData(xlsWB, sheet, knowndensity, 9, 14)
                         PlaceData(xlsWB, sheet, Units(3).UnitName(Units(3).UnitSelected), 9, 15)
                         'fan speed
-                        PlaceData(xlsWB, sheet, lang_dict(8), 10, 11)
+                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 8), 10, 11)
                         PlaceData(xlsWB, sheet, final.speed, 10, 14)
                         PlaceData(xlsWB, sheet, "RPM", 10, 15)
                     End With
@@ -387,8 +432,11 @@ Module ModPrinting
         Try
             Dim filenameref As String = "FILENAME REF DATA"
             ReadReffromBinaryfile(filenameref)
+            Dim sizecon As Double
             For i = 0 To fantypesQTY - 1
-                If fanclass(i) = final.fantype And final.fansize <= fansizelimit(i) Then Exit For
+                sizecon = 1.0
+                If fanunits(i) = "mm" Then sizecon = 25.4
+                If fanclass(i) = final.fantype And final.fansize / sizecon <= fansizelimit(i) Then Exit For
             Next
             'i = i + 1
             'Loop
@@ -443,33 +491,48 @@ Module ModPrinting
 
     Public Sub SiteDetails()
         Try
-            Select Case ChosenSite
-                Case 0
-                    cstring = lang_dict(17)
-                    astring = lang_dict(18)
-                    tstring = lang_dict(19)
-                    estring = lang_dict(20)
-                Case 1
-                    cstring = lang_dict(22)
-                    astring = lang_dict(23)
-                    tstring = lang_dict(24)
-                    estring = lang_dict(29)
-                Case 2
-                    cstring = lang_dict(22)
-                    astring = lang_dict(25)
-                    tstring = lang_dict(26)
-                    estring = lang_dict(29)
-                Case 3
-                    cstring = lang_dict(22)
-                    astring = lang_dict(27)
-                    tstring = lang_dict(28)
-                    estring = lang_dict(29)
-                Case Else
-                    cstring = lang_dict(17)
-                    astring = lang_dict(18)
-                    tstring = lang_dict(19)
-                    estring = lang_dict(20)
-            End Select
+            GetSites()
+            'Select Case ChosenSite
+            '    Case 0
+            '        cstring = lang_dict(PrintLanguage,17)
+            '        astring = lang_dict(PrintLanguage,18)
+            '        tstring = lang_dict(PrintLanguage,19)
+            '        estring = lang_dict(PrintLanguage,20)
+            '    Case 1
+            '        cstring = lang_dict(PrintLanguage,22)
+            '        astring = lang_dict(PrintLanguage,23)
+            '        tstring = lang_dict(PrintLanguage,24)
+            '        estring = lang_dict(PrintLanguage,29)
+            '    Case 2
+            '        cstring = lang_dict(PrintLanguage,22)
+            '        astring = lang_dict(PrintLanguage,25)
+            '        tstring = lang_dict(PrintLanguage,26)
+            '        estring = lang_dict(PrintLanguage,29)
+            '    Case 3
+            '        cstring = lang_dict(PrintLanguage,22)
+            '        astring = lang_dict(PrintLanguage,27)
+            '        tstring = lang_dict(PrintLanguage,28)
+            '        estring = lang_dict(PrintLanguage,29)
+            '    Case 4
+            '        cstring = lang_dict(PrintLanguage,22)
+            '        astring = lang_dict(PrintLanguage,27)
+            '        tstring = lang_dict(PrintLanguage,28)
+            '        estring = lang_dict(PrintLanguage,29)
+            '    Case Else
+            '        cstring = lang_dict(PrintLanguage,17)
+            '        astring = lang_dict(PrintLanguage,18)
+            '        tstring = lang_dict(PrintLanguage,19)
+            '        estring = lang_dict(PrintLanguage,20)
+            'End Select
+            'wstring = lang_dict(PrintLanguage,21)
+            Dim jj As Integer = ChosenSite + 1
+            Dim ii As Integer = PrintLanguage
+            If PrintLanguage = 1 And ChosenLanguage = "en-GB" Then ii = 2
+            cstring = site_company(ii, jj)
+            astring = site_address(ii, jj)
+            tstring = site_phone(jj)
+            estring = site_email(jj)
+            wstring = site_website(jj)
         Catch ex As Exception
             ErrorMessage(ex, 6413)
         End Try

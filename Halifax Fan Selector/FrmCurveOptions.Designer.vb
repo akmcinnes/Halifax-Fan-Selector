@@ -65,6 +65,7 @@ Partial Class FrmCurveOptions
         Me.optNoDensities1 = New System.Windows.Forms.RadioButton()
         Me.grpMultipleSpeeds = New System.Windows.Forms.GroupBox()
         Me.grpMultipleDensities = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.grpMultipleSpeeds.SuspendLayout()
         Me.grpMultipleDensities.SuspendLayout()
         Me.SuspendLayout()
@@ -358,10 +359,17 @@ Partial Class FrmCurveOptions
         Me.grpMultipleDensities.Name = "grpMultipleDensities"
         Me.grpMultipleDensities.TabStop = False
         '
+        'Button1
+        '
+        resources.ApplyResources(Me.Button1, "Button1")
+        Me.Button1.Name = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'FrmCurveOptions
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.grpMultipleDensities)
         Me.Controls.Add(Me.grpMultipleSpeeds)
         Me.Controls.Add(Me.txtNoDensities)
@@ -426,4 +434,5 @@ Partial Class FrmCurveOptions
     Friend WithEvents optNoDensities1 As RadioButton
     Friend WithEvents grpMultipleSpeeds As GroupBox
     Friend WithEvents grpMultipleDensities As GroupBox
+    Friend WithEvents Button1 As Button
 End Class

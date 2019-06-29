@@ -39,6 +39,7 @@ Partial Class FrmSettings
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.lblEmail = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.optOhio = New System.Windows.Forms.RadioButton()
         Me.optXian = New System.Windows.Forms.RadioButton()
         Me.optShenzhen = New System.Windows.Forms.RadioButton()
         Me.optShangai = New System.Windows.Forms.RadioButton()
@@ -129,6 +130,7 @@ Partial Class FrmSettings
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.optOhio)
         Me.GroupBox1.Controls.Add(Me.optXian)
         Me.GroupBox1.Controls.Add(Me.optShenzhen)
         Me.GroupBox1.Controls.Add(Me.optShangai)
@@ -136,6 +138,12 @@ Partial Class FrmSettings
         resources.ApplyResources(Me.GroupBox1, "GroupBox1")
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.TabStop = False
+        '
+        'optOhio
+        '
+        resources.ApplyResources(Me.optOhio, "optOhio")
+        Me.optOhio.Name = "optOhio"
+        Me.optOhio.UseVisualStyleBackColor = True
         '
         'optXian
         '
@@ -277,4 +285,5 @@ Partial Class FrmSettings
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
+    Friend WithEvents optOhio As RadioButton
 End Class

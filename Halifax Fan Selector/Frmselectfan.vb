@@ -46,6 +46,13 @@ Public Class Frmselectfan
             Initialize(True)
             chkCalcAtmos.Text = lblChkAtmosAlt.Text
             OptPowerBoth.Text = lblDisplayBoth.Text
+            If ChosenLanguage.Contains("zh") Then
+                ToolStripSeparator1.Visible = True
+                AllPages2ToolStripMenuItem.Visible = True
+                PerformanceDetails2ToolStripMenuItem.Visible = True
+                AcousticDetails2ToolStripMenuItem.Visible = True
+                FanCurve2ToolStripMenuItem.Visible = True
+            End If
         Catch ex As Exception
             ErrorMessage(ex, 20301)
         End Try
@@ -1097,6 +1104,7 @@ Public Class Frmselectfan
     ' Print Preview 
     Private Sub AllPagesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllPagesToolStripMenuItem.Click
         Try
+            PrintLanguage = 1
             CreateFile(0)
         Catch ex As Exception
             ErrorMessage(ex, 20384)
@@ -1105,6 +1113,7 @@ Public Class Frmselectfan
 
     Private Sub PerformanceDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceDetailsToolStripMenuItem.Click
         Try
+            PrintLanguage = 1
             CreateFile(1)
         Catch ex As Exception
             ErrorMessage(ex, 20385)
@@ -1113,12 +1122,58 @@ Public Class Frmselectfan
 
     Private Sub AcousticsDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcousticsDetailsToolStripMenuItem.Click
         Try
+            PrintLanguage = 1
             CreateFile(2)
         Catch ex As Exception
             ErrorMessage(ex, 20386)
         End Try
     End Sub
 
+    Private Sub PerformanceCurveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceCurveToolStripMenuItem.Click
+        Try
+            PrintLanguage = 1
+            CreateFile(3)
+        Catch ex As Exception
+            ErrorMessage(ex, 20391)
+        End Try
+    End Sub
+
+    Private Sub AllPages2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllPages2ToolStripMenuItem.Click
+        Try
+            PrintLanguage = 2
+            CreateFile(0)
+        Catch ex As Exception
+            ErrorMessage(ex, 20384)
+        End Try
+    End Sub
+
+    Private Sub PerformanceDetails2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceDetails2ToolStripMenuItem.Click
+        Try
+            PrintLanguage = 2
+            CreateFile(1)
+        Catch ex As Exception
+            ErrorMessage(ex, 20384)
+        End Try
+    End Sub
+
+    Private Sub AcousticDetails2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcousticDetails2ToolStripMenuItem.Click
+        Try
+            PrintLanguage = 2
+            CreateFile(2)
+        Catch ex As Exception
+            ErrorMessage(ex, 20384)
+        End Try
+    End Sub
+
+    Private Sub FanCurve2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FanCurve2ToolStripMenuItem.Click
+        Try
+            PrintLanguage = 2
+            CreateFile(3)
+        Catch ex As Exception
+            ErrorMessage(ex, 20384)
+        End Try
+
+    End Sub
     Private Sub TabPageFanParameters_Enter(sender As Object, e As EventArgs) Handles TabPageFanParameters.Enter
         Try
             Check_Leave_Duty()
@@ -1158,36 +1213,6 @@ Public Class Frmselectfan
         End Try
     End Sub
 
-    Private Sub PerformanceCurveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceCurveToolStripMenuItem.Click
-        Try
-            ' ### Prepare the thread Server ###
-            'Thread = New System.Threading.Thread(AddressOf Server)
-            'Thread.Start()
-            'Form5.Show()
-            ''While Temporary.A = 0
-            'Form5.Refresh()
-            'Form5.BringToFront()
-            '    System.Threading.Thread.Sleep(50)
-            '    Dim fs As New FileStream(DataPathDefault + "\State.txt", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
-            '    Dim sr As New StreamReader(fs)
-            '    Temporary.String1 = sr.ReadLine()
-            '    Temporary.String2 = sr.ReadLine()
-            '    sr.Close()
-            '    fs.Close()
-            '    Form5.ProgressBar1.Refresh()
-            '    Form5.ProgressBar1.Value = Temporary.String1
-            '    Form5.lblProgress.Text = Temporary.String2
-            '    'RunCheck2()
-            '    'Form5.Text = Form5.Text + " " + Version_Text()
-            CreateFile(3)
-            'End While
-            ' ### End of the thread ###
-            'Thread.Join()
-        Catch ex As Exception
-            ErrorMessage(ex, 20391)
-        End Try
-    End Sub
-
     Private Sub Optsucy_Click(sender As Object, e As EventArgs) Handles Optsucy.Click
         If Optsucy.Checked = True Then
             TxtInletPressure.Text = (-1.0 * Math.Abs(CDbl(TxtInletPressure.Text))).ToString
@@ -1195,4 +1220,5 @@ Public Class Frmselectfan
             TxtInletPressure.Text = Math.Abs(CDbl(TxtInletPressure.Text)).ToString
         End If
     End Sub
+
 End Class

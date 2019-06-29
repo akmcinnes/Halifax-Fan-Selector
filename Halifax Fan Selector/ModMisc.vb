@@ -42,36 +42,36 @@
         End Try
     End Sub
 
-    Public Function IntToByteArray(toBeConverted As Integer) As String
-        Dim result As Integer = 0
-        Try
-            If (toBeConverted >= 16 And toBeConverted < 32) Then
-                result = result + 10000
-                toBeConverted = toBeConverted - 16
-            End If
-            If (toBeConverted >= 8 And toBeConverted < 16) Then
-                result = result + 1000
-                toBeConverted = toBeConverted - 8
-            End If
-            If (toBeConverted >= 4 And toBeConverted < 8) Then
-                result = result + 100
-                toBeConverted = toBeConverted - 4
-            End If
-            If (toBeConverted >= 2 And toBeConverted < 4) Then
-                result = result + 10
-                toBeConverted = toBeConverted - 2
-            End If
-            If (toBeConverted >= 1 And toBeConverted < 2) Then
-                result = result + 1
-                toBeConverted = toBeConverted - 1
-            End If
-            Return result.ToString("0000")
+    'Public Function IntToByteArray(toBeConverted As Integer) As String
+    '    Dim result As Integer = 0
+    '    Try
+    '        If (toBeConverted >= 16 And toBeConverted < 32) Then
+    '            result = result + 10000
+    '            toBeConverted = toBeConverted - 16
+    '        End If
+    '        If (toBeConverted >= 8 And toBeConverted < 16) Then
+    '            result = result + 1000
+    '            toBeConverted = toBeConverted - 8
+    '        End If
+    '        If (toBeConverted >= 4 And toBeConverted < 8) Then
+    '            result = result + 100
+    '            toBeConverted = toBeConverted - 4
+    '        End If
+    '        If (toBeConverted >= 2 And toBeConverted < 4) Then
+    '            result = result + 10
+    '            toBeConverted = toBeConverted - 2
+    '        End If
+    '        If (toBeConverted >= 1 And toBeConverted < 2) Then
+    '            result = result + 1
+    '            toBeConverted = toBeConverted - 1
+    '        End If
+    '        Return result.ToString("0000")
 
-        Catch ex As Exception
-            ErrorMessage(ex, 5502)
-            Return result.ToString
-        End Try
-    End Function
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 5502)
+    '        Return result.ToString
+    '    End Try
+    'End Function
 
     Public Sub Yellow(Ctrl As System.Windows.Forms.TextBox, Optional MinValue As Double = 0.0)
         Try
@@ -92,16 +92,16 @@
         End Try
     End Sub
 
-    Public Sub Kill_Excel()
-        Dim Process1() As Process
-        Dim Process2 As New Process
-        Try
-            Process1 = Process.GetProcessesByName("Excel")
-            For Each Process2 In Process1
-                Process2.Kill()
-            Next
-        Catch ex As Exception
-            ErrorMessage(ex, 5504)
-        End Try
-    End Sub
+    'Public Sub Kill_Excel()
+    '    Dim Process1() As Process
+    '    Dim Process2 As New Process
+    '    Try
+    '        Process1 = Process.GetProcessesByName("Excel")
+    '        For Each Process2 In Process1
+    '            Process2.Kill()
+    '        Next
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 5504)
+    '    End Try
+    'End Sub
 End Module
