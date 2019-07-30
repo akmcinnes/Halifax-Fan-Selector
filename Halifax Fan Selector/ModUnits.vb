@@ -183,6 +183,7 @@
             Frmselectfan.lblAcousticFlowUnits.Text = Units(0).UnitName(Units(0).UnitSelected)
             Frmselectfan.lblAcousticFSPUnits.Text = Units(1).UnitName(Units(1).UnitSelected)
             Frmselectfan.lblAcousticFTPUnits.Text = Units(1).UnitName(Units(1).UnitSelected)
+            Frmselectfan.lblOutVelUnit.Text = Units(8).UnitName(Units(8).UnitSelected)
 
             If Units(0).UnitSelected < 4 Then
                 Frmselectfan.lblFlowType.Text = Frmselectfan.lblVolumeFlow.Text

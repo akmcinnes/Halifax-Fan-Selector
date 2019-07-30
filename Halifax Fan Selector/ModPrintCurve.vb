@@ -18,9 +18,16 @@ Module ModPrintCurve
     Sub PopulatePrintoutChart(xlsWB)
         Try
             Dim i As Integer
+            Dim ilang As Integer
+            If StandAlone = True Then
+                ilang = 1
+            Else
+                ilang = 2
+            End If
+
             Dim found As Boolean = False
             For i = 141 To 170
-                If final.fantypename = lang_dict(2, i) Then
+                If final.fantypename = lang_dict(ilang, i) Then '2
                     found = True
                     Exit For
                 End If
@@ -269,22 +276,39 @@ Module ModPrintCurve
                 .Shapes(si + 9).TextFrame.Characters.Font.bold = True
 
                 'textbox 11 - flow
-                .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 170, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 117) & vbTab & final.vol.ToString & " " & Units(0).UnitName(Units(0).UnitSelected)
+                If StandAlone Then SetPlaces(plotvol(Most_Eff_Pt), plotfsp(Most_Eff_Pt), plotpow(Most_Eff_Pt))
+                If StandAlone = True Then
+                    .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 170, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 117) & vbTab & Math.Round(plotvol(Most_Eff_Pt), voldecplaces).ToString & " " & Units(0).UnitName(Units(0).UnitSelected)
+                Else
+                    .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 170, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 117) & vbTab & final.vol.ToString & " " & Units(0).UnitName(Units(0).UnitSelected)
+                End If
                 .Shapes(si + 10).TextFrame.Characters.Font.Name = "Arial"
                 .Shapes(si + 10).TextFrame.Characters.Font.size = 9
 
                 'textbox 12 - pressure
                 If PresType = 0 Then
-                    .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 310, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 118) & vbTab & final.fsp.ToString & " " & Units(1).UnitName(Units(1).UnitSelected)
+                    If StandAlone = True Then
+                        .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 310, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 118) & vbTab & Math.Round(plotfsp(Most_Eff_Pt), pressplaceRise).ToString & " " & Units(1).UnitName(Units(1).UnitSelected)
+                    Else
+                        .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 310, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 118) & vbTab & final.fsp.ToString & " " & Units(1).UnitName(Units(1).UnitSelected)
+                    End If
                 End If
                 If PresType = 1 Then
-                    .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 310, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 119) & vbTab & final.fsp.ToString & " " & Units(1).UnitName(Units(1).UnitSelected)
+                    If StandAlone = True Then
+                        .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 310, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 119) & vbTab & Math.Round(plotftp(Most_Eff_Pt), pressplaceRise).ToString & " " & Units(1).UnitName(Units(1).UnitSelected)
+                    Else
+                        .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 310, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 119) & vbTab & final.ftp.ToString & " " & Units(1).UnitName(Units(1).UnitSelected)
+                    End If
                 End If
                 .Shapes(si + 11).TextFrame.Characters.Font.Name = "Arial"
                 .Shapes(si + 11).TextFrame.Characters.Font.size = 9
 
                 'TextBox 13 - power
-                .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 440, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 120) & vbTab & final.pow.ToString & " " & Units(4).UnitName(Units(4).UnitSelected)
+                If StandAlone = True Then
+                    .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 440, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 120) & vbTab & Math.Round(plotpow(Most_Eff_Pt), powerdecplaces).ToString & " " & Units(4).UnitName(Units(4).UnitSelected)
+                Else
+                    .Shapes.AddTextbox(Microsoft.Office.Core.MsoTextOrientation.msoTextOrientationHorizontal, 440, NN + 12, 150, 20).TextFrame.Characters.Text = lang_dict(PrintLanguage, 120) & vbTab & final.pow.ToString & " " & Units(4).UnitName(Units(4).UnitSelected)
+                End If
                 .Shapes(si + 12).TextFrame.Characters.Font.Name = "Arial"
                 .Shapes(si + 12).TextFrame.Characters.Font.size = 9
 
@@ -545,157 +569,172 @@ Module ModPrintCurve
     End Function
 
     Public Function ChartSpeeds(xlswb, ser)
-        For i = 1 To numspeeds
-            If i = 1 Then
-                ser = Charts2(xlswb, ser, 1, 9, 1, 1, i - 1)
-            End If
-            If i = 2 Then
-                ser = Charts2(xlswb, ser, 1, 9, 6, 41, i - 1)
-            End If
-            If i = 3 Then
-                ser = Charts2(xlswb, ser, 1, 44, 1, 49, i - 1)
-            End If
-            If i = 4 Then
-                ser = Charts2(xlswb, ser, 1, 44, 6, 10, i - 1)
-            End If
-            If i = 5 Then
-                ser = Charts2(xlswb, ser, 1, 79, 1, 26, i - 1)
-            End If
-            If i = 6 Then
-                ser = Charts2(xlswb, ser, 1, 79, 6, 3, i - 1)
-            End If
-            If i = 7 Then
-                ser = Charts2(xlswb, ser, 1, 114, 1, 54, i - 1)
-            End If
-            If i = 8 Then
-                ser = Charts2(xlswb, ser, 1, 114, 6, 56, i - 1)
-            End If
-        Next
-        Return ser
+        Try
+            For i = 1 To numspeeds
+                If i = 1 Then
+                    ser = Charts2(xlswb, ser, 1, 9, 1, 1, i - 1)
+                End If
+                If i = 2 Then
+                    ser = Charts2(xlswb, ser, 1, 9, 6, 41, i - 1)
+                End If
+                If i = 3 Then
+                    ser = Charts2(xlswb, ser, 1, 44, 1, 49, i - 1)
+                End If
+                If i = 4 Then
+                    ser = Charts2(xlswb, ser, 1, 44, 6, 10, i - 1)
+                End If
+                If i = 5 Then
+                    ser = Charts2(xlswb, ser, 1, 79, 1, 26, i - 1)
+                End If
+                If i = 6 Then
+                    ser = Charts2(xlswb, ser, 1, 79, 6, 3, i - 1)
+                End If
+                If i = 7 Then
+                    ser = Charts2(xlswb, ser, 1, 114, 1, 54, i - 1)
+                End If
+                If i = 8 Then
+                    ser = Charts2(xlswb, ser, 1, 114, 6, 56, i - 1)
+                End If
+            Next
+            Return ser
+        Catch ex As Exception
+            ErrorMessage(ex, 6806)
+            Return ser
+        End Try
     End Function
 
     Public Function ChartDensities(xlswb, ser)
-        For i = 1 To numdensities
-            If i = 1 Then
-                ser = Charts2(xlswb, ser, 2, 9, 1, 1, i - 1)
-            End If
-            If i = 2 Then
-                ser = Charts2(xlswb, ser, 2, 9, 6, 41, i - 1)
-            End If
-            If i = 3 Then
-                ser = Charts2(xlswb, ser, 2, 44, 1, 49, i - 1)
-            End If
-            If i = 4 Then
-                ser = Charts2(xlswb, ser, 2, 44, 6, 10, i - 1)
-            End If
-            If i = 5 Then
-                ser = Charts2(xlswb, ser, 2, 79, 1, 26, i - 1)
-            End If
-            If i = 6 Then
-                ser = Charts2(xlswb, ser, 2, 79, 6, 3, i - 1)
-            End If
-            If i = 7 Then
-                ser = Charts2(xlswb, ser, 2, 114, 1, 54, i - 1)
-            End If
-            If i = 8 Then
-                ser = Charts2(xlswb, ser, 2, 114, 6, 56, i - 1)
-            End If
-        Next
-        'With xlswb.ActiveChart
-        '    ser = ser + 1
-        '    .SeriesCollection.NewSeries
-        'End With
-        Return ser
+        Try
+            For i = 1 To numdensities
+                If i = 1 Then
+                    ser = Charts2(xlswb, ser, 2, 9, 1, 1, i - 1)
+                End If
+                If i = 2 Then
+                    ser = Charts2(xlswb, ser, 2, 9, 6, 41, i - 1)
+                End If
+                If i = 3 Then
+                    ser = Charts2(xlswb, ser, 2, 44, 1, 49, i - 1)
+                End If
+                If i = 4 Then
+                    ser = Charts2(xlswb, ser, 2, 44, 6, 10, i - 1)
+                End If
+                If i = 5 Then
+                    ser = Charts2(xlswb, ser, 2, 79, 1, 26, i - 1)
+                End If
+                If i = 6 Then
+                    ser = Charts2(xlswb, ser, 2, 79, 6, 3, i - 1)
+                End If
+                If i = 7 Then
+                    ser = Charts2(xlswb, ser, 2, 114, 1, 54, i - 1)
+                End If
+                If i = 8 Then
+                    ser = Charts2(xlswb, ser, 2, 114, 6, 56, i - 1)
+                End If
+            Next
+            'With xlswb.ActiveChart
+            '    ser = ser + 1
+            '    .SeriesCollection.NewSeries
+            'End With
+            Return ser
+        Catch ex As Exception
+            ErrorMessage(ex, 6807)
+            Return ser
+        End Try
     End Function
 
     Function Charts2(xlswb, ser, linelabel, row1, col1, color1, num) As Integer
-        Dim abcd() As String = {" ", "a", "b", "c", "d", "e", "f", "g", "h", "i"}
-        Dim DATASETS1 As Single
-        DATASETS1 = Num_Readings
-        count = 1
+        Try
+            Dim abcd() As String = {" ", "a", "b", "c", "d", "e", "f", "g", "h", "i"}
+            Dim DATASETS1 As Single
+            DATASETS1 = Num_Readings
+            count = 1
 
-        Do While count < DATASETS1
-            count = count + 1
-        Loop
-        With xlswb.ActiveChart
-            If FrmCurveOptions.optFSPonly.Checked = True Or FrmCurveOptions.optFSPandFTP.Checked = True Then
+            Do While count < DATASETS1
+                count = count + 1
+            Loop
+            With xlswb.ActiveChart
+                If FrmCurveOptions.optFSPonly.Checked = True Or FrmCurveOptions.optFSPandFTP.Checked = True Then
+                    ser = ser + 1
+                    .SeriesCollection.NewSeries
+                    .SeriesCollection(ser).XValues = "=Datapoints!" + abcd(col1) + row1.ToString + ":" + abcd(col1) + (row1 + Num_Readings).ToString
+                    .SeriesCollection(ser).Values = "=Datapoints!" + abcd(col1 + 1) + row1.ToString + ":" + abcd(col1 + 1) + (row1 + Num_Readings).ToString
+                    .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlPrimary
+                    .SeriesCollection(ser).Name = "FSP" ' & snme(2)
+                    .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
+                    .SeriesCollection(ser).Border.ColorIndex = color1
+                    .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
+                    With .SeriesCollection(ser).Points(1)
+                        .HasDataLabel = True
+                        'If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " " + AddedSpeeds(num).ToString '"Pressure " & snme(2)
+                        'If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " " + AddedDensities(num).ToString '"Pressure " & snme(2)
+                        If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " [" + AddedSpeeds(num).ToString + "RPM}]" '"Power " & snme(2)'snme(2) = "[" & frmcurveoptions.txtfanspd2.Value & " RPM]"
+                        If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " [" + AddedDensities(num).ToString + " " + Units(3).UnitName(Units(3).UnitSelected) + "]" '"Power " & snme(2)snme(1) = "[" & frmcurveoptions.txtgd1.Value & " Kg/m³]"
+                        .DataLabel.Font.Name = "Arial"
+                        .DataLabel.Font.size = 10
+                        .DataLabel.Font.Italic = True
+                        .DataLabel.Interior.ColorIndex = 2
+                        .DataLabel.Font.ColorIndex = color1
+                        .DataLabel.Top = .DataLabel.Top - 10
+                        .DataLabel.Left = .DataLabel.Left + 10
+                    End With
+                    .SeriesCollection(ser).HasLeaderLines = False
+                End If
+                If FrmCurveOptions.optFTPonly.Checked = True Or FrmCurveOptions.optFSPandFTP.Checked = True Then
+                    ser = ser + 1
+                    .SeriesCollection.NewSeries
+                    .SeriesCollection(ser).XValues = "=Datapoints!" + abcd(col1) + row1.ToString + ":" + abcd(col1) + (row1 + Num_Readings).ToString
+                    .SeriesCollection(ser).Values = "=Datapoints!" + abcd(col1 + 2) + row1.ToString + ":" + abcd(col1 + 2) + (row1 + Num_Readings).ToString
+                    .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlPrimary
+                    .SeriesCollection(ser).Name = "FTP" ' & snme(2)
+                    .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
+                    .SeriesCollection(ser).Border.ColorIndex = color1
+                    .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
+                    With .SeriesCollection(ser).Points(1)
+                        .HasDataLabel = True
+                        'If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " " + AddedSpeeds(num).ToString '"Pressure " & snme(2)
+                        'If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " " + AddedDensities(num).ToString '"Pressure " & snme(2)
+                        If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " [" + AddedSpeeds(num).ToString + "RPM}]" '"Power " & snme(2)'snme(2) = "[" & frmcurveoptions.txtfanspd2.Value & " RPM]"
+                        If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " [" + AddedDensities(num).ToString + " " + Units(3).UnitName(Units(3).UnitSelected) + "]" '"Power " & snme(2)snme(1) = "[" & frmcurveoptions.txtgd1.Value & " Kg/m³]"
+                        .DataLabel.Font.Name = "Arial"
+                        .DataLabel.Font.size = 10
+                        .DataLabel.Interior.ColorIndex = 2
+                        .DataLabel.Font.Italic = True
+                        .DataLabel.Font.ColorIndex = color1
+                        .DataLabel.Top = .DataLabel.Top - 10
+                        .DataLabel.Left = .DataLabel.Left + 10
+                    End With
+                    .SeriesCollection(ser).HasLeaderLines = False
+                End If
                 ser = ser + 1
                 .SeriesCollection.NewSeries
                 .SeriesCollection(ser).XValues = "=Datapoints!" + abcd(col1) + row1.ToString + ":" + abcd(col1) + (row1 + Num_Readings).ToString
-                .SeriesCollection(ser).Values = "=Datapoints!" + abcd(col1 + 1) + row1.ToString + ":" + abcd(col1 + 1) + (row1 + Num_Readings).ToString
-                .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlPrimary
-                .SeriesCollection(ser).Name = "FSP" ' & snme(2)
+                .SeriesCollection(ser).Values = "=Datapoints!" + abcd(col1 + 3) + row1.ToString + ":" + abcd(col1 + 3) + (row1 + Num_Readings).ToString
+                .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlSecondary
+                .SeriesCollection(ser).Name = "Power" ' & snme(2)
                 .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
                 .SeriesCollection(ser).Border.ColorIndex = color1
+                .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDash
                 .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                With .SeriesCollection(ser).Points(1)
+                'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1)
+                With .SeriesCollection(ser).Points(Num_Readings - 1)
                     .HasDataLabel = True
-                    'If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " " + AddedSpeeds(num).ToString '"Pressure " & snme(2)
-                    'If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " " + AddedDensities(num).ToString '"Pressure " & snme(2)
-                    If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " [" + AddedSpeeds(num).ToString + "RPM}]" '"Power " & snme(2)'snme(2) = "[" & frmcurveoptions.txtfanspd2.Value & " RPM]"
-                    If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " [" + AddedDensities(num).ToString + " " + Units(3).UnitName(Units(3).UnitSelected) + "]" '"Power " & snme(2)snme(1) = "[" & frmcurveoptions.txtgd1.Value & " Kg/m³]"
-                    .DataLabel.Font.Name = "Arial"
-                    .DataLabel.Font.size = 10
-                    .DataLabel.Font.Italic = True
-                    .DataLabel.Interior.ColorIndex = 2
-                    .DataLabel.Font.ColorIndex =
-                .DataLabel.Top = .DataLabel.Top - 10
-                    .DataLabel.Left = .DataLabel.Left + 10
-                End With
-                .SeriesCollection(ser).HasLeaderLines = False
-            End If
-            If FrmCurveOptions.optFTPonly.Checked = True Or FrmCurveOptions.optFSPandFTP.Checked = True Then
-                ser = ser + 1
-                .SeriesCollection.NewSeries
-                .SeriesCollection(ser).XValues = "=Datapoints!" + abcd(col1) + row1.ToString + ":" + abcd(col1) + (row1 + Num_Readings).ToString
-                .SeriesCollection(ser).Values = "=Datapoints!" + abcd(col1 + 2) + row1.ToString + ":" + abcd(col1 + 2) + (row1 + Num_Readings).ToString
-                .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlPrimary
-                .SeriesCollection(ser).Name = "FTP" ' & snme(2)
-                .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
-                .SeriesCollection(ser).Border.ColorIndex = color1
-                .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-                With .SeriesCollection(ser).Points(1)
-                    .HasDataLabel = True
-                    'If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " " + AddedSpeeds(num).ToString '"Pressure " & snme(2)
-                    'If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " " + AddedDensities(num).ToString '"Pressure " & snme(2)
-                    If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " [" + AddedSpeeds(num).ToString + "RPM}]" '"Power " & snme(2)'snme(2) = "[" & frmcurveoptions.txtfanspd2.Value & " RPM]"
-                    If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 124) + " [" + AddedDensities(num).ToString + " " + Units(3).UnitName(Units(3).UnitSelected) + "]" '"Power " & snme(2)snme(1) = "[" & frmcurveoptions.txtgd1.Value & " Kg/m³]"
+                    If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 120) + " [" + AddedSpeeds(num).ToString + "RPM}]" '"Power " & snme(2)'snme(2) = "[" & frmcurveoptions.txtfanspd2.Value & " RPM]"
+                    If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 120) + " [" + AddedDensities(num).ToString + " " + Units(3).UnitName(Units(3).UnitSelected) + "]" '"Power " & snme(2)snme(1) = "[" & frmcurveoptions.txtgd1.Value & " Kg/m³]"
                     .DataLabel.Font.Name = "Arial"
                     .DataLabel.Font.size = 10
                     .DataLabel.Interior.ColorIndex = 2
                     .DataLabel.Font.Italic = True
-                    .DataLabel.Font.ColorIndex = 41
+                    .DataLabel.Font.ColorIndex = color1
                     .DataLabel.Top = .DataLabel.Top - 10
-                    .DataLabel.Left = .DataLabel.Left + 10
+                    .DataLabel.Left = .DataLabel.Left - 20
                 End With
                 .SeriesCollection(ser).HasLeaderLines = False
-            End If
-            ser = ser + 1
-            .SeriesCollection.NewSeries
-            .SeriesCollection(ser).XValues = "=Datapoints!" + abcd(col1) + row1.ToString + ":" + abcd(col1) + (row1 + Num_Readings).ToString
-            .SeriesCollection(ser).Values = "=Datapoints!" + abcd(col1 + 3) + row1.ToString + ":" + abcd(col1 + 3) + (row1 + Num_Readings).ToString
-            .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlSecondary
-            .SeriesCollection(ser).Name = "Power" ' & snme(2)
-            .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleNone
-            .SeriesCollection(ser).Border.ColorIndex = color1
-            .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDash
-            .SeriesCollection(ser).Border.Weight = Excel.XlBorderWeight.xlThin
-            'With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1)
-            With .SeriesCollection(ser).Points(Num_Readings - 1)
-                .HasDataLabel = True
-                If linelabel = 1 Then .DataLabel.Text = lang_dict(PrintLanguage, 120) + " [" + AddedSpeeds(num).ToString + "RPM}]" '"Power " & snme(2)'snme(2) = "[" & frmcurveoptions.txtfanspd2.Value & " RPM]"
-                If linelabel = 2 Then .DataLabel.Text = lang_dict(PrintLanguage, 120) + " [" + AddedDensities(num).ToString + " " + Units(3).UnitName(Units(3).UnitSelected) + "]" '"Power " & snme(2)snme(1) = "[" & frmcurveoptions.txtgd1.Value & " Kg/m³]"
-                .DataLabel.Font.Name = "Arial"
-                .DataLabel.Font.size = 10
-                .DataLabel.Interior.ColorIndex = 2
-                .DataLabel.Font.Italic = True
-                .DataLabel.Font.ColorIndex = color1
-                .DataLabel.Top = .DataLabel.Top - 10
-                .DataLabel.Left = .DataLabel.Left - 20
             End With
-            .SeriesCollection(ser).HasLeaderLines = False
-        End With
-        Return ser
+            Return ser
+        Catch ex As Exception
+            ErrorMessage(ex, 6808)
+            Return ser
+        End Try
     End Function
 
     'Function Charts3()
@@ -1134,7 +1173,7 @@ Module ModPrintCurve
                 .SeriesCollection(2 - NN).Delete
             End With
         Catch ex As Exception
-            ErrorMessage(ex, 6806)
+            ErrorMessage(ex, 6809)
         End Try
     End Sub
 End Module

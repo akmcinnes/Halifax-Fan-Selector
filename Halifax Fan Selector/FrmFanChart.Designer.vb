@@ -22,8 +22,8 @@ Partial Class FrmFanChart
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmFanChart))
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.btnClose = New System.Windows.Forms.Button()
@@ -54,13 +54,13 @@ Partial Class FrmFanChart
         'Chart1
         '
         Me.Chart1.BackColor = System.Drawing.SystemColors.MenuHighlight
-        ChartArea1.AxisX.Title = "VOLUME"
-        ChartArea1.AxisY.Title = "PRESSURE"
-        ChartArea1.AxisY2.Title = "POWER"
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        ChartArea3.AxisX.Title = "VOLUME"
+        ChartArea3.AxisY.Title = "PRESSURE"
+        ChartArea3.AxisY2.Title = "POWER"
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend3)
         resources.ApplyResources(Me.Chart1, "Chart1")
         Me.Chart1.Name = "Chart1"
         '
@@ -223,6 +223,8 @@ Partial Class FrmFanChart
         Me.Controls.Add(Me.ChkStaticPressureCurve)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.Chart1)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmFanChart"
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

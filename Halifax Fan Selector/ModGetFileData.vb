@@ -16,16 +16,43 @@
                     fantypesecfilename(j) = br.ReadString()
                     fanunits(j) = br.ReadString()
                     fanwidthing(j) = br.ReadBoolean()
-                    fancurved(j) = br.ReadBoolean()
+                    'fancurved(j) = br.ReadBoolean()
+                    'faninclined(j) = br.ReadBoolean()
+                    'fanplastic(j) = br.ReadBoolean()
+                    'fanother(j) = br.ReadBoolean()
+
+                    fanwide(j) = br.ReadBoolean()
+                    fanmedium(j) = br.ReadBoolean()
+                    fannarrow(j) = br.ReadBoolean()
+                    fanhighpressure(j) = br.ReadBoolean()
                     faninclined(j) = br.ReadBoolean()
+                    fancurved(j) = br.ReadBoolean()
+                    fanpaddle(j) = br.ReadBoolean()
+                    fanradial(j) = br.ReadBoolean()
                     fanplastic(j) = br.ReadBoolean()
                     fanother(j) = br.ReadBoolean()
-                    If Not (Frmselectfan.ChkCurveBlade.Checked = True And fancurved(j) = True Or
+
+                    'If Not (Frmselectfan.ChkCurveBlade.Checked = True And fancurved(j) = True Or
+                    '    Frmselectfan.ChkInclineBlade.Checked = True And faninclined(j) = True Or
+                    '    Frmselectfan.ChkPlasticFan.Checked = True And fanplastic(j) = True Or
+                    '    Frmselectfan.ChkOtherFanType.Checked = True And fanother(j) = True) Then
+                    '    j = j - 1
+                    'End If
+                    If OpenFromToolStrip = False Then
+                        If Not (Frmselectfan.chkWide.Checked = True And fanwide(j) = True Or
+                        Frmselectfan.chkMedium.Checked = True And fanmedium(j) = True Or
+                        Frmselectfan.chkNarrow.Checked = True And fannarrow(j) = True Or
+                        Frmselectfan.chkHighPressure.Checked = True And fanhighpressure(j) = True Or
+                        Frmselectfan.ChkCurveBlade.Checked = True And fancurved(j) = True Or
                         Frmselectfan.ChkInclineBlade.Checked = True And faninclined(j) = True Or
                         Frmselectfan.ChkPlasticFan.Checked = True And fanplastic(j) = True Or
+                        Frmselectfan.chkPaddleBlade.Checked = True And fanpaddle(j) = True Or
+                        Frmselectfan.chkRadialBlade.Checked = True And fanradial(j) = True Or
                         Frmselectfan.ChkOtherFanType.Checked = True And fanother(j) = True) Then
-                        j = j - 1
+                            j = j - 1
+                        End If
                     End If
+
                     'End If
                 Next
             Catch ex As Exception

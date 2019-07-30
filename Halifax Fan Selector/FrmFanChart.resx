@@ -1075,6 +1075,9 @@
   <data name="Button2.Text" xml:space="preserve">
     <value>Button2</value>
   </data>
+  <data name="Button2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;Button2.Name" xml:space="preserve">
     <value>Button2</value>
   </data>

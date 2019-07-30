@@ -117,62 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblWelcome.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 188</value>
-  </data>
-  <data name="lblWelcome.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 59</value>
-  </data>
-  <data name="lblWelcome.Text" xml:space="preserve">
-    <value>欢迎来到</value>
-  </data>
-  <data name="lblToThe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 243</value>
-  </data>
-  <data name="lblToThe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 59</value>
-  </data>
-  <data name="lblToThe.Text" xml:space="preserve">
-    <value>哈利法克斯</value>
-  </data>
-  <data name="lblHalifaxFanSelector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 307</value>
-  </data>
-  <data name="lblHalifaxFanSelector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 54</value>
-  </data>
-  <data name="lblHalifaxFanSelector.Text" xml:space="preserve">
-    <value>风机选型软件</value>
-  </data>
-  <data name="btnContinue.Text" xml:space="preserve">
-    <value>继续  &gt;&gt;</value>
-  </data>
-  <data name="btnExit.Text" xml:space="preserve">
-    <value>退出</value>
-  </data>
-  <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 157</value>
-  </data>
-  <data name="txtUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 150</value>
-  </data>
-  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 392</value>
-  </data>
-  <data name="btnSettings.Text" xml:space="preserve">
-    <value>设置默认值</value>
-  </data>
-  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 22</value>
-  </data>
-  <data name="chkAdvancedUser.Text" xml:space="preserve">
-    <value>高级用户</value>
-  </data>
-  <data name="grpLanguage.Text" xml:space="preserve">
-    <value>选择语言</value>
-  </data>
-  <data name="btnCurveOutput.Text" xml:space="preserve">
-    <value>曲线输出 &gt;&gt;</value>
-  </data>
+  <metadata name="cmbLengthUnits.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cmbPowerUnits.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cmbDensityUnits.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cmbPressureUnits.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

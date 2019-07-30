@@ -43,13 +43,19 @@ Public Class FrmSettings
             '#########################################################
             codecheck = CalculateUserCode()
             If codecheck >= 1 Then
+                Select Case codecheck
+                    Case 1
+                        AdvancedUser = False
+                    Case 2
+                        AdvancedUser = True
+                End Select
                 FrmStart.Show()
                 Me.Close()
             Else
                 End
             End If
         Catch ex As Exception
-            ErrorMessage(ex, 20401)
+            ErrorMessage(ex, 20451)
         End Try
     End Sub
 
@@ -70,13 +76,13 @@ Public Class FrmSettings
             txtCode.Text = AccessCode
             codecheck = CalculateUserCode()
             Label2.Text = ""
-            If codecheck = -1 Then
-                Label2.Text = Label3.Text + " " + lblCode.Text + " " + Label5.Text
-            ElseIf codecheck = 0 Then
-                Label2.Text = Label4.Text + " " + lblCode.Text + " " + Label5.Text
-                Label2.ForeColor = Color.Red
-            Else
-            End If
+            Select Case codecheck
+                Case -1
+                    Label2.Text = Label3.Text + " " + lblCode.Text + " " + Label5.Text
+                Case 0
+                    Label2.Text = Label4.Text + " " + lblCode.Text + " " + Label5.Text
+                    Label2.ForeColor = Color.Red
+            End Select
             DataPath_main = GetFromINI("Settings", "Halifax Root Folder", SystemDrive + "\Halifax\", ini_path)
             ChosenLanguage = GetFromINI("Settings", "Language", "en-GB", ini_path)
             ChosenSite = GetFromINI("Settings", "Site", "0", ini_path)
@@ -84,7 +90,8 @@ Public Class FrmSettings
             grpLanguage.Visible = True
             If ChosenLanguage = "zh-CN" Then optChinese.Checked = True
             If ChosenLanguage = "en-GB" Then optEnglish.Checked = True
-            chkAdvancedUser.Checked = False
+            'chkAdvancedUser.Checked = False
+            AdvancedUser = False
             Select Case ChosenSite
                 Case 0
                     optUK.Checked = True
@@ -100,7 +107,7 @@ Public Class FrmSettings
                     optUK.Checked = True
             End Select
         Catch ex As Exception
-            ErrorMessage(ex, 20402)
+            ErrorMessage(ex, 20452)
         End Try
     End Sub
 
@@ -115,7 +122,7 @@ Public Class FrmSettings
             If optEnglish.Checked Then ApplyLocale(ChosenLanguage)
             CodeMessage()
         Catch ex As Exception
-            ErrorMessage(ex, 20403)
+            ErrorMessage(ex, 20453)
         End Try
     End Sub
 
@@ -130,7 +137,7 @@ Public Class FrmSettings
             If optChinese.Checked Then ApplyLocale(ChosenLanguage)
             CodeMessage()
         Catch ex As Exception
-            ErrorMessage(ex, 20404)
+            ErrorMessage(ex, 20454)
         End Try
     End Sub
 
@@ -148,7 +155,7 @@ Public Class FrmSettings
             Dim resource_manager As New ResourceManager("Localized.FrmSettings", Me.GetType.Assembly)
             grpLanguage.Visible = True
         Catch ex As Exception
-            ErrorMessage(ex, 20405)
+            ErrorMessage(ex, 20455)
         End Try
     End Sub
 
@@ -159,7 +166,7 @@ Public Class FrmSettings
                 ApplyLocaleToControl(child, component_resource_manager, culture_info)
             Next child
         Catch ex As Exception
-            ErrorMessage(ex, 20406)
+            ErrorMessage(ex, 20456)
         End Try
     End Sub
 
@@ -174,7 +181,7 @@ Public Class FrmSettings
             Label1.Text = "Data Path - " + DataPath
             Label1.ForeColor = Color.White
         Catch ex As Exception
-            ErrorMessage(ex, 20407)
+            ErrorMessage(ex, 20457)
         End Try
     End Sub
 
@@ -185,7 +192,7 @@ Public Class FrmSettings
             SetupPage.ShowDialog()
             pagesize = SetupPage.PageSettings.PaperSize.PaperName
         Catch ex As Exception
-            ErrorMessage(ex, 20408)
+            ErrorMessage(ex, 20458)
         End Try
     End Sub
 
@@ -193,27 +200,35 @@ Public Class FrmSettings
         Try
             username = txtUsername.Text
         Catch ex As Exception
-            ErrorMessage(ex, 20409)
+            ErrorMessage(ex, 20459)
         End Try
     End Sub
 
     Private Sub txtCode_TextChanged(sender As Object, e As EventArgs) Handles txtCode.TextChanged
-        AccessCode = txtCode.Text
-        CodeMessage()
+        Try
+            AccessCode = txtCode.Text
+            CodeMessage()
+        Catch ex As Exception
+            ErrorMessage(ex, 20460)
+        End Try
     End Sub
 
     Private Sub CodeMessage()
-        codecheck = CalculateUserCode()
-        Dim codemessage As String = GetUserCode().ToString
-        If codecheck = -1 Then
-            Label2.Text = Label3.Text + " " + codemessage + " " + Label5.Text
-            Label2.ForeColor = Color.Yellow
-        ElseIf codecheck = 0 Then
-            Label2.Text = Label4.Text + " " + codemessage + " " + Label5.Text
-            Label2.ForeColor = Color.Red
-        Else
-            Label2.Text = Label6.Text
-            Label2.ForeColor = Color.White
-        End If
+        Try
+            codecheck = CalculateUserCode()
+            Dim codemessage As String = GetUserCode().ToString
+            If codecheck = -1 Then
+                Label2.Text = Label3.Text + " " + codemessage + " " + Label5.Text
+                Label2.ForeColor = Color.Yellow
+            ElseIf codecheck = 0 Then
+                Label2.Text = Label4.Text + " " + codemessage + " " + Label5.Text
+                Label2.ForeColor = Color.Red
+            Else
+                Label2.Text = Label6.Text
+                Label2.ForeColor = Color.White
+            End If
+        Catch ex As Exception
+            ErrorMessage(ex, 20461)
+        End Try
     End Sub
 End Class

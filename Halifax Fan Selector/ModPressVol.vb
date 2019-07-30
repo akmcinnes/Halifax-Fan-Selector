@@ -81,6 +81,7 @@
             selected(fanno).mot2 = Math.Round(selected(fanno).mot2, 2)
 
             selected(fanno).fanindex = fanno
+            selected(fanno).mosteffpoint = medpoint(fanno)
 
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint3) - fse(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))

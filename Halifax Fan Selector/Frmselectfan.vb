@@ -125,7 +125,7 @@ Public Class Frmselectfan
 
     Private Sub SaveProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveProjectToolStripMenuItem.Click
         Try
-            SaveProjectFile()
+            SaveProjectFile(True)
         Catch ex As Exception
             ErrorMessage(ex, 20306)
         End Try
@@ -141,8 +141,10 @@ Public Class Frmselectfan
             OpenFileName = OpenFileDialog1.FileName
             If OpenFileName = "" Then Exit Sub
             ReadProjectFile(OpenFileName)
+            OpenFromToolStrip = True
 
-            Me.Text = DefaultHeader + " (" + OpenFileDialog1.SafeFileName + " Selected)"
+            'Me.Text = DefaultHeader + " (" + OpenFileDialog1.SafeFileName + " Selected)"
+            Me.Text = DefaultHeader + " (" + OpenFileDialog1.SafeFileName + " " + lang_dict(1, 31) + ")"
         Catch ex As Exception
             ErrorMessage(ex, 20307)
         End Try
@@ -209,9 +211,21 @@ Public Class Frmselectfan
     Private Sub TabPageSelection_Enter(sender As Object, e As EventArgs) Handles TabPageSelection.Enter
         Try
             Flag(3) = True
-            If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then Label13.Visible = True
-            If ChkCurveBlade.Checked = False And ChkInclineBlade.Checked = False And ChkOtherFanType.Checked = False And ChkPlasticFan.Checked = False Then
-                MsgBox("Please select at least one fan blade design", vbOKOnly + vbInformation)
+            'If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then Label13.Visible = True
+            '#If DEBUG Then
+            '            Label13.Visible = True
+            '#End If
+            If chkWide.Checked = False And
+                chkMedium.Checked = False And
+                chkNarrow.Checked = False And
+                chkHighPressure.Checked = False And
+                ChkCurveBlade.Checked = False And
+                ChkInclineBlade.Checked = False And
+                ChkOtherFanType.Checked = False And
+                ChkPlasticFan.Checked = False And
+                chkPaddleBlade.Checked = False And
+                chkRadialBlade.Checked = False Then
+                MsgBox(Label21.Text, vbOKOnly + vbInformation, "")
                 Exit Sub
             End If
             failindex = -1
@@ -340,12 +354,16 @@ Public Class Frmselectfan
     End Sub
 
     Private Sub PrintToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintToolStripMenuItem.Click
-        Try
-            Dim PrintDialog1 As PrintDialog = New PrintDialog()
-            PrintDialog1.ShowDialog()
-        Catch ex As Exception
-            ErrorMessage(ex, 20322)
-        End Try
+        'Try
+        '    If OpenFileName = "" And SaveFileName = "" Then
+        '        MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+        '        Exit Sub
+        '    End If
+        '    Dim PrintDialog1 As PrintDialog = New PrintDialog()
+        '    PrintDialog1.ShowDialog()
+        'Catch ex As Exception
+        '    ErrorMessage(ex, 20322)
+        'End Try
     End Sub
 
     Private Sub btnCalculateDensity_Click(sender As Object, e As EventArgs) Handles btnCalculateDensity.Click
@@ -455,9 +473,22 @@ Public Class Frmselectfan
     Private Sub btnFanSelectionsForward_Click(sender As Object, e As EventArgs) Handles btnFanSelectionsForward.Click
         Try
             Flag(3) = True
-            If ChkCurveBlade.Checked = False And ChkInclineBlade.Checked = False And ChkOtherFanType.Checked = False And ChkPlasticFan.Checked = False Then
-                MsgBox("Please select at least one fan blade design", vbOKOnly + vbInformation)
+            If chkWide.Checked = False And
+                chkMedium.Checked = False And
+                chkNarrow.Checked = False And
+                chkHighPressure.Checked = False And
+                ChkCurveBlade.Checked = False And
+                ChkInclineBlade.Checked = False And
+                ChkOtherFanType.Checked = False And
+                ChkPlasticFan.Checked = False And
+                chkPaddleBlade.Checked = False And
+                chkRadialBlade.Checked = False Then
+                MsgBox(Label21.Text, vbOKOnly + vbInformation, "")
                 Exit Sub
+            End If
+            If AdvancedUser = True Then
+                chkDisplayAllResHead.Checked = True
+                chkDisplayLowerEff.Checked = True
             End If
             failindex = -1
             maxspeed = CDbl(Txtspeedlimit.Text)
@@ -733,6 +764,7 @@ Public Class Frmselectfan
                 If CDbl(Txtdens.Text) > 0.0 Then
 
                 End If
+                OpenFromToolStrip = False
             End If
         Catch ex As Exception
             ErrorMessage(ex, 20353)
@@ -1038,24 +1070,6 @@ Public Class Frmselectfan
         End Try
     End Sub
 
-    Private Sub chkAllBlades_CheckedChanged(sender As Object, e As EventArgs) Handles chkAllBlades.CheckedChanged
-        Try
-            If chkAllBlades.Checked = True Then
-                ChkCurveBlade.Checked = True
-                ChkInclineBlade.Checked = True
-                ChkOtherFanType.Checked = True
-                ChkPlasticFan.Checked = True
-            Else
-                ChkCurveBlade.Checked = False
-                ChkInclineBlade.Checked = False
-                ChkOtherFanType.Checked = False
-                ChkPlasticFan.Checked = False
-            End If
-        Catch ex As Exception
-            ErrorMessage(ex, 20379)
-        End Try
-    End Sub
-
     Private Sub ApplyLocale(ByVal locale_name As String)
         Try
             Dim culture_info As New CultureInfo(locale_name)
@@ -1105,6 +1119,10 @@ Public Class Frmselectfan
     Private Sub AllPagesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllPagesToolStripMenuItem.Click
         Try
             PrintLanguage = 1
+            If OpenFileName = "" And SaveFileName = "" Then
+                MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+                Exit Sub
+            End If
             CreateFile(0)
         Catch ex As Exception
             ErrorMessage(ex, 20384)
@@ -1114,6 +1132,10 @@ Public Class Frmselectfan
     Private Sub PerformanceDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceDetailsToolStripMenuItem.Click
         Try
             PrintLanguage = 1
+            If OpenFileName = "" And SaveFileName = "" Then
+                MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+                Exit Sub
+            End If
             CreateFile(1)
         Catch ex As Exception
             ErrorMessage(ex, 20385)
@@ -1123,6 +1145,10 @@ Public Class Frmselectfan
     Private Sub AcousticsDetailsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcousticsDetailsToolStripMenuItem.Click
         Try
             PrintLanguage = 1
+            If OpenFileName = "" And SaveFileName = "" Then
+                MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+                Exit Sub
+            End If
             CreateFile(2)
         Catch ex As Exception
             ErrorMessage(ex, 20386)
@@ -1132,54 +1158,73 @@ Public Class Frmselectfan
     Private Sub PerformanceCurveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceCurveToolStripMenuItem.Click
         Try
             PrintLanguage = 1
+            If OpenFileName = "" And SaveFileName = "" Then
+                MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+                Exit Sub
+            End If
             CreateFile(3)
         Catch ex As Exception
-            ErrorMessage(ex, 20391)
+            ErrorMessage(ex, 20387)
         End Try
     End Sub
 
     Private Sub AllPages2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllPages2ToolStripMenuItem.Click
         Try
-            PrintLanguage = 2
+            PrintLanguage = 1
+            If OpenFileName = "" And SaveFileName = "" Then
+                MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+                Exit Sub
+            End If
             CreateFile(0)
         Catch ex As Exception
-            ErrorMessage(ex, 20384)
+            ErrorMessage(ex, 20388)
         End Try
     End Sub
 
     Private Sub PerformanceDetails2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PerformanceDetails2ToolStripMenuItem.Click
         Try
             PrintLanguage = 2
+            If OpenFileName = "" And SaveFileName = "" Then
+                MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+                Exit Sub
+            End If
             CreateFile(1)
         Catch ex As Exception
-            ErrorMessage(ex, 20384)
+            ErrorMessage(ex, 20389)
         End Try
     End Sub
 
     Private Sub AcousticDetails2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcousticDetails2ToolStripMenuItem.Click
         Try
             PrintLanguage = 2
+            If OpenFileName = "" And SaveFileName = "" Then
+                MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+                Exit Sub
+            End If
             CreateFile(2)
         Catch ex As Exception
-            ErrorMessage(ex, 20384)
+            ErrorMessage(ex, 20390)
         End Try
     End Sub
 
     Private Sub FanCurve2ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FanCurve2ToolStripMenuItem.Click
         Try
             PrintLanguage = 2
+            If OpenFileName = "" And SaveFileName = "" Then
+                MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
+                Exit Sub
+            End If
             CreateFile(3)
         Catch ex As Exception
-            ErrorMessage(ex, 20384)
+            ErrorMessage(ex, 20391)
         End Try
-
     End Sub
     Private Sub TabPageFanParameters_Enter(sender As Object, e As EventArgs) Handles TabPageFanParameters.Enter
         Try
             Check_Leave_Duty()
             If move_on = False Then TabControl1.SelectedTab = TabPageDuty
         Catch ex As Exception
-            ErrorMessage(ex, 205387)
+            ErrorMessage(ex, 20392)
         End Try
     End Sub
 
@@ -1190,7 +1235,7 @@ Public Class Frmselectfan
         Try
             Txtfansize.Enabled = True
         Catch ex As Exception
-            ErrorMessage(ex, 20388)
+            ErrorMessage(ex, 20393)
         End Try
     End Sub
 
@@ -1199,7 +1244,7 @@ Public Class Frmselectfan
             Txtfansize.Enabled = False
             Txtfansize.Text = 0
         Catch ex As Exception
-            ErrorMessage(ex, 20389)
+            ErrorMessage(ex, 20394)
         End Try
     End Sub
 
@@ -1209,16 +1254,371 @@ Public Class Frmselectfan
             Flag(4) = True
             TabControl1.SelectTab(TabPageNoise)
         Catch ex As Exception
-            ErrorMessage(ex, 20390)
+            ErrorMessage(ex, 20395)
         End Try
     End Sub
 
     Private Sub Optsucy_Click(sender As Object, e As EventArgs) Handles Optsucy.Click
-        If Optsucy.Checked = True Then
-            TxtInletPressure.Text = (-1.0 * Math.Abs(CDbl(TxtInletPressure.Text))).ToString
-        Else
-            TxtInletPressure.Text = Math.Abs(CDbl(TxtInletPressure.Text)).ToString
-        End If
+        Try
+            If Optsucy.Checked = True Then
+                TxtInletPressure.Text = (-1.0 * Math.Abs(CDbl(TxtInletPressure.Text))).ToString
+            Else
+                TxtInletPressure.Text = Math.Abs(CDbl(TxtInletPressure.Text)).ToString
+            End If
+        Catch ex As Exception
+            ErrorMessage(ex, 20396)
+        End Try
     End Sub
 
+    Private Sub chkOriginalData_CheckedChanged(sender As Object, e As EventArgs) Handles chkOriginalData.CheckedChanged
+        Try
+            failindex = -1
+            TabPageSelection_Enter(sender, e)
+        Catch ex As Exception
+            ErrorMessage(ex, 20397)
+        End Try
+    End Sub
+
+    Private Sub chkAllBlades_CheckedChanged(sender As Object, e As EventArgs) Handles chkAllBlades.CheckedChanged
+        Try
+            If chkAllBlades.Checked = True Then
+                chkWide.Checked = True
+                chkMedium.Checked = True
+                chkNarrow.Checked = True
+                chkHighPressure.Checked = True
+                ChkCurveBlade.Checked = True
+                ChkInclineBlade.Checked = True
+                ChkOtherFanType.Checked = True
+                ChkPlasticFan.Checked = True
+                chkPaddleBlade.Checked = True
+                chkRadialBlade.Checked = True
+                ChkPlenumFans.Checked = True
+                ChkAxialFans.Checked = True
+                ChkOldDesignFans.Checked = True
+            Else
+                chkWide.Checked = False
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkCurveBlade.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlasticFan.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = False 'chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = False 'chkPaddleBlade.Checked
+            txtOutVel.Enabled = False 'chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20398)
+        End Try
+    End Sub
+
+    Private Sub ChkWide_Click(sender As Object, e As EventArgs) Handles chkWide.Click
+        Try
+            If chkWide.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20399)
+        End Try
+    End Sub
+    Private Sub ChkMedium_Click(sender As Object, e As EventArgs) Handles chkMedium.Click
+        Try
+            If chkMedium.Checked = True Then
+                chkWide.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20400)
+        End Try
+    End Sub
+    Private Sub ChkNarrow_Click(sender As Object, e As EventArgs) Handles chkNarrow.Click
+        Try
+            If chkNarrow.Checked = True Then
+                chkMedium.Checked = False
+                chkWide.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20401)
+        End Try
+    End Sub
+    Private Sub ChkHighPressure_Click(sender As Object, e As EventArgs) Handles chkHighPressure.Click
+        Try
+            If chkHighPressure.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkWide.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20402)
+        End Try
+    End Sub
+    Private Sub ChkInclineBlade_Click(sender As Object, e As EventArgs) Handles ChkInclineBlade.Click
+        Try
+            If ChkInclineBlade.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                chkWide.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20403)
+        End Try
+    End Sub
+    Private Sub ChkCurveBlade_Click(sender As Object, e As EventArgs) Handles ChkCurveBlade.Click
+        Try
+            If ChkCurveBlade.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                chkWide.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20404)
+        End Try
+    End Sub
+    Private Sub ChkPaddleBlade_Click(sender As Object, e As EventArgs) Handles chkPaddleBlade.Click
+        Try
+            If chkPaddleBlade.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkRadialBlade.Checked = False
+                chkWide.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = False 'chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = False 'chkPaddleBlade.Checked
+            txtOutVel.Enabled = False 'chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20405)
+        End Try
+    End Sub
+    Private Sub ChkRadialBlade_Click(sender As Object, e As EventArgs) Handles chkRadialBlade.Click
+        Try
+            If chkRadialBlade.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkWide.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20406)
+        End Try
+    End Sub
+    Private Sub ChkPlasticFan_Click(sender As Object, e As EventArgs) Handles ChkPlasticFan.Click
+        Try
+            If ChkPlasticFan.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                chkWide.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20407)
+        End Try
+    End Sub
+    Private Sub ChkOtherFanType_Click(sender As Object, e As EventArgs) Handles ChkOtherFanType.Click
+        Try
+            If ChkOtherFanType.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                chkWide.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20408)
+        End Try
+    End Sub
+    Private Sub ChkPlenumFans_Click(sender As Object, e As EventArgs) Handles ChkPlenumFans.Click
+        Try
+            If ChkPlenumFans.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                chkWide.Checked = False
+                ChkAxialFans.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20409)
+        End Try
+    End Sub
+    Private Sub ChkAxialFans_Click(sender As Object, e As EventArgs) Handles ChkAxialFans.Click
+        Try
+            If ChkAxialFans.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                chkWide.Checked = False
+                ChkOldDesignFans.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20410)
+        End Try
+    End Sub
+    Private Sub ChkOldDesignFans_Click(sender As Object, e As EventArgs) Handles ChkOldDesignFans.Click
+        Try
+            If ChkOldDesignFans.Checked = True Then
+                chkMedium.Checked = False
+                chkNarrow.Checked = False
+                chkHighPressure.Checked = False
+                ChkInclineBlade.Checked = False
+                ChkCurveBlade.Checked = False
+                chkPaddleBlade.Checked = False
+                chkRadialBlade.Checked = False
+                ChkPlasticFan.Checked = False
+                ChkOtherFanType.Checked = False
+                ChkPlenumFans.Checked = False
+                ChkAxialFans.Checked = False
+                chkWide.Checked = False
+            End If
+            lblOutVel.Enabled = chkPaddleBlade.Checked
+            lblOutVelUnit.Enabled = chkPaddleBlade.Checked
+            txtOutVel.Enabled = chkPaddleBlade.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20411)
+        End Try
+    End Sub
+
+    'Private Sub StandaloneCurveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StandaloneCurveToolStripMenuItem.Click
+    '    frmStandaloneCurve.ShowDialog()
+    'End Sub
 End Class

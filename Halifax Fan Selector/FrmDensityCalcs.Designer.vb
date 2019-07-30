@@ -359,6 +359,8 @@ Partial Class FrmDensityCalcs
         Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.ListBox1)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmDensityCalcs"
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

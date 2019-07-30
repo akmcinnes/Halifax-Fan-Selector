@@ -4,12 +4,9 @@
         Try
             Dim company As String = "Halifax Fan Limited - "
             Dim ErrMsg As String
-            'ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
-            'If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + "Please contact Halifax Fan Limited quoting the above error message." '"" '= "Error Number HF0x000" + Hex(1004).ToString
             ErrMsg = " Error HF0x000" + Hex(ErrNo).ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + lang_dict(PrintLanguage, 201) '"" '= "Error Number HF0x000" + Hex(1004).ToString
-            'If StartArg.ToLower.Contains("-dev") Or StartArg.ToLower.Contains("-b1") Then ErrMsg = " Error HF000" + ErrNo.ToString + vbCrLf + ex.Message + vbCrLf + vbCrLf + lang_dict(201) '"" '= "Error Number HF0x000" + Hex(1004).ToString
             Select Case ErrNo
-'Sub errors 1000 to 1999
+        'Sub errors 1000 to 1999
                 Case 1000 To 1099
                     ErrMsg = company + "Sub_General" + ErrMsg
                 Case 1100 To 1199
@@ -24,7 +21,7 @@
                     ErrMsg = company + "Sub_ProjectFile" + ErrMsg
                 Case 1600 To 1699
                     ErrMsg = company + "Sub_Impeller" + ErrMsg ' no code yet
-'Module errors 5000 to 9999
+        'Module errors 5000 to 9999
                 Case 5000 To 5099
                     ErrMsg = company + "ModDensity" + ErrMsg
                 Case 5100 To 5199
@@ -69,16 +66,16 @@
                     ErrMsg = company + "ModPrintPerformance" + ErrMsg
                 Case 7100 To 7199
                     ErrMsg = company + "ModPrintSound" + ErrMsg
-'Form errors 20000 to 29999
+        'Form errors 20000 to 29999
                 Case 20000 To 20099
                     ErrMsg = company + "FrmDensityCalcs" + ErrMsg
                 Case 20100 To 20199
                     ErrMsg = company + "FrmFanChart" + ErrMsg
                 Case 20200 To 20299
                     ErrMsg = company + "FrmProjectDetails" + ErrMsg
-                Case 20300 To 20399
+                Case 20300 To 20449
                     ErrMsg = company + "FrmSelectFan" + ErrMsg
-                Case 20400 To 20499
+                Case 20450 To 20499
                     ErrMsg = company + "FrmSettings" + ErrMsg
                 Case 20500 To 20599
                     ErrMsg = company + "FrmStart" + ErrMsg

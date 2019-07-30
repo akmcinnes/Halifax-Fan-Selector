@@ -118,61 +118,70 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="lblWelcome.Location" type="System.Drawing.Point, System.Drawing">
-    <value>125, 188</value>
+  <data name="lblFanSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
   </data>
-  <data name="lblWelcome.Size" type="System.Drawing.Size, System.Drawing">
-    <value>233, 59</value>
+  <data name="lblFanSize.Text" xml:space="preserve">
+    <value>风扇尺寸</value>
   </data>
-  <data name="lblWelcome.Text" xml:space="preserve">
-    <value>欢迎来到</value>
+  <data name="lblFanSpeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
   </data>
-  <data name="lblToThe.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 243</value>
+  <data name="lblFanSpeed.Text" xml:space="preserve">
+    <value>风扇速度</value>
   </data>
-  <data name="lblToThe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 59</value>
+  <data name="lblDensity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
   </data>
-  <data name="lblToThe.Text" xml:space="preserve">
-    <value>哈利法克斯</value>
+  <data name="lblDensity.Text" xml:space="preserve">
+    <value>密度</value>
   </data>
-  <data name="lblHalifaxFanSelector.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 307</value>
+  <data name="lblFanDesign.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
   </data>
-  <data name="lblHalifaxFanSelector.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 54</value>
-  </data>
-  <data name="lblHalifaxFanSelector.Text" xml:space="preserve">
-    <value>风机选型软件</value>
+  <data name="lblFanDesign.Text" xml:space="preserve">
+    <value>风扇设计</value>
   </data>
   <data name="btnContinue.Text" xml:space="preserve">
-    <value>继续  &gt;&gt;</value>
+    <value>继续</value>
   </data>
-  <data name="btnExit.Text" xml:space="preserve">
-    <value>退出</value>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>取消</value>
   </data>
-  <data name="lblUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 157</value>
+  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
   </data>
-  <data name="txtUsername.Location" type="System.Drawing.Point, System.Drawing">
-    <value>123, 150</value>
+  <data name="Label5.Text" xml:space="preserve">
+    <value>长度</value>
   </data>
-  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 392</value>
+  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 17</value>
   </data>
-  <data name="btnSettings.Text" xml:space="preserve">
-    <value>设置默认值</value>
+  <data name="Label4.Text" xml:space="preserve">
+    <value>权力</value>
   </data>
-  <data name="chkAdvancedUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 22</value>
+  <data name="Label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
   </data>
-  <data name="chkAdvancedUser.Text" xml:space="preserve">
-    <value>高级用户</value>
+  <data name="Label3.Text" xml:space="preserve">
+    <value>密度</value>
   </data>
-  <data name="grpLanguage.Text" xml:space="preserve">
-    <value>选择语言</value>
+  <data name="Label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 17</value>
   </data>
-  <data name="btnCurveOutput.Text" xml:space="preserve">
-    <value>曲线输出 &gt;&gt;</value>
+  <data name="Label2.Text" xml:space="preserve">
+    <value>压力</value>
+  </data>
+  <data name="Label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>22, 17</value>
+  </data>
+  <data name="Label1.Text" xml:space="preserve">
+    <value>流</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>选择单位</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>独立风扇曲线</value>
   </data>
 </root>

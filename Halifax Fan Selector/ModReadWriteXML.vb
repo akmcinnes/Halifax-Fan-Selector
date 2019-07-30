@@ -32,9 +32,10 @@ Module ModReadWriteXML
 
             ' #### HeaderInfo
             Write_to_XML(textwriter, "Header_information")
+            Write_to_XML(textwriter, "Version", version_number)
             Write_to_XML(textwriter, "Flag", countflag.ToString)
             If Customer Is Nothing Then Customer = "xxxx"
-            If Engineer Is Nothing Then Engineer = "xxxx"
+            If Engineer Is Nothing Then Engineer = username '"xxxx"
             Write_to_XML(textwriter, "Customer", Customer)
             Write_to_XML(textwriter, "Engineer", Engineer)
             Write_to_XML(textwriter)
@@ -103,6 +104,7 @@ Module ModReadWriteXML
                 Write_to_XML(textwriter, "SI_Outlet_Length", final.outletlen.ToString)
                 Write_to_XML(textwriter, "SI_Outlet_Width", final.outletwid.ToString)
                 Write_to_XML(textwriter, "SI_Outlet_Diameter", final.outletdia.ToString)
+                Write_to_XML(textwriter, "SI_Width_Factor", final.widthfactor.ToString)
                 Write_to_XML(textwriter)
             End If
             ' #### AcousticInfo
@@ -208,6 +210,7 @@ Module ModReadWriteXML
                         If textReader.Name = "SI_Outlet_Length" Then final.outletlen = CDbl(textReader.ReadString)
                         If textReader.Name = "SI_Outlet_Width" Then final.outletwid = CDbl(textReader.ReadString)
                         If textReader.Name = "SI_Outlet_Diameter" Then final.outletdia = CDbl(textReader.ReadString)
+                        If textReader.Name = "SI_Width_Factor" Then final.widthfactor = CDbl(textReader.ReadString)
                         '' ##### Acoustics
                         Dim i As Integer
                         For i = 0 To 7

@@ -2,6 +2,9 @@
     Public Function LoadFanData(filename, fanno) As String
         LoadFanData = ""
         Try
+            If Frmselectfan.chkOriginalData.Checked = True Then
+                filename = Replace(filename, ".bin", ".bon")
+            End If
             ReadfromBinaryfile(filename, fanno)
             ''----setting the number of decimal places-------------------------------------------
             If Units(0).UnitSelected = 2 Then
@@ -218,7 +221,12 @@
             Dim i As Integer
             'filename = filename.Replace(".txt", ".bin")
             Dim FullFilePathtxt As String
+
+            'If Frmselectfan.chkOriginalData.Checked = False Then
             FullFilePathtxt = DataPath + filename
+            'Else
+            '    FullFilePathtxt = DataPath + "Binary Old Files\" + filename
+            'End If
 
             fs = New System.IO.FileStream(FullFilePathtxt, IO.FileMode.Open)
             br = New System.IO.BinaryReader(fs)

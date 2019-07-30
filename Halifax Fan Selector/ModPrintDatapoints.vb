@@ -72,14 +72,26 @@
             PlaceData(xlsWB, sheet, "Vol.", 8, 19) 'performance data header
             PlaceData(xlsWB, sheet, "Pres.", 8, 20) 'performance data header
             PlaceData(xlsWB, sheet, "Pow.", 8, 21) 'performance data header
-            SetPlaces(flowrate, final.fsp, final.pow)
-            PlaceData(xlsWB, sheet, Math.Round(flowrate, voldecplaces), 9, 19) 'performance data header
-            If PresType = 0 Then
-                PlaceData(xlsWB, sheet, Math.Round(final.fsp, pressplaceRise), 9, 20) 'performance data header
+            If flowrate > 0.0001 Then
+                SetPlaces(flowrate, final.fsp, final.pow)
+                PlaceData(xlsWB, sheet, Math.Round(flowrate, voldecplaces), 9, 19) 'performance data header
+                If PresType = 0 Then
+                    PlaceData(xlsWB, sheet, Math.Round(final.fsp, pressplaceRise), 9, 20) 'performance data header
+                Else
+                    PlaceData(xlsWB, sheet, Math.Round(final.ftp, pressplaceRise), 9, 20) 'performance data header
+                End If
+                PlaceData(xlsWB, sheet, Math.Round(final.pow, powerdecplaces), 9, 21) 'performance data header
             Else
-                PlaceData(xlsWB, sheet, Math.Round(final.ftp, pressplaceRise), 9, 20) 'performance data header
+                SetPlaces(plotvol(Most_Eff_Pt), plotfsp(Most_Eff_Pt), plotpow(Most_Eff_Pt))
+                PlaceData(xlsWB, sheet, Math.Round(plotvol(Most_Eff_Pt), voldecplaces), 9, 19) 'performance data header
+                If PresType = 0 Then
+                    PlaceData(xlsWB, sheet, Math.Round(plotfsp(Most_Eff_Pt), pressplaceRise), 9, 20) 'performance data header
+                Else
+                    PlaceData(xlsWB, sheet, Math.Round(plotftp(Most_Eff_Pt), pressplaceRise), 9, 20) 'performance data header
+                End If
+                PlaceData(xlsWB, sheet, Math.Round(plotpow(Most_Eff_Pt), powerdecplaces), 9, 21) 'performance data header
+
             End If
-            PlaceData(xlsWB, sheet, Math.Round(final.pow, powerdecplaces), 9, 21) 'performance data header
         Catch ex As Exception
             ErrorMessage(ex, 6903)
         End Try
@@ -142,7 +154,7 @@
                 PlaceData(xlsWB, sheet, plotpow(i - 1) * speedfactor ^ 3, row + 1 + i, col + 3)
             Next
         Catch ex As Exception
-            ErrorMessage(ex, 6903)
+            ErrorMessage(ex, 6905)
         End Try
     End Sub
 
@@ -176,7 +188,7 @@
                 PlaceData(xlsWB, sheet, plotpow(i - 1) * densityfactor, row + 1 + i, col + 3)
             Next
         Catch ex As Exception
-            ErrorMessage(ex, 6903)
+            ErrorMessage(ex, 6906)
         End Try
     End Sub
 
@@ -202,7 +214,7 @@
                 PlaceData(xlsWB, sheet, prs, 9 + i, col2) 'performance data header
             Next
         Catch ex As Exception
-            ErrorMessage(ex, 6905)
+            ErrorMessage(ex, 6907)
         End Try
     End Sub
 
@@ -237,7 +249,7 @@
                 PlaceData(xlsWB, sheet, plotpow(i - 1), 8 + i, 4)
             Next
         Catch ex As Exception
-            ErrorMessage(ex, 6906)
+            ErrorMessage(ex, 6908)
         End Try
     End Sub
 End Module

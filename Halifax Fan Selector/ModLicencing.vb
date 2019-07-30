@@ -14,11 +14,11 @@ Module ModLicencing
                 Dim a2 As String = StrReverse(Microsoft.VisualBasic.Right(newstring(i), 4))
                 newstring(i) = Oct(CInt(a1) + ab(i)).ToString + "-" + CDec(CInt(a2)).ToString
                 If newstring(i) = AccessCode And i = 0 Then
-                    StartArg = "-b"
+                    'StartArg = "-b"
                     Return 1
                 End If
                 If newstring(i) = AccessCode And i = 1 Then
-                    StartArg = "-a"
+                    'StartArg = "-a"
                     Return 2
                 End If
             Next

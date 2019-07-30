@@ -411,6 +411,11 @@ Public Class FrmFanChart
                 plotfse(i) = 100.0 * plotvol(i) * tempvlconv * plotfsp(i) * tempprconv / (plotpow(i) * temppwconv)
                 plotfte(i) = 100.0 * plotvol(i) * tempvlconv * plotftp(i) * tempprconv / (plotpow(i) * temppwconv)
                 plotov(i) = plotvol(i) * tempvlconv / (tempoutletarea * tempoaconv)
+
+                'If StandAlone = True Then
+                plotvol(i) = plotvol(i) * final.widthfactor
+                plotpow(i) = plotpow(i) * final.widthfactor
+                'End If
             Next
         Catch ex As Exception
             ErrorMessage(ex, 20108)

@@ -77,6 +77,8 @@ Partial Class FrmDisplayRejects
         Me.Controls.Add(Me.lblDesign)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lsvFailedFans)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmDisplayRejects"
         Me.ResumeLayout(False)
         Me.PerformLayout()

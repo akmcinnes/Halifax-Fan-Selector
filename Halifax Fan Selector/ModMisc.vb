@@ -16,7 +16,7 @@
                 altitude = 0.0
                 humidity = 0.0
                 atmospress = 0.0
-                knowndensity = 0.0
+                knowndensity = 1.2
                 flowrate = 0.0
                 reshead = 5.0
                 inletpress = 0.0
@@ -84,11 +84,28 @@
                 Ctrl.BackColor = Color.LightYellow
                 Ctrl.Text = ""
                 move_on = False
+                'ElseIf CDbl(Ctrl.Text) > MaxValue Then
+                '    Ctrl.BackColor = Color.LightYellow
+                '    Ctrl.Text = ""
+                '    move_on = False
             Else
                 Ctrl.BackColor = Color.White
             End If
         Catch ex As Exception
             ErrorMessage(ex, 5503)
+        End Try
+    End Sub
+
+    Public Sub YellowLst(Ctrl As System.Windows.Forms.ListBox, Optional MinValue As Double = 0.0)
+        Try
+            If Ctrl.SelectedItem = "" Then
+                Ctrl.BackColor = Color.LightYellow
+                move_on = False
+            Else
+                Ctrl.BackColor = Color.White
+            End If
+        Catch ex As Exception
+            ErrorMessage(ex, 5504)
         End Try
     End Sub
 

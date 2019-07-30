@@ -38,8 +38,8 @@ Partial Class FrmStart
         Me.optEnglish = New System.Windows.Forms.RadioButton()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.lblLanguageMessage = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnCurveOutput = New System.Windows.Forms.Button()
         Me.grpLanguage.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -64,7 +64,6 @@ Partial Class FrmStart
         '
         'btnContinue
         '
-        Me.btnContinue.DialogResult = System.Windows.Forms.DialogResult.Cancel
         resources.ApplyResources(Me.btnContinue, "btnContinue")
         Me.btnContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnContinue.Name = "btnContinue"
@@ -108,9 +107,9 @@ Partial Class FrmStart
         '
         'grpLanguage
         '
+        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Controls.Add(Me.optChinese)
         Me.grpLanguage.Controls.Add(Me.optEnglish)
-        resources.ApplyResources(Me.grpLanguage, "grpLanguage")
         Me.grpLanguage.Name = "grpLanguage"
         Me.grpLanguage.TabStop = False
         '
@@ -134,12 +133,7 @@ Partial Class FrmStart
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'lblLanguageMessage
-        '
-        Me.lblLanguageMessage.ForeColor = System.Drawing.Color.White
-        resources.ApplyResources(Me.lblLanguageMessage, "lblLanguageMessage")
-        Me.lblLanguageMessage.Name = "lblLanguageMessage"
+        resources.ApplyResources(Me.OpenFileDialog1, "OpenFileDialog1")
         '
         'PictureBox1
         '
@@ -149,13 +143,20 @@ Partial Class FrmStart
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.TabStop = False
         '
+        'btnCurveOutput
+        '
+        resources.ApplyResources(Me.btnCurveOutput, "btnCurveOutput")
+        Me.btnCurveOutput.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnCurveOutput.Name = "btnCurveOutput"
+        Me.btnCurveOutput.UseVisualStyleBackColor = True
+        '
         'FrmStart
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.MenuHighlight
         Me.ControlBox = False
-        Me.Controls.Add(Me.lblLanguageMessage)
+        Me.Controls.Add(Me.btnCurveOutput)
         Me.Controls.Add(Me.lblDate)
         Me.Controls.Add(Me.grpLanguage)
         Me.Controls.Add(Me.lblVersion)
@@ -196,7 +197,7 @@ Partial Class FrmStart
     Friend WithEvents optEnglish As RadioButton
     Friend WithEvents lblDate As Label
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents lblLanguageMessage As Label
+    Friend WithEvents btnCurveOutput As Button
     'Friend WithEvents lblDate As Label
     'Friend WithEvents Label1 As Label
 End Class

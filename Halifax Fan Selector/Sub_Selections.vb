@@ -208,10 +208,12 @@ Module Sub_Selections
                     End If
                     .DataGridView1.Columns(13).Width = 0 '40
                     .DataGridView1.Columns(13).Visible = False
-                    If StartArg.ToLower.Contains("-dev") Then
-                        .DataGridView1.Columns(13).Width = 40
-                        .DataGridView1.Columns(13).Visible = True
-                    End If
+                    'If StartArg.ToLower.Contains("-dev") Then
+                    '#If DEBUG Then
+                    '                    .DataGridView1.Columns(13).Width = 40
+                    '                    .DataGridView1.Columns(13).Visible = True
+                    '#End If
+                    'End If
 
                     For i = 0 To .DataGridView1.ColumnCount - 1
                         .DataGridView1.Width = .DataGridView1.Width + .DataGridView1.Columns(i).Width
@@ -221,12 +223,20 @@ Module Sub_Selections
                     .Width = .DataGridView1.Width + 5 * .DataGridView1.Location.X
                     .DataGridView1.Height = .DataGridView1.Height * 1.1 + .DataGridView1.Location.Y
                     If .DataGridView1.Height < 350 Then .DataGridView1.Height = 350
-                    .chkKP.Visible = StartArg.ToLower.Contains("-dev")
+#If DEBUG Then
+                    '.chkKP.Visible = True
+                    .chkOriginalData.Visible = True
+#End If
+                    .chkKP.Visible = AdvancedUser
+
+                    '.chkKP.Visible = StartArg.ToLower.Contains("-dev")
 
                     .chkDisplayAllResHead.Visible = AdvancedUser
+                    '.chkDisplayAllResHead.Checked = AdvancedUser
                     .chkDisplayAllResHead.Text = .lblIncludeReserveHead.Text + " < " + reshead.ToString + "% "
 
                     .chkDisplayLowerEff.Visible = AdvancedUser
+                    '.chkDisplayLowerEff.Checked = AdvancedUser
                     .chkDisplayLowerEff.Text = .lblIncludeAllFanEfficiency.Text + " < 60%"
 
                     Dim nRight As Integer
@@ -327,6 +337,7 @@ Module Sub_Selections
                 selected(i).VD = 0.0
                 'selected(i).BladeType = "" '300119
                 selected(i).BladeNumber = 0
+                selected(i).widthfactor = 1.0
                 'selected(i).fanfile = ""'300119
             Next
             fantypesQTY = 0
@@ -406,8 +417,8 @@ Module Sub_Selections
 
                 'pressure check
                 Dim temppressS, temppressT As Double
-                Dim pressrangemin As Double = 0.99
-                Dim pressrangemax As Double = 1.01
+                Dim pressrangemin As Double = 0.95 '0.99
+                Dim pressrangemax As Double = 1.05 ' 1.01
                 Dim pressok As Boolean
                 Dim iiii As Integer = 0
                 .Label13.Text = iiii.ToString

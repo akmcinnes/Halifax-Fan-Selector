@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblSaveProject.Size" type="System.Drawing.Size, System.Drawing">
+    <value>290, 25</value>
+  </data>
+  <data name="lblSaveProject.Text" xml:space="preserve">
+    <value>在继续之前,必须保存所选内容。</value>
+  </data>
   <data name="lblDisplayBoth.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 25</value>
   </data>
@@ -391,6 +397,12 @@
   <data name="TabPageDuty.Text" xml:space="preserve">
     <value>工况数据输入</value>
   </data>
+  <data name="Label21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>272, 25</value>
+  </data>
+  <data name="Label21.Text" xml:space="preserve">
+    <value>请选择至少一个风扇刀片设计</value>
+  </data>
   <data name="chkDIDW.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 29</value>
   </data>
@@ -502,6 +514,48 @@
   <data name="GrpFanSpeed.Text" xml:space="preserve">
     <value>风机转速</value>
   </data>
+  <data name="chkRadialBlade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 29</value>
+  </data>
+  <data name="chkRadialBlade.Text" xml:space="preserve">
+    <value>径向刀片</value>
+  </data>
+  <data name="chkPaddleBlade.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 29</value>
+  </data>
+  <data name="chkPaddleBlade.Text" xml:space="preserve">
+    <value>垫片刀片</value>
+  </data>
+  <data name="lblOutVel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 25</value>
+  </data>
+  <data name="lblOutVel.Text" xml:space="preserve">
+    <value>出口速度</value>
+  </data>
+  <data name="chkHighPressure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 29</value>
+  </data>
+  <data name="chkHighPressure.Text" xml:space="preserve">
+    <value>高压</value>
+  </data>
+  <data name="chkNarrow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 29</value>
+  </data>
+  <data name="chkNarrow.Text" xml:space="preserve">
+    <value>狭窄</value>
+  </data>
+  <data name="chkMedium.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 29</value>
+  </data>
+  <data name="chkMedium.Text" xml:space="preserve">
+    <value>中</value>
+  </data>
+  <data name="chkWide.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 29</value>
+  </data>
+  <data name="chkWide.Text" xml:space="preserve">
+    <value>宽</value>
+  </data>
   <data name="chkAllBlades.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 29</value>
   </data>
@@ -555,6 +609,12 @@
   </data>
   <data name="TabPageFanParameters.Text" xml:space="preserve">
     <value>风机参数</value>
+  </data>
+  <data name="chkOriginalData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 29</value>
+  </data>
+  <data name="chkOriginalData.Text" xml:space="preserve">
+    <value>原始数据</value>
   </data>
   <data name="lblRunningAt.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
@@ -664,8 +724,11 @@
   <data name="chkKP.Text" xml:space="preserve">
     <value>排除 Kp</value>
   </data>
+  <data name="lblInstructions.Location" type="System.Drawing.Point, System.Drawing">
+    <value>311, 552</value>
+  </data>
   <data name="lblInstructions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>358, 24</value>
+    <value>372, 38</value>
   </data>
   <data name="lblInstructions.Text" xml:space="preserve">
     <value>* * 单点点击选择风扇, 双击查看图表 * *</value>
@@ -891,11 +954,20 @@
   <data name="TabPageImpeller.Text" xml:space="preserve">
     <value>叶轮详细信息</value>
   </data>
+  <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
   <data name="OpenToolStripMenuItem.Text" xml:space="preserve">
     <value>新项目</value>
   </data>
+  <data name="OpenProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
   <data name="OpenProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>打开项目</value>
+  </data>
+  <data name="SaveProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
   </data>
   <data name="SaveProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>保存项目</value>
@@ -951,8 +1023,14 @@
   <data name="FanCurve2ToolStripMenuItem.Text" xml:space="preserve">
     <value>粉丝曲线 (英文)</value>
   </data>
+  <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
   <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
     <value>输出到文件</value>
+  </data>
+  <data name="ExitProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
   </data>
   <data name="ExitProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>退出项目</value>

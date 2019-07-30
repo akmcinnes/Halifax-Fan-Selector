@@ -58,18 +58,19 @@ Module ModPrinting
 
     Sub CreateFile(PagesToPrint As Integer)
         Try
-            ' ### Prepare the thread Server ###
-            Thread = New System.Threading.Thread(AddressOf Server)
+            If (PagesToPrint = 3 Or PagesToPrint = 0) And StandAlone = False Then
+                'If PagesToPrint = 3 Or PagesToPrint = 0 Then
+                FrmCurveOptions.ShowDialog()
+                    If FrmCurveOptions.retval = 0 Then Exit Sub
+                End If
+                ' ### Prepare the thread Server ###
+                Thread = New System.Threading.Thread(AddressOf Server)
             Thread.Start()
             'While Temporary.A = 0
-
-            'set cursor
-            If PagesToPrint = 3 Or PagesToPrint = 0 Then
-                FrmCurveOptions.ShowDialog()
-            End If
             frmDocumentProgress.Show()
             'frmDocumentProgress.Refresh()
             frmDocumentProgress.BringToFront()
+            'set cursor
             Frmselectfan.Cursor = Cursors.WaitCursor
             Dim MasterFile As String = TemplatesPathDefault + "Output Template v1.0.xlsx"
             Dim NewFileName As String
@@ -148,7 +149,7 @@ Module ModPrinting
             Thread.Join()
             Thread.Abort()
         Catch ex As Exception
-            ErrorMessage(ex, 6402)
+            'ErrorMessage(ex, 6402)
         End Try
     End Sub
 
@@ -212,7 +213,7 @@ Module ModPrinting
             Next
             br.Close()
         Catch ex As Exception
-            ErrorMessage(ex, 6403)
+            ErrorMessage(ex, 6404)
         End Try
     End Sub
 
@@ -230,7 +231,7 @@ Module ModPrinting
                 .Columns("A:Z").ColumnWidth = cellwidth
             End With
         Catch ex As Exception
-            ErrorMessage(ex, 6404)
+            ErrorMessage(ex, 6405)
         End Try
     End Sub
 
@@ -243,7 +244,7 @@ Module ModPrinting
             PlaceData(xlsWB, sheet, estring, 4, 1,,,,,,,, 8, False) 'company email
             PlaceData(xlsWB, sheet, tstring, 4, 5,,,,,,,, 8, False) 'company phone
         Catch ex As Exception
-            ErrorMessage(ex, 6405)
+            ErrorMessage(ex, 6406)
         End Try
     End Sub
 
@@ -254,7 +255,7 @@ Module ModPrinting
             PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 15) & " " & Date.Now.ToString("dd/MM/yyyy HH:mm"), 46, 10, ,,,,,,, 9) 'date
             PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 16), 47, 1, ,,,,,,, 7,, 1) 'legal bit
         Catch ex As Exception
-            ErrorMessage(ex, 6406)
+            ErrorMessage(ex, 6407)
         End Try
     End Sub
 
@@ -324,19 +325,19 @@ Module ModPrinting
                         PlaceData(xlsWB, sheet, Math.Round(final.inletdia).ToString, 12, 14)
                         PlaceData(xlsWB, sheet, Units(5).UnitName(Units(5).UnitSelected), 12, 15)
                         ''outlet dimensions
-                        'If final.outletlen > 0 And final.outletwid > 0 Then
-                        '    PlaceData(xlsWB, sheet, lang_dict(PrintLanguage,52), 13, 11)
-                        '    PlaceData(xlsWB, sheet, Math.Round(final.outletlen).ToString & " x " & Math.Round(final.outletwid).ToString, 13, 13)
-                        '    PlaceData(xlsWB, sheet, Units(5).UnitName(Units(5).UnitSelected), 13, 15)
-                        'Else
-                        '    PlaceData(xlsWB, sheet, lang_dict(PrintLanguage,57), 13, 11)
-                        '    PlaceData(xlsWB, sheet, Math.Round(final.outletdia).ToString, 13, 14)
-                        '    PlaceData(xlsWB, sheet, Units(5).UnitName(Units(5).UnitSelected), 13, 15)
-                        'End If
+                        If final.outletlen > 0 And final.outletwid > 0 Then
+                            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 84), 13, 11)
+                            PlaceData(xlsWB, sheet, Math.Round(final.outletlen).ToString & " x " & Math.Round(final.outletwid).ToString, 13, 13,,, True, 13, 13, 13, 14,,, 2)
+                            PlaceData(xlsWB, sheet, Units(5).UnitName(Units(5).UnitSelected), 13, 15)
+                        Else
+                            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 57), 13, 11)
+                            PlaceData(xlsWB, sheet, Math.Round(final.outletdia).ToString, 13, 14)
+                            PlaceData(xlsWB, sheet, Units(5).UnitName(Units(5).UnitSelected), 13, 15)
+                        End If
                         'outlet area
-                        PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 83), 13, 11)
-                        PlaceData(xlsWB, sheet, Math.Round(final.outletarea, 3).ToString, 13, 14)
-                        PlaceData(xlsWB, sheet, Units(8).UnitName(Units(8).UnitSelected), 13, 15)
+                        'PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 83), 13, 11)
+                        'PlaceData(xlsWB, sheet, Math.Round(final.outletarea, 3).ToString, 13, 14)
+                        'PlaceData(xlsWB, sheet, Units(8).UnitName(Units(8).UnitSelected), 13, 15)
                         'motor power
                         PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 82), 14, 11)
                         PlaceData(xlsWB, sheet, final.mot, 14, 14)
@@ -378,7 +379,7 @@ Module ModPrinting
                     End With
             End Select
         Catch ex As Exception
-            ErrorMessage(ex, 6407)
+            ErrorMessage(ex, 6408)
         End Try
 
     End Sub
@@ -403,7 +404,7 @@ Module ModPrinting
                 End Select
             End With
         Catch ex As Exception
-            ErrorMessage(ex, 6408)
+            ErrorMessage(ex, 6409)
         End Try
     End Sub
 
@@ -423,7 +424,7 @@ Module ModPrinting
             xlsWB.ExportAsFixedFormat(Excel.XlFixedFormatType.xlTypePDF, Filename:=ExportName)
             System.Diagnostics.Process.Start(ExportName)
         Catch ex As Exception
-            ErrorMessage(ex, 6409)
+            ErrorMessage(ex, 6410)
         End Try
     End Sub
 
@@ -443,7 +444,7 @@ Module ModPrinting
             ReadfromBinaryfile(fantypefilename(i), 0)
             FrmFanChart.ConvertPVtoChart(True)
         Catch ex As Exception
-            ErrorMessage(ex, 6410)
+            ErrorMessage(ex, 6411)
         End Try
     End Sub
 
@@ -473,7 +474,7 @@ Module ModPrinting
             If k >= 100 Then powerdecplaces = 1
             If k >= 1000 Then powerdecplaces = 0
         Catch ex As Exception
-            ErrorMessage(ex, 6411)
+            ErrorMessage(ex, 6412)
         End Try
     End Sub
 

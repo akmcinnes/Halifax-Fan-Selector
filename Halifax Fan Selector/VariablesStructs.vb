@@ -69,6 +69,8 @@
         Public outletwid As Double
         Public outletdia As Double
         Public fantypename As String
+        Public mosteffpoint As Integer
+        Public widthfactor As Double
     End Structure
 
     Public selected(50) As fanstruct

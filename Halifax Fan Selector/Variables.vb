@@ -7,7 +7,7 @@ Module Variables
 
     Public AdvancedUser As Boolean
     'Public version_number As String = "V 1.0.2 Beta"
-    Public version_number As String = "V 1.0.3"
+    Public version_number As String = "V 1.0.5"
     Public DataPathMain As String ' = "C:\Halifax\"
 
     Public DataPathDefault As String ' = DataPathMain + "Performance Data\"
@@ -20,6 +20,8 @@ Module Variables
     Public PrintLanguage As Integer
 
     Public FullFilePathtxt As String
+
+    Public OpenFromToolStrip As Boolean
 
     Public username As String
     Public emailaddress As String
@@ -77,9 +79,15 @@ Module Variables
     Public fanunits(50) As String 'not used
     Public fanwidthing(50) As Boolean 'not used
     Public fanselectioncode(50) As String
+    Public fanwide(50) As Boolean
+    Public fanmedium(50) As Boolean
+    Public fannarrow(50) As Boolean
+    Public fanhighpressure(50) As Boolean
     Public fancurved(50) As Boolean
     Public faninclined(50) As Boolean
     Public fanplastic(50) As Boolean
+    Public fanpaddle(50) As Boolean
+    Public fanradial(50) As Boolean
     Public fanother(50) As Boolean
     Public fantypesQTY As Integer
 
@@ -347,4 +355,8 @@ Module Variables
     Public numspeeds As Integer
     Public numdensities As Integer
 
+    'Public MostEffFlow, MosetEffFSP, MostEffFTP, MostEffPower As Double
+    Public StandAlone As Boolean
+
+    'Public WidthPerCent As Double
 End Module

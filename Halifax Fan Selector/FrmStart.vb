@@ -89,6 +89,7 @@ Public Class FrmStart
             For i = 0 To 9
                 Flag(i) = False
             Next
+            lblVersion.Text = version_number
 
             If ChosenLanguage = "zh-CN" Then optChinese.Checked = True
             If ChosenLanguage = "en-GB" Then optEnglish.Checked = True
@@ -98,15 +99,14 @@ Public Class FrmStart
             Dim strArg() As String
             strArg = Command().Split(" ")
             DataPath = Nothing
-            chkAdvancedUser.Checked = False
-            chkAdvancedUser.Visible = False
+            'chkAdvancedUser.Checked = False
+            'chkAdvancedUser.Visible = False
+            AdvancedUser = False
             btnContinue.Visible = True
+            'btn1.Visible = False
             StartArg = strArg(0)
 
-            If CalculateUserCode() < 1 Then
-                FrmSettings.ShowDialog()
-                End
-            End If
+
 #If DEBUG Then
             DataPathMain = "C:\Halifax\"
 #Else
@@ -118,34 +118,49 @@ Public Class FrmStart
             OutputPathDefault = DataPathMain + "Output Files\"
             ProjectPathDefault = DataPathMain + "Projects\"
             TemplatesPathDefault = DataPathMain + "Templates\"
+            Dim codecheck As Integer = CalculateUserCode()
 
+            'If CalculateUserCode() < 1 Then
+            If codecheck < 1 Then
+                FrmSettings.ShowDialog()
+                End
+            End If
             'read file here
             Dim userarg As String = ""
-            Dim FILE_NAME As String = DataPathMain + "HFS_User.txt"
-            Dim TextLine As String = ""
-            If System.IO.File.Exists(FILE_NAME) = True Then
-                Dim objReader As New System.IO.StreamReader(FILE_NAME)
-                Do While objReader.Peek() <> -1
-                    TextLine = TextLine & objReader.ReadLine() & vbNewLine
-                    If TextLine.ToLower.Contains(Environment.UserName) Then
-                        userarg = "-a"
-                    End If
-                Loop
-            Else
-                'MessageBox.Show("File Does Not Exist")
-            End If
+            'Dim FILE_NAME As String = DataPathMain + "HFS_User.txt"
+            'Dim TextLine As String = ""
+            'If System.IO.File.Exists(FILE_NAME) = True Then
+            '    Dim objReader As New System.IO.StreamReader(FILE_NAME)
+            '    Do While objReader.Peek() <> -1
+            '        TextLine = TextLine & objReader.ReadLine() & vbNewLine
+            '        If TextLine.ToLower.Contains(Environment.UserName) Then
+            '            userarg = "-a"
+            '        End If
+            '    Loop
+            'Else
+            '    'MessageBox.Show("File Does Not Exist")
+            'End If
 
+            DataPath = DataPathDefault
             'If StartArg.ToLower.Contains("-a") Or StartArg.ToLower.Contains("-dev") Then
-            If StartArg.ToLower.Contains("-a") Or userarg.ToLower.Contains("-a") Then
+            'If StartArg.ToLower.Contains("-a") Or userarg.ToLower.Contains("-a") Then
+            AdvancedUser = False
+            If codecheck = 2 Then
                 'If StartArg.ToLower.Contains("-a") Then
-                DataPath = DataPathDefault
-                chkAdvancedUser.Checked = True
+                'DataPath = DataPathDefault
+                'chkAdvancedUser.Checked = True
                 'chkAdvancedUser.Visible = True
+                AdvancedUser = True
                 grpLanguage.Visible = True
-            ElseIf StartArg.ToLower.Contains("-b") Then
-                DataPath = DataPathDefault
-            Else
-                DataPath = DataPathDefault
+                'ElseIf StartArg.ToLower.Contains("-b") Then
+            ElseIf codecheck = 1 Then
+                'DataPath = DataPathDefault
+                'chkAdvancedUser.Checked = False
+                AdvancedUser = False
+                'Else
+                '    'DataPath = DataPathDefault
+                '    'chkAdvancedUser.Checked = False
+                '    AdvancedUser = False
             End If
 
             SystemDrive = System.Environment.ExpandEnvironmentVariables("%SystemDrive%")
@@ -158,8 +173,11 @@ Public Class FrmStart
             CenterToScreen()
             If ChosenLanguage Is Nothing Then ChosenLanguage = "en-GB"
             ApplyLocale(ChosenLanguage)
-
             getLanguageDictionary()
+            'btnCurveOutput.Visible = chkAdvancedUser.Checked
+            btnCurveOutput.Visible = AdvancedUser
+            AcceptButton = btnContinue
+            OpenFromToolStrip = False
 
         Catch ex As Exception
             ErrorMessage(ex, 20501)
@@ -168,9 +186,11 @@ Public Class FrmStart
 
     Private Sub btnContinue_Click(sender As Object, e As EventArgs) Handles btnContinue.Click
         Try
+            StandAlone = False
             Flag(0) = True
             Hide()
-            AdvancedUser = chkAdvancedUser.Checked
+            'AdvancedUser = chkAdvancedUser.Checked
+            SaveFileName = ""
             Frmselectfan.ShowDialog()
 
         Catch ex As Exception
@@ -264,9 +284,13 @@ Public Class FrmStart
         Try
             FrmSettings.ShowDialog()
             If FrmSettings.Language_has_changed = True Then
-                lblLanguageMessage.Visible = True
+                'lblLanguageMessage.Visible = True
+                'btnCurveOutput.Visible = chkAdvancedUser.Checked
+                btnCurveOutput.Visible = AdvancedUser
+
+                'GetSites()
                 getLanguageDictionary()
-                lblLanguageMessage.Visible = False
+                'lblLanguageMessage.Visible = False
             End If
         Catch ex As Exception
             ErrorMessage(ex, 20513)
@@ -387,4 +411,15 @@ Public Class FrmStart
         End Try
     End Sub
 
+    Private Sub btnCurveOutput_Click(sender As Object, e As EventArgs) Handles btnCurveOutput.Click
+        Try
+            SaveFileName = ""
+            StandAlone = True
+            'frmStandaloneCurve.ShowDialog()
+            'FrmCurveOnly.ShowDialog()
+            FrmCurveOptions.ShowDialog()
+        Catch ex As Exception
+            ErrorMessage(ex, 20523)
+        End Try
+    End Sub
 End Class
