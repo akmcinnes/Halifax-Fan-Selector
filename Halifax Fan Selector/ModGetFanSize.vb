@@ -5,8 +5,13 @@ Module ModGetFanSize
         Try
             count = 0
             Dim tempkp As Double = 1.0
-            fsizes(fanno, count) = 1.0
+            ''fsizes(fanno, count) = 1.0
+            If fanunits(fanno) = "mm" Then fsizes(fanno, count) = 25
             Do While fsizes(fanno, count) <> 0
+                Dim ii As Integer
+                For ii = 0 To 1000
+                    vols(fanno, ii) = 0.0
+                Next
                 count1 = 0
                 Do While Powr(fanno, count1) <> 0
                     '-scaling for fan sizes
@@ -59,10 +64,10 @@ Module ModGetFanSize
                 count = count + 1
             Loop
             '-finds the point nearest the highest efficiency point
-            fsizes(fanno, 0) = 1
+            'fsizes(fanno, 0) = 1
             count = 0
             Do While Math.Abs(medpoint(fanno) - datapointI(fanno, fsizes(fanno, count))) ^ 2 >= Math.Abs(medpoint(fanno) - datapointI(fanno, fsizes(fanno, count + 1))) ^ 2 Or fanspeedI(fanno, fsizes(fanno, count)) > maxspeed
-                If count = 50 Then
+                If count = 500 Then
                     retval = 0
                     Exit Do
                 End If
@@ -73,6 +78,11 @@ Module ModGetFanSize
             Return retval
         Catch ex As Exception
             If StartArg.ToLower.Contains("-def") Then ErrorMessage(ex, 5201)
+            failindex = failindex + 1
+            fanfailures(failindex, 0) = fantypename(fanno)
+            fanfailures(failindex, 1) = ex.Message
+            failurevalue(failindex) = ""
+
         End Try
         Return retval
     End Function

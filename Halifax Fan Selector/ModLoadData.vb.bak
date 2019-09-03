@@ -145,7 +145,7 @@
         ReadMotorFromBinaryFile()
         Try
             count = 0
-            Do While (abspower * Motor_Margin) > Motor_Information(count).PowerKW
+            Do While (abspower * 1.1) > Motor_Information(count).PowerKW
                 count = count + 1
                 If count = 100 Then
                     GetMotorSize = "Out Of Range"
@@ -154,7 +154,7 @@
             Loop
             GetMotorSize = Motor_Information(count).PowerKW
         Catch ex As Exception
-            Do While (abspower * Motor_Margin) > Motor_Information(count).PowerKW
+            Do While (abspower * 1.1) > Motor_Information(count).PowerKW
                 count = count + 1
                 If count = 100 Then
                     GetMotorSize = "Out Of Range"

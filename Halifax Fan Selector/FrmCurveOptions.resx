@@ -1069,6 +1069,36 @@
   <data name="SplitContainer1.Panel2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
+  <data name="chkDutyPoint.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkDutyPoint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkDutyPoint.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 76</value>
+  </data>
+  <data name="chkDutyPoint.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 21</value>
+  </data>
+  <data name="chkDutyPoint.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="chkDutyPoint.Text" xml:space="preserve">
+    <value>Show Duty Point</value>
+  </data>
+  <data name="&gt;&gt;chkDutyPoint.Name" xml:space="preserve">
+    <value>chkDutyPoint</value>
+  </data>
+  <data name="&gt;&gt;chkDutyPoint.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkDutyPoint.Parent" xml:space="preserve">
+    <value>SplitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;chkDutyPoint.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="Button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1094,7 +1124,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="optNoDensities1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1547,7 +1577,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;grpMultipleDensities.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="txtSpeed3.Location" type="System.Drawing.Point, System.Drawing">
     <value>90, 85</value>
@@ -2000,7 +2030,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;grpMultipleSpeeds.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="txtNoDensities.Location" type="System.Drawing.Point, System.Drawing">
     <value>254, 466</value>
@@ -2027,7 +2057,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;txtNoDensities.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txtNoSpeeds.Location" type="System.Drawing.Point, System.Drawing">
     <value>63, 466</value>
@@ -2054,7 +2084,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;txtNoSpeeds.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="chkSystem.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2084,7 +2114,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;chkSystem.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="optFSPandFTP.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2114,7 +2144,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;optFSPandFTP.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="optFTPonly.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2144,7 +2174,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;optFTPonly.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="optFSPonly.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2174,13 +2204,13 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;optFSPonly.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnContinue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnContinue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>226, 517</value>
+    <value>212, 517</value>
   </data>
   <data name="btnContinue.Size" type="System.Drawing.Size, System.Drawing">
     <value>171, 32</value>
@@ -2201,7 +2231,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;btnContinue.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="chkDamper.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2231,7 +2261,7 @@
     <value>SplitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;chkDamper.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="&gt;&gt;SplitContainer1.Panel2.Name" xml:space="preserve">
     <value>SplitContainer1.Panel2</value>

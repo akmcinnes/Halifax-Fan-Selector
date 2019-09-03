@@ -492,28 +492,7 @@ Public Class Frmselectfan
             End If
             failindex = -1
             maxspeed = CDbl(Txtspeedlimit.Text)
-'            If Opt2Pole.Checked = True Or Opt4Pole.Checked = True Or Opt6Pole.Checked = True Or Opt8Pole.Checked = True Or Opt10Pole.Checked = True Or Opt12Pole.Checked = True Then maxspeed = CDbl(Txtfanspeed.Text)
-            '##############
-            'v 1.0.6
-            If OptAnySpeed.Checked = True Then
-                Motor_Margin = 1.15
-            End If
-            '##############
-            If Opt2Pole.Checked = True Or Opt4Pole.Checked = True Or Opt6Pole.Checked = True Or Opt8Pole.Checked = True Or Opt10Pole.Checked = True Or Opt12Pole.Checked = True Then
-                maxspeed = CDbl(Txtfanspeed.Text)
-                '##############
-                'v 1.0.6
-                Motor_Margin = 1.1
-                '##############
-            End If
-            '##############
-            'v 1.0.6
-            If chkRadialBlade.Checked = True And chkAllBlades.Checked = False Then
-                Motor_Margin = 1.25
-            End If
-            '##############
-            Motor_Margin = 1.1 'akm comment out later
-
+            If Opt2Pole.Checked = True Or Opt4Pole.Checked = True Or Opt6Pole.Checked = True Or Opt8Pole.Checked = True Or Opt10Pole.Checked = True Or Opt12Pole.Checked = True Then maxspeed = CDbl(Txtfanspeed.Text)
             Txtspeedlimit.Text = maxspeed.ToString
 
             SelectDIDW = chkDIDW.Checked

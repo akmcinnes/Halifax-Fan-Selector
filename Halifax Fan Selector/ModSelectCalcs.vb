@@ -19,7 +19,7 @@
         Try
             Call LoadFanData(fantypefilename(k), k)
             Call scaledensity(k, getscalefactor)
-            If ModGetFanSize.GetFanSize(k) = 0 Then
+            If GetFanSize(k) = 0 Then
                 failindex = failindex + 1
                 fanfailures(failindex, 0) = fantypename(k)
                 fanfailures(failindex, 1) = 9

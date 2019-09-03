@@ -25,6 +25,9 @@ Public Class FrmCurveOptions
                 txtSpeed1.Text = final.speed.ToString
                 txtDensity1.Text = knowndensity.ToString
                 SplitContainer1.Panel1Collapsed = True
+                IncludeDutyPoint = True
+                chkDutyPoint.Checked = True
+                chkDutyPoint.Visible = False
                 Me.Width = 400
             Else
                 ApplyLocale(ChosenLanguage)
@@ -48,6 +51,7 @@ Public Class FrmCurveOptions
                 cmbDensityUnits.SelectedIndex = 0
                 cmbPowerUnits.SelectedIndex = 0
                 cmbLengthUnits.SelectedIndex = 0
+                chkDutyPoint.Visible = True
                 lstFanDesigns.Items.Clear()
                 PopulateFanListBox()
             End If
@@ -825,5 +829,11 @@ Public Class FrmCurveOptions
         End Try
     End Sub
 
-
+    Private Sub chkDutyPoint_CheckedChanged(sender As Object, e As EventArgs) Handles chkDutyPoint.CheckedChanged
+        Try
+            IncludeDutyPoint = chkDutyPoint.Checked
+        Catch ex As Exception
+            ErrorMessage(ex, 20737)
+        End Try
+    End Sub
 End Class

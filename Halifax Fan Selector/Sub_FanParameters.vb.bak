@@ -44,13 +44,13 @@
                         If Motor_Pole_Speeds.Speed60(4) = 0 Then .Opt10Pole.Visible = False
                         If Motor_Pole_Speeds.Speed60(5) = 0 Then .Opt12Pole.Visible = False
                 End Select
-                '#### 120819
-                'If .Opt2Pole.Visible = False And .Opt2Pole.Checked = True Then .OptAnySpeed.Checked = True
-                'If .Opt4Pole.Visible = False And .Opt4Pole.Checked = True Then .Opt2Pole.Checked = True
-                'If .Opt6Pole.Visible = False And .Opt6Pole.Checked = True Then .Opt2Pole.Checked = True
-                'If .Opt8Pole.Visible = False And .Opt8Pole.Checked = True Then .Opt2Pole.Checked = True
-                'If .Opt10Pole.Visible = False And .Opt10Pole.Checked = True Then .Opt2Pole.Checked = True
-                'If .Opt10Pole.Visible = False And .Opt12Pole.Checked = True Then .Opt2Pole.Checked = True
+
+                If .Opt2Pole.Visible = False And .Opt2Pole.Checked = True Then .OptAnySpeed.Checked = True
+                If .Opt4Pole.Visible = False And .Opt4Pole.Checked = True Then .Opt2Pole.Checked = True
+                If .Opt6Pole.Visible = False And .Opt6Pole.Checked = True Then .Opt2Pole.Checked = True
+                If .Opt8Pole.Visible = False And .Opt8Pole.Checked = True Then .Opt2Pole.Checked = True
+                If .Opt10Pole.Visible = False And .Opt10Pole.Checked = True Then .Opt2Pole.Checked = True
+                If .Opt10Pole.Visible = False And .Opt12Pole.Checked = True Then .Opt2Pole.Checked = True
 
                 Select Case freqHz
                     Case 50

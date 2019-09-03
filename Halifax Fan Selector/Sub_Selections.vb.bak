@@ -228,7 +228,6 @@ Module Sub_Selections
                     .chkOriginalData.Visible = True
 #End If
                     .chkKP.Visible = AdvancedUser
-                    .chkIncreaseDiameter.Visible = AdvancedUser
 
                     '.chkKP.Visible = StartArg.ToLower.Contains("-dev")
 
@@ -269,9 +268,6 @@ Module Sub_Selections
                         '-----------------------------------------------------------------------------
                         '----- FOR KNOWN DUTY BUT NO SPEED OR FAN SIZE GIVEN -------------------------
                         '------------------------------------------------------------------------------
-                        stepsize = 0.25
-                        'End If
-                        If fanunits(k) = "mm" Then stepsize = 5
 
                         If tempsize = 0 And tempspeed = 0 And tempflow <> 0 And tempfsp <> 0 Then
                             Call NoSpeedNosize(k) 'used
@@ -420,23 +416,23 @@ Module Sub_Selections
                 Dim temppower, temppower2 As Double
 
                 'pressure check
-                'Dim temppressS, temppressT As Double
+                Dim temppressS, temppressT As Double
                 Dim pressrangemin As Double = 0.95 '0.99
                 Dim pressrangemax As Double = 1.05 ' 1.01
-                Dim pressok As Boolean = True'120819
+                Dim pressok As Boolean
                 Dim iiii As Integer = 0
                 .Label13.Text = iiii.ToString
 
                 For k = 0 To fantypesQTY - 1 'akm 201018
-                    '#### 120819
-                    'pressok = False
-                    'temppressS = selected(k).fsp / pressrise
-                    'temppressT = selected(k).ftp / pressrise
-                    'If PresType = 0 And temppressS >= pressrangemin And temppressS <= pressrangemax Then
-                    '    pressok = True
-                    'ElseIf PresType = 1 And temppressT >= pressrangemin And temppressT <= pressrangemax Then
-                    '    pressok = True
-                    'End If
+                    pressok = False
+                    temppressS = selected(k).fsp / pressrise
+                    temppressT = selected(k).ftp / pressrise
+                    If PresType = 0 And temppressS >= pressrangemin And temppressS <= pressrangemax Then
+                        pressok = True
+                    ElseIf PresType = 1 And temppressT >= pressrangemin And temppressT <= pressrangemax Then
+                        pressok = True
+                    End If
+
 
                     If selected(k).fansize > 0 And
                         selected(k).resHD >= minresHD And

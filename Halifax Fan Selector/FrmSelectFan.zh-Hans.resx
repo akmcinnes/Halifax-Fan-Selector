@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="TabPageGeneral.Text" xml:space="preserve">
+    <value>通用信息</value>
+  </data>
+  <data name="TabPageDuty.Text" xml:space="preserve">
+    <value>工况数据输入</value>
+  </data>
+  <data name="TabPageFanParameters.Text" xml:space="preserve">
+    <value>风机参数</value>
+  </data>
+  <data name="TabPageSelection.Text" xml:space="preserve">
+    <value>选型</value>
+  </data>
+  <data name="TabPageNoise.Text" xml:space="preserve">
+    <value>声学</value>
+  </data>
+  <data name="TabPageImpeller.Text" xml:space="preserve">
+    <value>叶轮详细信息</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblSaveProject.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 25</value>
@@ -142,23 +160,23 @@
   <data name="GroupBox9.Text" xml:space="preserve">
     <value>速度</value>
   </data>
+  <data name="GroupBox8.Text" xml:space="preserve">
+    <value>功率</value>
+  </data>
   <data name="OptPowerBoth.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 29</value>
   </data>
   <data name="OptPowerBoth.Text" xml:space="preserve">
     <value>同时显示</value>
   </data>
-  <data name="GroupBox8.Text" xml:space="preserve">
-    <value>功率</value>
+  <data name="GroupBox7.Text" xml:space="preserve">
+    <value>选择默认值</value>
   </data>
   <data name="btnImperialUnits.Text" xml:space="preserve">
     <value>英制单位</value>
   </data>
   <data name="btnMetricUnits.Text" xml:space="preserve">
     <value>公制单位</value>
-  </data>
-  <data name="GroupBox7.Text" xml:space="preserve">
-    <value>选择默认值</value>
   </data>
   <data name="GroupBox10.Text" xml:space="preserve">
     <value>高度</value>
@@ -186,6 +204,9 @@
   </data>
   <data name="GrpFrequency.Text" xml:space="preserve">
     <value>电机频率（Hz）</value>
+  </data>
+  <data name="GrpGeneral.Text" xml:space="preserve">
+    <value>通用</value>
   </data>
   <data name="chkCalcAtmos.Text" xml:space="preserve">
     <value>从海拔高度计算大气压力</value>
@@ -226,12 +247,6 @@
   <data name="LblAmbientTemperature.Text" xml:space="preserve">
     <value>环境温度</value>
   </data>
-  <data name="GrpGeneral.Text" xml:space="preserve">
-    <value>通用</value>
-  </data>
-  <data name="TabPageGeneral.Text" xml:space="preserve">
-    <value>通用信息</value>
-  </data>
   <data name="lblMassFlow.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 18</value>
   </data>
@@ -259,14 +274,14 @@
   <data name="btnCalculateDensity.Text" xml:space="preserve">
     <value>密度计算</value>
   </data>
+  <data name="GrpFlowRate.Text" xml:space="preserve">
+    <value>流量速度</value>
+  </data>
   <data name="lblFlowType.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 25</value>
   </data>
   <data name="lblFlowType.Text" xml:space="preserve">
     <value>风机类型</value>
-  </data>
-  <data name="GrpFlowRate.Text" xml:space="preserve">
-    <value>流量速度</value>
   </data>
   <data name="OptFlowDischarge.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 29</value>
@@ -286,6 +301,9 @@
   <data name="OpFlowInlet.Text" xml:space="preserve">
     <value>进风口</value>
   </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>排放管道</value>
+  </data>
   <data name="optDDUserDefined.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 29</value>
   </data>
@@ -304,8 +322,8 @@
   <data name="optDDRatio.Text" xml:space="preserve">
     <value>比率</value>
   </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>排放管道</value>
+  <data name="GrpDesignPressure.Text" xml:space="preserve">
+    <value>设计流量</value>
   </data>
   <data name="Optsucy.Location" type="System.Drawing.Point, System.Drawing">
     <value>173, 109</value>
@@ -358,8 +376,8 @@
   <data name="OptTotalPressure.Text" xml:space="preserve">
     <value>全部</value>
   </data>
-  <data name="GrpDesignPressure.Text" xml:space="preserve">
-    <value>设计流量</value>
+  <data name="GrpInletDensity.Text" xml:space="preserve">
+    <value>进口密度</value>
   </data>
   <data name="OptDensityCalculated.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 29</value>
@@ -373,11 +391,11 @@
   <data name="OptDensityKnown.Text" xml:space="preserve">
     <value>已知的</value>
   </data>
-  <data name="GrpInletDensity.Text" xml:space="preserve">
-    <value>进口密度</value>
-  </data>
   <data name="btnDutyExit.Text" xml:space="preserve">
     <value>退出</value>
+  </data>
+  <data name="GrpInletTemperature.Text" xml:space="preserve">
+    <value>进口温度</value>
   </data>
   <data name="LblMaximumTemperature.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 25</value>
@@ -390,12 +408,6 @@
   </data>
   <data name="LblDesignTemperature.Text" xml:space="preserve">
     <value>设计</value>
-  </data>
-  <data name="GrpInletTemperature.Text" xml:space="preserve">
-    <value>进口温度</value>
-  </data>
-  <data name="TabPageDuty.Text" xml:space="preserve">
-    <value>工况数据输入</value>
   </data>
   <data name="Label21.Size" type="System.Drawing.Size, System.Drawing">
     <value>272, 25</value>
@@ -424,6 +436,9 @@
   <data name="btnFanSelectionsForward.Text" xml:space="preserve">
     <value>风机选型&gt;&gt;</value>
   </data>
+  <data name="GrpFanSize.Text" xml:space="preserve">
+    <value>风机尺寸</value>
+  </data>
   <data name="Lblfansize.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 25</value>
   </data>
@@ -442,8 +457,8 @@
   <data name="OptFixedSize.Text" xml:space="preserve">
     <value>固定尺寸</value>
   </data>
-  <data name="GrpFanSize.Text" xml:space="preserve">
-    <value>风机尺寸</value>
+  <data name="GrpFanSpeed.Text" xml:space="preserve">
+    <value>风机转速</value>
   </data>
   <data name="OptFixedSpeed.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 29</value>
@@ -511,8 +526,8 @@
   <data name="Opt4Pole.Text" xml:space="preserve">
     <value>4极</value>
   </data>
-  <data name="GrpFanSpeed.Text" xml:space="preserve">
-    <value>风机转速</value>
+  <data name="GrpFanTypes.Text" xml:space="preserve">
+    <value>风机类型</value>
   </data>
   <data name="chkRadialBlade.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 29</value>
@@ -604,11 +619,11 @@
   <data name="ChkCurveBlade.Text" xml:space="preserve">
     <value>弯曲叶片</value>
   </data>
-  <data name="GrpFanTypes.Text" xml:space="preserve">
-    <value>风机类型</value>
+  <data name="chkIncreaseDiameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 29</value>
   </data>
-  <data name="TabPageFanParameters.Text" xml:space="preserve">
-    <value>风机参数</value>
+  <data name="chkIncreaseDiameter.Text" xml:space="preserve">
+    <value>增加直径以满足客户压力</value>
   </data>
   <data name="chkOriginalData.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 29</value>
@@ -760,9 +775,6 @@
   <data name="Label3.Text" xml:space="preserve">
     <value>选定风机 = </value>
   </data>
-  <data name="TabPageSelection.Text" xml:space="preserve">
-    <value>选型</value>
-  </data>
   <data name="lblOverall.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 25</value>
   </data>
@@ -835,6 +847,9 @@
   <data name="btnImpellerDetailsForward.Text" xml:space="preserve">
     <value>叶轮详细信息 &gt;&gt;</value>
   </data>
+  <data name="GroupBox4.Text" xml:space="preserve">
+    <value>额外数据</value>
+  </data>
   <data name="chkMotor.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 22</value>
   </data>
@@ -847,8 +862,8 @@
   <data name="chkBrg.Text" xml:space="preserve">
     <value>轴承噪音</value>
   </data>
-  <data name="GroupBox4.Text" xml:space="preserve">
-    <value>额外数据</value>
+  <data name="GroupBox3.Text" xml:space="preserve">
+    <value>运行条件</value>
   </data>
   <data name="chkOpenOutlet.Size" type="System.Drawing.Size, System.Drawing">
     <value>185, 22</value>
@@ -867,9 +882,6 @@
   </data>
   <data name="chkDuct.Text" xml:space="preserve">
     <value>管道入口&amp;&amp;管道出口</value>
-  </data>
-  <data name="GroupBox3.Text" xml:space="preserve">
-    <value>运行条件</value>
   </data>
   <data name="Label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 18</value>
@@ -933,9 +945,6 @@
   <data name="btnNoiseExit.Text" xml:space="preserve">
     <value>退出</value>
   </data>
-  <data name="TabPageNoise.Text" xml:space="preserve">
-    <value>声学</value>
-  </data>
   <data name="lblPhase2.Size" type="System.Drawing.Size, System.Drawing">
     <value>488, 135</value>
   </data>
@@ -951,8 +960,11 @@
   <data name="Button2.Text" xml:space="preserve">
     <value>退出</value>
   </data>
-  <data name="TabPageImpeller.Text" xml:space="preserve">
-    <value>叶轮详细信息</value>
+  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 24</value>
+  </data>
+  <data name="FileToolStripMenuItem.Text" xml:space="preserve">
+    <value>文件</value>
   </data>
   <data name="OpenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 26</value>
@@ -971,6 +983,12 @@
   </data>
   <data name="SaveProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>保存项目</value>
+  </data>
+  <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 26</value>
+  </data>
+  <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
+    <value>输出到文件</value>
   </data>
   <data name="AllPagesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>190, 26</value>
@@ -1023,23 +1041,11 @@
   <data name="FanCurve2ToolStripMenuItem.Text" xml:space="preserve">
     <value>粉丝曲线 (英文)</value>
   </data>
-  <data name="PrintToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 26</value>
-  </data>
-  <data name="PrintToolStripMenuItem.Text" xml:space="preserve">
-    <value>输出到文件</value>
-  </data>
   <data name="ExitProjectToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 26</value>
   </data>
   <data name="ExitProjectToolStripMenuItem.Text" xml:space="preserve">
     <value>退出项目</value>
-  </data>
-  <data name="FileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 24</value>
-  </data>
-  <data name="FileToolStripMenuItem.Text" xml:space="preserve">
-    <value>文件</value>
   </data>
   <data name="ProjectDetailsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 24</value>

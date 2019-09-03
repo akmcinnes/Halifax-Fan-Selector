@@ -80,16 +80,6 @@
             Frmselectfan.Txtfansize.Text = ssize
             '-calculated the fan speed required to get the duty
             '-now calculating the power
-            '################
-            'v 1.0.6
-            Dim temp_mot_margin As Double = Motor_Margin
-            '#######################################################
-            '#### comment out for now until after testing ##########
-            'If blade_type(fanno).ToUpper.Contains("RAD") Then
-            '    Motor_Margin = 1.25
-            'End If
-            '#######################################################
-            '################
             gradpow = (Pows(fanno, datapoint3) - Pows(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selected(fanno).pow = Pows(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradpow))
             selected(fanno).pow = selected(fanno).pow ' / temp_kp
@@ -99,10 +89,7 @@
             selected(fanno).mot = Math.Round(selected(fanno).mot, 2)
             selected(fanno).mot2 = GetMotorSize(selected(fanno).pow / 0.746, True)
             selected(fanno).mot2 = Math.Round(selected(fanno).mot2, 2)
-            '################
-            'v 1.0.6
-            Motor_Margin = temp_mot_margin
-            '################
+
             selected(fanno).fanindex = fanno
             selected(fanno).mosteffpoint = medpoint(fanno)
 

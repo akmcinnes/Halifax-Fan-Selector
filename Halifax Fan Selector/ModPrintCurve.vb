@@ -119,48 +119,51 @@ Module ModPrintCurve
                 End With
 
                 End If
+                If Not StandAlone Then IncludeDutyPoint = True
 
-                ser = ser + 1
-                .SeriesCollection.NewSeries
-                .SeriesCollection(ser).XValues = "=Datapoints!$s$9"
-                .SeriesCollection(ser).Values = "=Datapoints!$t$9"
-                .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlPrimary
-                .SeriesCollection(ser).Name = "Duty Point"
-                .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleCircle
-                .SeriesCollection(ser).MarkerForegroundColorIndex = 11    'dark blue
-                .SeriesCollection(ser).MarkerBackgroundColorIndex = 11    'dark blue
-                .SeriesCollection(ser).Border.ColorIndex = 3
-                .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDot
-                With .SeriesCollection(ser).Points(1)
-                    .HasDataLabel = True
-                    .DataLabel.Text = lang_dict(PrintLanguage, 125) '"Duty Point"
-                    .DataLabel.Font.Name = "Arial"
-                    .DataLabel.Font.size = 10
-                    .DataLabel.Interior.ColorIndex = 2
-                    .DataLabel.Font.Italic = True
-                    .DataLabel.Font.ColorIndex = 1
-                End With
+                If IncludeDutyPoint Then
+                    ser = ser + 1
+                    .SeriesCollection.NewSeries
+                    .SeriesCollection(ser).XValues = "=Datapoints!$s$9"
+                    .SeriesCollection(ser).Values = "=Datapoints!$t$9"
+                    .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlPrimary
+                    .SeriesCollection(ser).Name = "Duty Point"
+                    .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleCircle
+                    .SeriesCollection(ser).MarkerForegroundColorIndex = 11    'dark blue
+                    .SeriesCollection(ser).MarkerBackgroundColorIndex = 11    'dark blue
+                    .SeriesCollection(ser).Border.ColorIndex = 3
+                    .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDot
+                    With .SeriesCollection(ser).Points(1)
+                        .HasDataLabel = True
+                        .DataLabel.Text = lang_dict(PrintLanguage, 125) '"Duty Point"
+                        .DataLabel.Font.Name = "Arial"
+                        .DataLabel.Font.size = 10
+                        .DataLabel.Interior.ColorIndex = 2
+                        .DataLabel.Font.Italic = True
+                        .DataLabel.Font.ColorIndex = 1
+                    End With
 
-                ser = ser + 1
-                .SeriesCollection.NewSeries
-                .SeriesCollection(ser).XValues = "=Datapoints!$s$9"
-                .SeriesCollection(ser).Values = "=Datapoints!$u$9"
-                .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlSecondary
-                .SeriesCollection(ser).Name = "Power Duty"
-                .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleCircle
-                .SeriesCollection(ser).MarkerForegroundColorIndex = 3    'dark red
-                .SeriesCollection(ser).MarkerBackgroundColorIndex = 3    'dark red
-                .SeriesCollection(ser).Border.ColorIndex = 3
-                .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDot
-                With .SeriesCollection(ser).Points(1)
-                    .HasDataLabel = True
-                    .DataLabel.Text = lang_dict(PrintLanguage, 125) ' "Duty Point"
-                    .DataLabel.Font.Name = "Arial"
-                    .DataLabel.Font.size = 10
-                    .DataLabel.Interior.ColorIndex = 2
-                    .DataLabel.Font.Italic = True
-                    .DataLabel.Font.ColorIndex = 1
-                End With
+                    ser = ser + 1
+                    .SeriesCollection.NewSeries
+                    .SeriesCollection(ser).XValues = "=Datapoints!$s$9"
+                    .SeriesCollection(ser).Values = "=Datapoints!$u$9"
+                    .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlSecondary
+                    .SeriesCollection(ser).Name = "Power Duty"
+                    .SeriesCollection(ser).MarkerStyle = Excel.XlMarkerStyle.xlMarkerStyleCircle
+                    .SeriesCollection(ser).MarkerForegroundColorIndex = 3    'dark red
+                    .SeriesCollection(ser).MarkerBackgroundColorIndex = 3    'dark red
+                    .SeriesCollection(ser).Border.ColorIndex = 3
+                    .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDot
+                    With .SeriesCollection(ser).Points(1)
+                        .HasDataLabel = True
+                        .DataLabel.Text = lang_dict(PrintLanguage, 125) ' "Duty Point"
+                        .DataLabel.Font.Name = "Arial"
+                        .DataLabel.Font.size = 10
+                        .DataLabel.Interior.ColorIndex = 2
+                        .DataLabel.Font.Italic = True
+                        .DataLabel.Font.ColorIndex = 1
+                    End With
+                End If
 
                 .Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary).HasTitle = True
                 .Axes(Excel.XlAxisType.xlCategory, Excel.XlAxisGroup.xlPrimary).HasMajorGridlines = True
@@ -736,432 +739,6 @@ Module ModPrintCurve
             Return ser
         End Try
     End Function
-
-    'Function Charts3()
-
-    '    With ActiveChart
-
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(7).XValues = Worksheets("Sheet1").Range("a44:a75")
-    '        .SeriesCollection(7).Values = Worksheets("Sheet1").Range("b44:b75")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(8).XValues = Worksheets("Sheet1").Range("a44:a75")
-    '        .SeriesCollection(8).Values = Worksheets("Sheet1").Range("c44:c75")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(9).XValues = Worksheets("Sheet1").Range("a44:a75")
-    '        .SeriesCollection(9).Values = Worksheets("Sheet1").Range("d44:d75")
-    '        .SeriesCollection(7).AxisGroup = xlPrimary
-    '        .SeriesCollection(8).AxisGroup = xlPrimary
-    '        .SeriesCollection(9).AxisGroup = xlSecondary
-    '        .SeriesCollection(7).Name = "FSP" & snme(3)
-    '        .SeriesCollection(8).Name = "FTP" & snme(3)
-    '        .SeriesCollection(9).Name = "Power" & snme(3)
-    '        .SeriesCollection(7).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(8).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(9).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(7).Border.Color = RGB(0, 51, 102)
-    '        .SeriesCollection(8).Border.Color = RGB(0, 51, 102)
-    '        .SeriesCollection(9).Border.Color = RGB(0, 51, 102)
-    '        .SeriesCollection(9).Border.LineStyle = xlDash
-
-    '    End With
-
-    '    With ActiveChart.SeriesCollection(7).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(3)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Color = RGB(0, 51, 102)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(8).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(3)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.Color = RGB(0, 51, 102)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(9).Points(datasets - 1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Power " & snme(3)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.Color = RGB(0, 51, 102)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left - 20
-    '    End With
-    '    With ActiveChart
-    '        .SeriesCollection(7).HasLeaderLines = False
-    '        .SeriesCollection(8).HasLeaderLines = False
-    '        .SeriesCollection(9).HasLeaderLines = False
-    '    End With
-
-    'End Function
-
-    'Function Charts4()
-
-    '    With ActiveChart
-
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(10).XValues = Worksheets("Sheet1").Range("f44:f75")
-    '        .SeriesCollection(10).Values = Worksheets("Sheet1").Range("g44:g75")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(11).XValues = Worksheets("Sheet1").Range("f44:f75")
-    '        .SeriesCollection(11).Values = Worksheets("Sheet1").Range("h44:h75")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(12).XValues = Worksheets("Sheet1").Range("f44:f75")
-    '        .SeriesCollection(12).Values = Worksheets("Sheet1").Range("i44:i75")
-    '        .SeriesCollection(10).AxisGroup = xlPrimary
-    '        .SeriesCollection(11).AxisGroup = xlPrimary
-    '        .SeriesCollection(12).AxisGroup = xlSecondary
-    '        .SeriesCollection(10).Name = "FSP" & snme(4)
-    '        .SeriesCollection(11).Name = "FTP" & snme(4)
-    '        .SeriesCollection(12).Name = "Power" & snme(4)
-    '        .SeriesCollection(10).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(11).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(12).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(10).Border.Color = RGB(0, 102, 0)
-    '        .SeriesCollection(11).Border.Color = RGB(0, 102, 0)
-    '        .SeriesCollection(12).Border.Color = RGB(0, 102, 0)
-    '        .SeriesCollection(12).Border.LineStyle = xlDash
-    '        .SeriesCollection(10).Border.Weight = xlThin
-    '        .SeriesCollection(11).Border.Weight = xlThin
-    '        .SeriesCollection(12).Border.Weight = xlThin
-    '    End With
-
-    '    With ActiveChart.SeriesCollection(10).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(4)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Color = RGB(0, 102, 0)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(11).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(4)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.Color = RGB(0, 102, 0)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(12).Points(datasets - 1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Power " & snme(4)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.Color = RGB(0, 102, 0)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left - 20
-    '    End With
-    '    With ActiveChart
-    '        .SeriesCollection(10).HasLeaderLines = False
-    '        .SeriesCollection(11).HasLeaderLines = False
-    '        .SeriesCollection(12).HasLeaderLines = False
-    '    End With
-
-    'End Function
-
-    'Function Charts5()
-
-    '    With ActiveChart
-
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(13).XValues = Worksheets("Sheet1").Range("a79:a110")
-    '        .SeriesCollection(13).Values = Worksheets("Sheet1").Range("b79:b110")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(14).XValues = Worksheets("Sheet1").Range("a79:a110")
-    '        .SeriesCollection(14).Values = Worksheets("Sheet1").Range("c79:c110")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(15).XValues = Worksheets("Sheet1").Range("a79:a110")
-    '        .SeriesCollection(15).Values = Worksheets("Sheet1").Range("d79:d110")
-    '        .SeriesCollection(13).AxisGroup = xlPrimary
-    '        .SeriesCollection(14).AxisGroup = xlPrimary
-    '        .SeriesCollection(15).AxisGroup = xlSecondary
-    '        .SeriesCollection(13).Name = "FSP" & snme(5)
-    '        .SeriesCollection(14).Name = "FTP" & snme(5)
-    '        .SeriesCollection(15).Name = "Power" & snme(5)
-    '        .SeriesCollection(13).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(14).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(15).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(13).Border.Color = RGB(255, 0, 0)
-    '        .SeriesCollection(14).Border.Color = RGB(255, 0, 0)
-    '        .SeriesCollection(15).Border.Color = RGB(255, 0, 0)
-    '        .SeriesCollection(15).Border.LineStyle = xlDash
-    '    End With
-
-    '    With ActiveChart.SeriesCollection(13).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(5)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Color = RGB(255, 0, 0)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(14).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(5)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.Color = RGB(255, 0, 0)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(15).Points(datasets - 1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Power " & snme(5)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.Color = RGB(255, 0, 0)
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left - 20
-    '    End With
-    '    With ActiveChart
-    '        .SeriesCollection(13).HasLeaderLines = False
-    '        .SeriesCollection(14).HasLeaderLines = False
-    '        .SeriesCollection(15).HasLeaderLines = False
-    '    End With
-
-    'End Function
-
-    'Function Charts6()
-
-    '    With ActiveChart
-
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(16).XValues = Worksheets("Sheet1").Range("f79:f110")
-    '        .SeriesCollection(16).Values = Worksheets("Sheet1").Range("g79:g110")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(17).XValues = Worksheets("Sheet1").Range("f79:f110")
-    '        .SeriesCollection(17).Values = Worksheets("Sheet1").Range("h79:h109")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(18).XValues = Worksheets("Sheet1").Range("f79:f110")
-    '        .SeriesCollection(18).Values = Worksheets("Sheet1").Range("i79:i110")
-    '        .SeriesCollection(16).AxisGroup = xlPrimary
-    '        .SeriesCollection(17).AxisGroup = xlPrimary
-    '        .SeriesCollection(18).AxisGroup = xlSecondary
-    '        .SeriesCollection(16).Name = "FSP" & snme(6)
-    '        .SeriesCollection(17).Name = "FTP" & snme(6)
-    '        .SeriesCollection(18).Name = "Power" & snme(6)
-    '        .SeriesCollection(16).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(17).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(18).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(16).Border.ColorIndex = 3
-    '        .SeriesCollection(17).Border.ColorIndex = 3
-    '        .SeriesCollection(18).Border.ColorIndex = 3
-    '        .SeriesCollection(18).Border.LineStyle = xlDash
-    '        .SeriesCollection(16).Border.Weight = xlThin
-    '        .SeriesCollection(17).Border.Weight = xlThin
-    '        .SeriesCollection(18).Border.Weight = xlThin
-
-    '    End With
-
-    '    With ActiveChart.SeriesCollection(16).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(6)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.ColorIndex = 3
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(17).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(6)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.ColorIndex = 3
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(18).Points(datasets - 1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Power " & snme(6)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.ColorIndex = 3
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left - 20
-    '    End With
-
-    '    With ActiveChart
-    '        .SeriesCollection(16).HasLeaderLines = False
-    '        .SeriesCollection(17).HasLeaderLines = False
-    '        .SeriesCollection(18).HasLeaderLines = False
-    '    End With
-    'End Function
-
-    'Function Charts7()
-
-    '    With ActiveChart
-
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(19).XValues = Worksheets("Sheet1").Range("a114:a145")
-    '        .SeriesCollection(19).Values = Worksheets("Sheet1").Range("b114:b145")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(20).XValues = Worksheets("Sheet1").Range("a114:a145")
-    '        .SeriesCollection(20).Values = Worksheets("Sheet1").Range("c114:c145")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(21).XValues = Worksheets("Sheet1").Range("a114:a145")
-    '        .SeriesCollection(21).Values = Worksheets("Sheet1").Range("d114:d145")
-    '        .SeriesCollection(19).AxisGroup = xlPrimary
-    '        .SeriesCollection(20).AxisGroup = xlPrimary
-    '        .SeriesCollection(21).AxisGroup = xlSecondary
-    '        .SeriesCollection(19).Name = "FSP" & snme(7)
-    '        .SeriesCollection(20).Name = "FTP" & snme(7)
-    '        .SeriesCollection(21).Name = "Power" & snme(7)
-    '        .SeriesCollection(19).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(20).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(21).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(19).Border.ColorIndex = 54
-    '        .SeriesCollection(20).Border.ColorIndex = 54
-    '        .SeriesCollection(21).Border.ColorIndex = 54
-    '        .SeriesCollection(21).Border.LineStyle = xlDash
-    '    End With
-
-    '    With ActiveChart.SeriesCollection(19).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(7)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.ColorIndex = 54
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(20).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(7)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.ColorIndex = 54
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(21).Points(datasets - 1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Power " & snme(7)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.ColorIndex = 54
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left - 20
-    '    End With
-    '    With ActiveChart
-    '        .SeriesCollection(19).HasLeaderLines = False
-    '        .SeriesCollection(20).HasLeaderLines = False
-    '        .SeriesCollection(21).HasLeaderLines = False
-    '    End With
-
-    'End Function
-
-    'Function Charts8()
-
-    '    With ActiveChart
-
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(22).XValues = Worksheets("Sheet1").Range("f114:f145")
-    '        .SeriesCollection(22).Values = Worksheets("Sheet1").Range("g114:g145")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(23).XValues = Worksheets("Sheet1").Range("f114:f145")
-    '        .SeriesCollection(23).Values = Worksheets("Sheet1").Range("h114:h145")
-    '        .SeriesCollection.NewSeries
-    '        .SeriesCollection(24).XValues = Worksheets("Sheet1").Range("f114:f145")
-    '        .SeriesCollection(24).Values = Worksheets("Sheet1").Range("i114:i145")
-    '        .SeriesCollection(22).AxisGroup = xlPrimary
-    '        .SeriesCollection(23).AxisGroup = xlPrimary
-    '        .SeriesCollection(24).AxisGroup = xlSecondary
-    '        .SeriesCollection(22).Name = "FSP" & snme(8)
-    '        .SeriesCollection(23).Name = "FTP" & snme(8)
-    '        .SeriesCollection(24).Name = "Power" & snme(8)
-    '        .SeriesCollection(22).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(23).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(24).MarkerStyle = xlMarkerStyleNone
-    '        .SeriesCollection(22).Border.ColorIndex = 56
-    '        .SeriesCollection(23).Border.ColorIndex = 56
-    '        .SeriesCollection(24).Border.ColorIndex = 56
-    '        .SeriesCollection(24).Border.LineStyle = xlDash
-    '        .SeriesCollection(22).Border.Weight = xlThin
-    '        .SeriesCollection(23).Border.Weight = xlThin
-    '        .SeriesCollection(24).Border.Weight = xlThin
-    '    End With
-
-    '    With ActiveChart.SeriesCollection(22).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(8)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.ColorIndex = 56
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(23).Points(1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Pressure " & snme(8)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.ColorIndex = 56
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left + 10
-    '    End With
-    '    With ActiveChart.SeriesCollection(24).Points(datasets - 1)
-    '        .HasDataLabel = True
-    '        .DataLabel.Text = "Power " & snme(8)
-    '        .DataLabel.Font.Name = "Arial"
-    '        .DataLabel.Font.size = 10
-    '        .DataLabel.Interior.ColorIndex = 2
-    '        .DataLabel.Font.Italic = True
-    '        .DataLabel.Font.ColorIndex = 56
-    '        .DataLabel.Top = .DataLabel.Top - 10
-    '        .DataLabel.Left = .DataLabel.Left - 20
-    '    End With
-    '    With ActiveChart
-    '        .SeriesCollection(22).HasLeaderLines = False
-    '        .SeriesCollection(23).HasLeaderLines = False
-    '        .SeriesCollection(24).HasLeaderLines = False
-    '    End With
-
-    'End Function
-
 
     Public Sub deletecurveftp(xlsWB)
         Try

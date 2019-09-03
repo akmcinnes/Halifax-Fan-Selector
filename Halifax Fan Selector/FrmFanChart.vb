@@ -379,8 +379,8 @@ Public Class FrmFanChart
                 plotpow(i) = plotpow(i) * getscalefactor()
             Next
 
-            Dim tempsize As Integer = selected(fan2plot).fansize
-            Dim tempspeed As Integer = selected(fan2plot).speed
+            Dim tempsize As Double = selected(fan2plot).fansize ' was integer
+            Dim tempspeed As Double = selected(fan2plot).speed ' was integer
             Dim tempoutletarea As Double = selected(fan2plot).outletarea
             If printout = True Then tempsize = final.fansize
             If printout = True Then tempspeed = final.speed

@@ -56,6 +56,7 @@ Partial Class FrmCurveOptions
         Me.lstFanDesigns = New System.Windows.Forms.ListBox()
         Me.lblDensity = New System.Windows.Forms.Label()
         Me.txtFanSize = New System.Windows.Forms.TextBox()
+        Me.chkDutyPoint = New System.Windows.Forms.CheckBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.grpMultipleDensities = New System.Windows.Forms.GroupBox()
         Me.optNoDensities1 = New System.Windows.Forms.RadioButton()
@@ -144,6 +145,7 @@ Partial Class FrmCurveOptions
         '
         Me.SplitContainer1.Panel2.BackColor = System.Drawing.Color.Bisque
         resources.ApplyResources(Me.SplitContainer1.Panel2, "SplitContainer1.Panel2")
+        Me.SplitContainer1.Panel2.Controls.Add(Me.chkDutyPoint)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Button1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grpMultipleDensities)
         Me.SplitContainer1.Panel2.Controls.Add(Me.grpMultipleSpeeds)
@@ -348,6 +350,14 @@ Partial Class FrmCurveOptions
         '
         resources.ApplyResources(Me.txtFanSize, "txtFanSize")
         Me.txtFanSize.Name = "txtFanSize"
+        '
+        'chkDutyPoint
+        '
+        resources.ApplyResources(Me.chkDutyPoint, "chkDutyPoint")
+        Me.chkDutyPoint.Checked = True
+        Me.chkDutyPoint.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.chkDutyPoint.Name = "chkDutyPoint"
+        Me.chkDutyPoint.UseVisualStyleBackColor = True
         '
         'Button1
         '
@@ -753,4 +763,5 @@ Partial Class FrmCurveOptions
     Friend WithEvents lblPerCent As Label
     Friend WithEvents lblWidthing As Label
     Friend WithEvents txtWidthing As TextBox
+    Friend WithEvents chkDutyPoint As CheckBox
 End Class

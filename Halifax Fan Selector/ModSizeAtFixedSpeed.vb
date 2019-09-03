@@ -6,18 +6,38 @@
     Public Sub GetSizeAtfixedSpeed(ByVal fanno As Integer)
         SizeAtFixedSpeed = 0.0
         Try
+            Dim ii As Integer
+            For ii = 0 To 1000
+                vols(fanno, ii) = 0.0
+            Next
+            'count = 0
+            'If fsizes(fanno, 1) > 100 Then
+            '    stepsize = 5
+            'Else
+            'stepsize = 0.25
+            ''End If
+            'If fanunits(fanno) = "mm" Then stepsize = 5
             count = 0
-
-            If fsizes(fanno, 1) > 100 Then
-                stepsize = 5
-            Else
-                stepsize = 0.25
-            End If
+            Dim fanlimit As Double = 0 '102
+            'If fansizelimit(fanno) > 0 Then fanlimit = fansizelimit(fanno)
+            Dim i As Integer = 0
+            Do While fsizes(fanno, i) > 0
+                If fsizes(fanno, i) > fanlimit Then fanlimit = fsizes(fanno, i)
+                i = i + 1
+            Loop
             count = 0
-            fansize = fsizes(fanno, 1)
-            Dim fanlimit As Double = 102
-            If fansizelimit(fanno) > 0 Then fanlimit = fansizelimit(fanno)
+            fansize = fsizes(fanno, 0)
             Do While fansize <= fanlimit '<>102
+                If fanclass(fanno) = "MBI" Then
+                    'If Frmselectfan.chkWide.Checked = True Then Debug.Print("Wide")
+                    'If Frmselectfan.chkMedium.Checked = True Then Debug.Print("Medium")
+                    Debug.Print("fanlimit = " + fanlimit.ToString)
+                    Debug.Print("fansize = " + fansize.ToString)
+                    'For i = 0 To 30
+                    '    Debug.Print("powr(" + i.ToString + ") = " + Powr(fanno, i).ToString)
+                    'Next
+
+                End If
                 count1 = 0
                 Do While Powr(fanno, count1) <> 0
                     '-scaling for fan sizes
@@ -70,7 +90,7 @@
             Loop
             count = 0
             '-finds the point nearest the specified pressure point
-            fsizes(fanno, 0) = 1 'akm200319
+            'fsizes(fanno, 0) = 1 'akm200319
             'fsizes(0, 0) = 1
             If PresType = 0 Then
                 'Do While (Val(Frmselectfan.Txtfsp.Text) - fspI(fanno, count)) ^ 2 >= (Val(Frmselectfan.Txtfsp.Text) - fspI(fanno, count + 1)) ^ 2
@@ -95,6 +115,10 @@
 
             End If
             SizeAtFixedSpeed = fsizes(fanno, count)
+            If fanclass(fanno) = "MBI" Then
+                Debug.Print(fanclass(fanno) + " fspI = " + fspI(fanno, count).ToString + " fspI = " + fspI(fanno, count + 1).ToString + " size = " + fsizes(fanno, count).ToString)
+            End If
+
 
             ''---------checking for secondary data
             'If fsizes(fanno, count) >= fansizelimit(fanno) And fansizelimit(fanno) <> 0 And runonce <> "yes" Then
@@ -111,14 +135,14 @@
                 MsgBox("Fan Type " + fanno.ToString + ": " & fanclass(fanno) & ", A new value for Pressure has been calculated!", vbInformation)
             End If
             '-----------------------------------------------
-            If SizeAtFixedSpeed = 0 Then
-                failindex = failindex + 1
-                fanfailures(failindex, 0) = fantypename(fanno)
-                fanfailures(failindex, 1) = 9 '"Sorry this duty is out of range for this fan type"
-                failurevalue(failindex) = ""
-                'MsgBox("Fan Type " + fanclass(fanno) + ": Sorry this duty is out of range for this fan type")
-                Exit Sub
-            End If
+            'If SizeAtFixedSpeed = 0 Then
+            '    failindex = failindex + 1
+            '    fanfailures(failindex, 0) = fantypename(fanno)
+            '    fanfailures(failindex, 1) = 9 '"Sorry this duty is out of range for this fan type"
+            '    failurevalue(failindex) = ""
+            '    'MsgBox("Fan Type " + fanclass(fanno) + ": Sorry this duty is out of range for this fan type")
+            '    Exit Sub
+            'End If
 
             'Call GetPressure(GetSizeAtfixedSpeed(fanno), speed, Val(Frmselectfan.Txtflow.Text), fanno)
             Call GetPressure(SizeAtFixedSpeed, speed, flowrate, fanno)
@@ -127,6 +151,10 @@
             'MsgBox(ex.Message + vbCrLf + fanno.ToString + " Getsizeatfixedspeed " + fansize.ToString + " " + Powr(fanno, count1).ToString)
             If StartArg.ToLower.Contains("-dev") Then
                 ErrorMessage(ex, 6001)
+                failindex = failindex + 1
+                fanfailures(failindex, 0) = fantypename(fanno)
+                fanfailures(failindex, 1) = ex.Message
+                failurevalue(failindex) = ""
                 MsgBox(fanclass(fanno))
             End If
         End Try

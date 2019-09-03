@@ -180,7 +180,6 @@ Module Variables
     Public convlen As Double
     Public convvel As Double
 
-    Public Motor_Margin As Double = 1.15
     Public CalcAtmos As Boolean
 
     Public DDInputArea As Double
