@@ -38,7 +38,15 @@
                     '    Frmselectfan.ChkOtherFanType.Checked = True And fanother(j) = True) Then
                     '    j = j - 1
                     'End If
-                    If OpenFromToolStrip = False Then
+
+                    For index = 141 To 170
+                        If lang_dict(2, index) = fantypename(j) Then
+                            fantypename(j) = lang_dict(1, index)
+                            Exit For
+                        End If
+                    Next
+
+                    If OpenFromToolStrip = False And StandAlone = False Then
                         If Not (Frmselectfan.chkWide.Checked = True And fanwide(j) = True Or
                         Frmselectfan.chkMedium.Checked = True And fanmedium(j) = True Or
                         Frmselectfan.chkNarrow.Checked = True And fannarrow(j) = True Or
@@ -48,7 +56,8 @@
                         Frmselectfan.ChkPlasticFan.Checked = True And fanplastic(j) = True Or
                         Frmselectfan.chkPaddleBlade.Checked = True And fanpaddle(j) = True Or
                         Frmselectfan.chkRadialBlade.Checked = True And fanradial(j) = True Or
-                        Frmselectfan.ChkOtherFanType.Checked = True And fanother(j) = True) Then
+                        Frmselectfan.ChkOtherFanType.Checked = True And fanother(j) = True Or
+                            Frmselectfan.lstFanDesigns.SelectedItem = fantypename(j)) Then
                             j = j - 1
                         End If
                     End If

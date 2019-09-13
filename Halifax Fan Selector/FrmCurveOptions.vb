@@ -292,6 +292,8 @@ Public Class FrmCurveOptions
         Try
             If StandAlone = True Then
                 SelectDIDW = chkDoubleInlet.Checked
+                'IncludeAcoustics = chkAcousticsOutput.Checked
+
                 getLanguageDictionary()
                 SetUnitStructure()
                 move_on = True
@@ -319,6 +321,7 @@ Public Class FrmCurveOptions
                     Units(3).UnitSelected = cmbDensityUnits.SelectedIndex
                     Units(4).UnitSelected = cmbPowerUnits.SelectedIndex
                     Units(5).UnitSelected = cmbLengthUnits.SelectedIndex
+
                     'For i = 0 To 2
                     '    Flag(i) = True
                     'Next
@@ -367,7 +370,8 @@ Public Class FrmCurveOptions
             '    Exit Sub
             'End If
             Me.Hide()
-            CreateFile(3)
+            'CreateFile(3)
+            CreateFile(0) 'akm090919
         Catch ex As Exception
             ErrorMessage(ex, 20705)
         End Try

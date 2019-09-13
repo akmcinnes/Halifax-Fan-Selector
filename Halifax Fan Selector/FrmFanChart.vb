@@ -50,7 +50,8 @@ Public Class FrmFanChart
             For i = 0 To fantypesQTY - 1
                 sizecon = 1.0
                 If fanunits(i) = "mm" Then sizecon = 25.4
-                If fanclass(i) = curvedesign And tempsize / sizecon <= fansizelimit(i) Then Exit For
+                'If fanclass(i) = curvedesign And tempsize / sizecon <= fansizelimit(i) Then Exit For
+                If fantypefilename(i) = selected(fan2plot).fantypefilename Then Exit For
             Next
             ReadfromBinaryfile(fantypefilename(i), 0)
             PlotStaticPVCurve()
@@ -417,6 +418,10 @@ Public Class FrmFanChart
                 plotpow(i) = plotpow(i) * final.widthfactor
                 'End If
             Next
+            plotoutletarea = tempoutletarea
+            plotoutletlength = final.outletlen
+            plotoutletwidth = final.outletwid
+            plotinletdia = final.inletdia
         Catch ex As Exception
             ErrorMessage(ex, 20108)
         End Try

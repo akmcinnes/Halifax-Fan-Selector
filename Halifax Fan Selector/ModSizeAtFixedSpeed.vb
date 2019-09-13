@@ -145,6 +145,7 @@
             'End If
 
             'Call GetPressure(GetSizeAtfixedSpeed(fanno), speed, Val(Frmselectfan.Txtflow.Text), fanno)
+            'addstep = True
             Call GetPressure(SizeAtFixedSpeed, speed, flowrate, fanno)
 
         Catch ex As Exception

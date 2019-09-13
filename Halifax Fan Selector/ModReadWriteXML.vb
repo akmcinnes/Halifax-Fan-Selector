@@ -75,12 +75,34 @@ Module ModReadWriteXML
             If countflag >= 2 Then
                 Write_to_XML(textwriter, "Fan_Parameter_information")
                 Write_to_XML(textwriter, "Maximum_Speed", maxspeed.ToString)
+                Write_to_XML(textwriter, "Entered_Fan_Speed", Frmselectfan.Txtfanspeed.Text)
                 Write_to_XML(textwriter, "Fan_Size", fansize.ToString)
+                Write_to_XML(textwriter, "Entered_Fan_Size", Frmselectfan.Txtfansize.Text)
                 Write_to_XML(textwriter, "Double_Inlet", SelectDIDW.ToString)
+                Write_to_XML(textwriter, "VSD", Frmselectfan.OptAnySpeed.Checked.ToString)
+                Write_to_XML(textwriter, "Fixed_Speed", Frmselectfan.OptFixedSpeed.Checked.ToString)
+                Write_to_XML(textwriter, "Poles_2", Frmselectfan.Opt2Pole.Checked.ToString)
+                Write_to_XML(textwriter, "Poles_4", Frmselectfan.Opt4Pole.Checked.ToString)
+                Write_to_XML(textwriter, "Poles_6", Frmselectfan.Opt6Pole.Checked.ToString)
+                Write_to_XML(textwriter, "Poles_8", Frmselectfan.Opt8Pole.Checked.ToString)
+                Write_to_XML(textwriter, "Poles_10", Frmselectfan.Opt10Pole.Checked.ToString)
+                Write_to_XML(textwriter, "Poles_12", Frmselectfan.Opt12Pole.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Wide", Frmselectfan.chkWide.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Medium", Frmselectfan.chkMedium.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Narrow", Frmselectfan.chkNarrow.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_High_Pressure", Frmselectfan.chkHighPressure.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Curve", Frmselectfan.ChkCurveBlade.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Incline", Frmselectfan.ChkInclineBlade.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Other", Frmselectfan.ChkOtherFanType.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Plastic", Frmselectfan.ChkPlasticFan.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Paddle", Frmselectfan.chkPaddleBlade.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_Radial", Frmselectfan.chkRadialBlade.Checked.ToString)
+                Write_to_XML(textwriter, "Blade_All", Frmselectfan.chkAllBlades.Checked.ToString)
+                Write_to_XML(textwriter, "Selected_Design", Frmselectfan.lstFanDesigns.SelectedItem.ToString)
                 Write_to_XML(textwriter)
             End If
-            ' #### SelectionInfo
-            If countflag >= 3 Then
+                ' #### SelectionInfo
+                If countflag >= 3 Then
                 Write_to_XML(textwriter, "Selection_information")
                 Write_to_XML(textwriter, "SI_Fan_Size", final.fansize.ToString)
                 Write_to_XML(textwriter, "SI_Fan_Type", final.fantype.ToString)
@@ -185,8 +207,31 @@ Module ModReadWriteXML
                         If textReader.Name = "Density_Type" Then CalculatedDensity = CDbl(textReader.ReadString)
                         ' #### FanParameterInfo
                         If textReader.Name = "Maximum_Speed" Then maxspeed = CDbl(textReader.ReadString)
+                        If textReader.Name = "Entered_Fan_Speed" Then Frmselectfan.Txtfanspeed.Text = textReader.ReadString
                         If textReader.Name = "Fan_Size" Then fansize = CDbl(textReader.ReadString)
+                        If textReader.Name = "Entered_Fan_Size" Then Frmselectfan.Txtfansize.Text = textReader.ReadString
                         If textReader.Name = "Double_Inlet" Then SelectDIDW = CBool(textReader.ReadString)
+                        If textReader.Name = "VSD" Then Frmselectfan.OptAnySpeed.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Fixed_Speed" Then Frmselectfan.OptFixedSpeed.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Poles_2" Then Frmselectfan.Opt2Pole.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Poles_4" Then Frmselectfan.Opt4Pole.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Poles_6" Then Frmselectfan.Opt6Pole.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Poles_8" Then Frmselectfan.Opt8Pole.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Poles_10" Then Frmselectfan.Opt10Pole.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Poles_12" Then Frmselectfan.Opt12Pole.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Wide" Then Frmselectfan.chkWide.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Medium" Then Frmselectfan.chkMedium.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Narrow" Then Frmselectfan.chkNarrow.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_High_Pressure" Then Frmselectfan.chkHighPressure.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Curve" Then Frmselectfan.ChkCurveBlade.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Incline" Then Frmselectfan.ChkInclineBlade.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Other" Then Frmselectfan.ChkOtherFanType.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Plastic" Then Frmselectfan.ChkPlasticFan.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Paddle" Then Frmselectfan.chkPaddleBlade.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_Radial" Then Frmselectfan.chkRadialBlade.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Blade_All" Then Frmselectfan.chkAllBlades.Checked = CBool(textReader.ReadString)
+                        If textReader.Name = "Selected_Design" Then Frmselectfan.lstFanDesigns.SelectedItem = textReader.ReadString
+
                         ' #### Selection - checked
                         If textReader.Name = "SI_Fan_Size" Then final.fansize = CDbl(textReader.ReadString)
                         If textReader.Name = "SI_Fan_Type" Then final.fantype = textReader.ReadString

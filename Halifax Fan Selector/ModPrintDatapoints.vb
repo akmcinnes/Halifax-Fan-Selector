@@ -72,26 +72,38 @@
             PlaceData(xlsWB, sheet, "Vol.", 8, 19) 'performance data header
             PlaceData(xlsWB, sheet, "Pres.", 8, 20) 'performance data header
             PlaceData(xlsWB, sheet, "Pow.", 8, 21) 'performance data header
-            If flowrate > 0.0001 Then
-                SetPlaces(flowrate, final.fsp, final.pow)
-                PlaceData(xlsWB, sheet, Math.Round(flowrate, voldecplaces), 9, 19) 'performance data header
-                If PresType = 0 Then
-                    PlaceData(xlsWB, sheet, Math.Round(final.fsp, pressplaceRise), 9, 20) 'performance data header
-                Else
-                    PlaceData(xlsWB, sheet, Math.Round(final.ftp, pressplaceRise), 9, 20) 'performance data header
-                End If
-                PlaceData(xlsWB, sheet, Math.Round(final.pow, powerdecplaces), 9, 21) 'performance data header
-            Else
-                SetPlaces(plotvol(Most_Eff_Pt), plotfsp(Most_Eff_Pt), plotpow(Most_Eff_Pt))
-                PlaceData(xlsWB, sheet, Math.Round(plotvol(Most_Eff_Pt), voldecplaces), 9, 19) 'performance data header
-                If PresType = 0 Then
-                    PlaceData(xlsWB, sheet, Math.Round(plotfsp(Most_Eff_Pt), pressplaceRise), 9, 20) 'performance data header
-                Else
-                    PlaceData(xlsWB, sheet, Math.Round(plotftp(Most_Eff_Pt), pressplaceRise), 9, 20) 'performance data header
-                End If
-                PlaceData(xlsWB, sheet, Math.Round(plotpow(Most_Eff_Pt), powerdecplaces), 9, 21) 'performance data header
-
+            If flowrate < 0.0001 Then
+                flowrate = plotvol(Most_Eff_Pt)
+                final.vol = flowrate
+                final.fsp = plotfsp(Most_Eff_Pt)
+                final.ftp = plotftp(Most_Eff_Pt)
+                final.pow = plotpow(Most_Eff_Pt)
+                final.fse = plotfse(Most_Eff_Pt)
+                final.fte = plotfte(Most_Eff_Pt)
+                final.ov = plotov(Most_Eff_Pt)
+                pressrise = final.fsp
+                final.mot = GetMotorSize(final.pow)
             End If
+            SetPlaces(flowrate, final.fsp, final.pow)
+            PlaceData(xlsWB, sheet, Math.Round(flowrate, voldecplaces), 9, 19) 'performance data header
+            If PresType = 0 Then
+                PlaceData(xlsWB, sheet, Math.Round(final.fsp, pressplaceRise), 9, 20) 'performance data header
+            Else
+                PlaceData(xlsWB, sheet, Math.Round(final.ftp, pressplaceRise), 9, 20) 'performance data header
+            End If
+            PlaceData(xlsWB, sheet, Math.Round(final.pow, powerdecplaces), 9, 21) 'performance data header
+            'Else
+
+            '    SetPlaces(plotvol(Most_Eff_Pt), plotfsp(Most_Eff_Pt), plotpow(Most_Eff_Pt))
+            '    PlaceData(xlsWB, sheet, Math.Round(plotvol(Most_Eff_Pt), voldecplaces), 9, 19) 'performance data header
+            '    If PresType = 0 Then
+            '        PlaceData(xlsWB, sheet, Math.Round(plotfsp(Most_Eff_Pt), pressplaceRise), 9, 20) 'performance data header
+            '    Else
+            '        PlaceData(xlsWB, sheet, Math.Round(plotftp(Most_Eff_Pt), pressplaceRise), 9, 20) 'performance data header
+            '    End If
+            '    PlaceData(xlsWB, sheet, Math.Round(plotpow(Most_Eff_Pt), powerdecplaces), 9, 21) 'performance data header
+
+            'End If
         Catch ex As Exception
             ErrorMessage(ex, 6903)
         End Try

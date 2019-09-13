@@ -44,13 +44,13 @@
             counteffs = 0
             row = 9
 
-            ReDim ftp(30, 50)
-            ReDim vol(30, 50)
-            ReDim Powr(30, 50)
-            ReDim fte(30, 50)
-            ReDim fsp(30, 50)
-            ReDim fse(30, 50)
-            ReDim ovel(30, 50)
+            ReDim ftp(40, 50)
+            ReDim vol(40, 50)
+            ReDim Powr(40, 50)
+            ReDim fte(40, 50)
+            ReDim fsp(40, 50)
+            ReDim fse(40, 50)
+            ReDim ovel(40, 50)
 
             For count = 0 To Num_Readings - 1
                 If Units(1).UnitSelected = 0 Then

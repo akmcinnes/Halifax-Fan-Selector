@@ -126,6 +126,42 @@
     <value>Stretch</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chkAcousticsOutput.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkAcousticsOutput.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkAcousticsOutput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 414</value>
+  </data>
+  <data name="chkAcousticsOutput.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="chkAcousticsOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 21</value>
+  </data>
+  <data name="chkAcousticsOutput.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="chkAcousticsOutput.Text" xml:space="preserve">
+    <value>Output Acoustics</value>
+  </data>
+  <data name="chkAcousticsOutput.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;chkAcousticsOutput.Name" xml:space="preserve">
+    <value>chkAcousticsOutput</value>
+  </data>
+  <data name="&gt;&gt;chkAcousticsOutput.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkAcousticsOutput.Parent" xml:space="preserve">
+    <value>SplitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;chkAcousticsOutput.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="lblPerCent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -157,7 +193,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblPerCent.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="lblWidthing.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -190,7 +226,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblWidthing.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="txtWidthing.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -217,7 +253,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtWidthing.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="optEnglishLanguageOutput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -280,10 +316,10 @@
     <value>1</value>
   </data>
   <data name="grpOutputLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 427</value>
+    <value>314, 442</value>
   </data>
   <data name="grpOutputLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 75</value>
+    <value>212, 59</value>
   </data>
   <data name="grpOutputLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -304,7 +340,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;grpOutputLanguage.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="chkDoubleInlet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -334,7 +370,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;chkDoubleInlet.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="lblDensityUnit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -365,7 +401,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblDensityUnit.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -395,7 +431,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="lblSizeUnit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -425,7 +461,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblSizeUnit.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <metadata name="cmbLengthUnits.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -743,7 +779,7 @@
     <value>314, 233</value>
   </data>
   <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 183</value>
+    <value>212, 176</value>
   </data>
   <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -761,7 +797,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -791,7 +827,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="Button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -821,7 +857,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;Button2.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="txtFanDesign.Location" type="System.Drawing.Point, System.Drawing">
     <value>425, 119</value>
@@ -842,7 +878,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtFanDesign.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="lblFanDesign.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -872,7 +908,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblFanDesign.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="lblFanSpeed.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -902,7 +938,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblFanSpeed.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="lblFanSize.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -932,7 +968,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblFanSize.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="txtDensity.Location" type="System.Drawing.Point, System.Drawing">
     <value>427, 75</value>
@@ -956,7 +992,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtDensity.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="txtFanSpeed.Location" type="System.Drawing.Point, System.Drawing">
     <value>427, 45</value>
@@ -977,7 +1013,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtFanSpeed.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="lstFanDesigns.ItemHeight" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1001,7 +1037,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lstFanDesigns.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="lblDensity.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1031,7 +1067,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblDensity.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="txtFanSize.Location" type="System.Drawing.Point, System.Drawing">
     <value>427, 14</value>
@@ -1052,7 +1088,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtFanSize.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="&gt;&gt;SplitContainer1.Panel1.Name" xml:space="preserve">
     <value>SplitContainer1.Panel1</value>

@@ -173,6 +173,6 @@
     <value>选择语言</value>
   </data>
   <data name="btnCurveOutput.Text" xml:space="preserve">
-    <value>曲线输出 &gt;&gt;</value>
+    <value>手动输出 &gt;&gt;</value>
   </data>
 </root>

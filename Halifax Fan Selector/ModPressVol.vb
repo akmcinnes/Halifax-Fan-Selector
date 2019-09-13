@@ -119,6 +119,7 @@
             '-output volume
             selected(fanno).vol = Math.Round(Volume, voldecplaces)
             selected(fanno).fansize = ssize
+            selected(fanno).speed = speed
             '--outlet velocity
             Call OutletVel(ssize, fanno)
             selected(fanno).BladeNumber = blade_number(fanno)
@@ -147,6 +148,7 @@
             selected(fanno).ftp = Math.Round(selected(fanno).ftp, 2)
 
             selected(fanno).fantype = fanclass(fanno)
+            selected(fanno).fantypefilename = fantypefilename(fanno)
 
             '---correcting for suction
             If Frmselectfan.Optsucy.Checked = True Then
@@ -157,8 +159,33 @@
                 Call SuctionCorrection(Val(selected(fanno).ftp), 0, knowndensity)
                 selected(fanno).ftp = Math.Round(NEWpressure, 2)
             End If
-            If Frmselectfan.chkIncreaseDiameter.Checked = True And (PresType = 0 And selected(fanno).fsp < pressrise Or PresType = 1 And selected(fanno).ftp < pressrise) Then
-                GetPressure(ssize + stepsize, speed, Volume, fanno)
+            Dim addition As Double
+
+            If fanunits(fanno) = "mm" Then
+                If Frmselectfan.opt0in.Checked = True Then addition = 0.0
+                If Frmselectfan.opt25in.Checked = True Then addition = 5.0
+                If Frmselectfan.opt50in.Checked = True Then addition = 10.0
+                If Frmselectfan.opt75in.Checked = True Then addition = 15.0
+                If Frmselectfan.opt100in.Checked = True Then addition = 20.0
+            Else
+                If Frmselectfan.opt0in.Checked = True Then addition = 0.0
+                If Frmselectfan.opt25in.Checked = True Then addition = 0.25
+                If Frmselectfan.opt50in.Checked = True Then addition = 0.5
+                If Frmselectfan.opt75in.Checked = True Then addition = 0.75
+                If Frmselectfan.opt100in.Checked = True Then addition = 1.0
+            End If
+
+            'If (Frmselectfan.opt25in.Checked = True Or Frmselectfan.opt50in.Checked = True Or Frmselectfan.opt75in.Checked = True Or Frmselectfan.opt100in.Checked = True) And (PresType = 0 And selected(fanno).fsp < pressrise Or PresType = 1 And selected(fanno).ftp < pressrise) Then
+            If addition > 0.0 And (PresType = 0 And selected(fanno).fsp < pressrise Or PresType = 1 And selected(fanno).ftp < pressrise) Then
+                'If Frmselectfan.chkIncreaseDiameter.Checked = True And selected(fanno).fantype = final.fantype And addstep(fanno) = True Then 'And (PresType = 0 And selected(fanno).fsp < pressrise Or PresType = 1 And selected(fanno).ftp < pressrise) Then
+                'If addition > 0.0 And selected(fanno).fantype = final.fantype And ssize = final.fansize Then 'And (PresType = 0 And selected(fanno).fsp < pressrise Or PresType = 1 And selected(fanno).ftp < pressrise) Then
+                'GetPressure(ssize + stepsize, speed, Volume, fanno)
+                GetPressure(ssize + addition, speed, Volume, fanno)
+                'stepsize = 0
+                'addstep(fanno) = False
+                Frmselectfan.LblFanDetails.Text = ""
+                Frmselectfan.Label3.Visible = False
+
             End If
         Catch ex As Exception
             failindex = failindex + 1

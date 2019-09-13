@@ -61,10 +61,11 @@ Module ModPrinting
             If (PagesToPrint = 3 Or PagesToPrint = 0) And StandAlone = False Then
                 'If PagesToPrint = 3 Or PagesToPrint = 0 Then
                 FrmCurveOptions.ShowDialog()
-                    If FrmCurveOptions.retval = 0 Then Exit Sub
-                End If
-                ' ### Prepare the thread Server ###
-                Thread = New System.Threading.Thread(AddressOf Server)
+                If FrmCurveOptions.retval = 0 Then Exit Sub
+            End If
+
+            ' ### Prepare the thread Server ###
+            Thread = New System.Threading.Thread(AddressOf Server)
             Thread.Start()
             'While Temporary.A = 0
             frmDocumentProgress.Show()
@@ -100,6 +101,10 @@ Module ModPrinting
                     PopulatePrintoutChart(xlsWB)
                     xlsWB.Worksheets("Performance").Activate
                     PopulatePrintoutPerformance(xlsWB)
+                    If PagesToPrint = 0 And StandAlone = True Then
+                        ConvUnits()
+                        OpenDuctCalcsManual()
+                    End If
                     xlsWB.Worksheets("Sound").Activate
                     PopulatePrintoutSound(xlsWB)
                 Case 1 'performance details
@@ -286,7 +291,7 @@ Module ModPrinting
                         PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 4), 8, 1, True)
                         'volume flow rate
                         PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 5), 9, 3)
-                        PlaceData(xlsWB, sheet, final.vol, 9, 7)
+                        PlaceData(xlsWB, sheet, final.vol, 9, 7,,, True, 9, 6, 9, 7,,, 2)
                         PlaceData(xlsWB, sheet, Units(0).UnitName(Units(0).UnitSelected), 9, 8)
                         'fsp
                         PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 6), 10, 3)
@@ -356,7 +361,7 @@ Module ModPrinting
                         PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 4), 8, 1, True)
                         'volume flow rate
                         PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 5), 9, 3)
-                        PlaceData(xlsWB, sheet, final.vol, 9, 7)
+                        PlaceData(xlsWB, sheet, final.vol, 9, 7,,, True, 9, 6, 9, 7,,, 2)
                         PlaceData(xlsWB, sheet, Units(0).UnitName(Units(0).UnitSelected), 9, 8)
                         'fsp
                         If PresType = 0 Then
@@ -386,6 +391,21 @@ Module ModPrinting
 
     Public Sub PlaceData(xlsWB As Excel.Workbook, Sheetname As String, text As Object, row As Integer, col As Integer, Optional bold As Boolean = False, Optional italics As Boolean = False, Optional merge As Boolean = False, Optional mrow1 As Integer = 0, Optional mcol1 As Integer = 0, Optional mrow2 As Integer = 0, Optional mcol2 As Integer = 0, Optional fontsize As Integer = 10, Optional wrap As Boolean = False, Optional position As Integer = 99)
         Try
+            If IsNumeric(text) = True Then
+                text = CDbl(text)
+                Dim numplaces As Integer = 4
+                If text > 10000 Then
+                    numplaces = 0
+                ElseIf text > 1000 Then
+                    numplaces = 1
+                ElseIf text > 100 Then
+                    numplaces = 2
+                ElseIf text > 10 Then
+                    numplaces = 3
+                End If
+                text = Math.Round(text, numplaces)
+            End If
+
             xlsWB.ActiveSheet.Name = Sheetname
             With xlsWB.ActiveSheet
                 .cells(row, col).value = text
@@ -442,6 +462,16 @@ Module ModPrinting
             'i = i + 1
             'Loop
             ReadfromBinaryfile(fantypefilename(i), 0)
+
+            'final.BladeNumber = blade_number(i)
+            final.BladeNumber = Num_Blades
+            final.inletdia = In_Dia_mm * (final.fansize / FanSize2)
+            final.inletdia = final.inletdia - (casethickness * 2)
+            final.outletlen = OutLen_mm * (final.fansize / FanSize2)
+            final.outletwid = OutWid_mm * (final.fansize / FanSize2)
+            final.outletdia = OutDia_mm * (final.fansize / FanSize2)
+            final.outletdia = final.outletdia - (casethickness * 2)
+            final.outletarea = OutArea_m2 * (final.fansize / FanSize2) ^ 2
             FrmFanChart.ConvertPVtoChart(True)
         Catch ex As Exception
             ErrorMessage(ex, 6411)

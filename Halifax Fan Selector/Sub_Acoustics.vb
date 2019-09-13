@@ -225,4 +225,29 @@
         End Try
 
     End Sub
+
+    Public Sub OpenDuctCalcsManual()
+        Try
+            Dim lenconv As Double = 1.0
+            If Units(5).UnitSelected = 1 Then lenconv = 1.0 / 25.4
+
+            'OctaveBands()
+            CalcSPL()
+            Call DuctCalcs()
+            Call EntryandExitLoss()
+            Call OpenInletCalcs()
+            Call OpenOutletCalcs()
+            Call CalcBrg()
+            Call CalcBPFreq()
+
+            InclDuctNoise = True
+            InclOpenInletNoise = True
+            InclOpenOutletNoise = True
+            InclBrgNoise = True
+            InclMotorNoise = False
+        Catch ex As Exception
+            ErrorMessage(ex, 1404)
+        End Try
+
+    End Sub
 End Module

@@ -105,6 +105,12 @@ Module Sub_Selections
                     End If
                     i = i + 1
                     Column_Header1(i, Frmselectfan.lblFanIndex.Text, "ColIndex", "empty")
+                    'Add a CheckBox Column to the DataGridView at the first position.
+                    'Dim checkBoxColumn As New DataGridViewCheckBoxColumn()
+                    ''checkBoxColumn.HeaderText = ""
+                    ''checkBoxColumn.Width = 30
+                    ''checkBoxColumn.Name = "checkBoxColumn"
+                    '.DataGridView1.Columns.Insert(i, checkBoxColumn)
 
                     .DataGridView1.ColumnCount = i + 1
                     .DataGridView1.Width = .DataGridView1.Width * 1.1
@@ -206,6 +212,7 @@ Module Sub_Selections
                     If Units(4).UnitSelected = 2 Then
                         .DataGridView1.Columns(6).Width = .DataGridView1.Columns(6).Width * 1.5
                     End If
+
                     .DataGridView1.Columns(13).Width = 0 '40
                     .DataGridView1.Columns(13).Visible = False
                     'If StartArg.ToLower.Contains("-dev") Then
@@ -228,7 +235,8 @@ Module Sub_Selections
                     .chkOriginalData.Visible = True
 #End If
                     .chkKP.Visible = AdvancedUser
-                    .chkIncreaseDiameter.Visible = AdvancedUser
+                    '.chkIncreaseDiameter25.Visible = AdvancedUser
+                    .grpIncreaseDiameter.Visible = AdvancedUser
 
                     '.chkKP.Visible = StartArg.ToLower.Contains("-dev")
 
@@ -266,54 +274,64 @@ Module Sub_Selections
                     If Units(1).UnitSelected = 4 Then kpatmos = 101.325
 
                     For k = 0 To fantypesQTY - 1 'akm200118
-                        '-----------------------------------------------------------------------------
-                        '----- FOR KNOWN DUTY BUT NO SPEED OR FAN SIZE GIVEN -------------------------
-                        '------------------------------------------------------------------------------
-                        stepsize = 0.25
-                        'End If
-                        If fanunits(k) = "mm" Then stepsize = 5
+                        Dim ifound As Integer
+                        Dim found As Boolean = False
+                        For ifound = 0 To k
+                            If selected(ifound).fantype = fanclass(k) Then
+                                found = True
+                                Exit For
+                            End If
+                        Next
+                        If found = False Then
+                            '-----------------------------------------------------------------------------
+                            '----- FOR KNOWN DUTY BUT NO SPEED OR FAN SIZE GIVEN -------------------------
+                            '------------------------------------------------------------------------------
+                            stepsize = 0.25
+                            'End If
+                            If fanunits(k) = "mm" Then stepsize = 5
 
-                        If tempsize = 0 And tempspeed = 0 And tempflow <> 0 And tempfsp <> 0 Then
-                            Call NoSpeedNosize(k) 'used
+                            If tempsize = 0 And tempspeed = 0 And tempflow <> 0 And tempfsp <> 0 Then
+                                Call NoSpeedNosize(k) 'used
+                            End If
+
+                            '----------------------------------------------------------------------------------------
+                            '---------------start of selecting fan size based on a given speed and duty point--------
+                            '-----------------------------------------------------------------------------------------
+                            If tempspeed <> 0 And tempflow <> 0 And tempfsp <> 0 And tempsize = 0 Then
+                                Call WithSpeedNoSize(k) 'used
+                            End If
+
+                            '----------------------------------------------------------------------------------------
+                            '-----------------------Start of listing duty of known fan size and speed
+                            '---------------------------------------------------------------------------------------------
+                            'If tempsize <> 0 And tempspeed <> 0 And tempflow = 0 And tempfsp = 0 Then
+                            '    Call WithSpeedWithSize(k) 'not used
+                            'End If
+
+                            '-----------------------------------------------------------------------------------------------
+                            '-----------------------------start of selecting fan with size and volume & pressure------------
+                            '-----------------------------------------------------------------------------------------------
+                            If tempsize <> 0 And tempflow <> 0 And tempfsp <> 0 And tempspeed = 0 Then
+                                Call WithSizeVolPressure(k) 'used
+                            End If
+
+                            '-------------------------------------------------------------------------------------------------
+                            '-------------------------start of finding pressure for selected fan speed size and volume--------
+                            '-------------------------------------------------------------------------------------------------
+                            If tempsize <> 0 And tempflow <> 0 And tempspeed <> 0 Then
+                                Call WithSpeedSizeVolume(k) 'used
+                            End If
+
+                            '--------------------------------------------------------------------------------------
+                            '-----------------------start of finding volume for given pressure and fan speed------
+                            '-------------------------------------------------------------------------------------
+                            'If tempsize <> 0 And tempflow = 0 And tempfsp <> 0 And tempspeed <> 0 Then
+                            '    Call WithSpeedPressure(k) 'not used
+                            'End If
+                            'If selectedfansize(k) > 0 Then
+                            'End If
+                            Call ResHDandVolTD(k)
                         End If
-
-                        '----------------------------------------------------------------------------------------
-                        '---------------start of selecting fan size based on a given speed and duty point--------
-                        '-----------------------------------------------------------------------------------------
-                        If tempspeed <> 0 And tempflow <> 0 And tempfsp <> 0 And tempsize = 0 Then
-                            Call WithSpeedNoSize(k) 'used
-                        End If
-
-                        '----------------------------------------------------------------------------------------
-                        '-----------------------Start of listing duty of known fan size and speed
-                        '---------------------------------------------------------------------------------------------
-                        'If tempsize <> 0 And tempspeed <> 0 And tempflow = 0 And tempfsp = 0 Then
-                        '    Call WithSpeedWithSize(k) 'not used
-                        'End If
-
-                        '-----------------------------------------------------------------------------------------------
-                        '-----------------------------start of selecting fan with size and volume & pressure------------
-                        '-----------------------------------------------------------------------------------------------
-                        If tempsize <> 0 And tempflow <> 0 And tempfsp <> 0 And tempspeed = 0 Then
-                            Call WithSizeVolPressure(k) 'used
-                        End If
-
-                        '-------------------------------------------------------------------------------------------------
-                        '-------------------------start of finding pressure for selected fan speed size and volume--------
-                        '-------------------------------------------------------------------------------------------------
-                        If tempsize <> 0 And tempflow <> 0 And tempspeed <> 0 Then
-                            Call WithSpeedSizeVolume(k) 'used
-                        End If
-
-                        '--------------------------------------------------------------------------------------
-                        '-----------------------start of finding volume for given pressure and fan speed------
-                        '-------------------------------------------------------------------------------------
-                        'If tempsize <> 0 And tempflow = 0 And tempfsp <> 0 And tempspeed <> 0 Then
-                        '    Call WithSpeedPressure(k) 'not used
-                        'End If
-                        'If selectedfansize(k) > 0 Then
-                        'End If
-                        Call ResHDandVolTD(k)
                     Next
                     Call PopulateGrid()
                 End If

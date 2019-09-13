@@ -24,6 +24,7 @@ Partial Class FrmCurveOptions
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCurveOptions))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.chkAcousticsOutput = New System.Windows.Forms.CheckBox()
         Me.lblPerCent = New System.Windows.Forms.Label()
         Me.lblWidthing = New System.Windows.Forms.Label()
         Me.txtWidthing = New System.Windows.Forms.TextBox()
@@ -120,6 +121,7 @@ Partial Class FrmCurveOptions
         '
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.Bisque
         resources.ApplyResources(Me.SplitContainer1.Panel1, "SplitContainer1.Panel1")
+        Me.SplitContainer1.Panel1.Controls.Add(Me.chkAcousticsOutput)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblPerCent)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblWidthing)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtWidthing)
@@ -157,6 +159,12 @@ Partial Class FrmCurveOptions
         Me.SplitContainer1.Panel2.Controls.Add(Me.optFSPonly)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnContinue)
         Me.SplitContainer1.Panel2.Controls.Add(Me.chkDamper)
+        '
+        'chkAcousticsOutput
+        '
+        resources.ApplyResources(Me.chkAcousticsOutput, "chkAcousticsOutput")
+        Me.chkAcousticsOutput.Name = "chkAcousticsOutput"
+        Me.chkAcousticsOutput.UseVisualStyleBackColor = True
         '
         'lblPerCent
         '
@@ -764,4 +772,5 @@ Partial Class FrmCurveOptions
     Friend WithEvents lblWidthing As Label
     Friend WithEvents txtWidthing As TextBox
     Friend WithEvents chkDutyPoint As CheckBox
+    Friend WithEvents chkAcousticsOutput As CheckBox
 End Class

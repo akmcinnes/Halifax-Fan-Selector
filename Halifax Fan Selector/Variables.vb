@@ -1,13 +1,11 @@
-﻿Imports System.IO
-
-Module Variables
+﻿Module Variables
 
     Public br As System.IO.BinaryReader
     Public fs As System.IO.FileStream
 
     Public AdvancedUser As Boolean
     'Public version_number As String = "V 1.0.2 Beta"
-    Public version_number As String = "V 1.0.6" '120819
+    Public version_number As String = "V 1.0.6" '130919
     Public DataPathMain As String ' = "C:\Halifax\"
 
     Public DataPathDefault As String ' = DataPathMain + "Performance Data\"
@@ -60,6 +58,8 @@ Module Variables
 
     Public SelectDIDW As Boolean
     Public AccessCode As String
+
+    Public IncludeAcoustics As Boolean
 
     Public move_on As Boolean
 
@@ -291,6 +291,8 @@ Module Variables
     Public plotfse() As Double
     Public plotfte() As Double
     Public plotov() As Double
+    Public plotoutletarea, plotoutletwidth, plotoutletlength As Double
+    Public plotinletdia As Double
 
     Public fan2plot As Integer
 
