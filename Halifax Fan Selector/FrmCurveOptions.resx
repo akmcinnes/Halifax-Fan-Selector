@@ -126,41 +126,170 @@
     <value>Stretch</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="chkAcousticsOutput.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="lstFanDesigns.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
-  <data name="chkAcousticsOutput.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lstFanDesigns.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 17</value>
   </data>
-  <data name="chkAcousticsOutput.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 414</value>
+  <data name="lstFanDesigns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 484</value>
   </data>
-  <data name="chkAcousticsOutput.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
+  <data name="lstFanDesigns.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
   </data>
-  <data name="chkAcousticsOutput.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 21</value>
+  <data name="&gt;&gt;lstFanDesigns.Name" xml:space="preserve">
+    <value>lstFanDesigns</value>
   </data>
-  <data name="chkAcousticsOutput.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
+  <data name="&gt;&gt;lstFanDesigns.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="chkAcousticsOutput.Text" xml:space="preserve">
-    <value>Output Acoustics</value>
-  </data>
-  <data name="chkAcousticsOutput.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;chkAcousticsOutput.Name" xml:space="preserve">
-    <value>chkAcousticsOutput</value>
-  </data>
-  <data name="&gt;&gt;chkAcousticsOutput.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;chkAcousticsOutput.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lstFanDesigns.Parent" xml:space="preserve">
     <value>SplitContainer1.Panel1</value>
   </data>
-  <data name="&gt;&gt;chkAcousticsOutput.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lstFanDesigns.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="optPerformanceCurve.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optPerformanceCurve.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optPerformanceCurve.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 104</value>
+  </data>
+  <data name="optPerformanceCurve.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 21</value>
+  </data>
+  <data name="optPerformanceCurve.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="optPerformanceCurve.Text" xml:space="preserve">
+    <value>Performance Curve</value>
+  </data>
+  <data name="&gt;&gt;optPerformanceCurve.Name" xml:space="preserve">
+    <value>optPerformanceCurve</value>
+  </data>
+  <data name="&gt;&gt;optPerformanceCurve.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optPerformanceCurve.Parent" xml:space="preserve">
+    <value>grpOutputs</value>
+  </data>
+  <data name="&gt;&gt;optPerformanceCurve.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="optAllPages.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optAllPages.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 26</value>
+  </data>
+  <data name="optAllPages.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 21</value>
+  </data>
+  <data name="optAllPages.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="optAllPages.Text" xml:space="preserve">
+    <value>All Pages</value>
+  </data>
+  <data name="&gt;&gt;optAllPages.Name" xml:space="preserve">
+    <value>optAllPages</value>
+  </data>
+  <data name="&gt;&gt;optAllPages.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optAllPages.Parent" xml:space="preserve">
+    <value>grpOutputs</value>
+  </data>
+  <data name="&gt;&gt;optAllPages.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="optAcoustics.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="optAcoustics.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="optAcoustics.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 77</value>
+  </data>
+  <data name="optAcoustics.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 21</value>
+  </data>
+  <data name="optAcoustics.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="optAcoustics.Text" xml:space="preserve">
+    <value>Acoustics</value>
+  </data>
+  <data name="&gt;&gt;optAcoustics.Name" xml:space="preserve">
+    <value>optAcoustics</value>
+  </data>
+  <data name="&gt;&gt;optAcoustics.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;optAcoustics.Parent" xml:space="preserve">
+    <value>grpOutputs</value>
+  </data>
+  <data name="&gt;&gt;optAcoustics.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="OptPerformanceData.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="OptPerformanceData.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OptPerformanceData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 52</value>
+  </data>
+  <data name="OptPerformanceData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 21</value>
+  </data>
+  <data name="OptPerformanceData.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="OptPerformanceData.Text" xml:space="preserve">
+    <value>Performance Data</value>
+  </data>
+  <data name="&gt;&gt;OptPerformanceData.Name" xml:space="preserve">
+    <value>OptPerformanceData</value>
+  </data>
+  <data name="&gt;&gt;OptPerformanceData.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OptPerformanceData.Parent" xml:space="preserve">
+    <value>grpOutputs</value>
+  </data>
+  <data name="&gt;&gt;OptPerformanceData.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="grpOutputs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>314, 406</value>
+  </data>
+  <data name="grpOutputs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 131</value>
+  </data>
+  <data name="grpOutputs.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpOutputs.Text" xml:space="preserve">
+    <value>Pages to Output</value>
+  </data>
+  <data name="&gt;&gt;grpOutputs.Name" xml:space="preserve">
+    <value>grpOutputs</value>
+  </data>
+  <data name="&gt;&gt;grpOutputs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpOutputs.Parent" xml:space="preserve">
+    <value>SplitContainer1.Panel1</value>
+  </data>
+  <data name="&gt;&gt;grpOutputs.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="lblPerCent.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -193,7 +322,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblPerCent.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="lblWidthing.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -226,7 +355,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblWidthing.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="txtWidthing.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -253,7 +382,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtWidthing.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="optEnglishLanguageOutput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -316,7 +445,7 @@
     <value>1</value>
   </data>
   <data name="grpOutputLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>314, 442</value>
+    <value>36, 432</value>
   </data>
   <data name="grpOutputLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>212, 59</value>
@@ -340,7 +469,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;grpOutputLanguage.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="chkDoubleInlet.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -370,7 +499,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;chkDoubleInlet.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lblDensityUnit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -401,7 +530,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblDensityUnit.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="Label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -431,7 +560,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;Label7.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lblSizeUnit.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -461,7 +590,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblSizeUnit.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <metadata name="cmbLengthUnits.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -779,7 +908,7 @@
     <value>314, 233</value>
   </data>
   <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 176</value>
+    <value>212, 167</value>
   </data>
   <data name="GroupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -797,7 +926,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;GroupBox1.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -806,7 +935,7 @@
     <value>17, 519</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 32</value>
+    <value>82, 32</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -827,16 +956,16 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="Button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="Button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>327, 519</value>
+    <value>211, 519</value>
   </data>
   <data name="Button2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 32</value>
+    <value>82, 32</value>
   </data>
   <data name="Button2.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -857,7 +986,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;Button2.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="txtFanDesign.Location" type="System.Drawing.Point, System.Drawing">
     <value>425, 119</value>
@@ -878,7 +1007,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtFanDesign.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="lblFanDesign.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -908,7 +1037,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblFanDesign.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="lblFanSpeed.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -938,7 +1067,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblFanSpeed.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="lblFanSize.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -968,7 +1097,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;lblFanSize.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="txtDensity.Location" type="System.Drawing.Point, System.Drawing">
     <value>427, 75</value>
@@ -992,7 +1121,7 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtDensity.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="txtFanSpeed.Location" type="System.Drawing.Point, System.Drawing">
     <value>427, 45</value>
@@ -1013,30 +1142,6 @@
     <value>SplitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;txtFanSpeed.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="lstFanDesigns.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="lstFanDesigns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 17</value>
-  </data>
-  <data name="lstFanDesigns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 484</value>
-  </data>
-  <data name="lstFanDesigns.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="&gt;&gt;lstFanDesigns.Name" xml:space="preserve">
-    <value>lstFanDesigns</value>
-  </data>
-  <data name="&gt;&gt;lstFanDesigns.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstFanDesigns.Parent" xml:space="preserve">
-    <value>SplitContainer1.Panel1</value>
-  </data>
-  <data name="&gt;&gt;lstFanDesigns.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
   <data name="lblDensity.AutoSize" type="System.Boolean, mscorlib">

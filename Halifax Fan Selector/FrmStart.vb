@@ -417,6 +417,7 @@ Public Class FrmStart
             StandAlone = True
             'frmStandaloneCurve.ShowDialog()
             'FrmCurveOnly.ShowDialog()
+            FrmCurveOptions.Close()
             FrmCurveOptions.ShowDialog()
         Catch ex As Exception
             ErrorMessage(ex, 20523)

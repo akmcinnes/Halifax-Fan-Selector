@@ -21,6 +21,8 @@
 
     Public OpenFromToolStrip As Boolean
 
+    Public PagesOutput As Integer
+
     Public username As String
     Public emailaddress As String
     Public phonenumber As String

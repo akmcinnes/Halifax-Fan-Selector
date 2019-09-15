@@ -840,4 +840,20 @@ Public Class FrmCurveOptions
             ErrorMessage(ex, 20737)
         End Try
     End Sub
+
+    Private Sub optAllPages_CheckedChanged(sender As Object, e As EventArgs) Handles optAllPages.CheckedChanged
+        PagesOutput = 10
+    End Sub
+
+    Private Sub OptPerformanceData_CheckedChanged(sender As Object, e As EventArgs) Handles OptPerformanceData.CheckedChanged
+        PagesOutput = 11
+    End Sub
+
+    Private Sub optAcoustics_CheckedChanged(sender As Object, e As EventArgs) Handles optAcoustics.CheckedChanged
+        PagesOutput = 12
+    End Sub
+
+    Private Sub optPerformanceCurve_CheckedChanged(sender As Object, e As EventArgs) Handles optPerformanceCurve.CheckedChanged
+        PagesOutput = 13
+    End Sub
 End Class

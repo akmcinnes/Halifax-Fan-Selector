@@ -120,25 +120,30 @@ Module ModPrinting
                     PopulatePrintoutChart(xlsWB)
             End Select
 
-            Select Case PagesToPrint
-                Case 0
+            Dim pagestemp As Integer = PagesToPrint
+            If StandAlone = True Then
+                pagestemp = PagesOutput
+            End If
+
+            Select Case pagestemp'PagesToPrint
+                Case 0, 10
                     xlsWB.Sheets("Datapoints").Visible = Excel.XlSheetVisibility.xlSheetHidden
-                Case 1
+                Case 1, 11
                     xlsWB.Sheets("Datapoints").Visible = Excel.XlSheetVisibility.xlSheetHidden
                     xlsWB.Sheets("Chart").Visible = Excel.XlSheetVisibility.xlSheetHidden
                     xlsWB.Sheets("Sound").Visible = Excel.XlSheetVisibility.xlSheetHidden
-                Case 2
+                Case 2, 12
                     xlsWB.Sheets("Datapoints").Visible = Excel.XlSheetVisibility.xlSheetHidden
                     xlsWB.Sheets("Chart").Visible = Excel.XlSheetVisibility.xlSheetHidden
                     xlsWB.Sheets("Performance").Visible = Excel.XlSheetVisibility.xlSheetHidden
-                Case 3
+                Case 3, 13
                     xlsWB.Sheets("Datapoints").Visible = Excel.XlSheetVisibility.xlSheetHidden
                     xlsWB.Sheets("Performance").Visible = Excel.XlSheetVisibility.xlSheetHidden
                     xlsWB.Sheets("Sound").Visible = Excel.XlSheetVisibility.xlSheetHidden
                 Case Else
             End Select
             'export the excel file
-            ExporttoPDFPO(xlsWB, PagesToPrint)
+            ExporttoPDFPO(xlsWB, pagestemp) 'PagesToPrint)
             'close the excel file
             xlsWB.Close(SaveChanges:=True)
             xlsWB = Nothing
@@ -153,6 +158,7 @@ Module ModPrinting
 
             Thread.Join()
             Thread.Abort()
+            If StandAlone = True Then End
         Catch ex As Exception
             'ErrorMessage(ex, 6402)
         End Try

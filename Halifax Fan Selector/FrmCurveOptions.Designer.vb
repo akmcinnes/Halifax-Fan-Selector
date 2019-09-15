@@ -24,7 +24,12 @@ Partial Class FrmCurveOptions
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCurveOptions))
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.chkAcousticsOutput = New System.Windows.Forms.CheckBox()
+        Me.lstFanDesigns = New System.Windows.Forms.ListBox()
+        Me.grpOutputs = New System.Windows.Forms.GroupBox()
+        Me.optPerformanceCurve = New System.Windows.Forms.RadioButton()
+        Me.optAllPages = New System.Windows.Forms.RadioButton()
+        Me.optAcoustics = New System.Windows.Forms.RadioButton()
+        Me.OptPerformanceData = New System.Windows.Forms.RadioButton()
         Me.lblPerCent = New System.Windows.Forms.Label()
         Me.lblWidthing = New System.Windows.Forms.Label()
         Me.txtWidthing = New System.Windows.Forms.TextBox()
@@ -54,7 +59,6 @@ Partial Class FrmCurveOptions
         Me.lblFanSize = New System.Windows.Forms.Label()
         Me.txtDensity = New System.Windows.Forms.TextBox()
         Me.txtFanSpeed = New System.Windows.Forms.TextBox()
-        Me.lstFanDesigns = New System.Windows.Forms.ListBox()
         Me.lblDensity = New System.Windows.Forms.Label()
         Me.txtFanSize = New System.Windows.Forms.TextBox()
         Me.chkDutyPoint = New System.Windows.Forms.CheckBox()
@@ -106,6 +110,7 @@ Partial Class FrmCurveOptions
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.grpOutputs.SuspendLayout()
         Me.grpOutputLanguage.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.grpMultipleDensities.SuspendLayout()
@@ -121,7 +126,8 @@ Partial Class FrmCurveOptions
         '
         Me.SplitContainer1.Panel1.BackColor = System.Drawing.Color.Bisque
         resources.ApplyResources(Me.SplitContainer1.Panel1, "SplitContainer1.Panel1")
-        Me.SplitContainer1.Panel1.Controls.Add(Me.chkAcousticsOutput)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.lstFanDesigns)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.grpOutputs)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblPerCent)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblWidthing)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtWidthing)
@@ -139,7 +145,6 @@ Partial Class FrmCurveOptions
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblFanSize)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtDensity)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtFanSpeed)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.lstFanDesigns)
         Me.SplitContainer1.Panel1.Controls.Add(Me.lblDensity)
         Me.SplitContainer1.Panel1.Controls.Add(Me.txtFanSize)
         '
@@ -160,11 +165,47 @@ Partial Class FrmCurveOptions
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnContinue)
         Me.SplitContainer1.Panel2.Controls.Add(Me.chkDamper)
         '
-        'chkAcousticsOutput
+        'lstFanDesigns
         '
-        resources.ApplyResources(Me.chkAcousticsOutput, "chkAcousticsOutput")
-        Me.chkAcousticsOutput.Name = "chkAcousticsOutput"
-        Me.chkAcousticsOutput.UseVisualStyleBackColor = True
+        Me.lstFanDesigns.FormattingEnabled = True
+        resources.ApplyResources(Me.lstFanDesigns, "lstFanDesigns")
+        Me.lstFanDesigns.Name = "lstFanDesigns"
+        '
+        'grpOutputs
+        '
+        Me.grpOutputs.Controls.Add(Me.optPerformanceCurve)
+        Me.grpOutputs.Controls.Add(Me.optAllPages)
+        Me.grpOutputs.Controls.Add(Me.optAcoustics)
+        Me.grpOutputs.Controls.Add(Me.OptPerformanceData)
+        resources.ApplyResources(Me.grpOutputs, "grpOutputs")
+        Me.grpOutputs.Name = "grpOutputs"
+        Me.grpOutputs.TabStop = False
+        '
+        'optPerformanceCurve
+        '
+        resources.ApplyResources(Me.optPerformanceCurve, "optPerformanceCurve")
+        Me.optPerformanceCurve.Name = "optPerformanceCurve"
+        Me.optPerformanceCurve.UseVisualStyleBackColor = True
+        '
+        'optAllPages
+        '
+        resources.ApplyResources(Me.optAllPages, "optAllPages")
+        Me.optAllPages.Checked = True
+        Me.optAllPages.Name = "optAllPages"
+        Me.optAllPages.TabStop = True
+        Me.optAllPages.UseVisualStyleBackColor = True
+        '
+        'optAcoustics
+        '
+        resources.ApplyResources(Me.optAcoustics, "optAcoustics")
+        Me.optAcoustics.Name = "optAcoustics"
+        Me.optAcoustics.UseVisualStyleBackColor = True
+        '
+        'OptPerformanceData
+        '
+        resources.ApplyResources(Me.OptPerformanceData, "OptPerformanceData")
+        Me.OptPerformanceData.Name = "OptPerformanceData"
+        Me.OptPerformanceData.UseVisualStyleBackColor = True
         '
         'lblPerCent
         '
@@ -342,12 +383,6 @@ Partial Class FrmCurveOptions
         '
         resources.ApplyResources(Me.txtFanSpeed, "txtFanSpeed")
         Me.txtFanSpeed.Name = "txtFanSpeed"
-        '
-        'lstFanDesigns
-        '
-        Me.lstFanDesigns.FormattingEnabled = True
-        resources.ApplyResources(Me.lstFanDesigns, "lstFanDesigns")
-        Me.lstFanDesigns.Name = "lstFanDesigns"
         '
         'lblDensity
         '
@@ -683,6 +718,8 @@ Partial Class FrmCurveOptions
         Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.grpOutputs.ResumeLayout(False)
+        Me.grpOutputs.PerformLayout()
         Me.grpOutputLanguage.ResumeLayout(False)
         Me.grpOutputLanguage.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -772,5 +809,9 @@ Partial Class FrmCurveOptions
     Friend WithEvents lblWidthing As Label
     Friend WithEvents txtWidthing As TextBox
     Friend WithEvents chkDutyPoint As CheckBox
-    Friend WithEvents chkAcousticsOutput As CheckBox
+    Friend WithEvents optAllPages As RadioButton
+    Friend WithEvents grpOutputs As GroupBox
+    Friend WithEvents optAcoustics As RadioButton
+    Friend WithEvents OptPerformanceData As RadioButton
+    Friend WithEvents optPerformanceCurve As RadioButton
 End Class
