@@ -107,9 +107,9 @@ Module ModPrintCurve
                 .SeriesCollection(ser).Name = "Power " & "" 'snme(1)
                 .SeriesCollection(ser).AxisGroup = Excel.XlAxisGroup.xlSecondary
                 .SeriesCollection(ser).Border.ColorIndex = 1
-                .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDash
+                    .SeriesCollection(ser).Border.LineStyle = Excel.XlLineStyle.xlDash
 
-                With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1)
+                    With .SeriesCollection(ser).Points(.SeriesCollection(ser).Points.count - 1)
                     .HasDataLabel = True
                     .DataLabel.Text = lang_dict(PrintLanguage, 112) '"Power Fully Open" ' & snme(1)
                     .DataLabel.Font.Name = "Arial"
@@ -201,7 +201,7 @@ Module ModPrintCurve
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlPrimary).TickLabels.Font.Italic = True
 
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).HasTitle = True
-                .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).HasMajorGridlines = True
+                .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).HasMajorGridlines = False
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).MajorGridlines.Border.LineStyle = Excel.XlLineStyle.xlDashDot
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).MajorGridlines.Border.Weight = Excel.XlBorderWeight.xlHairline
                 .Axes(Excel.XlAxisType.xlValue, Excel.XlAxisGroup.xlSecondary).MajorGridlines.Border.Color = RGB(150, 150, 150)

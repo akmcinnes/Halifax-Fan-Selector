@@ -98,7 +98,13 @@ Module ModReadWriteXML
                 Write_to_XML(textwriter, "Blade_Paddle", Frmselectfan.chkPaddleBlade.Checked.ToString)
                 Write_to_XML(textwriter, "Blade_Radial", Frmselectfan.chkRadialBlade.Checked.ToString)
                 Write_to_XML(textwriter, "Blade_All", Frmselectfan.chkAllBlades.Checked.ToString)
-                Write_to_XML(textwriter, "Selected_Design", Frmselectfan.lstFanDesigns.SelectedItem.ToString)
+                'If Frmselectfan.lstFanDesigns.SelectedItem IsNot "" Then
+                Write_to_XML(textwriter, "Selected_Design", Frmselectfan.lstFanDesigns.SelectedIndex.ToString)
+                'Else
+                '    Write_to_XML(textwriter, "Selected_Design", " ")
+                'End If
+                'Dim iselfan As String
+                'iselfan = Frmselectfan.lstFanDesigns.SelectedItem
                 Write_to_XML(textwriter)
             End If
                 ' #### SelectionInfo

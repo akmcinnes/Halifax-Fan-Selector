@@ -24,9 +24,11 @@
                 Case 1
                     NCFSP = NCFSP * 25.4
                 Case 2
-                    NCFSP = NCFSP / 0.00981
+                    NCFSP = NCFSP' / 0.00981
                 Case 3
                     NCFSP = NCFSP / 0.0981
+                Case 4
+                    NCFSP = NCFSP * 1000.0 / 9.81
             End Select
 
             WScale(0) = -26

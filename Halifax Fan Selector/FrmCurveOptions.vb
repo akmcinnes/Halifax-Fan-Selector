@@ -361,9 +361,17 @@ Public Class FrmCurveOptions
             'PrintLanguage = 1'####################################
             'OpenFileName = "Standalone Curve"
             'Flag(4) = True
-            If OpenFileName = "" And SaveFileName = "" Then
-                SaveProjectFile(False)
-            End If
+
+            Dim didw As String = ""
+            If SelectDIDW = True Then didw = "(DIDW)"
+            SaveFileName = ProjectPathDefault + final.fansize.ToString + " " + final.fantype + didw + " " + Today.ToString("dd MMM yy")
+            SaveFileName = SaveFileName.Replace(".", "_")
+            SaveFileName = SaveFileName + ".hfs"
+            Frmselectfan.Text = DefaultHeader + " (" + SaveFileName + ")"
+
+            'If OpenFileName = "" And SaveFileName = "" Then
+            'SaveProjectFile(False)
+            'End If
             'If OpenFileName = "" And SaveFileName = "" Then
             '    'MsgBox(lblSaveProject.Text, vbOKOnly + vbInformation, "")
             '    MsgBox("Save project please", vbOKOnly + vbInformation, "")

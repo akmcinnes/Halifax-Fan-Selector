@@ -169,6 +169,7 @@ Public Class Frmselectfan
 
     Private Sub TabPageDuty_Enter(sender As Object, e As EventArgs) Handles TabPageDuty.Enter
         Try
+            Flag(1) = True
             SetupDutyPage()
         Catch ex As Exception
             ErrorMessage(ex, 20309)
@@ -201,7 +202,7 @@ Public Class Frmselectfan
     Private Sub TabPageSelection_Leave(sender As Object, e As EventArgs) Handles TabPageSelection.Leave
         Try
             If Not final.fantype = "" Then
-                LblFanDetails.Text = ""
+                'LblFanDetails.Text = ""
                 Label3.Visible = False
             End If
         Catch ex As Exception
@@ -284,6 +285,13 @@ Public Class Frmselectfan
 
     Private Sub TabPageNoise_Enter(sender As Object, e As EventArgs) Handles TabPageNoise.Enter
         Try
+            If LblFanDetails.Text.Contains("Details") Or LblFanDetails.Text = "" Then
+                MsgBox(lblNoFanSelected.Text, vbOKOnly + vbExclamation, "")
+                'TabPageSelection_Enter(sender, e)
+                btnFanSelectionsBack_Click(sender, e)
+                Exit Sub
+            End If
+            Flag(4) = True
             Dim fnt As Font
             fnt = TxtTypenoise.Font
             Dim myFont As New Font(fnt, fnt.Size)
@@ -1623,6 +1631,51 @@ Public Class Frmselectfan
             ErrorMessage(ex, 20420)
         End Try
     End Sub
+
+    Private Sub TxtDesignTemperature_TextChanged(sender As Object, e As EventArgs) Handles TxtDesignTemperature.TextChanged
+        If (OptDensityCalculated.Checked = True) Then
+            RunTemp = Val(TxtDesignTemperature.Text)
+            If Units(2).UnitSelected = 1 Then RunTemp = Math.Round(((RunTemp - 32) * 5 / 9), 1)
+            Dim tempdens As Double
+            tempdens = Math.Round((293 / (RunTemp + 273)) * 1.2, 3)
+            If Units(3).UnitSelected = 1 Then tempdens = tempdens / 16.018476
+            Txtdens.Text = tempdens.ToString
+        End If
+    End Sub
+
+    'Private Sub TabPageFanParameters_Click(sender As Object, e As EventArgs) Handles TabPageFanParameters.Click
+    '    Try
+    '        btnFanParametersForward_Click(sender, e)
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 20422)
+    '    End Try
+    'End Sub
+
+    'Private Sub TabPageSelection_Click(sender As Object, e As EventArgs) Handles TabPageSelection.Click
+    '    Try
+    '        btnFanSelectionsForward_Click(sender, e)
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 20423)
+    '    End Try
+    'End Sub
+
+    'Private Sub TabPageNoise_Click(sender As Object, e As EventArgs) Handles TabPageNoise.Click
+    '    Try
+    '        btnNoiseDataForward_Click(sender, e)
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 20423)
+    '    End Try
+
+    'End Sub
+
+    'Private Sub TabPageGeneral_Click(sender As Object, e As EventArgs) Handles TabPageGeneral.Click
+    '    Try
+    '        btnGeneralInformationBack_Click(sender, e)
+    '    Catch ex As Exception
+    '        ErrorMessage(ex, 20423)
+    '    End Try
+    '    'btnGeneralInformationBack_Click
+    'End Sub
 
     'Private Sub StandaloneCurveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StandaloneCurveToolStripMenuItem.Click
     '    frmStandaloneCurve.ShowDialog()

@@ -616,6 +616,12 @@
   <data name="TabPageFanParameters.Text" xml:space="preserve">
     <value>风机参数</value>
   </data>
+  <data name="lblNoFanSelected.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 25</value>
+  </data>
+  <data name="lblNoFanSelected.Text" xml:space="preserve">
+    <value>请选择风扇以继续</value>
+  </data>
   <data name="opt100in.Location" type="System.Drawing.Point, System.Drawing">
     <value>470, 23</value>
   </data>
