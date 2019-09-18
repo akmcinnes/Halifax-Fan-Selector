@@ -5,7 +5,7 @@
 
     Public AdvancedUser As Boolean
     'Public version_number As String = "V 1.0.2 Beta"
-    Public version_number As String = "V 1.0.6a" '130919
+    Public version_number As String = "V 1.0.6b" '130919
     Public DataPathMain As String ' = "C:\Halifax\"
 
     Public DataPathDefault As String ' = DataPathMain + "Performance Data\"

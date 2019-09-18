@@ -149,6 +149,7 @@
 
             selected(fanno).fantype = fanclass(fanno)
             selected(fanno).fantypefilename = fantypefilename(fanno)
+            selected(fanno).fantypename = fantypename(fanno)
 
             '---correcting for suction
             If Frmselectfan.Optsucy.Checked = True Then

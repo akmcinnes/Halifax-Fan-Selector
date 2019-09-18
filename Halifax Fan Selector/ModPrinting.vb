@@ -263,7 +263,11 @@ Module ModPrinting
         Try
             xlsWB.ActiveSheet.Name = sheet
             PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 14) & " " & Engineer, 46, 1, ,,,,,,, 9) 'engineer
-            PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 15) & " " & Date.Now.ToString("dd/MM/yyyy HH:mm"), 46, 10, ,,,,,,, 9) 'date
+            If StandAlone = False Then
+                PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 15) & " " & Date.Now.ToString("dd/MM/yyyy HH:mm"), 46, 10, ,,,,,,, 9) 'date
+            Else
+                PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 15) & " " & Date.Now.ToString("dd-MMM-yyyy HH:mm"), 46, 10, ,,,,,,, 9) 'date
+            End If
             PlaceData(xlsWB, sheet, lang_dict(PrintLanguage, 16), 47, 1, ,,,,,,, 7,, 1) 'legal bit
         Catch ex As Exception
             ErrorMessage(ex, 6407)
