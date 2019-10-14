@@ -4,7 +4,6 @@ Module ModGetFanSize
         Dim retval As Double = 0.0
         Try
             count = 0
-            Dim tempkp As Double = 1.0
             ''fsizes(fanno, count) = 1.0
             If fanunits(fanno) = "mm" Then fsizes(fanno, count) = 25
             Do While fsizes(fanno, count) <> 0
@@ -29,19 +28,37 @@ Module ModGetFanSize
                     ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                     Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                     'correct for kp akm 260319 no size no speed
-                    tempkp = CalculateKP(1.4, kpatmos, fsps(fanno, count1), 0)
                     'If fanclass(fanno) = "MBI" Then
                     '    Debug.Print(fanclass(fanno) + " fsps = " + fsps(fanno, count1).ToString + " speed = " + ftspeed(fanno, count1).ToString + " size = " + fsizes(fanno, count1).ToString)
                     'End If
-                    'If Frmselectfan.chkKP.Checked = False Then
-                    '    If fanclass(fanno) = "CBC" And CInt(fsizes(fanno, count)) = 30 Then
-                    '        fsps(fanno, count1) = fsps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
-                    '        ftps(fanno, count1) = ftps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
-                    '    Else
-                    '        fsps(fanno, count1) = fsps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
-                    '        ftps(fanno, count1) = ftps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
-                    '    End If
+                    Dim tempkp As Double = 1.0
+                    If Frmselectfan.chkKP.Checked = False Then
+                        tempkp = CalculateKP(1.4, kpatmos, fsps(fanno, count1), 0)
+                        fsps(fanno, count1) = fsps(fanno, count1) * 1.0 / tempkp '1.0 / tempkp1.0 / tempkp '041019
+                        'fsps(fanno, count1) = fsps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
+                        tempkp = CalculateKP(1.4, kpatmos, ftps(fanno, count1), 0)
+                        ftps(fanno, count1) = ftps(fanno, count1) * 1.0 / tempkp '1.0 / tempkp1.0 / tempkp
+                        'ftps(fanno, count1) = ftps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
+                    End If
+
+                    'Dim tempdensity As Double = knowndensity
+
+                    'If Units(3).UnitSelected = 1 Then
+                    '    tempdensity = tempdensity * 16.018476
                     'End If
+                    'fsps(fanno, count1) = fsps(fanno, count1) * tempdensity / 1.2
+                    'ftps(fanno, count1) = ftps(fanno, count1) * tempdensity / 1.2
+                    'Pows(fanno, count1) = Pows(fanno, count1) * tempdensity / 1.2
+
+                    'Dim tempdensity As Double = 1.2 ' commented out 071010
+
+                    'If Units(3).UnitSelected = 1 Then
+                    '    tempdensity = 0.075
+                    'End If
+                    'fsps(fanno, count1) = fsps(fanno, count1) * knowndensity / tempdensity
+                    'ftps(fanno, count1) = ftps(fanno, count1) * knowndensity / tempdensity
+                    'Pows(fanno, count1) = Pows(fanno, count1) * knowndensity / tempdensity
+
                     count1 = count1 + 1
                 Loop
                 count2 = 0

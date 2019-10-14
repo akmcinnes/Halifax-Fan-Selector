@@ -304,6 +304,10 @@
     Public bospl1M As Single
     Public NCQ As Single
     Public NCFSP As Single
+
+    Public NCQ_Max As Single
+    Public NCFSP_Max As Single
+
     Public NCN As Single
     Public NCINdia As Single
     Public CF(8) As Integer
@@ -363,6 +367,8 @@
 
     'Public MostEffFlow, MosetEffFSP, MostEffFTP, MostEffPower As Double
     Public StandAlone As Boolean
+
+    Public RangeMessage As Boolean = True
 
     'Public WidthPerCent As Double
 End Module

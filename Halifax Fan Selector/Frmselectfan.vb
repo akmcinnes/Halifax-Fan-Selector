@@ -315,6 +315,8 @@ Public Class Frmselectfan
                 For j = 0 To 8
                 Next
             Next
+            RangeMessage = True
+            FrmNoiseoutofrange.txtDuctCF.Text = ""
             ConvUnits()
             OpenDuctCalcs()
         Catch ex As Exception
@@ -525,7 +527,7 @@ Public Class Frmselectfan
                 Motor_Margin = 1.25
             End If
             '##############
-            Motor_Margin = 1.15 'akm comment out later
+            Motor_Margin = 1.1 'akm comment out later
 
             Txtspeedlimit.Text = maxspeed.ToString
 
@@ -673,8 +675,16 @@ Public Class Frmselectfan
 
     Private Sub OptTemperatureC_CheckedChanged(sender As Object, e As EventArgs) Handles OptTemperatureC.CheckedChanged
         Try
+            Dim dtempa As Double = CDbl(TxtAmbientTemperature.Text)
+            Dim dtempd As Double = designtemp 'CDbl(TxtDesignTemperature.Text)
+            If LCase(LblAmbientTemperatureUnits.Text).Contains("f") Then
+                dtempa = (dtempa - 32) * 5 / 9
+                TxtAmbientTemperature.Text = dtempa.ToString
+                dtempd = (dtempd - 32) * 5 / 9
+                TxtDesignTemperature.Text = dtempd.ToString
+                designtemp = dtempd
+            End If
             LblAmbientTemperatureUnits.Text = OptTemperatureC.Text
-
         Catch ex As Exception
             ErrorMessage(ex, 20342)
         End Try
@@ -682,6 +692,15 @@ Public Class Frmselectfan
 
     Private Sub OptTemperatureF_CheckedChanged(sender As Object, e As EventArgs) Handles OptTemperatureF.CheckedChanged
         Try
+            Dim dtempa As Double = CDbl(TxtAmbientTemperature.Text)
+            Dim dtempd As Double = designtemp 'CDbl(TxtDesignTemperature.Text)
+            If LCase(LblAmbientTemperatureUnits.Text).Contains("c") Then
+                dtempa = dtempa * 9 / 5 + 32
+                TxtAmbientTemperature.Text = dtempa.ToString
+                dtempd = dtempd * 9 / 5 + 32
+                TxtDesignTemperature.Text = dtempd.ToString
+                designtemp = dtempd
+            End If
             LblAmbientTemperatureUnits.Text = OptTemperatureF.Text
 
         Catch ex As Exception

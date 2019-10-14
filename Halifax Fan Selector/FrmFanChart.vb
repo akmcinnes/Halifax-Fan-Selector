@@ -332,11 +332,13 @@ Public Class FrmFanChart
                     Case 1
                         plotfsp(i) = FSP_insWG(i)
                         plotftp(i) = FTP_insWG(i)
-                        tempprconv = 1 / 249.0891
+                        'tempprconv = 1 / 249.0891
+                        tempprconv = 0.2490891
                     Case 2
                         plotfsp(i) = FSP_mmwg(i)
                         plotftp(i) = FTP_mmWG(i)
-                        tempprconv = 1 / 9.80665
+                        'tempprconv = 1 / 9.80665
+                        tempprconv = 0.00980665
                     Case 3
                         plotfsp(i) = FSP_mbar(i)
                         plotftp(i) = FTP_mbar(i)
@@ -344,6 +346,8 @@ Public Class FrmFanChart
                     Case 4
                         plotfsp(i) = FSP_kpa(i)
                         plotftp(i) = FTP_kpa(i)
+                        'tempprconv = 100 / 0.2490891
+                        tempprconv = 1
                 End Select
                 plotfsp(i) = plotfsp(i) * getscalefactor()
                 plotftp(i) = plotftp(i) * getscalefactor()
@@ -402,12 +406,32 @@ Public Class FrmFanChart
                 plotpow(i) = ScalePowFSpeed(plotpow(i), FanSpeed1, tempspeed)
 
                 Dim tempkp As Double = 1.0
-                tempkp = CalculateKP(1.4, kpatmos, plotfsp(i), 0)
                 If Frmselectfan.chkKP.Checked = False Then
-                    plotfsp(i) = plotfsp(i) * tempkp '1.0 / tempkp
-                    plotftp(i) = plotftp(i) * tempkp '1.0 / tempkp
-                    plotpow(i) = plotpow(i) * tempkp '1.0 / tempkp
+                    tempkp = CalculateKP(1.4, kpatmos, plotfsp(i), 0)
+                    plotfsp(i) = plotfsp(i) * 1.0 / tempkp '1.0 / tempkp 270919
+                    'plotfsp(i) = plotfsp(i) * tempkp '1.0 / tempkp 270919
+                    tempkp = CalculateKP(1.4, kpatmos, plotftp(i), 0)
+                    plotftp(i) = plotftp(i) * 1.0 / tempkp '1.0 / tempkp
+                    'plotftp(i) = plotftp(i) * tempkp '1.0 / tempkp
                 End If
+
+                'Dim tempdensity As Double = knowndensity
+
+                'If Units(3).UnitSelected = 1 Then
+                '    tempdensity = tempdensity * 16.018476
+                'End If
+                'plotfsp(i) = plotfsp(i) * tempdensity / 1.2
+                'plotftp(i) = plotftp(i) * tempdensity / 1.2
+                'plotpow(i) = plotpow(i) * tempdensity / 1.2
+
+                'Dim tempdensity As Double = 1.2 'commented out 071019
+
+                'If Units(3).UnitSelected = 1 Then
+                '    tempdensity = 0.075
+                'End If
+                'plotfsp(i) = plotfsp(i) * knowndensity / tempdensity
+                'plotftp(i) = plotftp(i) * knowndensity / tempdensity
+                'plotpow(i) = plotpow(i) * knowndensity / tempdensity
 
                 plotfse(i) = 100.0 * plotvol(i) * tempvlconv * plotfsp(i) * tempprconv / (plotpow(i) * temppwconv)
                 plotfte(i) = 100.0 * plotvol(i) * tempvlconv * plotftp(i) * tempprconv / (plotpow(i) * temppwconv)

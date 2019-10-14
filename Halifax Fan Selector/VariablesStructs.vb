@@ -73,6 +73,7 @@
         Public widthfactor As Double
         Public fantypefilename As String
         Public initialdiameter As Double
+        Public Kp As Double
     End Structure
 
     Public selected(50) As fanstruct

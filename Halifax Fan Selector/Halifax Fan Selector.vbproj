@@ -127,6 +127,12 @@
     <Compile Include="FrmDisplayRejects.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmNoiseoutofrange.Designer.vb">
+      <DependentUpon>FrmNoiseoutofrange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNoiseoutofrange.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModDensity.vb" />
     <Compile Include="ModErrorMessages.vb" />
     <Compile Include="FrmDensityCalcs.Designer.vb">
@@ -241,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFanChart.zh-Hans.resx">
       <DependentUpon>FrmFanChart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNoiseoutofrange.resx">
+      <DependentUpon>FrmNoiseoutofrange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNoiseoutofrange.zh-Hans.resx">
+      <DependentUpon>FrmNoiseoutofrange.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProjectDetails.resx">
       <DependentUpon>FrmProjectDetails.vb</DependentUpon>

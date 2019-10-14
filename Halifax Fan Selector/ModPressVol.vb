@@ -8,6 +8,8 @@
             Dim temp_fsp As Double
             temp_fsp = pressrise
             count1 = 0
+            Dim tempkp As Double = 1.0
+
             Do While fsp(fanno, count1) <> 0
                 '-scaling for fan sizes
                 fsps(fanno, count1) = ScalePFSize(fsp(fanno, count1), datafansize(fanno), ssize)
@@ -20,12 +22,13 @@
                 ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), speed)
                 Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), speed)
                 'correct for kp akm 260319 no size pole speed
-                Dim tempkp As Double = 1.0
-                tempkp = CalculateKP(1.4, kpatmos, fsps(fanno, count1), 0)
                 If Frmselectfan.chkKP.Checked = False Then
-                    fsps(fanno, count1) = fsps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
-                    ftps(fanno, count1) = ftps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
-                    Pows(fanno, count1) = Pows(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
+                    tempkp = CalculateKP(1.4, kpatmos, fsps(fanno, count1), 0)
+                    fsps(fanno, count1) = fsps(fanno, count1) * 1.0 / tempkp '1.0 / tempkp1.0 / tempkp 270919
+                    'fsps(fanno, count1) = fsps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp 270919
+                    tempkp = CalculateKP(1.4, kpatmos, ftps(fanno, count1), 0)
+                    ftps(fanno, count1) = ftps(fanno, count1) * 1.0 / tempkp '1.0 / tempkp1.0 / tempkp
+                    'ftps(fanno, count1) = ftps(fanno, count1) * tempkp '1.0 / tempkp1.0 / tempkp
                 End If
 
                 count1 = count1 + 1
@@ -109,13 +112,9 @@
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint3) - fse(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selected(fanno).fse = fse(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfse))
-            selected(fanno).fse = selected(fanno).fse ' * temp_kp
-            selected(fanno).fse = Math.Round(selected(fanno).fse, 1)
             '-calculating fan total efficiency
             gradfte = (fte(fanno, datapoint3) - fte(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selected(fanno).fte = fte(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfte))
-            selected(fanno).fte = selected(fanno).fte ' * temp_kp
-            selected(fanno).fte = Math.Round(selected(fanno).fte, 1)
             '-output volume
             selected(fanno).vol = Math.Round(Volume, voldecplaces)
             selected(fanno).fansize = ssize
@@ -138,14 +137,25 @@
                 selected(fanno).outletdia = selected(fanno).outletdia * ratioW2L ^ 0.5
             End If
 
-            '-calculating FTP
+            '-calculating FTP & FSP
             gradfsp = (fsps(fanno, datapoint3) - fsps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selected(fanno).fsp = fsps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradfsp))
-            selected(fanno).fsp = Math.Round(selected(fanno).fsp, 2)
 
             gradftp = (ftps(fanno, datapoint3) - ftps(fanno, datapoint2)) / (vols(fanno, datapoint3) - vols(fanno, datapoint2))
             selected(fanno).ftp = ftps(fanno, datapoint3) + ((((Volume - vols(fanno, datapoint3))) * gradftp))
+
+            'correct for kp
+            If Frmselectfan.chkKP.Checked = False Then
+                tempkp = CalculateKP(1.4, kpatmos, selected(fanno).fsp, 0)
+                selected(fanno).fse = selected(fanno).fse / tempkp '270919
+                tempkp = CalculateKP(1.4, kpatmos, selected(fanno).ftp, 0)
+                selected(fanno).fte = selected(fanno).fte / tempkp ' * temp_kp
+            End If
+            'rounding
+            selected(fanno).fsp = Math.Round(selected(fanno).fsp, 2)
             selected(fanno).ftp = Math.Round(selected(fanno).ftp, 2)
+            selected(fanno).fse = Math.Round(selected(fanno).fse, 1)
+            selected(fanno).fte = Math.Round(selected(fanno).fte, 1)
 
             selected(fanno).fantype = fanclass(fanno)
             selected(fanno).fantypefilename = fantypefilename(fanno)

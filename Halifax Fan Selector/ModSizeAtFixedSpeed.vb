@@ -25,19 +25,10 @@
                 If fsizes(fanno, i) > fanlimit Then fanlimit = fsizes(fanno, i)
                 i = i + 1
             Loop
+            If fanlimit > 100 And fanlimit < 300 Then fanlimit = 150 'akm 111019
             count = 0
             fansize = fsizes(fanno, 0)
             Do While fansize <= fanlimit '<>102
-                If fanclass(fanno) = "MBI" Then
-                    'If Frmselectfan.chkWide.Checked = True Then Debug.Print("Wide")
-                    'If Frmselectfan.chkMedium.Checked = True Then Debug.Print("Medium")
-                    Debug.Print("fanlimit = " + fanlimit.ToString)
-                    Debug.Print("fansize = " + fansize.ToString)
-                    'For i = 0 To 30
-                    '    Debug.Print("powr(" + i.ToString + ") = " + Powr(fanno, i).ToString)
-                    'Next
-
-                End If
                 count1 = 0
                 Do While Powr(fanno, count1) <> 0
                     '-scaling for fan sizes

@@ -1,16 +1,22 @@
-﻿Module Sub_ProjectFile
+﻿Imports System.IO
+Module Sub_ProjectFile
     Sub SaveProjectFile(ShowMessage)
         Try
+            Dim Path As String
+            Path = UserProfile + "\Halifax.ini"
+
             Dim didw As String = ""
             If SelectDIDW = True Then didw = "(DIDW)"
             'set values for saving
             Dim SaveFileDialog1 As SaveFileDialog = New SaveFileDialog()
-            SaveFileDialog1.InitialDirectory = ProjectPathDefault '"c:\Halifax\Projects\"
+            SaveFileDialog1.InitialDirectory = GetFromINI("Settings", "SaveFolder", ProjectPathDefault, ini_path)
+            'SaveFileDialog1.InitialDirectory = ProjectPathDefault '"c:\Halifax\Projects\"
             SaveFileDialog1.Filter = "Halifax Selection|*.hfs"
             SaveFileDialog1.Title = "Save a Halifax Selection File"
             SaveFileDialog1.FileName = final.fansize.ToString + " " + final.fantype + didw + " " + Today.ToString("dd MMM yy")
             SaveFileDialog1.FileName = SaveFileDialog1.FileName.Replace(".", "_")
 
+            Dim directoryName As String
             Select Case SaveFileDialog1.ShowDialog()
                 Case DialogResult.OK
                     SaveFileName = SaveFileDialog1.FileName
@@ -18,6 +24,9 @@
                         WriteAllFile(SaveFileName)
                         If ShowMessage = True Then MsgBox("File has been saved")
                         Frmselectfan.Text = DefaultHeader + " (" + SaveFileDialog1.FileName + ")"
+                        directoryName = IO.Path.GetDirectoryName(SaveFileDialog1.FileName) + "\"
+                        writeIni(Path, "Settings", "SaveFolder", directoryName)
+                        'ReadWriteINI()
                     End If
             End Select
         Catch ex As Exception

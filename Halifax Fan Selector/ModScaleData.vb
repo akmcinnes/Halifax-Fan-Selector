@@ -140,11 +140,13 @@
                 ftps(fanno, count1) = ScalePFSpeed(ftps(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                 Pows(fanno, count1) = ScalePowFSpeed(Pows(fanno, count1), datafanspeed(fanno), ftspeed(fanno, count1))
                 Dim tempkp As Double = 1.0
-                tempkp = CalculateKP(1.4, kpatmos, fsps(fanno, count1), 0)
                 If Frmselectfan.chkKP.Checked = False Then
-                    fsps(fanno, count1) = fsps(fanno, count1) * tempkp
-                    ftps(fanno, count1) = ftps(fanno, count1) * tempkp
-                    Pows(fanno, count1) = Pows(fanno, count1) * tempkp
+                    tempkp = CalculateKP(1.4, kpatmos, fsps(fanno, count1), 0)
+                    fsps(fanno, count1) = fsps(fanno, count1) * 1.0 / tempkp '270919
+                    'fsps(fanno, count1) = fsps(fanno, count1) * tempkp '270919
+                    tempkp = CalculateKP(1.4, kpatmos, ftps(fanno, count1), 0)
+                    ftps(fanno, count1) = ftps(fanno, count1) * 1.0 / tempkp
+                    'ftps(fanno, count1) = ftps(fanno, count1) * tempkp
                 End If
                 count1 = count1 + 1
             Loop
@@ -208,10 +210,12 @@
             '-calculating fan static efficiency
             gradfse = (fse(fanno, datapoint3) - fse(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
             selected(fanno).fse = fse(fanno, datapoint3) + ((((selected(fanno).speed - ftspeed(fanno, datapoint3))) * gradfse))
+            selected(fanno).fse = selected(fanno).fse / selected(fanno).Kp
             selected(fanno).fse = Math.Round(selected(fanno).fse, 1)
             '-calculating fan total efficiency
             gradfte = (fte(fanno, datapoint3) - fte(fanno, datapoint2)) / (ftspeed(fanno, datapoint3) - ftspeed(fanno, datapoint2))
             selected(fanno).fte = fte(fanno, datapoint3) + ((((selected(fanno).speed - ftspeed(fanno, datapoint3))) * gradfte))
+            selected(fanno).fte = selected(fanno).fte / selected(fanno).Kp
             selected(fanno).fte = Math.Round(selected(fanno).fte, 1)
             '-output volume
             Frmselectfan.Txtflow.Text = Frmselectfan.Txtflow.Text
@@ -264,6 +268,17 @@
         Try
             outletsize = dataoutletarea(fanno) * (fansize / datafansize(fanno)) ^ 2
             outletsize = outletsize - (casethickness / 1000) ^ 2
+            If DDInputArea > 0.0 Then
+                Select Case Units(8).UnitSelected
+                    Case 0
+                        outletsize = DDInputArea
+                    Case 1
+                        outletsize = DDInputArea * 0.09290304
+                End Select
+            End If
+            If DDInputRatio > 0.0 Then
+                outletsize = outletsize * DDInputRatio
+            End If
             inletdia = datainletdia(fanno) * (fansize / datafansize(fanno))
             inletdia = inletdia - (casethickness * 2)
             outletlength = dataoutletlen(fanno) * (fansize / datafansize(fanno))

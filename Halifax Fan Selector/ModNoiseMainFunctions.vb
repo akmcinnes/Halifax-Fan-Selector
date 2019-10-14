@@ -3,32 +3,43 @@
         Try
             ConvUnits = 0.0
             NCQ = flowrate   'reading in values from form
+            NCQ_Max = 150000.0
             NCFSP = pressrise
+            NCFSP_Max = 1000.0
             NCN = final.speed
 
             Select Case Units(0).UnitSelected
                 Case 0, 4
                     NCQ = NCQ * 1.0
+                    NCQ_Max = NCQ_Max * 1.0
                 Case 1
                     NCQ = NCQ * 60
+                    NCQ_Max = NCQ_Max / 60.0
                 Case 2
                     NCQ = NCQ * 3600
+                    NCQ_Max = NCQ_Max / 3600.0
                 Case 3, 5
                     NCQ = NCQ / 0.5875
+                    NCQ_Max = NCQ_Max * 0.5875
                     'Case 4
             End Select
 
             Select Case Units(1).UnitSelected
                 Case 0
                     NCFSP = NCFSP / 9.81
+                    NCFSP_Max = NCFSP_Max * 9.81
                 Case 1
                     NCFSP = NCFSP * 25.4
+                    NCFSP_Max = NCFSP_Max / 25.4
                 Case 2
-                    NCFSP = NCFSP' / 0.00981
+                    NCFSP = NCFSP ' / 0.00981
+                    NCFSP_Max = NCFSP_Max
                 Case 3
                     NCFSP = NCFSP / 0.0981
+                    NCFSP_Max = NCFSP_Max * 0.0981
                 Case 4
                     NCFSP = NCFSP * 1000.0 / 9.81
+                    NCFSP_Max = NCFSP_Max * 9.81 / 1000.0
             End Select
 
             WScale(0) = -26
@@ -180,16 +191,32 @@
                 Next
             Next
             br.Close()
+            '150000 m3/hr, 2500 m3/min, 42 m3/sec, 88000 cfm
+            '1000 mmWg, 39 inwg, 9.8 kPa, 9800 Pa, 98 mBar
+            If (NCQ > 150000 Or NCN > 3600 Or NCFSP > 1000) Then
+                'If RangeMessage = True Then
+                '    FrmNoiseoutofrange.ShowDialog()
+                '    If Not FrmNoiseoutofrange.txtDuctCF.Text = "" Then
+                '        ductCF = CDbl(FrmNoiseoutofrange.txtDuctCF.Text)
+                '    Else
+                '        ductCF = 0
+                '    End If
+                'End If
+                'RangeMessage = False
+                ductCF = 8 ' as per J Irons 141019
+            Else
+                j = 0
+                Do While soundflow(j) < NCQ / 1000
+                    j = j + 1
+                Loop
+                Dim k As Integer
+                For k = 0 To 19
+                    If minfsp(k) <= NCFSP And maxfsp(k) >= NCFSP And minspeed(k) <= final.speed And maxspeed(k) >= final.speed Then Exit For
+                Next
+                ductCF = sounddata(k, j)
+            End If
 
-            j = 0
-            Do While soundflow(j) < NCQ / 1000
-                j = j + 1
-            Loop
-            Dim k As Integer
-            For k = 0 To 19
-                If minfsp(k) <= NCFSP And maxfsp(k) >= NCFSP And minspeed(k) <= final.speed And maxspeed(k) >= final.speed Then Exit For
-            Next
-            ductCF = sounddata(k, j)
+
             boSPL = SPL - ductCF    'calculating break out sound power level
             bospl2 = boSPL 'rounding of only
             bospl1M = boSPL * 0.85  'calculating break out sound power level @ 1m

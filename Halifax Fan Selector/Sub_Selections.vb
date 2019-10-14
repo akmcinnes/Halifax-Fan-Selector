@@ -233,6 +233,7 @@ Module Sub_Selections
 #If DEBUG Then
                     '.chkKP.Visible = True
                     .chkOriginalData.Visible = True
+                    .lblKpValue.Visible = True
 #End If
                     .chkKP.Visible = AdvancedUser
                     '.chkIncreaseDiameter25.Visible = AdvancedUser
@@ -448,8 +449,8 @@ Module Sub_Selections
                 For k = 0 To fantypesQTY - 1 'akm 201018
                     '#### 120819
                     'pressok = False
-                    'temppressS = selected(k).fsp / pressrise
-                    'temppressT = selected(k).ftp / pressrise
+                    'Dim temppressS As Double = selected(k).fsp / pressrise
+                    'Dim temppressT As Double = selected(k).ftp / pressrise
                     'If PresType = 0 And temppressS >= pressrangemin And temppressS <= pressrangemax Then
                     '    pressok = True
                     'ElseIf PresType = 1 And temppressT >= pressrangemin And temppressT <= pressrangemax Then
@@ -612,8 +613,18 @@ Module Sub_Selections
                 If SelectDIDW = True Then .LblFanDetails.Text = .LblFanDetails.Text + " (DIDW)"
 
                 final = selected(ii)
+                .lblKpValue.Text = "1.0"
+                If Frmselectfan.chkKP.Checked = False Then
+                    If PresType = 0 Then
+                        .lblKpValue.Text = CalculateKP(1.4, kpatmos, final.fsp, 0).ToString
+                    Else
+                        .lblKpValue.Text = CalculateKP(1.4, kpatmos, final.ftp, 0).ToString
+                    End If
+                End If
+                    ' = final.Kp.ToString
 
-                .TabControl1.TabPages(3).Enabled = True
+
+                    .TabControl1.TabPages(3).Enabled = True
             End With
         Catch ex As Exception
             ErrorMessage(ex, 1306)
